@@ -18,16 +18,4 @@ PRs are very welcome to add more bindings.
 
 zig-gtk depends on [zig-glib](https://github.com/davidmhewitt/zig-glib/), so add this module too. Then add the following to your `build.zig`:
 
-```
-const glib = std.build.Pkg{ .name = "glib", .path = .{ .path = "deps/zig-glib/glib.zig" } };
-const gtk = std.build.Pkg{
-    .name = "gtk",
-    .path = .{ .path = "deps/zig-gtk/gtk.zig" },
-    .dependencies = &[_]std.build.Pkg{glib},
-};
-
-exe.addPackage(glib);
-exe.addPackage(gtk);
-
-exe.linkSystemLibrary("gtk4");
-```
+See the [example](/example)

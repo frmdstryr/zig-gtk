@@ -8,6 +8,6 @@ pub const Display = extern struct {
     pub const getDefault = gdk_display_get_default;
 
     pub fn asWaylandDisplay(self: *Self) *Gdk.Wayland.Display {
-        return @ptrCast(*Gdk.Wayland.Display, self);
+        return @ptrCast(self);
     }
 };

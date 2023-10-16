@@ -10,6 +10,6 @@ pub const SingleSelection = extern struct {
     pub const new = gtk_single_selection_new;
 
     pub fn asSelectionModel(self: *Self) *Gtk.SelectionModel {
-        return @ptrCast(*Gtk.SelectionModel, self);
+        return @ptrCast(self);
     }
 };

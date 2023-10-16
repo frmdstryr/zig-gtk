@@ -8,6 +8,6 @@ pub const Box = extern struct {
     pub const new = gtk_box_new;
 
     pub fn asWidget(self: *Self) *Gtk.Widget {
-        return @ptrCast(*Gtk.Widget, self);
+        return @ptrCast(self);
     }
 };

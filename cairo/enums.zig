@@ -8,8 +8,8 @@ pub const Format = enum(c_int) {
     A1 = c.CAIRO_FORMAT_A1,
     RGB16_565 = c.CAIRO_FORMAT_RGB16_565,
     RGB30 = c.CAIRO_FORMAT_RGB30,
-    RGB96F = c.CAIRO_FORMAT_RGB96F,
-    RGBA128F = c.CAIRO_FORMAT_RGBA128F,
+    //RGB96F = c.CAIRO_FORMAT_RGB96F,
+    //RGBA128F = c.CAIRO_FORMAT_RGBA128F,
 };
 
 pub const Status = enum(c_int) {

@@ -18,11 +18,10 @@ pub const init = gtk_init;
 fn refAllDeclsRecursive(comptime T: type) void {
     comptime {
         for (@import("std").meta.declarations(T)) |decl| {
-            if (decl.is_pub) {
-                switch (decl.data) {
-                    .Type => |T2| refAllDeclsRecursive(T2),
-                    else => _ = decl,
-                }
+            const T2 = @field(T, decl.name);
+            switch (@typeInfo(@TypeOf(T2))) {
+                .Type => refAllDeclsRecursive(T2),
+                else => {},
             }
         }
     }

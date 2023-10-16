@@ -15,6 +15,6 @@ pub const ApplicationWindow = extern struct {
     pub const show = gtk_widget_show;
 
     pub fn asWindow(self: *Self) *Gtk.Window {
-        return @ptrCast(*Gtk.Window, self);
+        return @ptrCast(self);
     }
 };

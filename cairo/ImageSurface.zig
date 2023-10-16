@@ -24,6 +24,6 @@ pub const ImageSurface = extern struct {
     pub const destroy = cairo_surface_destroy;
 
     pub fn asSurface(self: *Self) *Cairo.Surface {
-        return @ptrCast(*Cairo.Surface, self);
+        return @ptrCast(self);
     }
 };

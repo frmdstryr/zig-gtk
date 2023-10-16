@@ -1,46 +1,71 @@
 const std = @import("std");
 const Builder = std.build.Builder;
 
-const ScanProtocolsStep = @import("deps/zig-wayland/build.zig").ScanProtocolsStep;
+const Scanner = @import("deps/zig-wayland/build.zig").Scanner;
+
+const include_paths = [_][]const u8{
+    "/usr/include/cairo",
+    "/usr/include/harfbuzz",
+    "/usr/include/pango-1.0",
+    "/usr/include/gtk-4.0",
+    "/usr/include/glib-2.0",
+    "/usr/include/gdk-pixbuf-2.0",
+    "/usr/include/graphene-1.0",
+    "/usr/lib/x86_64-linux-gnu/graphene-1.0/include",
+    "/usr/lib/x86_64-linux-gnu/glib-2.0/include",
+};
+
 
 pub fn build(b: *Builder) void {
     const target = b.standardTargetOptions(.{});
-    const mode = b.standardReleaseOptions();
+    const optimize = b.standardOptimizeOption(.{});
 
-    const scanner = ScanProtocolsStep.create(b);
+    const scanner = Scanner.create(b, .{});
+    const wayland = b.createModule(.{ .source_file = scanner.result });
 
-    const gtk_test = b.addTest("gtk.zig");
-    gtk_test.setTarget(target);
-    gtk_test.setBuildMode(mode);
 
-    gtk_test.linkLibC();
-    const glib = std.build.Pkg{ .name = "glib", .path = .{ .path = "deps/zig-glib/glib.zig" } };
-
-    gtk_test.linkSystemLibrary("gtk4");
-    gtk_test.addPackage(glib);
-
-    const gdk_test = b.addTest("gdk.zig");
-    gdk_test.setTarget(target);
-    gdk_test.setBuildMode(mode);
-
-    gdk_test.addPackage(.{
-        .name = "wayland",
-        .path = .{ .generated = &scanner.result },
+    const gtk_test = b.addTest(.{
+        .root_source_file=.{.path="gtk.zig"},
+        .target=target,
+        .optimize=optimize
     });
-    gdk_test.step.dependOn(&scanner.step);
+    gtk_test.linkLibC();
+    const glib = b.createModule(.{
+        .source_file = .{ .path = "deps/zig-glib/glib.zig" } ,
 
+    });
+
+    for (include_paths) |p| {
+        gtk_test.addIncludePath(.{.path=p});
+    }
+    gtk_test.linkSystemLibrary("gtk-4");
+    gtk_test.linkSystemLibrary("gobject-2.0");
+    gtk_test.linkSystemLibrary("gio-2.0");
+    gtk_test.addModule("glib", glib);
+
+    const gdk_test = b.addTest(.{
+        .root_source_file=.{.path="gdk.zig"},
+        .target=target,
+        .optimize=optimize,
+    });
+    gdk_test.addModule("wayland", wayland);
     gdk_test.linkLibC();
+    gdk_test.linkSystemLibrary("gtk-4");
+    gdk_test.addModule("glib", glib);
+    for (include_paths) |p| {
+        gdk_test.addIncludePath(.{.path=p});
+    }
 
-    gdk_test.linkSystemLibrary("gtk4");
-    gdk_test.addPackage(glib);
-
-    const cairo_test = b.addTest("cairo.zig");
-    cairo_test.setTarget(target);
-    cairo_test.setBuildMode(mode);
-
+    const cairo_test = b.addTest(.{
+        .root_source_file=.{.path="cairo.zig"},
+        .target=target,
+        .optimize=optimize,
+    });
     cairo_test.linkLibC();
-
-    cairo_test.linkSystemLibrary("gtk4");
+    cairo_test.linkSystemLibrary("gtk-4");
+    for (include_paths) |p| {
+        cairo_test.addIncludePath(.{.path=p});
+    }
 
     const test_step = b.step("test", "Run the tests");
     test_step.dependOn(&gtk_test.step);

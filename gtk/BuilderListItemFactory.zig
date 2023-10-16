@@ -10,6 +10,6 @@ pub const BuilderListItemFactory = extern struct {
     pub const newFromBytes = gtk_builder_list_item_factory_new_from_bytes;
 
     pub fn asListItemFactory(self: *Self) *Gtk.ListItemFactory {
-        return @ptrCast(*Gtk.ListItemFactory, self);
+        return @ptrCast(self);
     }
 };
