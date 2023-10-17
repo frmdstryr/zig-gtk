@@ -10,9 +10,7 @@ Type names and method names of the original C library were changed to follow the
 
 ## Status
 
-This is currently very incomplete. Only a small number of types have been wrapped, and those that have aren't fully wrapped. I have only been binding the types and methods I need in my projects for now.
-
-PRs are very welcome to add more bindings.
+Bindings are generated automatically using `python gen.py`
 
 ## Usage
 

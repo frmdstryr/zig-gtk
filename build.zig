@@ -25,14 +25,14 @@ pub fn build(b: *Builder) void {
 
 
     const gtk_test = b.addTest(.{
-        .root_source_file=.{.path="gtk.zig"},
+        .root_source_file=.{.path="src/gtk.zig"},
         .target=target,
         .optimize=optimize
     });
     gtk_test.linkLibC();
-    const glib = b.createModule(.{
-        .source_file = .{ .path = "deps/zig-glib/glib.zig" } ,
 
+    const glib = b.createModule(.{
+        .source_file = .{ .path = "src/glib.zig" } ,
     });
 
     for (include_paths) |p| {
@@ -44,7 +44,7 @@ pub fn build(b: *Builder) void {
     gtk_test.addModule("glib", glib);
 
     const gdk_test = b.addTest(.{
-        .root_source_file=.{.path="gdk.zig"},
+        .root_source_file=.{.path="src/gdk.zig"},
         .target=target,
         .optimize=optimize,
     });
@@ -57,7 +57,7 @@ pub fn build(b: *Builder) void {
     }
 
     const cairo_test = b.addTest(.{
-        .root_source_file=.{.path="cairo.zig"},
+        .root_source_file=.{.path="src/cairo.zig"},
         .target=target,
         .optimize=optimize,
     });
@@ -67,8 +67,32 @@ pub fn build(b: *Builder) void {
         cairo_test.addIncludePath(.{.path=p});
     }
 
+    const pango_test = b.addTest(.{
+        .root_source_file=.{.path="src/pango.zig"},
+        .target=target,
+        .optimize=optimize,
+    });
+    pango_test.linkLibC();
+    pango_test.linkSystemLibrary("gtk-4");
+    for (include_paths) |p| {
+        pango_test.addIncludePath(.{.path=p});
+    }
+
+    const graphene_test = b.addTest(.{
+        .root_source_file=.{.path="src/graphene.zig"},
+        .target=target,
+        .optimize=optimize,
+    });
+    graphene_test.linkLibC();
+    graphene_test.linkSystemLibrary("gtk-4");
+    for (include_paths) |p| {
+        graphene_test.addIncludePath(.{.path=p});
+    }
+
+
     const test_step = b.step("test", "Run the tests");
     test_step.dependOn(&gtk_test.step);
     test_step.dependOn(&gdk_test.step);
     test_step.dependOn(&cairo_test.step);
+    test_step.dependOn(&pango_test.step);
 }

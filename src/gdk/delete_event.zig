@@ -1,0 +1,74 @@
+// This file is auto generated do not edit
+const std = @import("std");
+const gdk = @import("../gdk.zig");
+const c = @import("c.zig");
+
+pub const DeleteEvent = extern struct {
+    const Self = @This();
+
+    parent_instance: *anyopaque,
+
+    // Constructors
+
+    // Methods
+    extern fn gdk_event_get_axes(self: *Self, axes: [*c][*c]const u8, n_axes: u32) bool;
+    pub const getAxes = gdk_event_get_axes;
+
+    extern fn gdk_event_get_axis(self: *Self, axis_use: gdk.AxisUse, value: f64) bool;
+    pub const getAxis = gdk_event_get_axis;
+
+    extern fn gdk_event_get_device(self: *Self) ?*gdk.Device;
+    pub const getDevice = gdk_event_get_device;
+
+    extern fn gdk_event_get_device_tool(self: *Self) ?*gdk.DeviceTool;
+    pub const getDeviceTool = gdk_event_get_device_tool;
+
+    extern fn gdk_event_get_display(self: *Self) ?*gdk.Display;
+    pub const getDisplay = gdk_event_get_display;
+
+    extern fn gdk_event_get_event_sequence(self: *Self) ?*gdk.EventSequence;
+    pub const getEventSequence = gdk_event_get_event_sequence;
+
+    extern fn gdk_event_get_event_type(self: *Self) gdk.EventType;
+    pub const getEventType = gdk_event_get_event_type;
+
+    extern fn gdk_event_get_history(self: *Self, out_n_coords: u32) [*c][*c]const u8;
+    pub const getHistory = gdk_event_get_history;
+
+    extern fn gdk_event_get_modifier_state(self: *Self) gdk.ModifierType;
+    pub const getModifierState = gdk_event_get_modifier_state;
+
+    extern fn gdk_event_get_pointer_emulated(self: *Self) bool;
+    pub const getPointerEmulated = gdk_event_get_pointer_emulated;
+
+    extern fn gdk_event_get_position(self: *Self, x: f64, y: f64) bool;
+    pub const getPosition = gdk_event_get_position;
+
+    extern fn gdk_event_get_seat(self: *Self) ?*gdk.Seat;
+    pub const getSeat = gdk_event_get_seat;
+
+    extern fn gdk_event_get_surface(self: *Self) ?*gdk.Surface;
+    pub const getSurface = gdk_event_get_surface;
+
+    extern fn gdk_event_get_time(self: *Self) u32;
+    pub const getTime = gdk_event_get_time;
+
+    extern fn gdk_event_ref(self: *Self) ?*gdk.Event;
+    pub const ref = gdk_event_ref;
+
+    extern fn gdk_event_triggers_context_menu(self: *Self) bool;
+    pub const triggersContextMenu = gdk_event_triggers_context_menu;
+
+    extern fn gdk_event_unref(self: *Self) void;
+    pub const unref = gdk_event_unref;
+
+
+    // Bases
+    pub fn asEvent(self: *Self) *gdk.Event {
+        return @ptrCast(self);
+    }
+};
+
+test {
+    std.testing.refAllDecls(DeleteEvent);
+}

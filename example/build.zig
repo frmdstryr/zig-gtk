@@ -1,5 +1,7 @@
 const std = @import("std");
 
+// Note you need to use ln -s ../../ zig-gtk
+// in the deps folder
 const Scanner = @import("deps/zig-gtk/deps/zig-wayland/build.zig").Scanner;
 
 const include_paths = [_][]const u8{
@@ -39,20 +41,26 @@ pub fn build(b: *std.Build) void {
     });
 
     const glib = b.createModule(.{
-        .source_file = .{ .path = "deps/zig-gtk/deps/zig-glib/glib.zig" } ,
-
+        .source_file = .{ .path = "deps/zig-gtk/src/glib.zig" },
+    });
+    const gio = b.createModule(.{
+        .source_file = .{ .path = "deps/zig-gtk/src/gio.zig" },
+        .dependencies = &.{
+            .{ .name = "glib", .module = glib },
+        },
     });
     const gtk = b.createModule(.{
-        .source_file = .{ .path = "deps/zig-gtk/gtk.zig" },
-         .dependencies = &.{
+        .source_file = .{ .path = "deps/zig-gtk/src/gtk.zig" },
+        .dependencies = &.{
             .{ .name = "glib", .module = glib },
+            .{ .name = "gio", .module = gio },
         },
     });
 
     const scanner = Scanner.create(b, .{});
     const wayland = b.createModule(.{ .source_file = scanner.result });
     const gdk = b.createModule(.{
-        .source_file = .{ .path = "deps/zig-gtk/gdk.zig" },
+        .source_file = .{ .path = "deps/zig-gtk/src/gdk.zig" },
         .dependencies = &.{
             .{ .name = "glib", .module = glib },
             .{ .name = "wayland", .module = wayland },
@@ -62,6 +70,7 @@ pub fn build(b: *std.Build) void {
     exe.addModule("glib", glib);
     exe.addModule("gtk", gtk);
     exe.addModule("gdk", gdk);
+    exe.addModule("gio", gio);
 
     for (include_paths) |p| {
         exe.addIncludePath(.{.path=p});

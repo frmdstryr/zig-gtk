@@ -1,0 +1,48 @@
+// This file is auto generated do not edit
+const std = @import("std");
+const c = @import("c.zig");
+
+pub const EulerOrder = enum(c_int) {
+    Default = c.GRAPHENE_EULER_ORDER_DEFAULT,
+    Rxyx = c.GRAPHENE_EULER_ORDER_RXYX,
+    Rxyz = c.GRAPHENE_EULER_ORDER_RXYZ,
+    Rxzx = c.GRAPHENE_EULER_ORDER_RXZX,
+    Rxzy = c.GRAPHENE_EULER_ORDER_RXZY,
+    Ryxy = c.GRAPHENE_EULER_ORDER_RYXY,
+    Ryxz = c.GRAPHENE_EULER_ORDER_RYXZ,
+    Ryzx = c.GRAPHENE_EULER_ORDER_RYZX,
+    Ryzy = c.GRAPHENE_EULER_ORDER_RYZY,
+    Rzxy = c.GRAPHENE_EULER_ORDER_RZXY,
+    Rzxz = c.GRAPHENE_EULER_ORDER_RZXZ,
+    Rzyx = c.GRAPHENE_EULER_ORDER_RZYX,
+    Rzyz = c.GRAPHENE_EULER_ORDER_RZYZ,
+    Sxyx = c.GRAPHENE_EULER_ORDER_SXYX,
+    Sxyz = c.GRAPHENE_EULER_ORDER_SXYZ,
+    Sxzx = c.GRAPHENE_EULER_ORDER_SXZX,
+    Sxzy = c.GRAPHENE_EULER_ORDER_SXZY,
+    Syxy = c.GRAPHENE_EULER_ORDER_SYXY,
+    Syxz = c.GRAPHENE_EULER_ORDER_SYXZ,
+    Syzx = c.GRAPHENE_EULER_ORDER_SYZX,
+    Syzy = c.GRAPHENE_EULER_ORDER_SYZY,
+    Szxy = c.GRAPHENE_EULER_ORDER_SZXY,
+    Szxz = c.GRAPHENE_EULER_ORDER_SZXZ,
+    Szyx = c.GRAPHENE_EULER_ORDER_SZYX,
+    Szyz = c.GRAPHENE_EULER_ORDER_SZYZ,
+    Xyz = c.GRAPHENE_EULER_ORDER_XYZ,
+    Xzy = c.GRAPHENE_EULER_ORDER_XZY,
+    Yxz = c.GRAPHENE_EULER_ORDER_YXZ,
+    Yzx = c.GRAPHENE_EULER_ORDER_YZX,
+    Zxy = c.GRAPHENE_EULER_ORDER_ZXY,
+    Zyx = c.GRAPHENE_EULER_ORDER_ZYX,
+};
+
+pub const RayIntersectionKind = enum(c_int) {
+    Enter = c.GRAPHENE_RAY_INTERSECTION_KIND_ENTER,
+    Leave = c.GRAPHENE_RAY_INTERSECTION_KIND_LEAVE,
+    None = c.GRAPHENE_RAY_INTERSECTION_KIND_NONE,
+};
+
+
+test {
+    std.testing.refAllDecls(@This());
+}
