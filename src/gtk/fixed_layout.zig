@@ -13,7 +13,7 @@ pub const FixedLayout = extern struct {
     extern fn gtk_fixed_layout_new() ?*Self;
     pub const new = gtk_fixed_layout_new;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -33,10 +33,10 @@ pub const FixedLayout = extern struct {
     extern fn gtk_layout_manager_get_widget(self: *Self) ?*gtk.Widget;
     pub const getWidget = gtk_layout_manager_get_widget;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -48,7 +48,7 @@ pub const FixedLayout = extern struct {
     extern fn gtk_layout_manager_layout_changed(self: *Self) void;
     pub const layoutChanged = gtk_layout_manager_layout_changed;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn gtk_layout_manager_measure(self: *Self, widget: *gtk.Widget, orientation: gtk.Orientation, for_size: i32, minimum: i32, natural: i32, minimum_baseline: i32, natural_baseline: i32) void;

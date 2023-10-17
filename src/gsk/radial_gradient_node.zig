@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const graphene = @import("graphene");
-const glib = @import("glib");
 const gsk = @import("../gsk.zig");
+const graphene = @import("graphene");
 const cairo = @import("cairo");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const RadialGradientNode = extern struct {
@@ -12,7 +12,7 @@ pub const RadialGradientNode = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gsk_radial_gradient_node_new(bounds: *graphene.Rect, center: *graphene.Point, hradius: f32, vradius: f32, start: f32, end: f32, color_stops: [*c][*c]const u8, n_color_stops: u64) ?*Self;
+    extern fn gsk_radial_gradient_node_new(bounds: *graphene.Rect, center: *graphene.Point, hradius: f32, vradius: f32, start: f32, end: f32, color_stops: [*c]gsk.ColorStop, n_color_stops: u64) ?*Self;
     pub const new = gsk_radial_gradient_node_new;
 
 
@@ -26,7 +26,7 @@ pub const RadialGradientNode = extern struct {
     extern fn gsk_radial_gradient_node_get_center(self: *Self) ?*graphene.Point;
     pub const getCenter = gsk_radial_gradient_node_get_center;
 
-    extern fn gsk_radial_gradient_node_get_color_stops(self: *Self, n_stops: u64) [*c][*c]const u8;
+    extern fn gsk_radial_gradient_node_get_color_stops(self: *Self, n_stops: u64) [*c]gsk.ColorStop;
     pub const getColorStops = gsk_radial_gradient_node_get_color_stops;
 
     extern fn gsk_radial_gradient_node_get_end(self: *Self) f32;

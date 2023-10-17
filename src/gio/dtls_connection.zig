@@ -27,7 +27,7 @@ pub const DtlsConnection = extern struct {
     extern fn g_dtls_connection_get_certificate(self: *Self) ?*gio.TlsCertificate;
     pub const getCertificate = g_dtls_connection_get_certificate;
 
-    extern fn g_dtls_connection_get_channel_binding_data(self: *Self, type: gio.TlsChannelBindingType, data: [*c][*c]const u8) bool;
+    extern fn g_dtls_connection_get_channel_binding_data(self: *Self, type: gio.TlsChannelBindingType, data: [*c]u8) bool;
     pub const getChannelBindingData = g_dtls_connection_get_channel_binding_data;
 
     extern fn g_dtls_connection_get_ciphersuite_name(self: *Self) [*c]const u8;

@@ -38,7 +38,7 @@ pub const Vec2 = extern struct {
     extern fn graphene_vec2_init(self: *Self, x: f32, y: f32) ?*graphene.Vec2;
     pub const init = graphene_vec2_init;
 
-    extern fn graphene_vec2_init_from_float(self: *Self, src: [*c][*c]const u8) ?*graphene.Vec2;
+    extern fn graphene_vec2_init_from_float(self: *Self, src: [*c]f32) ?*graphene.Vec2;
     pub const initFromFloat = graphene_vec2_init_from_float;
 
     extern fn graphene_vec2_init_from_vec2(self: *Self, src: *graphene.Vec2) ?*graphene.Vec2;
@@ -74,7 +74,7 @@ pub const Vec2 = extern struct {
     extern fn graphene_vec2_subtract(self: *Self, b: *graphene.Vec2, res: graphene.Vec2) void;
     pub const subtract = graphene_vec2_subtract;
 
-    extern fn graphene_vec2_to_float(self: *Self, dest: [*c][*c]const u8) void;
+    extern fn graphene_vec2_to_float(self: *Self, dest: [*c]f32) void;
     pub const toFloat = graphene_vec2_to_float;
 
 };

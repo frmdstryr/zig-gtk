@@ -47,7 +47,7 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_init(self: *Self) void;
     pub const init = g_io_channel_init;
 
-    extern fn g_io_channel_read_chars(self: *Self, buf: [*c][*c]const u8, count: u64, bytes_read: u64) glib.IOStatus;
+    extern fn g_io_channel_read_chars(self: *Self, buf: [*c]u8, count: u64, bytes_read: u64) glib.IOStatus;
     pub const readChars = g_io_channel_read_chars;
 
     extern fn g_io_channel_read_line(self: *Self, str_return: [*c]const u8, length: u64, terminator_pos: u64) glib.IOStatus;
@@ -56,7 +56,7 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_read_line_string(self: *Self, buffer: *glib.String, terminator_pos: u64) glib.IOStatus;
     pub const readLineString = g_io_channel_read_line_string;
 
-    extern fn g_io_channel_read_to_end(self: *Self, str_return: [*c][*c]const u8, length: u64) glib.IOStatus;
+    extern fn g_io_channel_read_to_end(self: *Self, str_return: [*c]u8, length: u64) glib.IOStatus;
     pub const readToEnd = g_io_channel_read_to_end;
 
     extern fn g_io_channel_read_unichar(self: *Self, thechar: u32) glib.IOStatus;
@@ -95,7 +95,7 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_unref(self: *Self) void;
     pub const unref = g_io_channel_unref;
 
-    extern fn g_io_channel_write_chars(self: *Self, buf: [*c][*c]const u8, count: i64, bytes_written: u64) glib.IOStatus;
+    extern fn g_io_channel_write_chars(self: *Self, buf: [*c]u8, count: i64, bytes_written: u64) glib.IOStatus;
     pub const writeChars = g_io_channel_write_chars;
 
     extern fn g_io_channel_write_unichar(self: *Self, thechar: u32) glib.IOStatus;

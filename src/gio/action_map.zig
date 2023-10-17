@@ -23,10 +23,10 @@ pub const ActionMap = extern struct {
 
 
     // Bases
-    pub fn asActionMap(self: *Self) *gio.ActionMap {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asActionMap(self: *Self) *gio.ActionMap {
         return @ptrCast(self);
     }
 };

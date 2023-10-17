@@ -71,11 +71,19 @@ pub fn build(b: *std.Build) void {
         },
     });
 
+    const gdkpixbuf = b.createModule(.{
+        .source_file = .{ .path = "deps/zig-gtk/src/gdkpixbuf.zig" },
+        .dependencies = &.{
+            .{ .name = "glib", .module = glib },
+        },
+    });
+
     exe.addModule("glib", glib);
     exe.addModule("gtk", gtk);
     exe.addModule("gdk", gdk);
     exe.addModule("gio", gio);
     exe.addModule("gobject", gobject);
+    exe.addModule("gdkpixbuf", gdkpixbuf);
 
     for (include_paths) |p| {
         exe.addIncludePath(.{.path=p});

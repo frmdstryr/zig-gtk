@@ -13,7 +13,7 @@ pub const InetAddress = extern struct {
     extern fn g_inet_address_new_any(family: gio.SocketFamily) ?*Self;
     pub const newAny = g_inet_address_new_any;
 
-    extern fn g_inet_address_new_from_bytes(bytes: [*c][*c]const u8, family: gio.SocketFamily) ?*Self;
+    extern fn g_inet_address_new_from_bytes(bytes: [*c]u8, family: gio.SocketFamily) ?*Self;
     pub const newFromBytes = g_inet_address_new_from_bytes;
 
     extern fn g_inet_address_new_from_string(string: [*c]const u8) ?*Self;
@@ -22,7 +22,7 @@ pub const InetAddress = extern struct {
     extern fn g_inet_address_new_loopback(family: gio.SocketFamily) ?*Self;
     pub const newLoopback = g_inet_address_new_loopback;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -69,10 +69,10 @@ pub const InetAddress = extern struct {
     extern fn g_inet_address_get_native_size(self: *Self) u64;
     pub const getNativeSize = g_inet_address_get_native_size;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -81,7 +81,7 @@ pub const InetAddress = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;

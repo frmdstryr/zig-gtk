@@ -12,13 +12,13 @@ pub fn onHelloClicked(button: *gtk.Button, data: ?*anyopaque) callconv(.C) void 
 pub fn activate(app: *gtk.Application, data: ?*anyopaque) callconv(.C) void {
     _ = data;
     var window = gtk.ApplicationWindow.new(app).?;
-    window.asWindow().setTitle("Hello!");
-    window.asWindow().setDefaultSize(320, 320);
+    window.setTitle("Hello!");
+    window.setDefaultSize(320, 320);
 
     var box = gtk.Box.new(.Vertical, 0).?;
-    box.asWidget().setHalign(.Center);
-    box.asWidget().setValign(.Center);
-    window.asWindow().setChild(box.asWidget());
+    box.setHalign(.Center);
+    box.setValign(.Center);
+    window.setChild(box.asWidget());
 
     var button = gtk.Button.newWithLabel("Hello World!").?;
     _ = button.connectSignal("clicked", &onHelloClicked, null);
@@ -47,7 +47,6 @@ pub fn main() !u8 {
     defer std.process.argsFree(allocator, args);
     var app = gtk.Application.new("zig.gtk.example", gio.ApplicationFlags.FlagsNone).?;
     defer app.asObject().unref();
-    //defer gtk.Application.unref(app);
 
     _ = app.connectSignal("activate", &activate, null);
     return @intCast(app.run(@intCast(args.len), @ptrCast(args[0..])));

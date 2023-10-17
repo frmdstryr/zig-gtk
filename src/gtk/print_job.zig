@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const cairo = @import("cairo");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
@@ -15,7 +15,7 @@ pub const PrintJob = extern struct {
     extern fn gtk_print_job_new(title: [*c]const u8, printer: *gtk.Printer, settings: *gtk.PrintSettings, page_setup: *gtk.PageSetup) ?*Self;
     pub const new = gtk_print_job_new;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -35,7 +35,7 @@ pub const PrintJob = extern struct {
     extern fn gtk_print_job_get_num_copies(self: *Self) i32;
     pub const getNumCopies = gtk_print_job_get_num_copies;
 
-    extern fn gtk_print_job_get_page_ranges(self: *Self, n_ranges: i32) [*c][*c]const u8;
+    extern fn gtk_print_job_get_page_ranges(self: *Self, n_ranges: i32) [*c]gtk.PageRange;
     pub const getPageRanges = gtk_print_job_get_page_ranges;
 
     extern fn gtk_print_job_get_page_set(self: *Self) gtk.PageSet;
@@ -71,10 +71,10 @@ pub const PrintJob = extern struct {
     extern fn gtk_print_job_get_track_print_status(self: *Self) bool;
     pub const getTrackPrintStatus = gtk_print_job_get_track_print_status;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -83,7 +83,7 @@ pub const PrintJob = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -110,7 +110,7 @@ pub const PrintJob = extern struct {
     extern fn gtk_print_job_set_num_copies(self: *Self, num_copies: i32) void;
     pub const setNumCopies = gtk_print_job_set_num_copies;
 
-    extern fn gtk_print_job_set_page_ranges(self: *Self, ranges: [*c][*c]const u8, n_ranges: i32) void;
+    extern fn gtk_print_job_set_page_ranges(self: *Self, ranges: [*c]gtk.PageRange, n_ranges: i32) void;
     pub const setPageRanges = gtk_print_job_set_page_ranges;
 
     extern fn gtk_print_job_set_page_set(self: *Self, page_set: gtk.PageSet) void;

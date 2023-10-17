@@ -1,8 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
+const harfbuzz = @import("harfbuzz");
 const gobject = @import("gobject");
-const pango = @import("../pango.zig");
 const glib = @import("glib");
+const pango = @import("../pango.zig");
 const c = @import("c.zig");
 
 pub const Font = extern struct {
@@ -11,7 +12,7 @@ pub const Font = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -31,7 +32,7 @@ pub const Font = extern struct {
     extern fn pango_font_get_face(self: *Self) ?*pango.FontFace;
     pub const getFace = pango_font_get_face;
 
-    extern fn pango_font_get_features(self: *Self, features: [*c][*c]const u8, len: u32, num_features: u32) void;
+    extern fn pango_font_get_features(self: *Self, features: [*c]harfbuzz.feature_t, len: u32, num_features: u32) void;
     pub const getFeatures = pango_font_get_features;
 
     extern fn pango_font_get_font_map(self: *Self) ?*pango.FontMap;
@@ -40,19 +41,19 @@ pub const Font = extern struct {
     extern fn pango_font_get_glyph_extents(self: *Self, glyph: u32, ink_rect: pango.Rectangle, logical_rect: pango.Rectangle) void;
     pub const getGlyphExtents = pango_font_get_glyph_extents;
 
-    extern fn pango_font_get_languages(self: *Self) [*c][*c]const u8;
+    extern fn pango_font_get_languages(self: *Self) [*c]pango.Language;
     pub const getLanguages = pango_font_get_languages;
 
     extern fn pango_font_get_metrics(self: *Self, language: *pango.Language) ?*pango.FontMetrics;
     pub const getMetrics = pango_font_get_metrics;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
     extern fn pango_font_has_char(self: *Self, wc: u32) bool;
     pub const hasChar = pango_font_has_char;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -61,7 +62,7 @@ pub const Font = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;

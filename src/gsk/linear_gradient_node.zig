@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const graphene = @import("graphene");
-const glib = @import("glib");
 const gsk = @import("../gsk.zig");
+const graphene = @import("graphene");
 const cairo = @import("cairo");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const LinearGradientNode = extern struct {
@@ -12,7 +12,7 @@ pub const LinearGradientNode = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gsk_linear_gradient_node_new(bounds: *graphene.Rect, start: *graphene.Point, end: *graphene.Point, color_stops: [*c][*c]const u8, n_color_stops: u64) ?*Self;
+    extern fn gsk_linear_gradient_node_new(bounds: *graphene.Rect, start: *graphene.Point, end: *graphene.Point, color_stops: [*c]gsk.ColorStop, n_color_stops: u64) ?*Self;
     pub const new = gsk_linear_gradient_node_new;
 
 
@@ -23,7 +23,7 @@ pub const LinearGradientNode = extern struct {
     extern fn gsk_render_node_get_bounds(self: *Self, bounds: graphene.Rect) void;
     pub const getBounds = gsk_render_node_get_bounds;
 
-    extern fn gsk_linear_gradient_node_get_color_stops(self: *Self, n_stops: u64) [*c][*c]const u8;
+    extern fn gsk_linear_gradient_node_get_color_stops(self: *Self, n_stops: u64) [*c]gsk.ColorStop;
     pub const getColorStops = gsk_linear_gradient_node_get_color_stops;
 
     extern fn gsk_linear_gradient_node_get_end(self: *Self) ?*graphene.Point;

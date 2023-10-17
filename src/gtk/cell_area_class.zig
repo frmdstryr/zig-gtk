@@ -18,7 +18,7 @@ pub const CellAreaClass = extern struct {
     extern fn gtk_cell_area_class_install_cell_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
     pub const installCellProperty = gtk_cell_area_class_install_cell_property;
 
-    extern fn gtk_cell_area_class_list_cell_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn gtk_cell_area_class_list_cell_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listCellProperties = gtk_cell_area_class_list_cell_properties;
 
 };

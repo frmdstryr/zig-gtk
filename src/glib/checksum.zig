@@ -26,7 +26,7 @@ pub const Checksum = extern struct {
     extern fn g_checksum_reset(self: *Self) void;
     pub const reset = g_checksum_reset;
 
-    extern fn g_checksum_update(self: *Self, data: [*c][*c]const u8, length: i64) void;
+    extern fn g_checksum_update(self: *Self, data: [*c]u8, length: i64) void;
     pub const update = g_checksum_update;
 
 };

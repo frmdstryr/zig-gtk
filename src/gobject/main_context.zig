@@ -24,7 +24,7 @@ pub const MainContext = extern struct {
     extern fn g_main_context_add_poll(self: *Self, fd: *glib.PollFD, priority: i32) void;
     pub const addPoll = g_main_context_add_poll;
 
-    extern fn g_main_context_check(self: *Self, max_priority: i32, fds: [*c][*c]const u8, n_fds: i32) bool;
+    extern fn g_main_context_check(self: *Self, max_priority: i32, fds: [*c]glib.PollFD, n_fds: i32) bool;
     pub const check = g_main_context_check;
 
     extern fn g_main_context_dispatch(self: *Self) void;
@@ -57,7 +57,7 @@ pub const MainContext = extern struct {
     extern fn g_main_context_push_thread_default(self: *Self) void;
     pub const pushThreadDefault = g_main_context_push_thread_default;
 
-    extern fn g_main_context_query(self: *Self, max_priority: i32, timeout_: i32, fds: [*c][*c]const u8, n_fds: i32) i32;
+    extern fn g_main_context_query(self: *Self, max_priority: i32, timeout_: i32, fds: [*c]glib.PollFD, n_fds: i32) i32;
     pub const query = g_main_context_query;
 
     extern fn g_main_context_ref(self: *Self) ?*glib.MainContext;

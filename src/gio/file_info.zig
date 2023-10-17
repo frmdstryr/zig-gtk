@@ -14,7 +14,7 @@ pub const FileInfo = extern struct {
     extern fn g_file_info_new() ?*Self;
     pub const new = g_file_info_new;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -127,7 +127,7 @@ pub const FileInfo = extern struct {
     extern fn g_file_info_get_symlink_target(self: *Self) [*c]const u8;
     pub const getSymlinkTarget = g_file_info_get_symlink_target;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
     extern fn g_file_info_has_attribute(self: *Self, attribute: [*c]const u8) bool;
@@ -136,7 +136,7 @@ pub const FileInfo = extern struct {
     extern fn g_file_info_has_namespace(self: *Self, name_space: [*c]const u8) bool;
     pub const hasNamespace = g_file_info_has_namespace;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -148,7 +148,7 @@ pub const FileInfo = extern struct {
     extern fn g_file_info_list_attributes(self: *Self, name_space: [*c]const u8) [*c][*c]const u8;
     pub const listAttributes = g_file_info_list_attributes;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;

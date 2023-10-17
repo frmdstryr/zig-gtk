@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gdk = @import("gdk");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -14,7 +14,7 @@ pub const DropTarget = extern struct {
     extern fn gtk_drop_target_new(type: usize, actions: gdk.DragAction) ?*Self;
     pub const new = gtk_drop_target_new;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -46,7 +46,7 @@ pub const DropTarget = extern struct {
     extern fn gtk_drop_target_get_formats(self: *Self) ?*gdk.ContentFormats;
     pub const getFormats = gtk_drop_target_get_formats;
 
-    extern fn gtk_drop_target_get_gtypes(self: *Self, n_types: u64) [*c][*c]const u8;
+    extern fn gtk_drop_target_get_gtypes(self: *Self, n_types: u64) [*c]usize;
     pub const getGtypes = gtk_drop_target_get_gtypes;
 
     extern fn gtk_event_controller_get_name(self: *Self) [*c]const u8;
@@ -67,10 +67,10 @@ pub const DropTarget = extern struct {
     extern fn gtk_event_controller_get_widget(self: *Self) ?*gtk.Widget;
     pub const getWidget = gtk_event_controller_get_widget;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -79,7 +79,7 @@ pub const DropTarget = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -100,7 +100,7 @@ pub const DropTarget = extern struct {
     extern fn gtk_drop_target_set_actions(self: *Self, actions: gdk.DragAction) void;
     pub const setActions = gtk_drop_target_set_actions;
 
-    extern fn gtk_drop_target_set_gtypes(self: *Self, types: [*c][*c]const u8, n_types: u64) void;
+    extern fn gtk_drop_target_set_gtypes(self: *Self, types: [*c]usize, n_types: u64) void;
     pub const setGtypes = gtk_drop_target_set_gtypes;
 
     extern fn gtk_event_controller_set_name(self: *Self, name: [*c]const u8) void;

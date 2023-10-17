@@ -9,7 +9,7 @@ pub const Variant = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_variant_new_array(child_type: *glib.VariantType, children: [*c][*c]const u8, n_children: u64) ?*Self;
+    extern fn g_variant_new_array(child_type: *glib.VariantType, children: [*c]*glib.Variant, n_children: u64) ?*Self;
     pub const newArray = g_variant_new_array;
 
     extern fn g_variant_new_boolean(value: bool) ?*Self;
@@ -18,7 +18,7 @@ pub const Variant = extern struct {
     extern fn g_variant_new_byte(value: u8) ?*Self;
     pub const newByte = g_variant_new_byte;
 
-    extern fn g_variant_new_bytestring(string: [*c][*c]const u8) ?*Self;
+    extern fn g_variant_new_bytestring(string: [*c]u8) ?*Self;
     pub const newBytestring = g_variant_new_bytestring;
 
     extern fn g_variant_new_bytestring_array(strv: [*c][*c]const u8, length: i64) ?*Self;
@@ -36,7 +36,7 @@ pub const Variant = extern struct {
     extern fn g_variant_new_from_bytes(type: *glib.VariantType, bytes: *glib.Bytes, trusted: bool) ?*Self;
     pub const newFromBytes = g_variant_new_from_bytes;
 
-    extern fn g_variant_new_from_data(type: *glib.VariantType, data: [*c][*c]const u8, size: u64, trusted: bool, notify: glib.DestroyNotify, user_data: ?*anyopaque) ?*Self;
+    extern fn g_variant_new_from_data(type: *glib.VariantType, data: [*c]u8, size: u64, trusted: bool, notify: glib.DestroyNotify, user_data: ?*anyopaque) ?*Self;
     pub const newFromData = g_variant_new_from_data;
 
     extern fn g_variant_new_handle(value: i32) ?*Self;
@@ -95,7 +95,7 @@ pub const Variant = extern struct {
     extern fn g_variant_compare(self: *Self, two: *glib.Variant) i32;
     pub const compare = g_variant_compare;
 
-    extern fn g_variant_dup_bytestring(self: *Self, length: u64) [*c][*c]const u8;
+    extern fn g_variant_dup_bytestring(self: *Self, length: u64) [*c]u8;
     pub const dupBytestring = g_variant_dup_bytestring;
 
     extern fn g_variant_dup_bytestring_array(self: *Self, length: u64) [*c][*c]const u8;
@@ -119,7 +119,7 @@ pub const Variant = extern struct {
     extern fn g_variant_get_byte(self: *Self) u8;
     pub const getByte = g_variant_get_byte;
 
-    extern fn g_variant_get_bytestring(self: *Self) [*c][*c]const u8;
+    extern fn g_variant_get_bytestring(self: *Self) [*c]u8;
     pub const getBytestring = g_variant_get_bytestring;
 
     extern fn g_variant_get_bytestring_array(self: *Self, length: u64) [*c][*c]const u8;

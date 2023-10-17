@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -23,7 +23,7 @@ pub const PageSetup = extern struct {
     extern fn gtk_page_setup_new_from_key_file(key_file: *glib.KeyFile, group_name: [*c]const u8) ?*Self;
     pub const newFromKeyFile = gtk_page_setup_new_from_key_file;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -64,10 +64,10 @@ pub const PageSetup = extern struct {
     extern fn gtk_page_setup_get_top_margin(self: *Self, unit: gtk.Unit) f64;
     pub const getTopMargin = gtk_page_setup_get_top_margin;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -76,7 +76,7 @@ pub const PageSetup = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn gtk_page_setup_load_file(self: *Self, file_name: [*c]const u8) bool;

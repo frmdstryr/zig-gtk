@@ -80,7 +80,7 @@ pub const BookmarkFile = extern struct {
     extern fn g_bookmark_file_has_item(self: *Self, uri: [*c]const u8) bool;
     pub const hasItem = g_bookmark_file_has_item;
 
-    extern fn g_bookmark_file_load_from_data(self: *Self, data: [*c][*c]const u8, length: u64) bool;
+    extern fn g_bookmark_file_load_from_data(self: *Self, data: [*c]u8, length: u64) bool;
     pub const loadFromData = g_bookmark_file_load_from_data;
 
     extern fn g_bookmark_file_load_from_data_dirs(self: *Self, file: [*c]const u8, full_path: [*c]const u8) bool;
@@ -143,7 +143,7 @@ pub const BookmarkFile = extern struct {
     extern fn g_bookmark_file_set_visited_date_time(self: *Self, uri: [*c]const u8, visited: *glib.DateTime) void;
     pub const setVisitedDateTime = g_bookmark_file_set_visited_date_time;
 
-    extern fn g_bookmark_file_to_data(self: *Self, length: u64) [*c][*c]const u8;
+    extern fn g_bookmark_file_to_data(self: *Self, length: u64) [*c]u8;
     pub const toData = g_bookmark_file_to_data;
 
     extern fn g_bookmark_file_to_file(self: *Self, filename: [*c]const u8) bool;

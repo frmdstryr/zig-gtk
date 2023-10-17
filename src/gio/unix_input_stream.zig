@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const UnixInputStream = extern struct {
@@ -14,7 +14,7 @@ pub const UnixInputStream = extern struct {
     extern fn g_unix_input_stream_new(fd: i32, close_fd: bool) ?*Self;
     pub const new = g_unix_input_stream_new;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -46,13 +46,13 @@ pub const UnixInputStream = extern struct {
     extern fn g_unix_input_stream_get_fd(self: *Self) i32;
     pub const getFd = g_unix_input_stream_get_fd;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
     extern fn g_input_stream_has_pending(self: *Self) bool;
     pub const hasPending = g_input_stream_has_pending;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -67,7 +67,7 @@ pub const UnixInputStream = extern struct {
     extern fn g_pollable_input_stream_is_readable(self: *Self) bool;
     pub const isReadable = g_pollable_input_stream_is_readable;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -76,19 +76,19 @@ pub const UnixInputStream = extern struct {
     extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
     pub const overrideProperty = g_object_class_override_property;
 
-    extern fn g_input_stream_read(self: *Self, buffer: [*c][*c]const u8, count: u64, cancellable: *gio.Cancellable) i64;
+    extern fn g_input_stream_read(self: *Self, buffer: [*c]u8, count: u64, cancellable: *gio.Cancellable) i64;
     pub const read = g_input_stream_read;
 
-    extern fn g_input_stream_read_all(self: *Self, buffer: [*c][*c]const u8, count: u64, bytes_read: u64, cancellable: *gio.Cancellable) bool;
+    extern fn g_input_stream_read_all(self: *Self, buffer: [*c]u8, count: u64, bytes_read: u64, cancellable: *gio.Cancellable) bool;
     pub const readAll = g_input_stream_read_all;
 
-    extern fn g_input_stream_read_all_async(self: *Self, buffer: [*c][*c]const u8, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_input_stream_read_all_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readAllAsync = g_input_stream_read_all_async;
 
     extern fn g_input_stream_read_all_finish(self: *Self, result: *gio.AsyncResult, bytes_read: u64) bool;
     pub const readAllFinish = g_input_stream_read_all_finish;
 
-    extern fn g_input_stream_read_async(self: *Self, buffer: [*c][*c]const u8, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_input_stream_read_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readAsync = g_input_stream_read_async;
 
     extern fn g_input_stream_read_bytes(self: *Self, count: u64, cancellable: *gio.Cancellable) ?*glib.Bytes;
@@ -103,7 +103,7 @@ pub const UnixInputStream = extern struct {
     extern fn g_input_stream_read_finish(self: *Self, result: *gio.AsyncResult) i64;
     pub const readFinish = g_input_stream_read_finish;
 
-    extern fn g_pollable_input_stream_read_nonblocking(self: *Self, buffer: [*c][*c]const u8, count: u64, cancellable: *gio.Cancellable) i64;
+    extern fn g_pollable_input_stream_read_nonblocking(self: *Self, buffer: [*c]u8, count: u64, cancellable: *gio.Cancellable) i64;
     pub const readNonblocking = g_pollable_input_stream_read_nonblocking;
 
     extern fn g_object_run_dispose(self: *Self) void;
@@ -153,16 +153,16 @@ pub const UnixInputStream = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asFileDescriptorBased(self: *Self) *gio.FileDescriptorBased {
-        return @ptrCast(self);
-    }
-    pub fn asInputStream(self: *Self) *gio.InputStream {
-        return @ptrCast(self);
-    }
     pub fn asPollableInputStream(self: *Self) *gio.PollableInputStream {
         return @ptrCast(self);
     }
+    pub fn asFileDescriptorBased(self: *Self) *gio.FileDescriptorBased {
+        return @ptrCast(self);
+    }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asInputStream(self: *Self) *gio.InputStream {
         return @ptrCast(self);
     }
 };

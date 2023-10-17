@@ -1,10 +1,10 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
 const gsk = @import("../gsk.zig");
-const cairo = @import("cairo");
+const gdk = @import("gdk");
 const graphene = @import("graphene");
 const glib = @import("glib");
+const cairo = @import("cairo");
 const c = @import("c.zig");
 
 pub const BorderNode = extern struct {
@@ -13,7 +13,7 @@ pub const BorderNode = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gsk_border_node_new(outline: *gsk.RoundedRect, border_width: [*c][*c]const u8, border_color: [*c][*c]const u8) ?*Self;
+    extern fn gsk_border_node_new(outline: *gsk.RoundedRect, border_width: [*c]f32, border_color: [*c]gdk.RGBA) ?*Self;
     pub const new = gsk_border_node_new;
 
 
@@ -33,7 +33,7 @@ pub const BorderNode = extern struct {
     extern fn gsk_border_node_get_outline(self: *Self) ?*gsk.RoundedRect;
     pub const getOutline = gsk_border_node_get_outline;
 
-    extern fn gsk_border_node_get_widths(self: *Self) [*c][*c]const u8;
+    extern fn gsk_border_node_get_widths(self: *Self) [*c]f32;
     pub const getWidths = gsk_border_node_get_widths;
 
     extern fn gsk_render_node_ref(self: *Self) ?*gsk.RenderNode;

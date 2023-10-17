@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const Socket = extern struct {
@@ -17,7 +17,7 @@ pub const Socket = extern struct {
     extern fn g_socket_new_from_fd(fd: i32) ?*Self;
     pub const newFromFd = g_socket_new_from_fd;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -106,13 +106,13 @@ pub const Socket = extern struct {
     extern fn g_socket_get_ttl(self: *Self) u32;
     pub const getTtl = g_socket_get_ttl;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
     extern fn g_initable_init(self: *Self, cancellable: *gio.Cancellable) bool;
     pub const init = g_initable_init;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -139,7 +139,7 @@ pub const Socket = extern struct {
     extern fn g_socket_leave_multicast_group_ssm(self: *Self, group: *gio.InetAddress, source_specific: *gio.InetAddress, iface: [*c]const u8) bool;
     pub const leaveMulticastGroupSsm = g_socket_leave_multicast_group_ssm;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_socket_listen(self: *Self) bool;
@@ -151,40 +151,40 @@ pub const Socket = extern struct {
     extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
     pub const overrideProperty = g_object_class_override_property;
 
-    extern fn g_socket_receive(self: *Self, buffer: [*c][*c]const u8, size: u64, cancellable: *gio.Cancellable) i64;
+    extern fn g_socket_receive(self: *Self, buffer: [*c]u8, size: u64, cancellable: *gio.Cancellable) i64;
     pub const receive = g_socket_receive;
 
-    extern fn g_socket_receive_from(self: *Self, address: *gio.SocketAddress, buffer: [*c][*c]const u8, size: u64, cancellable: *gio.Cancellable) i64;
+    extern fn g_socket_receive_from(self: *Self, address: *gio.SocketAddress, buffer: [*c]u8, size: u64, cancellable: *gio.Cancellable) i64;
     pub const receiveFrom = g_socket_receive_from;
 
-    extern fn g_socket_receive_message(self: *Self, address: *gio.SocketAddress, vectors: [*c][*c]const u8, num_vectors: i32, messages: [*c][*c]const u8, num_messages: i32, flags: i32, cancellable: *gio.Cancellable) i64;
+    extern fn g_socket_receive_message(self: *Self, address: *gio.SocketAddress, vectors: [*c]gio.InputVector, num_vectors: i32, messages: [*c]*gio.SocketControlMessage, num_messages: i32, flags: i32, cancellable: *gio.Cancellable) i64;
     pub const receiveMessage = g_socket_receive_message;
 
-    extern fn g_socket_receive_messages(self: *Self, messages: [*c][*c]const u8, num_messages: u32, flags: i32, cancellable: *gio.Cancellable) i32;
+    extern fn g_socket_receive_messages(self: *Self, messages: [*c]gio.InputMessage, num_messages: u32, flags: i32, cancellable: *gio.Cancellable) i32;
     pub const receiveMessages = g_socket_receive_messages;
 
-    extern fn g_socket_receive_with_blocking(self: *Self, buffer: [*c][*c]const u8, size: u64, blocking: bool, cancellable: *gio.Cancellable) i64;
+    extern fn g_socket_receive_with_blocking(self: *Self, buffer: [*c]u8, size: u64, blocking: bool, cancellable: *gio.Cancellable) i64;
     pub const receiveWithBlocking = g_socket_receive_with_blocking;
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn g_socket_send(self: *Self, buffer: [*c][*c]const u8, size: u64, cancellable: *gio.Cancellable) i64;
+    extern fn g_socket_send(self: *Self, buffer: [*c]u8, size: u64, cancellable: *gio.Cancellable) i64;
     pub const send = g_socket_send;
 
-    extern fn g_socket_send_message(self: *Self, address: *gio.SocketAddress, vectors: [*c][*c]const u8, num_vectors: i32, messages: [*c][*c]const u8, num_messages: i32, flags: i32, cancellable: *gio.Cancellable) i64;
+    extern fn g_socket_send_message(self: *Self, address: *gio.SocketAddress, vectors: [*c]gio.OutputVector, num_vectors: i32, messages: [*c]*gio.SocketControlMessage, num_messages: i32, flags: i32, cancellable: *gio.Cancellable) i64;
     pub const sendMessage = g_socket_send_message;
 
-    extern fn g_socket_send_message_with_timeout(self: *Self, address: *gio.SocketAddress, vectors: [*c][*c]const u8, num_vectors: i32, messages: [*c][*c]const u8, num_messages: i32, flags: i32, timeout_us: i64, bytes_written: u64, cancellable: *gio.Cancellable) gio.PollableReturn;
+    extern fn g_socket_send_message_with_timeout(self: *Self, address: *gio.SocketAddress, vectors: [*c]gio.OutputVector, num_vectors: i32, messages: [*c]*gio.SocketControlMessage, num_messages: i32, flags: i32, timeout_us: i64, bytes_written: u64, cancellable: *gio.Cancellable) gio.PollableReturn;
     pub const sendMessageWithTimeout = g_socket_send_message_with_timeout;
 
-    extern fn g_socket_send_messages(self: *Self, messages: [*c][*c]const u8, num_messages: u32, flags: i32, cancellable: *gio.Cancellable) i32;
+    extern fn g_socket_send_messages(self: *Self, messages: [*c]gio.OutputMessage, num_messages: u32, flags: i32, cancellable: *gio.Cancellable) i32;
     pub const sendMessages = g_socket_send_messages;
 
-    extern fn g_socket_send_to(self: *Self, address: *gio.SocketAddress, buffer: [*c][*c]const u8, size: u64, cancellable: *gio.Cancellable) i64;
+    extern fn g_socket_send_to(self: *Self, address: *gio.SocketAddress, buffer: [*c]u8, size: u64, cancellable: *gio.Cancellable) i64;
     pub const sendTo = g_socket_send_to;
 
-    extern fn g_socket_send_with_blocking(self: *Self, buffer: [*c][*c]const u8, size: u64, blocking: bool, cancellable: *gio.Cancellable) i64;
+    extern fn g_socket_send_with_blocking(self: *Self, buffer: [*c]u8, size: u64, blocking: bool, cancellable: *gio.Cancellable) i64;
     pub const sendWithBlocking = g_socket_send_with_blocking;
 
     extern fn g_socket_set_blocking(self: *Self, blocking: bool) void;
@@ -249,13 +249,13 @@ pub const Socket = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asDatagramBased(self: *Self) *gio.DatagramBased {
-        return @ptrCast(self);
-    }
     pub fn asInitable(self: *Self) *gio.Initable {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asDatagramBased(self: *Self) *gio.DatagramBased {
         return @ptrCast(self);
     }
 };

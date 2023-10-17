@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const SimpleAction = extern struct {
@@ -17,7 +17,7 @@ pub const SimpleAction = extern struct {
     extern fn g_simple_action_new_stateful(name: [*c]const u8, parameter_type: *glib.VariantType, state: *glib.Variant) ?*Self;
     pub const newStateful = g_simple_action_new_stateful;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -49,10 +49,10 @@ pub const SimpleAction = extern struct {
     extern fn g_action_get_state_type(self: *Self) ?*glib.VariantType;
     pub const getStateType = g_action_get_state_type;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -61,7 +61,7 @@ pub const SimpleAction = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -111,10 +111,10 @@ pub const SimpleAction = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asAction(self: *Self) *gio.Action {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asAction(self: *Self) *gio.Action {
         return @ptrCast(self);
     }
 };

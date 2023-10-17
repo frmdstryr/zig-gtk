@@ -26,7 +26,7 @@ pub const GlyphString = extern struct {
     extern fn pango_glyph_string_free(self: *Self) void;
     pub const free = pango_glyph_string_free;
 
-    extern fn pango_glyph_string_get_logical_widths(self: *Self, text: [*c]const u8, length: i32, embedding_level: i32, logical_widths: [*c][*c]const u8) void;
+    extern fn pango_glyph_string_get_logical_widths(self: *Self, text: [*c]const u8, length: i32, embedding_level: i32, logical_widths: [*c]i32) void;
     pub const getLogicalWidths = pango_glyph_string_get_logical_widths;
 
     extern fn pango_glyph_string_get_width(self: *Self) i32;

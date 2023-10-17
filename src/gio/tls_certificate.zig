@@ -26,10 +26,10 @@ pub const TlsCertificate = extern struct {
     extern fn g_tls_certificate_new_from_pkcs11_uris(pkcs11_uri: [*c]const u8, private_key_pkcs11_uri: [*c]const u8) ?*Self;
     pub const newFromPkcs11Uris = g_tls_certificate_new_from_pkcs11_uris;
 
-    extern fn g_tls_certificate_new_from_pkcs12(data: [*c][*c]const u8, length: u64, password: [*c]const u8) ?*Self;
+    extern fn g_tls_certificate_new_from_pkcs12(data: [*c]u8, length: u64, password: [*c]const u8) ?*Self;
     pub const newFromPkcs12 = g_tls_certificate_new_from_pkcs12;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -37,10 +37,10 @@ pub const TlsCertificate = extern struct {
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
     pub const findProperty = g_object_class_find_property;
 
-    extern fn g_tls_certificate_get_dns_names(self: *Self) [*c][*c]const u8;
+    extern fn g_tls_certificate_get_dns_names(self: *Self) [*c]glib.Bytes;
     pub const getDnsNames = g_tls_certificate_get_dns_names;
 
-    extern fn g_tls_certificate_get_ip_addresses(self: *Self) [*c][*c]const u8;
+    extern fn g_tls_certificate_get_ip_addresses(self: *Self) [*c]gio.InetAddress;
     pub const getIpAddresses = g_tls_certificate_get_ip_addresses;
 
     extern fn g_tls_certificate_get_issuer(self: *Self) ?*gio.TlsCertificate;
@@ -58,10 +58,10 @@ pub const TlsCertificate = extern struct {
     extern fn g_tls_certificate_get_subject_name(self: *Self) [*c]const u8;
     pub const getSubjectName = g_tls_certificate_get_subject_name;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -73,7 +73,7 @@ pub const TlsCertificate = extern struct {
     extern fn g_tls_certificate_is_same(self: *Self, cert_two: *gio.TlsCertificate) bool;
     pub const isSame = g_tls_certificate_is_same;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;

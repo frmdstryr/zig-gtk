@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -11,7 +11,7 @@ pub const TreeSelection = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -28,10 +28,10 @@ pub const TreeSelection = extern struct {
     extern fn gtk_tree_selection_get_tree_view(self: *Self) ?*gtk.TreeView;
     pub const getTreeView = gtk_tree_selection_get_tree_view;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -43,7 +43,7 @@ pub const TreeSelection = extern struct {
     extern fn gtk_tree_selection_iter_is_selected(self: *Self, iter: *gtk.TreeIter) bool;
     pub const iterIsSelected = gtk_tree_selection_iter_is_selected;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;

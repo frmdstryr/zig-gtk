@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
 const glib = @import("glib");
-const gdkpixbuf = @import("../gdkpixbuf.zig");
 const gobject = @import("gobject");
+const gio = @import("gio");
+const gdkpixbuf = @import("../gdkpixbuf.zig");
 const c = @import("c.zig");
 
 pub const Pixbuf = extern struct {
@@ -27,7 +27,7 @@ pub const Pixbuf = extern struct {
     extern fn gdk_pixbuf_new_from_file_at_size(filename: [*c]const u8, width: i32, height: i32) ?*Self;
     pub const newFromFileAtSize = gdk_pixbuf_new_from_file_at_size;
 
-    extern fn gdk_pixbuf_new_from_inline(data_length: i32, data: [*c][*c]const u8, copy_pixels: bool) ?*Self;
+    extern fn gdk_pixbuf_new_from_inline(data_length: i32, data: [*c]u8, copy_pixels: bool) ?*Self;
     pub const newFromInline = gdk_pixbuf_new_from_inline;
 
     extern fn gdk_pixbuf_new_from_resource(resource_path: [*c]const u8) ?*Self;
@@ -48,7 +48,7 @@ pub const Pixbuf = extern struct {
     extern fn gdk_pixbuf_new_from_xpm_data(data: [*c][*c]const u8) ?*Self;
     pub const newFromXpmData = gdk_pixbuf_new_from_xpm_data;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -114,8 +114,11 @@ pub const Pixbuf = extern struct {
     // extern fn gdk_pixbuf_get_options(self: *Self) None;
     // pub const getOptions = gdk_pixbuf_get_options;
 
-    extern fn gdk_pixbuf_get_pixels_with_length(self: *Self, length: u32) [*c][*c]const u8;
-    pub const getPixels = gdk_pixbuf_get_pixels_with_length;
+    extern fn gdk_pixbuf_get_pixels_with_length(self: *Self, length: u32) [*c][*c]u8;
+    pub const getPixelsWithLength = gdk_pixbuf_get_pixels_with_length;
+
+    extern fn gdk_pixbuf_get_pixels(self: *Self) [*c][*c]u8;
+    pub const getPixels = gdk_pixbuf_get_pixels;
 
     extern fn gdk_pixbuf_get_rowstride(self: *Self) i32;
     pub const getRowstride = gdk_pixbuf_get_rowstride;
@@ -123,10 +126,10 @@ pub const Pixbuf = extern struct {
     extern fn gdk_pixbuf_get_width(self: *Self) i32;
     pub const getWidth = gdk_pixbuf_get_width;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -135,7 +138,7 @@ pub const Pixbuf = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_loadable_icon_load(self: *Self, size: i32, type: [*c]const u8, cancellable: *gio.Cancellable) ?*gio.InputStream;
@@ -174,7 +177,7 @@ pub const Pixbuf = extern struct {
     extern fn gdk_pixbuf_saturate_and_pixelate(self: *Self, dest: *gdkpixbuf.Pixbuf, saturation: f32, pixelate: bool) void;
     pub const saturateAndPixelate = gdk_pixbuf_saturate_and_pixelate;
 
-    extern fn gdk_pixbuf_save_to_bufferv(self: *Self, buffer: [*c][*c]const u8, buffer_size: u64, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8) bool;
+    extern fn gdk_pixbuf_save_to_bufferv(self: *Self, buffer: [*c]u8, buffer_size: u64, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8) bool;
     pub const saveToBufferv = gdk_pixbuf_save_to_bufferv;
 
     extern fn gdk_pixbuf_save_to_callbackv(self: *Self, save_func: gdkpixbuf.PixbufSaveFunc, user_data: ?*anyopaque, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8) bool;
@@ -233,16 +236,16 @@ pub const Pixbuf = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
-        return @ptrCast(self);
-    }
-    pub fn asPixbuf(self: *Self) *gdkpixbuf.Pixbuf {
+    pub fn asIcon(self: *Self) *gio.Icon {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asIcon(self: *Self) *gio.Icon {
+    pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
+        return @ptrCast(self);
+    }
+    pub fn asPixbuf(self: *Self) *gdkpixbuf.Pixbuf {
         return @ptrCast(self);
     }
 };

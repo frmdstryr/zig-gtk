@@ -1,11 +1,11 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
 const gsk = @import("../gsk.zig");
-const cairo = @import("cairo");
-const pango = @import("pango");
+const gdk = @import("gdk");
 const graphene = @import("graphene");
 const glib = @import("glib");
+const cairo = @import("cairo");
+const pango = @import("pango");
 const c = @import("c.zig");
 
 pub const TextNode = extern struct {
@@ -31,7 +31,7 @@ pub const TextNode = extern struct {
     extern fn gsk_text_node_get_font(self: *Self) ?*pango.Font;
     pub const getFont = gsk_text_node_get_font;
 
-    extern fn gsk_text_node_get_glyphs(self: *Self, n_glyphs: u32) [*c][*c]const u8;
+    extern fn gsk_text_node_get_glyphs(self: *Self, n_glyphs: u32) [*c]pango.GlyphInfo;
     pub const getGlyphs = gsk_text_node_get_glyphs;
 
     extern fn gsk_render_node_get_node_type(self: *Self) gsk.RenderNodeType;

@@ -14,7 +14,7 @@ pub const DBusMessage = extern struct {
     extern fn g_dbus_message_new() ?*Self;
     pub const new = g_dbus_message_new;
 
-    extern fn g_dbus_message_new_from_blob(blob: [*c][*c]const u8, blob_len: u64, capabilities: gio.DBusCapabilityFlags) ?*Self;
+    extern fn g_dbus_message_new_from_blob(blob: [*c]u8, blob_len: u64, capabilities: gio.DBusCapabilityFlags) ?*Self;
     pub const newFromBlob = g_dbus_message_new_from_blob;
 
     extern fn g_dbus_message_new_method_call(name: [*c]const u8, path: [*c]const u8, interface_: [*c]const u8, method: [*c]const u8) ?*Self;
@@ -23,7 +23,7 @@ pub const DBusMessage = extern struct {
     extern fn g_dbus_message_new_signal(path: [*c]const u8, interface_: [*c]const u8, signal: [*c]const u8) ?*Self;
     pub const newSignal = g_dbus_message_new_signal;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -55,7 +55,7 @@ pub const DBusMessage = extern struct {
     extern fn g_dbus_message_get_header(self: *Self, header_field: gio.DBusMessageHeaderField) ?*glib.Variant;
     pub const getHeader = g_dbus_message_get_header;
 
-    extern fn g_dbus_message_get_header_fields(self: *Self) [*c][*c]const u8;
+    extern fn g_dbus_message_get_header_fields(self: *Self) [*c]u8;
     pub const getHeaderFields = g_dbus_message_get_header_fields;
 
     extern fn g_dbus_message_get_interface(self: *Self) [*c]const u8;
@@ -91,10 +91,10 @@ pub const DBusMessage = extern struct {
     extern fn g_dbus_message_get_unix_fd_list(self: *Self) ?*gio.UnixFDList;
     pub const getUnixFdList = g_dbus_message_get_unix_fd_list;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -103,7 +103,7 @@ pub const DBusMessage = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_dbus_message_lock(self: *Self) void;
@@ -178,7 +178,7 @@ pub const DBusMessage = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn g_dbus_message_to_blob(self: *Self, out_size: u64, capabilities: gio.DBusCapabilityFlags) [*c][*c]const u8;
+    extern fn g_dbus_message_to_blob(self: *Self, out_size: u64, capabilities: gio.DBusCapabilityFlags) [*c]u8;
     pub const toBlob = g_dbus_message_to_blob;
 
     extern fn g_dbus_message_to_gerror(self: *Self) bool;

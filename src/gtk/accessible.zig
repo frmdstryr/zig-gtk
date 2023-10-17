@@ -24,13 +24,13 @@ pub const Accessible = extern struct {
     extern fn gtk_accessible_reset_state(self: *Self, state: gtk.AccessibleState) void;
     pub const resetState = gtk_accessible_reset_state;
 
-    extern fn gtk_accessible_update_property_value(self: *Self, n_properties: i32, properties: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn gtk_accessible_update_property_value(self: *Self, n_properties: i32, properties: [*c]gtk.AccessibleProperty, values: [*c]gobject.Value) void;
     pub const updateProperty = gtk_accessible_update_property_value;
 
-    extern fn gtk_accessible_update_relation_value(self: *Self, n_relations: i32, relations: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn gtk_accessible_update_relation_value(self: *Self, n_relations: i32, relations: [*c]gtk.AccessibleRelation, values: [*c]gobject.Value) void;
     pub const updateRelation = gtk_accessible_update_relation_value;
 
-    extern fn gtk_accessible_update_state_value(self: *Self, n_states: i32, states: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn gtk_accessible_update_state_value(self: *Self, n_states: i32, states: [*c]gtk.AccessibleState, values: [*c]gobject.Value) void;
     pub const updateState = gtk_accessible_update_state_value;
 
 

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
+const glib = @import("glib");
 const gobject = @import("gobject");
 const pango = @import("../pango.zig");
-const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const Layout = extern struct {
@@ -14,7 +14,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_new(context: *pango.Context) ?*Self;
     pub const new = pango_layout_new;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -99,10 +99,10 @@ pub const Layout = extern struct {
     // extern fn pango_layout_get_lines_readonly(self: *Self) None;
     // pub const getLinesReadonly = pango_layout_get_lines_readonly;
 
-    extern fn pango_layout_get_log_attrs(self: *Self, attrs: [*c][*c]const u8, n_attrs: i32) void;
+    extern fn pango_layout_get_log_attrs(self: *Self, attrs: [*c]pango.LogAttr, n_attrs: i32) void;
     pub const getLogAttrs = pango_layout_get_log_attrs;
 
-    extern fn pango_layout_get_log_attrs_readonly(self: *Self, n_attrs: i32) [*c][*c]const u8;
+    extern fn pango_layout_get_log_attrs_readonly(self: *Self, n_attrs: i32) [*c]pango.LogAttr;
     pub const getLogAttrsReadonly = pango_layout_get_log_attrs_readonly;
 
     extern fn pango_layout_get_pixel_extents(self: *Self, ink_rect: pango.Rectangle, logical_rect: pango.Rectangle) void;
@@ -138,7 +138,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_get_wrap(self: *Self) pango.WrapMode;
     pub const getWrap = pango_layout_get_wrap;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
     extern fn pango_layout_index_to_line_x(self: *Self, index_: i32, trailing: bool, line: i32, x_pos: i32) void;
@@ -147,7 +147,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_index_to_pos(self: *Self, index_: i32, pos: pango.Rectangle) void;
     pub const indexToPos = pango_layout_index_to_pos;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -162,7 +162,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_is_wrapped(self: *Self) bool;
     pub const isWrapped = pango_layout_is_wrapped;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn pango_layout_move_cursor_visually(self: *Self, strong: bool, old_index: i32, old_trailing: i32, direction: i32, new_index: i32, new_trailing: i32) void;

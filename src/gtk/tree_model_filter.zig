@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const glib = @import("glib");
 const gdk = @import("gdk");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -12,7 +12,7 @@ pub const TreeModelFilter = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -68,10 +68,10 @@ pub const TreeModelFilter = extern struct {
     extern fn gtk_tree_model_get_value(self: *Self, iter: *gtk.TreeIter, column: i32, value: gobject.Value) void;
     pub const getValue = gtk_tree_model_get_value;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -86,7 +86,7 @@ pub const TreeModelFilter = extern struct {
     extern fn gtk_tree_model_iter_n_children(self: *Self, iter: *gtk.TreeIter) i32;
     pub const iterNChildren = gtk_tree_model_iter_n_children;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -107,7 +107,7 @@ pub const TreeModelFilter = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_tree_model_filter_set_modify_func(self: *Self, n_columns: i32, types: [*c][*c]const u8, func: gtk.TreeModelFilterModifyFunc, data: ?*anyopaque, destroy: glib.DestroyNotify) void;
+    extern fn gtk_tree_model_filter_set_modify_func(self: *Self, n_columns: i32, types: [*c]usize, func: gtk.TreeModelFilterModifyFunc, data: ?*anyopaque, destroy: glib.DestroyNotify) void;
     pub const setModifyFunc = gtk_tree_model_filter_set_modify_func;
 
     extern fn gtk_tree_model_filter_set_visible_column(self: *Self, column: i32) void;
@@ -145,16 +145,16 @@ pub const TreeModelFilter = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
-        return @ptrCast(self);
-    }
-    pub fn asTreeModelFilter(self: *Self) *gtk.TreeModelFilter {
-        return @ptrCast(self);
-    }
     pub fn asTreeModel(self: *Self) *gtk.TreeModel {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
+        return @ptrCast(self);
+    }
+    pub fn asTreeModelFilter(self: *Self) *gtk.TreeModelFilter {
         return @ptrCast(self);
     }
 };

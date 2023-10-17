@@ -9,10 +9,10 @@ pub const Bytes = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_bytes_new(data: [*c][*c]const u8, size: u64) ?*Self;
+    extern fn g_bytes_new(data: [*c]u8, size: u64) ?*Self;
     pub const new = g_bytes_new;
 
-    extern fn g_bytes_new_take(data: [*c][*c]const u8, size: u64) ?*Self;
+    extern fn g_bytes_new_take(data: [*c]u8, size: u64) ?*Self;
     pub const newTake = g_bytes_new_take;
 
 
@@ -23,7 +23,7 @@ pub const Bytes = extern struct {
     extern fn g_bytes_equal(self: *Self, bytes2: *glib.Bytes) bool;
     pub const equal = g_bytes_equal;
 
-    extern fn g_bytes_get_data(self: *Self, size: u64) [*c][*c]const u8;
+    extern fn g_bytes_get_data(self: *Self, size: u64) [*c]u8;
     pub const getData = g_bytes_get_data;
 
     extern fn g_bytes_get_region(self: *Self, element_size: u64, offset: u64, n_elements: u64) ?*anyopaque;
@@ -44,10 +44,10 @@ pub const Bytes = extern struct {
     extern fn g_bytes_unref(self: *Self) void;
     pub const unref = g_bytes_unref;
 
-    extern fn g_bytes_unref_to_array(self: *Self) [*c][*c]const u8;
+    extern fn g_bytes_unref_to_array(self: *Self) [*c]u8;
     pub const unrefToArray = g_bytes_unref_to_array;
 
-    extern fn g_bytes_unref_to_data(self: *Self, size: u64) [*c][*c]const u8;
+    extern fn g_bytes_unref_to_data(self: *Self, size: u64) [*c]u8;
     pub const unrefToData = g_bytes_unref_to_data;
 
 };

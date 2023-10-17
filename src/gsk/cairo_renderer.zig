@@ -1,10 +1,10 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
 const gsk = @import("../gsk.zig");
-const cairo = @import("cairo");
-const gobject = @import("gobject");
+const gdk = @import("gdk");
 const graphene = @import("graphene");
+const gobject = @import("gobject");
+const cairo = @import("cairo");
 const c = @import("c.zig");
 
 pub const CairoRenderer = extern struct {
@@ -19,7 +19,7 @@ pub const CairoRenderer = extern struct {
     extern fn gsk_renderer_new_for_surface(surface: *gdk.Surface) ?*Self;
     pub const newForSurface = gsk_renderer_new_for_surface;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -30,10 +30,10 @@ pub const CairoRenderer = extern struct {
     extern fn gsk_renderer_get_surface(self: *Self) ?*gdk.Surface;
     pub const getSurface = gsk_renderer_get_surface;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -45,7 +45,7 @@ pub const CairoRenderer = extern struct {
     extern fn gsk_renderer_is_realized(self: *Self) bool;
     pub const isRealized = gsk_renderer_is_realized;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;

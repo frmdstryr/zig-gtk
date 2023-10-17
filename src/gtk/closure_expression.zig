@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -11,7 +11,7 @@ pub const ClosureExpression = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_closure_expression_new(value_type: usize, closure: *gobject.Closure, n_params: u32, params: [*c][*c]const u8) ?*Self;
+    extern fn gtk_closure_expression_new(value_type: usize, closure: *gobject.Closure, n_params: u32, params: [*c]*gtk.Expression) ?*Self;
     pub const new = gtk_closure_expression_new;
 
 

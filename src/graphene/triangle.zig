@@ -50,7 +50,7 @@ pub const Triangle = extern struct {
     extern fn graphene_triangle_get_vertices(self: *Self, a: graphene.Vec3, b: graphene.Vec3, c: graphene.Vec3) void;
     pub const getVertices = graphene_triangle_get_vertices;
 
-    extern fn graphene_triangle_init_from_float(self: *Self, a: [*c][*c]const u8, b: [*c][*c]const u8, c: [*c][*c]const u8) ?*graphene.Triangle;
+    extern fn graphene_triangle_init_from_float(self: *Self, a: [*c]f32, b: [*c]f32, c: [*c]f32) ?*graphene.Triangle;
     pub const initFromFloat = graphene_triangle_init_from_float;
 
     extern fn graphene_triangle_init_from_point3d(self: *Self, a: *graphene.Point3D, b: *graphene.Point3D, c: *graphene.Point3D) ?*graphene.Triangle;

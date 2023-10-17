@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const gdk = @import("../gdk.zig");
 const cairo = @import("cairo");
+const gdk = @import("../gdk.zig");
 const c = @import("c.zig");
 
 pub const GLContext = extern struct {
@@ -11,7 +11,7 @@ pub const GLContext = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -58,10 +58,10 @@ pub const GLContext = extern struct {
     extern fn gdk_gl_context_get_version(self: *Self, major: i32, minor: i32) void;
     pub const getVersion = gdk_gl_context_get_version;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -79,7 +79,7 @@ pub const GLContext = extern struct {
     extern fn gdk_gl_context_is_shared(self: *Self, other: *gdk.GLContext) bool;
     pub const isShared = gdk_gl_context_is_shared;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn gdk_gl_context_make_current(self: *Self) void;
@@ -138,10 +138,10 @@ pub const GLContext = extern struct {
 
 
     // Bases
-    pub fn asDrawContext(self: *Self) *gdk.DrawContext {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asDrawContext(self: *Self) *gdk.DrawContext {
         return @ptrCast(self);
     }
 };

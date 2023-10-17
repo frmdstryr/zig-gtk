@@ -1,10 +1,10 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
 const gdk = @import("../gdk.zig");
-const gobject = @import("gobject");
-const gdkpixbuf = @import("gdkpixbuf");
 const glib = @import("glib");
+const gdkpixbuf = @import("gdkpixbuf");
+const gobject = @import("gobject");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const MemoryTexture = extern struct {
@@ -31,7 +31,7 @@ pub const MemoryTexture = extern struct {
     extern fn gdk_texture_new_from_resource(resource_path: [*c]const u8) ?*Self;
     pub const newFromResource = gdk_texture_new_from_resource;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -39,7 +39,7 @@ pub const MemoryTexture = extern struct {
     extern fn gdk_paintable_compute_concrete_size(self: *Self, specified_width: f64, specified_height: f64, default_width: f64, default_height: f64, concrete_width: f64, concrete_height: f64) void;
     pub const computeConcreteSize = gdk_paintable_compute_concrete_size;
 
-    extern fn gdk_texture_download(self: *Self, data: [*c][*c]const u8, stride: u64) void;
+    extern fn gdk_texture_download(self: *Self, data: [*c]u8, stride: u64) void;
     pub const download = gdk_texture_download;
 
     extern fn g_icon_equal(self: *Self, icon2: *gio.Icon) bool;
@@ -69,10 +69,10 @@ pub const MemoryTexture = extern struct {
     extern fn gdk_texture_get_width(self: *Self) i32;
     pub const getWidth = gdk_texture_get_width;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -87,7 +87,7 @@ pub const MemoryTexture = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_loadable_icon_load(self: *Self, size: i32, type: [*c]const u8, cancellable: *gio.Cancellable) ?*gio.InputStream;
@@ -158,16 +158,16 @@ pub const MemoryTexture = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asTexture(self: *Self) *gdk.Texture {
         return @ptrCast(self);
     }
     pub fn asPaintable(self: *Self) *gdk.Paintable {
         return @ptrCast(self);
     }
-    pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asTexture(self: *Self) *gdk.Texture {
+    pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
         return @ptrCast(self);
     }
     pub fn asIcon(self: *Self) *gio.Icon {

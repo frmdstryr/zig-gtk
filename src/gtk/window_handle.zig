@@ -1,13 +1,13 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
-const gdk = @import("gdk");
 const gsk = @import("gsk");
-const cairo = @import("cairo");
-const gobject = @import("gobject");
-const pango = @import("pango");
+const gdk = @import("gdk");
 const graphene = @import("graphene");
 const glib = @import("glib");
+const gobject = @import("gobject");
+const cairo = @import("cairo");
+const gio = @import("gio");
+const pango = @import("pango");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -20,7 +20,7 @@ pub const WindowHandle = extern struct {
     extern fn gtk_window_handle_new() ?*Self;
     pub const new = gtk_window_handle_new;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -295,7 +295,7 @@ pub const WindowHandle = extern struct {
     extern fn gtk_widget_get_width(self: *Self) i32;
     pub const getWidth = gtk_widget_get_width;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
     extern fn gtk_widget_grab_focus(self: *Self) bool;
@@ -334,7 +334,7 @@ pub const WindowHandle = extern struct {
     extern fn gtk_widget_class_install_action(self: *Self, action_name: [*c]const u8, parameter_type: [*c]const u8, activate: gtk.WidgetActionActivateFunc) void;
     pub const installAction = gtk_widget_class_install_action;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -367,7 +367,7 @@ pub const WindowHandle = extern struct {
     extern fn gtk_widget_list_mnemonic_labels(self: *Self) ?*glib.List;
     pub const listMnemonicLabels = gtk_widget_list_mnemonic_labels;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn gtk_widget_map(self: *Self) void;
@@ -595,13 +595,13 @@ pub const WindowHandle = extern struct {
     extern fn gtk_widget_unset_state_flags(self: *Self, flags: gtk.StateFlags) void;
     pub const unsetStateFlags = gtk_widget_unset_state_flags;
 
-    extern fn gtk_accessible_update_property_value(self: *Self, n_properties: i32, properties: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn gtk_accessible_update_property_value(self: *Self, n_properties: i32, properties: [*c]gtk.AccessibleProperty, values: [*c]gobject.Value) void;
     pub const updateProperty = gtk_accessible_update_property_value;
 
-    extern fn gtk_accessible_update_relation_value(self: *Self, n_relations: i32, relations: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn gtk_accessible_update_relation_value(self: *Self, n_relations: i32, relations: [*c]gtk.AccessibleRelation, values: [*c]gobject.Value) void;
     pub const updateRelation = gtk_accessible_update_relation_value;
 
-    extern fn gtk_accessible_update_state_value(self: *Self, n_states: i32, states: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn gtk_accessible_update_state_value(self: *Self, n_states: i32, states: [*c]gtk.AccessibleState, values: [*c]gobject.Value) void;
     pub const updateState = gtk_accessible_update_state_value;
 
 

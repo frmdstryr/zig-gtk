@@ -59,7 +59,7 @@ pub const Vec3 = extern struct {
     extern fn graphene_vec3_init(self: *Self, x: f32, y: f32, z: f32) ?*graphene.Vec3;
     pub const init = graphene_vec3_init;
 
-    extern fn graphene_vec3_init_from_float(self: *Self, src: [*c][*c]const u8) ?*graphene.Vec3;
+    extern fn graphene_vec3_init_from_float(self: *Self, src: [*c]f32) ?*graphene.Vec3;
     pub const initFromFloat = graphene_vec3_init_from_float;
 
     extern fn graphene_vec3_init_from_vec3(self: *Self, src: *graphene.Vec3) ?*graphene.Vec3;
@@ -95,7 +95,7 @@ pub const Vec3 = extern struct {
     extern fn graphene_vec3_subtract(self: *Self, b: *graphene.Vec3, res: graphene.Vec3) void;
     pub const subtract = graphene_vec3_subtract;
 
-    extern fn graphene_vec3_to_float(self: *Self, dest: [*c][*c]const u8) void;
+    extern fn graphene_vec3_to_float(self: *Self, dest: [*c]f32) void;
     pub const toFloat = graphene_vec3_to_float;
 
 };

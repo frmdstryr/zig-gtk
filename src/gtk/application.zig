@@ -15,7 +15,7 @@ pub const Application = extern struct {
     extern fn gtk_application_new(application_id: [*c]const u8, flags: gio.ApplicationFlags) ?*Self;
     pub const new = gtk_application_new;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -41,13 +41,13 @@ pub const Application = extern struct {
     extern fn g_action_map_add_action(self: *Self, action: *gio.Action) void;
     pub const addAction = g_action_map_add_action;
 
-    extern fn g_action_map_add_action_entries(self: *Self, entries: [*c][*c]const u8, n_entries: i32, user_data: ?*anyopaque) void;
+    extern fn g_action_map_add_action_entries(self: *Self, entries: [*c]gio.ActionEntry, n_entries: i32, user_data: ?*anyopaque) void;
     pub const addActionEntries = g_action_map_add_action_entries;
 
     extern fn g_application_add_main_option(self: *Self, long_name: [*c]const u8, short_name: i8, flags: glib.OptionFlags, arg: glib.OptionArg, description: [*c]const u8, arg_description: [*c]const u8) void;
     pub const addMainOption = g_application_add_main_option;
 
-    extern fn g_application_add_main_option_entries(self: *Self, entries: [*c][*c]const u8) void;
+    extern fn g_application_add_main_option_entries(self: *Self, entries: [*c]glib.OptionEntry) void;
     pub const addMainOptionEntries = g_application_add_main_option_entries;
 
     extern fn g_application_add_option_group(self: *Self, group: *glib.OptionGroup) void;
@@ -128,7 +128,7 @@ pub const Application = extern struct {
     extern fn gtk_application_get_windows(self: *Self) ?*glib.List;
     pub const getWindows = gtk_application_get_windows;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
     extern fn g_action_group_has_action(self: *Self, action_name: [*c]const u8) bool;
@@ -140,7 +140,7 @@ pub const Application = extern struct {
     extern fn gtk_application_inhibit(self: *Self, window: *gtk.Window, flags: gtk.ApplicationInhibitFlags, reason: [*c]const u8) u32;
     pub const inhibit = gtk_application_inhibit;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -155,7 +155,7 @@ pub const Application = extern struct {
     extern fn g_action_group_list_actions(self: *Self) [*c][*c]const u8;
     pub const listActions = g_action_group_list_actions;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_action_map_lookup_action(self: *Self, action_name: [*c]const u8) ?*gio.Action;
@@ -167,7 +167,7 @@ pub const Application = extern struct {
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
-    extern fn g_application_open(self: *Self, files: [*c][*c]const u8, n_files: i32, hint: [*c]const u8) void;
+    extern fn g_application_open(self: *Self, files: [*c]*gio.File, n_files: i32, hint: [*c]const u8) void;
     pub const open = g_application_open;
 
     extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
@@ -277,13 +277,13 @@ pub const Application = extern struct {
     pub fn asActionMap(self: *Self) *gio.ActionMap {
         return @ptrCast(self);
     }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
     pub fn asApplication(self: *Self) *gio.Application {
         return @ptrCast(self);
     }
     pub fn asActionGroup(self: *Self) *gio.ActionGroup {
-        return @ptrCast(self);
-    }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

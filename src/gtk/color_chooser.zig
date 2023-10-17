@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gdk = @import("gdk");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -13,7 +13,7 @@ pub const ColorChooser = extern struct {
     // Constructors
 
     // Methods
-    extern fn gtk_color_chooser_add_palette(self: *Self, orientation: gtk.Orientation, colors_per_line: i32, n_colors: i32, colors: [*c][*c]const u8) void;
+    extern fn gtk_color_chooser_add_palette(self: *Self, orientation: gtk.Orientation, colors_per_line: i32, n_colors: i32, colors: [*c]gdk.RGBA) void;
     pub const addPalette = gtk_color_chooser_add_palette;
 
     extern fn gtk_color_chooser_get_rgba(self: *Self, color: gdk.RGBA) void;

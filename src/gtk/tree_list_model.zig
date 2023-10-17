@@ -15,7 +15,7 @@ pub const TreeListModel = extern struct {
     extern fn gtk_tree_list_model_new(root: *gio.ListModel, passthrough: bool, autoexpand: bool, create_func: gtk.TreeListModelCreateModelFunc, user_data: ?*anyopaque, user_destroy: glib.DestroyNotify) ?*Self;
     pub const new = gtk_tree_list_model_new;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -47,10 +47,10 @@ pub const TreeListModel = extern struct {
     extern fn gtk_tree_list_model_get_row(self: *Self, position: u32) ?*gtk.TreeListRow;
     pub const getRow = gtk_tree_list_model_get_row;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -62,7 +62,7 @@ pub const TreeListModel = extern struct {
     extern fn g_list_model_items_changed(self: *Self, position: u32, removed: u32, added: u32) void;
     pub const itemsChanged = g_list_model_items_changed;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;

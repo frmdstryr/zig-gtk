@@ -29,7 +29,7 @@ pub const Quad = extern struct {
     extern fn graphene_quad_init(self: *Self, p1: *graphene.Point, p2: *graphene.Point, p3: *graphene.Point, p4: *graphene.Point) ?*graphene.Quad;
     pub const init = graphene_quad_init;
 
-    extern fn graphene_quad_init_from_points(self: *Self, points: [*c][*c]const u8) ?*graphene.Quad;
+    extern fn graphene_quad_init_from_points(self: *Self, points: [*c]graphene.Point) ?*graphene.Quad;
     pub const initFromPoints = graphene_quad_init_from_points;
 
     extern fn graphene_quad_init_from_rect(self: *Self, r: *graphene.Rect) ?*graphene.Quad;

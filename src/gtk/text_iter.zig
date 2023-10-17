@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const pango = @import("pango");
 const gdk = @import("gdk");
+const pango = @import("pango");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 

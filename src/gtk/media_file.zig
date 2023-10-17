@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
 const gdk = @import("gdk");
-const gobject = @import("gobject");
 const glib = @import("glib");
+const gobject = @import("gobject");
+const gio = @import("gio");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -28,7 +28,7 @@ pub const MediaFile = extern struct {
     extern fn gtk_media_file_new_for_resource(resource_path: [*c]const u8) ?*Self;
     pub const newForResource = gtk_media_file_new_for_resource;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -90,7 +90,7 @@ pub const MediaFile = extern struct {
     extern fn gtk_media_stream_get_volume(self: *Self) f64;
     pub const getVolume = gtk_media_stream_get_volume;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
     extern fn gtk_media_stream_has_audio(self: *Self) bool;
@@ -99,7 +99,7 @@ pub const MediaFile = extern struct {
     extern fn gtk_media_stream_has_video(self: *Self) bool;
     pub const hasVideo = gtk_media_stream_has_video;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -123,7 +123,7 @@ pub const MediaFile = extern struct {
     extern fn gtk_media_stream_is_seeking(self: *Self) bool;
     pub const isSeeking = gtk_media_stream_is_seeking;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -224,10 +224,10 @@ pub const MediaFile = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asMediaStream(self: *Self) *gtk.MediaStream {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asMediaStream(self: *Self) *gtk.MediaStream {
         return @ptrCast(self);
     }
     pub fn asPaintable(self: *Self) *gdk.Paintable {

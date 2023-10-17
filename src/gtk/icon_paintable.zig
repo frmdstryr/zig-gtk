@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
+const gdk = @import("gdk");
 const gobject = @import("gobject");
 const gio = @import("gio");
-const gdk = @import("gdk");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -15,7 +15,7 @@ pub const IconPaintable = extern struct {
     extern fn gtk_icon_paintable_new_for_file(file: *gio.File, size: i32, scale: i32) ?*Self;
     pub const newForFile = gtk_icon_paintable_new_for_file;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -47,10 +47,10 @@ pub const IconPaintable = extern struct {
     extern fn gdk_paintable_get_intrinsic_width(self: *Self) i32;
     pub const getIntrinsicWidth = gdk_paintable_get_intrinsic_width;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -68,7 +68,7 @@ pub const IconPaintable = extern struct {
     extern fn gtk_icon_paintable_is_symbolic(self: *Self) bool;
     pub const isSymbolic = gtk_icon_paintable_is_symbolic;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -83,7 +83,7 @@ pub const IconPaintable = extern struct {
     extern fn gdk_paintable_snapshot(self: *Self, snapshot: *gdk.Snapshot, width: f64, height: f64) void;
     pub const snapshot = gdk_paintable_snapshot;
 
-    extern fn gtk_symbolic_paintable_snapshot_symbolic(self: *Self, snapshot: *gdk.Snapshot, width: f64, height: f64, colors: [*c][*c]const u8, n_colors: u64) void;
+    extern fn gtk_symbolic_paintable_snapshot_symbolic(self: *Self, snapshot: *gdk.Snapshot, width: f64, height: f64, colors: [*c]gdk.RGBA, n_colors: u64) void;
     pub const snapshotSymbolic = gtk_symbolic_paintable_snapshot_symbolic;
 
     extern fn g_object_thaw_notify(self: *Self) void;

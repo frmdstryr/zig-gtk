@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
+const glib = @import("glib");
 const gobject = @import("gobject");
 const gio = @import("gio");
-const glib = @import("glib");
 const gdk = @import("../gdk.zig");
 const c = @import("c.zig");
 
@@ -15,7 +15,7 @@ pub const AppLaunchContext = extern struct {
     extern fn g_app_launch_context_new() ?*Self;
     pub const new = g_app_launch_context_new;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -32,10 +32,10 @@ pub const AppLaunchContext = extern struct {
     extern fn g_app_launch_context_get_startup_notify_id(self: *Self, info: *gio.AppInfo, files: *glib.List) [*c]const u8;
     pub const getStartupNotifyId = g_app_launch_context_get_startup_notify_id;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -47,7 +47,7 @@ pub const AppLaunchContext = extern struct {
     extern fn g_app_launch_context_launch_failed(self: *Self, startup_notify_id: [*c]const u8) void;
     pub const launchFailed = g_app_launch_context_launch_failed;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;

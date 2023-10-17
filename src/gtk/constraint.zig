@@ -16,7 +16,7 @@ pub const Constraint = extern struct {
     extern fn gtk_constraint_new_constant(target: *gtk.ConstraintTarget, target_attribute: gtk.ConstraintAttribute, relation: gtk.ConstraintRelation, constant: f64, strength: i32) ?*Self;
     pub const newConstant = gtk_constraint_new_constant;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -48,10 +48,10 @@ pub const Constraint = extern struct {
     extern fn gtk_constraint_get_target_attribute(self: *Self) gtk.ConstraintAttribute;
     pub const getTargetAttribute = gtk_constraint_get_target_attribute;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -69,7 +69,7 @@ pub const Constraint = extern struct {
     extern fn gtk_constraint_is_required(self: *Self) bool;
     pub const isRequired = gtk_constraint_is_required;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;

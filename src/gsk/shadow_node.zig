@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const graphene = @import("graphene");
-const glib = @import("glib");
 const gsk = @import("../gsk.zig");
+const graphene = @import("graphene");
 const cairo = @import("cairo");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const ShadowNode = extern struct {
@@ -12,7 +12,7 @@ pub const ShadowNode = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gsk_shadow_node_new(child: *gsk.RenderNode, shadows: [*c][*c]const u8, n_shadows: u64) ?*Self;
+    extern fn gsk_shadow_node_new(child: *gsk.RenderNode, shadows: [*c]gsk.Shadow, n_shadows: u64) ?*Self;
     pub const new = gsk_shadow_node_new;
 
 

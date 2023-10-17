@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const graphene = @import("graphene");
-const glib = @import("glib");
 const gsk = @import("../gsk.zig");
+const graphene = @import("graphene");
 const cairo = @import("cairo");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const ContainerNode = extern struct {
@@ -12,7 +12,7 @@ pub const ContainerNode = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gsk_container_node_new(children: [*c][*c]const u8, n_children: u32) ?*Self;
+    extern fn gsk_container_node_new(children: [*c]*gsk.RenderNode, n_children: u32) ?*Self;
     pub const new = gsk_container_node_new;
 
 

@@ -17,7 +17,7 @@ pub const KeyFile = extern struct {
     extern fn g_key_file_get_boolean(self: *Self, group_name: [*c]const u8, key: [*c]const u8) bool;
     pub const getBoolean = g_key_file_get_boolean;
 
-    extern fn g_key_file_get_boolean_list(self: *Self, group_name: [*c]const u8, key: [*c]const u8, length: u64) [*c][*c]const u8;
+    extern fn g_key_file_get_boolean_list(self: *Self, group_name: [*c]const u8, key: [*c]const u8, length: u64) [*c]bool;
     pub const getBooleanList = g_key_file_get_boolean_list;
 
     extern fn g_key_file_get_comment(self: *Self, group_name: [*c]const u8, key: [*c]const u8) [*c]const u8;
@@ -26,7 +26,7 @@ pub const KeyFile = extern struct {
     extern fn g_key_file_get_double(self: *Self, group_name: [*c]const u8, key: [*c]const u8) f64;
     pub const getDouble = g_key_file_get_double;
 
-    extern fn g_key_file_get_double_list(self: *Self, group_name: [*c]const u8, key: [*c]const u8, length: u64) [*c][*c]const u8;
+    extern fn g_key_file_get_double_list(self: *Self, group_name: [*c]const u8, key: [*c]const u8, length: u64) [*c]f64;
     pub const getDoubleList = g_key_file_get_double_list;
 
     extern fn g_key_file_get_groups(self: *Self, length: u64) [*c][*c]const u8;
@@ -38,7 +38,7 @@ pub const KeyFile = extern struct {
     extern fn g_key_file_get_integer(self: *Self, group_name: [*c]const u8, key: [*c]const u8) i32;
     pub const getInteger = g_key_file_get_integer;
 
-    extern fn g_key_file_get_integer_list(self: *Self, group_name: [*c]const u8, key: [*c]const u8, length: u64) [*c][*c]const u8;
+    extern fn g_key_file_get_integer_list(self: *Self, group_name: [*c]const u8, key: [*c]const u8, length: u64) [*c]i32;
     pub const getIntegerList = g_key_file_get_integer_list;
 
     extern fn g_key_file_get_keys(self: *Self, group_name: [*c]const u8, length: u64) [*c][*c]const u8;
@@ -101,7 +101,7 @@ pub const KeyFile = extern struct {
     extern fn g_key_file_set_boolean(self: *Self, group_name: [*c]const u8, key: [*c]const u8, value: bool) void;
     pub const setBoolean = g_key_file_set_boolean;
 
-    extern fn g_key_file_set_boolean_list(self: *Self, group_name: [*c]const u8, key: [*c]const u8, list: [*c][*c]const u8, length: u64) void;
+    extern fn g_key_file_set_boolean_list(self: *Self, group_name: [*c]const u8, key: [*c]const u8, list: [*c]bool, length: u64) void;
     pub const setBooleanList = g_key_file_set_boolean_list;
 
     extern fn g_key_file_set_comment(self: *Self, group_name: [*c]const u8, key: [*c]const u8, comment: [*c]const u8) bool;
@@ -110,7 +110,7 @@ pub const KeyFile = extern struct {
     extern fn g_key_file_set_double(self: *Self, group_name: [*c]const u8, key: [*c]const u8, value: f64) void;
     pub const setDouble = g_key_file_set_double;
 
-    extern fn g_key_file_set_double_list(self: *Self, group_name: [*c]const u8, key: [*c]const u8, list: [*c][*c]const u8, length: u64) void;
+    extern fn g_key_file_set_double_list(self: *Self, group_name: [*c]const u8, key: [*c]const u8, list: [*c]f64, length: u64) void;
     pub const setDoubleList = g_key_file_set_double_list;
 
     extern fn g_key_file_set_int64(self: *Self, group_name: [*c]const u8, key: [*c]const u8, value: i64) void;
@@ -119,7 +119,7 @@ pub const KeyFile = extern struct {
     extern fn g_key_file_set_integer(self: *Self, group_name: [*c]const u8, key: [*c]const u8, value: i32) void;
     pub const setInteger = g_key_file_set_integer;
 
-    extern fn g_key_file_set_integer_list(self: *Self, group_name: [*c]const u8, key: [*c]const u8, list: [*c][*c]const u8, length: u64) void;
+    extern fn g_key_file_set_integer_list(self: *Self, group_name: [*c]const u8, key: [*c]const u8, list: [*c]i32, length: u64) void;
     pub const setIntegerList = g_key_file_set_integer_list;
 
     extern fn g_key_file_set_list_separator(self: *Self, separator: i8) void;

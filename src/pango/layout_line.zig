@@ -29,7 +29,7 @@ pub const LayoutLine = extern struct {
     extern fn pango_layout_line_get_start_index(self: *Self) i32;
     pub const getStartIndex = pango_layout_line_get_start_index;
 
-    extern fn pango_layout_line_get_x_ranges(self: *Self, start_index: i32, end_index: i32, ranges: [*c][*c]const u8, n_ranges: i32) void;
+    extern fn pango_layout_line_get_x_ranges(self: *Self, start_index: i32, end_index: i32, ranges: [*c]i32, n_ranges: i32) void;
     pub const getXRanges = pango_layout_line_get_x_ranges;
 
     extern fn pango_layout_line_index_to_x(self: *Self, index_: i32, trailing: bool, x_pos: i32) void;

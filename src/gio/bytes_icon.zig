@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const BytesIcon = extern struct {
@@ -14,7 +14,7 @@ pub const BytesIcon = extern struct {
     extern fn g_bytes_icon_new(bytes: *glib.Bytes) ?*Self;
     pub const new = g_bytes_icon_new;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -28,10 +28,10 @@ pub const BytesIcon = extern struct {
     extern fn g_bytes_icon_get_bytes(self: *Self) ?*glib.Bytes;
     pub const getBytes = g_bytes_icon_get_bytes;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -40,7 +40,7 @@ pub const BytesIcon = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_loadable_icon_load(self: *Self, size: i32, type: [*c]const u8, cancellable: *gio.Cancellable) ?*gio.InputStream;
@@ -96,10 +96,10 @@ pub const BytesIcon = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
         return @ptrCast(self);
     }
     pub fn asIcon(self: *Self) *gio.Icon {

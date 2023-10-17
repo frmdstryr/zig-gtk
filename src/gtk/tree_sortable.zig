@@ -23,10 +23,10 @@ pub const TreeSortable = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asTreeSortable(self: *Self) *gtk.TreeSortable {
         return @ptrCast(self);
     }
-    pub fn asTreeSortable(self: *Self) *gtk.TreeSortable {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

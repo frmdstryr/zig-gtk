@@ -17,7 +17,7 @@ pub const SimpleAsyncResult = extern struct {
     extern fn g_simple_async_result_new_from_error(source_object: *gobject.Object, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque, error_: *glib.GError) ?*Self;
     pub const newFromError = g_simple_async_result_new_from_error;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -43,10 +43,10 @@ pub const SimpleAsyncResult = extern struct {
     extern fn g_async_result_get_user_data(self: *Self) ?*anyopaque;
     pub const getUserData = g_async_result_get_user_data;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -61,7 +61,7 @@ pub const SimpleAsyncResult = extern struct {
     extern fn g_async_result_legacy_propagate_error(self: *Self) bool;
     pub const legacyPropagateError = g_async_result_legacy_propagate_error;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -120,10 +120,10 @@ pub const SimpleAsyncResult = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asAsyncResult(self: *Self) *gio.AsyncResult {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asAsyncResult(self: *Self) *gio.AsyncResult {
         return @ptrCast(self);
     }
 };

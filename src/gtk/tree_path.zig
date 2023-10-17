@@ -15,7 +15,7 @@ pub const TreePath = extern struct {
     extern fn gtk_tree_path_new_first() ?*Self;
     pub const newFirst = gtk_tree_path_new_first;
 
-    extern fn gtk_tree_path_new_from_indicesv(indices: [*c][*c]const u8, length: u64) ?*Self;
+    extern fn gtk_tree_path_new_from_indicesv(indices: [*c]i32, length: u64) ?*Self;
     pub const newFromIndices = gtk_tree_path_new_from_indicesv;
 
     extern fn gtk_tree_path_new_from_string(path: [*c]const u8) ?*Self;
@@ -41,7 +41,7 @@ pub const TreePath = extern struct {
     extern fn gtk_tree_path_get_depth(self: *Self) i32;
     pub const getDepth = gtk_tree_path_get_depth;
 
-    extern fn gtk_tree_path_get_indices_with_depth(self: *Self, depth: i32) [*c][*c]const u8;
+    extern fn gtk_tree_path_get_indices_with_depth(self: *Self, depth: i32) [*c]i32;
     pub const getIndices = gtk_tree_path_get_indices_with_depth;
 
     extern fn gtk_tree_path_is_ancestor(self: *Self, descendant: *gtk.TreePath) bool;

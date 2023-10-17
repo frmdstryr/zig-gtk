@@ -56,7 +56,7 @@ pub const Matrix = extern struct {
     extern fn graphene_matrix_init_from_2d(self: *Self, xx: f64, yx: f64, xy: f64, yy: f64, x_0: f64, y_0: f64) ?*graphene.Matrix;
     pub const initFrom2D = graphene_matrix_init_from_2d;
 
-    extern fn graphene_matrix_init_from_float(self: *Self, v: [*c][*c]const u8) ?*graphene.Matrix;
+    extern fn graphene_matrix_init_from_float(self: *Self, v: [*c]f32) ?*graphene.Matrix;
     pub const initFromFloat = graphene_matrix_init_from_float;
 
     extern fn graphene_matrix_init_from_matrix(self: *Self, src: *graphene.Matrix) ?*graphene.Matrix;
@@ -167,7 +167,7 @@ pub const Matrix = extern struct {
     extern fn graphene_matrix_to_2d(self: *Self, xx: f64, yx: f64, xy: f64, yy: f64, x_0: f64, y_0: f64) bool;
     pub const to2D = graphene_matrix_to_2d;
 
-    extern fn graphene_matrix_to_float(self: *Self, v: [*c][*c]const u8) void;
+    extern fn graphene_matrix_to_float(self: *Self, v: [*c]f32) void;
     pub const toFloat = graphene_matrix_to_float;
 
     extern fn graphene_matrix_transform_bounds(self: *Self, r: *graphene.Rect, res: graphene.Rect) void;

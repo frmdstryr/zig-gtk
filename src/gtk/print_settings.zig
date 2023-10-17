@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -23,7 +23,7 @@ pub const PrintSettings = extern struct {
     extern fn gtk_print_settings_new_from_key_file(key_file: *glib.KeyFile, group_name: [*c]const u8) ?*Self;
     pub const newFromKeyFile = gtk_print_settings_new_from_key_file;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -91,7 +91,7 @@ pub const PrintSettings = extern struct {
     extern fn gtk_print_settings_get_output_bin(self: *Self) [*c]const u8;
     pub const getOutputBin = gtk_print_settings_get_output_bin;
 
-    extern fn gtk_print_settings_get_page_ranges(self: *Self, num_ranges: i32) [*c][*c]const u8;
+    extern fn gtk_print_settings_get_page_ranges(self: *Self, num_ranges: i32) [*c]gtk.PageRange;
     pub const getPageRanges = gtk_print_settings_get_page_ranges;
 
     extern fn gtk_print_settings_get_page_set(self: *Self) gtk.PageSet;
@@ -136,13 +136,13 @@ pub const PrintSettings = extern struct {
     extern fn gtk_print_settings_get_use_color(self: *Self) bool;
     pub const getUseColor = gtk_print_settings_get_use_color;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
     extern fn gtk_print_settings_has_key(self: *Self, key: [*c]const u8) bool;
     pub const hasKey = gtk_print_settings_has_key;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -151,7 +151,7 @@ pub const PrintSettings = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn gtk_print_settings_load_file(self: *Self, file_name: [*c]const u8) bool;
@@ -217,7 +217,7 @@ pub const PrintSettings = extern struct {
     extern fn gtk_print_settings_set_output_bin(self: *Self, output_bin: [*c]const u8) void;
     pub const setOutputBin = gtk_print_settings_set_output_bin;
 
-    extern fn gtk_print_settings_set_page_ranges(self: *Self, page_ranges: [*c][*c]const u8, num_ranges: i32) void;
+    extern fn gtk_print_settings_set_page_ranges(self: *Self, page_ranges: [*c]gtk.PageRange, num_ranges: i32) void;
     pub const setPageRanges = gtk_print_settings_set_page_ranges;
 
     extern fn gtk_print_settings_set_page_set(self: *Self, page_set: gtk.PageSet) void;

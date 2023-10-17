@@ -47,7 +47,7 @@ pub const Rect = extern struct {
     extern fn graphene_rect_get_top_right(self: *Self, p: graphene.Point) void;
     pub const getTopRight = graphene_rect_get_top_right;
 
-    extern fn graphene_rect_get_vertices(self: *Self, vertices: [*c][*c]const u8) void;
+    extern fn graphene_rect_get_vertices(self: *Self, vertices: [*c]graphene.Vec2) void;
     pub const getVertices = graphene_rect_get_vertices;
 
     extern fn graphene_rect_get_width(self: *Self) f32;

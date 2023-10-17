@@ -17,7 +17,7 @@ pub const DataInputStream = extern struct {
     extern fn g_buffered_input_stream_new_sized(base_stream: *gio.InputStream, size: u64) ?*Self;
     pub const newSized = g_buffered_input_stream_new_sized;
 
-    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c][*c]const u8) ?*Self;
+    extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
     pub const newv = g_object_newv;
 
 
@@ -70,13 +70,13 @@ pub const DataInputStream = extern struct {
     extern fn g_data_input_stream_get_newline_type(self: *Self) gio.DataStreamNewlineType;
     pub const getNewlineType = g_data_input_stream_get_newline_type;
 
-    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c][*c]const u8) void;
+    extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
     extern fn g_input_stream_has_pending(self: *Self) bool;
     pub const hasPending = g_input_stream_has_pending;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c][*c]const u8) void;
+    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
     pub const installProperties = g_object_class_install_properties;
 
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
@@ -88,7 +88,7 @@ pub const DataInputStream = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c][*c]const u8;
+    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -97,25 +97,25 @@ pub const DataInputStream = extern struct {
     extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
     pub const overrideProperty = g_object_class_override_property;
 
-    extern fn g_buffered_input_stream_peek(self: *Self, buffer: [*c][*c]const u8, offset: u64, count: u64) u64;
+    extern fn g_buffered_input_stream_peek(self: *Self, buffer: [*c]u8, offset: u64, count: u64) u64;
     pub const peek = g_buffered_input_stream_peek;
 
-    extern fn g_buffered_input_stream_peek_buffer(self: *Self, count: u64) [*c][*c]const u8;
+    extern fn g_buffered_input_stream_peek_buffer(self: *Self, count: u64) [*c]u8;
     pub const peekBuffer = g_buffered_input_stream_peek_buffer;
 
-    extern fn g_input_stream_read(self: *Self, buffer: [*c][*c]const u8, count: u64, cancellable: *gio.Cancellable) i64;
+    extern fn g_input_stream_read(self: *Self, buffer: [*c]u8, count: u64, cancellable: *gio.Cancellable) i64;
     pub const read = g_input_stream_read;
 
-    extern fn g_input_stream_read_all(self: *Self, buffer: [*c][*c]const u8, count: u64, bytes_read: u64, cancellable: *gio.Cancellable) bool;
+    extern fn g_input_stream_read_all(self: *Self, buffer: [*c]u8, count: u64, bytes_read: u64, cancellable: *gio.Cancellable) bool;
     pub const readAll = g_input_stream_read_all;
 
-    extern fn g_input_stream_read_all_async(self: *Self, buffer: [*c][*c]const u8, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_input_stream_read_all_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readAllAsync = g_input_stream_read_all_async;
 
     extern fn g_input_stream_read_all_finish(self: *Self, result: *gio.AsyncResult, bytes_read: u64) bool;
     pub const readAllFinish = g_input_stream_read_all_finish;
 
-    extern fn g_input_stream_read_async(self: *Self, buffer: [*c][*c]const u8, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_input_stream_read_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readAsync = g_input_stream_read_async;
 
     extern fn g_data_input_stream_read_byte(self: *Self, cancellable: *gio.Cancellable) u8;
@@ -142,13 +142,13 @@ pub const DataInputStream = extern struct {
     extern fn g_data_input_stream_read_int64(self: *Self, cancellable: *gio.Cancellable) i64;
     pub const readInt64 = g_data_input_stream_read_int64;
 
-    extern fn g_data_input_stream_read_line(self: *Self, length: u64, cancellable: *gio.Cancellable) [*c][*c]const u8;
+    extern fn g_data_input_stream_read_line(self: *Self, length: u64, cancellable: *gio.Cancellable) [*c]u8;
     pub const readLine = g_data_input_stream_read_line;
 
     extern fn g_data_input_stream_read_line_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readLineAsync = g_data_input_stream_read_line_async;
 
-    extern fn g_data_input_stream_read_line_finish(self: *Self, result: *gio.AsyncResult, length: u64) [*c][*c]const u8;
+    extern fn g_data_input_stream_read_line_finish(self: *Self, result: *gio.AsyncResult, length: u64) [*c]u8;
     pub const readLineFinish = g_data_input_stream_read_line_finish;
 
     extern fn g_data_input_stream_read_line_finish_utf8(self: *Self, result: *gio.AsyncResult, length: u64) [*c]const u8;
@@ -246,22 +246,22 @@ pub const DataInputStream = extern struct {
 
 
     // Bases
+    pub fn asFilterInputStream(self: *Self) *gio.FilterInputStream {
+        return @ptrCast(self);
+    }
     pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub fn asSeekable(self: *Self) *gio.Seekable {
-        return @ptrCast(self);
-    }
-    pub fn asInputStream(self: *Self) *gio.InputStream {
         return @ptrCast(self);
     }
     pub fn asBufferedInputStream(self: *Self) *gio.BufferedInputStream {
         return @ptrCast(self);
     }
+    pub fn asSeekable(self: *Self) *gio.Seekable {
+        return @ptrCast(self);
+    }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asFilterInputStream(self: *Self) *gio.FilterInputStream {
+    pub fn asInputStream(self: *Self) *gio.InputStream {
         return @ptrCast(self);
     }
 };

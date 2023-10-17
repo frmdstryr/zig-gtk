@@ -11,7 +11,7 @@ pub const GrabBrokenEvent = extern struct {
     // Constructors
 
     // Methods
-    extern fn gdk_event_get_axes(self: *Self, axes: [*c][*c]const u8, n_axes: u32) bool;
+    extern fn gdk_event_get_axes(self: *Self, axes: [*c]f64, n_axes: u32) bool;
     pub const getAxes = gdk_event_get_axes;
 
     extern fn gdk_event_get_axis(self: *Self, axis_use: gdk.AxisUse, value: f64) bool;
@@ -35,7 +35,7 @@ pub const GrabBrokenEvent = extern struct {
     extern fn gdk_grab_broken_event_get_grab_surface(self: *Self) ?*gdk.Surface;
     pub const getGrabSurface = gdk_grab_broken_event_get_grab_surface;
 
-    extern fn gdk_event_get_history(self: *Self, out_n_coords: u32) [*c][*c]const u8;
+    extern fn gdk_event_get_history(self: *Self, out_n_coords: u32) [*c]gdk.TimeCoord;
     pub const getHistory = gdk_event_get_history;
 
     extern fn gdk_grab_broken_event_get_implicit(self: *Self) bool;

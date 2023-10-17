@@ -40,7 +40,7 @@ TYPE_MAP = {
     "GError": "*glib.GError",
     "error": "*glib.GError",
     "glist": "*glib.List",
-    "array": "[*c][*c]const u8",
+    #"array": "[*c][*c]const u8", # TODO: Determine constness
     "GType": "usize",
 }
 
@@ -75,6 +75,34 @@ SIGNAL_METHODS = """
         return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
 """
+
+# List of methods to redefine
+METHOD_OVERRIDES: dict[type, dict[str, list[str]]] = {
+    GdkPixbuf.Pixbuf: {
+        "get_pixels": [
+            "    extern fn gdk_pixbuf_get_pixels_with_length(self: *Self, length: u32) [*c][*c]u8;",
+            "    pub const getPixelsWithLength = gdk_pixbuf_get_pixels_with_length;",
+            "",
+            "    extern fn gdk_pixbuf_get_pixels(self: *Self) [*c][*c]u8;",
+            "    pub const getPixels = gdk_pixbuf_get_pixels;",
+            "",
+        ]
+    }
+
+}
+
+# List of methods to add
+EXTRA_METHODS: dict[type, list[str]] = {
+    Gtk.Application: [
+        "",
+        '    extern fn g_application_run(self: *Self, argc: c_int, [*c][*c]const u8) c_int;',
+        '    pub const run = g_application_run;',
+    ],
+    GObject.Object: [
+        '    extern fn g_object_unref(self: *Self) void;',
+        '    pub const unref = g_object_unref;',
+    ]
+}
 
 def generate_enums(enums: list) -> list[str]:
     out = HEADER_LINES + [
@@ -175,15 +203,26 @@ def func_arg_type(func, arg)  -> Optional[str]:
         return "?*anyopaque"
     if t in TYPE_MAP:
         return TYPE_MAP[t]
-    if t == "interface":
-        i = atype.get_interface()
-        ptr = "*" if atype.is_pointer() else ""
-        return f"{ptr}{i.get_namespace().lower()}.{i.get_name()}"
+    if t == "interface" and (it := interface_type_to_string(atype)):
+        return it
+    if t == "array":
+        ptype = atype.get_param_type(0)
+        pt = ptype.get_tag_as_string()
+        if pt in TYPE_MAP:
+            return f"[*c]{TYPE_MAP[pt]}"
+        elif pt == "interface" and (it := interface_type_to_string(ptype)):
+            return f"[*c]{it}"
+        t = f"[]{pt}"
     if t not in UNKNOWN_TYPES:
         UNKNOWN_TYPES.add(t)
     print(f"  Unknown arg type {func} {arg} ({t})")
     return None
 
+
+def interface_type_to_string(type_info) -> Optional[str]:
+    i = type_info.get_interface()
+    ptr = "*" if type_info.is_pointer() else ""
+    return f"{ptr}{i.get_namespace().lower()}.{i.get_name()}"
 
 def func_return_type(func) -> Optional[str]:
     rtype = func.get_return_type()
@@ -192,10 +231,16 @@ def func_return_type(func) -> Optional[str]:
         return "?*anyopaque"
     if t in TYPE_MAP:
         return TYPE_MAP[t]
-    if t == "interface":
-        i = rtype.get_interface()
-        ptr = "*" if rtype.is_pointer() else ""
-        return f"{ptr}{i.get_namespace().lower()}.{i.get_name()}"
+    if t == "interface" and (it := interface_type_to_string(rtype)):
+        return it
+    if t == "array":
+        ptype = rtype.get_param_type(0)
+        pt = ptype.get_tag_as_string()
+        if pt in TYPE_MAP:
+            return f"[*c]{TYPE_MAP[pt]}"
+        if pt == "interface" and (it := interface_type_to_string(ptype)):
+            return f"[*c]{it}"
+        t = f"[]{pt}"
     if t not in UNKNOWN_TYPES:
         UNKNOWN_TYPES.add(t)
     print(f"  Unknown return type {func} ({t})")
@@ -243,6 +288,8 @@ def generate_class(ns: str, Cls: type):
 
     def maybe_add_import(arg_type):
         if arg_type and '.' in arg_type:
+            if arg_type.startswith("[*c]"):
+                arg_type = arg_type[4:]
             imports.add(arg_type.split(".")[0].strip("?*").lower())
 
     out.append("")
@@ -268,8 +315,15 @@ def generate_class(ns: str, Cls: type):
     out.append("")
     out.append("    // Methods")
     used = set()
+    method_overrides = METHOD_OVERRIDES.get(Cls, {})
     for f in methods:
         name = clean_zig_name(camel_case(f.get_name()))
+
+        # HACK: A way to override...
+        if f.get_name() in method_overrides:
+            out.extend(method_overrides[f.get_name()])
+            continue
+
         comment = ""
         rtype = func_return_type(f)
         if rtype and rtype.startswith("*"):
@@ -297,18 +351,9 @@ def generate_class(ns: str, Cls: type):
         out.append("    %spub const %s = %s;" % (comment, name, f.get_symbol()))
         out.append("")
 
-
-    if Cls is Gio.Application or Cls is Gtk.Application:
-        out.extend([
-            "",
-            '    extern fn g_application_run(self: *Self, argc: c_int, [*c][*c]const u8) c_int;',
-            '    pub const run = g_application_run;',
-        ])
-    if Cls is GObject.Object:
-        out.extend([
-            '    extern fn g_object_unref(self: *Self) void;',
-            '    pub const unref = g_object_unref;',
-        ])
+    # HACK: A way to override...
+    if extra_methods := EXTRA_METHODS.get(Cls):
+        out.extend(extra_methods)
 
     if has_connect:
         out.append(SIGNAL_METHODS)

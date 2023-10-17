@@ -21,7 +21,7 @@ pub const VariantType = extern struct {
     extern fn g_variant_type_new_maybe(element: *glib.VariantType) ?*Self;
     pub const newMaybe = g_variant_type_new_maybe;
 
-    extern fn g_variant_type_new_tuple(items: [*c][*c]const u8, length: i32) ?*Self;
+    extern fn g_variant_type_new_tuple(items: [*c]*glib.VariantType, length: i32) ?*Self;
     pub const newTuple = g_variant_type_new_tuple;
 
 
