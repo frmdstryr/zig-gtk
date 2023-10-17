@@ -102,6 +102,7 @@ pub const TcpConnection = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -124,13 +125,13 @@ pub const TcpConnection = extern struct {
 
 
     // Bases
+    pub fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
     pub fn asIOStream(self: *Self) *gio.IOStream {
         return @ptrCast(self);
     }
     pub fn asSocketConnection(self: *Self) *gio.SocketConnection {
-        return @ptrCast(self);
-    }
-    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
-const gdk = @import("gdk");
 const glib = @import("glib");
+const gdk = @import("gdk");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const NeverTrigger = extern struct {
@@ -73,6 +73,7 @@ pub const NeverTrigger = extern struct {
 
     extern fn gtk_shortcut_trigger_trigger(self: *Self, event: *gdk.Event, enable_mnemonics: bool) gdk.KeyMatch;
     pub const trigger = gtk_shortcut_trigger_trigger;
+
 
     // Signals
     pub inline fn connectSignal(

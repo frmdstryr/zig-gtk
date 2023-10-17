@@ -66,6 +66,7 @@ pub const TestDBus = extern struct {
     extern fn g_test_dbus_up(self: *Self) void;
     pub const up = g_test_dbus_up;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

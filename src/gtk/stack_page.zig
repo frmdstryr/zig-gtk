@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const StackPage = extern struct {
@@ -105,6 +105,7 @@ pub const StackPage = extern struct {
     extern fn gtk_accessible_update_state_value(self: *Self, n_states: i32, states: [*c][*c]const u8, values: [*c][*c]const u8) void;
     pub const updateState = gtk_accessible_update_state_value;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -130,10 +131,10 @@ pub const StackPage = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asAccessible(self: *Self) *gtk.Accessible {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asAccessible(self: *Self) *gtk.Accessible {
         return @ptrCast(self);
     }
 };

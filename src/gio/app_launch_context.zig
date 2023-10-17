@@ -67,6 +67,7 @@ pub const AppLaunchContext = extern struct {
     extern fn g_app_launch_context_unsetenv(self: *Self, variable: [*c]const u8) void;
     pub const unsetenv = g_app_launch_context_unsetenv;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

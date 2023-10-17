@@ -72,6 +72,7 @@ pub const UnixFDMessage = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -94,10 +95,10 @@ pub const UnixFDMessage = extern struct {
 
 
     // Bases
-    pub fn asSocketControlMessage(self: *Self) *gio.SocketControlMessage {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asSocketControlMessage(self: *Self) *gio.SocketControlMessage {
         return @ptrCast(self);
     }
 };

@@ -65,6 +65,7 @@ pub const SignalGroup = extern struct {
     extern fn g_signal_group_unblock(self: *Self) void;
     pub const unblock = g_signal_group_unblock;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

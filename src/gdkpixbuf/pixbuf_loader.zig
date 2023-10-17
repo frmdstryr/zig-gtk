@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdkpixbuf = @import("../gdkpixbuf.zig");
 const gobject = @import("gobject");
 const glib = @import("glib");
+const gdkpixbuf = @import("../gdkpixbuf.zig");
 const c = @import("c.zig");
 
 pub const PixbufLoader = extern struct {
@@ -75,6 +75,7 @@ pub const PixbufLoader = extern struct {
 
     extern fn gdk_pixbuf_loader_write_bytes(self: *Self, buffer: *glib.Bytes) bool;
     pub const writeBytes = gdk_pixbuf_loader_write_bytes;
+
 
     // Signals
     pub inline fn connectSignal(

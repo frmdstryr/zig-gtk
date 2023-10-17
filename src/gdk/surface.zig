@@ -124,6 +124,7 @@ pub const Surface = extern struct {
     extern fn gdk_surface_translate_coordinates(self: *Self, to: *gdk.Surface, x: f64, y: f64) bool;
     pub const translateCoordinates = gdk_surface_translate_coordinates;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const pango = @import("pango");
 const gdk = @import("gdk");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const TextIter = extern struct {

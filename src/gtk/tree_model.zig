@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const TreeModel = extern struct {
@@ -50,10 +50,10 @@ pub const TreeModel = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asTreeModel(self: *Self) *gtk.TreeModel {
         return @ptrCast(self);
     }
-    pub fn asTreeModel(self: *Self) *gtk.TreeModel {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

@@ -160,6 +160,7 @@ pub const FileOutputStream = extern struct {
     extern fn g_output_stream_writev_finish(self: *Self, result: *gio.AsyncResult, bytes_written: u64) bool;
     pub const writevFinish = g_output_stream_writev_finish;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -182,9 +183,6 @@ pub const FileOutputStream = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
@@ -192,6 +190,9 @@ pub const FileOutputStream = extern struct {
         return @ptrCast(self);
     }
     pub fn asOutputStream(self: *Self) *gio.OutputStream {
+        return @ptrCast(self);
+    }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

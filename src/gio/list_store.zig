@@ -82,6 +82,7 @@ pub const ListStore = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -104,9 +105,6 @@ pub const ListStore = extern struct {
 
 
     // Bases
-    pub fn asListStore(self: *Self) *gio.ListStore {
-        return @ptrCast(self);
-    }
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
@@ -114,6 +112,9 @@ pub const ListStore = extern struct {
         return @ptrCast(self);
     }
     pub fn asListModel(self: *Self) *gio.ListModel {
+        return @ptrCast(self);
+    }
+    pub fn asListStore(self: *Self) *gio.ListStore {
         return @ptrCast(self);
     }
 };

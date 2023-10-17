@@ -85,6 +85,7 @@ pub const TlsDatabase = extern struct {
     extern fn g_tls_database_verify_chain_finish(self: *Self, result: *gio.AsyncResult) gio.TlsCertificateFlags;
     pub const verifyChainFinish = g_tls_database_verify_chain_finish;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

@@ -184,6 +184,7 @@ pub const DBusMessage = extern struct {
     extern fn g_dbus_message_to_gerror(self: *Self) bool;
     pub const toGerror = g_dbus_message_to_gerror;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

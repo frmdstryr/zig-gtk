@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gdk = @import("gdk");
-const gobject = @import("gobject");
 const gsk = @import("../gsk.zig");
 const cairo = @import("cairo");
+const gobject = @import("gobject");
 const graphene = @import("graphene");
 const c = @import("c.zig");
 
@@ -68,6 +68,7 @@ pub const Renderer = extern struct {
 
     extern fn gsk_renderer_unrealize(self: *Self) void;
     pub const unrealize = gsk_renderer_unrealize;
+
 
     // Signals
     pub inline fn connectSignal(

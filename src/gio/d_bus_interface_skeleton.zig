@@ -88,6 +88,7 @@ pub const DBusInterfaceSkeleton = extern struct {
     extern fn g_dbus_interface_skeleton_unexport_from_connection(self: *Self, connection: *gio.DBusConnection) void;
     pub const unexportFromConnection = g_dbus_interface_skeleton_unexport_from_connection;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -113,10 +114,10 @@ pub const DBusInterfaceSkeleton = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asDBusInterface(self: *Self) *gio.DBusInterface {
         return @ptrCast(self);
     }
-    pub fn asDBusInterface(self: *Self) *gio.DBusInterface {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

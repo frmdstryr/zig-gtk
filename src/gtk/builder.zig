@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const Builder = extern struct {
@@ -111,6 +111,7 @@ pub const Builder = extern struct {
 
     extern fn gtk_builder_value_from_string_type(self: *Self, type: usize, string: [*c]const u8, value: gobject.Value) bool;
     pub const valueFromStringType = gtk_builder_value_from_string_type;
+
 
     // Signals
     pub inline fn connectSignal(

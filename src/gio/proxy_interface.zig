@@ -11,6 +11,7 @@ pub const ProxyInterface = extern struct {
     // Constructors
 
     // Methods
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

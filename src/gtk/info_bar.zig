@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
-const pango = @import("pango");
-const gobject = @import("gobject");
 const gio = @import("gio");
+const gdk = @import("gdk");
 const gsk = @import("gsk");
 const cairo = @import("cairo");
+const gobject = @import("gobject");
+const pango = @import("pango");
+const graphene = @import("graphene");
 const glib = @import("glib");
 const gtk = @import("../gtk.zig");
-const graphene = @import("graphene");
 const c = @import("c.zig");
 
 pub const InfoBar = extern struct {
@@ -639,6 +639,7 @@ pub const InfoBar = extern struct {
 
     extern fn gtk_accessible_update_state_value(self: *Self, n_states: i32, states: [*c][*c]const u8, values: [*c][*c]const u8) void;
     pub const updateState = gtk_accessible_update_state_value;
+
 
     // Signals
     pub inline fn connectSignal(

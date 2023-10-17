@@ -133,6 +133,7 @@ pub const OutputStream = extern struct {
     extern fn g_output_stream_writev_finish(self: *Self, result: *gio.AsyncResult, bytes_written: u64) bool;
     pub const writevFinish = g_output_stream_writev_finish;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

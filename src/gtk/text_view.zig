@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
-const pango = @import("pango");
-const gobject = @import("gobject");
 const gio = @import("gio");
+const gdk = @import("gdk");
 const gsk = @import("gsk");
 const cairo = @import("cairo");
+const gobject = @import("gobject");
+const pango = @import("pango");
+const graphene = @import("graphene");
 const glib = @import("glib");
 const gtk = @import("../gtk.zig");
-const graphene = @import("graphene");
 const c = @import("c.zig");
 
 pub const TextView = extern struct {
@@ -841,6 +841,7 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_window_to_buffer_coords(self: *Self, win: gtk.TextWindowType, window_x: i32, window_y: i32, buffer_x: i32, buffer_y: i32) void;
     pub const windowToBufferCoords = gtk_text_view_window_to_buffer_coords;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -863,13 +864,13 @@ pub const TextView = extern struct {
 
 
     // Bases
-    pub fn asWidget(self: *Self) *gtk.Widget {
+    pub fn asScrollable(self: *Self) *gtk.Scrollable {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asScrollable(self: *Self) *gtk.Scrollable {
+    pub fn asWidget(self: *Self) *gtk.Widget {
         return @ptrCast(self);
     }
 };

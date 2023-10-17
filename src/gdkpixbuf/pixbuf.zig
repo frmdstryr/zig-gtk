@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdkpixbuf = @import("../gdkpixbuf.zig");
-const gobject = @import("gobject");
 const gio = @import("gio");
 const glib = @import("glib");
+const gdkpixbuf = @import("../gdkpixbuf.zig");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const Pixbuf = extern struct {
@@ -207,6 +207,7 @@ pub const Pixbuf = extern struct {
     extern fn g_icon_to_string(self: *Self) [*c]const u8;
     pub const toString = g_icon_to_string;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -232,16 +233,16 @@ pub const Pixbuf = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
         return @ptrCast(self);
     }
     pub fn asPixbuf(self: *Self) *gdkpixbuf.Pixbuf {
         return @ptrCast(self);
     }
-    pub fn asIcon(self: *Self) *gio.Icon {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
+    pub fn asIcon(self: *Self) *gio.Icon {
         return @ptrCast(self);
     }
 };

@@ -44,6 +44,9 @@ pub const Object = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

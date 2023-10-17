@@ -24,6 +24,7 @@ pub const Proxy = extern struct {
     extern fn g_proxy_supports_hostname(self: *Self) bool;
     pub const supportsHostname = g_proxy_supports_hostname;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

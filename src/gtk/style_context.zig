@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const gdk = @import("gdk");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const StyleContext = extern struct {
@@ -102,6 +102,7 @@ pub const StyleContext = extern struct {
 
     extern fn gtk_style_context_to_string(self: *Self, flags: gtk.StyleContextPrintFlags) [*c]const u8;
     pub const toString = gtk_style_context_to_string;
+
 
     // Signals
     pub inline fn connectSignal(

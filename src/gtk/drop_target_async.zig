@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const gdk = @import("gdk");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const DropTargetAsync = extern struct {
@@ -100,6 +100,7 @@ pub const DropTargetAsync = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -122,10 +123,10 @@ pub const DropTargetAsync = extern struct {
 
 
     // Bases
-    pub fn asEventController(self: *Self) *gtk.EventController {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asEventController(self: *Self) *gtk.EventController {
         return @ptrCast(self);
     }
 };

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
-const gio = @import("../gio.zig");
 const glib = @import("glib");
+const gio = @import("../gio.zig");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const DBusConnection = extern struct {
@@ -187,6 +187,7 @@ pub const DBusConnection = extern struct {
     extern fn g_dbus_connection_unregister_subtree(self: *Self, registration_id: u32) bool;
     pub const unregisterSubtree = g_dbus_connection_unregister_subtree;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -212,10 +213,10 @@ pub const DBusConnection = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asInitable(self: *Self) *gio.Initable {
+    pub fn asAsyncInitable(self: *Self) *gio.AsyncInitable {
         return @ptrCast(self);
     }
-    pub fn asAsyncInitable(self: *Self) *gio.AsyncInitable {
+    pub fn asInitable(self: *Self) *gio.Initable {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {

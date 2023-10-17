@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
-const gio = @import("../gio.zig");
 const glib = @import("glib");
+const gio = @import("../gio.zig");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const MemoryOutputStream = extern struct {
@@ -181,6 +181,7 @@ pub const MemoryOutputStream = extern struct {
     extern fn g_pollable_output_stream_writev_nonblocking(self: *Self, vectors: [*c][*c]const u8, n_vectors: u64, bytes_written: u64, cancellable: *gio.Cancellable) gio.PollableReturn;
     pub const writevNonblocking = g_pollable_output_stream_writev_nonblocking;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -206,16 +207,16 @@ pub const MemoryOutputStream = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asSeekable(self: *Self) *gio.Seekable {
         return @ptrCast(self);
     }
     pub fn asOutputStream(self: *Self) *gio.OutputStream {
         return @ptrCast(self);
     }
-    pub fn asPollableOutputStream(self: *Self) *gio.PollableOutputStream {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asSeekable(self: *Self) *gio.Seekable {
+    pub fn asPollableOutputStream(self: *Self) *gio.PollableOutputStream {
         return @ptrCast(self);
     }
 };

@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const BoxLayout = extern struct {
@@ -90,6 +90,7 @@ pub const BoxLayout = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -115,13 +116,13 @@ pub const BoxLayout = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
     pub fn asLayoutManager(self: *Self) *gtk.LayoutManager {
         return @ptrCast(self);
     }
     pub fn asOrientable(self: *Self) *gtk.Orientable {
+        return @ptrCast(self);
+    }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

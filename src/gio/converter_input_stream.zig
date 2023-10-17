@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
-const gio = @import("../gio.zig");
 const glib = @import("glib");
+const gio = @import("../gio.zig");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const ConverterInputStream = extern struct {
@@ -130,6 +130,7 @@ pub const ConverterInputStream = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -155,16 +156,16 @@ pub const ConverterInputStream = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asFilterInputStream(self: *Self) *gio.FilterInputStream {
+    pub fn asInputStream(self: *Self) *gio.InputStream {
         return @ptrCast(self);
     }
     pub fn asPollableInputStream(self: *Self) *gio.PollableInputStream {
         return @ptrCast(self);
     }
-    pub fn asInputStream(self: *Self) *gio.InputStream {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asFilterInputStream(self: *Self) *gio.FilterInputStream {
         return @ptrCast(self);
     }
 };

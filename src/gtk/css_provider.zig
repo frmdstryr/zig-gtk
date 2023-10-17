@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const gio = @import("gio");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const CssProvider = extern struct {
@@ -63,6 +63,7 @@ pub const CssProvider = extern struct {
 
     extern fn gtk_css_provider_to_string(self: *Self) [*c]const u8;
     pub const toString = gtk_css_provider_to_string;
+
 
     // Signals
     pub inline fn connectSignal(

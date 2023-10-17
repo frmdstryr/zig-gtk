@@ -93,6 +93,7 @@ pub const SubprocessLauncher = extern struct {
     extern fn g_subprocess_launcher_unsetenv(self: *Self, variable: [*c]const u8) void;
     pub const unsetenv = g_subprocess_launcher_unsetenv;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

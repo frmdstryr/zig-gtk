@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdkpixbuf = @import("../gdkpixbuf.zig");
 const gobject = @import("gobject");
 const gio = @import("gio");
 const glib = @import("glib");
+const gdkpixbuf = @import("../gdkpixbuf.zig");
 const c = @import("c.zig");
 
 pub const PixbufNonAnim = extern struct {
@@ -76,6 +76,7 @@ pub const PixbufNonAnim = extern struct {
 
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
+
 
     // Signals
     pub inline fn connectSignal(

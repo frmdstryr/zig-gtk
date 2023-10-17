@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const glib = @import("glib");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const TreeSelection = extern struct {
@@ -90,6 +90,7 @@ pub const TreeSelection = extern struct {
 
     extern fn gtk_tree_selection_unselect_range(self: *Self, start_path: *gtk.TreePath, end_path: *gtk.TreePath) void;
     pub const unselectRange = gtk_tree_selection_unselect_range;
+
 
     // Signals
     pub inline fn connectSignal(

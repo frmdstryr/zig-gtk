@@ -67,6 +67,7 @@ pub const CairoContext = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -89,10 +90,10 @@ pub const CairoContext = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asDrawContext(self: *Self) *gdk.DrawContext {
         return @ptrCast(self);
     }
-    pub fn asDrawContext(self: *Self) *gdk.DrawContext {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

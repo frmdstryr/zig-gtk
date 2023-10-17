@@ -103,6 +103,7 @@ pub const FileIOStream = extern struct {
     extern fn g_seekable_truncate(self: *Self, offset: i64, cancellable: *gio.Cancellable) bool;
     pub const truncate = g_seekable_truncate;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -125,16 +126,16 @@ pub const FileIOStream = extern struct {
 
 
     // Bases
-    pub fn asIOStream(self: *Self) *gio.IOStream {
-        return @ptrCast(self);
-    }
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asIOStream(self: *Self) *gio.IOStream {
         return @ptrCast(self);
     }
     pub fn asSeekable(self: *Self) *gio.Seekable {
+        return @ptrCast(self);
+    }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

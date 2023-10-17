@@ -91,6 +91,7 @@ pub const TlsCertificate = extern struct {
     extern fn g_tls_certificate_verify(self: *Self, identity: *gio.SocketConnectable, trusted_ca: *gio.TlsCertificate) gio.TlsCertificateFlags;
     pub const verify = g_tls_certificate_verify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

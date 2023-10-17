@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const pango = @import("../pango.zig");
 const gobject = @import("gobject");
+const pango = @import("../pango.zig");
 const c = @import("c.zig");
 
 pub const Coverage = extern struct {
@@ -68,6 +68,7 @@ pub const Coverage = extern struct {
 
     extern fn pango_coverage_unref(self: *Self) void;
     pub const unref = pango_coverage_unref;
+
 
     // Signals
     pub inline fn connectSignal(

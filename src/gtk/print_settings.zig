@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const glib = @import("glib");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const PrintSettings = extern struct {
@@ -273,6 +273,7 @@ pub const PrintSettings = extern struct {
 
     extern fn gtk_print_settings_unset(self: *Self, key: [*c]const u8) void;
     pub const unset = gtk_print_settings_unset;
+
 
     // Signals
     pub inline fn connectSignal(

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
-const gio = @import("../gio.zig");
 const glib = @import("glib");
+const gio = @import("../gio.zig");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const Application = extern struct {
@@ -205,6 +205,7 @@ pub const Application = extern struct {
 
     extern fn g_application_run(self: *Self, argc: c_int, [*c][*c]const u8) c_int;
     pub const run = g_application_run;
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -227,13 +228,13 @@ pub const Application = extern struct {
 
 
     // Bases
+    pub fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
     pub fn asActionMap(self: *Self) *gio.ActionMap {
         return @ptrCast(self);
     }
     pub fn asApplication(self: *Self) *gio.Application {
-        return @ptrCast(self);
-    }
-    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asActionGroup(self: *Self) *gio.ActionGroup {

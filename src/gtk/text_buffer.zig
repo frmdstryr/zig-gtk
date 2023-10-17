@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const gdk = @import("gdk");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const TextBuffer = extern struct {
@@ -234,6 +234,7 @@ pub const TextBuffer = extern struct {
 
     extern fn gtk_text_buffer_undo(self: *Self) void;
     pub const undo = gtk_text_buffer_undo;
+
 
     // Signals
     pub inline fn connectSignal(

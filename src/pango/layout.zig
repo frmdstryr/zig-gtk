@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const pango = @import("../pango.zig");
 const gobject = @import("gobject");
+const pango = @import("../pango.zig");
 const glib = @import("glib");
 const c = @import("c.zig");
 
@@ -237,6 +237,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_xy_to_index(self: *Self, x: i32, y: i32, index_: i32, trailing: i32) bool;
     pub const xyToIndex = pango_layout_xy_to_index;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -259,10 +260,10 @@ pub const Layout = extern struct {
 
 
     // Bases
-    pub fn asLayout(self: *Self) *pango.Layout {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asLayout(self: *Self) *pango.Layout {
         return @ptrCast(self);
     }
 };

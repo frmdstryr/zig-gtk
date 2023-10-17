@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
 const gobject = @import("gobject");
-const gdk = @import("../gdk.zig");
 const gio = @import("gio");
+const glib = @import("glib");
+const gdk = @import("../gdk.zig");
 const c = @import("c.zig");
 
 pub const Display = extern struct {
@@ -124,6 +124,7 @@ pub const Display = extern struct {
 
     extern fn gdk_display_translate_key(self: *Self, keycode: u32, state: gdk.ModifierType, group: i32, keyval: u32, effective_group: i32, level: i32, consumed: gdk.ModifierType) bool;
     pub const translateKey = gdk_display_translate_key;
+
 
     // Signals
     pub inline fn connectSignal(

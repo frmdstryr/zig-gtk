@@ -54,7 +54,8 @@ ZIG_KEYWORDS = {
 }
 
 
-SIGNAL_METHODS = """    // Signals
+SIGNAL_METHODS = """
+    // Signals
     pub inline fn connectSignal(
         self: *Self,
         signal: [:0]const u8,
@@ -302,6 +303,11 @@ def generate_class(ns: str, Cls: type):
             "",
             '    extern fn g_application_run(self: *Self, argc: c_int, [*c][*c]const u8) c_int;',
             '    pub const run = g_application_run;',
+        ])
+    if Cls is GObject.Object:
+        out.extend([
+            '    extern fn g_object_unref(self: *Self) void;',
+            '    pub const unref = g_object_unref;',
         ])
 
     if has_connect:

@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
-const gdk = @import("gdk");
 const glib = @import("glib");
+const gdk = @import("gdk");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const CellArea = extern struct {
@@ -203,6 +203,7 @@ pub const CellArea = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -228,16 +229,16 @@ pub const CellArea = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asBuildable(self: *Self) *gtk.Buildable {
-        return @ptrCast(self);
-    }
-    pub fn asCellLayout(self: *Self) *gtk.CellLayout {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
     pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asCellLayout(self: *Self) *gtk.CellLayout {
+        return @ptrCast(self);
+    }
+    pub fn asBuildable(self: *Self) *gtk.Buildable {
         return @ptrCast(self);
     }
 };

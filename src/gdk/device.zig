@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const pango = @import("pango");
 const gobject = @import("gobject");
+const pango = @import("pango");
 const gdk = @import("../gdk.zig");
 const c = @import("c.zig");
 
@@ -96,6 +96,7 @@ pub const Device = extern struct {
 
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
+
 
     // Signals
     pub inline fn connectSignal(

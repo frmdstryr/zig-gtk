@@ -73,6 +73,7 @@ pub const PropertyAction = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -98,10 +99,10 @@ pub const PropertyAction = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asAction(self: *Self) *gio.Action {
         return @ptrCast(self);
     }
-    pub fn asAction(self: *Self) *gio.Action {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

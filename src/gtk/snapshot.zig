@@ -1,13 +1,13 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gdk = @import("gdk");
-const pango = @import("pango");
-const gobject = @import("gobject");
 const gsk = @import("gsk");
 const cairo = @import("cairo");
+const gobject = @import("gobject");
+const pango = @import("pango");
+const graphene = @import("graphene");
 const glib = @import("glib");
 const gtk = @import("../gtk.zig");
-const graphene = @import("graphene");
 const c = @import("c.zig");
 
 pub const Snapshot = extern struct {
@@ -182,6 +182,7 @@ pub const Snapshot = extern struct {
 
     extern fn gtk_snapshot_translate_3d(self: *Self, point: *graphene.Point3D) void;
     pub const translate3D = gtk_snapshot_translate_3d;
+
 
     // Signals
     pub inline fn connectSignal(

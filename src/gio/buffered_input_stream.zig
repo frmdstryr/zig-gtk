@@ -160,6 +160,7 @@ pub const BufferedInputStream = extern struct {
     extern fn g_seekable_truncate(self: *Self, offset: i64, cancellable: *gio.Cancellable) bool;
     pub const truncate = g_seekable_truncate;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -185,16 +186,16 @@ pub const BufferedInputStream = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
-    pub fn asFilterInputStream(self: *Self) *gio.FilterInputStream {
+    pub fn asSeekable(self: *Self) *gio.Seekable {
         return @ptrCast(self);
     }
     pub fn asInputStream(self: *Self) *gio.InputStream {
         return @ptrCast(self);
     }
-    pub fn asSeekable(self: *Self) *gio.Seekable {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asFilterInputStream(self: *Self) *gio.FilterInputStream {
         return @ptrCast(self);
     }
 };

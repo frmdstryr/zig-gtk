@@ -79,6 +79,7 @@ pub const DBusObjectManagerServer = extern struct {
     extern fn g_dbus_object_manager_server_unexport(self: *Self, object_path: [*c]const u8) bool;
     pub const unexport = g_dbus_object_manager_server_unexport;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -101,13 +102,13 @@ pub const DBusObjectManagerServer = extern struct {
 
 
     // Bases
-    pub fn asDBusObjectManager(self: *Self) *gio.DBusObjectManager {
-        return @ptrCast(self);
-    }
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asDBusObjectManager(self: *Self) *gio.DBusObjectManager {
         return @ptrCast(self);
     }
 };

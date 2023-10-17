@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
 const gobject = @import("gobject");
-const gdk = @import("../gdk.zig");
 const gio = @import("gio");
+const glib = @import("glib");
+const gdk = @import("../gdk.zig");
 const c = @import("c.zig");
 
 pub const AppLaunchContext = extern struct {
@@ -80,6 +80,7 @@ pub const AppLaunchContext = extern struct {
     extern fn g_app_launch_context_unsetenv(self: *Self, variable: [*c]const u8) void;
     pub const unsetenv = g_app_launch_context_unsetenv;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -102,10 +103,10 @@ pub const AppLaunchContext = extern struct {
 
 
     // Bases
-    pub fn asAppLaunchContext(self: *Self) *gio.AppLaunchContext {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asAppLaunchContext(self: *Self) *gio.AppLaunchContext {
         return @ptrCast(self);
     }
 };

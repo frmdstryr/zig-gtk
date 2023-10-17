@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const Editable = extern struct {
@@ -77,10 +77,10 @@ pub const Editable = extern struct {
 
 
     // Bases
-    pub fn asEditable(self: *Self) *gtk.Editable {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asEditable(self: *Self) *gtk.Editable {
         return @ptrCast(self);
     }
 };

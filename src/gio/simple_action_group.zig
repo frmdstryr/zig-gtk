@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
-const gio = @import("../gio.zig");
 const glib = @import("glib");
+const gio = @import("../gio.zig");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const SimpleActionGroup = extern struct {
@@ -112,6 +112,7 @@ pub const SimpleActionGroup = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -134,10 +135,10 @@ pub const SimpleActionGroup = extern struct {
 
 
     // Bases
-    pub fn asActionMap(self: *Self) *gio.ActionMap {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asActionMap(self: *Self) *gio.ActionMap {
         return @ptrCast(self);
     }
     pub fn asActionGroup(self: *Self) *gio.ActionGroup {

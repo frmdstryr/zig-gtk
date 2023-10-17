@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const gdk = @import("../gdk.zig");
 const gio = @import("gio");
+const gdk = @import("../gdk.zig");
 const cairo = @import("cairo");
 const c = @import("c.zig");
 
@@ -68,6 +68,7 @@ pub const VulkanContext = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -90,16 +91,16 @@ pub const VulkanContext = extern struct {
 
 
     // Bases
-    pub fn asInitable(self: *Self) *gio.Initable {
-        return @ptrCast(self);
-    }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asDrawContext(self: *Self) *gdk.DrawContext {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asDrawContext(self: *Self) *gdk.DrawContext {
+    pub fn asInitable(self: *Self) *gio.Initable {
+        return @ptrCast(self);
+    }
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

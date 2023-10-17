@@ -66,6 +66,7 @@ pub const Credentials = extern struct {
     extern fn g_credentials_to_string(self: *Self) [*c]const u8;
     pub const toString = g_credentials_to_string;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

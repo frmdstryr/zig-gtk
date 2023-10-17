@@ -67,6 +67,7 @@ pub const Vfs = extern struct {
     extern fn g_vfs_unregister_uri_scheme(self: *Self, scheme: [*c]const u8) bool;
     pub const unregisterUriScheme = g_vfs_unregister_uri_scheme;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

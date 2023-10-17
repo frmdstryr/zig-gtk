@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
-const gdk = @import("gdk");
 const glib = @import("glib");
+const gdk = @import("gdk");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const GestureStylus = extern struct {
@@ -173,6 +173,7 @@ pub const GestureStylus = extern struct {
     extern fn gtk_gesture_ungroup(self: *Self) void;
     pub const ungroup = gtk_gesture_ungroup;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -195,16 +196,16 @@ pub const GestureStylus = extern struct {
 
 
     // Bases
-    pub fn asEventController(self: *Self) *gtk.EventController {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asGestureSingle(self: *Self) *gtk.GestureSingle {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asGesture(self: *Self) *gtk.Gesture {
         return @ptrCast(self);
     }
-    pub fn asGesture(self: *Self) *gtk.Gesture {
+    pub fn asEventController(self: *Self) *gtk.EventController {
         return @ptrCast(self);
     }
 };

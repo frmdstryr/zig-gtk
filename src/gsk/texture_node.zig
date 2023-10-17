@@ -3,8 +3,8 @@ const std = @import("std");
 const gdk = @import("gdk");
 const gsk = @import("../gsk.zig");
 const cairo = @import("cairo");
-const glib = @import("glib");
 const graphene = @import("graphene");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const TextureNode = extern struct {

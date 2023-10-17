@@ -66,6 +66,7 @@ pub const SimpleProxyResolver = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -88,10 +89,10 @@ pub const SimpleProxyResolver = extern struct {
 
 
     // Bases
-    pub fn asProxyResolver(self: *Self) *gio.ProxyResolver {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asProxyResolver(self: *Self) *gio.ProxyResolver {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {

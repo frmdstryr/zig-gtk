@@ -43,6 +43,9 @@ pub fn build(b: *std.Build) void {
     const glib = b.createModule(.{
         .source_file = .{ .path = "deps/zig-gtk/src/glib.zig" },
     });
+    const gobject = b.createModule(.{
+        .source_file = .{ .path = "deps/zig-gtk/src/gobject.zig" },
+    });
     const gio = b.createModule(.{
         .source_file = .{ .path = "deps/zig-gtk/src/gio.zig" },
         .dependencies = &.{
@@ -54,6 +57,7 @@ pub fn build(b: *std.Build) void {
         .dependencies = &.{
             .{ .name = "glib", .module = glib },
             .{ .name = "gio", .module = gio },
+            .{ .name = "gobject", .module = gobject },
         },
     });
 
@@ -71,6 +75,7 @@ pub fn build(b: *std.Build) void {
     exe.addModule("gtk", gtk);
     exe.addModule("gdk", gdk);
     exe.addModule("gio", gio);
+    exe.addModule("gobject", gobject);
 
     for (include_paths) |p| {
         exe.addIncludePath(.{.path=p});

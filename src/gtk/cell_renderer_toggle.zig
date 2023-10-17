@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const gdk = @import("gdk");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const CellRendererToggle = extern struct {
@@ -148,6 +148,7 @@ pub const CellRendererToggle = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -170,10 +171,10 @@ pub const CellRendererToggle = extern struct {
 
 
     // Bases
-    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
         return @ptrCast(self);
     }
     pub fn asCellRenderer(self: *Self) *gtk.CellRenderer {

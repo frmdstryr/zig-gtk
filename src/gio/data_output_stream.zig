@@ -190,6 +190,7 @@ pub const DataOutputStream = extern struct {
     extern fn g_output_stream_writev_finish(self: *Self, result: *gio.AsyncResult, bytes_written: u64) bool;
     pub const writevFinish = g_output_stream_writev_finish;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -218,10 +219,10 @@ pub const DataOutputStream = extern struct {
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asOutputStream(self: *Self) *gio.OutputStream {
+    pub fn asSeekable(self: *Self) *gio.Seekable {
         return @ptrCast(self);
     }
-    pub fn asSeekable(self: *Self) *gio.Seekable {
+    pub fn asOutputStream(self: *Self) *gio.OutputStream {
         return @ptrCast(self);
     }
     pub fn asFilterOutputStream(self: *Self) *gio.FilterOutputStream {

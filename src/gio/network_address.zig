@@ -69,6 +69,7 @@ pub const NetworkAddress = extern struct {
     extern fn g_socket_connectable_to_string(self: *Self) [*c]const u8;
     pub const toString = g_socket_connectable_to_string;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -91,13 +92,13 @@ pub const NetworkAddress = extern struct {
 
 
     // Bases
-    pub fn asSocketConnectable(self: *Self) *gio.SocketConnectable {
-        return @ptrCast(self);
-    }
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asSocketConnectable(self: *Self) *gio.SocketConnectable {
         return @ptrCast(self);
     }
 };

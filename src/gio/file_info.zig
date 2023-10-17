@@ -253,6 +253,7 @@ pub const FileInfo = extern struct {
     extern fn g_file_info_unset_attribute_mask(self: *Self) void;
     pub const unsetAttributeMask = g_file_info_unset_attribute_mask;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

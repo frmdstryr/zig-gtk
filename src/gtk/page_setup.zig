@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const glib = @import("glib");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const PageSetup = extern struct {
@@ -126,6 +126,7 @@ pub const PageSetup = extern struct {
 
     extern fn gtk_page_setup_to_key_file(self: *Self, key_file: *glib.KeyFile, group_name: [*c]const u8) void;
     pub const toKeyFile = gtk_page_setup_to_key_file;
+
 
     // Signals
     pub inline fn connectSignal(

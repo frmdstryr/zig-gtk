@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
-const gdk = @import("gdk");
 const glib = @import("glib");
+const gdk = @import("gdk");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const TreeModelFilter = extern struct {
@@ -119,6 +119,7 @@ pub const TreeModelFilter = extern struct {
     extern fn gtk_tree_model_unref_node(self: *Self, iter: *gtk.TreeIter) void;
     pub const unrefNode = gtk_tree_model_unref_node;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -141,13 +142,13 @@ pub const TreeModelFilter = extern struct {
 
 
     // Bases
-    pub fn asTreeModelFilter(self: *Self) *gtk.TreeModelFilter {
-        return @ptrCast(self);
-    }
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
+        return @ptrCast(self);
+    }
+    pub fn asTreeModelFilter(self: *Self) *gtk.TreeModelFilter {
         return @ptrCast(self);
     }
     pub fn asTreeModel(self: *Self) *gtk.TreeModel {

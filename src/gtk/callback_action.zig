@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const glib = @import("glib");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const CallbackAction = extern struct {
@@ -61,6 +61,7 @@ pub const CallbackAction = extern struct {
     extern fn gtk_shortcut_action_to_string(self: *Self) [*c]const u8;
     pub const toString = gtk_shortcut_action_to_string;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -83,10 +84,10 @@ pub const CallbackAction = extern struct {
 
 
     // Bases
-    pub fn asShortcutAction(self: *Self) *gtk.ShortcutAction {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asShortcutAction(self: *Self) *gtk.ShortcutAction {
         return @ptrCast(self);
     }
 };

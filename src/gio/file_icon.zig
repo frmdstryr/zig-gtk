@@ -70,6 +70,7 @@ pub const FileIcon = extern struct {
     extern fn g_icon_to_string(self: *Self) [*c]const u8;
     pub const toString = g_icon_to_string;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -98,10 +99,10 @@ pub const FileIcon = extern struct {
     pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
         return @ptrCast(self);
     }
-    pub fn asIcon(self: *Self) *gio.Icon {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asIcon(self: *Self) *gio.Icon {
         return @ptrCast(self);
     }
 };

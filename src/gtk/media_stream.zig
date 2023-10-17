@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
-const gdk = @import("gdk");
 const glib = @import("glib");
+const gdk = @import("gdk");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const MediaStream = extern struct {
@@ -161,6 +161,7 @@ pub const MediaStream = extern struct {
     extern fn gtk_media_stream_update(self: *Self, timestamp: i64) void;
     pub const update = gtk_media_stream_update;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -186,10 +187,10 @@ pub const MediaStream = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asPaintable(self: *Self) *gdk.Paintable {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asPaintable(self: *Self) *gdk.Paintable {
         return @ptrCast(self);
     }
 };

@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
 pub const StringFilter = extern struct {
@@ -81,6 +81,7 @@ pub const StringFilter = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -103,10 +104,10 @@ pub const StringFilter = extern struct {
 
 
     // Bases
-    pub fn asFilter(self: *Self) *gtk.Filter {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asFilter(self: *Self) *gtk.Filter {
         return @ptrCast(self);
     }
 };

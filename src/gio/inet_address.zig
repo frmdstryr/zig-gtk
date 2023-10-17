@@ -99,6 +99,7 @@ pub const InetAddress = extern struct {
     extern fn g_inet_address_to_string(self: *Self) [*c]const u8;
     pub const toString = g_inet_address_to_string;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,

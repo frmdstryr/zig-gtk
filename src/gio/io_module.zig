@@ -75,6 +75,7 @@ pub const IOModule = extern struct {
     extern fn g_type_module_use(self: *Self) bool;
     pub const use = g_type_module_use;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -97,13 +98,13 @@ pub const IOModule = extern struct {
 
 
     // Bases
-    pub fn asTypeModule(self: *Self) *gobject.TypeModule {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asTypePlugin(self: *Self) *gobject.TypePlugin {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asTypeModule(self: *Self) *gobject.TypeModule {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {

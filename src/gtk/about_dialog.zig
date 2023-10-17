@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
-const pango = @import("pango");
-const gobject = @import("gobject");
 const gio = @import("gio");
+const gdk = @import("gdk");
 const gsk = @import("gsk");
 const cairo = @import("cairo");
+const gobject = @import("gobject");
+const pango = @import("pango");
+const graphene = @import("graphene");
 const glib = @import("glib");
 const gtk = @import("../gtk.zig");
-const graphene = @import("graphene");
 const c = @import("c.zig");
 
 pub const AboutDialog = extern struct {
@@ -868,6 +868,7 @@ pub const AboutDialog = extern struct {
     extern fn gtk_accessible_update_state_value(self: *Self, n_states: i32, states: [*c][*c]const u8, values: [*c][*c]const u8) void;
     pub const updateState = gtk_accessible_update_state_value;
 
+
     // Signals
     pub inline fn connectSignal(
         self: *Self,
@@ -890,10 +891,7 @@ pub const AboutDialog = extern struct {
 
 
     // Bases
-    pub fn asShortcutManager(self: *Self) *gtk.ShortcutManager {
-        return @ptrCast(self);
-    }
-    pub fn asWidget(self: *Self) *gtk.Widget {
+    pub fn asNative(self: *Self) *gtk.Native {
         return @ptrCast(self);
     }
     pub fn asWindow(self: *Self) *gtk.Window {
@@ -902,10 +900,13 @@ pub const AboutDialog = extern struct {
     pub fn asRoot(self: *Self) *gtk.Root {
         return @ptrCast(self);
     }
-    pub fn asNative(self: *Self) *gtk.Native {
+    pub fn asShortcutManager(self: *Self) *gtk.ShortcutManager {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asWidget(self: *Self) *gtk.Widget {
         return @ptrCast(self);
     }
 };
