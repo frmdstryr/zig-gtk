@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
+const pango = @import("pango");
 const gobject = @import("gobject");
 const gdk = @import("../gdk.zig");
-const pango = @import("pango");
 const c = @import("c.zig");
 
 pub const Device = extern struct {

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
+const pango = @import("../pango.zig");
 const gobject = @import("gobject");
 const glib = @import("glib");
-const pango = @import("../pango.zig");
 const c = @import("c.zig");
 
 pub const Layout = extern struct {

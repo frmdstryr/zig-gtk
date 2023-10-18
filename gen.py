@@ -554,7 +554,7 @@ def generate_class(ns: str, Cls: type):
             out.append("    }")
 
     # Imporst needed
-    for imp in imports:
+    for imp in sorted(list(imports)):
         mod = imp.lower()
         comment = "// " if mod in EXCLUDED_IMPORTS else ""
         if mod == ns.lower():

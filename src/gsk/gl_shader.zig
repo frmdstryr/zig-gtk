@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gsk = @import("../gsk.zig");
-const glib = @import("glib");
 const graphene = @import("graphene");
+const gobject = @import("gobject");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const GLShader = extern struct {

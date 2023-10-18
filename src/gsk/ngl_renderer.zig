@@ -1,10 +1,10 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
-const gobject = @import("gobject");
-const cairo = @import("cairo");
-const graphene = @import("graphene");
 const gsk = @import("../gsk.zig");
+const graphene = @import("graphene");
+const gobject = @import("gobject");
+const gdk = @import("gdk");
+const cairo = @import("cairo");
 const c = @import("c.zig");
 
 pub const NglRenderer = extern struct {

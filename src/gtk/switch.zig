@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
-const glib = @import("glib");
-const gobject = @import("gobject");
-const gtk = @import("../gtk.zig");
-const cairo = @import("cairo");
-const graphene = @import("graphene");
 const pango = @import("pango");
+const gtk = @import("../gtk.zig");
 const gsk = @import("gsk");
+const graphene = @import("graphene");
+const gobject = @import("gobject");
+const glib = @import("glib");
 const gio = @import("gio");
+const gdk = @import("gdk");
+const cairo = @import("cairo");
 const c = @import("c.zig");
 
 pub const Switch = extern struct {

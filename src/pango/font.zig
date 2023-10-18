@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
-// const harfbuzz = @import("harfbuzz");
-const glib = @import("glib");
 const pango = @import("../pango.zig");
+// const harfbuzz = @import("harfbuzz");
+const gobject = @import("gobject");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const Font = extern struct {

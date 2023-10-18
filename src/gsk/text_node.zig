@@ -1,11 +1,11 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
-const glib = @import("glib");
-const cairo = @import("cairo");
-const graphene = @import("graphene");
 const pango = @import("pango");
 const gsk = @import("../gsk.zig");
+const graphene = @import("graphene");
+const glib = @import("glib");
+const gdk = @import("gdk");
+const cairo = @import("cairo");
 const c = @import("c.zig");
 
 pub const TextNode = extern struct {
