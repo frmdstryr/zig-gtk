@@ -14,7 +14,7 @@ pub const Quad = extern struct {
 
 
     // Methods
-    extern fn graphene_quad_bounds(self: *Self, r: graphene.Rect) void;
+    extern fn graphene_quad_bounds(self: *Self, r: *graphene.Rect) void;
     pub const bounds = graphene_quad_bounds;
 
     extern fn graphene_quad_contains(self: *Self, p: *graphene.Point) bool;

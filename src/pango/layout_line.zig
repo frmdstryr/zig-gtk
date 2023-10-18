@@ -11,7 +11,7 @@ pub const LayoutLine = extern struct {
     // Constructors
 
     // Methods
-    extern fn pango_layout_line_get_extents(self: *Self, ink_rect: pango.Rectangle, logical_rect: pango.Rectangle) void;
+    extern fn pango_layout_line_get_extents(self: *Self, ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) void;
     pub const getExtents = pango_layout_line_get_extents;
 
     extern fn pango_layout_line_get_height(self: *Self, height: i32) void;
@@ -20,7 +20,7 @@ pub const LayoutLine = extern struct {
     extern fn pango_layout_line_get_length(self: *Self) i32;
     pub const getLength = pango_layout_line_get_length;
 
-    extern fn pango_layout_line_get_pixel_extents(self: *Self, ink_rect: pango.Rectangle, logical_rect: pango.Rectangle) void;
+    extern fn pango_layout_line_get_pixel_extents(self: *Self, ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) void;
     pub const getPixelExtents = pango_layout_line_get_pixel_extents;
 
     extern fn pango_layout_line_get_resolved_direction(self: *Self) pango.Direction;

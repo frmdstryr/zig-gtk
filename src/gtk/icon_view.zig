@@ -79,16 +79,16 @@ pub const IconView = extern struct {
     extern fn gtk_cell_layout_clear_attributes(self: *Self, cell: *gtk.CellRenderer) void;
     pub const clearAttributes = gtk_cell_layout_clear_attributes;
 
-    extern fn gtk_widget_compute_bounds(self: *Self, target: *gtk.Widget, out_bounds: graphene.Rect) bool;
+    extern fn gtk_widget_compute_bounds(self: *Self, target: *gtk.Widget, out_bounds: *graphene.Rect) bool;
     pub const computeBounds = gtk_widget_compute_bounds;
 
     extern fn gtk_widget_compute_expand(self: *Self, orientation: gtk.Orientation) bool;
     pub const computeExpand = gtk_widget_compute_expand;
 
-    extern fn gtk_widget_compute_point(self: *Self, target: *gtk.Widget, point: *graphene.Point, out_point: graphene.Point) bool;
+    extern fn gtk_widget_compute_point(self: *Self, target: *gtk.Widget, point: *graphene.Point, out_point: *graphene.Point) bool;
     pub const computePoint = gtk_widget_compute_point;
 
-    extern fn gtk_widget_compute_transform(self: *Self, target: *gtk.Widget, out_transform: graphene.Matrix) bool;
+    extern fn gtk_widget_compute_transform(self: *Self, target: *gtk.Widget, out_transform: *graphene.Matrix) bool;
     pub const computeTransform = gtk_widget_compute_transform;
 
     extern fn gtk_widget_contains(self: *Self, x: f64, y: f64) bool;
@@ -136,7 +136,7 @@ pub const IconView = extern struct {
     extern fn gtk_widget_get_allocated_width(self: *Self) i32;
     pub const getAllocatedWidth = gtk_widget_get_allocated_width;
 
-    extern fn gtk_widget_get_allocation(self: *Self, allocation: gdk.Rectangle) void;
+    extern fn gtk_widget_get_allocation(self: *Self, allocation: *gdk.Rectangle) void;
     pub const getAllocation = gtk_widget_get_allocation;
 
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
@@ -145,7 +145,7 @@ pub const IconView = extern struct {
     extern fn gtk_cell_layout_get_area(self: *Self) ?*gtk.CellArea;
     pub const getArea = gtk_cell_layout_get_area;
 
-    extern fn gtk_scrollable_get_border(self: *Self, border: gtk.Border) bool;
+    extern fn gtk_scrollable_get_border(self: *Self, border: *gtk.Border) bool;
     pub const getBorder = gtk_scrollable_get_border;
 
     extern fn gtk_buildable_get_buildable_id(self: *Self) [*c]const u8;
@@ -157,7 +157,7 @@ pub const IconView = extern struct {
     extern fn gtk_widget_get_can_target(self: *Self) bool;
     pub const getCanTarget = gtk_widget_get_can_target;
 
-    extern fn gtk_icon_view_get_cell_rect(self: *Self, path: *gtk.TreePath, cell: ?*gtk.CellRenderer, rect: gdk.Rectangle) bool;
+    extern fn gtk_icon_view_get_cell_rect(self: *Self, path: *gtk.TreePath, cell: ?*gtk.CellRenderer, rect: *gdk.Rectangle) bool;
     pub const getCellRect = gtk_icon_view_get_cell_rect;
 
     extern fn gtk_cell_layout_get_cells(self: *Self) ?*glib.List;
@@ -310,7 +310,7 @@ pub const IconView = extern struct {
     extern fn gtk_icon_view_get_pixbuf_column(self: *Self) i32;
     pub const getPixbufColumn = gtk_icon_view_get_pixbuf_column;
 
-    extern fn gtk_widget_get_preferred_size(self: *Self, minimum_size: gtk.Requisition, natural_size: gtk.Requisition) void;
+    extern fn gtk_widget_get_preferred_size(self: *Self, minimum_size: *gtk.Requisition, natural_size: *gtk.Requisition) void;
     pub const getPreferredSize = gtk_widget_get_preferred_size;
 
     extern fn gtk_widget_get_prev_sibling(self: *Self) ?*gtk.Widget;
@@ -376,7 +376,7 @@ pub const IconView = extern struct {
     extern fn gtk_icon_view_get_tooltip_column(self: *Self) i32;
     pub const getTooltipColumn = gtk_icon_view_get_tooltip_column;
 
-    extern fn gtk_icon_view_get_tooltip_context(self: *Self, x: i32, y: i32, keyboard_tip: bool, model: *gtk.TreeModel, path: *gtk.TreePath, iter: gtk.TreeIter) bool;
+    extern fn gtk_icon_view_get_tooltip_context(self: *Self, x: i32, y: i32, keyboard_tip: bool, model: *gtk.TreeModel, path: *gtk.TreePath, iter: *gtk.TreeIter) bool;
     pub const getTooltipContext = gtk_icon_view_get_tooltip_context;
 
     extern fn gtk_widget_get_tooltip_markup(self: *Self) [*c]const u8;

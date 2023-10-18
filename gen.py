@@ -373,6 +373,8 @@ def func_arg_type(func, arg) -> Optional[str]:
     if t in TYPE_MAP:
         return TYPE_MAP[t]
     if t == "interface" and (it := interface_type_to_string(atype)):
+        if arg.is_caller_allocates() and not it.startswith("*"):
+            it = f"*{it}" # Arg is modification?
         if it.startswith("*") and arg.may_be_null():
             return f"?{it}"
         return it

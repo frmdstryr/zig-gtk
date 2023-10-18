@@ -73,7 +73,7 @@ pub const TextBuffer = extern struct {
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
     pub const findProperty = g_object_class_find_property;
 
-    extern fn gtk_text_buffer_get_bounds(self: *Self, start: gtk.TextIter, end: gtk.TextIter) void;
+    extern fn gtk_text_buffer_get_bounds(self: *Self, start: *gtk.TextIter, end: *gtk.TextIter) void;
     pub const getBounds = gtk_text_buffer_get_bounds;
 
     extern fn gtk_text_buffer_get_can_redo(self: *Self) bool;
@@ -88,7 +88,7 @@ pub const TextBuffer = extern struct {
     extern fn gtk_text_buffer_get_enable_undo(self: *Self) bool;
     pub const getEnableUndo = gtk_text_buffer_get_enable_undo;
 
-    extern fn gtk_text_buffer_get_end_iter(self: *Self, iter: gtk.TextIter) void;
+    extern fn gtk_text_buffer_get_end_iter(self: *Self, iter: *gtk.TextIter) void;
     pub const getEndIter = gtk_text_buffer_get_end_iter;
 
     extern fn gtk_text_buffer_get_has_selection(self: *Self) bool;
@@ -97,22 +97,22 @@ pub const TextBuffer = extern struct {
     extern fn gtk_text_buffer_get_insert(self: *Self) ?*gtk.TextMark;
     pub const getInsert = gtk_text_buffer_get_insert;
 
-    extern fn gtk_text_buffer_get_iter_at_child_anchor(self: *Self, iter: gtk.TextIter, anchor: *gtk.TextChildAnchor) void;
+    extern fn gtk_text_buffer_get_iter_at_child_anchor(self: *Self, iter: *gtk.TextIter, anchor: *gtk.TextChildAnchor) void;
     pub const getIterAtChildAnchor = gtk_text_buffer_get_iter_at_child_anchor;
 
-    extern fn gtk_text_buffer_get_iter_at_line(self: *Self, iter: gtk.TextIter, line_number: i32) bool;
+    extern fn gtk_text_buffer_get_iter_at_line(self: *Self, iter: *gtk.TextIter, line_number: i32) bool;
     pub const getIterAtLine = gtk_text_buffer_get_iter_at_line;
 
-    extern fn gtk_text_buffer_get_iter_at_line_index(self: *Self, iter: gtk.TextIter, line_number: i32, byte_index: i32) bool;
+    extern fn gtk_text_buffer_get_iter_at_line_index(self: *Self, iter: *gtk.TextIter, line_number: i32, byte_index: i32) bool;
     pub const getIterAtLineIndex = gtk_text_buffer_get_iter_at_line_index;
 
-    extern fn gtk_text_buffer_get_iter_at_line_offset(self: *Self, iter: gtk.TextIter, line_number: i32, char_offset: i32) bool;
+    extern fn gtk_text_buffer_get_iter_at_line_offset(self: *Self, iter: *gtk.TextIter, line_number: i32, char_offset: i32) bool;
     pub const getIterAtLineOffset = gtk_text_buffer_get_iter_at_line_offset;
 
-    extern fn gtk_text_buffer_get_iter_at_mark(self: *Self, iter: gtk.TextIter, mark: *gtk.TextMark) void;
+    extern fn gtk_text_buffer_get_iter_at_mark(self: *Self, iter: *gtk.TextIter, mark: *gtk.TextMark) void;
     pub const getIterAtMark = gtk_text_buffer_get_iter_at_mark;
 
-    extern fn gtk_text_buffer_get_iter_at_offset(self: *Self, iter: gtk.TextIter, char_offset: i32) void;
+    extern fn gtk_text_buffer_get_iter_at_offset(self: *Self, iter: *gtk.TextIter, char_offset: i32) void;
     pub const getIterAtOffset = gtk_text_buffer_get_iter_at_offset;
 
     extern fn gtk_text_buffer_get_line_count(self: *Self) i32;
@@ -136,7 +136,7 @@ pub const TextBuffer = extern struct {
     extern fn gtk_text_buffer_get_slice(self: *Self, start: *gtk.TextIter, end: *gtk.TextIter, include_hidden_chars: bool) [*c]const u8;
     pub const getSlice = gtk_text_buffer_get_slice;
 
-    extern fn gtk_text_buffer_get_start_iter(self: *Self, iter: gtk.TextIter) void;
+    extern fn gtk_text_buffer_get_start_iter(self: *Self, iter: *gtk.TextIter) void;
     pub const getStartIter = gtk_text_buffer_get_start_iter;
 
     extern fn gtk_text_buffer_get_tag_table(self: *Self) ?*gtk.TextTagTable;

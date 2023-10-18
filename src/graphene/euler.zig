@@ -62,16 +62,16 @@ pub const Euler = extern struct {
     extern fn graphene_euler_init_with_order(self: *Self, x: f32, y: f32, z: f32, order: graphene.EulerOrder) ?*graphene.Euler;
     pub const initWithOrder = graphene_euler_init_with_order;
 
-    extern fn graphene_euler_reorder(self: *Self, order: graphene.EulerOrder, res: graphene.Euler) void;
+    extern fn graphene_euler_reorder(self: *Self, order: graphene.EulerOrder, res: *graphene.Euler) void;
     pub const reorder = graphene_euler_reorder;
 
-    extern fn graphene_euler_to_matrix(self: *Self, res: graphene.Matrix) void;
+    extern fn graphene_euler_to_matrix(self: *Self, res: *graphene.Matrix) void;
     pub const toMatrix = graphene_euler_to_matrix;
 
-    extern fn graphene_euler_to_quaternion(self: *Self, res: graphene.Quaternion) void;
+    extern fn graphene_euler_to_quaternion(self: *Self, res: *graphene.Quaternion) void;
     pub const toQuaternion = graphene_euler_to_quaternion;
 
-    extern fn graphene_euler_to_vec3(self: *Self, res: graphene.Vec3) void;
+    extern fn graphene_euler_to_vec3(self: *Self, res: *graphene.Vec3) void;
     pub const toVec3 = graphene_euler_to_vec3;
 
 };

@@ -25,19 +25,19 @@ pub const StyleContext = extern struct {
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
     pub const findProperty = g_object_class_find_property;
 
-    extern fn gtk_style_context_get_border(self: *Self, border: gtk.Border) void;
+    extern fn gtk_style_context_get_border(self: *Self, border: *gtk.Border) void;
     pub const getBorder = gtk_style_context_get_border;
 
-    extern fn gtk_style_context_get_color(self: *Self, color: gdk.RGBA) void;
+    extern fn gtk_style_context_get_color(self: *Self, color: *gdk.RGBA) void;
     pub const getColor = gtk_style_context_get_color;
 
     extern fn gtk_style_context_get_display(self: *Self) ?*gdk.Display;
     pub const getDisplay = gtk_style_context_get_display;
 
-    extern fn gtk_style_context_get_margin(self: *Self, margin: gtk.Border) void;
+    extern fn gtk_style_context_get_margin(self: *Self, margin: *gtk.Border) void;
     pub const getMargin = gtk_style_context_get_margin;
 
-    extern fn gtk_style_context_get_padding(self: *Self, padding: gtk.Border) void;
+    extern fn gtk_style_context_get_padding(self: *Self, padding: *gtk.Border) void;
     pub const getPadding = gtk_style_context_get_padding;
 
     extern fn gtk_style_context_get_scale(self: *Self) i32;
@@ -64,7 +64,7 @@ pub const StyleContext = extern struct {
     extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
-    extern fn gtk_style_context_lookup_color(self: *Self, color_name: [*c]const u8, color: gdk.RGBA) bool;
+    extern fn gtk_style_context_lookup_color(self: *Self, color_name: [*c]const u8, color: *gdk.RGBA) bool;
     pub const lookupColor = gtk_style_context_lookup_color;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;

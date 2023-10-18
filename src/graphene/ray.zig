@@ -20,10 +20,10 @@ pub const Ray = extern struct {
     extern fn graphene_ray_free(self: *Self) void;
     pub const free = graphene_ray_free;
 
-    extern fn graphene_ray_get_closest_point_to_point(self: *Self, p: *graphene.Point3D, res: graphene.Point3D) void;
+    extern fn graphene_ray_get_closest_point_to_point(self: *Self, p: *graphene.Point3D, res: *graphene.Point3D) void;
     pub const getClosestPointToPoint = graphene_ray_get_closest_point_to_point;
 
-    extern fn graphene_ray_get_direction(self: *Self, direction: graphene.Vec3) void;
+    extern fn graphene_ray_get_direction(self: *Self, direction: *graphene.Vec3) void;
     pub const getDirection = graphene_ray_get_direction;
 
     extern fn graphene_ray_get_distance_to_plane(self: *Self, p: *graphene.Plane) f32;
@@ -32,10 +32,10 @@ pub const Ray = extern struct {
     extern fn graphene_ray_get_distance_to_point(self: *Self, p: *graphene.Point3D) f32;
     pub const getDistanceToPoint = graphene_ray_get_distance_to_point;
 
-    extern fn graphene_ray_get_origin(self: *Self, origin: graphene.Point3D) void;
+    extern fn graphene_ray_get_origin(self: *Self, origin: *graphene.Point3D) void;
     pub const getOrigin = graphene_ray_get_origin;
 
-    extern fn graphene_ray_get_position_at(self: *Self, t: f32, position: graphene.Point3D) void;
+    extern fn graphene_ray_get_position_at(self: *Self, t: f32, position: *graphene.Point3D) void;
     pub const getPositionAt = graphene_ray_get_position_at;
 
     extern fn graphene_ray_init(self: *Self, origin: ?*graphene.Point3D, direction: ?*graphene.Vec3) ?*graphene.Ray;

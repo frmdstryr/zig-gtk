@@ -17,10 +17,10 @@ pub const GlyphString = extern struct {
     extern fn pango_glyph_string_copy(self: *Self) ?*pango.GlyphString;
     pub const copy = pango_glyph_string_copy;
 
-    extern fn pango_glyph_string_extents(self: *Self, font: *pango.Font, ink_rect: pango.Rectangle, logical_rect: pango.Rectangle) void;
+    extern fn pango_glyph_string_extents(self: *Self, font: *pango.Font, ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) void;
     pub const extents = pango_glyph_string_extents;
 
-    extern fn pango_glyph_string_extents_range(self: *Self, start: i32, end: i32, font: *pango.Font, ink_rect: pango.Rectangle, logical_rect: pango.Rectangle) void;
+    extern fn pango_glyph_string_extents_range(self: *Self, start: i32, end: i32, font: *pango.Font, ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) void;
     pub const extentsRange = pango_glyph_string_extents_range;
 
     extern fn pango_glyph_string_free(self: *Self) void;

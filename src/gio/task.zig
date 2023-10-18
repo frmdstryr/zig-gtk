@@ -94,7 +94,7 @@ pub const Task = extern struct {
     extern fn g_task_propagate_pointer(self: *Self) ?*anyopaque;
     pub const propagatePointer = g_task_propagate_pointer;
 
-    extern fn g_task_propagate_value(self: *Self, value: gobject.Value) bool;
+    extern fn g_task_propagate_value(self: *Self, value: *gobject.Value) bool;
     pub const propagateValue = g_task_propagate_value;
 
     extern fn g_task_return_boolean(self: *Self, result: bool) void;

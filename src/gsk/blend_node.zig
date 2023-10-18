@@ -26,7 +26,7 @@ pub const BlendNode = extern struct {
     extern fn gsk_blend_node_get_bottom_child(self: *Self) ?*gsk.RenderNode;
     pub const getBottomChild = gsk_blend_node_get_bottom_child;
 
-    extern fn gsk_render_node_get_bounds(self: *Self, bounds: graphene.Rect) void;
+    extern fn gsk_render_node_get_bounds(self: *Self, bounds: *graphene.Rect) void;
     pub const getBounds = gsk_render_node_get_bounds;
 
     extern fn gsk_render_node_get_node_type(self: *Self) gsk.RenderNodeType;

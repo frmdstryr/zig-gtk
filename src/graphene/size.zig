@@ -26,10 +26,10 @@ pub const Size = extern struct {
     extern fn graphene_size_init_from_size(self: *Self, src: *graphene.Size) ?*graphene.Size;
     pub const initFromSize = graphene_size_init_from_size;
 
-    extern fn graphene_size_interpolate(self: *Self, b: *graphene.Size, factor: f64, res: graphene.Size) void;
+    extern fn graphene_size_interpolate(self: *Self, b: *graphene.Size, factor: f64, res: *graphene.Size) void;
     pub const interpolate = graphene_size_interpolate;
 
-    extern fn graphene_size_scale(self: *Self, factor: f32, res: graphene.Size) void;
+    extern fn graphene_size_scale(self: *Self, factor: f32, res: *graphene.Size) void;
     pub const scale = graphene_size_scale;
 
 };

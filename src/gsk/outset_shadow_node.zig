@@ -24,7 +24,7 @@ pub const OutsetShadowNode = extern struct {
     extern fn gsk_outset_shadow_node_get_blur_radius(self: *Self) f32;
     pub const getBlurRadius = gsk_outset_shadow_node_get_blur_radius;
 
-    extern fn gsk_render_node_get_bounds(self: *Self, bounds: graphene.Rect) void;
+    extern fn gsk_render_node_get_bounds(self: *Self, bounds: *graphene.Rect) void;
     pub const getBounds = gsk_render_node_get_bounds;
 
     extern fn gsk_outset_shadow_node_get_color(self: *Self) ?*gdk.RGBA;

@@ -31,7 +31,7 @@ pub const CellRendererToggle = extern struct {
     extern fn gtk_cell_renderer_toggle_get_active(self: *Self) bool;
     pub const getActive = gtk_cell_renderer_toggle_get_active;
 
-    extern fn gtk_cell_renderer_get_aligned_area(self: *Self, widget: *gtk.Widget, flags: gtk.CellRendererState, cell_area: *gdk.Rectangle, aligned_area: gdk.Rectangle) void;
+    extern fn gtk_cell_renderer_get_aligned_area(self: *Self, widget: *gtk.Widget, flags: gtk.CellRendererState, cell_area: *gdk.Rectangle, aligned_area: *gdk.Rectangle) void;
     pub const getAlignedArea = gtk_cell_renderer_get_aligned_area;
 
     extern fn gtk_cell_renderer_get_alignment(self: *Self, xalign: f32, yalign: f32) void;
@@ -55,7 +55,7 @@ pub const CellRendererToggle = extern struct {
     extern fn gtk_cell_renderer_get_preferred_height_for_width(self: *Self, widget: *gtk.Widget, width: i32, minimum_height: i32, natural_height: i32) void;
     pub const getPreferredHeightForWidth = gtk_cell_renderer_get_preferred_height_for_width;
 
-    extern fn gtk_cell_renderer_get_preferred_size(self: *Self, widget: *gtk.Widget, minimum_size: gtk.Requisition, natural_size: gtk.Requisition) void;
+    extern fn gtk_cell_renderer_get_preferred_size(self: *Self, widget: *gtk.Widget, minimum_size: *gtk.Requisition, natural_size: *gtk.Requisition) void;
     pub const getPreferredSize = gtk_cell_renderer_get_preferred_size;
 
     extern fn gtk_cell_renderer_get_preferred_width(self: *Self, widget: *gtk.Widget, minimum_size: i32, natural_size: i32) void;

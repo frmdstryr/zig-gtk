@@ -17,10 +17,10 @@ pub const Rectangle = extern struct {
     extern fn gdk_rectangle_equal(self: *Self, rect2: *gdk.Rectangle) bool;
     pub const equal = gdk_rectangle_equal;
 
-    extern fn gdk_rectangle_intersect(self: *Self, src2: *gdk.Rectangle, dest: gdk.Rectangle) bool;
+    extern fn gdk_rectangle_intersect(self: *Self, src2: *gdk.Rectangle, dest: *gdk.Rectangle) bool;
     pub const intersect = gdk_rectangle_intersect;
 
-    extern fn gdk_rectangle_union(self: *Self, src2: *gdk.Rectangle, dest: gdk.Rectangle) void;
+    extern fn gdk_rectangle_union(self: *Self, src2: *gdk.Rectangle, dest: *gdk.Rectangle) void;
     pub const union_ = gdk_rectangle_union;
 
 };

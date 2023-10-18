@@ -21,7 +21,7 @@ pub const TextureNode = extern struct {
     extern fn gsk_render_node_draw(self: *Self, cr: *cairo.Context) void;
     pub const draw = gsk_render_node_draw;
 
-    extern fn gsk_render_node_get_bounds(self: *Self, bounds: graphene.Rect) void;
+    extern fn gsk_render_node_get_bounds(self: *Self, bounds: *graphene.Rect) void;
     pub const getBounds = gsk_render_node_get_bounds;
 
     extern fn gsk_render_node_get_node_type(self: *Self) gsk.RenderNodeType;

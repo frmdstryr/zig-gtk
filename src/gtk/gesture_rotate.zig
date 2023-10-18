@@ -26,7 +26,7 @@ pub const GestureRotate = extern struct {
     extern fn gtk_gesture_rotate_get_angle_delta(self: *Self) f64;
     pub const getAngleDelta = gtk_gesture_rotate_get_angle_delta;
 
-    extern fn gtk_gesture_get_bounding_box(self: *Self, rect: gdk.Rectangle) bool;
+    extern fn gtk_gesture_get_bounding_box(self: *Self, rect: *gdk.Rectangle) bool;
     pub const getBoundingBox = gtk_gesture_get_bounding_box;
 
     extern fn gtk_gesture_get_bounding_box_center(self: *Self, x: f64, y: f64) bool;

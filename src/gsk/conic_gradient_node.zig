@@ -23,7 +23,7 @@ pub const ConicGradientNode = extern struct {
     extern fn gsk_conic_gradient_node_get_angle(self: *Self) f32;
     pub const getAngle = gsk_conic_gradient_node_get_angle;
 
-    extern fn gsk_render_node_get_bounds(self: *Self, bounds: graphene.Rect) void;
+    extern fn gsk_render_node_get_bounds(self: *Self, bounds: *graphene.Rect) void;
     pub const getBounds = gsk_render_node_get_bounds;
 
     extern fn gsk_conic_gradient_node_get_center(self: *Self) ?*graphene.Point;

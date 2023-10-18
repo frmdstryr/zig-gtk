@@ -61,7 +61,7 @@ pub const Transform = extern struct {
     extern fn gsk_transform_to_affine(self: *Self, out_scale_x: f32, out_scale_y: f32, out_dx: f32, out_dy: f32) void;
     pub const toAffine = gsk_transform_to_affine;
 
-    extern fn gsk_transform_to_matrix(self: *Self, out_matrix: graphene.Matrix) void;
+    extern fn gsk_transform_to_matrix(self: *Self, out_matrix: *graphene.Matrix) void;
     pub const toMatrix = gsk_transform_to_matrix;
 
     extern fn gsk_transform_to_string(self: *Self) [*c]const u8;
@@ -73,10 +73,10 @@ pub const Transform = extern struct {
     extern fn gsk_transform_transform(self: *Self, other: ?*gsk.Transform) ?*gsk.Transform;
     pub const transform = gsk_transform_transform;
 
-    extern fn gsk_transform_transform_bounds(self: *Self, rect: *graphene.Rect, out_rect: graphene.Rect) void;
+    extern fn gsk_transform_transform_bounds(self: *Self, rect: *graphene.Rect, out_rect: *graphene.Rect) void;
     pub const transformBounds = gsk_transform_transform_bounds;
 
-    extern fn gsk_transform_transform_point(self: *Self, point: *graphene.Point, out_point: graphene.Point) void;
+    extern fn gsk_transform_transform_point(self: *Self, point: *graphene.Point, out_point: *graphene.Point) void;
     pub const transformPoint = gsk_transform_transform_point;
 
     extern fn gsk_transform_translate(self: *Self, point: *graphene.Point) ?*gsk.Transform;

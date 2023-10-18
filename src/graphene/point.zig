@@ -32,13 +32,13 @@ pub const Point = extern struct {
     extern fn graphene_point_init_from_vec2(self: *Self, src: *graphene.Vec2) ?*graphene.Point;
     pub const initFromVec2 = graphene_point_init_from_vec2;
 
-    extern fn graphene_point_interpolate(self: *Self, b: *graphene.Point, factor: f64, res: graphene.Point) void;
+    extern fn graphene_point_interpolate(self: *Self, b: *graphene.Point, factor: f64, res: *graphene.Point) void;
     pub const interpolate = graphene_point_interpolate;
 
     extern fn graphene_point_near(self: *Self, b: *graphene.Point, epsilon: f32) bool;
     pub const near = graphene_point_near;
 
-    extern fn graphene_point_to_vec2(self: *Self, v: graphene.Vec2) void;
+    extern fn graphene_point_to_vec2(self: *Self, v: *graphene.Vec2) void;
     pub const toVec2 = graphene_point_to_vec2;
 
 };

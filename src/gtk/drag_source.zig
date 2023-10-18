@@ -29,7 +29,7 @@ pub const DragSource = extern struct {
     extern fn gtk_drag_source_get_actions(self: *Self) gdk.DragAction;
     pub const getActions = gtk_drag_source_get_actions;
 
-    extern fn gtk_gesture_get_bounding_box(self: *Self, rect: gdk.Rectangle) bool;
+    extern fn gtk_gesture_get_bounding_box(self: *Self, rect: *gdk.Rectangle) bool;
     pub const getBoundingBox = gtk_gesture_get_bounding_box;
 
     extern fn gtk_gesture_get_bounding_box_center(self: *Self, x: f64, y: f64) bool;

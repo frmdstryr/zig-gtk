@@ -58,7 +58,7 @@ pub const ListStore = extern struct {
     extern fn gtk_tree_model_get_string_from_iter(self: *Self, iter: *gtk.TreeIter) [*c]const u8;
     pub const getStringFromIter = gtk_tree_model_get_string_from_iter;
 
-    extern fn gtk_tree_model_get_value(self: *Self, iter: *gtk.TreeIter, column: i32, value: gobject.Value) void;
+    extern fn gtk_tree_model_get_value(self: *Self, iter: *gtk.TreeIter, column: i32, value: *gobject.Value) void;
     pub const getValue = gtk_tree_model_get_value;
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
@@ -67,11 +67,11 @@ pub const ListStore = extern struct {
     extern fn gtk_tree_sortable_has_default_sort_func(self: *Self) bool;
     pub const hasDefaultSortFunc = gtk_tree_sortable_has_default_sort_func;
 
-    extern fn gtk_list_store_insert_with_valuesv(self: *Self, iter: gtk.TreeIter, position: i32, columns: [*c]i32, values: [*c]gobject.Value, n_values: i32) void;
+    extern fn gtk_list_store_insert_with_valuesv(self: *Self, iter: *gtk.TreeIter, position: i32, columns: [*c]i32, values: [*c]gobject.Value, n_values: i32) void;
     pub const insertWithValues = gtk_list_store_insert_with_valuesv;
 
     // Binding disabled (duplicate name)
-    // extern fn gtk_list_store_insert_with_valuesv(self: *Self, iter: gtk.TreeIter, position: i32, columns: [*c]i32, values: [*c]gobject.Value, n_values: i32) void;
+    // extern fn gtk_list_store_insert_with_valuesv(self: *Self, iter: *gtk.TreeIter, position: i32, columns: [*c]i32, values: [*c]gobject.Value, n_values: i32) void;
     // pub const insertWithValues = gtk_list_store_insert_with_valuesv;
 
     extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;

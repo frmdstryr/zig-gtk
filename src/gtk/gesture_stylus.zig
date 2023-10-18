@@ -32,7 +32,7 @@ pub const GestureStylus = extern struct {
     extern fn gtk_gesture_stylus_get_backlog(self: *Self, backlog: [*c]gdk.TimeCoord, n_elems: u32) bool;
     pub const getBacklog = gtk_gesture_stylus_get_backlog;
 
-    extern fn gtk_gesture_get_bounding_box(self: *Self, rect: gdk.Rectangle) bool;
+    extern fn gtk_gesture_get_bounding_box(self: *Self, rect: *gdk.Rectangle) bool;
     pub const getBoundingBox = gtk_gesture_get_bounding_box;
 
     extern fn gtk_gesture_get_bounding_box_center(self: *Self, x: f64, y: f64) bool;

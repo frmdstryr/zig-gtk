@@ -20,13 +20,13 @@ pub const TreeModelFilter = extern struct {
     extern fn gtk_tree_model_filter_clear_cache(self: *Self) void;
     pub const clearCache = gtk_tree_model_filter_clear_cache;
 
-    extern fn gtk_tree_model_filter_convert_child_iter_to_iter(self: *Self, filter_iter: gtk.TreeIter, child_iter: *gtk.TreeIter) bool;
+    extern fn gtk_tree_model_filter_convert_child_iter_to_iter(self: *Self, filter_iter: *gtk.TreeIter, child_iter: *gtk.TreeIter) bool;
     pub const convertChildIterToIter = gtk_tree_model_filter_convert_child_iter_to_iter;
 
     extern fn gtk_tree_model_filter_convert_child_path_to_path(self: *Self, child_path: *gtk.TreePath) ?*gtk.TreePath;
     pub const convertChildPathToPath = gtk_tree_model_filter_convert_child_path_to_path;
 
-    extern fn gtk_tree_model_filter_convert_iter_to_child_iter(self: *Self, child_iter: gtk.TreeIter, filter_iter: *gtk.TreeIter) void;
+    extern fn gtk_tree_model_filter_convert_iter_to_child_iter(self: *Self, child_iter: *gtk.TreeIter, filter_iter: *gtk.TreeIter) void;
     pub const convertIterToChildIter = gtk_tree_model_filter_convert_iter_to_child_iter;
 
     extern fn gtk_tree_model_filter_convert_path_to_child_path(self: *Self, filter_path: *gtk.TreePath) ?*gtk.TreePath;
@@ -65,7 +65,7 @@ pub const TreeModelFilter = extern struct {
     extern fn gtk_tree_model_get_string_from_iter(self: *Self, iter: *gtk.TreeIter) [*c]const u8;
     pub const getStringFromIter = gtk_tree_model_get_string_from_iter;
 
-    extern fn gtk_tree_model_get_value(self: *Self, iter: *gtk.TreeIter, column: i32, value: gobject.Value) void;
+    extern fn gtk_tree_model_get_value(self: *Self, iter: *gtk.TreeIter, column: i32, value: *gobject.Value) void;
     pub const getValue = gtk_tree_model_get_value;
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;

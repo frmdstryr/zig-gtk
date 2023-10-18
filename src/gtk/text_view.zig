@@ -82,16 +82,16 @@ pub const TextView = extern struct {
     extern fn gtk_widget_child_focus(self: *Self, direction: gtk.DirectionType) bool;
     pub const childFocus = gtk_widget_child_focus;
 
-    extern fn gtk_widget_compute_bounds(self: *Self, target: *gtk.Widget, out_bounds: graphene.Rect) bool;
+    extern fn gtk_widget_compute_bounds(self: *Self, target: *gtk.Widget, out_bounds: *graphene.Rect) bool;
     pub const computeBounds = gtk_widget_compute_bounds;
 
     extern fn gtk_widget_compute_expand(self: *Self, orientation: gtk.Orientation) bool;
     pub const computeExpand = gtk_widget_compute_expand;
 
-    extern fn gtk_widget_compute_point(self: *Self, target: *gtk.Widget, point: *graphene.Point, out_point: graphene.Point) bool;
+    extern fn gtk_widget_compute_point(self: *Self, target: *gtk.Widget, point: *graphene.Point, out_point: *graphene.Point) bool;
     pub const computePoint = gtk_widget_compute_point;
 
-    extern fn gtk_widget_compute_transform(self: *Self, target: *gtk.Widget, out_transform: graphene.Matrix) bool;
+    extern fn gtk_widget_compute_transform(self: *Self, target: *gtk.Widget, out_transform: *graphene.Matrix) bool;
     pub const computeTransform = gtk_widget_compute_transform;
 
     extern fn gtk_widget_contains(self: *Self, x: f64, y: f64) bool;
@@ -136,13 +136,13 @@ pub const TextView = extern struct {
     extern fn gtk_widget_get_allocated_width(self: *Self) i32;
     pub const getAllocatedWidth = gtk_widget_get_allocated_width;
 
-    extern fn gtk_widget_get_allocation(self: *Self, allocation: gdk.Rectangle) void;
+    extern fn gtk_widget_get_allocation(self: *Self, allocation: *gdk.Rectangle) void;
     pub const getAllocation = gtk_widget_get_allocation;
 
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
-    extern fn gtk_scrollable_get_border(self: *Self, border: gtk.Border) bool;
+    extern fn gtk_scrollable_get_border(self: *Self, border: *gtk.Border) bool;
     pub const getBorder = gtk_scrollable_get_border;
 
     extern fn gtk_text_view_get_bottom_margin(self: *Self) i32;
@@ -175,7 +175,7 @@ pub const TextView = extern struct {
     extern fn gtk_widget_get_cursor(self: *Self) ?*gdk.Cursor;
     pub const getCursor = gtk_widget_get_cursor;
 
-    extern fn gtk_text_view_get_cursor_locations(self: *Self, iter: ?*gtk.TextIter, strong: gdk.Rectangle, weak: gdk.Rectangle) void;
+    extern fn gtk_text_view_get_cursor_locations(self: *Self, iter: ?*gtk.TextIter, strong: *gdk.Rectangle, weak: *gdk.Rectangle) void;
     pub const getCursorLocations = gtk_text_view_get_cursor_locations;
 
     extern fn gtk_text_view_get_cursor_visible(self: *Self) bool;
@@ -247,13 +247,13 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_get_input_purpose(self: *Self) gtk.InputPurpose;
     pub const getInputPurpose = gtk_text_view_get_input_purpose;
 
-    extern fn gtk_text_view_get_iter_at_location(self: *Self, iter: gtk.TextIter, x: i32, y: i32) bool;
+    extern fn gtk_text_view_get_iter_at_location(self: *Self, iter: *gtk.TextIter, x: i32, y: i32) bool;
     pub const getIterAtLocation = gtk_text_view_get_iter_at_location;
 
-    extern fn gtk_text_view_get_iter_at_position(self: *Self, iter: gtk.TextIter, trailing: i32, x: i32, y: i32) bool;
+    extern fn gtk_text_view_get_iter_at_position(self: *Self, iter: *gtk.TextIter, trailing: i32, x: i32, y: i32) bool;
     pub const getIterAtPosition = gtk_text_view_get_iter_at_position;
 
-    extern fn gtk_text_view_get_iter_location(self: *Self, iter: *gtk.TextIter, location: gdk.Rectangle) void;
+    extern fn gtk_text_view_get_iter_location(self: *Self, iter: *gtk.TextIter, location: *gdk.Rectangle) void;
     pub const getIterLocation = gtk_text_view_get_iter_location;
 
     extern fn gtk_text_view_get_justification(self: *Self) gtk.Justification;
@@ -271,7 +271,7 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_get_left_margin(self: *Self) i32;
     pub const getLeftMargin = gtk_text_view_get_left_margin;
 
-    extern fn gtk_text_view_get_line_at_y(self: *Self, target_iter: gtk.TextIter, y: i32, line_top: i32) void;
+    extern fn gtk_text_view_get_line_at_y(self: *Self, target_iter: *gtk.TextIter, y: i32, line_top: i32) void;
     pub const getLineAtY = gtk_text_view_get_line_at_y;
 
     extern fn gtk_text_view_get_line_yrange(self: *Self, iter: *gtk.TextIter, y: i32, height: i32) void;
@@ -331,7 +331,7 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_get_pixels_inside_wrap(self: *Self) i32;
     pub const getPixelsInsideWrap = gtk_text_view_get_pixels_inside_wrap;
 
-    extern fn gtk_widget_get_preferred_size(self: *Self, minimum_size: gtk.Requisition, natural_size: gtk.Requisition) void;
+    extern fn gtk_widget_get_preferred_size(self: *Self, minimum_size: *gtk.Requisition, natural_size: *gtk.Requisition) void;
     pub const getPreferredSize = gtk_widget_get_preferred_size;
 
     extern fn gtk_widget_get_prev_sibling(self: *Self) ?*gtk.Widget;
@@ -409,7 +409,7 @@ pub const TextView = extern struct {
     extern fn gtk_widget_get_visible(self: *Self) bool;
     pub const getVisible = gtk_widget_get_visible;
 
-    extern fn gtk_text_view_get_visible_rect(self: *Self, visible_rect: gdk.Rectangle) void;
+    extern fn gtk_text_view_get_visible_rect(self: *Self, visible_rect: *gdk.Rectangle) void;
     pub const getVisibleRect = gtk_text_view_get_visible_rect;
 
     extern fn gtk_scrollable_get_vscroll_policy(self: *Self) gtk.ScrollablePolicy;

@@ -33,7 +33,7 @@ pub const TreeModel = extern struct {
     extern fn gtk_tree_model_get_string_from_iter(self: *Self, iter: *gtk.TreeIter) [*c]const u8;
     pub const getStringFromIter = gtk_tree_model_get_string_from_iter;
 
-    extern fn gtk_tree_model_get_value(self: *Self, iter: *gtk.TreeIter, column: i32, value: gobject.Value) void;
+    extern fn gtk_tree_model_get_value(self: *Self, iter: *gtk.TreeIter, column: i32, value: *gobject.Value) void;
     pub const getValue = gtk_tree_model_get_value;
 
     extern fn gtk_tree_model_iter_has_child(self: *Self, iter: *gtk.TreeIter) bool;

@@ -26,7 +26,7 @@ pub const Plane = extern struct {
     extern fn graphene_plane_get_constant(self: *Self) f32;
     pub const getConstant = graphene_plane_get_constant;
 
-    extern fn graphene_plane_get_normal(self: *Self, normal: graphene.Vec3) void;
+    extern fn graphene_plane_get_normal(self: *Self, normal: *graphene.Vec3) void;
     pub const getNormal = graphene_plane_get_normal;
 
     extern fn graphene_plane_init(self: *Self, normal: ?*graphene.Vec3, constant: f32) ?*graphene.Plane;
@@ -44,13 +44,13 @@ pub const Plane = extern struct {
     extern fn graphene_plane_init_from_vec4(self: *Self, src: *graphene.Vec4) ?*graphene.Plane;
     pub const initFromVec4 = graphene_plane_init_from_vec4;
 
-    extern fn graphene_plane_negate(self: *Self, res: graphene.Plane) void;
+    extern fn graphene_plane_negate(self: *Self, res: *graphene.Plane) void;
     pub const negate = graphene_plane_negate;
 
-    extern fn graphene_plane_normalize(self: *Self, res: graphene.Plane) void;
+    extern fn graphene_plane_normalize(self: *Self, res: *graphene.Plane) void;
     pub const normalize = graphene_plane_normalize;
 
-    extern fn graphene_plane_transform(self: *Self, matrix: *graphene.Matrix, normal_matrix: ?*graphene.Matrix, res: graphene.Plane) void;
+    extern fn graphene_plane_transform(self: *Self, matrix: *graphene.Matrix, normal_matrix: ?*graphene.Matrix, res: *graphene.Plane) void;
     pub const transform = graphene_plane_transform;
 
 };

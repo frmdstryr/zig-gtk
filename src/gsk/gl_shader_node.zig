@@ -23,7 +23,7 @@ pub const GLShaderNode = extern struct {
     extern fn gsk_gl_shader_node_get_args(self: *Self) ?*glib.Bytes;
     pub const getArgs = gsk_gl_shader_node_get_args;
 
-    extern fn gsk_render_node_get_bounds(self: *Self, bounds: graphene.Rect) void;
+    extern fn gsk_render_node_get_bounds(self: *Self, bounds: *graphene.Rect) void;
     pub const getBounds = gsk_render_node_get_bounds;
 
     extern fn gsk_gl_shader_node_get_child(self: *Self, idx: u32) ?*gsk.RenderNode;

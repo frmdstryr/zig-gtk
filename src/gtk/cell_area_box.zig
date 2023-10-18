@@ -89,10 +89,10 @@ pub const CellAreaBox = extern struct {
     extern fn gtk_buildable_get_buildable_id(self: *Self) [*c]const u8;
     pub const getBuildableId = gtk_buildable_get_buildable_id;
 
-    extern fn gtk_cell_area_get_cell_allocation(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, renderer: *gtk.CellRenderer, cell_area: *gdk.Rectangle, allocation: gdk.Rectangle) void;
+    extern fn gtk_cell_area_get_cell_allocation(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, renderer: *gtk.CellRenderer, cell_area: *gdk.Rectangle, allocation: *gdk.Rectangle) void;
     pub const getCellAllocation = gtk_cell_area_get_cell_allocation;
 
-    extern fn gtk_cell_area_get_cell_at_position(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, cell_area: *gdk.Rectangle, x: i32, y: i32, alloc_area: gdk.Rectangle) ?*gtk.CellRenderer;
+    extern fn gtk_cell_area_get_cell_at_position(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, cell_area: *gdk.Rectangle, x: i32, y: i32, alloc_area: *gdk.Rectangle) ?*gtk.CellRenderer;
     pub const getCellAtPosition = gtk_cell_area_get_cell_at_position;
 
     extern fn gtk_cell_layout_get_cells(self: *Self) ?*glib.List;
@@ -143,7 +143,7 @@ pub const CellAreaBox = extern struct {
     extern fn gtk_cell_area_has_renderer(self: *Self, renderer: *gtk.CellRenderer) bool;
     pub const hasRenderer = gtk_cell_area_has_renderer;
 
-    extern fn gtk_cell_area_inner_cell_area(self: *Self, widget: *gtk.Widget, cell_area: *gdk.Rectangle, inner_area: gdk.Rectangle) void;
+    extern fn gtk_cell_area_inner_cell_area(self: *Self, widget: *gtk.Widget, cell_area: *gdk.Rectangle, inner_area: *gdk.Rectangle) void;
     pub const innerCellArea = gtk_cell_area_inner_cell_area;
 
     extern fn gtk_cell_area_class_install_cell_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;

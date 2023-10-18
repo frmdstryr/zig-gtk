@@ -23,10 +23,10 @@ pub const LayoutIter = extern struct {
     extern fn pango_layout_iter_get_baseline(self: *Self) i32;
     pub const getBaseline = pango_layout_iter_get_baseline;
 
-    extern fn pango_layout_iter_get_char_extents(self: *Self, logical_rect: pango.Rectangle) void;
+    extern fn pango_layout_iter_get_char_extents(self: *Self, logical_rect: *pango.Rectangle) void;
     pub const getCharExtents = pango_layout_iter_get_char_extents;
 
-    extern fn pango_layout_iter_get_cluster_extents(self: *Self, ink_rect: pango.Rectangle, logical_rect: pango.Rectangle) void;
+    extern fn pango_layout_iter_get_cluster_extents(self: *Self, ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) void;
     pub const getClusterExtents = pango_layout_iter_get_cluster_extents;
 
     extern fn pango_layout_iter_get_index(self: *Self) i32;
@@ -35,13 +35,13 @@ pub const LayoutIter = extern struct {
     extern fn pango_layout_iter_get_layout(self: *Self) ?*pango.Layout;
     pub const getLayout = pango_layout_iter_get_layout;
 
-    extern fn pango_layout_iter_get_layout_extents(self: *Self, ink_rect: pango.Rectangle, logical_rect: pango.Rectangle) void;
+    extern fn pango_layout_iter_get_layout_extents(self: *Self, ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) void;
     pub const getLayoutExtents = pango_layout_iter_get_layout_extents;
 
     extern fn pango_layout_iter_get_line(self: *Self) ?*pango.LayoutLine;
     pub const getLine = pango_layout_iter_get_line;
 
-    extern fn pango_layout_iter_get_line_extents(self: *Self, ink_rect: pango.Rectangle, logical_rect: pango.Rectangle) void;
+    extern fn pango_layout_iter_get_line_extents(self: *Self, ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) void;
     pub const getLineExtents = pango_layout_iter_get_line_extents;
 
     extern fn pango_layout_iter_get_line_readonly(self: *Self) ?*pango.LayoutLine;
@@ -56,7 +56,7 @@ pub const LayoutIter = extern struct {
     extern fn pango_layout_iter_get_run_baseline(self: *Self) i32;
     pub const getRunBaseline = pango_layout_iter_get_run_baseline;
 
-    extern fn pango_layout_iter_get_run_extents(self: *Self, ink_rect: pango.Rectangle, logical_rect: pango.Rectangle) void;
+    extern fn pango_layout_iter_get_run_extents(self: *Self, ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) void;
     pub const getRunExtents = pango_layout_iter_get_run_extents;
 
     extern fn pango_layout_iter_get_run_readonly(self: *Self) ?*pango.GlyphItem;

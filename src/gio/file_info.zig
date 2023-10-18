@@ -109,7 +109,7 @@ pub const FileInfo = extern struct {
     extern fn g_file_info_get_modification_date_time(self: *Self) ?*glib.DateTime;
     pub const getModificationDateTime = g_file_info_get_modification_date_time;
 
-    extern fn g_file_info_get_modification_time(self: *Self, result: glib.TimeVal) void;
+    extern fn g_file_info_get_modification_time(self: *Self, result: *glib.TimeVal) void;
     pub const getModificationTime = g_file_info_get_modification_time;
 
     extern fn g_file_info_get_name(self: *Self) [*c]const u8;

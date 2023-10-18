@@ -79,16 +79,16 @@ pub const TreeView = extern struct {
     extern fn gtk_tree_view_columns_autosize(self: *Self) void;
     pub const columnsAutosize = gtk_tree_view_columns_autosize;
 
-    extern fn gtk_widget_compute_bounds(self: *Self, target: *gtk.Widget, out_bounds: graphene.Rect) bool;
+    extern fn gtk_widget_compute_bounds(self: *Self, target: *gtk.Widget, out_bounds: *graphene.Rect) bool;
     pub const computeBounds = gtk_widget_compute_bounds;
 
     extern fn gtk_widget_compute_expand(self: *Self, orientation: gtk.Orientation) bool;
     pub const computeExpand = gtk_widget_compute_expand;
 
-    extern fn gtk_widget_compute_point(self: *Self, target: *gtk.Widget, point: *graphene.Point, out_point: graphene.Point) bool;
+    extern fn gtk_widget_compute_point(self: *Self, target: *gtk.Widget, point: *graphene.Point, out_point: *graphene.Point) bool;
     pub const computePoint = gtk_widget_compute_point;
 
-    extern fn gtk_widget_compute_transform(self: *Self, target: *gtk.Widget, out_transform: graphene.Matrix) bool;
+    extern fn gtk_widget_compute_transform(self: *Self, target: *gtk.Widget, out_transform: *graphene.Matrix) bool;
     pub const computeTransform = gtk_widget_compute_transform;
 
     extern fn gtk_widget_contains(self: *Self, x: f64, y: f64) bool;
@@ -163,16 +163,16 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_get_allocated_width(self: *Self) i32;
     pub const getAllocatedWidth = gtk_widget_get_allocated_width;
 
-    extern fn gtk_widget_get_allocation(self: *Self, allocation: gdk.Rectangle) void;
+    extern fn gtk_widget_get_allocation(self: *Self, allocation: *gdk.Rectangle) void;
     pub const getAllocation = gtk_widget_get_allocation;
 
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
-    extern fn gtk_tree_view_get_background_area(self: *Self, path: ?*gtk.TreePath, column: ?*gtk.TreeViewColumn, rect: gdk.Rectangle) void;
+    extern fn gtk_tree_view_get_background_area(self: *Self, path: ?*gtk.TreePath, column: ?*gtk.TreeViewColumn, rect: *gdk.Rectangle) void;
     pub const getBackgroundArea = gtk_tree_view_get_background_area;
 
-    extern fn gtk_scrollable_get_border(self: *Self, border: gtk.Border) bool;
+    extern fn gtk_scrollable_get_border(self: *Self, border: *gtk.Border) bool;
     pub const getBorder = gtk_scrollable_get_border;
 
     extern fn gtk_buildable_get_buildable_id(self: *Self) [*c]const u8;
@@ -337,7 +337,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_get_parent(self: *Self) ?*gtk.Widget;
     pub const getParent = gtk_widget_get_parent;
 
-    extern fn gtk_widget_get_preferred_size(self: *Self, minimum_size: gtk.Requisition, natural_size: gtk.Requisition) void;
+    extern fn gtk_widget_get_preferred_size(self: *Self, minimum_size: *gtk.Requisition, natural_size: *gtk.Requisition) void;
     pub const getPreferredSize = gtk_widget_get_preferred_size;
 
     extern fn gtk_widget_get_prev_sibling(self: *Self) ?*gtk.Widget;
@@ -403,7 +403,7 @@ pub const TreeView = extern struct {
     extern fn gtk_tree_view_get_tooltip_column(self: *Self) i32;
     pub const getTooltipColumn = gtk_tree_view_get_tooltip_column;
 
-    extern fn gtk_tree_view_get_tooltip_context(self: *Self, x: i32, y: i32, keyboard_tip: bool, model: ?*gtk.TreeModel, path: *gtk.TreePath, iter: gtk.TreeIter) bool;
+    extern fn gtk_tree_view_get_tooltip_context(self: *Self, x: i32, y: i32, keyboard_tip: bool, model: ?*gtk.TreeModel, path: *gtk.TreePath, iter: *gtk.TreeIter) bool;
     pub const getTooltipContext = gtk_tree_view_get_tooltip_context;
 
     extern fn gtk_widget_get_tooltip_markup(self: *Self) [*c]const u8;
@@ -427,7 +427,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_get_visible(self: *Self) bool;
     pub const getVisible = gtk_widget_get_visible;
 
-    extern fn gtk_tree_view_get_visible_rect(self: *Self, visible_rect: gdk.Rectangle) void;
+    extern fn gtk_tree_view_get_visible_rect(self: *Self, visible_rect: *gdk.Rectangle) void;
     pub const getVisibleRect = gtk_tree_view_get_visible_rect;
 
     extern fn gtk_scrollable_get_vscroll_policy(self: *Self) gtk.ScrollablePolicy;

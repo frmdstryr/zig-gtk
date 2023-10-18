@@ -24,7 +24,7 @@ pub const Monitor = extern struct {
     extern fn gdk_monitor_get_display(self: *Self) ?*gdk.Display;
     pub const getDisplay = gdk_monitor_get_display;
 
-    extern fn gdk_monitor_get_geometry(self: *Self, geometry: gdk.Rectangle) void;
+    extern fn gdk_monitor_get_geometry(self: *Self, geometry: *gdk.Rectangle) void;
     pub const getGeometry = gdk_monitor_get_geometry;
 
     extern fn gdk_monitor_get_height_mm(self: *Self) i32;

@@ -40,7 +40,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_get_baseline(self: *Self) i32;
     pub const getBaseline = pango_layout_get_baseline;
 
-    extern fn pango_layout_get_caret_pos(self: *Self, index_: i32, strong_pos: pango.Rectangle, weak_pos: pango.Rectangle) void;
+    extern fn pango_layout_get_caret_pos(self: *Self, index_: i32, strong_pos: *pango.Rectangle, weak_pos: *pango.Rectangle) void;
     pub const getCaretPos = pango_layout_get_caret_pos;
 
     extern fn pango_layout_get_character_count(self: *Self) i32;
@@ -49,7 +49,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_get_context(self: *Self) ?*pango.Context;
     pub const getContext = pango_layout_get_context;
 
-    extern fn pango_layout_get_cursor_pos(self: *Self, index_: i32, strong_pos: pango.Rectangle, weak_pos: pango.Rectangle) void;
+    extern fn pango_layout_get_cursor_pos(self: *Self, index_: i32, strong_pos: *pango.Rectangle, weak_pos: *pango.Rectangle) void;
     pub const getCursorPos = pango_layout_get_cursor_pos;
 
     extern fn pango_layout_get_direction(self: *Self, index: i32) pango.Direction;
@@ -58,7 +58,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_get_ellipsize(self: *Self) pango.EllipsizeMode;
     pub const getEllipsize = pango_layout_get_ellipsize;
 
-    extern fn pango_layout_get_extents(self: *Self, ink_rect: pango.Rectangle, logical_rect: pango.Rectangle) void;
+    extern fn pango_layout_get_extents(self: *Self, ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) void;
     pub const getExtents = pango_layout_get_extents;
 
     extern fn pango_layout_get_font_description(self: *Self) ?*pango.FontDescription;
@@ -105,7 +105,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_get_log_attrs_readonly(self: *Self, n_attrs: i32) [*c]pango.LogAttr;
     pub const getLogAttrsReadonly = pango_layout_get_log_attrs_readonly;
 
-    extern fn pango_layout_get_pixel_extents(self: *Self, ink_rect: pango.Rectangle, logical_rect: pango.Rectangle) void;
+    extern fn pango_layout_get_pixel_extents(self: *Self, ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) void;
     pub const getPixelExtents = pango_layout_get_pixel_extents;
 
     extern fn pango_layout_get_pixel_size(self: *Self, width: i32, height: i32) void;
@@ -144,7 +144,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_index_to_line_x(self: *Self, index_: i32, trailing: bool, line: i32, x_pos: i32) void;
     pub const indexToLineX = pango_layout_index_to_line_x;
 
-    extern fn pango_layout_index_to_pos(self: *Self, index_: i32, pos: pango.Rectangle) void;
+    extern fn pango_layout_index_to_pos(self: *Self, index_: i32, pos: *pango.Rectangle) void;
     pub const indexToPos = pango_layout_index_to_pos;
 
     extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;

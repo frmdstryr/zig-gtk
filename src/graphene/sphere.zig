@@ -26,10 +26,10 @@ pub const Sphere = extern struct {
     extern fn graphene_sphere_free(self: *Self) void;
     pub const free = graphene_sphere_free;
 
-    extern fn graphene_sphere_get_bounding_box(self: *Self, box: graphene.Box) void;
+    extern fn graphene_sphere_get_bounding_box(self: *Self, box: *graphene.Box) void;
     pub const getBoundingBox = graphene_sphere_get_bounding_box;
 
-    extern fn graphene_sphere_get_center(self: *Self, center: graphene.Point3D) void;
+    extern fn graphene_sphere_get_center(self: *Self, center: *graphene.Point3D) void;
     pub const getCenter = graphene_sphere_get_center;
 
     extern fn graphene_sphere_get_radius(self: *Self) f32;
@@ -47,7 +47,7 @@ pub const Sphere = extern struct {
     extern fn graphene_sphere_is_empty(self: *Self) bool;
     pub const isEmpty = graphene_sphere_is_empty;
 
-    extern fn graphene_sphere_translate(self: *Self, point: *graphene.Point3D, res: graphene.Sphere) void;
+    extern fn graphene_sphere_translate(self: *Self, point: *graphene.Point3D, res: *graphene.Sphere) void;
     pub const translate = graphene_sphere_translate;
 
 };

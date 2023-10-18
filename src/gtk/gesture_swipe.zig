@@ -23,7 +23,7 @@ pub const GestureSwipe = extern struct {
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
     pub const findProperty = g_object_class_find_property;
 
-    extern fn gtk_gesture_get_bounding_box(self: *Self, rect: gdk.Rectangle) bool;
+    extern fn gtk_gesture_get_bounding_box(self: *Self, rect: *gdk.Rectangle) bool;
     pub const getBoundingBox = gtk_gesture_get_bounding_box;
 
     extern fn gtk_gesture_get_bounding_box_center(self: *Self, x: f64, y: f64) bool;

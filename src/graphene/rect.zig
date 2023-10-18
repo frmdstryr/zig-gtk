@@ -20,7 +20,7 @@ pub const Rect = extern struct {
     extern fn graphene_rect_equal(self: *Self, b: *graphene.Rect) bool;
     pub const equal = graphene_rect_equal;
 
-    extern fn graphene_rect_expand(self: *Self, p: *graphene.Point, res: graphene.Rect) void;
+    extern fn graphene_rect_expand(self: *Self, p: *graphene.Point, res: *graphene.Rect) void;
     pub const expand = graphene_rect_expand;
 
     extern fn graphene_rect_free(self: *Self) void;
@@ -29,22 +29,22 @@ pub const Rect = extern struct {
     extern fn graphene_rect_get_area(self: *Self) f32;
     pub const getArea = graphene_rect_get_area;
 
-    extern fn graphene_rect_get_bottom_left(self: *Self, p: graphene.Point) void;
+    extern fn graphene_rect_get_bottom_left(self: *Self, p: *graphene.Point) void;
     pub const getBottomLeft = graphene_rect_get_bottom_left;
 
-    extern fn graphene_rect_get_bottom_right(self: *Self, p: graphene.Point) void;
+    extern fn graphene_rect_get_bottom_right(self: *Self, p: *graphene.Point) void;
     pub const getBottomRight = graphene_rect_get_bottom_right;
 
-    extern fn graphene_rect_get_center(self: *Self, p: graphene.Point) void;
+    extern fn graphene_rect_get_center(self: *Self, p: *graphene.Point) void;
     pub const getCenter = graphene_rect_get_center;
 
     extern fn graphene_rect_get_height(self: *Self) f32;
     pub const getHeight = graphene_rect_get_height;
 
-    extern fn graphene_rect_get_top_left(self: *Self, p: graphene.Point) void;
+    extern fn graphene_rect_get_top_left(self: *Self, p: *graphene.Point) void;
     pub const getTopLeft = graphene_rect_get_top_left;
 
-    extern fn graphene_rect_get_top_right(self: *Self, p: graphene.Point) void;
+    extern fn graphene_rect_get_top_right(self: *Self, p: *graphene.Point) void;
     pub const getTopRight = graphene_rect_get_top_right;
 
     extern fn graphene_rect_get_vertices(self: *Self, vertices: [*c]graphene.Vec2) void;
@@ -68,40 +68,40 @@ pub const Rect = extern struct {
     extern fn graphene_rect_inset(self: *Self, d_x: f32, d_y: f32) ?*graphene.Rect;
     pub const inset = graphene_rect_inset;
 
-    extern fn graphene_rect_inset_r(self: *Self, d_x: f32, d_y: f32, res: graphene.Rect) void;
+    extern fn graphene_rect_inset_r(self: *Self, d_x: f32, d_y: f32, res: *graphene.Rect) void;
     pub const insetR = graphene_rect_inset_r;
 
-    extern fn graphene_rect_interpolate(self: *Self, b: *graphene.Rect, factor: f64, res: graphene.Rect) void;
+    extern fn graphene_rect_interpolate(self: *Self, b: *graphene.Rect, factor: f64, res: *graphene.Rect) void;
     pub const interpolate = graphene_rect_interpolate;
 
-    extern fn graphene_rect_intersection(self: *Self, b: *graphene.Rect, res: graphene.Rect) bool;
+    extern fn graphene_rect_intersection(self: *Self, b: *graphene.Rect, res: *graphene.Rect) bool;
     pub const intersection = graphene_rect_intersection;
 
     extern fn graphene_rect_normalize(self: *Self) ?*graphene.Rect;
     pub const normalize = graphene_rect_normalize;
 
-    extern fn graphene_rect_normalize_r(self: *Self, res: graphene.Rect) void;
+    extern fn graphene_rect_normalize_r(self: *Self, res: *graphene.Rect) void;
     pub const normalizeR = graphene_rect_normalize_r;
 
     extern fn graphene_rect_offset(self: *Self, d_x: f32, d_y: f32) ?*graphene.Rect;
     pub const offset = graphene_rect_offset;
 
-    extern fn graphene_rect_offset_r(self: *Self, d_x: f32, d_y: f32, res: graphene.Rect) void;
+    extern fn graphene_rect_offset_r(self: *Self, d_x: f32, d_y: f32, res: *graphene.Rect) void;
     pub const offsetR = graphene_rect_offset_r;
 
-    extern fn graphene_rect_round(self: *Self, res: graphene.Rect) void;
+    extern fn graphene_rect_round(self: *Self, res: *graphene.Rect) void;
     pub const round = graphene_rect_round;
 
-    extern fn graphene_rect_round_extents(self: *Self, res: graphene.Rect) void;
+    extern fn graphene_rect_round_extents(self: *Self, res: *graphene.Rect) void;
     pub const roundExtents = graphene_rect_round_extents;
 
     extern fn graphene_rect_round_to_pixel(self: *Self) ?*graphene.Rect;
     pub const roundToPixel = graphene_rect_round_to_pixel;
 
-    extern fn graphene_rect_scale(self: *Self, s_h: f32, s_v: f32, res: graphene.Rect) void;
+    extern fn graphene_rect_scale(self: *Self, s_h: f32, s_v: f32, res: *graphene.Rect) void;
     pub const scale = graphene_rect_scale;
 
-    extern fn graphene_rect_union(self: *Self, b: *graphene.Rect, res: graphene.Rect) void;
+    extern fn graphene_rect_union(self: *Self, b: *graphene.Rect, res: *graphene.Rect) void;
     pub const union_ = graphene_rect_union;
 
 };

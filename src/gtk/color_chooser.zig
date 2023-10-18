@@ -16,7 +16,7 @@ pub const ColorChooser = extern struct {
     extern fn gtk_color_chooser_add_palette(self: *Self, orientation: gtk.Orientation, colors_per_line: i32, n_colors: i32, colors: [*c]gdk.RGBA) void;
     pub const addPalette = gtk_color_chooser_add_palette;
 
-    extern fn gtk_color_chooser_get_rgba(self: *Self, color: gdk.RGBA) void;
+    extern fn gtk_color_chooser_get_rgba(self: *Self, color: *gdk.RGBA) void;
     pub const getRgba = gtk_color_chooser_get_rgba;
 
     extern fn gtk_color_chooser_get_use_alpha(self: *Self) bool;

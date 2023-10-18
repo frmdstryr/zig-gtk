@@ -32,7 +32,7 @@ pub const ContentProvider = extern struct {
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
     pub const findProperty = g_object_class_find_property;
 
-    extern fn gdk_content_provider_get_value(self: *Self, value: gobject.Value) bool;
+    extern fn gdk_content_provider_get_value(self: *Self, value: *gobject.Value) bool;
     pub const getValue = gdk_content_provider_get_value;
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;

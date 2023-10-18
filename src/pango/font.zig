@@ -39,7 +39,7 @@ pub const Font = extern struct {
     extern fn pango_font_get_font_map(self: *Self) ?*pango.FontMap;
     pub const getFontMap = pango_font_get_font_map;
 
-    extern fn pango_font_get_glyph_extents(self: *Self, glyph: u32, ink_rect: pango.Rectangle, logical_rect: pango.Rectangle) void;
+    extern fn pango_font_get_glyph_extents(self: *Self, glyph: u32, ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) void;
     pub const getGlyphExtents = pango_font_get_glyph_extents;
 
     extern fn pango_font_get_languages(self: *Self) [*c]pango.Language;

@@ -25,7 +25,7 @@ pub const CellRendererProgress = extern struct {
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
     pub const findProperty = g_object_class_find_property;
 
-    extern fn gtk_cell_renderer_get_aligned_area(self: *Self, widget: *gtk.Widget, flags: gtk.CellRendererState, cell_area: *gdk.Rectangle, aligned_area: gdk.Rectangle) void;
+    extern fn gtk_cell_renderer_get_aligned_area(self: *Self, widget: *gtk.Widget, flags: gtk.CellRendererState, cell_area: *gdk.Rectangle, aligned_area: *gdk.Rectangle) void;
     pub const getAlignedArea = gtk_cell_renderer_get_aligned_area;
 
     extern fn gtk_cell_renderer_get_alignment(self: *Self, xalign: f32, yalign: f32) void;
@@ -52,7 +52,7 @@ pub const CellRendererProgress = extern struct {
     extern fn gtk_cell_renderer_get_preferred_height_for_width(self: *Self, widget: *gtk.Widget, width: i32, minimum_height: i32, natural_height: i32) void;
     pub const getPreferredHeightForWidth = gtk_cell_renderer_get_preferred_height_for_width;
 
-    extern fn gtk_cell_renderer_get_preferred_size(self: *Self, widget: *gtk.Widget, minimum_size: gtk.Requisition, natural_size: gtk.Requisition) void;
+    extern fn gtk_cell_renderer_get_preferred_size(self: *Self, widget: *gtk.Widget, minimum_size: *gtk.Requisition, natural_size: *gtk.Requisition) void;
     pub const getPreferredSize = gtk_cell_renderer_get_preferred_size;
 
     extern fn gtk_cell_renderer_get_preferred_width(self: *Self, widget: *gtk.Widget, minimum_size: i32, natural_size: i32) void;

@@ -20,7 +20,7 @@ pub const Closure = extern struct {
     extern fn g_closure_invalidate(self: *Self) void;
     pub const invalidate = g_closure_invalidate;
 
-    extern fn g_closure_invoke(self: *Self, return_value: gobject.Value, n_param_values: u32, param_values: [*c]gobject.Value, invocation_hint: ?*anyopaque) void;
+    extern fn g_closure_invoke(self: *Self, return_value: *gobject.Value, n_param_values: u32, param_values: [*c]gobject.Value, invocation_hint: ?*anyopaque) void;
     pub const invoke = g_closure_invoke;
 
     extern fn g_closure_ref(self: *Self) ?*gobject.Closure;

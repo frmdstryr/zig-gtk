@@ -106,10 +106,10 @@ pub const Builder = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn gtk_builder_value_from_string(self: *Self, pspec: *gobject.ParamSpec, string: [*c]const u8, value: gobject.Value) bool;
+    extern fn gtk_builder_value_from_string(self: *Self, pspec: *gobject.ParamSpec, string: [*c]const u8, value: *gobject.Value) bool;
     pub const valueFromString = gtk_builder_value_from_string;
 
-    extern fn gtk_builder_value_from_string_type(self: *Self, type: usize, string: [*c]const u8, value: gobject.Value) bool;
+    extern fn gtk_builder_value_from_string_type(self: *Self, type: usize, string: [*c]const u8, value: *gobject.Value) bool;
     pub const valueFromStringType = gtk_builder_value_from_string_type;
 
 

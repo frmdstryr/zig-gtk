@@ -12,7 +12,7 @@ pub const Scrollable = extern struct {
     // Constructors
 
     // Methods
-    extern fn gtk_scrollable_get_border(self: *Self, border: gtk.Border) bool;
+    extern fn gtk_scrollable_get_border(self: *Self, border: *gtk.Border) bool;
     pub const getBorder = gtk_scrollable_get_border;
 
     extern fn gtk_scrollable_get_hadjustment(self: *Self) ?*gtk.Adjustment;

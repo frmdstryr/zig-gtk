@@ -67,16 +67,16 @@ pub const Entry = extern struct {
     extern fn gtk_widget_child_focus(self: *Self, direction: gtk.DirectionType) bool;
     pub const childFocus = gtk_widget_child_focus;
 
-    extern fn gtk_widget_compute_bounds(self: *Self, target: *gtk.Widget, out_bounds: graphene.Rect) bool;
+    extern fn gtk_widget_compute_bounds(self: *Self, target: *gtk.Widget, out_bounds: *graphene.Rect) bool;
     pub const computeBounds = gtk_widget_compute_bounds;
 
     extern fn gtk_widget_compute_expand(self: *Self, orientation: gtk.Orientation) bool;
     pub const computeExpand = gtk_widget_compute_expand;
 
-    extern fn gtk_widget_compute_point(self: *Self, target: *gtk.Widget, point: *graphene.Point, out_point: graphene.Point) bool;
+    extern fn gtk_widget_compute_point(self: *Self, target: *gtk.Widget, point: *graphene.Point, out_point: *graphene.Point) bool;
     pub const computePoint = gtk_widget_compute_point;
 
-    extern fn gtk_widget_compute_transform(self: *Self, target: *gtk.Widget, out_transform: graphene.Matrix) bool;
+    extern fn gtk_widget_compute_transform(self: *Self, target: *gtk.Widget, out_transform: *graphene.Matrix) bool;
     pub const computeTransform = gtk_widget_compute_transform;
 
     extern fn gtk_widget_contains(self: *Self, x: f64, y: f64) bool;
@@ -130,7 +130,7 @@ pub const Entry = extern struct {
     extern fn gtk_widget_get_allocated_width(self: *Self) i32;
     pub const getAllocatedWidth = gtk_widget_get_allocated_width;
 
-    extern fn gtk_widget_get_allocation(self: *Self, allocation: gdk.Rectangle) void;
+    extern fn gtk_widget_get_allocation(self: *Self, allocation: *gdk.Rectangle) void;
     pub const getAllocation = gtk_widget_get_allocation;
 
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
@@ -235,7 +235,7 @@ pub const Entry = extern struct {
     extern fn gtk_entry_get_icon_activatable(self: *Self, icon_pos: gtk.EntryIconPosition) bool;
     pub const getIconActivatable = gtk_entry_get_icon_activatable;
 
-    extern fn gtk_entry_get_icon_area(self: *Self, icon_pos: gtk.EntryIconPosition, icon_area: gdk.Rectangle) void;
+    extern fn gtk_entry_get_icon_area(self: *Self, icon_pos: gtk.EntryIconPosition, icon_area: *gdk.Rectangle) void;
     pub const getIconArea = gtk_entry_get_icon_area;
 
     extern fn gtk_entry_get_icon_at_pos(self: *Self, x: i32, y: i32) i32;
@@ -331,7 +331,7 @@ pub const Entry = extern struct {
     extern fn gtk_editable_get_position(self: *Self) i32;
     pub const getPosition = gtk_editable_get_position;
 
-    extern fn gtk_widget_get_preferred_size(self: *Self, minimum_size: gtk.Requisition, natural_size: gtk.Requisition) void;
+    extern fn gtk_widget_get_preferred_size(self: *Self, minimum_size: *gtk.Requisition, natural_size: *gtk.Requisition) void;
     pub const getPreferredSize = gtk_widget_get_preferred_size;
 
     extern fn gtk_widget_get_prev_sibling(self: *Self) ?*gtk.Widget;
