@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const ZlibCompressor = extern struct {
@@ -54,7 +54,7 @@ pub const ZlibCompressor = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn g_zlib_compressor_set_file_info(self: *Self, file_info: *gio.FileInfo) void;
+    extern fn g_zlib_compressor_set_file_info(self: *Self, file_info: ?*gio.FileInfo) void;
     pub const setFileInfo = g_zlib_compressor_set_file_info;
 
     extern fn g_object_thaw_notify(self: *Self) void;
@@ -83,13 +83,13 @@ pub const ZlibCompressor = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asConverter(self: *Self) *gio.Converter {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asConverter(self: *Self) *gio.Converter {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

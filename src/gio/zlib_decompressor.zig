@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const ZlibDecompressor = extern struct {
@@ -80,13 +80,13 @@ pub const ZlibDecompressor = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asConverter(self: *Self) *gio.Converter {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asConverter(self: *Self) *gio.Converter {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

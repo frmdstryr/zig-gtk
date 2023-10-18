@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const WidgetClass = extern struct {
@@ -40,7 +40,7 @@ pub const WidgetClass = extern struct {
     extern fn gtk_widget_class_install_property_action(self: *Self, action_name: [*c]const u8, property_name: [*c]const u8) void;
     pub const installPropertyAction = gtk_widget_class_install_property_action;
 
-    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: *glib.VariantType, property_name: [*c]const u8) bool;
+    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: ?*glib.VariantType, property_name: [*c]const u8) bool;
     pub const queryAction = gtk_widget_class_query_action;
 
     extern fn gtk_widget_class_set_accessible_role(self: *Self, accessible_role: gtk.AccessibleRole) void;

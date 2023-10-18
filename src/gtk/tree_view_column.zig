@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const TreeViewColumn = extern struct {
@@ -199,7 +199,7 @@ pub const TreeViewColumn = extern struct {
     extern fn gtk_tree_view_column_set_visible(self: *Self, visible: bool) void;
     pub const setVisible = gtk_tree_view_column_set_visible;
 
-    extern fn gtk_tree_view_column_set_widget(self: *Self, widget: *gtk.Widget) void;
+    extern fn gtk_tree_view_column_set_widget(self: *Self, widget: ?*gtk.Widget) void;
     pub const setWidget = gtk_tree_view_column_set_widget;
 
     extern fn g_object_thaw_notify(self: *Self) void;
@@ -228,22 +228,22 @@ pub const TreeViewColumn = extern struct {
 
 
     // Bases
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
+        return @ptrCast(self);
+    }
     pub fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
+    pub fn asBuildable(self: *Self) *gtk.Buildable {
         return @ptrCast(self);
     }
     pub fn asCellLayout(self: *Self) *gtk.CellLayout {
         return @ptrCast(self);
     }
     pub fn asTreeViewColumn(self: *Self) *gtk.TreeViewColumn {
-        return @ptrCast(self);
-    }
-    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
-        return @ptrCast(self);
-    }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
-    pub fn asBuildable(self: *Self) *gtk.Buildable {
         return @ptrCast(self);
     }
 };

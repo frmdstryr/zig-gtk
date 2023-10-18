@@ -10,10 +10,10 @@ pub const Constraint = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_constraint_new(target: *gtk.ConstraintTarget, target_attribute: gtk.ConstraintAttribute, relation: gtk.ConstraintRelation, source: *gtk.ConstraintTarget, source_attribute: gtk.ConstraintAttribute, multiplier: f64, constant: f64, strength: i32) ?*Self;
+    extern fn gtk_constraint_new(target: ?*gtk.ConstraintTarget, target_attribute: gtk.ConstraintAttribute, relation: gtk.ConstraintRelation, source: ?*gtk.ConstraintTarget, source_attribute: gtk.ConstraintAttribute, multiplier: f64, constant: f64, strength: i32) ?*Self;
     pub const new = gtk_constraint_new;
 
-    extern fn gtk_constraint_new_constant(target: *gtk.ConstraintTarget, target_attribute: gtk.ConstraintAttribute, relation: gtk.ConstraintRelation, constant: f64, strength: i32) ?*Self;
+    extern fn gtk_constraint_new_constant(target: ?*gtk.ConstraintTarget, target_attribute: gtk.ConstraintAttribute, relation: gtk.ConstraintRelation, constant: f64, strength: i32) ?*Self;
     pub const newConstant = gtk_constraint_new_constant;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;

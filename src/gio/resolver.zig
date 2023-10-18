@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const Resolver = extern struct {
@@ -34,46 +34,46 @@ pub const Resolver = extern struct {
     extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
-    extern fn g_resolver_lookup_by_address(self: *Self, address: *gio.InetAddress, cancellable: *gio.Cancellable) [*c]const u8;
+    extern fn g_resolver_lookup_by_address(self: *Self, address: *gio.InetAddress, cancellable: ?*gio.Cancellable) [*c]const u8;
     pub const lookupByAddress = g_resolver_lookup_by_address;
 
-    extern fn g_resolver_lookup_by_address_async(self: *Self, address: *gio.InetAddress, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_resolver_lookup_by_address_async(self: *Self, address: *gio.InetAddress, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const lookupByAddressAsync = g_resolver_lookup_by_address_async;
 
     extern fn g_resolver_lookup_by_address_finish(self: *Self, result: *gio.AsyncResult) [*c]const u8;
     pub const lookupByAddressFinish = g_resolver_lookup_by_address_finish;
 
-    extern fn g_resolver_lookup_by_name(self: *Self, hostname: [*c]const u8, cancellable: *gio.Cancellable) ?*glib.List;
+    extern fn g_resolver_lookup_by_name(self: *Self, hostname: [*c]const u8, cancellable: ?*gio.Cancellable) ?*glib.List;
     pub const lookupByName = g_resolver_lookup_by_name;
 
-    extern fn g_resolver_lookup_by_name_async(self: *Self, hostname: [*c]const u8, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_resolver_lookup_by_name_async(self: *Self, hostname: [*c]const u8, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const lookupByNameAsync = g_resolver_lookup_by_name_async;
 
     extern fn g_resolver_lookup_by_name_finish(self: *Self, result: *gio.AsyncResult) ?*glib.List;
     pub const lookupByNameFinish = g_resolver_lookup_by_name_finish;
 
-    extern fn g_resolver_lookup_by_name_with_flags(self: *Self, hostname: [*c]const u8, flags: gio.ResolverNameLookupFlags, cancellable: *gio.Cancellable) ?*glib.List;
+    extern fn g_resolver_lookup_by_name_with_flags(self: *Self, hostname: [*c]const u8, flags: gio.ResolverNameLookupFlags, cancellable: ?*gio.Cancellable) ?*glib.List;
     pub const lookupByNameWithFlags = g_resolver_lookup_by_name_with_flags;
 
-    extern fn g_resolver_lookup_by_name_with_flags_async(self: *Self, hostname: [*c]const u8, flags: gio.ResolverNameLookupFlags, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_resolver_lookup_by_name_with_flags_async(self: *Self, hostname: [*c]const u8, flags: gio.ResolverNameLookupFlags, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const lookupByNameWithFlagsAsync = g_resolver_lookup_by_name_with_flags_async;
 
     extern fn g_resolver_lookup_by_name_with_flags_finish(self: *Self, result: *gio.AsyncResult) ?*glib.List;
     pub const lookupByNameWithFlagsFinish = g_resolver_lookup_by_name_with_flags_finish;
 
-    extern fn g_resolver_lookup_records(self: *Self, rrname: [*c]const u8, record_type: gio.ResolverRecordType, cancellable: *gio.Cancellable) ?*glib.List;
+    extern fn g_resolver_lookup_records(self: *Self, rrname: [*c]const u8, record_type: gio.ResolverRecordType, cancellable: ?*gio.Cancellable) ?*glib.List;
     pub const lookupRecords = g_resolver_lookup_records;
 
-    extern fn g_resolver_lookup_records_async(self: *Self, rrname: [*c]const u8, record_type: gio.ResolverRecordType, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_resolver_lookup_records_async(self: *Self, rrname: [*c]const u8, record_type: gio.ResolverRecordType, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const lookupRecordsAsync = g_resolver_lookup_records_async;
 
     extern fn g_resolver_lookup_records_finish(self: *Self, result: *gio.AsyncResult) ?*glib.List;
     pub const lookupRecordsFinish = g_resolver_lookup_records_finish;
 
-    extern fn g_resolver_lookup_service(self: *Self, service: [*c]const u8, protocol: [*c]const u8, domain: [*c]const u8, cancellable: *gio.Cancellable) ?*glib.List;
+    extern fn g_resolver_lookup_service(self: *Self, service: [*c]const u8, protocol: [*c]const u8, domain: [*c]const u8, cancellable: ?*gio.Cancellable) ?*glib.List;
     pub const lookupService = g_resolver_lookup_service;
 
-    extern fn g_resolver_lookup_service_async(self: *Self, service: [*c]const u8, protocol: [*c]const u8, domain: [*c]const u8, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_resolver_lookup_service_async(self: *Self, service: [*c]const u8, protocol: [*c]const u8, domain: [*c]const u8, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const lookupServiceAsync = g_resolver_lookup_service_async;
 
     extern fn g_resolver_lookup_service_finish(self: *Self, result: *gio.AsyncResult) ?*glib.List;

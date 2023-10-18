@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const UnixFDMessage = extern struct {
@@ -95,10 +95,10 @@ pub const UnixFDMessage = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asSocketControlMessage(self: *Self) *gio.SocketControlMessage {
         return @ptrCast(self);
     }
-    pub fn asSocketControlMessage(self: *Self) *gio.SocketControlMessage {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

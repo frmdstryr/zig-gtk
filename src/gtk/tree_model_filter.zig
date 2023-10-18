@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const glib = @import("glib");
 const gtk = @import("../gtk.zig");
 const gdk = @import("gdk");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const TreeModelFilter = extern struct {
@@ -38,7 +38,7 @@ pub const TreeModelFilter = extern struct {
     extern fn gtk_tree_drag_source_drag_data_get(self: *Self, path: *gtk.TreePath) ?*gdk.ContentProvider;
     pub const dragDataGet = gtk_tree_drag_source_drag_data_get;
 
-    extern fn gtk_tree_model_filter_new(self: *Self, root: *gtk.TreePath) ?*gtk.TreeModel;
+    extern fn gtk_tree_model_filter_new(self: *Self, root: ?*gtk.TreePath) ?*gtk.TreeModel;
     pub const filterNew = gtk_tree_model_filter_new;
 
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
@@ -83,7 +83,7 @@ pub const TreeModelFilter = extern struct {
     extern fn gtk_tree_model_iter_has_child(self: *Self, iter: *gtk.TreeIter) bool;
     pub const iterHasChild = gtk_tree_model_iter_has_child;
 
-    extern fn gtk_tree_model_iter_n_children(self: *Self, iter: *gtk.TreeIter) i32;
+    extern fn gtk_tree_model_iter_n_children(self: *Self, iter: ?*gtk.TreeIter) i32;
     pub const iterNChildren = gtk_tree_model_iter_n_children;
 
     extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
@@ -142,6 +142,9 @@ pub const TreeModelFilter = extern struct {
 
 
     // Bases
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
@@ -152,9 +155,6 @@ pub const TreeModelFilter = extern struct {
         return @ptrCast(self);
     }
     pub fn asTreeModelFilter(self: *Self) *gtk.TreeModelFilter {
-        return @ptrCast(self);
-    }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

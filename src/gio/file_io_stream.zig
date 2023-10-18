@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const FileIOStream = extern struct {
@@ -25,10 +25,10 @@ pub const FileIOStream = extern struct {
     extern fn g_io_stream_clear_pending(self: *Self) void;
     pub const clearPending = g_io_stream_clear_pending;
 
-    extern fn g_io_stream_close(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_io_stream_close(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const close = g_io_stream_close;
 
-    extern fn g_io_stream_close_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_io_stream_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const closeAsync = g_io_stream_close_async;
 
     extern fn g_io_stream_close_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -73,10 +73,10 @@ pub const FileIOStream = extern struct {
     extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
     pub const overrideProperty = g_object_class_override_property;
 
-    extern fn g_file_io_stream_query_info(self: *Self, attributes: [*c]const u8, cancellable: *gio.Cancellable) ?*gio.FileInfo;
+    extern fn g_file_io_stream_query_info(self: *Self, attributes: [*c]const u8, cancellable: ?*gio.Cancellable) ?*gio.FileInfo;
     pub const queryInfo = g_file_io_stream_query_info;
 
-    extern fn g_file_io_stream_query_info_async(self: *Self, attributes: [*c]const u8, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_io_stream_query_info_async(self: *Self, attributes: [*c]const u8, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const queryInfoAsync = g_file_io_stream_query_info_async;
 
     extern fn g_file_io_stream_query_info_finish(self: *Self, result: *gio.AsyncResult) ?*gio.FileInfo;
@@ -85,13 +85,13 @@ pub const FileIOStream = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn g_seekable_seek(self: *Self, offset: i64, type: glib.SeekType, cancellable: *gio.Cancellable) bool;
+    extern fn g_seekable_seek(self: *Self, offset: i64, type: glib.SeekType, cancellable: ?*gio.Cancellable) bool;
     pub const seek = g_seekable_seek;
 
     extern fn g_io_stream_set_pending(self: *Self) bool;
     pub const setPending = g_io_stream_set_pending;
 
-    extern fn g_io_stream_splice_async(self: *Self, stream2: *gio.IOStream, flags: gio.IOStreamSpliceFlags, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_io_stream_splice_async(self: *Self, stream2: *gio.IOStream, flags: gio.IOStreamSpliceFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const spliceAsync = g_io_stream_splice_async;
 
     extern fn g_seekable_tell(self: *Self) i64;
@@ -100,7 +100,7 @@ pub const FileIOStream = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn g_seekable_truncate(self: *Self, offset: i64, cancellable: *gio.Cancellable) bool;
+    extern fn g_seekable_truncate(self: *Self, offset: i64, cancellable: ?*gio.Cancellable) bool;
     pub const truncate = g_seekable_truncate;
 
 
@@ -129,13 +129,13 @@ pub const FileIOStream = extern struct {
     pub fn asIOStream(self: *Self) *gio.IOStream {
         return @ptrCast(self);
     }
+    pub fn asSeekable(self: *Self) *gio.Seekable {
+        return @ptrCast(self);
+    }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
     pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub fn asSeekable(self: *Self) *gio.Seekable {
         return @ptrCast(self);
     }
 };

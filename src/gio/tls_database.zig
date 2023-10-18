@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const TlsDatabase = extern struct {
@@ -37,28 +37,28 @@ pub const TlsDatabase = extern struct {
     extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
-    extern fn g_tls_database_lookup_certificate_for_handle(self: *Self, handle: [*c]const u8, interaction: *gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: *gio.Cancellable) ?*gio.TlsCertificate;
+    extern fn g_tls_database_lookup_certificate_for_handle(self: *Self, handle: [*c]const u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable) ?*gio.TlsCertificate;
     pub const lookupCertificateForHandle = g_tls_database_lookup_certificate_for_handle;
 
-    extern fn g_tls_database_lookup_certificate_for_handle_async(self: *Self, handle: [*c]const u8, interaction: *gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_tls_database_lookup_certificate_for_handle_async(self: *Self, handle: [*c]const u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const lookupCertificateForHandleAsync = g_tls_database_lookup_certificate_for_handle_async;
 
     extern fn g_tls_database_lookup_certificate_for_handle_finish(self: *Self, result: *gio.AsyncResult) ?*gio.TlsCertificate;
     pub const lookupCertificateForHandleFinish = g_tls_database_lookup_certificate_for_handle_finish;
 
-    extern fn g_tls_database_lookup_certificate_issuer(self: *Self, certificate: *gio.TlsCertificate, interaction: *gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: *gio.Cancellable) ?*gio.TlsCertificate;
+    extern fn g_tls_database_lookup_certificate_issuer(self: *Self, certificate: *gio.TlsCertificate, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable) ?*gio.TlsCertificate;
     pub const lookupCertificateIssuer = g_tls_database_lookup_certificate_issuer;
 
-    extern fn g_tls_database_lookup_certificate_issuer_async(self: *Self, certificate: *gio.TlsCertificate, interaction: *gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_tls_database_lookup_certificate_issuer_async(self: *Self, certificate: *gio.TlsCertificate, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const lookupCertificateIssuerAsync = g_tls_database_lookup_certificate_issuer_async;
 
     extern fn g_tls_database_lookup_certificate_issuer_finish(self: *Self, result: *gio.AsyncResult) ?*gio.TlsCertificate;
     pub const lookupCertificateIssuerFinish = g_tls_database_lookup_certificate_issuer_finish;
 
-    extern fn g_tls_database_lookup_certificates_issued_by(self: *Self, issuer_raw_dn: [*c]u8, interaction: *gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: *gio.Cancellable) ?*glib.List;
+    extern fn g_tls_database_lookup_certificates_issued_by(self: *Self, issuer_raw_dn: [*c]u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable) ?*glib.List;
     pub const lookupCertificatesIssuedBy = g_tls_database_lookup_certificates_issued_by;
 
-    extern fn g_tls_database_lookup_certificates_issued_by_async(self: *Self, issuer_raw_dn: [*c]u8, interaction: *gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_tls_database_lookup_certificates_issued_by_async(self: *Self, issuer_raw_dn: [*c]u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const lookupCertificatesIssuedByAsync = g_tls_database_lookup_certificates_issued_by_async;
 
     extern fn g_tls_database_lookup_certificates_issued_by_finish(self: *Self, result: *gio.AsyncResult) ?*glib.List;
@@ -76,10 +76,10 @@ pub const TlsDatabase = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn g_tls_database_verify_chain(self: *Self, chain: *gio.TlsCertificate, purpose: [*c]const u8, identity: *gio.SocketConnectable, interaction: *gio.TlsInteraction, flags: gio.TlsDatabaseVerifyFlags, cancellable: *gio.Cancellable) gio.TlsCertificateFlags;
+    extern fn g_tls_database_verify_chain(self: *Self, chain: *gio.TlsCertificate, purpose: [*c]const u8, identity: ?*gio.SocketConnectable, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseVerifyFlags, cancellable: ?*gio.Cancellable) gio.TlsCertificateFlags;
     pub const verifyChain = g_tls_database_verify_chain;
 
-    extern fn g_tls_database_verify_chain_async(self: *Self, chain: *gio.TlsCertificate, purpose: [*c]const u8, identity: *gio.SocketConnectable, interaction: *gio.TlsInteraction, flags: gio.TlsDatabaseVerifyFlags, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_tls_database_verify_chain_async(self: *Self, chain: *gio.TlsCertificate, purpose: [*c]const u8, identity: ?*gio.SocketConnectable, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseVerifyFlags, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const verifyChainAsync = g_tls_database_verify_chain_async;
 
     extern fn g_tls_database_verify_chain_finish(self: *Self, result: *gio.AsyncResult) gio.TlsCertificateFlags;

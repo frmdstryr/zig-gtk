@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
-const glib = @import("glib");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
+const glib = @import("glib");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const DirectoryList = extern struct {
@@ -12,7 +12,7 @@ pub const DirectoryList = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_directory_list_new(attributes: [*c]const u8, file: *gio.File) ?*Self;
+    extern fn gtk_directory_list_new(attributes: [*c]const u8, file: ?*gio.File) ?*Self;
     pub const new = gtk_directory_list_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -80,7 +80,7 @@ pub const DirectoryList = extern struct {
     extern fn gtk_directory_list_set_attributes(self: *Self, attributes: [*c]const u8) void;
     pub const setAttributes = gtk_directory_list_set_attributes;
 
-    extern fn gtk_directory_list_set_file(self: *Self, file: *gio.File) void;
+    extern fn gtk_directory_list_set_file(self: *Self, file: ?*gio.File) void;
     pub const setFile = gtk_directory_list_set_file;
 
     extern fn gtk_directory_list_set_io_priority(self: *Self, io_priority: i32) void;
@@ -115,13 +115,13 @@ pub const DirectoryList = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asListModel(self: *Self) *gio.ListModel {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asListModel(self: *Self) *gio.ListModel {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

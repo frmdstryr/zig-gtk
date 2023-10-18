@@ -10,7 +10,7 @@ pub const TreeListRowSorter = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_tree_list_row_sorter_new(sorter: *gtk.Sorter) ?*Self;
+    extern fn gtk_tree_list_row_sorter_new(sorter: ?*gtk.Sorter) ?*Self;
     pub const new = gtk_tree_list_row_sorter_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -57,7 +57,7 @@ pub const TreeListRowSorter = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_tree_list_row_sorter_set_sorter(self: *Self, sorter: *gtk.Sorter) void;
+    extern fn gtk_tree_list_row_sorter_set_sorter(self: *Self, sorter: ?*gtk.Sorter) void;
     pub const setSorter = gtk_tree_list_row_sorter_set_sorter;
 
     extern fn g_object_thaw_notify(self: *Self) void;

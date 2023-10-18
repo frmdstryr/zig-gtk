@@ -44,19 +44,19 @@ pub const Euler = extern struct {
     extern fn graphene_euler_init(self: *Self, x: f32, y: f32, z: f32) ?*graphene.Euler;
     pub const init = graphene_euler_init;
 
-    extern fn graphene_euler_init_from_euler(self: *Self, src: *graphene.Euler) ?*graphene.Euler;
+    extern fn graphene_euler_init_from_euler(self: *Self, src: ?*graphene.Euler) ?*graphene.Euler;
     pub const initFromEuler = graphene_euler_init_from_euler;
 
-    extern fn graphene_euler_init_from_matrix(self: *Self, m: *graphene.Matrix, order: graphene.EulerOrder) ?*graphene.Euler;
+    extern fn graphene_euler_init_from_matrix(self: *Self, m: ?*graphene.Matrix, order: graphene.EulerOrder) ?*graphene.Euler;
     pub const initFromMatrix = graphene_euler_init_from_matrix;
 
-    extern fn graphene_euler_init_from_quaternion(self: *Self, q: *graphene.Quaternion, order: graphene.EulerOrder) ?*graphene.Euler;
+    extern fn graphene_euler_init_from_quaternion(self: *Self, q: ?*graphene.Quaternion, order: graphene.EulerOrder) ?*graphene.Euler;
     pub const initFromQuaternion = graphene_euler_init_from_quaternion;
 
     extern fn graphene_euler_init_from_radians(self: *Self, x: f32, y: f32, z: f32, order: graphene.EulerOrder) ?*graphene.Euler;
     pub const initFromRadians = graphene_euler_init_from_radians;
 
-    extern fn graphene_euler_init_from_vec3(self: *Self, v: *graphene.Vec3, order: graphene.EulerOrder) ?*graphene.Euler;
+    extern fn graphene_euler_init_from_vec3(self: *Self, v: ?*graphene.Vec3, order: graphene.EulerOrder) ?*graphene.Euler;
     pub const initFromVec3 = graphene_euler_init_from_vec3;
 
     extern fn graphene_euler_init_with_order(self: *Self, x: f32, y: f32, z: f32, order: graphene.EulerOrder) ?*graphene.Euler;

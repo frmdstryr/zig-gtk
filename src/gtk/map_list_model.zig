@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
-const glib = @import("glib");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
+const glib = @import("glib");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const MapListModel = extern struct {
@@ -12,7 +12,7 @@ pub const MapListModel = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_map_list_model_new(model: *gio.ListModel, map_func: gtk.MapListModelMapFunc, user_data: ?*anyopaque, user_destroy: glib.DestroyNotify) ?*Self;
+    extern fn gtk_map_list_model_new(model: ?*gio.ListModel, map_func: gtk.MapListModelMapFunc, user_data: ?*anyopaque, user_destroy: glib.DestroyNotify) ?*Self;
     pub const new = gtk_map_list_model_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -68,7 +68,7 @@ pub const MapListModel = extern struct {
     extern fn gtk_map_list_model_set_map_func(self: *Self, map_func: gtk.MapListModelMapFunc, user_data: ?*anyopaque, user_destroy: glib.DestroyNotify) void;
     pub const setMapFunc = gtk_map_list_model_set_map_func;
 
-    extern fn gtk_map_list_model_set_model(self: *Self, model: *gio.ListModel) void;
+    extern fn gtk_map_list_model_set_model(self: *Self, model: ?*gio.ListModel) void;
     pub const setModel = gtk_map_list_model_set_model;
 
     extern fn g_object_thaw_notify(self: *Self) void;
@@ -97,13 +97,13 @@ pub const MapListModel = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asListModel(self: *Self) *gio.ListModel {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asListModel(self: *Self) *gio.ListModel {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
-// const harfbuzz = @import("harfbuzz");
 const gobject = @import("gobject");
+// const harfbuzz = @import("harfbuzz");
+const glib = @import("glib");
 const pango = @import("../pango.zig");
 const c = @import("c.zig");
 
@@ -45,7 +45,7 @@ pub const Font = extern struct {
     extern fn pango_font_get_languages(self: *Self) [*c]pango.Language;
     pub const getLanguages = pango_font_get_languages;
 
-    extern fn pango_font_get_metrics(self: *Self, language: *pango.Language) ?*pango.FontMetrics;
+    extern fn pango_font_get_metrics(self: *Self, language: ?*pango.Language) ?*pango.FontMetrics;
     pub const getMetrics = pango_font_get_metrics;
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;

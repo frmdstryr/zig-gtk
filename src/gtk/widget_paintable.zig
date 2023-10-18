@@ -11,7 +11,7 @@ pub const WidgetPaintable = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_widget_paintable_new(widget: *gtk.Widget) ?*Self;
+    extern fn gtk_widget_paintable_new(widget: ?*gtk.Widget) ?*Self;
     pub const new = gtk_widget_paintable_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -73,7 +73,7 @@ pub const WidgetPaintable = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_widget_paintable_set_widget(self: *Self, widget: *gtk.Widget) void;
+    extern fn gtk_widget_paintable_set_widget(self: *Self, widget: ?*gtk.Widget) void;
     pub const setWidget = gtk_widget_paintable_set_widget;
 
     extern fn gdk_paintable_snapshot(self: *Self, snapshot: *gdk.Snapshot, width: f64, height: f64) void;
@@ -105,13 +105,13 @@ pub const WidgetPaintable = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asPaintable(self: *Self) *gdk.Paintable {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asPaintable(self: *Self) *gdk.Paintable {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

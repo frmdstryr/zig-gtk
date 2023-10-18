@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const BuilderListItemFactory = extern struct {
@@ -11,10 +11,10 @@ pub const BuilderListItemFactory = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_builder_list_item_factory_new_from_bytes(scope: *gtk.BuilderScope, bytes: *glib.Bytes) ?*Self;
+    extern fn gtk_builder_list_item_factory_new_from_bytes(scope: ?*gtk.BuilderScope, bytes: *glib.Bytes) ?*Self;
     pub const newFromBytes = gtk_builder_list_item_factory_new_from_bytes;
 
-    extern fn gtk_builder_list_item_factory_new_from_resource(scope: *gtk.BuilderScope, resource_path: [*c]const u8) ?*Self;
+    extern fn gtk_builder_list_item_factory_new_from_resource(scope: ?*gtk.BuilderScope, resource_path: [*c]const u8) ?*Self;
     pub const newFromResource = gtk_builder_list_item_factory_new_from_resource;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;

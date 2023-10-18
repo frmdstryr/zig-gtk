@@ -56,7 +56,7 @@ pub const SignalGroup = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn g_signal_group_set_target(self: *Self, target: *gobject.Object) void;
+    extern fn g_signal_group_set_target(self: *Self, target: ?*gobject.Object) void;
     pub const setTarget = g_signal_group_set_target;
 
     extern fn g_object_thaw_notify(self: *Self) void;

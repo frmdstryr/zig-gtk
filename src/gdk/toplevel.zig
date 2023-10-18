@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
 const gobject = @import("gobject");
 const gdk = @import("../gdk.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const Toplevel = extern struct {
@@ -16,7 +16,7 @@ pub const Toplevel = extern struct {
     extern fn gdk_toplevel_begin_move(self: *Self, device: *gdk.Device, button: i32, x: f64, y: f64, timestamp: u32) void;
     pub const beginMove = gdk_toplevel_begin_move;
 
-    extern fn gdk_toplevel_begin_resize(self: *Self, edge: gdk.SurfaceEdge, device: *gdk.Device, button: i32, x: f64, y: f64, timestamp: u32) void;
+    extern fn gdk_toplevel_begin_resize(self: *Self, edge: gdk.SurfaceEdge, device: ?*gdk.Device, button: i32, x: f64, y: f64, timestamp: u32) void;
     pub const beginResize = gdk_toplevel_begin_resize;
 
     extern fn gdk_toplevel_focus(self: *Self, timestamp: u32) void;
@@ -25,7 +25,7 @@ pub const Toplevel = extern struct {
     extern fn gdk_toplevel_get_state(self: *Self) gdk.ToplevelState;
     pub const getState = gdk_toplevel_get_state;
 
-    extern fn gdk_toplevel_inhibit_system_shortcuts(self: *Self, event: *gdk.Event) void;
+    extern fn gdk_toplevel_inhibit_system_shortcuts(self: *Self, event: ?*gdk.Event) void;
     pub const inhibitSystemShortcuts = gdk_toplevel_inhibit_system_shortcuts;
 
     extern fn gdk_toplevel_lower(self: *Self) bool;

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const SortListModel = extern struct {
@@ -11,7 +11,7 @@ pub const SortListModel = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_sort_list_model_new(model: *gio.ListModel, sorter: *gtk.Sorter) ?*Self;
+    extern fn gtk_sort_list_model_new(model: ?*gio.ListModel, sorter: ?*gtk.Sorter) ?*Self;
     pub const new = gtk_sort_list_model_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -73,10 +73,10 @@ pub const SortListModel = extern struct {
     extern fn gtk_sort_list_model_set_incremental(self: *Self, incremental: bool) void;
     pub const setIncremental = gtk_sort_list_model_set_incremental;
 
-    extern fn gtk_sort_list_model_set_model(self: *Self, model: *gio.ListModel) void;
+    extern fn gtk_sort_list_model_set_model(self: *Self, model: ?*gio.ListModel) void;
     pub const setModel = gtk_sort_list_model_set_model;
 
-    extern fn gtk_sort_list_model_set_sorter(self: *Self, sorter: *gtk.Sorter) void;
+    extern fn gtk_sort_list_model_set_sorter(self: *Self, sorter: ?*gtk.Sorter) void;
     pub const setSorter = gtk_sort_list_model_set_sorter;
 
     extern fn g_object_thaw_notify(self: *Self) void;
@@ -105,13 +105,13 @@ pub const SortListModel = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asListModel(self: *Self) *gio.ListModel {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asListModel(self: *Self) *gio.ListModel {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

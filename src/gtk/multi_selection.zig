@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const MultiSelection = extern struct {
@@ -11,7 +11,7 @@ pub const MultiSelection = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_multi_selection_new(model: *gio.ListModel) ?*Self;
+    extern fn gtk_multi_selection_new(model: ?*gio.ListModel) ?*Self;
     pub const new = gtk_multi_selection_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -82,7 +82,7 @@ pub const MultiSelection = extern struct {
     extern fn gtk_selection_model_selection_changed(self: *Self, position: u32, n_items: u32) void;
     pub const selectionChanged = gtk_selection_model_selection_changed;
 
-    extern fn gtk_multi_selection_set_model(self: *Self, model: *gio.ListModel) void;
+    extern fn gtk_multi_selection_set_model(self: *Self, model: ?*gio.ListModel) void;
     pub const setModel = gtk_multi_selection_set_model;
 
     extern fn gtk_selection_model_set_selection(self: *Self, selected: *gtk.Bitset, mask: *gtk.Bitset) bool;
@@ -123,16 +123,16 @@ pub const MultiSelection = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub fn asSelectionModel(self: *Self) *gtk.SelectionModel {
+    pub fn asListModel(self: *Self) *gio.ListModel {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asListModel(self: *Self) *gio.ListModel {
+    pub fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
+    pub fn asSelectionModel(self: *Self) *gtk.SelectionModel {
         return @ptrCast(self);
     }
 };

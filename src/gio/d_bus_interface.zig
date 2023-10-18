@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const DBusInterface = extern struct {
@@ -18,7 +18,7 @@ pub const DBusInterface = extern struct {
     extern fn g_dbus_interface_dup_object(self: *Self) ?*gio.DBusObject;
     pub const getObject = g_dbus_interface_dup_object;
 
-    extern fn g_dbus_interface_set_object(self: *Self, object: *gio.DBusObject) void;
+    extern fn g_dbus_interface_set_object(self: *Self, object: ?*gio.DBusObject) void;
     pub const setObject = g_dbus_interface_set_object;
 
 

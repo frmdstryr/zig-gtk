@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
 const gtk = @import("../gtk.zig");
+const gdk = @import("gdk");
 const pango = @import("pango");
 const c = @import("c.zig");
 
@@ -28,7 +28,7 @@ pub const TextIter = extern struct {
     extern fn gtk_text_iter_backward_cursor_positions(self: *Self, count: i32) bool;
     pub const backwardCursorPositions = gtk_text_iter_backward_cursor_positions;
 
-    extern fn gtk_text_iter_backward_find_char(self: *Self, pred: gtk.TextCharPredicate, user_data: ?*anyopaque, limit: *gtk.TextIter) bool;
+    extern fn gtk_text_iter_backward_find_char(self: *Self, pred: gtk.TextCharPredicate, user_data: ?*anyopaque, limit: ?*gtk.TextIter) bool;
     pub const backwardFindChar = gtk_text_iter_backward_find_char;
 
     extern fn gtk_text_iter_backward_line(self: *Self) bool;
@@ -43,7 +43,7 @@ pub const TextIter = extern struct {
     extern fn gtk_text_iter_backward_sentence_starts(self: *Self, count: i32) bool;
     pub const backwardSentenceStarts = gtk_text_iter_backward_sentence_starts;
 
-    extern fn gtk_text_iter_backward_to_tag_toggle(self: *Self, tag: *gtk.TextTag) bool;
+    extern fn gtk_text_iter_backward_to_tag_toggle(self: *Self, tag: ?*gtk.TextTag) bool;
     pub const backwardToTagToggle = gtk_text_iter_backward_to_tag_toggle;
 
     extern fn gtk_text_iter_backward_visible_cursor_position(self: *Self) bool;
@@ -88,7 +88,7 @@ pub const TextIter = extern struct {
     extern fn gtk_text_iter_ends_sentence(self: *Self) bool;
     pub const endsSentence = gtk_text_iter_ends_sentence;
 
-    extern fn gtk_text_iter_ends_tag(self: *Self, tag: *gtk.TextTag) bool;
+    extern fn gtk_text_iter_ends_tag(self: *Self, tag: ?*gtk.TextTag) bool;
     pub const endsTag = gtk_text_iter_ends_tag;
 
     extern fn gtk_text_iter_ends_word(self: *Self) bool;
@@ -109,7 +109,7 @@ pub const TextIter = extern struct {
     extern fn gtk_text_iter_forward_cursor_positions(self: *Self, count: i32) bool;
     pub const forwardCursorPositions = gtk_text_iter_forward_cursor_positions;
 
-    extern fn gtk_text_iter_forward_find_char(self: *Self, pred: gtk.TextCharPredicate, user_data: ?*anyopaque, limit: *gtk.TextIter) bool;
+    extern fn gtk_text_iter_forward_find_char(self: *Self, pred: gtk.TextCharPredicate, user_data: ?*anyopaque, limit: ?*gtk.TextIter) bool;
     pub const forwardFindChar = gtk_text_iter_forward_find_char;
 
     extern fn gtk_text_iter_forward_line(self: *Self) bool;
@@ -130,7 +130,7 @@ pub const TextIter = extern struct {
     extern fn gtk_text_iter_forward_to_line_end(self: *Self) bool;
     pub const forwardToLineEnd = gtk_text_iter_forward_to_line_end;
 
-    extern fn gtk_text_iter_forward_to_tag_toggle(self: *Self, tag: *gtk.TextTag) bool;
+    extern fn gtk_text_iter_forward_to_tag_toggle(self: *Self, tag: ?*gtk.TextTag) bool;
     pub const forwardToTagToggle = gtk_text_iter_forward_to_tag_toggle;
 
     extern fn gtk_text_iter_forward_visible_cursor_position(self: *Self) bool;
@@ -271,13 +271,13 @@ pub const TextIter = extern struct {
     extern fn gtk_text_iter_starts_sentence(self: *Self) bool;
     pub const startsSentence = gtk_text_iter_starts_sentence;
 
-    extern fn gtk_text_iter_starts_tag(self: *Self, tag: *gtk.TextTag) bool;
+    extern fn gtk_text_iter_starts_tag(self: *Self, tag: ?*gtk.TextTag) bool;
     pub const startsTag = gtk_text_iter_starts_tag;
 
     extern fn gtk_text_iter_starts_word(self: *Self) bool;
     pub const startsWord = gtk_text_iter_starts_word;
 
-    extern fn gtk_text_iter_toggles_tag(self: *Self, tag: *gtk.TextTag) bool;
+    extern fn gtk_text_iter_toggles_tag(self: *Self, tag: ?*gtk.TextTag) bool;
     pub const togglesTag = gtk_text_iter_toggles_tag;
 
 

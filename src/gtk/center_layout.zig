@@ -81,16 +81,16 @@ pub const CenterLayout = extern struct {
     extern fn gtk_center_layout_set_baseline_position(self: *Self, baseline_position: gtk.BaselinePosition) void;
     pub const setBaselinePosition = gtk_center_layout_set_baseline_position;
 
-    extern fn gtk_center_layout_set_center_widget(self: *Self, widget: *gtk.Widget) void;
+    extern fn gtk_center_layout_set_center_widget(self: *Self, widget: ?*gtk.Widget) void;
     pub const setCenterWidget = gtk_center_layout_set_center_widget;
 
-    extern fn gtk_center_layout_set_end_widget(self: *Self, widget: *gtk.Widget) void;
+    extern fn gtk_center_layout_set_end_widget(self: *Self, widget: ?*gtk.Widget) void;
     pub const setEndWidget = gtk_center_layout_set_end_widget;
 
     extern fn gtk_center_layout_set_orientation(self: *Self, orientation: gtk.Orientation) void;
     pub const setOrientation = gtk_center_layout_set_orientation;
 
-    extern fn gtk_center_layout_set_start_widget(self: *Self, widget: *gtk.Widget) void;
+    extern fn gtk_center_layout_set_start_widget(self: *Self, widget: ?*gtk.Widget) void;
     pub const setStartWidget = gtk_center_layout_set_start_widget;
 
     extern fn g_object_thaw_notify(self: *Self) void;

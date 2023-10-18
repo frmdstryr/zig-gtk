@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const gio = @import("gio");
 const gtk = @import("../gtk.zig");
 const gdk = @import("gdk");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const PadController = extern struct {
@@ -12,7 +12,7 @@ pub const PadController = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_pad_controller_new(group: *gio.ActionGroup, pad: *gdk.Device) ?*Self;
+    extern fn gtk_pad_controller_new(group: *gio.ActionGroup, pad: ?*gdk.Device) ?*Self;
     pub const new = gtk_pad_controller_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;

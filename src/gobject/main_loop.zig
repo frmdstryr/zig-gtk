@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
 const gobject = @import("../gobject.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const MainLoop = extern struct {
@@ -10,7 +10,7 @@ pub const MainLoop = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_main_loop_new(context: *glib.MainContext, is_running: bool) ?*Self;
+    extern fn g_main_loop_new(context: ?*glib.MainContext, is_running: bool) ?*Self;
     pub const new = g_main_loop_new;
 
 

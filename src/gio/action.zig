@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const Action = extern struct {
@@ -13,7 +13,7 @@ pub const Action = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_action_activate(self: *Self, parameter: *glib.Variant) void;
+    extern fn g_action_activate(self: *Self, parameter: ?*glib.Variant) void;
     pub const activate = g_action_activate;
 
     extern fn g_action_change_state(self: *Self, value: *glib.Variant) void;

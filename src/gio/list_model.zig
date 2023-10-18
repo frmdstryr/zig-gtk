@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const ListModel = extern struct {
@@ -26,10 +26,10 @@ pub const ListModel = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asListModel(self: *Self) *gio.ListModel {
         return @ptrCast(self);
     }
-    pub fn asListModel(self: *Self) *gio.ListModel {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

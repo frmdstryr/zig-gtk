@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
 const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
 const gdk = @import("gdk");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const MountOperation = extern struct {
@@ -12,7 +12,7 @@ pub const MountOperation = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_mount_operation_new(parent: *gtk.Window) ?*Self;
+    extern fn gtk_mount_operation_new(parent: ?*gtk.Window) ?*Self;
     pub const new = gtk_mount_operation_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -104,7 +104,7 @@ pub const MountOperation = extern struct {
     extern fn g_mount_operation_set_is_tcrypt_system_volume(self: *Self, system_volume: bool) void;
     pub const setIsTcryptSystemVolume = g_mount_operation_set_is_tcrypt_system_volume;
 
-    extern fn gtk_mount_operation_set_parent(self: *Self, parent: *gtk.Window) void;
+    extern fn gtk_mount_operation_set_parent(self: *Self, parent: ?*gtk.Window) void;
     pub const setParent = gtk_mount_operation_set_parent;
 
     extern fn g_mount_operation_set_password(self: *Self, password: [*c]const u8) void;

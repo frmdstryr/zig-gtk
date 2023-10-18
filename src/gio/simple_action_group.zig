@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const SimpleActionGroup = extern struct {
@@ -31,7 +31,7 @@ pub const SimpleActionGroup = extern struct {
     extern fn g_action_group_action_state_changed(self: *Self, action_name: [*c]const u8, state: *glib.Variant) void;
     pub const actionStateChanged = g_action_group_action_state_changed;
 
-    extern fn g_action_group_activate_action(self: *Self, action_name: [*c]const u8, parameter: *glib.Variant) void;
+    extern fn g_action_group_activate_action(self: *Self, action_name: [*c]const u8, parameter: ?*glib.Variant) void;
     pub const activateAction = g_action_group_activate_action;
 
     extern fn g_action_map_add_action(self: *Self, action: *gio.Action) void;
@@ -135,9 +135,6 @@ pub const SimpleActionGroup = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
     pub fn asActionGroup(self: *Self) *gio.ActionGroup {
         return @ptrCast(self);
     }
@@ -145,6 +142,9 @@ pub const SimpleActionGroup = extern struct {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

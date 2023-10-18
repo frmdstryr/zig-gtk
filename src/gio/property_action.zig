@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const PropertyAction = extern struct {
@@ -19,7 +19,7 @@ pub const PropertyAction = extern struct {
 
 
     // Methods
-    extern fn g_action_activate(self: *Self, parameter: *glib.Variant) void;
+    extern fn g_action_activate(self: *Self, parameter: ?*glib.Variant) void;
     pub const activate = g_action_activate;
 
     extern fn g_action_change_state(self: *Self, value: *glib.Variant) void;
@@ -96,13 +96,13 @@ pub const PropertyAction = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asAction(self: *Self) *gio.Action {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asAction(self: *Self) *gio.Action {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

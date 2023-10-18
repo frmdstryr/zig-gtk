@@ -35,13 +35,13 @@ pub const Sphere = extern struct {
     extern fn graphene_sphere_get_radius(self: *Self) f32;
     pub const getRadius = graphene_sphere_get_radius;
 
-    extern fn graphene_sphere_init(self: *Self, center: *graphene.Point3D, radius: f32) ?*graphene.Sphere;
+    extern fn graphene_sphere_init(self: *Self, center: ?*graphene.Point3D, radius: f32) ?*graphene.Sphere;
     pub const init = graphene_sphere_init;
 
-    extern fn graphene_sphere_init_from_points(self: *Self, n_points: u32, points: [*c]graphene.Point3D, center: *graphene.Point3D) ?*graphene.Sphere;
+    extern fn graphene_sphere_init_from_points(self: *Self, n_points: u32, points: [*c]graphene.Point3D, center: ?*graphene.Point3D) ?*graphene.Sphere;
     pub const initFromPoints = graphene_sphere_init_from_points;
 
-    extern fn graphene_sphere_init_from_vectors(self: *Self, n_vectors: u32, vectors: [*c]graphene.Vec3, center: *graphene.Point3D) ?*graphene.Sphere;
+    extern fn graphene_sphere_init_from_vectors(self: *Self, n_vectors: u32, vectors: [*c]graphene.Vec3, center: ?*graphene.Point3D) ?*graphene.Sphere;
     pub const initFromVectors = graphene_sphere_init_from_vectors;
 
     extern fn graphene_sphere_is_empty(self: *Self) bool;

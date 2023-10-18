@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const cairo = @import("cairo");
-const gobject = @import("gobject");
-const gio = @import("gio");
 const gdk = @import("gdk");
-const gsk = @import("gsk");
-const graphene = @import("graphene");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const cairo = @import("cairo");
+const graphene = @import("graphene");
 const pango = @import("pango");
+const gsk = @import("gsk");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const FileChooserDialog = extern struct {
@@ -31,7 +31,7 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_activate(self: *Self) bool;
     pub const activate = gtk_widget_activate;
 
-    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: *glib.Variant) bool;
+    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: ?*glib.Variant) bool;
     pub const activateAction = gtk_widget_activate_action_variant;
 
     extern fn gtk_widget_activate_default(self: *Self) void;
@@ -67,7 +67,7 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_add_tick_callback(self: *Self, callback: gtk.TickCallback, user_data: ?*anyopaque, notify: glib.DestroyNotify) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
-    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: *gsk.Transform) void;
+    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
     pub const allocate = gtk_widget_allocate;
 
     extern fn gtk_widget_class_bind_template_callback_full(self: *Self, callback_name: [*c]const u8, callback_symbol: gobject.Callback) void;
@@ -460,13 +460,13 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_init_template(self: *Self) void;
     pub const initTemplate = gtk_widget_init_template;
 
-    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: *gio.ActionGroup) void;
+    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: ?*gio.ActionGroup) void;
     pub const insertActionGroup = gtk_widget_insert_action_group;
 
-    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: ?*gtk.Widget) void;
     pub const insertAfter = gtk_widget_insert_after;
 
-    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: ?*gtk.Widget) void;
     pub const insertBefore = gtk_widget_insert_before;
 
     extern fn gtk_widget_class_install_action(self: *Self, action_name: [*c]const u8, parameter_type: [*c]const u8, activate: gtk.WidgetActionActivateFunc) void;
@@ -553,7 +553,7 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_window_present_with_time(self: *Self, timestamp: u32) void;
     pub const presentWithTime = gtk_window_present_with_time;
 
-    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: *glib.VariantType, property_name: [*c]const u8) bool;
+    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: ?*glib.VariantType, property_name: [*c]const u8) bool;
     pub const queryAction = gtk_widget_class_query_action;
 
     extern fn gtk_widget_queue_allocate(self: *Self) void;
@@ -616,7 +616,7 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_class_set_activate_signal_from_name(self: *Self, signal_name: [*c]const u8) void;
     pub const setActivateSignalFromName = gtk_widget_class_set_activate_signal_from_name;
 
-    extern fn gtk_window_set_application(self: *Self, application: *gtk.Application) void;
+    extern fn gtk_window_set_application(self: *Self, application: ?*gtk.Application) void;
     pub const setApplication = gtk_window_set_application;
 
     extern fn gtk_widget_set_can_focus(self: *Self, can_focus: bool) void;
@@ -625,7 +625,7 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_set_can_target(self: *Self, can_target: bool) void;
     pub const setCanTarget = gtk_widget_set_can_target;
 
-    extern fn gtk_window_set_child(self: *Self, child: *gtk.Widget) void;
+    extern fn gtk_window_set_child(self: *Self, child: ?*gtk.Widget) void;
     pub const setChild = gtk_window_set_child;
 
     extern fn gtk_widget_set_child_visible(self: *Self, child_visible: bool) void;
@@ -643,13 +643,13 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_class_set_css_name(self: *Self, name: [*c]const u8) void;
     pub const setCssName = gtk_widget_class_set_css_name;
 
-    extern fn gtk_file_chooser_set_current_folder(self: *Self, file: *gio.File) bool;
+    extern fn gtk_file_chooser_set_current_folder(self: *Self, file: ?*gio.File) bool;
     pub const setCurrentFolder = gtk_file_chooser_set_current_folder;
 
     extern fn gtk_file_chooser_set_current_name(self: *Self, name: [*c]const u8) void;
     pub const setCurrentName = gtk_file_chooser_set_current_name;
 
-    extern fn gtk_widget_set_cursor(self: *Self, cursor: *gdk.Cursor) void;
+    extern fn gtk_widget_set_cursor(self: *Self, cursor: ?*gdk.Cursor) void;
     pub const setCursor = gtk_widget_set_cursor;
 
     extern fn gtk_widget_set_cursor_from_name(self: *Self, name: [*c]const u8) void;
@@ -664,7 +664,7 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_window_set_default_size(self: *Self, width: i32, height: i32) void;
     pub const setDefaultSize = gtk_window_set_default_size;
 
-    extern fn gtk_window_set_default_widget(self: *Self, default_widget: *gtk.Widget) void;
+    extern fn gtk_window_set_default_widget(self: *Self, default_widget: ?*gtk.Widget) void;
     pub const setDefaultWidget = gtk_window_set_default_widget;
 
     extern fn gtk_window_set_deletable(self: *Self, setting: bool) void;
@@ -685,10 +685,10 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_file_chooser_set_filter(self: *Self, filter: *gtk.FileFilter) void;
     pub const setFilter = gtk_file_chooser_set_filter;
 
-    extern fn gtk_window_set_focus(self: *Self, focus: *gtk.Widget) void;
+    extern fn gtk_window_set_focus(self: *Self, focus: ?*gtk.Widget) void;
     pub const setFocus = gtk_window_set_focus;
 
-    extern fn gtk_widget_set_focus_child(self: *Self, child: *gtk.Widget) void;
+    extern fn gtk_widget_set_focus_child(self: *Self, child: ?*gtk.Widget) void;
     pub const setFocusChild = gtk_widget_set_focus_child;
 
     extern fn gtk_widget_set_focus_on_click(self: *Self, focus_on_click: bool) void;
@@ -700,10 +700,10 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_set_focusable(self: *Self, focusable: bool) void;
     pub const setFocusable = gtk_widget_set_focusable;
 
-    extern fn gtk_widget_set_font_map(self: *Self, font_map: *pango.FontMap) void;
+    extern fn gtk_widget_set_font_map(self: *Self, font_map: ?*pango.FontMap) void;
     pub const setFontMap = gtk_widget_set_font_map;
 
-    extern fn gtk_widget_set_font_options(self: *Self, options: *cairo.FontOptions) void;
+    extern fn gtk_widget_set_font_options(self: *Self, options: ?*cairo.FontOptions) void;
     pub const setFontOptions = gtk_widget_set_font_options;
 
     extern fn gtk_widget_set_halign(self: *Self, align_: gtk.Align) void;
@@ -727,7 +727,7 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_window_set_icon_name(self: *Self, name: [*c]const u8) void;
     pub const setIconName = gtk_window_set_icon_name;
 
-    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: *gtk.LayoutManager) void;
+    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: ?*gtk.LayoutManager) void;
     pub const setLayoutManager = gtk_widget_set_layout_manager;
 
     extern fn gtk_widget_class_set_layout_manager_type(self: *Self, type: usize) void;
@@ -799,7 +799,7 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_window_set_title(self: *Self, title: [*c]const u8) void;
     pub const setTitle = gtk_window_set_title;
 
-    extern fn gtk_window_set_titlebar(self: *Self, titlebar: *gtk.Widget) void;
+    extern fn gtk_window_set_titlebar(self: *Self, titlebar: ?*gtk.Widget) void;
     pub const setTitlebar = gtk_window_set_titlebar;
 
     extern fn gtk_widget_set_tooltip_markup(self: *Self, markup: [*c]const u8) void;
@@ -808,7 +808,7 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_set_tooltip_text(self: *Self, text: [*c]const u8) void;
     pub const setTooltipText = gtk_widget_set_tooltip_text;
 
-    extern fn gtk_window_set_transient_for(self: *Self, parent: *gtk.Window) void;
+    extern fn gtk_window_set_transient_for(self: *Self, parent: ?*gtk.Window) void;
     pub const setTransientFor = gtk_window_set_transient_for;
 
     extern fn gtk_widget_set_valign(self: *Self, align_: gtk.Align) void;
@@ -894,28 +894,28 @@ pub const FileChooserDialog = extern struct {
 
 
     // Bases
-    pub fn asNative(self: *Self) *gtk.Native {
-        return @ptrCast(self);
-    }
-    pub fn asWidget(self: *Self) *gtk.Widget {
-        return @ptrCast(self);
-    }
-    pub fn asFileChooser(self: *Self) *gtk.FileChooser {
-        return @ptrCast(self);
-    }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
     pub fn asDialog(self: *Self) *gtk.Dialog {
         return @ptrCast(self);
     }
-    pub fn asWindow(self: *Self) *gtk.Window {
+    pub fn asFileChooser(self: *Self) *gtk.FileChooser {
+        return @ptrCast(self);
+    }
+    pub fn asNative(self: *Self) *gtk.Native {
+        return @ptrCast(self);
+    }
+    pub fn asRoot(self: *Self) *gtk.Root {
         return @ptrCast(self);
     }
     pub fn asShortcutManager(self: *Self) *gtk.ShortcutManager {
         return @ptrCast(self);
     }
-    pub fn asRoot(self: *Self) *gtk.Root {
+    pub fn asWidget(self: *Self) *gtk.Widget {
+        return @ptrCast(self);
+    }
+    pub fn asWindow(self: *Self) *gtk.Window {
         return @ptrCast(self);
     }
 };

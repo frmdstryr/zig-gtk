@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const pango = @import("pango");
 const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
 const gdk = @import("gdk");
+const pango = @import("pango");
 const c = @import("c.zig");
 
 pub const IMMulticontext = extern struct {
@@ -74,7 +74,7 @@ pub const IMMulticontext = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_im_context_set_client_widget(self: *Self, widget: *gtk.Widget) void;
+    extern fn gtk_im_context_set_client_widget(self: *Self, widget: ?*gtk.Widget) void;
     pub const setClientWidget = gtk_im_context_set_client_widget;
 
     extern fn gtk_im_multicontext_set_context_id(self: *Self, context_id: [*c]const u8) void;

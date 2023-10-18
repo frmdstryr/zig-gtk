@@ -14,7 +14,7 @@ pub const FontDescription = extern struct {
 
 
     // Methods
-    extern fn pango_font_description_better_match(self: *Self, old_match: *pango.FontDescription, new_match: *pango.FontDescription) bool;
+    extern fn pango_font_description_better_match(self: *Self, old_match: ?*pango.FontDescription, new_match: *pango.FontDescription) bool;
     pub const betterMatch = pango_font_description_better_match;
 
     extern fn pango_font_description_copy(self: *Self) ?*pango.FontDescription;
@@ -62,7 +62,7 @@ pub const FontDescription = extern struct {
     extern fn pango_font_description_hash(self: *Self) u32;
     pub const hash = pango_font_description_hash;
 
-    extern fn pango_font_description_merge(self: *Self, desc_to_merge: *pango.FontDescription, replace_existing: bool) void;
+    extern fn pango_font_description_merge(self: *Self, desc_to_merge: ?*pango.FontDescription, replace_existing: bool) void;
     pub const merge = pango_font_description_merge;
 
     extern fn pango_font_description_merge_static(self: *Self, desc_to_merge: *pango.FontDescription, replace_existing: bool) void;

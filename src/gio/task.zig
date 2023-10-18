@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const Task = extern struct {
@@ -11,7 +11,7 @@ pub const Task = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_task_new(source_object: *gobject.Object, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, callback_data: ?*anyopaque) ?*Self;
+    extern fn g_task_new(source_object: ?*gobject.Object, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, callback_data: ?*anyopaque) ?*Self;
     pub const new = g_task_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -112,7 +112,7 @@ pub const Task = extern struct {
     extern fn g_task_return_pointer(self: *Self, result: ?*anyopaque, result_destroy: glib.DestroyNotify) void;
     pub const returnPointer = g_task_return_pointer;
 
-    extern fn g_task_return_value(self: *Self, result: *gobject.Value) void;
+    extern fn g_task_return_value(self: *Self, result: ?*gobject.Value) void;
     pub const returnValue = g_task_return_value;
 
     extern fn g_object_run_dispose(self: *Self) void;
@@ -168,13 +168,13 @@ pub const Task = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asAsyncResult(self: *Self) *gio.AsyncResult {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asAsyncResult(self: *Self) *gio.AsyncResult {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

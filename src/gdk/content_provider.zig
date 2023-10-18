@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
-const glib = @import("glib");
 const gobject = @import("gobject");
 const gdk = @import("../gdk.zig");
+const glib = @import("glib");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const ContentProvider = extern struct {
@@ -68,7 +68,7 @@ pub const ContentProvider = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn gdk_content_provider_write_mime_type_async(self: *Self, mime_type: [*c]const u8, stream: *gio.OutputStream, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn gdk_content_provider_write_mime_type_async(self: *Self, mime_type: [*c]const u8, stream: *gio.OutputStream, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const writeMimeTypeAsync = gdk_content_provider_write_mime_type_async;
 
     extern fn gdk_content_provider_write_mime_type_finish(self: *Self, result: *gio.AsyncResult) bool;

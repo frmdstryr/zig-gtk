@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const TcpWrapperConnection = extern struct {
@@ -21,19 +21,19 @@ pub const TcpWrapperConnection = extern struct {
     extern fn g_io_stream_clear_pending(self: *Self) void;
     pub const clearPending = g_io_stream_clear_pending;
 
-    extern fn g_io_stream_close(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_io_stream_close(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const close = g_io_stream_close;
 
-    extern fn g_io_stream_close_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_io_stream_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const closeAsync = g_io_stream_close_async;
 
     extern fn g_io_stream_close_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const closeFinish = g_io_stream_close_finish;
 
-    extern fn g_socket_connection_connect(self: *Self, address: *gio.SocketAddress, cancellable: *gio.Cancellable) bool;
+    extern fn g_socket_connection_connect(self: *Self, address: *gio.SocketAddress, cancellable: ?*gio.Cancellable) bool;
     pub const connect = g_socket_connection_connect;
 
-    extern fn g_socket_connection_connect_async(self: *Self, address: *gio.SocketAddress, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_socket_connection_connect_async(self: *Self, address: *gio.SocketAddress, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const connectAsync = g_socket_connection_connect_async;
 
     extern fn g_socket_connection_connect_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -102,7 +102,7 @@ pub const TcpWrapperConnection = extern struct {
     extern fn g_io_stream_set_pending(self: *Self) bool;
     pub const setPending = g_io_stream_set_pending;
 
-    extern fn g_io_stream_splice_async(self: *Self, stream2: *gio.IOStream, flags: gio.IOStreamSpliceFlags, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_io_stream_splice_async(self: *Self, stream2: *gio.IOStream, flags: gio.IOStreamSpliceFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const spliceAsync = g_io_stream_splice_async;
 
     extern fn g_object_thaw_notify(self: *Self) void;
@@ -134,10 +134,10 @@ pub const TcpWrapperConnection = extern struct {
     pub fn asIOStream(self: *Self) *gio.IOStream {
         return @ptrCast(self);
     }
-    pub fn asTcpConnection(self: *Self) *gio.TcpConnection {
+    pub fn asSocketConnection(self: *Self) *gio.SocketConnection {
         return @ptrCast(self);
     }
-    pub fn asSocketConnection(self: *Self) *gio.SocketConnection {
+    pub fn asTcpConnection(self: *Self) *gio.TcpConnection {
         return @ptrCast(self);
     }
     pub fn asObject(self: *Self) *gobject.Object {

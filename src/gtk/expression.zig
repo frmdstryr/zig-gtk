@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const Expression = extern struct {
@@ -13,10 +13,10 @@ pub const Expression = extern struct {
     // Constructors
 
     // Methods
-    extern fn gtk_expression_bind(self: *Self, target: *gobject.Object, property: [*c]const u8, this_: *gobject.Object) ?*gtk.ExpressionWatch;
+    extern fn gtk_expression_bind(self: *Self, target: *gobject.Object, property: [*c]const u8, this_: ?*gobject.Object) ?*gtk.ExpressionWatch;
     pub const bind = gtk_expression_bind;
 
-    extern fn gtk_expression_evaluate(self: *Self, this_: *gobject.Object, value: *gobject.Value) bool;
+    extern fn gtk_expression_evaluate(self: *Self, this_: ?*gobject.Object, value: *gobject.Value) bool;
     pub const evaluate = gtk_expression_evaluate;
 
     extern fn gtk_expression_get_value_type(self: *Self) usize;
@@ -31,7 +31,7 @@ pub const Expression = extern struct {
     extern fn gtk_expression_unref(self: *Self) void;
     pub const unref = gtk_expression_unref;
 
-    extern fn gtk_expression_watch(self: *Self, this_: *gobject.Object, notify: gtk.ExpressionNotify, user_data: ?*anyopaque, user_destroy: glib.DestroyNotify) ?*gtk.ExpressionWatch;
+    extern fn gtk_expression_watch(self: *Self, this_: ?*gobject.Object, notify: gtk.ExpressionNotify, user_data: ?*anyopaque, user_destroy: glib.DestroyNotify) ?*gtk.ExpressionWatch;
     pub const watch = gtk_expression_watch;
 
 };

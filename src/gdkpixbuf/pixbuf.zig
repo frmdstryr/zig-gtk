@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdkpixbuf = @import("../gdkpixbuf.zig");
-const gio = @import("gio");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const gdkpixbuf = @import("../gdkpixbuf.zig");
+const glib = @import("glib");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const Pixbuf = extern struct {
@@ -36,10 +36,10 @@ pub const Pixbuf = extern struct {
     extern fn gdk_pixbuf_new_from_resource_at_scale(resource_path: [*c]const u8, width: i32, height: i32, preserve_aspect_ratio: bool) ?*Self;
     pub const newFromResourceAtScale = gdk_pixbuf_new_from_resource_at_scale;
 
-    extern fn gdk_pixbuf_new_from_stream(stream: *gio.InputStream, cancellable: *gio.Cancellable) ?*Self;
+    extern fn gdk_pixbuf_new_from_stream(stream: *gio.InputStream, cancellable: ?*gio.Cancellable) ?*Self;
     pub const newFromStream = gdk_pixbuf_new_from_stream;
 
-    extern fn gdk_pixbuf_new_from_stream_at_scale(stream: *gio.InputStream, width: i32, height: i32, preserve_aspect_ratio: bool, cancellable: *gio.Cancellable) ?*Self;
+    extern fn gdk_pixbuf_new_from_stream_at_scale(stream: *gio.InputStream, width: i32, height: i32, preserve_aspect_ratio: bool, cancellable: ?*gio.Cancellable) ?*Self;
     pub const newFromStreamAtScale = gdk_pixbuf_new_from_stream_at_scale;
 
     extern fn gdk_pixbuf_new_from_stream_finish(async_result: *gio.AsyncResult) ?*Self;
@@ -77,7 +77,7 @@ pub const Pixbuf = extern struct {
     extern fn gdk_pixbuf_copy_options(self: *Self, dest_pixbuf: *gdkpixbuf.Pixbuf) bool;
     pub const copyOptions = gdk_pixbuf_copy_options;
 
-    extern fn g_icon_equal(self: *Self, icon2: *gio.Icon) bool;
+    extern fn g_icon_equal(self: *Self, icon2: ?*gio.Icon) bool;
     pub const equal = g_icon_equal;
 
     extern fn gdk_pixbuf_fill(self: *Self, pixel: u32) void;
@@ -141,10 +141,10 @@ pub const Pixbuf = extern struct {
     extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
-    extern fn g_loadable_icon_load(self: *Self, size: i32, type: [*c]const u8, cancellable: *gio.Cancellable) ?*gio.InputStream;
+    extern fn g_loadable_icon_load(self: *Self, size: i32, type: [*c]const u8, cancellable: ?*gio.Cancellable) ?*gio.InputStream;
     pub const load = g_loadable_icon_load;
 
-    extern fn g_loadable_icon_load_async(self: *Self, size: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_loadable_icon_load_async(self: *Self, size: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const loadAsync = g_loadable_icon_load_async;
 
     extern fn g_loadable_icon_load_finish(self: *Self, res: *gio.AsyncResult, type: [*c]const u8) ?*gio.InputStream;
@@ -183,10 +183,10 @@ pub const Pixbuf = extern struct {
     extern fn gdk_pixbuf_save_to_callbackv(self: *Self, save_func: gdkpixbuf.PixbufSaveFunc, user_data: ?*anyopaque, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8) bool;
     pub const saveToCallbackv = gdk_pixbuf_save_to_callbackv;
 
-    extern fn gdk_pixbuf_save_to_streamv(self: *Self, stream: *gio.OutputStream, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, cancellable: *gio.Cancellable) bool;
+    extern fn gdk_pixbuf_save_to_streamv(self: *Self, stream: *gio.OutputStream, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, cancellable: ?*gio.Cancellable) bool;
     pub const saveToStreamv = gdk_pixbuf_save_to_streamv;
 
-    extern fn gdk_pixbuf_save_to_streamv_async(self: *Self, stream: *gio.OutputStream, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn gdk_pixbuf_save_to_streamv_async(self: *Self, stream: *gio.OutputStream, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const saveToStreamvAsync = gdk_pixbuf_save_to_streamv_async;
 
     extern fn gdk_pixbuf_savev(self: *Self, filename: [*c]const u8, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8) bool;
@@ -233,19 +233,19 @@ pub const Pixbuf = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
+    pub fn asPixbuf(self: *Self) *gdkpixbuf.Pixbuf {
         return @ptrCast(self);
     }
     pub fn asIcon(self: *Self) *gio.Icon {
         return @ptrCast(self);
     }
-    pub fn asPixbuf(self: *Self) *gdkpixbuf.Pixbuf {
+    pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

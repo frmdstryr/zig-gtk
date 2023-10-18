@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const graphene = @import("graphene");
-const glib = @import("glib");
 const gsk = @import("../gsk.zig");
+const glib = @import("glib");
+const graphene = @import("graphene");
 const c = @import("c.zig");
 
 pub const ShaderArgsBuilder = extern struct {
@@ -11,7 +11,7 @@ pub const ShaderArgsBuilder = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gsk_shader_args_builder_new(shader: *gsk.GLShader, initial_values: *glib.Bytes) ?*Self;
+    extern fn gsk_shader_args_builder_new(shader: *gsk.GLShader, initial_values: ?*glib.Bytes) ?*Self;
     pub const new = gsk_shader_args_builder_new;
 
 

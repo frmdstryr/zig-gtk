@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
 const gobject = @import("../gobject.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const Value = extern struct {
@@ -138,10 +138,10 @@ pub const Value = extern struct {
     extern fn g_value_set_long(self: *Self, v_long: i64) void;
     pub const setLong = g_value_set_long;
 
-    extern fn g_value_set_object(self: *Self, v_object: *gobject.Object) void;
+    extern fn g_value_set_object(self: *Self, v_object: ?*gobject.Object) void;
     pub const setObject = g_value_set_object;
 
-    extern fn g_value_set_param(self: *Self, param: *gobject.ParamSpec) void;
+    extern fn g_value_set_param(self: *Self, param: ?*gobject.ParamSpec) void;
     pub const setParam = g_value_set_param;
 
     extern fn g_value_set_pointer(self: *Self, v_pointer: ?*anyopaque) void;
@@ -174,7 +174,7 @@ pub const Value = extern struct {
     extern fn g_value_set_ulong(self: *Self, v_ulong: u64) void;
     pub const setUlong = g_value_set_ulong;
 
-    extern fn g_value_set_variant(self: *Self, variant: *glib.Variant) void;
+    extern fn g_value_set_variant(self: *Self, variant: ?*glib.Variant) void;
     pub const setVariant = g_value_set_variant;
 
     extern fn g_value_take_boxed(self: *Self, v_boxed: ?*anyopaque) void;
@@ -183,7 +183,7 @@ pub const Value = extern struct {
     extern fn g_value_take_string(self: *Self, v_string: [*c]const u8) void;
     pub const takeString = g_value_take_string;
 
-    extern fn g_value_take_variant(self: *Self, variant: *glib.Variant) void;
+    extern fn g_value_take_variant(self: *Self, variant: ?*glib.Variant) void;
     pub const takeVariant = g_value_take_variant;
 
     extern fn g_value_transform(self: *Self, dest_value: *gobject.Value) bool;

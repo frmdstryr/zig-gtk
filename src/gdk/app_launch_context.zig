@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
-const glib = @import("glib");
 const gobject = @import("gobject");
 const gdk = @import("../gdk.zig");
+const glib = @import("glib");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const AppLaunchContext = extern struct {
@@ -62,7 +62,7 @@ pub const AppLaunchContext = extern struct {
     extern fn gdk_app_launch_context_set_desktop(self: *Self, desktop: i32) void;
     pub const setDesktop = gdk_app_launch_context_set_desktop;
 
-    extern fn gdk_app_launch_context_set_icon(self: *Self, icon: *gio.Icon) void;
+    extern fn gdk_app_launch_context_set_icon(self: *Self, icon: ?*gio.Icon) void;
     pub const setIcon = gdk_app_launch_context_set_icon;
 
     extern fn gdk_app_launch_context_set_icon_name(self: *Self, icon_name: [*c]const u8) void;
@@ -103,10 +103,10 @@ pub const AppLaunchContext = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asAppLaunchContext(self: *Self) *gio.AppLaunchContext {
         return @ptrCast(self);
     }
-    pub fn asAppLaunchContext(self: *Self) *gio.AppLaunchContext {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

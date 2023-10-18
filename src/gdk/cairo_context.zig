@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const cairo = @import("cairo");
 const gobject = @import("gobject");
 const gdk = @import("../gdk.zig");
+const cairo = @import("cairo");
 const c = @import("c.zig");
 
 pub const CairoContext = extern struct {
@@ -90,10 +90,10 @@ pub const CairoContext = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asDrawContext(self: *Self) *gdk.DrawContext {
         return @ptrCast(self);
     }
-    pub fn asDrawContext(self: *Self) *gdk.DrawContext {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

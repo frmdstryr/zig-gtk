@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const TlsConnection = extern struct {
@@ -18,10 +18,10 @@ pub const TlsConnection = extern struct {
     extern fn g_io_stream_clear_pending(self: *Self) void;
     pub const clearPending = g_io_stream_clear_pending;
 
-    extern fn g_io_stream_close(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_io_stream_close(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const close = g_io_stream_close;
 
-    extern fn g_io_stream_close_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_io_stream_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const closeAsync = g_io_stream_close_async;
 
     extern fn g_io_stream_close_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -78,10 +78,10 @@ pub const TlsConnection = extern struct {
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_tls_connection_handshake(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_tls_connection_handshake(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const handshake = g_tls_connection_handshake;
 
-    extern fn g_tls_connection_handshake_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_tls_connection_handshake_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const handshakeAsync = g_tls_connection_handshake_async;
 
     extern fn g_tls_connection_handshake_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -120,10 +120,10 @@ pub const TlsConnection = extern struct {
     extern fn g_tls_connection_set_certificate(self: *Self, certificate: *gio.TlsCertificate) void;
     pub const setCertificate = g_tls_connection_set_certificate;
 
-    extern fn g_tls_connection_set_database(self: *Self, database: *gio.TlsDatabase) void;
+    extern fn g_tls_connection_set_database(self: *Self, database: ?*gio.TlsDatabase) void;
     pub const setDatabase = g_tls_connection_set_database;
 
-    extern fn g_tls_connection_set_interaction(self: *Self, interaction: *gio.TlsInteraction) void;
+    extern fn g_tls_connection_set_interaction(self: *Self, interaction: ?*gio.TlsInteraction) void;
     pub const setInteraction = g_tls_connection_set_interaction;
 
     extern fn g_io_stream_set_pending(self: *Self) bool;
@@ -138,7 +138,7 @@ pub const TlsConnection = extern struct {
     extern fn g_tls_connection_set_use_system_certdb(self: *Self, use_system_certdb: bool) void;
     pub const setUseSystemCertdb = g_tls_connection_set_use_system_certdb;
 
-    extern fn g_io_stream_splice_async(self: *Self, stream2: *gio.IOStream, flags: gio.IOStreamSpliceFlags, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_io_stream_splice_async(self: *Self, stream2: *gio.IOStream, flags: gio.IOStreamSpliceFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const spliceAsync = g_io_stream_splice_async;
 
     extern fn g_object_thaw_notify(self: *Self) void;

@@ -38,13 +38,13 @@ pub const Ray = extern struct {
     extern fn graphene_ray_get_position_at(self: *Self, t: f32, position: graphene.Point3D) void;
     pub const getPositionAt = graphene_ray_get_position_at;
 
-    extern fn graphene_ray_init(self: *Self, origin: *graphene.Point3D, direction: *graphene.Vec3) ?*graphene.Ray;
+    extern fn graphene_ray_init(self: *Self, origin: ?*graphene.Point3D, direction: ?*graphene.Vec3) ?*graphene.Ray;
     pub const init = graphene_ray_init;
 
     extern fn graphene_ray_init_from_ray(self: *Self, src: *graphene.Ray) ?*graphene.Ray;
     pub const initFromRay = graphene_ray_init_from_ray;
 
-    extern fn graphene_ray_init_from_vec3(self: *Self, origin: *graphene.Vec3, direction: *graphene.Vec3) ?*graphene.Ray;
+    extern fn graphene_ray_init_from_vec3(self: *Self, origin: ?*graphene.Vec3, direction: ?*graphene.Vec3) ?*graphene.Ray;
     pub const initFromVec3 = graphene_ray_init_from_vec3;
 
     extern fn graphene_ray_intersect_box(self: *Self, b: *graphene.Box, t_out: f32) graphene.RayIntersectionKind;

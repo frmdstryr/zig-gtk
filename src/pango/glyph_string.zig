@@ -35,7 +35,7 @@ pub const GlyphString = extern struct {
     extern fn pango_glyph_string_index_to_x(self: *Self, text: [*c]const u8, length: i32, analysis: *pango.Analysis, index_: i32, trailing: bool, x_pos: i32) void;
     pub const indexToX = pango_glyph_string_index_to_x;
 
-    extern fn pango_glyph_string_index_to_x_full(self: *Self, text: [*c]const u8, length: i32, analysis: *pango.Analysis, attrs: *pango.LogAttr, index_: i32, trailing: bool, x_pos: i32) void;
+    extern fn pango_glyph_string_index_to_x_full(self: *Self, text: [*c]const u8, length: i32, analysis: *pango.Analysis, attrs: ?*pango.LogAttr, index_: i32, trailing: bool, x_pos: i32) void;
     pub const indexToXFull = pango_glyph_string_index_to_x_full;
 
     extern fn pango_glyph_string_set_size(self: *Self, new_len: i32) void;

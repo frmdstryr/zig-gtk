@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
 const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const BookmarkList = extern struct {
@@ -102,13 +102,13 @@ pub const BookmarkList = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asListModel(self: *Self) *gio.ListModel {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asListModel(self: *Self) *gio.ListModel {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

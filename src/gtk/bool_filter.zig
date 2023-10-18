@@ -10,7 +10,7 @@ pub const BoolFilter = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_bool_filter_new(expression: *gtk.Expression) ?*Self;
+    extern fn gtk_bool_filter_new(expression: ?*gtk.Expression) ?*Self;
     pub const new = gtk_bool_filter_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -60,7 +60,7 @@ pub const BoolFilter = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_bool_filter_set_expression(self: *Self, expression: *gtk.Expression) void;
+    extern fn gtk_bool_filter_set_expression(self: *Self, expression: ?*gtk.Expression) void;
     pub const setExpression = gtk_bool_filter_set_expression;
 
     extern fn gtk_bool_filter_set_invert(self: *Self, invert: bool) void;

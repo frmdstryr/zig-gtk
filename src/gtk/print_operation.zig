@@ -87,7 +87,7 @@ pub const PrintOperation = extern struct {
     extern fn gtk_print_operation_preview_render_page(self: *Self, page_nr: i32) void;
     pub const renderPage = gtk_print_operation_preview_render_page;
 
-    extern fn gtk_print_operation_run(self: *Self, action: gtk.PrintOperationAction, parent: *gtk.Window) gtk.PrintOperationResult;
+    extern fn gtk_print_operation_run(self: *Self, action: gtk.PrintOperationAction, parent: ?*gtk.Window) gtk.PrintOperationResult;
     pub const run = gtk_print_operation_run;
 
     extern fn g_object_run_dispose(self: *Self) void;
@@ -102,7 +102,7 @@ pub const PrintOperation = extern struct {
     extern fn gtk_print_operation_set_custom_tab_label(self: *Self, label: [*c]const u8) void;
     pub const setCustomTabLabel = gtk_print_operation_set_custom_tab_label;
 
-    extern fn gtk_print_operation_set_default_page_setup(self: *Self, default_page_setup: *gtk.PageSetup) void;
+    extern fn gtk_print_operation_set_default_page_setup(self: *Self, default_page_setup: ?*gtk.PageSetup) void;
     pub const setDefaultPageSetup = gtk_print_operation_set_default_page_setup;
 
     extern fn gtk_print_operation_set_defer_drawing(self: *Self) void;
@@ -123,7 +123,7 @@ pub const PrintOperation = extern struct {
     extern fn gtk_print_operation_set_n_pages(self: *Self, n_pages: i32) void;
     pub const setNPages = gtk_print_operation_set_n_pages;
 
-    extern fn gtk_print_operation_set_print_settings(self: *Self, print_settings: *gtk.PrintSettings) void;
+    extern fn gtk_print_operation_set_print_settings(self: *Self, print_settings: ?*gtk.PrintSettings) void;
     pub const setPrintSettings = gtk_print_operation_set_print_settings;
 
     extern fn gtk_print_operation_set_show_progress(self: *Self, show_progress: bool) void;
@@ -167,10 +167,10 @@ pub const PrintOperation = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asPrintOperationPreview(self: *Self) *gtk.PrintOperationPreview {

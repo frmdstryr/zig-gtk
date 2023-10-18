@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
 const gobject = @import("gobject");
 const gdk = @import("../gdk.zig");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const Clipboard = extern struct {
@@ -52,25 +52,25 @@ pub const Clipboard = extern struct {
     extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
     pub const overrideProperty = g_object_class_override_property;
 
-    extern fn gdk_clipboard_read_async(self: *Self, mime_types: [*c][*c]const u8, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn gdk_clipboard_read_async(self: *Self, mime_types: [*c][*c]const u8, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readAsync = gdk_clipboard_read_async;
 
     extern fn gdk_clipboard_read_finish(self: *Self, result: *gio.AsyncResult, out_mime_type: [*c]const u8) ?*gio.InputStream;
     pub const readFinish = gdk_clipboard_read_finish;
 
-    extern fn gdk_clipboard_read_text_async(self: *Self, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn gdk_clipboard_read_text_async(self: *Self, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readTextAsync = gdk_clipboard_read_text_async;
 
     extern fn gdk_clipboard_read_text_finish(self: *Self, result: *gio.AsyncResult) [*c]const u8;
     pub const readTextFinish = gdk_clipboard_read_text_finish;
 
-    extern fn gdk_clipboard_read_texture_async(self: *Self, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn gdk_clipboard_read_texture_async(self: *Self, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readTextureAsync = gdk_clipboard_read_texture_async;
 
     extern fn gdk_clipboard_read_texture_finish(self: *Self, result: *gio.AsyncResult) ?*gdk.Texture;
     pub const readTextureFinish = gdk_clipboard_read_texture_finish;
 
-    extern fn gdk_clipboard_read_value_async(self: *Self, type: usize, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn gdk_clipboard_read_value_async(self: *Self, type: usize, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readValueAsync = gdk_clipboard_read_value_async;
 
     extern fn gdk_clipboard_read_value_finish(self: *Self, result: *gio.AsyncResult) ?*gobject.Value;
@@ -82,10 +82,10 @@ pub const Clipboard = extern struct {
     extern fn gdk_clipboard_set_value(self: *Self, value: *gobject.Value) void;
     pub const set = gdk_clipboard_set_value;
 
-    extern fn gdk_clipboard_set_content(self: *Self, provider: *gdk.ContentProvider) bool;
+    extern fn gdk_clipboard_set_content(self: *Self, provider: ?*gdk.ContentProvider) bool;
     pub const setContent = gdk_clipboard_set_content;
 
-    extern fn gdk_clipboard_store_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn gdk_clipboard_store_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const storeAsync = gdk_clipboard_store_async;
 
     extern fn gdk_clipboard_store_finish(self: *Self, result: *gio.AsyncResult) bool;

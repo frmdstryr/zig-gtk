@@ -27,13 +27,13 @@ pub const Scrollable = extern struct {
     extern fn gtk_scrollable_get_vscroll_policy(self: *Self) gtk.ScrollablePolicy;
     pub const getVscrollPolicy = gtk_scrollable_get_vscroll_policy;
 
-    extern fn gtk_scrollable_set_hadjustment(self: *Self, hadjustment: *gtk.Adjustment) void;
+    extern fn gtk_scrollable_set_hadjustment(self: *Self, hadjustment: ?*gtk.Adjustment) void;
     pub const setHadjustment = gtk_scrollable_set_hadjustment;
 
     extern fn gtk_scrollable_set_hscroll_policy(self: *Self, policy: gtk.ScrollablePolicy) void;
     pub const setHscrollPolicy = gtk_scrollable_set_hscroll_policy;
 
-    extern fn gtk_scrollable_set_vadjustment(self: *Self, vadjustment: *gtk.Adjustment) void;
+    extern fn gtk_scrollable_set_vadjustment(self: *Self, vadjustment: ?*gtk.Adjustment) void;
     pub const setVadjustment = gtk_scrollable_set_vadjustment;
 
     extern fn gtk_scrollable_set_vscroll_policy(self: *Self, policy: gtk.ScrollablePolicy) void;

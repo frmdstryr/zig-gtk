@@ -88,10 +88,10 @@ pub const Binding = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asBinding(self: *Self) *gobject.Binding {
         return @ptrCast(self);
     }
-    pub fn asBinding(self: *Self) *gobject.Binding {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

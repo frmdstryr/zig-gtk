@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const Settings = extern struct {
@@ -14,7 +14,7 @@ pub const Settings = extern struct {
     extern fn g_settings_new(schema_id: [*c]const u8) ?*Self;
     pub const new = g_settings_new;
 
-    extern fn g_settings_new_full(schema: *gio.SettingsSchema, backend: *gio.SettingsBackend, path: [*c]const u8) ?*Self;
+    extern fn g_settings_new_full(schema: *gio.SettingsSchema, backend: ?*gio.SettingsBackend, path: [*c]const u8) ?*Self;
     pub const newFull = g_settings_new_full;
 
     extern fn g_settings_new_with_backend(schema_id: [*c]const u8, backend: *gio.SettingsBackend) ?*Self;
@@ -201,10 +201,10 @@ pub const Settings = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asSettings(self: *Self) *gio.Settings {
         return @ptrCast(self);
     }
-    pub fn asSettings(self: *Self) *gio.Settings {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

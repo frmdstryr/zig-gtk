@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const ThreadedSocketService = extern struct {
@@ -18,34 +18,34 @@ pub const ThreadedSocketService = extern struct {
 
 
     // Methods
-    extern fn g_socket_listener_accept(self: *Self, source_object: *gobject.Object, cancellable: *gio.Cancellable) ?*gio.SocketConnection;
+    extern fn g_socket_listener_accept(self: *Self, source_object: ?*gobject.Object, cancellable: ?*gio.Cancellable) ?*gio.SocketConnection;
     pub const accept = g_socket_listener_accept;
 
-    extern fn g_socket_listener_accept_async(self: *Self, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_socket_listener_accept_async(self: *Self, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const acceptAsync = g_socket_listener_accept_async;
 
-    extern fn g_socket_listener_accept_finish(self: *Self, result: *gio.AsyncResult, source_object: *gobject.Object) ?*gio.SocketConnection;
+    extern fn g_socket_listener_accept_finish(self: *Self, result: *gio.AsyncResult, source_object: ?*gobject.Object) ?*gio.SocketConnection;
     pub const acceptFinish = g_socket_listener_accept_finish;
 
-    extern fn g_socket_listener_accept_socket(self: *Self, source_object: *gobject.Object, cancellable: *gio.Cancellable) ?*gio.Socket;
+    extern fn g_socket_listener_accept_socket(self: *Self, source_object: ?*gobject.Object, cancellable: ?*gio.Cancellable) ?*gio.Socket;
     pub const acceptSocket = g_socket_listener_accept_socket;
 
-    extern fn g_socket_listener_accept_socket_async(self: *Self, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_socket_listener_accept_socket_async(self: *Self, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const acceptSocketAsync = g_socket_listener_accept_socket_async;
 
-    extern fn g_socket_listener_accept_socket_finish(self: *Self, result: *gio.AsyncResult, source_object: *gobject.Object) ?*gio.Socket;
+    extern fn g_socket_listener_accept_socket_finish(self: *Self, result: *gio.AsyncResult, source_object: ?*gobject.Object) ?*gio.Socket;
     pub const acceptSocketFinish = g_socket_listener_accept_socket_finish;
 
-    extern fn g_socket_listener_add_address(self: *Self, address: *gio.SocketAddress, type: gio.SocketType, protocol: gio.SocketProtocol, source_object: *gobject.Object, effective_address: *gio.SocketAddress) bool;
+    extern fn g_socket_listener_add_address(self: *Self, address: *gio.SocketAddress, type: gio.SocketType, protocol: gio.SocketProtocol, source_object: ?*gobject.Object, effective_address: *gio.SocketAddress) bool;
     pub const addAddress = g_socket_listener_add_address;
 
-    extern fn g_socket_listener_add_any_inet_port(self: *Self, source_object: *gobject.Object) u16;
+    extern fn g_socket_listener_add_any_inet_port(self: *Self, source_object: ?*gobject.Object) u16;
     pub const addAnyInetPort = g_socket_listener_add_any_inet_port;
 
-    extern fn g_socket_listener_add_inet_port(self: *Self, port: u16, source_object: *gobject.Object) bool;
+    extern fn g_socket_listener_add_inet_port(self: *Self, port: u16, source_object: ?*gobject.Object) bool;
     pub const addInetPort = g_socket_listener_add_inet_port;
 
-    extern fn g_socket_listener_add_socket(self: *Self, socket: *gio.Socket, source_object: *gobject.Object) bool;
+    extern fn g_socket_listener_add_socket(self: *Self, socket: *gio.Socket, source_object: ?*gobject.Object) bool;
     pub const addSocket = g_socket_listener_add_socket;
 
     extern fn g_socket_listener_close(self: *Self) void;

@@ -9,7 +9,7 @@ pub const SettingsSchemaSource = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_settings_schema_source_new_from_directory(directory: [*c]const u8, parent: *gio.SettingsSchemaSource, trusted: bool) ?*Self;
+    extern fn g_settings_schema_source_new_from_directory(directory: [*c]const u8, parent: ?*gio.SettingsSchemaSource, trusted: bool) ?*Self;
     pub const newFromDirectory = g_settings_schema_source_new_from_directory;
 
 

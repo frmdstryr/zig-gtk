@@ -9,7 +9,7 @@ pub const VariantDict = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_variant_dict_new(from_asv: *glib.Variant) ?*Self;
+    extern fn g_variant_dict_new(from_asv: ?*glib.Variant) ?*Self;
     pub const new = g_variant_dict_new;
 
 
@@ -26,7 +26,7 @@ pub const VariantDict = extern struct {
     extern fn g_variant_dict_insert_value(self: *Self, key: [*c]const u8, value: *glib.Variant) void;
     pub const insertValue = g_variant_dict_insert_value;
 
-    extern fn g_variant_dict_lookup_value(self: *Self, key: [*c]const u8, expected_type: *glib.VariantType) ?*glib.Variant;
+    extern fn g_variant_dict_lookup_value(self: *Self, key: [*c]const u8, expected_type: ?*glib.VariantType) ?*glib.Variant;
     pub const lookupValue = g_variant_dict_lookup_value;
 
     extern fn g_variant_dict_ref(self: *Self) ?*glib.VariantDict;

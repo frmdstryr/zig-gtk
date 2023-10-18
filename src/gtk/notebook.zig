@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const cairo = @import("cairo");
-const gobject = @import("gobject");
-const gio = @import("gio");
 const gdk = @import("gdk");
-const gsk = @import("gsk");
-const graphene = @import("graphene");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const cairo = @import("cairo");
+const graphene = @import("graphene");
 const pango = @import("pango");
+const gsk = @import("gsk");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const Notebook = extern struct {
@@ -31,7 +31,7 @@ pub const Notebook = extern struct {
     extern fn gtk_widget_activate(self: *Self) bool;
     pub const activate = gtk_widget_activate;
 
-    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: *glib.Variant) bool;
+    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: ?*glib.Variant) bool;
     pub const activateAction = gtk_widget_activate_action_variant;
 
     extern fn gtk_widget_activate_default(self: *Self) void;
@@ -52,13 +52,13 @@ pub const Notebook = extern struct {
     extern fn gtk_widget_add_tick_callback(self: *Self, callback: gtk.TickCallback, user_data: ?*anyopaque, notify: glib.DestroyNotify) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
-    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: *gsk.Transform) void;
+    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
     pub const allocate = gtk_widget_allocate;
 
-    extern fn gtk_notebook_append_page(self: *Self, child: *gtk.Widget, tab_label: *gtk.Widget) i32;
+    extern fn gtk_notebook_append_page(self: *Self, child: *gtk.Widget, tab_label: ?*gtk.Widget) i32;
     pub const appendPage = gtk_notebook_append_page;
 
-    extern fn gtk_notebook_append_page_menu(self: *Self, child: *gtk.Widget, tab_label: *gtk.Widget, menu_label: *gtk.Widget) i32;
+    extern fn gtk_notebook_append_page_menu(self: *Self, child: *gtk.Widget, tab_label: ?*gtk.Widget, menu_label: ?*gtk.Widget) i32;
     pub const appendPageMenu = gtk_notebook_append_page_menu;
 
     extern fn gtk_widget_class_bind_template_callback_full(self: *Self, callback_name: [*c]const u8, callback_symbol: gobject.Callback) void;
@@ -379,19 +379,19 @@ pub const Notebook = extern struct {
     extern fn gtk_widget_init_template(self: *Self) void;
     pub const initTemplate = gtk_widget_init_template;
 
-    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: *gio.ActionGroup) void;
+    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: ?*gio.ActionGroup) void;
     pub const insertActionGroup = gtk_widget_insert_action_group;
 
-    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: ?*gtk.Widget) void;
     pub const insertAfter = gtk_widget_insert_after;
 
-    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: ?*gtk.Widget) void;
     pub const insertBefore = gtk_widget_insert_before;
 
-    extern fn gtk_notebook_insert_page(self: *Self, child: *gtk.Widget, tab_label: *gtk.Widget, position: i32) i32;
+    extern fn gtk_notebook_insert_page(self: *Self, child: *gtk.Widget, tab_label: ?*gtk.Widget, position: i32) i32;
     pub const insertPage = gtk_notebook_insert_page;
 
-    extern fn gtk_notebook_insert_page_menu(self: *Self, child: *gtk.Widget, tab_label: *gtk.Widget, menu_label: *gtk.Widget, position: i32) i32;
+    extern fn gtk_notebook_insert_page_menu(self: *Self, child: *gtk.Widget, tab_label: ?*gtk.Widget, menu_label: ?*gtk.Widget, position: i32) i32;
     pub const insertPageMenu = gtk_notebook_insert_page_menu;
 
     extern fn gtk_widget_class_install_action(self: *Self, action_name: [*c]const u8, parameter_type: [*c]const u8, activate: gtk.WidgetActionActivateFunc) void;
@@ -469,16 +469,16 @@ pub const Notebook = extern struct {
     extern fn gtk_notebook_popup_enable(self: *Self) void;
     pub const popupEnable = gtk_notebook_popup_enable;
 
-    extern fn gtk_notebook_prepend_page(self: *Self, child: *gtk.Widget, tab_label: *gtk.Widget) i32;
+    extern fn gtk_notebook_prepend_page(self: *Self, child: *gtk.Widget, tab_label: ?*gtk.Widget) i32;
     pub const prependPage = gtk_notebook_prepend_page;
 
-    extern fn gtk_notebook_prepend_page_menu(self: *Self, child: *gtk.Widget, tab_label: *gtk.Widget, menu_label: *gtk.Widget) i32;
+    extern fn gtk_notebook_prepend_page_menu(self: *Self, child: *gtk.Widget, tab_label: ?*gtk.Widget, menu_label: ?*gtk.Widget) i32;
     pub const prependPageMenu = gtk_notebook_prepend_page_menu;
 
     extern fn gtk_notebook_prev_page(self: *Self) void;
     pub const prevPage = gtk_notebook_prev_page;
 
-    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: *glib.VariantType, property_name: [*c]const u8) bool;
+    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: ?*glib.VariantType, property_name: [*c]const u8) bool;
     pub const queryAction = gtk_widget_class_query_action;
 
     extern fn gtk_widget_queue_allocate(self: *Self) void;
@@ -553,7 +553,7 @@ pub const Notebook = extern struct {
     extern fn gtk_notebook_set_current_page(self: *Self, page_num: i32) void;
     pub const setCurrentPage = gtk_notebook_set_current_page;
 
-    extern fn gtk_widget_set_cursor(self: *Self, cursor: *gdk.Cursor) void;
+    extern fn gtk_widget_set_cursor(self: *Self, cursor: ?*gdk.Cursor) void;
     pub const setCursor = gtk_widget_set_cursor;
 
     extern fn gtk_widget_set_cursor_from_name(self: *Self, name: [*c]const u8) void;
@@ -562,7 +562,7 @@ pub const Notebook = extern struct {
     extern fn gtk_widget_set_direction(self: *Self, dir: gtk.TextDirection) void;
     pub const setDirection = gtk_widget_set_direction;
 
-    extern fn gtk_widget_set_focus_child(self: *Self, child: *gtk.Widget) void;
+    extern fn gtk_widget_set_focus_child(self: *Self, child: ?*gtk.Widget) void;
     pub const setFocusChild = gtk_widget_set_focus_child;
 
     extern fn gtk_widget_set_focus_on_click(self: *Self, focus_on_click: bool) void;
@@ -571,10 +571,10 @@ pub const Notebook = extern struct {
     extern fn gtk_widget_set_focusable(self: *Self, focusable: bool) void;
     pub const setFocusable = gtk_widget_set_focusable;
 
-    extern fn gtk_widget_set_font_map(self: *Self, font_map: *pango.FontMap) void;
+    extern fn gtk_widget_set_font_map(self: *Self, font_map: ?*pango.FontMap) void;
     pub const setFontMap = gtk_widget_set_font_map;
 
-    extern fn gtk_widget_set_font_options(self: *Self, options: *cairo.FontOptions) void;
+    extern fn gtk_widget_set_font_options(self: *Self, options: ?*cairo.FontOptions) void;
     pub const setFontOptions = gtk_widget_set_font_options;
 
     extern fn gtk_notebook_set_group_name(self: *Self, group_name: [*c]const u8) void;
@@ -592,7 +592,7 @@ pub const Notebook = extern struct {
     extern fn gtk_widget_set_hexpand_set(self: *Self, set: bool) void;
     pub const setHexpandSet = gtk_widget_set_hexpand_set;
 
-    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: *gtk.LayoutManager) void;
+    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: ?*gtk.LayoutManager) void;
     pub const setLayoutManager = gtk_widget_set_layout_manager;
 
     extern fn gtk_widget_class_set_layout_manager_type(self: *Self, type: usize) void;
@@ -610,7 +610,7 @@ pub const Notebook = extern struct {
     extern fn gtk_widget_set_margin_top(self: *Self, margin: i32) void;
     pub const setMarginTop = gtk_widget_set_margin_top;
 
-    extern fn gtk_notebook_set_menu_label(self: *Self, child: *gtk.Widget, menu_label: *gtk.Widget) void;
+    extern fn gtk_notebook_set_menu_label(self: *Self, child: *gtk.Widget, menu_label: ?*gtk.Widget) void;
     pub const setMenuLabel = gtk_notebook_set_menu_label;
 
     extern fn gtk_notebook_set_menu_label_text(self: *Self, child: *gtk.Widget, menu_text: [*c]const u8) void;
@@ -652,7 +652,7 @@ pub const Notebook = extern struct {
     extern fn gtk_notebook_set_tab_detachable(self: *Self, child: *gtk.Widget, detachable: bool) void;
     pub const setTabDetachable = gtk_notebook_set_tab_detachable;
 
-    extern fn gtk_notebook_set_tab_label(self: *Self, child: *gtk.Widget, tab_label: *gtk.Widget) void;
+    extern fn gtk_notebook_set_tab_label(self: *Self, child: *gtk.Widget, tab_label: ?*gtk.Widget) void;
     pub const setTabLabel = gtk_notebook_set_tab_label;
 
     extern fn gtk_notebook_set_tab_label_text(self: *Self, child: *gtk.Widget, tab_text: [*c]const u8) void;

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
 const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const FileChooserNative = extern struct {
@@ -11,7 +11,7 @@ pub const FileChooserNative = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_file_chooser_native_new(title: [*c]const u8, parent: *gtk.Window, action: gtk.FileChooserAction, accept_label: [*c]const u8, cancel_label: [*c]const u8) ?*Self;
+    extern fn gtk_file_chooser_native_new(title: [*c]const u8, parent: ?*gtk.Window, action: gtk.FileChooserAction, accept_label: [*c]const u8, cancel_label: [*c]const u8) ?*Self;
     pub const new = gtk_file_chooser_native_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -136,7 +136,7 @@ pub const FileChooserNative = extern struct {
     extern fn gtk_file_chooser_set_create_folders(self: *Self, create_folders: bool) void;
     pub const setCreateFolders = gtk_file_chooser_set_create_folders;
 
-    extern fn gtk_file_chooser_set_current_folder(self: *Self, file: *gio.File) bool;
+    extern fn gtk_file_chooser_set_current_folder(self: *Self, file: ?*gio.File) bool;
     pub const setCurrentFolder = gtk_file_chooser_set_current_folder;
 
     extern fn gtk_file_chooser_set_current_name(self: *Self, name: [*c]const u8) void;
@@ -157,7 +157,7 @@ pub const FileChooserNative = extern struct {
     extern fn gtk_native_dialog_set_title(self: *Self, title: [*c]const u8) void;
     pub const setTitle = gtk_native_dialog_set_title;
 
-    extern fn gtk_native_dialog_set_transient_for(self: *Self, parent: *gtk.Window) void;
+    extern fn gtk_native_dialog_set_transient_for(self: *Self, parent: ?*gtk.Window) void;
     pub const setTransientFor = gtk_native_dialog_set_transient_for;
 
     extern fn gtk_native_dialog_show(self: *Self) void;
@@ -189,16 +189,16 @@ pub const FileChooserNative = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub fn asNativeDialog(self: *Self) *gtk.NativeDialog {
-        return @ptrCast(self);
-    }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+    pub fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
     pub fn asFileChooser(self: *Self) *gtk.FileChooser {
+        return @ptrCast(self);
+    }
+    pub fn asNativeDialog(self: *Self) *gtk.NativeDialog {
         return @ptrCast(self);
     }
 };

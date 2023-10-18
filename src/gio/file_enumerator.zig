@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const FileEnumerator = extern struct {
@@ -16,10 +16,10 @@ pub const FileEnumerator = extern struct {
 
 
     // Methods
-    extern fn g_file_enumerator_close(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_file_enumerator_close(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const close = g_file_enumerator_close;
 
-    extern fn g_file_enumerator_close_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_enumerator_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const closeAsync = g_file_enumerator_close_async;
 
     extern fn g_file_enumerator_close_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -52,16 +52,16 @@ pub const FileEnumerator = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_file_enumerator_iterate(self: *Self, out_info: *gio.FileInfo, out_child: *gio.File, cancellable: *gio.Cancellable) bool;
+    extern fn g_file_enumerator_iterate(self: *Self, out_info: *gio.FileInfo, out_child: *gio.File, cancellable: ?*gio.Cancellable) bool;
     pub const iterate = g_file_enumerator_iterate;
 
     extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
-    extern fn g_file_enumerator_next_file(self: *Self, cancellable: *gio.Cancellable) ?*gio.FileInfo;
+    extern fn g_file_enumerator_next_file(self: *Self, cancellable: ?*gio.Cancellable) ?*gio.FileInfo;
     pub const nextFile = g_file_enumerator_next_file;
 
-    extern fn g_file_enumerator_next_files_async(self: *Self, num_files: i32, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_enumerator_next_files_async(self: *Self, num_files: i32, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const nextFilesAsync = g_file_enumerator_next_files_async;
 
     extern fn g_file_enumerator_next_files_finish(self: *Self, result: *gio.AsyncResult) ?*glib.List;
@@ -105,10 +105,10 @@ pub const FileEnumerator = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asFileEnumerator(self: *Self) *gio.FileEnumerator {
         return @ptrCast(self);
     }
-    pub fn asFileEnumerator(self: *Self) *gio.FileEnumerator {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

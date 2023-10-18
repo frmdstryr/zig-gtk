@@ -66,7 +66,7 @@ pub const NativeDialog = extern struct {
     extern fn gtk_native_dialog_set_title(self: *Self, title: [*c]const u8) void;
     pub const setTitle = gtk_native_dialog_set_title;
 
-    extern fn gtk_native_dialog_set_transient_for(self: *Self, parent: *gtk.Window) void;
+    extern fn gtk_native_dialog_set_transient_for(self: *Self, parent: ?*gtk.Window) void;
     pub const setTransientFor = gtk_native_dialog_set_transient_for;
 
     extern fn gtk_native_dialog_show(self: *Self) void;

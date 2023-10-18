@@ -26,7 +26,7 @@ pub const Triangle = extern struct {
     extern fn graphene_triangle_get_area(self: *Self) f32;
     pub const getArea = graphene_triangle_get_area;
 
-    extern fn graphene_triangle_get_barycoords(self: *Self, p: *graphene.Point3D, res: graphene.Vec2) bool;
+    extern fn graphene_triangle_get_barycoords(self: *Self, p: ?*graphene.Point3D, res: graphene.Vec2) bool;
     pub const getBarycoords = graphene_triangle_get_barycoords;
 
     extern fn graphene_triangle_get_bounding_box(self: *Self, res: graphene.Box) void;
@@ -44,7 +44,7 @@ pub const Triangle = extern struct {
     extern fn graphene_triangle_get_points(self: *Self, a: graphene.Point3D, b: graphene.Point3D, c: graphene.Point3D) void;
     pub const getPoints = graphene_triangle_get_points;
 
-    extern fn graphene_triangle_get_uv(self: *Self, p: *graphene.Point3D, uv_a: *graphene.Vec2, uv_b: *graphene.Vec2, uv_c: *graphene.Vec2, res: graphene.Vec2) bool;
+    extern fn graphene_triangle_get_uv(self: *Self, p: ?*graphene.Point3D, uv_a: *graphene.Vec2, uv_b: *graphene.Vec2, uv_c: *graphene.Vec2, res: graphene.Vec2) bool;
     pub const getUv = graphene_triangle_get_uv;
 
     extern fn graphene_triangle_get_vertices(self: *Self, a: graphene.Vec3, b: graphene.Vec3, c: graphene.Vec3) void;
@@ -53,10 +53,10 @@ pub const Triangle = extern struct {
     extern fn graphene_triangle_init_from_float(self: *Self, a: [*c]f32, b: [*c]f32, c: [*c]f32) ?*graphene.Triangle;
     pub const initFromFloat = graphene_triangle_init_from_float;
 
-    extern fn graphene_triangle_init_from_point3d(self: *Self, a: *graphene.Point3D, b: *graphene.Point3D, c: *graphene.Point3D) ?*graphene.Triangle;
+    extern fn graphene_triangle_init_from_point3d(self: *Self, a: ?*graphene.Point3D, b: ?*graphene.Point3D, c: ?*graphene.Point3D) ?*graphene.Triangle;
     pub const initFromPoint3D = graphene_triangle_init_from_point3d;
 
-    extern fn graphene_triangle_init_from_vec3(self: *Self, a: *graphene.Vec3, b: *graphene.Vec3, c: *graphene.Vec3) ?*graphene.Triangle;
+    extern fn graphene_triangle_init_from_vec3(self: *Self, a: ?*graphene.Vec3, b: ?*graphene.Vec3, c: ?*graphene.Vec3) ?*graphene.Triangle;
     pub const initFromVec3 = graphene_triangle_init_from_vec3;
 
 };

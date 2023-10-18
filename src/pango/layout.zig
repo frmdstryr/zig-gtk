@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
 const pango = @import("../pango.zig");
 const c = @import("c.zig");
 
@@ -183,7 +183,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_set_alignment(self: *Self, alignment: pango.Alignment) void;
     pub const setAlignment = pango_layout_set_alignment;
 
-    extern fn pango_layout_set_attributes(self: *Self, attrs: *pango.AttrList) void;
+    extern fn pango_layout_set_attributes(self: *Self, attrs: ?*pango.AttrList) void;
     pub const setAttributes = pango_layout_set_attributes;
 
     extern fn pango_layout_set_auto_dir(self: *Self, auto_dir: bool) void;
@@ -192,7 +192,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_set_ellipsize(self: *Self, ellipsize: pango.EllipsizeMode) void;
     pub const setEllipsize = pango_layout_set_ellipsize;
 
-    extern fn pango_layout_set_font_description(self: *Self, desc: *pango.FontDescription) void;
+    extern fn pango_layout_set_font_description(self: *Self, desc: ?*pango.FontDescription) void;
     pub const setFontDescription = pango_layout_set_font_description;
 
     extern fn pango_layout_set_height(self: *Self, height: i32) void;
@@ -219,7 +219,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_set_spacing(self: *Self, spacing: i32) void;
     pub const setSpacing = pango_layout_set_spacing;
 
-    extern fn pango_layout_set_tabs(self: *Self, tabs: *pango.TabArray) void;
+    extern fn pango_layout_set_tabs(self: *Self, tabs: ?*pango.TabArray) void;
     pub const setTabs = pango_layout_set_tabs;
 
     extern fn pango_layout_set_width(self: *Self, width: i32) void;

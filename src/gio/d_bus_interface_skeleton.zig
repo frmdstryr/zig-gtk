@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const DBusInterfaceSkeleton = extern struct {
@@ -76,7 +76,7 @@ pub const DBusInterfaceSkeleton = extern struct {
     extern fn g_dbus_interface_skeleton_set_flags(self: *Self, flags: gio.DBusInterfaceSkeletonFlags) void;
     pub const setFlags = g_dbus_interface_skeleton_set_flags;
 
-    extern fn g_dbus_interface_set_object(self: *Self, object: *gio.DBusObject) void;
+    extern fn g_dbus_interface_set_object(self: *Self, object: ?*gio.DBusObject) void;
     pub const setObject = g_dbus_interface_set_object;
 
     extern fn g_object_thaw_notify(self: *Self) void;
@@ -111,13 +111,13 @@ pub const DBusInterfaceSkeleton = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asDBusInterface(self: *Self) *gio.DBusInterface {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asDBusInterface(self: *Self) *gio.DBusInterface {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

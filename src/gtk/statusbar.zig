@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const cairo = @import("cairo");
-const gobject = @import("gobject");
-const gio = @import("gio");
 const gdk = @import("gdk");
-const gsk = @import("gsk");
-const graphene = @import("graphene");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const cairo = @import("cairo");
+const graphene = @import("graphene");
 const pango = @import("pango");
+const gsk = @import("gsk");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const Statusbar = extern struct {
@@ -31,7 +31,7 @@ pub const Statusbar = extern struct {
     extern fn gtk_widget_activate(self: *Self) bool;
     pub const activate = gtk_widget_activate;
 
-    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: *glib.Variant) bool;
+    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: ?*glib.Variant) bool;
     pub const activateAction = gtk_widget_activate_action_variant;
 
     extern fn gtk_widget_activate_default(self: *Self) void;
@@ -52,7 +52,7 @@ pub const Statusbar = extern struct {
     extern fn gtk_widget_add_tick_callback(self: *Self, callback: gtk.TickCallback, user_data: ?*anyopaque, notify: glib.DestroyNotify) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
-    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: *gsk.Transform) void;
+    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
     pub const allocate = gtk_widget_allocate;
 
     extern fn gtk_widget_class_bind_template_callback_full(self: *Self, callback_name: [*c]const u8, callback_symbol: gobject.Callback) void;
@@ -322,13 +322,13 @@ pub const Statusbar = extern struct {
     extern fn gtk_widget_init_template(self: *Self) void;
     pub const initTemplate = gtk_widget_init_template;
 
-    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: *gio.ActionGroup) void;
+    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: ?*gio.ActionGroup) void;
     pub const insertActionGroup = gtk_widget_insert_action_group;
 
-    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: ?*gtk.Widget) void;
     pub const insertAfter = gtk_widget_insert_after;
 
-    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: ?*gtk.Widget) void;
     pub const insertBefore = gtk_widget_insert_before;
 
     extern fn gtk_widget_class_install_action(self: *Self, action_name: [*c]const u8, parameter_type: [*c]const u8, activate: gtk.WidgetActionActivateFunc) void;
@@ -400,7 +400,7 @@ pub const Statusbar = extern struct {
     extern fn gtk_statusbar_push(self: *Self, context_id: u32, text: [*c]const u8) u32;
     pub const push = gtk_statusbar_push;
 
-    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: *glib.VariantType, property_name: [*c]const u8) bool;
+    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: ?*glib.VariantType, property_name: [*c]const u8) bool;
     pub const queryAction = gtk_widget_class_query_action;
 
     extern fn gtk_widget_queue_allocate(self: *Self) void;
@@ -469,7 +469,7 @@ pub const Statusbar = extern struct {
     extern fn gtk_widget_class_set_css_name(self: *Self, name: [*c]const u8) void;
     pub const setCssName = gtk_widget_class_set_css_name;
 
-    extern fn gtk_widget_set_cursor(self: *Self, cursor: *gdk.Cursor) void;
+    extern fn gtk_widget_set_cursor(self: *Self, cursor: ?*gdk.Cursor) void;
     pub const setCursor = gtk_widget_set_cursor;
 
     extern fn gtk_widget_set_cursor_from_name(self: *Self, name: [*c]const u8) void;
@@ -478,7 +478,7 @@ pub const Statusbar = extern struct {
     extern fn gtk_widget_set_direction(self: *Self, dir: gtk.TextDirection) void;
     pub const setDirection = gtk_widget_set_direction;
 
-    extern fn gtk_widget_set_focus_child(self: *Self, child: *gtk.Widget) void;
+    extern fn gtk_widget_set_focus_child(self: *Self, child: ?*gtk.Widget) void;
     pub const setFocusChild = gtk_widget_set_focus_child;
 
     extern fn gtk_widget_set_focus_on_click(self: *Self, focus_on_click: bool) void;
@@ -487,10 +487,10 @@ pub const Statusbar = extern struct {
     extern fn gtk_widget_set_focusable(self: *Self, focusable: bool) void;
     pub const setFocusable = gtk_widget_set_focusable;
 
-    extern fn gtk_widget_set_font_map(self: *Self, font_map: *pango.FontMap) void;
+    extern fn gtk_widget_set_font_map(self: *Self, font_map: ?*pango.FontMap) void;
     pub const setFontMap = gtk_widget_set_font_map;
 
-    extern fn gtk_widget_set_font_options(self: *Self, options: *cairo.FontOptions) void;
+    extern fn gtk_widget_set_font_options(self: *Self, options: ?*cairo.FontOptions) void;
     pub const setFontOptions = gtk_widget_set_font_options;
 
     extern fn gtk_widget_set_halign(self: *Self, align_: gtk.Align) void;
@@ -505,7 +505,7 @@ pub const Statusbar = extern struct {
     extern fn gtk_widget_set_hexpand_set(self: *Self, set: bool) void;
     pub const setHexpandSet = gtk_widget_set_hexpand_set;
 
-    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: *gtk.LayoutManager) void;
+    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: ?*gtk.LayoutManager) void;
     pub const setLayoutManager = gtk_widget_set_layout_manager;
 
     extern fn gtk_widget_class_set_layout_manager_type(self: *Self, type: usize) void;

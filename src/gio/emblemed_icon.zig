@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const EmblemedIcon = extern struct {
@@ -11,7 +11,7 @@ pub const EmblemedIcon = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_emblemed_icon_new(icon: *gio.Icon, emblem: *gio.Emblem) ?*Self;
+    extern fn g_emblemed_icon_new(icon: *gio.Icon, emblem: ?*gio.Emblem) ?*Self;
     pub const new = g_emblemed_icon_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -25,7 +25,7 @@ pub const EmblemedIcon = extern struct {
     extern fn g_emblemed_icon_clear_emblems(self: *Self) void;
     pub const clearEmblems = g_emblemed_icon_clear_emblems;
 
-    extern fn g_icon_equal(self: *Self, icon2: *gio.Icon) bool;
+    extern fn g_icon_equal(self: *Self, icon2: ?*gio.Icon) bool;
     pub const equal = g_icon_equal;
 
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
@@ -93,13 +93,13 @@ pub const EmblemedIcon = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
     pub fn asIcon(self: *Self) *gio.Icon {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

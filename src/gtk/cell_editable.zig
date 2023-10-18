@@ -19,7 +19,7 @@ pub const CellEditable = extern struct {
     extern fn gtk_cell_editable_remove_widget(self: *Self) void;
     pub const removeWidget = gtk_cell_editable_remove_widget;
 
-    extern fn gtk_cell_editable_start_editing(self: *Self, event: *gdk.Event) void;
+    extern fn gtk_cell_editable_start_editing(self: *Self, event: ?*gdk.Event) void;
     pub const startEditing = gtk_cell_editable_start_editing;
 
 

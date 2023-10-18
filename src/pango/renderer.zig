@@ -93,10 +93,10 @@ pub const Renderer = extern struct {
     extern fn pango_renderer_set_alpha(self: *Self, part: pango.RenderPart, alpha: u16) void;
     pub const setAlpha = pango_renderer_set_alpha;
 
-    extern fn pango_renderer_set_color(self: *Self, part: pango.RenderPart, color: *pango.Color) void;
+    extern fn pango_renderer_set_color(self: *Self, part: pango.RenderPart, color: ?*pango.Color) void;
     pub const setColor = pango_renderer_set_color;
 
-    extern fn pango_renderer_set_matrix(self: *Self, matrix: *pango.Matrix) void;
+    extern fn pango_renderer_set_matrix(self: *Self, matrix: ?*pango.Matrix) void;
     pub const setMatrix = pango_renderer_set_matrix;
 
     extern fn g_object_thaw_notify(self: *Self) void;

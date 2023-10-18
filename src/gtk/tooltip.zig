@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
 const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
 const gdk = @import("gdk");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const Tooltip = extern struct {
@@ -44,13 +44,13 @@ pub const Tooltip = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_tooltip_set_custom(self: *Self, custom_widget: *gtk.Widget) void;
+    extern fn gtk_tooltip_set_custom(self: *Self, custom_widget: ?*gtk.Widget) void;
     pub const setCustom = gtk_tooltip_set_custom;
 
-    extern fn gtk_tooltip_set_icon(self: *Self, paintable: *gdk.Paintable) void;
+    extern fn gtk_tooltip_set_icon(self: *Self, paintable: ?*gdk.Paintable) void;
     pub const setIcon = gtk_tooltip_set_icon;
 
-    extern fn gtk_tooltip_set_icon_from_gicon(self: *Self, gicon: *gio.Icon) void;
+    extern fn gtk_tooltip_set_icon_from_gicon(self: *Self, gicon: ?*gio.Icon) void;
     pub const setIconFromGicon = gtk_tooltip_set_icon_from_gicon;
 
     extern fn gtk_tooltip_set_icon_from_icon_name(self: *Self, icon_name: [*c]const u8) void;

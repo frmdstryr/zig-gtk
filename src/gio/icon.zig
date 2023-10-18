@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const Icon = extern struct {
@@ -13,7 +13,7 @@ pub const Icon = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_icon_equal(self: *Self, icon2: *gio.Icon) bool;
+    extern fn g_icon_equal(self: *Self, icon2: ?*gio.Icon) bool;
     pub const equal = g_icon_equal;
 
     extern fn g_icon_serialize(self: *Self) ?*glib.Variant;

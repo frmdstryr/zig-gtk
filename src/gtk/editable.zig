@@ -77,10 +77,10 @@ pub const Editable = extern struct {
 
 
     // Bases
-    pub fn asEditable(self: *Self) *gtk.Editable {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asEditable(self: *Self) *gtk.Editable {
         return @ptrCast(self);
     }
 };

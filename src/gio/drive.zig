@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const Drive = extern struct {
@@ -28,13 +28,13 @@ pub const Drive = extern struct {
     extern fn g_drive_can_stop(self: *Self) bool;
     pub const canStop = g_drive_can_stop;
 
-    extern fn g_drive_eject(self: *Self, flags: gio.MountUnmountFlags, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_drive_eject(self: *Self, flags: gio.MountUnmountFlags, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const eject = g_drive_eject;
 
     extern fn g_drive_eject_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const ejectFinish = g_drive_eject_finish;
 
-    extern fn g_drive_eject_with_operation(self: *Self, flags: gio.MountUnmountFlags, mount_operation: *gio.MountOperation, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_drive_eject_with_operation(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const ejectWithOperation = g_drive_eject_with_operation;
 
     extern fn g_drive_eject_with_operation_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -79,19 +79,19 @@ pub const Drive = extern struct {
     extern fn g_drive_is_removable(self: *Self) bool;
     pub const isRemovable = g_drive_is_removable;
 
-    extern fn g_drive_poll_for_media(self: *Self, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_drive_poll_for_media(self: *Self, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const pollForMedia = g_drive_poll_for_media;
 
     extern fn g_drive_poll_for_media_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const pollForMediaFinish = g_drive_poll_for_media_finish;
 
-    extern fn g_drive_start(self: *Self, flags: gio.DriveStartFlags, mount_operation: *gio.MountOperation, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_drive_start(self: *Self, flags: gio.DriveStartFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const start = g_drive_start;
 
     extern fn g_drive_start_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const startFinish = g_drive_start_finish;
 
-    extern fn g_drive_stop(self: *Self, flags: gio.MountUnmountFlags, mount_operation: *gio.MountOperation, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_drive_stop(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const stop = g_drive_stop;
 
     extern fn g_drive_stop_finish(self: *Self, result: *gio.AsyncResult) bool;

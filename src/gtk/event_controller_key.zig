@@ -82,7 +82,7 @@ pub const EventControllerKey = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_event_controller_key_set_im_context(self: *Self, im_context: *gtk.IMContext) void;
+    extern fn gtk_event_controller_key_set_im_context(self: *Self, im_context: ?*gtk.IMContext) void;
     pub const setImContext = gtk_event_controller_key_set_im_context;
 
     extern fn gtk_event_controller_set_name(self: *Self, name: [*c]const u8) void;

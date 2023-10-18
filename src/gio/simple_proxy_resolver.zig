@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const SimpleProxyResolver = extern struct {
@@ -36,10 +36,10 @@ pub const SimpleProxyResolver = extern struct {
     extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
-    extern fn g_proxy_resolver_lookup(self: *Self, uri: [*c]const u8, cancellable: *gio.Cancellable) [*c][*c]const u8;
+    extern fn g_proxy_resolver_lookup(self: *Self, uri: [*c]const u8, cancellable: ?*gio.Cancellable) [*c][*c]const u8;
     pub const lookup = g_proxy_resolver_lookup;
 
-    extern fn g_proxy_resolver_lookup_async(self: *Self, uri: [*c]const u8, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_proxy_resolver_lookup_async(self: *Self, uri: [*c]const u8, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const lookupAsync = g_proxy_resolver_lookup_async;
 
     extern fn g_proxy_resolver_lookup_finish(self: *Self, result: *gio.AsyncResult) [*c][*c]const u8;
@@ -89,13 +89,13 @@ pub const SimpleProxyResolver = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asProxyResolver(self: *Self) *gio.ProxyResolver {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asProxyResolver(self: *Self) *gio.ProxyResolver {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

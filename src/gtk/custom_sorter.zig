@@ -80,10 +80,10 @@ pub const CustomSorter = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asSorter(self: *Self) *gtk.Sorter {
+    pub fn asCustomSorter(self: *Self) *gtk.CustomSorter {
         return @ptrCast(self);
     }
-    pub fn asCustomSorter(self: *Self) *gtk.CustomSorter {
+    pub fn asSorter(self: *Self) *gtk.Sorter {
         return @ptrCast(self);
     }
 };

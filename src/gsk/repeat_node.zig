@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const graphene = @import("graphene");
+const gsk = @import("../gsk.zig");
 const glib = @import("glib");
 const cairo = @import("cairo");
-const gsk = @import("../gsk.zig");
+const graphene = @import("graphene");
 const c = @import("c.zig");
 
 pub const RepeatNode = extern struct {
@@ -12,7 +12,7 @@ pub const RepeatNode = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gsk_repeat_node_new(bounds: *graphene.Rect, child: *gsk.RenderNode, child_bounds: *graphene.Rect) ?*Self;
+    extern fn gsk_repeat_node_new(bounds: *graphene.Rect, child: *gsk.RenderNode, child_bounds: ?*graphene.Rect) ?*Self;
     pub const new = gsk_repeat_node_new;
 
 

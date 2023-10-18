@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const UnixSocketAddress = extern struct {
@@ -110,7 +110,7 @@ pub const UnixSocketAddress = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asSocketAddress(self: *Self) *gio.SocketAddress {
         return @ptrCast(self);
     }
     pub fn asSocketConnectable(self: *Self) *gio.SocketConnectable {
@@ -119,7 +119,7 @@ pub const UnixSocketAddress = extern struct {
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asSocketAddress(self: *Self) *gio.SocketAddress {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

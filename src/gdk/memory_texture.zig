@@ -1,10 +1,10 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdkpixbuf = @import("gdkpixbuf");
-const gobject = @import("gobject");
-const gio = @import("gio");
 const gdk = @import("../gdk.zig");
 const glib = @import("glib");
+const gobject = @import("gobject");
+const gdkpixbuf = @import("gdkpixbuf");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const MemoryTexture = extern struct {
@@ -42,7 +42,7 @@ pub const MemoryTexture = extern struct {
     extern fn gdk_texture_download(self: *Self, data: [*c]u8, stride: u64) void;
     pub const download = gdk_texture_download;
 
-    extern fn g_icon_equal(self: *Self, icon2: *gio.Icon) bool;
+    extern fn g_icon_equal(self: *Self, icon2: ?*gio.Icon) bool;
     pub const equal = g_icon_equal;
 
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
@@ -90,10 +90,10 @@ pub const MemoryTexture = extern struct {
     extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
-    extern fn g_loadable_icon_load(self: *Self, size: i32, type: [*c]const u8, cancellable: *gio.Cancellable) ?*gio.InputStream;
+    extern fn g_loadable_icon_load(self: *Self, size: i32, type: [*c]const u8, cancellable: ?*gio.Cancellable) ?*gio.InputStream;
     pub const load = g_loadable_icon_load;
 
-    extern fn g_loadable_icon_load_async(self: *Self, size: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_loadable_icon_load_async(self: *Self, size: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const loadAsync = g_loadable_icon_load_async;
 
     extern fn g_loadable_icon_load_finish(self: *Self, res: *gio.AsyncResult, type: [*c]const u8) ?*gio.InputStream;
@@ -155,22 +155,22 @@ pub const MemoryTexture = extern struct {
 
 
     // Bases
+    pub fn asPaintable(self: *Self) *gdk.Paintable {
+        return @ptrCast(self);
+    }
     pub fn asTexture(self: *Self) *gdk.Texture {
-        return @ptrCast(self);
-    }
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
         return @ptrCast(self);
     }
     pub fn asIcon(self: *Self) *gio.Icon {
         return @ptrCast(self);
     }
+    pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
+        return @ptrCast(self);
+    }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asPaintable(self: *Self) *gdk.Paintable {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

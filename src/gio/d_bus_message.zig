@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const DBusMessage = extern struct {
@@ -142,7 +142,7 @@ pub const DBusMessage = extern struct {
     extern fn g_dbus_message_set_flags(self: *Self, flags: gio.DBusMessageFlags) void;
     pub const setFlags = g_dbus_message_set_flags;
 
-    extern fn g_dbus_message_set_header(self: *Self, header_field: gio.DBusMessageHeaderField, value: *glib.Variant) void;
+    extern fn g_dbus_message_set_header(self: *Self, header_field: gio.DBusMessageHeaderField, value: ?*glib.Variant) void;
     pub const setHeader = g_dbus_message_set_header;
 
     extern fn g_dbus_message_set_interface(self: *Self, value: [*c]const u8) void;
@@ -172,7 +172,7 @@ pub const DBusMessage = extern struct {
     extern fn g_dbus_message_set_signature(self: *Self, value: [*c]const u8) void;
     pub const setSignature = g_dbus_message_set_signature;
 
-    extern fn g_dbus_message_set_unix_fd_list(self: *Self, fd_list: *gio.UnixFDList) void;
+    extern fn g_dbus_message_set_unix_fd_list(self: *Self, fd_list: ?*gio.UnixFDList) void;
     pub const setUnixFdList = g_dbus_message_set_unix_fd_list;
 
     extern fn g_object_thaw_notify(self: *Self) void;

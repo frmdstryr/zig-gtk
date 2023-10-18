@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const UnixConnection = extern struct {
@@ -18,19 +18,19 @@ pub const UnixConnection = extern struct {
     extern fn g_io_stream_clear_pending(self: *Self) void;
     pub const clearPending = g_io_stream_clear_pending;
 
-    extern fn g_io_stream_close(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_io_stream_close(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const close = g_io_stream_close;
 
-    extern fn g_io_stream_close_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_io_stream_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const closeAsync = g_io_stream_close_async;
 
     extern fn g_io_stream_close_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const closeFinish = g_io_stream_close_finish;
 
-    extern fn g_socket_connection_connect(self: *Self, address: *gio.SocketAddress, cancellable: *gio.Cancellable) bool;
+    extern fn g_socket_connection_connect(self: *Self, address: *gio.SocketAddress, cancellable: ?*gio.Cancellable) bool;
     pub const connect = g_socket_connection_connect;
 
-    extern fn g_socket_connection_connect_async(self: *Self, address: *gio.SocketAddress, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_socket_connection_connect_async(self: *Self, address: *gio.SocketAddress, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const connectAsync = g_socket_connection_connect_async;
 
     extern fn g_socket_connection_connect_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -84,37 +84,37 @@ pub const UnixConnection = extern struct {
     extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
     pub const overrideProperty = g_object_class_override_property;
 
-    extern fn g_unix_connection_receive_credentials(self: *Self, cancellable: *gio.Cancellable) ?*gio.Credentials;
+    extern fn g_unix_connection_receive_credentials(self: *Self, cancellable: ?*gio.Cancellable) ?*gio.Credentials;
     pub const receiveCredentials = g_unix_connection_receive_credentials;
 
-    extern fn g_unix_connection_receive_credentials_async(self: *Self, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_unix_connection_receive_credentials_async(self: *Self, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const receiveCredentialsAsync = g_unix_connection_receive_credentials_async;
 
     extern fn g_unix_connection_receive_credentials_finish(self: *Self, result: *gio.AsyncResult) ?*gio.Credentials;
     pub const receiveCredentialsFinish = g_unix_connection_receive_credentials_finish;
 
-    extern fn g_unix_connection_receive_fd(self: *Self, cancellable: *gio.Cancellable) i32;
+    extern fn g_unix_connection_receive_fd(self: *Self, cancellable: ?*gio.Cancellable) i32;
     pub const receiveFd = g_unix_connection_receive_fd;
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn g_unix_connection_send_credentials(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_unix_connection_send_credentials(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const sendCredentials = g_unix_connection_send_credentials;
 
-    extern fn g_unix_connection_send_credentials_async(self: *Self, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_unix_connection_send_credentials_async(self: *Self, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const sendCredentialsAsync = g_unix_connection_send_credentials_async;
 
     extern fn g_unix_connection_send_credentials_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const sendCredentialsFinish = g_unix_connection_send_credentials_finish;
 
-    extern fn g_unix_connection_send_fd(self: *Self, fd: i32, cancellable: *gio.Cancellable) bool;
+    extern fn g_unix_connection_send_fd(self: *Self, fd: i32, cancellable: ?*gio.Cancellable) bool;
     pub const sendFd = g_unix_connection_send_fd;
 
     extern fn g_io_stream_set_pending(self: *Self) bool;
     pub const setPending = g_io_stream_set_pending;
 
-    extern fn g_io_stream_splice_async(self: *Self, stream2: *gio.IOStream, flags: gio.IOStreamSpliceFlags, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_io_stream_splice_async(self: *Self, stream2: *gio.IOStream, flags: gio.IOStreamSpliceFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const spliceAsync = g_io_stream_splice_async;
 
     extern fn g_object_thaw_notify(self: *Self) void;

@@ -31,7 +31,7 @@ pub const ListStore = extern struct {
     extern fn gtk_tree_drag_dest_drag_data_received(self: *Self, dest: *gtk.TreePath, value: *gobject.Value) bool;
     pub const dragDataReceived = gtk_tree_drag_dest_drag_data_received;
 
-    extern fn gtk_tree_model_filter_new(self: *Self, root: *gtk.TreePath) ?*gtk.TreeModel;
+    extern fn gtk_tree_model_filter_new(self: *Self, root: ?*gtk.TreePath) ?*gtk.TreeModel;
     pub const filterNew = gtk_tree_model_filter_new;
 
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
@@ -89,16 +89,16 @@ pub const ListStore = extern struct {
     extern fn gtk_list_store_iter_is_valid(self: *Self, iter: *gtk.TreeIter) bool;
     pub const iterIsValid = gtk_list_store_iter_is_valid;
 
-    extern fn gtk_tree_model_iter_n_children(self: *Self, iter: *gtk.TreeIter) i32;
+    extern fn gtk_tree_model_iter_n_children(self: *Self, iter: ?*gtk.TreeIter) i32;
     pub const iterNChildren = gtk_tree_model_iter_n_children;
 
     extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
-    extern fn gtk_list_store_move_after(self: *Self, iter: *gtk.TreeIter, position: *gtk.TreeIter) void;
+    extern fn gtk_list_store_move_after(self: *Self, iter: *gtk.TreeIter, position: ?*gtk.TreeIter) void;
     pub const moveAfter = gtk_list_store_move_after;
 
-    extern fn gtk_list_store_move_before(self: *Self, iter: *gtk.TreeIter, position: *gtk.TreeIter) void;
+    extern fn gtk_list_store_move_before(self: *Self, iter: *gtk.TreeIter, position: ?*gtk.TreeIter) void;
     pub const moveBefore = gtk_list_store_move_before;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -166,16 +166,10 @@ pub const ListStore = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
-        return @ptrCast(self);
-    }
-    pub fn asTreeModel(self: *Self) *gtk.TreeModel {
-        return @ptrCast(self);
-    }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asBuildable(self: *Self) *gtk.Buildable {
@@ -185,6 +179,12 @@ pub const ListStore = extern struct {
         return @ptrCast(self);
     }
     pub fn asTreeDragDest(self: *Self) *gtk.TreeDragDest {
+        return @ptrCast(self);
+    }
+    pub fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
+        return @ptrCast(self);
+    }
+    pub fn asTreeModel(self: *Self) *gtk.TreeModel {
         return @ptrCast(self);
     }
     pub fn asTreeSortable(self: *Self) *gtk.TreeSortable {

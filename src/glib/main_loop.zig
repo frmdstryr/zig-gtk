@@ -9,7 +9,7 @@ pub const MainLoop = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_main_loop_new(context: *glib.MainContext, is_running: bool) ?*Self;
+    extern fn g_main_loop_new(context: ?*glib.MainContext, is_running: bool) ?*Self;
     pub const new = g_main_loop_new;
 
 

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const DataInputStream = extern struct {
@@ -31,19 +31,19 @@ pub const DataInputStream = extern struct {
     extern fn g_input_stream_clear_pending(self: *Self) void;
     pub const clearPending = g_input_stream_clear_pending;
 
-    extern fn g_input_stream_close(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_input_stream_close(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const close = g_input_stream_close;
 
-    extern fn g_input_stream_close_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_input_stream_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const closeAsync = g_input_stream_close_async;
 
     extern fn g_input_stream_close_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const closeFinish = g_input_stream_close_finish;
 
-    extern fn g_buffered_input_stream_fill(self: *Self, count: i64, cancellable: *gio.Cancellable) i64;
+    extern fn g_buffered_input_stream_fill(self: *Self, count: i64, cancellable: ?*gio.Cancellable) i64;
     pub const fill = g_buffered_input_stream_fill;
 
-    extern fn g_buffered_input_stream_fill_async(self: *Self, count: i64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_buffered_input_stream_fill_async(self: *Self, count: i64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const fillAsync = g_buffered_input_stream_fill_async;
 
     extern fn g_buffered_input_stream_fill_finish(self: *Self, result: *gio.AsyncResult) i64;
@@ -103,28 +103,28 @@ pub const DataInputStream = extern struct {
     extern fn g_buffered_input_stream_peek_buffer(self: *Self, count: u64) [*c]u8;
     pub const peekBuffer = g_buffered_input_stream_peek_buffer;
 
-    extern fn g_input_stream_read(self: *Self, buffer: [*c]u8, count: u64, cancellable: *gio.Cancellable) i64;
+    extern fn g_input_stream_read(self: *Self, buffer: [*c]u8, count: u64, cancellable: ?*gio.Cancellable) i64;
     pub const read = g_input_stream_read;
 
-    extern fn g_input_stream_read_all(self: *Self, buffer: [*c]u8, count: u64, bytes_read: u64, cancellable: *gio.Cancellable) bool;
+    extern fn g_input_stream_read_all(self: *Self, buffer: [*c]u8, count: u64, bytes_read: u64, cancellable: ?*gio.Cancellable) bool;
     pub const readAll = g_input_stream_read_all;
 
-    extern fn g_input_stream_read_all_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_input_stream_read_all_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readAllAsync = g_input_stream_read_all_async;
 
     extern fn g_input_stream_read_all_finish(self: *Self, result: *gio.AsyncResult, bytes_read: u64) bool;
     pub const readAllFinish = g_input_stream_read_all_finish;
 
-    extern fn g_input_stream_read_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_input_stream_read_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readAsync = g_input_stream_read_async;
 
-    extern fn g_data_input_stream_read_byte(self: *Self, cancellable: *gio.Cancellable) u8;
+    extern fn g_data_input_stream_read_byte(self: *Self, cancellable: ?*gio.Cancellable) u8;
     pub const readByte = g_data_input_stream_read_byte;
 
-    extern fn g_input_stream_read_bytes(self: *Self, count: u64, cancellable: *gio.Cancellable) ?*glib.Bytes;
+    extern fn g_input_stream_read_bytes(self: *Self, count: u64, cancellable: ?*gio.Cancellable) ?*glib.Bytes;
     pub const readBytes = g_input_stream_read_bytes;
 
-    extern fn g_input_stream_read_bytes_async(self: *Self, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_input_stream_read_bytes_async(self: *Self, count: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readBytesAsync = g_input_stream_read_bytes_async;
 
     extern fn g_input_stream_read_bytes_finish(self: *Self, result: *gio.AsyncResult) ?*glib.Bytes;
@@ -133,19 +133,19 @@ pub const DataInputStream = extern struct {
     extern fn g_input_stream_read_finish(self: *Self, result: *gio.AsyncResult) i64;
     pub const readFinish = g_input_stream_read_finish;
 
-    extern fn g_data_input_stream_read_int16(self: *Self, cancellable: *gio.Cancellable) i16;
+    extern fn g_data_input_stream_read_int16(self: *Self, cancellable: ?*gio.Cancellable) i16;
     pub const readInt16 = g_data_input_stream_read_int16;
 
-    extern fn g_data_input_stream_read_int32(self: *Self, cancellable: *gio.Cancellable) i32;
+    extern fn g_data_input_stream_read_int32(self: *Self, cancellable: ?*gio.Cancellable) i32;
     pub const readInt32 = g_data_input_stream_read_int32;
 
-    extern fn g_data_input_stream_read_int64(self: *Self, cancellable: *gio.Cancellable) i64;
+    extern fn g_data_input_stream_read_int64(self: *Self, cancellable: ?*gio.Cancellable) i64;
     pub const readInt64 = g_data_input_stream_read_int64;
 
-    extern fn g_data_input_stream_read_line(self: *Self, length: u64, cancellable: *gio.Cancellable) [*c]u8;
+    extern fn g_data_input_stream_read_line(self: *Self, length: u64, cancellable: ?*gio.Cancellable) [*c]u8;
     pub const readLine = g_data_input_stream_read_line;
 
-    extern fn g_data_input_stream_read_line_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_data_input_stream_read_line_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readLineAsync = g_data_input_stream_read_line_async;
 
     extern fn g_data_input_stream_read_line_finish(self: *Self, result: *gio.AsyncResult, length: u64) [*c]u8;
@@ -154,31 +154,31 @@ pub const DataInputStream = extern struct {
     extern fn g_data_input_stream_read_line_finish_utf8(self: *Self, result: *gio.AsyncResult, length: u64) [*c]const u8;
     pub const readLineFinishUtf8 = g_data_input_stream_read_line_finish_utf8;
 
-    extern fn g_data_input_stream_read_line_utf8(self: *Self, length: u64, cancellable: *gio.Cancellable) [*c]const u8;
+    extern fn g_data_input_stream_read_line_utf8(self: *Self, length: u64, cancellable: ?*gio.Cancellable) [*c]const u8;
     pub const readLineUtf8 = g_data_input_stream_read_line_utf8;
 
-    extern fn g_data_input_stream_read_uint16(self: *Self, cancellable: *gio.Cancellable) u16;
+    extern fn g_data_input_stream_read_uint16(self: *Self, cancellable: ?*gio.Cancellable) u16;
     pub const readUint16 = g_data_input_stream_read_uint16;
 
-    extern fn g_data_input_stream_read_uint32(self: *Self, cancellable: *gio.Cancellable) u32;
+    extern fn g_data_input_stream_read_uint32(self: *Self, cancellable: ?*gio.Cancellable) u32;
     pub const readUint32 = g_data_input_stream_read_uint32;
 
-    extern fn g_data_input_stream_read_uint64(self: *Self, cancellable: *gio.Cancellable) u64;
+    extern fn g_data_input_stream_read_uint64(self: *Self, cancellable: ?*gio.Cancellable) u64;
     pub const readUint64 = g_data_input_stream_read_uint64;
 
-    extern fn g_data_input_stream_read_until(self: *Self, stop_chars: [*c]const u8, length: u64, cancellable: *gio.Cancellable) [*c]const u8;
+    extern fn g_data_input_stream_read_until(self: *Self, stop_chars: [*c]const u8, length: u64, cancellable: ?*gio.Cancellable) [*c]const u8;
     pub const readUntil = g_data_input_stream_read_until;
 
-    extern fn g_data_input_stream_read_until_async(self: *Self, stop_chars: [*c]const u8, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_data_input_stream_read_until_async(self: *Self, stop_chars: [*c]const u8, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readUntilAsync = g_data_input_stream_read_until_async;
 
     extern fn g_data_input_stream_read_until_finish(self: *Self, result: *gio.AsyncResult, length: u64) [*c]const u8;
     pub const readUntilFinish = g_data_input_stream_read_until_finish;
 
-    extern fn g_data_input_stream_read_upto(self: *Self, stop_chars: [*c]const u8, stop_chars_len: i64, length: u64, cancellable: *gio.Cancellable) [*c]const u8;
+    extern fn g_data_input_stream_read_upto(self: *Self, stop_chars: [*c]const u8, stop_chars_len: i64, length: u64, cancellable: ?*gio.Cancellable) [*c]const u8;
     pub const readUpto = g_data_input_stream_read_upto;
 
-    extern fn g_data_input_stream_read_upto_async(self: *Self, stop_chars: [*c]const u8, stop_chars_len: i64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_data_input_stream_read_upto_async(self: *Self, stop_chars: [*c]const u8, stop_chars_len: i64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const readUptoAsync = g_data_input_stream_read_upto_async;
 
     extern fn g_data_input_stream_read_upto_finish(self: *Self, result: *gio.AsyncResult, length: u64) [*c]const u8;
@@ -187,7 +187,7 @@ pub const DataInputStream = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn g_seekable_seek(self: *Self, offset: i64, type: glib.SeekType, cancellable: *gio.Cancellable) bool;
+    extern fn g_seekable_seek(self: *Self, offset: i64, type: glib.SeekType, cancellable: ?*gio.Cancellable) bool;
     pub const seek = g_seekable_seek;
 
     extern fn g_buffered_input_stream_set_buffer_size(self: *Self, size: u64) void;
@@ -205,10 +205,10 @@ pub const DataInputStream = extern struct {
     extern fn g_input_stream_set_pending(self: *Self) bool;
     pub const setPending = g_input_stream_set_pending;
 
-    extern fn g_input_stream_skip(self: *Self, count: u64, cancellable: *gio.Cancellable) i64;
+    extern fn g_input_stream_skip(self: *Self, count: u64, cancellable: ?*gio.Cancellable) i64;
     pub const skip = g_input_stream_skip;
 
-    extern fn g_input_stream_skip_async(self: *Self, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_input_stream_skip_async(self: *Self, count: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const skipAsync = g_input_stream_skip_async;
 
     extern fn g_input_stream_skip_finish(self: *Self, result: *gio.AsyncResult) i64;
@@ -220,7 +220,7 @@ pub const DataInputStream = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn g_seekable_truncate(self: *Self, offset: i64, cancellable: *gio.Cancellable) bool;
+    extern fn g_seekable_truncate(self: *Self, offset: i64, cancellable: ?*gio.Cancellable) bool;
     pub const truncate = g_seekable_truncate;
 
 
@@ -246,22 +246,22 @@ pub const DataInputStream = extern struct {
 
 
     // Bases
-    pub fn asFilterInputStream(self: *Self) *gio.FilterInputStream {
+    pub fn asBufferedInputStream(self: *Self) *gio.BufferedInputStream {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asFilterInputStream(self: *Self) *gio.FilterInputStream {
         return @ptrCast(self);
     }
     pub fn asInputStream(self: *Self) *gio.InputStream {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
     pub fn asSeekable(self: *Self) *gio.Seekable {
         return @ptrCast(self);
     }
-    pub fn asBufferedInputStream(self: *Self) *gio.BufferedInputStream {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

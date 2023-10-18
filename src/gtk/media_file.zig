@@ -1,10 +1,10 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
-const gio = @import("gio");
 const gdk = @import("gdk");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const MediaFile = extern struct {
@@ -153,13 +153,13 @@ pub const MediaFile = extern struct {
     extern fn gtk_media_stream_seek_success(self: *Self) void;
     pub const seekSuccess = gtk_media_stream_seek_success;
 
-    extern fn gtk_media_file_set_file(self: *Self, file: *gio.File) void;
+    extern fn gtk_media_file_set_file(self: *Self, file: ?*gio.File) void;
     pub const setFile = gtk_media_file_set_file;
 
     extern fn gtk_media_file_set_filename(self: *Self, filename: [*c]const u8) void;
     pub const setFilename = gtk_media_file_set_filename;
 
-    extern fn gtk_media_file_set_input_stream(self: *Self, stream: *gio.InputStream) void;
+    extern fn gtk_media_file_set_input_stream(self: *Self, stream: ?*gio.InputStream) void;
     pub const setInputStream = gtk_media_file_set_input_stream;
 
     extern fn gtk_media_stream_set_loop(self: *Self, loop: bool) void;
@@ -221,13 +221,13 @@ pub const MediaFile = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asPaintable(self: *Self) *gdk.Paintable {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asPaintable(self: *Self) *gdk.Paintable {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asMediaStream(self: *Self) *gtk.MediaStream {

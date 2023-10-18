@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const FlattenListModel = extern struct {
@@ -11,7 +11,7 @@ pub const FlattenListModel = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_flatten_list_model_new(model: *gio.ListModel) ?*Self;
+    extern fn gtk_flatten_list_model_new(model: ?*gio.ListModel) ?*Self;
     pub const new = gtk_flatten_list_model_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -64,7 +64,7 @@ pub const FlattenListModel = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_flatten_list_model_set_model(self: *Self, model: *gio.ListModel) void;
+    extern fn gtk_flatten_list_model_set_model(self: *Self, model: ?*gio.ListModel) void;
     pub const setModel = gtk_flatten_list_model_set_model;
 
     extern fn g_object_thaw_notify(self: *Self) void;
@@ -93,13 +93,13 @@ pub const FlattenListModel = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asListModel(self: *Self) *gio.ListModel {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asListModel(self: *Self) *gio.ListModel {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const FileChooser = extern struct {
@@ -73,7 +73,7 @@ pub const FileChooser = extern struct {
     extern fn gtk_file_chooser_set_create_folders(self: *Self, create_folders: bool) void;
     pub const setCreateFolders = gtk_file_chooser_set_create_folders;
 
-    extern fn gtk_file_chooser_set_current_folder(self: *Self, file: *gio.File) bool;
+    extern fn gtk_file_chooser_set_current_folder(self: *Self, file: ?*gio.File) bool;
     pub const setCurrentFolder = gtk_file_chooser_set_current_folder;
 
     extern fn gtk_file_chooser_set_current_name(self: *Self, name: [*c]const u8) void;

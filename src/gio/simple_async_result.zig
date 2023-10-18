@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const SimpleAsyncResult = extern struct {
@@ -11,10 +11,10 @@ pub const SimpleAsyncResult = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_simple_async_result_new(source_object: *gobject.Object, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque, source_tag: ?*anyopaque) ?*Self;
+    extern fn g_simple_async_result_new(source_object: ?*gobject.Object, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque, source_tag: ?*anyopaque) ?*Self;
     pub const new = g_simple_async_result_new;
 
-    extern fn g_simple_async_result_new_from_error(source_object: *gobject.Object, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque, error_: *glib.Error) ?*Self;
+    extern fn g_simple_async_result_new_from_error(source_object: ?*gobject.Object, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque, error_: *glib.Error) ?*Self;
     pub const newFromError = g_simple_async_result_new_from_error;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -76,7 +76,7 @@ pub const SimpleAsyncResult = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn g_simple_async_result_set_check_cancellable(self: *Self, check_cancellable: *gio.Cancellable) void;
+    extern fn g_simple_async_result_set_check_cancellable(self: *Self, check_cancellable: ?*gio.Cancellable) void;
     pub const setCheckCancellable = g_simple_async_result_set_check_cancellable;
 
     extern fn g_simple_async_result_set_from_error(self: *Self, error_: *glib.Error) void;
@@ -117,13 +117,13 @@ pub const SimpleAsyncResult = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asAsyncResult(self: *Self) *gio.AsyncResult {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asAsyncResult(self: *Self) *gio.AsyncResult {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

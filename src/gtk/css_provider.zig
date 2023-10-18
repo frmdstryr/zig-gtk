@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
 const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const CssProvider = extern struct {
@@ -87,16 +87,16 @@ pub const CssProvider = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub fn asStyleProvider(self: *Self) *gtk.StyleProvider {
-        return @ptrCast(self);
-    }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+    pub fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
     pub fn asCssProvider(self: *Self) *gtk.CssProvider {
+        return @ptrCast(self);
+    }
+    pub fn asStyleProvider(self: *Self) *gtk.StyleProvider {
         return @ptrCast(self);
     }
 };

@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const DtlsConnection = extern struct {
@@ -12,10 +12,10 @@ pub const DtlsConnection = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_dtls_connection_close(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_dtls_connection_close(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const close = g_dtls_connection_close;
 
-    extern fn g_dtls_connection_close_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_dtls_connection_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const closeAsync = g_dtls_connection_close_async;
 
     extern fn g_dtls_connection_close_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -57,10 +57,10 @@ pub const DtlsConnection = extern struct {
     extern fn g_dtls_connection_get_require_close_notify(self: *Self) bool;
     pub const getRequireCloseNotify = g_dtls_connection_get_require_close_notify;
 
-    extern fn g_dtls_connection_handshake(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_dtls_connection_handshake(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const handshake = g_dtls_connection_handshake;
 
-    extern fn g_dtls_connection_handshake_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_dtls_connection_handshake_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const handshakeAsync = g_dtls_connection_handshake_async;
 
     extern fn g_dtls_connection_handshake_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -72,10 +72,10 @@ pub const DtlsConnection = extern struct {
     extern fn g_dtls_connection_set_certificate(self: *Self, certificate: *gio.TlsCertificate) void;
     pub const setCertificate = g_dtls_connection_set_certificate;
 
-    extern fn g_dtls_connection_set_database(self: *Self, database: *gio.TlsDatabase) void;
+    extern fn g_dtls_connection_set_database(self: *Self, database: ?*gio.TlsDatabase) void;
     pub const setDatabase = g_dtls_connection_set_database;
 
-    extern fn g_dtls_connection_set_interaction(self: *Self, interaction: *gio.TlsInteraction) void;
+    extern fn g_dtls_connection_set_interaction(self: *Self, interaction: ?*gio.TlsInteraction) void;
     pub const setInteraction = g_dtls_connection_set_interaction;
 
     extern fn g_dtls_connection_set_rehandshake_mode(self: *Self, mode: gio.TlsRehandshakeMode) void;
@@ -84,10 +84,10 @@ pub const DtlsConnection = extern struct {
     extern fn g_dtls_connection_set_require_close_notify(self: *Self, require_close_notify: bool) void;
     pub const setRequireCloseNotify = g_dtls_connection_set_require_close_notify;
 
-    extern fn g_dtls_connection_shutdown(self: *Self, shutdown_read: bool, shutdown_write: bool, cancellable: *gio.Cancellable) bool;
+    extern fn g_dtls_connection_shutdown(self: *Self, shutdown_read: bool, shutdown_write: bool, cancellable: ?*gio.Cancellable) bool;
     pub const shutdown = g_dtls_connection_shutdown;
 
-    extern fn g_dtls_connection_shutdown_async(self: *Self, shutdown_read: bool, shutdown_write: bool, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_dtls_connection_shutdown_async(self: *Self, shutdown_read: bool, shutdown_write: bool, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const shutdownAsync = g_dtls_connection_shutdown_async;
 
     extern fn g_dtls_connection_shutdown_finish(self: *Self, result: *gio.AsyncResult) bool;

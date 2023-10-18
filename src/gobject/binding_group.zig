@@ -20,7 +20,7 @@ pub const BindingGroup = extern struct {
     extern fn g_binding_group_bind(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) void;
     pub const bind = g_binding_group_bind;
 
-    extern fn g_binding_group_bind_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) void;
+    extern fn g_binding_group_bind_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: ?*gobject.Closure, transform_from: ?*gobject.Closure) void;
     pub const bindFull = g_binding_group_bind_with_closures;
 
     extern fn g_binding_group_dup_source(self: *Self) ?*gobject.Object;
@@ -53,7 +53,7 @@ pub const BindingGroup = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn g_binding_group_set_source(self: *Self, source: *gobject.Object) void;
+    extern fn g_binding_group_set_source(self: *Self, source: ?*gobject.Object) void;
     pub const setSource = g_binding_group_set_source;
 
     extern fn g_object_thaw_notify(self: *Self) void;

@@ -9,7 +9,7 @@ pub const Variant = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn g_variant_new_array(child_type: *glib.VariantType, children: [*c]*glib.Variant, n_children: u64) ?*Self;
+    extern fn g_variant_new_array(child_type: ?*glib.VariantType, children: [*c]*glib.Variant, n_children: u64) ?*Self;
     pub const newArray = g_variant_new_array;
 
     extern fn g_variant_new_boolean(value: bool) ?*Self;
@@ -51,7 +51,7 @@ pub const Variant = extern struct {
     extern fn g_variant_new_int64(value: i64) ?*Self;
     pub const newInt64 = g_variant_new_int64;
 
-    extern fn g_variant_new_maybe(child_type: *glib.VariantType, child: *glib.Variant) ?*Self;
+    extern fn g_variant_new_maybe(child_type: ?*glib.VariantType, child: ?*glib.Variant) ?*Self;
     pub const newMaybe = g_variant_new_maybe;
 
     extern fn g_variant_new_object_path(object_path: [*c]const u8) ?*Self;
@@ -197,7 +197,7 @@ pub const Variant = extern struct {
     extern fn g_variant_is_of_type(self: *Self, type: *glib.VariantType) bool;
     pub const isOfType = g_variant_is_of_type;
 
-    extern fn g_variant_lookup_value(self: *Self, key: [*c]const u8, expected_type: *glib.VariantType) ?*glib.Variant;
+    extern fn g_variant_lookup_value(self: *Self, key: [*c]const u8, expected_type: ?*glib.VariantType) ?*glib.Variant;
     pub const lookupValue = g_variant_lookup_value;
 
     extern fn g_variant_n_children(self: *Self) u64;

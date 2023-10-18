@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const cairo = @import("cairo");
 const gobject = @import("gobject");
 const gdk = @import("../gdk.zig");
+const cairo = @import("cairo");
 const c = @import("c.zig");
 
 pub const Surface = extern struct {
@@ -106,7 +106,7 @@ pub const Surface = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gdk_surface_set_cursor(self: *Self, cursor: *gdk.Cursor) void;
+    extern fn gdk_surface_set_cursor(self: *Self, cursor: ?*gdk.Cursor) void;
     pub const setCursor = gdk_surface_set_cursor;
 
     extern fn gdk_surface_set_device_cursor(self: *Self, device: *gdk.Device, cursor: *gdk.Cursor) void;
@@ -115,7 +115,7 @@ pub const Surface = extern struct {
     extern fn gdk_surface_set_input_region(self: *Self, region: *cairo.Region) void;
     pub const setInputRegion = gdk_surface_set_input_region;
 
-    extern fn gdk_surface_set_opaque_region(self: *Self, region: *cairo.Region) void;
+    extern fn gdk_surface_set_opaque_region(self: *Self, region: ?*cairo.Region) void;
     pub const setOpaqueRegion = gdk_surface_set_opaque_region;
 
     extern fn g_object_thaw_notify(self: *Self) void;

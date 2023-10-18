@@ -10,10 +10,10 @@ pub const Cursor = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gdk_cursor_new_from_name(name: [*c]const u8, fallback: *gdk.Cursor) ?*Self;
+    extern fn gdk_cursor_new_from_name(name: [*c]const u8, fallback: ?*gdk.Cursor) ?*Self;
     pub const newFromName = gdk_cursor_new_from_name;
 
-    extern fn gdk_cursor_new_from_texture(texture: *gdk.Texture, hotspot_x: i32, hotspot_y: i32, fallback: *gdk.Cursor) ?*Self;
+    extern fn gdk_cursor_new_from_texture(texture: *gdk.Texture, hotspot_x: i32, hotspot_y: i32, fallback: ?*gdk.Cursor) ?*Self;
     pub const newFromTexture = gdk_cursor_new_from_texture;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;

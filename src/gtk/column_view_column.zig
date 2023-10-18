@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
 const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const ColumnViewColumn = extern struct {
@@ -11,7 +11,7 @@ pub const ColumnViewColumn = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_column_view_column_new(title: [*c]const u8, factory: *gtk.ListItemFactory) ?*Self;
+    extern fn gtk_column_view_column_new(title: [*c]const u8, factory: ?*gtk.ListItemFactory) ?*Self;
     pub const new = gtk_column_view_column_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -76,19 +76,19 @@ pub const ColumnViewColumn = extern struct {
     extern fn gtk_column_view_column_set_expand(self: *Self, expand: bool) void;
     pub const setExpand = gtk_column_view_column_set_expand;
 
-    extern fn gtk_column_view_column_set_factory(self: *Self, factory: *gtk.ListItemFactory) void;
+    extern fn gtk_column_view_column_set_factory(self: *Self, factory: ?*gtk.ListItemFactory) void;
     pub const setFactory = gtk_column_view_column_set_factory;
 
     extern fn gtk_column_view_column_set_fixed_width(self: *Self, fixed_width: i32) void;
     pub const setFixedWidth = gtk_column_view_column_set_fixed_width;
 
-    extern fn gtk_column_view_column_set_header_menu(self: *Self, menu: *gio.MenuModel) void;
+    extern fn gtk_column_view_column_set_header_menu(self: *Self, menu: ?*gio.MenuModel) void;
     pub const setHeaderMenu = gtk_column_view_column_set_header_menu;
 
     extern fn gtk_column_view_column_set_resizable(self: *Self, resizable: bool) void;
     pub const setResizable = gtk_column_view_column_set_resizable;
 
-    extern fn gtk_column_view_column_set_sorter(self: *Self, sorter: *gtk.Sorter) void;
+    extern fn gtk_column_view_column_set_sorter(self: *Self, sorter: ?*gtk.Sorter) void;
     pub const setSorter = gtk_column_view_column_set_sorter;
 
     extern fn gtk_column_view_column_set_title(self: *Self, title: [*c]const u8) void;

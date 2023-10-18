@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const glib = @import("glib");
 const gtk = @import("../gtk.zig");
 const gdk = @import("gdk");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const GestureRotate = extern struct {
@@ -50,7 +50,7 @@ pub const GestureRotate = extern struct {
     extern fn gtk_gesture_get_group(self: *Self) ?*glib.List;
     pub const getGroup = gtk_gesture_get_group;
 
-    extern fn gtk_gesture_get_last_event(self: *Self, sequence: *gdk.EventSequence) ?*gdk.Event;
+    extern fn gtk_gesture_get_last_event(self: *Self, sequence: ?*gdk.EventSequence) ?*gdk.Event;
     pub const getLastEvent = gtk_gesture_get_last_event;
 
     extern fn gtk_gesture_get_last_updated_sequence(self: *Self) ?*gdk.EventSequence;
@@ -59,7 +59,7 @@ pub const GestureRotate = extern struct {
     extern fn gtk_event_controller_get_name(self: *Self) [*c]const u8;
     pub const getName = gtk_event_controller_get_name;
 
-    extern fn gtk_gesture_get_point(self: *Self, sequence: *gdk.EventSequence, x: f64, y: f64) bool;
+    extern fn gtk_gesture_get_point(self: *Self, sequence: ?*gdk.EventSequence, x: f64, y: f64) bool;
     pub const getPoint = gtk_gesture_get_point;
 
     extern fn gtk_event_controller_get_propagation_limit(self: *Self) gtk.PropagationLimit;
@@ -83,7 +83,7 @@ pub const GestureRotate = extern struct {
     extern fn gtk_gesture_group(self: *Self, gesture: *gtk.Gesture) void;
     pub const group = gtk_gesture_group;
 
-    extern fn gtk_gesture_handles_sequence(self: *Self, sequence: *gdk.EventSequence) bool;
+    extern fn gtk_gesture_handles_sequence(self: *Self, sequence: ?*gdk.EventSequence) bool;
     pub const handlesSequence = gtk_gesture_handles_sequence;
 
     extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
@@ -166,10 +166,10 @@ pub const GestureRotate = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asGesture(self: *Self) *gtk.Gesture {
+    pub fn asEventController(self: *Self) *gtk.EventController {
         return @ptrCast(self);
     }
-    pub fn asEventController(self: *Self) *gtk.EventController {
+    pub fn asGesture(self: *Self) *gtk.Gesture {
         return @ptrCast(self);
     }
 };

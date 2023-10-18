@@ -10,7 +10,7 @@ pub const StringSorter = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_string_sorter_new(expression: *gtk.Expression) ?*Self;
+    extern fn gtk_string_sorter_new(expression: ?*gtk.Expression) ?*Self;
     pub const new = gtk_string_sorter_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -60,7 +60,7 @@ pub const StringSorter = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_string_sorter_set_expression(self: *Self, expression: *gtk.Expression) void;
+    extern fn gtk_string_sorter_set_expression(self: *Self, expression: ?*gtk.Expression) void;
     pub const setExpression = gtk_string_sorter_set_expression;
 
     extern fn gtk_string_sorter_set_ignore_case(self: *Self, ignore_case: bool) void;

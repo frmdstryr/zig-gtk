@@ -35,7 +35,7 @@ pub const ToplevelLayout = extern struct {
     extern fn gdk_toplevel_layout_ref(self: *Self) ?*gdk.ToplevelLayout;
     pub const ref = gdk_toplevel_layout_ref;
 
-    extern fn gdk_toplevel_layout_set_fullscreen(self: *Self, fullscreen: bool, monitor: *gdk.Monitor) void;
+    extern fn gdk_toplevel_layout_set_fullscreen(self: *Self, fullscreen: bool, monitor: ?*gdk.Monitor) void;
     pub const setFullscreen = gdk_toplevel_layout_set_fullscreen;
 
     extern fn gdk_toplevel_layout_set_maximized(self: *Self, maximized: bool) void;

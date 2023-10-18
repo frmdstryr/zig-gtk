@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const TlsInteraction = extern struct {
@@ -15,10 +15,10 @@ pub const TlsInteraction = extern struct {
 
 
     // Methods
-    extern fn g_tls_interaction_ask_password(self: *Self, password: *gio.TlsPassword, cancellable: *gio.Cancellable) gio.TlsInteractionResult;
+    extern fn g_tls_interaction_ask_password(self: *Self, password: *gio.TlsPassword, cancellable: ?*gio.Cancellable) gio.TlsInteractionResult;
     pub const askPassword = g_tls_interaction_ask_password;
 
-    extern fn g_tls_interaction_ask_password_async(self: *Self, password: *gio.TlsPassword, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_tls_interaction_ask_password_async(self: *Self, password: *gio.TlsPassword, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const askPasswordAsync = g_tls_interaction_ask_password_async;
 
     extern fn g_tls_interaction_ask_password_finish(self: *Self, result: *gio.AsyncResult) gio.TlsInteractionResult;
@@ -36,10 +36,10 @@ pub const TlsInteraction = extern struct {
     extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
     pub const installProperty = g_object_class_install_property;
 
-    extern fn g_tls_interaction_invoke_ask_password(self: *Self, password: *gio.TlsPassword, cancellable: *gio.Cancellable) gio.TlsInteractionResult;
+    extern fn g_tls_interaction_invoke_ask_password(self: *Self, password: *gio.TlsPassword, cancellable: ?*gio.Cancellable) gio.TlsInteractionResult;
     pub const invokeAskPassword = g_tls_interaction_invoke_ask_password;
 
-    extern fn g_tls_interaction_invoke_request_certificate(self: *Self, connection: *gio.TlsConnection, flags: gio.TlsCertificateRequestFlags, cancellable: *gio.Cancellable) gio.TlsInteractionResult;
+    extern fn g_tls_interaction_invoke_request_certificate(self: *Self, connection: *gio.TlsConnection, flags: gio.TlsCertificateRequestFlags, cancellable: ?*gio.Cancellable) gio.TlsInteractionResult;
     pub const invokeRequestCertificate = g_tls_interaction_invoke_request_certificate;
 
     extern fn g_object_is_floating(self: *Self) bool;
@@ -54,10 +54,10 @@ pub const TlsInteraction = extern struct {
     extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
     pub const overrideProperty = g_object_class_override_property;
 
-    extern fn g_tls_interaction_request_certificate(self: *Self, connection: *gio.TlsConnection, flags: gio.TlsCertificateRequestFlags, cancellable: *gio.Cancellable) gio.TlsInteractionResult;
+    extern fn g_tls_interaction_request_certificate(self: *Self, connection: *gio.TlsConnection, flags: gio.TlsCertificateRequestFlags, cancellable: ?*gio.Cancellable) gio.TlsInteractionResult;
     pub const requestCertificate = g_tls_interaction_request_certificate;
 
-    extern fn g_tls_interaction_request_certificate_async(self: *Self, connection: *gio.TlsConnection, flags: gio.TlsCertificateRequestFlags, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_tls_interaction_request_certificate_async(self: *Self, connection: *gio.TlsConnection, flags: gio.TlsCertificateRequestFlags, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const requestCertificateAsync = g_tls_interaction_request_certificate_async;
 
     extern fn g_tls_interaction_request_certificate_finish(self: *Self, result: *gio.AsyncResult) gio.TlsInteractionResult;

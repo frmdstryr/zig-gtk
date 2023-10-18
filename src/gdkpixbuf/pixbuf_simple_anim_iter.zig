@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
+const gobject = @import("gobject");
 const gdkpixbuf = @import("../gdkpixbuf.zig");
 const glib = @import("glib");
-const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const PixbufSimpleAnimIter = extern struct {
@@ -16,7 +16,7 @@ pub const PixbufSimpleAnimIter = extern struct {
 
 
     // Methods
-    extern fn gdk_pixbuf_animation_iter_advance(self: *Self, current_time: *glib.TimeVal) bool;
+    extern fn gdk_pixbuf_animation_iter_advance(self: *Self, current_time: ?*glib.TimeVal) bool;
     pub const advance = gdk_pixbuf_animation_iter_advance;
 
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
@@ -81,10 +81,10 @@ pub const PixbufSimpleAnimIter = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asPixbufAnimationIter(self: *Self) *gdkpixbuf.PixbufAnimationIter {
         return @ptrCast(self);
     }
-    pub fn asPixbufAnimationIter(self: *Self) *gdkpixbuf.PixbufAnimationIter {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

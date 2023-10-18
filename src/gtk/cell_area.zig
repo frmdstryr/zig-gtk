@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const glib = @import("glib");
 const gtk = @import("../gtk.zig");
 const gdk = @import("gdk");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const CellArea = extern struct {
@@ -191,7 +191,7 @@ pub const CellArea = extern struct {
     extern fn gtk_cell_layout_set_cell_data_func(self: *Self, cell: *gtk.CellRenderer, func: gtk.CellLayoutDataFunc, func_data: ?*anyopaque, destroy: glib.DestroyNotify) void;
     pub const setCellDataFunc = gtk_cell_layout_set_cell_data_func;
 
-    extern fn gtk_cell_area_set_focus_cell(self: *Self, renderer: *gtk.CellRenderer) void;
+    extern fn gtk_cell_area_set_focus_cell(self: *Self, renderer: ?*gtk.CellRenderer) void;
     pub const setFocusCell = gtk_cell_area_set_focus_cell;
 
     extern fn gtk_cell_area_snapshot(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, snapshot: *gtk.Snapshot, background_area: *gdk.Rectangle, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState, paint_focus: bool) void;
@@ -226,19 +226,19 @@ pub const CellArea = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub fn asCellLayout(self: *Self) *gtk.CellLayout {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
     pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asBuildable(self: *Self) *gtk.Buildable {
+        return @ptrCast(self);
+    }
+    pub fn asCellLayout(self: *Self) *gtk.CellLayout {
         return @ptrCast(self);
     }
 };

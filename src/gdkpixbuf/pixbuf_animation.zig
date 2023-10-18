@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdkpixbuf = @import("../gdkpixbuf.zig");
-const gio = @import("gio");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const gdkpixbuf = @import("../gdkpixbuf.zig");
+const glib = @import("glib");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const PixbufAnimation = extern struct {
@@ -18,7 +18,7 @@ pub const PixbufAnimation = extern struct {
     extern fn gdk_pixbuf_animation_new_from_resource(resource_path: [*c]const u8) ?*Self;
     pub const newFromResource = gdk_pixbuf_animation_new_from_resource;
 
-    extern fn gdk_pixbuf_animation_new_from_stream(stream: *gio.InputStream, cancellable: *gio.Cancellable) ?*Self;
+    extern fn gdk_pixbuf_animation_new_from_stream(stream: *gio.InputStream, cancellable: ?*gio.Cancellable) ?*Self;
     pub const newFromStream = gdk_pixbuf_animation_new_from_stream;
 
     extern fn gdk_pixbuf_animation_new_from_stream_finish(async_result: *gio.AsyncResult) ?*Self;
@@ -35,7 +35,7 @@ pub const PixbufAnimation = extern struct {
     extern fn gdk_pixbuf_animation_get_height(self: *Self) i32;
     pub const getHeight = gdk_pixbuf_animation_get_height;
 
-    extern fn gdk_pixbuf_animation_get_iter(self: *Self, start_time: *glib.TimeVal) ?*gdkpixbuf.PixbufAnimationIter;
+    extern fn gdk_pixbuf_animation_get_iter(self: *Self, start_time: ?*glib.TimeVal) ?*gdkpixbuf.PixbufAnimationIter;
     pub const getIter = gdk_pixbuf_animation_get_iter;
 
     extern fn gdk_pixbuf_animation_get_static_image(self: *Self) ?*gdkpixbuf.Pixbuf;

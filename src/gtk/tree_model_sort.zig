@@ -40,7 +40,7 @@ pub const TreeModelSort = extern struct {
     extern fn gtk_tree_drag_source_drag_data_get(self: *Self, path: *gtk.TreePath) ?*gdk.ContentProvider;
     pub const dragDataGet = gtk_tree_drag_source_drag_data_get;
 
-    extern fn gtk_tree_model_filter_new(self: *Self, root: *gtk.TreePath) ?*gtk.TreeModel;
+    extern fn gtk_tree_model_filter_new(self: *Self, root: ?*gtk.TreePath) ?*gtk.TreeModel;
     pub const filterNew = gtk_tree_model_filter_new;
 
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
@@ -91,7 +91,7 @@ pub const TreeModelSort = extern struct {
     extern fn gtk_tree_model_sort_iter_is_valid(self: *Self, iter: *gtk.TreeIter) bool;
     pub const iterIsValid = gtk_tree_model_sort_iter_is_valid;
 
-    extern fn gtk_tree_model_iter_n_children(self: *Self, iter: *gtk.TreeIter) i32;
+    extern fn gtk_tree_model_iter_n_children(self: *Self, iter: ?*gtk.TreeIter) i32;
     pub const iterNChildren = gtk_tree_model_iter_n_children;
 
     extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
@@ -150,6 +150,9 @@ pub const TreeModelSort = extern struct {
 
 
     // Bases
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
@@ -160,9 +163,6 @@ pub const TreeModelSort = extern struct {
         return @ptrCast(self);
     }
     pub fn asTreeSortable(self: *Self) *gtk.TreeSortable {
-        return @ptrCast(self);
-    }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

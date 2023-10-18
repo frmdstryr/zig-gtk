@@ -11,7 +11,7 @@ pub const TextBuffer = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_text_buffer_new(table: *gtk.TextTagTable) ?*Self;
+    extern fn gtk_text_buffer_new(table: ?*gtk.TextTagTable) ?*Self;
     pub const new = gtk_text_buffer_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -193,7 +193,7 @@ pub const TextBuffer = extern struct {
     extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
     pub const overrideProperty = g_object_class_override_property;
 
-    extern fn gtk_text_buffer_paste_clipboard(self: *Self, clipboard: *gdk.Clipboard, override_location: *gtk.TextIter, default_editable: bool) void;
+    extern fn gtk_text_buffer_paste_clipboard(self: *Self, clipboard: *gdk.Clipboard, override_location: ?*gtk.TextIter, default_editable: bool) void;
     pub const pasteClipboard = gtk_text_buffer_paste_clipboard;
 
     extern fn gtk_text_buffer_place_cursor(self: *Self, where: *gtk.TextIter) void;

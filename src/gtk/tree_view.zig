@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const cairo = @import("cairo");
-const gobject = @import("gobject");
-const gio = @import("gio");
 const gdk = @import("gdk");
-const gsk = @import("gsk");
-const graphene = @import("graphene");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const cairo = @import("cairo");
+const graphene = @import("graphene");
 const pango = @import("pango");
+const gsk = @import("gsk");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const TreeView = extern struct {
@@ -34,7 +34,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_activate(self: *Self) bool;
     pub const activate = gtk_widget_activate;
 
-    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: *glib.Variant) bool;
+    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: ?*glib.Variant) bool;
     pub const activateAction = gtk_widget_activate_action_variant;
 
     extern fn gtk_widget_activate_default(self: *Self) void;
@@ -55,7 +55,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_add_tick_callback(self: *Self, callback: gtk.TickCallback, user_data: ?*anyopaque, notify: glib.DestroyNotify) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
-    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: *gsk.Transform) void;
+    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
     pub const allocate = gtk_widget_allocate;
 
     extern fn gtk_tree_view_append_column(self: *Self, column: *gtk.TreeViewColumn) i32;
@@ -169,7 +169,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
-    extern fn gtk_tree_view_get_background_area(self: *Self, path: *gtk.TreePath, column: *gtk.TreeViewColumn, rect: gdk.Rectangle) void;
+    extern fn gtk_tree_view_get_background_area(self: *Self, path: ?*gtk.TreePath, column: ?*gtk.TreeViewColumn, rect: gdk.Rectangle) void;
     pub const getBackgroundArea = gtk_tree_view_get_background_area;
 
     extern fn gtk_scrollable_get_border(self: *Self, border: gtk.Border) bool;
@@ -202,7 +202,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_get_css_name(self: *Self) [*c]const u8;
     pub const getCssName = gtk_widget_get_css_name;
 
-    extern fn gtk_tree_view_get_cursor(self: *Self, path: *gtk.TreePath, focus_column: *gtk.TreeViewColumn) void;
+    extern fn gtk_tree_view_get_cursor(self: *Self, path: ?*gtk.TreePath, focus_column: ?*gtk.TreeViewColumn) void;
     pub const getCursor = gtk_tree_view_get_cursor;
 
     extern fn gtk_widget_get_direction(self: *Self) gtk.TextDirection;
@@ -211,7 +211,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_get_display(self: *Self) ?*gdk.Display;
     pub const getDisplay = gtk_widget_get_display;
 
-    extern fn gtk_tree_view_get_drag_dest_row(self: *Self, path: *gtk.TreePath, pos: gtk.TreeViewDropPosition) void;
+    extern fn gtk_tree_view_get_drag_dest_row(self: *Self, path: ?*gtk.TreePath, pos: gtk.TreeViewDropPosition) void;
     pub const getDragDestRow = gtk_tree_view_get_drag_dest_row;
 
     extern fn gtk_tree_view_get_enable_search(self: *Self) bool;
@@ -403,7 +403,7 @@ pub const TreeView = extern struct {
     extern fn gtk_tree_view_get_tooltip_column(self: *Self) i32;
     pub const getTooltipColumn = gtk_tree_view_get_tooltip_column;
 
-    extern fn gtk_tree_view_get_tooltip_context(self: *Self, x: i32, y: i32, keyboard_tip: bool, model: *gtk.TreeModel, path: *gtk.TreePath, iter: gtk.TreeIter) bool;
+    extern fn gtk_tree_view_get_tooltip_context(self: *Self, x: i32, y: i32, keyboard_tip: bool, model: ?*gtk.TreeModel, path: *gtk.TreePath, iter: gtk.TreeIter) bool;
     pub const getTooltipContext = gtk_tree_view_get_tooltip_context;
 
     extern fn gtk_widget_get_tooltip_markup(self: *Self) [*c]const u8;
@@ -463,13 +463,13 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_init_template(self: *Self) void;
     pub const initTemplate = gtk_widget_init_template;
 
-    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: *gio.ActionGroup) void;
+    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: ?*gio.ActionGroup) void;
     pub const insertActionGroup = gtk_widget_insert_action_group;
 
-    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: ?*gtk.Widget) void;
     pub const insertAfter = gtk_widget_insert_after;
 
-    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: ?*gtk.Widget) void;
     pub const insertBefore = gtk_widget_insert_before;
 
     extern fn gtk_tree_view_insert_column(self: *Self, column: *gtk.TreeViewColumn, position: i32) i32;
@@ -493,7 +493,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_is_ancestor(self: *Self, ancestor: *gtk.Widget) bool;
     pub const isAncestor = gtk_widget_is_ancestor;
 
-    extern fn gtk_tree_view_is_blank_at_pos(self: *Self, x: i32, y: i32, path: *gtk.TreePath, column: *gtk.TreeViewColumn, cell_x: i32, cell_y: i32) bool;
+    extern fn gtk_tree_view_is_blank_at_pos(self: *Self, x: i32, y: i32, path: ?*gtk.TreePath, column: ?*gtk.TreeViewColumn, cell_x: i32, cell_y: i32) bool;
     pub const isBlankAtPos = gtk_tree_view_is_blank_at_pos;
 
     extern fn gtk_widget_is_drawable(self: *Self) bool;
@@ -535,7 +535,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_mnemonic_activate(self: *Self, group_cycling: bool) bool;
     pub const mnemonicActivate = gtk_widget_mnemonic_activate;
 
-    extern fn gtk_tree_view_move_column_after(self: *Self, column: *gtk.TreeViewColumn, base_column: *gtk.TreeViewColumn) void;
+    extern fn gtk_tree_view_move_column_after(self: *Self, column: *gtk.TreeViewColumn, base_column: ?*gtk.TreeViewColumn) void;
     pub const moveColumnAfter = gtk_tree_view_move_column_after;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -553,7 +553,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_pick(self: *Self, x: f64, y: f64, flags: gtk.PickFlags) ?*gtk.Widget;
     pub const pick = gtk_widget_pick;
 
-    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: *glib.VariantType, property_name: [*c]const u8) bool;
+    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: ?*glib.VariantType, property_name: [*c]const u8) bool;
     pub const queryAction = gtk_widget_class_query_action;
 
     extern fn gtk_widget_queue_allocate(self: *Self) void;
@@ -592,7 +592,7 @@ pub const TreeView = extern struct {
     extern fn gtk_accessible_reset_state(self: *Self, state: gtk.AccessibleState) void;
     pub const resetState = gtk_accessible_reset_state;
 
-    extern fn gtk_tree_view_row_activated(self: *Self, path: *gtk.TreePath, column: *gtk.TreeViewColumn) void;
+    extern fn gtk_tree_view_row_activated(self: *Self, path: *gtk.TreePath, column: ?*gtk.TreeViewColumn) void;
     pub const rowActivated = gtk_tree_view_row_activated;
 
     extern fn gtk_tree_view_row_expanded(self: *Self, path: *gtk.TreePath) bool;
@@ -637,13 +637,13 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_set_cursor_from_name(self: *Self, name: [*c]const u8) void;
     pub const setCursorFromName = gtk_widget_set_cursor_from_name;
 
-    extern fn gtk_tree_view_set_cursor_on_cell(self: *Self, path: *gtk.TreePath, focus_column: *gtk.TreeViewColumn, focus_cell: *gtk.CellRenderer, start_editing: bool) void;
+    extern fn gtk_tree_view_set_cursor_on_cell(self: *Self, path: *gtk.TreePath, focus_column: ?*gtk.TreeViewColumn, focus_cell: ?*gtk.CellRenderer, start_editing: bool) void;
     pub const setCursorOnCell = gtk_tree_view_set_cursor_on_cell;
 
     extern fn gtk_widget_set_direction(self: *Self, dir: gtk.TextDirection) void;
     pub const setDirection = gtk_widget_set_direction;
 
-    extern fn gtk_tree_view_set_drag_dest_row(self: *Self, path: *gtk.TreePath, pos: gtk.TreeViewDropPosition) void;
+    extern fn gtk_tree_view_set_drag_dest_row(self: *Self, path: ?*gtk.TreePath, pos: gtk.TreeViewDropPosition) void;
     pub const setDragDestRow = gtk_tree_view_set_drag_dest_row;
 
     extern fn gtk_tree_view_set_enable_search(self: *Self, enable_search: bool) void;
@@ -652,13 +652,13 @@ pub const TreeView = extern struct {
     extern fn gtk_tree_view_set_enable_tree_lines(self: *Self, enabled: bool) void;
     pub const setEnableTreeLines = gtk_tree_view_set_enable_tree_lines;
 
-    extern fn gtk_tree_view_set_expander_column(self: *Self, column: *gtk.TreeViewColumn) void;
+    extern fn gtk_tree_view_set_expander_column(self: *Self, column: ?*gtk.TreeViewColumn) void;
     pub const setExpanderColumn = gtk_tree_view_set_expander_column;
 
     extern fn gtk_tree_view_set_fixed_height_mode(self: *Self, enable: bool) void;
     pub const setFixedHeightMode = gtk_tree_view_set_fixed_height_mode;
 
-    extern fn gtk_widget_set_focus_child(self: *Self, child: *gtk.Widget) void;
+    extern fn gtk_widget_set_focus_child(self: *Self, child: ?*gtk.Widget) void;
     pub const setFocusChild = gtk_widget_set_focus_child;
 
     extern fn gtk_widget_set_focus_on_click(self: *Self, focus_on_click: bool) void;
@@ -667,16 +667,16 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_set_focusable(self: *Self, focusable: bool) void;
     pub const setFocusable = gtk_widget_set_focusable;
 
-    extern fn gtk_widget_set_font_map(self: *Self, font_map: *pango.FontMap) void;
+    extern fn gtk_widget_set_font_map(self: *Self, font_map: ?*pango.FontMap) void;
     pub const setFontMap = gtk_widget_set_font_map;
 
-    extern fn gtk_widget_set_font_options(self: *Self, options: *cairo.FontOptions) void;
+    extern fn gtk_widget_set_font_options(self: *Self, options: ?*cairo.FontOptions) void;
     pub const setFontOptions = gtk_widget_set_font_options;
 
     extern fn gtk_tree_view_set_grid_lines(self: *Self, grid_lines: gtk.TreeViewGridLines) void;
     pub const setGridLines = gtk_tree_view_set_grid_lines;
 
-    extern fn gtk_scrollable_set_hadjustment(self: *Self, hadjustment: *gtk.Adjustment) void;
+    extern fn gtk_scrollable_set_hadjustment(self: *Self, hadjustment: ?*gtk.Adjustment) void;
     pub const setHadjustment = gtk_scrollable_set_hadjustment;
 
     extern fn gtk_widget_set_halign(self: *Self, align_: gtk.Align) void;
@@ -706,7 +706,7 @@ pub const TreeView = extern struct {
     extern fn gtk_scrollable_set_hscroll_policy(self: *Self, policy: gtk.ScrollablePolicy) void;
     pub const setHscrollPolicy = gtk_scrollable_set_hscroll_policy;
 
-    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: *gtk.LayoutManager) void;
+    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: ?*gtk.LayoutManager) void;
     pub const setLayoutManager = gtk_widget_set_layout_manager;
 
     extern fn gtk_widget_class_set_layout_manager_type(self: *Self, type: usize) void;
@@ -727,7 +727,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_set_margin_top(self: *Self, margin: i32) void;
     pub const setMarginTop = gtk_widget_set_margin_top;
 
-    extern fn gtk_tree_view_set_model(self: *Self, model: *gtk.TreeModel) void;
+    extern fn gtk_tree_view_set_model(self: *Self, model: ?*gtk.TreeModel) void;
     pub const setModel = gtk_tree_view_set_model;
 
     extern fn gtk_widget_set_name(self: *Self, name: [*c]const u8) void;
@@ -757,7 +757,7 @@ pub const TreeView = extern struct {
     extern fn gtk_tree_view_set_search_column(self: *Self, column: i32) void;
     pub const setSearchColumn = gtk_tree_view_set_search_column;
 
-    extern fn gtk_tree_view_set_search_entry(self: *Self, entry: *gtk.Editable) void;
+    extern fn gtk_tree_view_set_search_entry(self: *Self, entry: ?*gtk.Editable) void;
     pub const setSearchEntry = gtk_tree_view_set_search_entry;
 
     extern fn gtk_tree_view_set_search_equal_func(self: *Self, search_equal_func: gtk.TreeViewSearchEqualFunc, search_user_data: ?*anyopaque, search_destroy: glib.DestroyNotify) void;
@@ -784,7 +784,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_class_set_template_scope(self: *Self, scope: *gtk.BuilderScope) void;
     pub const setTemplateScope = gtk_widget_class_set_template_scope;
 
-    extern fn gtk_tree_view_set_tooltip_cell(self: *Self, tooltip: *gtk.Tooltip, path: *gtk.TreePath, column: *gtk.TreeViewColumn, cell: *gtk.CellRenderer) void;
+    extern fn gtk_tree_view_set_tooltip_cell(self: *Self, tooltip: *gtk.Tooltip, path: ?*gtk.TreePath, column: ?*gtk.TreeViewColumn, cell: ?*gtk.CellRenderer) void;
     pub const setTooltipCell = gtk_tree_view_set_tooltip_cell;
 
     extern fn gtk_tree_view_set_tooltip_column(self: *Self, column: i32) void;
@@ -799,7 +799,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_set_tooltip_text(self: *Self, text: [*c]const u8) void;
     pub const setTooltipText = gtk_widget_set_tooltip_text;
 
-    extern fn gtk_scrollable_set_vadjustment(self: *Self, vadjustment: *gtk.Adjustment) void;
+    extern fn gtk_scrollable_set_vadjustment(self: *Self, vadjustment: ?*gtk.Adjustment) void;
     pub const setVadjustment = gtk_scrollable_set_vadjustment;
 
     extern fn gtk_widget_set_valign(self: *Self, align_: gtk.Align) void;
@@ -885,16 +885,16 @@ pub const TreeView = extern struct {
 
 
     // Bases
-    pub fn asWidget(self: *Self) *gtk.Widget {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asScrollable(self: *Self) *gtk.Scrollable {
         return @ptrCast(self);
     }
     pub fn asTreeView(self: *Self) *gtk.TreeView {
         return @ptrCast(self);
     }
-    pub fn asScrollable(self: *Self) *gtk.Scrollable {
+    pub fn asWidget(self: *Self) *gtk.Widget {
         return @ptrCast(self);
     }
 };

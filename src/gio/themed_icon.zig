@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const ThemedIcon = extern struct {
@@ -28,7 +28,7 @@ pub const ThemedIcon = extern struct {
     extern fn g_themed_icon_append_name(self: *Self, iconname: [*c]const u8) void;
     pub const appendName = g_themed_icon_append_name;
 
-    extern fn g_icon_equal(self: *Self, icon2: *gio.Icon) bool;
+    extern fn g_icon_equal(self: *Self, icon2: ?*gio.Icon) bool;
     pub const equal = g_icon_equal;
 
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
@@ -96,13 +96,13 @@ pub const ThemedIcon = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
     pub fn asIcon(self: *Self) *gio.Icon {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

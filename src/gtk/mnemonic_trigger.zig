@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const glib = @import("glib");
 const gtk = @import("../gtk.zig");
 const gdk = @import("gdk");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const MnemonicTrigger = extern struct {

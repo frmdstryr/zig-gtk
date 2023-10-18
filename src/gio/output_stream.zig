@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const OutputStream = extern struct {
@@ -19,10 +19,10 @@ pub const OutputStream = extern struct {
     extern fn g_output_stream_clear_pending(self: *Self) void;
     pub const clearPending = g_output_stream_clear_pending;
 
-    extern fn g_output_stream_close(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_output_stream_close(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const close = g_output_stream_close;
 
-    extern fn g_output_stream_close_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_output_stream_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const closeAsync = g_output_stream_close_async;
 
     extern fn g_output_stream_close_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -31,10 +31,10 @@ pub const OutputStream = extern struct {
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
     pub const findProperty = g_object_class_find_property;
 
-    extern fn g_output_stream_flush(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_output_stream_flush(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const flush = g_output_stream_flush;
 
-    extern fn g_output_stream_flush_async(self: *Self, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_output_stream_flush_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const flushAsync = g_output_stream_flush_async;
 
     extern fn g_output_stream_flush_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -76,10 +76,10 @@ pub const OutputStream = extern struct {
     extern fn g_output_stream_set_pending(self: *Self) bool;
     pub const setPending = g_output_stream_set_pending;
 
-    extern fn g_output_stream_splice(self: *Self, source: *gio.InputStream, flags: gio.OutputStreamSpliceFlags, cancellable: *gio.Cancellable) i64;
+    extern fn g_output_stream_splice(self: *Self, source: *gio.InputStream, flags: gio.OutputStreamSpliceFlags, cancellable: ?*gio.Cancellable) i64;
     pub const splice = g_output_stream_splice;
 
-    extern fn g_output_stream_splice_async(self: *Self, source: *gio.InputStream, flags: gio.OutputStreamSpliceFlags, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_output_stream_splice_async(self: *Self, source: *gio.InputStream, flags: gio.OutputStreamSpliceFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const spliceAsync = g_output_stream_splice_async;
 
     extern fn g_output_stream_splice_finish(self: *Self, result: *gio.AsyncResult) i64;
@@ -88,25 +88,25 @@ pub const OutputStream = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn g_output_stream_write(self: *Self, buffer: [*c]u8, count: u64, cancellable: *gio.Cancellable) i64;
+    extern fn g_output_stream_write(self: *Self, buffer: [*c]u8, count: u64, cancellable: ?*gio.Cancellable) i64;
     pub const write = g_output_stream_write;
 
-    extern fn g_output_stream_write_all(self: *Self, buffer: [*c]u8, count: u64, bytes_written: u64, cancellable: *gio.Cancellable) bool;
+    extern fn g_output_stream_write_all(self: *Self, buffer: [*c]u8, count: u64, bytes_written: u64, cancellable: ?*gio.Cancellable) bool;
     pub const writeAll = g_output_stream_write_all;
 
-    extern fn g_output_stream_write_all_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_output_stream_write_all_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const writeAllAsync = g_output_stream_write_all_async;
 
     extern fn g_output_stream_write_all_finish(self: *Self, result: *gio.AsyncResult, bytes_written: u64) bool;
     pub const writeAllFinish = g_output_stream_write_all_finish;
 
-    extern fn g_output_stream_write_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_output_stream_write_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const writeAsync = g_output_stream_write_async;
 
-    extern fn g_output_stream_write_bytes(self: *Self, bytes: *glib.Bytes, cancellable: *gio.Cancellable) i64;
+    extern fn g_output_stream_write_bytes(self: *Self, bytes: *glib.Bytes, cancellable: ?*gio.Cancellable) i64;
     pub const writeBytes = g_output_stream_write_bytes;
 
-    extern fn g_output_stream_write_bytes_async(self: *Self, bytes: *glib.Bytes, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_output_stream_write_bytes_async(self: *Self, bytes: *glib.Bytes, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const writeBytesAsync = g_output_stream_write_bytes_async;
 
     extern fn g_output_stream_write_bytes_finish(self: *Self, result: *gio.AsyncResult) i64;
@@ -115,19 +115,19 @@ pub const OutputStream = extern struct {
     extern fn g_output_stream_write_finish(self: *Self, result: *gio.AsyncResult) i64;
     pub const writeFinish = g_output_stream_write_finish;
 
-    extern fn g_output_stream_writev(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: u64, cancellable: *gio.Cancellable) bool;
+    extern fn g_output_stream_writev(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: u64, cancellable: ?*gio.Cancellable) bool;
     pub const writev = g_output_stream_writev;
 
-    extern fn g_output_stream_writev_all(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: u64, cancellable: *gio.Cancellable) bool;
+    extern fn g_output_stream_writev_all(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: u64, cancellable: ?*gio.Cancellable) bool;
     pub const writevAll = g_output_stream_writev_all;
 
-    extern fn g_output_stream_writev_all_async(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_output_stream_writev_all_async(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const writevAllAsync = g_output_stream_writev_all_async;
 
     extern fn g_output_stream_writev_all_finish(self: *Self, result: *gio.AsyncResult, bytes_written: u64) bool;
     pub const writevAllFinish = g_output_stream_writev_all_finish;
 
-    extern fn g_output_stream_writev_async(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, io_priority: i32, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_output_stream_writev_async(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const writevAsync = g_output_stream_writev_async;
 
     extern fn g_output_stream_writev_finish(self: *Self, result: *gio.AsyncResult, bytes_written: u64) bool;

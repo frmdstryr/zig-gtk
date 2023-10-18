@@ -63,7 +63,7 @@ pub const ListItem = extern struct {
     extern fn gtk_list_item_set_activatable(self: *Self, activatable: bool) void;
     pub const setActivatable = gtk_list_item_set_activatable;
 
-    extern fn gtk_list_item_set_child(self: *Self, child: *gtk.Widget) void;
+    extern fn gtk_list_item_set_child(self: *Self, child: ?*gtk.Widget) void;
     pub const setChild = gtk_list_item_set_child;
 
     extern fn gtk_list_item_set_selectable(self: *Self, selectable: bool) void;

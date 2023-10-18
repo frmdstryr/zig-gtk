@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const TlsBackend = extern struct {
@@ -33,7 +33,7 @@ pub const TlsBackend = extern struct {
     extern fn g_tls_backend_get_server_connection_type(self: *Self) usize;
     pub const getServerConnectionType = g_tls_backend_get_server_connection_type;
 
-    extern fn g_tls_backend_set_default_database(self: *Self, database: *gio.TlsDatabase) void;
+    extern fn g_tls_backend_set_default_database(self: *Self, database: ?*gio.TlsDatabase) void;
     pub const setDefaultDatabase = g_tls_backend_set_default_database;
 
     extern fn g_tls_backend_supports_dtls(self: *Self) bool;

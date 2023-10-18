@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const NothingAction = extern struct {
@@ -19,7 +19,7 @@ pub const NothingAction = extern struct {
 
 
     // Methods
-    extern fn gtk_shortcut_action_activate(self: *Self, flags: gtk.ShortcutActionFlags, widget: *gtk.Widget, args: *glib.Variant) bool;
+    extern fn gtk_shortcut_action_activate(self: *Self, flags: gtk.ShortcutActionFlags, widget: *gtk.Widget, args: ?*glib.Variant) bool;
     pub const activate = gtk_shortcut_action_activate;
 
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;

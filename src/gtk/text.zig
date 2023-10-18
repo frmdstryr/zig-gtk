@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const cairo = @import("cairo");
-const gobject = @import("gobject");
-const gio = @import("gio");
 const gdk = @import("gdk");
-const gsk = @import("gsk");
-const graphene = @import("graphene");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const cairo = @import("cairo");
+const graphene = @import("graphene");
 const pango = @import("pango");
+const gsk = @import("gsk");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const Text = extern struct {
@@ -34,7 +34,7 @@ pub const Text = extern struct {
     extern fn gtk_widget_activate(self: *Self) bool;
     pub const activate = gtk_widget_activate;
 
-    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: *glib.Variant) bool;
+    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: ?*glib.Variant) bool;
     pub const activateAction = gtk_widget_activate_action_variant;
 
     extern fn gtk_widget_activate_default(self: *Self) void;
@@ -55,7 +55,7 @@ pub const Text = extern struct {
     extern fn gtk_widget_add_tick_callback(self: *Self, callback: gtk.TickCallback, user_data: ?*anyopaque, notify: glib.DestroyNotify) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
-    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: *gsk.Transform) void;
+    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
     pub const allocate = gtk_widget_allocate;
 
     extern fn gtk_widget_class_bind_template_callback_full(self: *Self, callback_name: [*c]const u8, callback_symbol: gobject.Callback) void;
@@ -415,13 +415,13 @@ pub const Text = extern struct {
     extern fn gtk_widget_init_template(self: *Self) void;
     pub const initTemplate = gtk_widget_init_template;
 
-    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: *gio.ActionGroup) void;
+    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: ?*gio.ActionGroup) void;
     pub const insertActionGroup = gtk_widget_insert_action_group;
 
-    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: ?*gtk.Widget) void;
     pub const insertAfter = gtk_widget_insert_after;
 
-    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: ?*gtk.Widget) void;
     pub const insertBefore = gtk_widget_insert_before;
 
     extern fn gtk_widget_class_install_action(self: *Self, action_name: [*c]const u8, parameter_type: [*c]const u8, activate: gtk.WidgetActionActivateFunc) void;
@@ -487,7 +487,7 @@ pub const Text = extern struct {
     extern fn gtk_widget_pick(self: *Self, x: f64, y: f64, flags: gtk.PickFlags) ?*gtk.Widget;
     pub const pick = gtk_widget_pick;
 
-    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: *glib.VariantType, property_name: [*c]const u8) bool;
+    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: ?*glib.VariantType, property_name: [*c]const u8) bool;
     pub const queryAction = gtk_widget_class_query_action;
 
     extern fn gtk_widget_queue_allocate(self: *Self) void;
@@ -544,7 +544,7 @@ pub const Text = extern struct {
     extern fn gtk_editable_set_alignment(self: *Self, xalign: f32) void;
     pub const setAlignment = gtk_editable_set_alignment;
 
-    extern fn gtk_text_set_attributes(self: *Self, attrs: *pango.AttrList) void;
+    extern fn gtk_text_set_attributes(self: *Self, attrs: ?*pango.AttrList) void;
     pub const setAttributes = gtk_text_set_attributes;
 
     extern fn gtk_text_set_buffer(self: *Self, buffer: *gtk.EntryBuffer) void;
@@ -565,7 +565,7 @@ pub const Text = extern struct {
     extern fn gtk_widget_class_set_css_name(self: *Self, name: [*c]const u8) void;
     pub const setCssName = gtk_widget_class_set_css_name;
 
-    extern fn gtk_widget_set_cursor(self: *Self, cursor: *gdk.Cursor) void;
+    extern fn gtk_widget_set_cursor(self: *Self, cursor: ?*gdk.Cursor) void;
     pub const setCursor = gtk_widget_set_cursor;
 
     extern fn gtk_widget_set_cursor_from_name(self: *Self, name: [*c]const u8) void;
@@ -583,10 +583,10 @@ pub const Text = extern struct {
     extern fn gtk_editable_set_enable_undo(self: *Self, enable_undo: bool) void;
     pub const setEnableUndo = gtk_editable_set_enable_undo;
 
-    extern fn gtk_text_set_extra_menu(self: *Self, model: *gio.MenuModel) void;
+    extern fn gtk_text_set_extra_menu(self: *Self, model: ?*gio.MenuModel) void;
     pub const setExtraMenu = gtk_text_set_extra_menu;
 
-    extern fn gtk_widget_set_focus_child(self: *Self, child: *gtk.Widget) void;
+    extern fn gtk_widget_set_focus_child(self: *Self, child: ?*gtk.Widget) void;
     pub const setFocusChild = gtk_widget_set_focus_child;
 
     extern fn gtk_widget_set_focus_on_click(self: *Self, focus_on_click: bool) void;
@@ -595,10 +595,10 @@ pub const Text = extern struct {
     extern fn gtk_widget_set_focusable(self: *Self, focusable: bool) void;
     pub const setFocusable = gtk_widget_set_focusable;
 
-    extern fn gtk_widget_set_font_map(self: *Self, font_map: *pango.FontMap) void;
+    extern fn gtk_widget_set_font_map(self: *Self, font_map: ?*pango.FontMap) void;
     pub const setFontMap = gtk_widget_set_font_map;
 
-    extern fn gtk_widget_set_font_options(self: *Self, options: *cairo.FontOptions) void;
+    extern fn gtk_widget_set_font_options(self: *Self, options: ?*cairo.FontOptions) void;
     pub const setFontOptions = gtk_widget_set_font_options;
 
     extern fn gtk_widget_set_halign(self: *Self, align_: gtk.Align) void;
@@ -622,7 +622,7 @@ pub const Text = extern struct {
     extern fn gtk_text_set_invisible_char(self: *Self, ch: u32) void;
     pub const setInvisibleChar = gtk_text_set_invisible_char;
 
-    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: *gtk.LayoutManager) void;
+    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: ?*gtk.LayoutManager) void;
     pub const setLayoutManager = gtk_widget_set_layout_manager;
 
     extern fn gtk_widget_class_set_layout_manager_type(self: *Self, type: usize) void;
@@ -682,7 +682,7 @@ pub const Text = extern struct {
     extern fn gtk_widget_set_state_flags(self: *Self, flags: gtk.StateFlags, clear: bool) void;
     pub const setStateFlags = gtk_widget_set_state_flags;
 
-    extern fn gtk_text_set_tabs(self: *Self, tabs: *pango.TabArray) void;
+    extern fn gtk_text_set_tabs(self: *Self, tabs: ?*pango.TabArray) void;
     pub const setTabs = gtk_text_set_tabs;
 
     extern fn gtk_widget_class_set_template(self: *Self, template_bytes: *glib.Bytes) void;
@@ -789,10 +789,10 @@ pub const Text = extern struct {
 
 
     // Bases
-    pub fn asEditable(self: *Self) *gtk.Editable {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asEditable(self: *Self) *gtk.Editable {
         return @ptrCast(self);
     }
     pub fn asWidget(self: *Self) *gtk.Widget {

@@ -110,7 +110,7 @@ pub const BookmarkFile = extern struct {
     extern fn g_bookmark_file_set_app_info(self: *Self, uri: [*c]const u8, name: [*c]const u8, exec: [*c]const u8, count: i32, stamp: i64) bool;
     pub const setAppInfo = g_bookmark_file_set_app_info;
 
-    extern fn g_bookmark_file_set_application_info(self: *Self, uri: [*c]const u8, name: [*c]const u8, exec: [*c]const u8, count: i32, stamp: *glib.DateTime) bool;
+    extern fn g_bookmark_file_set_application_info(self: *Self, uri: [*c]const u8, name: [*c]const u8, exec: [*c]const u8, count: i32, stamp: ?*glib.DateTime) bool;
     pub const setApplicationInfo = g_bookmark_file_set_application_info;
 
     extern fn g_bookmark_file_set_description(self: *Self, uri: [*c]const u8, description: [*c]const u8) void;

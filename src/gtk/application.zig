@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
-const glib = @import("glib");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
+const glib = @import("glib");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const Application = extern struct {
@@ -35,7 +35,7 @@ pub const Application = extern struct {
     extern fn g_application_activate(self: *Self) void;
     pub const activate = g_application_activate;
 
-    extern fn g_action_group_activate_action(self: *Self, action_name: [*c]const u8, parameter: *glib.Variant) void;
+    extern fn g_action_group_activate_action(self: *Self, action_name: [*c]const u8, parameter: ?*glib.Variant) void;
     pub const activateAction = g_action_group_activate_action;
 
     extern fn g_action_map_add_action(self: *Self, action: *gio.Action) void;
@@ -137,7 +137,7 @@ pub const Application = extern struct {
     extern fn g_application_hold(self: *Self) void;
     pub const hold = g_application_hold;
 
-    extern fn gtk_application_inhibit(self: *Self, window: *gtk.Window, flags: gtk.ApplicationInhibitFlags, reason: [*c]const u8) u32;
+    extern fn gtk_application_inhibit(self: *Self, window: ?*gtk.Window, flags: gtk.ApplicationInhibitFlags, reason: [*c]const u8) u32;
     pub const inhibit = gtk_application_inhibit;
 
     extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
@@ -179,7 +179,7 @@ pub const Application = extern struct {
     extern fn g_application_quit(self: *Self) void;
     pub const quit = g_application_quit;
 
-    extern fn g_application_register(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_application_register(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const register = g_application_register;
 
     extern fn g_application_release(self: *Self) void;
@@ -200,7 +200,7 @@ pub const Application = extern struct {
     extern fn gtk_application_set_accels_for_action(self: *Self, detailed_action_name: [*c]const u8, accels: [*c][*c]const u8) void;
     pub const setAccelsForAction = gtk_application_set_accels_for_action;
 
-    extern fn g_application_set_action_group(self: *Self, action_group: *gio.ActionGroup) void;
+    extern fn g_application_set_action_group(self: *Self, action_group: ?*gio.ActionGroup) void;
     pub const setActionGroup = g_application_set_action_group;
 
     extern fn g_application_set_application_id(self: *Self, application_id: [*c]const u8) void;
@@ -215,7 +215,7 @@ pub const Application = extern struct {
     extern fn g_application_set_inactivity_timeout(self: *Self, inactivity_timeout: u32) void;
     pub const setInactivityTimeout = g_application_set_inactivity_timeout;
 
-    extern fn gtk_application_set_menubar(self: *Self, menubar: *gio.MenuModel) void;
+    extern fn gtk_application_set_menubar(self: *Self, menubar: ?*gio.MenuModel) void;
     pub const setMenubar = gtk_application_set_menubar;
 
     extern fn g_application_set_option_context_description(self: *Self, description: [*c]const u8) void;
@@ -271,12 +271,6 @@ pub const Application = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
     pub fn asActionGroup(self: *Self) *gio.ActionGroup {
         return @ptrCast(self);
     }
@@ -284,6 +278,12 @@ pub const Application = extern struct {
         return @ptrCast(self);
     }
     pub fn asApplication(self: *Self) *gio.Application {
+        return @ptrCast(self);
+    }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
-const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const glib = @import("glib");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const CssSection = extern struct {
@@ -11,7 +11,7 @@ pub const CssSection = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_css_section_new(file: *gio.File, start: *gtk.CssLocation, end: *gtk.CssLocation) ?*Self;
+    extern fn gtk_css_section_new(file: ?*gio.File, start: *gtk.CssLocation, end: *gtk.CssLocation) ?*Self;
     pub const new = gtk_css_section_new;
 
 

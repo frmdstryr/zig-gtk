@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
 const gobject = @import("../gobject.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const Source = extern struct {
@@ -24,7 +24,7 @@ pub const Source = extern struct {
     extern fn g_source_add_unix_fd(self: *Self, fd: i32, events: glib.IOCondition) ?*anyopaque;
     pub const addUnixFd = g_source_add_unix_fd;
 
-    extern fn g_source_attach(self: *Self, context: *glib.MainContext) u32;
+    extern fn g_source_attach(self: *Self, context: ?*glib.MainContext) u32;
     pub const attach = g_source_attach;
 
     extern fn g_source_destroy(self: *Self) void;

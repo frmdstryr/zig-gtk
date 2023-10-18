@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const Shortcut = extern struct {
@@ -11,7 +11,7 @@ pub const Shortcut = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_shortcut_new(trigger: *gtk.ShortcutTrigger, action: *gtk.ShortcutAction) ?*Self;
+    extern fn gtk_shortcut_new(trigger: ?*gtk.ShortcutTrigger, action: ?*gtk.ShortcutAction) ?*Self;
     pub const new = gtk_shortcut_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -55,13 +55,13 @@ pub const Shortcut = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_shortcut_set_action(self: *Self, action: *gtk.ShortcutAction) void;
+    extern fn gtk_shortcut_set_action(self: *Self, action: ?*gtk.ShortcutAction) void;
     pub const setAction = gtk_shortcut_set_action;
 
-    extern fn gtk_shortcut_set_arguments(self: *Self, args: *glib.Variant) void;
+    extern fn gtk_shortcut_set_arguments(self: *Self, args: ?*glib.Variant) void;
     pub const setArguments = gtk_shortcut_set_arguments;
 
-    extern fn gtk_shortcut_set_trigger(self: *Self, trigger: *gtk.ShortcutTrigger) void;
+    extern fn gtk_shortcut_set_trigger(self: *Self, trigger: ?*gtk.ShortcutTrigger) void;
     pub const setTrigger = gtk_shortcut_set_trigger;
 
     extern fn g_object_thaw_notify(self: *Self) void;

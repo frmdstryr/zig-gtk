@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const graphene = @import("graphene");
-const glib = @import("glib");
 const gsk = @import("../gsk.zig");
+const glib = @import("glib");
+const graphene = @import("graphene");
 const c = @import("c.zig");
 
 pub const Transform = extern struct {
@@ -16,7 +16,7 @@ pub const Transform = extern struct {
 
 
     // Methods
-    extern fn gsk_transform_equal(self: *Self, second: *gsk.Transform) bool;
+    extern fn gsk_transform_equal(self: *Self, second: ?*gsk.Transform) bool;
     pub const equal = gsk_transform_equal;
 
     extern fn gsk_transform_get_category(self: *Self) gsk.TransformCategory;
@@ -70,7 +70,7 @@ pub const Transform = extern struct {
     extern fn gsk_transform_to_translate(self: *Self, out_dx: f32, out_dy: f32) void;
     pub const toTranslate = gsk_transform_to_translate;
 
-    extern fn gsk_transform_transform(self: *Self, other: *gsk.Transform) ?*gsk.Transform;
+    extern fn gsk_transform_transform(self: *Self, other: ?*gsk.Transform) ?*gsk.Transform;
     pub const transform = gsk_transform_transform;
 
     extern fn gsk_transform_transform_bounds(self: *Self, rect: *graphene.Rect, out_rect: graphene.Rect) void;

@@ -373,6 +373,8 @@ def func_arg_type(func, arg) -> Optional[str]:
     if t in TYPE_MAP:
         return TYPE_MAP[t]
     if t == "interface" and (it := interface_type_to_string(atype)):
+        if it.startswith("*") and arg.may_be_null():
+            return f"?{it}"
         return it
     if t == "array":
         ptype = atype.get_param_type(0)
@@ -544,7 +546,7 @@ def generate_class(ns: str, Cls: type):
             bases.remove("gtk.Widget")
         out.append("")
         out.append("    // Bases")
-        for name in bases:
+        for name in sorted(list(bases)):
             mod, base = name.split(".")
             imports.add(mod.lower())
             out.append("    pub fn as%s(self: *Self) *%s {" % (base, name))

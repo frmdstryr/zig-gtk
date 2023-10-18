@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const DesktopAppInfo = extern struct {
@@ -124,22 +124,22 @@ pub const DesktopAppInfo = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_app_info_launch(self: *Self, files: *glib.List, context: *gio.AppLaunchContext) bool;
+    extern fn g_app_info_launch(self: *Self, files: *glib.List, context: ?*gio.AppLaunchContext) bool;
     pub const launch = g_app_info_launch;
 
-    extern fn g_desktop_app_info_launch_action(self: *Self, action_name: [*c]const u8, launch_context: *gio.AppLaunchContext) void;
+    extern fn g_desktop_app_info_launch_action(self: *Self, action_name: [*c]const u8, launch_context: ?*gio.AppLaunchContext) void;
     pub const launchAction = g_desktop_app_info_launch_action;
 
-    extern fn g_app_info_launch_uris(self: *Self, uris: *glib.List, context: *gio.AppLaunchContext) bool;
+    extern fn g_app_info_launch_uris(self: *Self, uris: *glib.List, context: ?*gio.AppLaunchContext) bool;
     pub const launchUris = g_app_info_launch_uris;
 
-    extern fn g_desktop_app_info_launch_uris_as_manager(self: *Self, uris: *glib.List, launch_context: *gio.AppLaunchContext, spawn_flags: glib.SpawnFlags, user_setup: glib.SpawnChildSetupFunc, user_setup_data: ?*anyopaque, pid_callback: gio.DesktopAppLaunchCallback, pid_callback_data: ?*anyopaque) bool;
+    extern fn g_desktop_app_info_launch_uris_as_manager(self: *Self, uris: *glib.List, launch_context: ?*gio.AppLaunchContext, spawn_flags: glib.SpawnFlags, user_setup: glib.SpawnChildSetupFunc, user_setup_data: ?*anyopaque, pid_callback: gio.DesktopAppLaunchCallback, pid_callback_data: ?*anyopaque) bool;
     pub const launchUrisAsManager = g_desktop_app_info_launch_uris_as_manager;
 
-    extern fn g_desktop_app_info_launch_uris_as_manager_with_fds(self: *Self, uris: *glib.List, launch_context: *gio.AppLaunchContext, spawn_flags: glib.SpawnFlags, user_setup: glib.SpawnChildSetupFunc, user_setup_data: ?*anyopaque, pid_callback: gio.DesktopAppLaunchCallback, pid_callback_data: ?*anyopaque, stdin_fd: i32, stdout_fd: i32, stderr_fd: i32) bool;
+    extern fn g_desktop_app_info_launch_uris_as_manager_with_fds(self: *Self, uris: *glib.List, launch_context: ?*gio.AppLaunchContext, spawn_flags: glib.SpawnFlags, user_setup: glib.SpawnChildSetupFunc, user_setup_data: ?*anyopaque, pid_callback: gio.DesktopAppLaunchCallback, pid_callback_data: ?*anyopaque, stdin_fd: i32, stdout_fd: i32, stderr_fd: i32) bool;
     pub const launchUrisAsManagerWithFds = g_desktop_app_info_launch_uris_as_manager_with_fds;
 
-    extern fn g_app_info_launch_uris_async(self: *Self, uris: *glib.List, context: *gio.AppLaunchContext, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_app_info_launch_uris_async(self: *Self, uris: *glib.List, context: ?*gio.AppLaunchContext, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const launchUrisAsync = g_app_info_launch_uris_async;
 
     extern fn g_app_info_launch_uris_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -207,13 +207,13 @@ pub const DesktopAppInfo = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asAppInfo(self: *Self) *gio.AppInfo {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asAppInfo(self: *Self) *gio.AppInfo {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

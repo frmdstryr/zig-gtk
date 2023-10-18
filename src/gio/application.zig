@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const Application = extern struct {
@@ -34,7 +34,7 @@ pub const Application = extern struct {
     extern fn g_application_activate(self: *Self) void;
     pub const activate = g_application_activate;
 
-    extern fn g_action_group_activate_action(self: *Self, action_name: [*c]const u8, parameter: *glib.Variant) void;
+    extern fn g_action_group_activate_action(self: *Self, action_name: [*c]const u8, parameter: ?*glib.Variant) void;
     pub const activateAction = g_action_group_activate_action;
 
     extern fn g_action_map_add_action(self: *Self, action: *gio.Action) void;
@@ -148,7 +148,7 @@ pub const Application = extern struct {
     extern fn g_application_quit(self: *Self) void;
     pub const quit = g_application_quit;
 
-    extern fn g_application_register(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_application_register(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const register = g_application_register;
 
     extern fn g_application_release(self: *Self) void;
@@ -163,7 +163,7 @@ pub const Application = extern struct {
     extern fn g_application_send_notification(self: *Self, id: [*c]const u8, notification: *gio.Notification) void;
     pub const sendNotification = g_application_send_notification;
 
-    extern fn g_application_set_action_group(self: *Self, action_group: *gio.ActionGroup) void;
+    extern fn g_application_set_action_group(self: *Self, action_group: ?*gio.ActionGroup) void;
     pub const setActionGroup = g_application_set_action_group;
 
     extern fn g_application_set_application_id(self: *Self, application_id: [*c]const u8) void;
@@ -225,12 +225,6 @@ pub const Application = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
     pub fn asActionGroup(self: *Self) *gio.ActionGroup {
         return @ptrCast(self);
     }
@@ -238,6 +232,12 @@ pub const Application = extern struct {
         return @ptrCast(self);
     }
     pub fn asApplication(self: *Self) *gio.Application {
+        return @ptrCast(self);
+    }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

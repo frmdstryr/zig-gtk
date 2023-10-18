@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const EntryCompletion = extern struct {
@@ -130,7 +130,7 @@ pub const EntryCompletion = extern struct {
     extern fn gtk_entry_completion_set_minimum_key_length(self: *Self, length: i32) void;
     pub const setMinimumKeyLength = gtk_entry_completion_set_minimum_key_length;
 
-    extern fn gtk_entry_completion_set_model(self: *Self, model: *gtk.TreeModel) void;
+    extern fn gtk_entry_completion_set_model(self: *Self, model: ?*gtk.TreeModel) void;
     pub const setModel = gtk_entry_completion_set_model;
 
     extern fn gtk_entry_completion_set_popup_completion(self: *Self, popup_completion: bool) void;
@@ -171,16 +171,16 @@ pub const EntryCompletion = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub fn asCellLayout(self: *Self) *gtk.CellLayout {
-        return @ptrCast(self);
-    }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+    pub fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
     pub fn asBuildable(self: *Self) *gtk.Buildable {
+        return @ptrCast(self);
+    }
+    pub fn asCellLayout(self: *Self) *gtk.CellLayout {
         return @ptrCast(self);
     }
 };

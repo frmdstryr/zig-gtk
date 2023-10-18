@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const AppInfo = extern struct {
@@ -55,13 +55,13 @@ pub const AppInfo = extern struct {
     extern fn g_app_info_get_supported_types(self: *Self) [*c][*c]const u8;
     pub const getSupportedTypes = g_app_info_get_supported_types;
 
-    extern fn g_app_info_launch(self: *Self, files: *glib.List, context: *gio.AppLaunchContext) bool;
+    extern fn g_app_info_launch(self: *Self, files: *glib.List, context: ?*gio.AppLaunchContext) bool;
     pub const launch = g_app_info_launch;
 
-    extern fn g_app_info_launch_uris(self: *Self, uris: *glib.List, context: *gio.AppLaunchContext) bool;
+    extern fn g_app_info_launch_uris(self: *Self, uris: *glib.List, context: ?*gio.AppLaunchContext) bool;
     pub const launchUris = g_app_info_launch_uris;
 
-    extern fn g_app_info_launch_uris_async(self: *Self, uris: *glib.List, context: *gio.AppLaunchContext, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_app_info_launch_uris_async(self: *Self, uris: *glib.List, context: ?*gio.AppLaunchContext, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const launchUrisAsync = g_app_info_launch_uris_async;
 
     extern fn g_app_info_launch_uris_finish(self: *Self, result: *gio.AsyncResult) bool;

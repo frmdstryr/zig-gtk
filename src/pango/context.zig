@@ -48,7 +48,7 @@ pub const Context = extern struct {
     extern fn pango_context_get_matrix(self: *Self) ?*pango.Matrix;
     pub const getMatrix = pango_context_get_matrix;
 
-    extern fn pango_context_get_metrics(self: *Self, desc: *pango.FontDescription, language: *pango.Language) ?*pango.FontMetrics;
+    extern fn pango_context_get_metrics(self: *Self, desc: ?*pango.FontDescription, language: ?*pango.Language) ?*pango.FontMetrics;
     pub const getMetrics = pango_context_get_metrics;
 
     extern fn pango_context_get_round_glyph_positions(self: *Self) bool;
@@ -108,7 +108,7 @@ pub const Context = extern struct {
     extern fn pango_context_set_language(self: *Self, language: *pango.Language) void;
     pub const setLanguage = pango_context_set_language;
 
-    extern fn pango_context_set_matrix(self: *Self, matrix: *pango.Matrix) void;
+    extern fn pango_context_set_matrix(self: *Self, matrix: ?*pango.Matrix) void;
     pub const setMatrix = pango_context_set_matrix;
 
     extern fn pango_context_set_round_glyph_positions(self: *Self, round_positions: bool) void;

@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
 const gobject = @import("../gobject.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const ValueArray = extern struct {
@@ -15,7 +15,7 @@ pub const ValueArray = extern struct {
 
 
     // Methods
-    extern fn g_value_array_append(self: *Self, value: *gobject.Value) ?*gobject.ValueArray;
+    extern fn g_value_array_append(self: *Self, value: ?*gobject.Value) ?*gobject.ValueArray;
     pub const append = g_value_array_append;
 
     extern fn g_value_array_copy(self: *Self) ?*gobject.ValueArray;
@@ -24,10 +24,10 @@ pub const ValueArray = extern struct {
     extern fn g_value_array_get_nth(self: *Self, index_: u32) ?*gobject.Value;
     pub const getNth = g_value_array_get_nth;
 
-    extern fn g_value_array_insert(self: *Self, index_: u32, value: *gobject.Value) ?*gobject.ValueArray;
+    extern fn g_value_array_insert(self: *Self, index_: u32, value: ?*gobject.Value) ?*gobject.ValueArray;
     pub const insert = g_value_array_insert;
 
-    extern fn g_value_array_prepend(self: *Self, value: *gobject.Value) ?*gobject.ValueArray;
+    extern fn g_value_array_prepend(self: *Self, value: ?*gobject.Value) ?*gobject.ValueArray;
     pub const prepend = g_value_array_prepend;
 
     extern fn g_value_array_remove(self: *Self, index_: u32) ?*gobject.ValueArray;

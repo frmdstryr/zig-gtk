@@ -12,7 +12,7 @@ pub const DateTime = extern struct {
     extern fn g_date_time_new(tz: *glib.TimeZone, year: i32, month: i32, day: i32, hour: i32, minute: i32, seconds: f64) ?*Self;
     pub const new = g_date_time_new;
 
-    extern fn g_date_time_new_from_iso8601(text: [*c]const u8, default_tz: *glib.TimeZone) ?*Self;
+    extern fn g_date_time_new_from_iso8601(text: [*c]const u8, default_tz: ?*glib.TimeZone) ?*Self;
     pub const newFromIso8601 = g_date_time_new_from_iso8601;
 
     extern fn g_date_time_new_from_timeval_local(tv: *glib.TimeVal) ?*Self;

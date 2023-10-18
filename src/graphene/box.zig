@@ -62,7 +62,7 @@ pub const Box = extern struct {
     extern fn graphene_box_get_width(self: *Self) f32;
     pub const getWidth = graphene_box_get_width;
 
-    extern fn graphene_box_init(self: *Self, min: *graphene.Point3D, max: *graphene.Point3D) ?*graphene.Box;
+    extern fn graphene_box_init(self: *Self, min: ?*graphene.Point3D, max: ?*graphene.Point3D) ?*graphene.Box;
     pub const init = graphene_box_init;
 
     extern fn graphene_box_init_from_box(self: *Self, src: *graphene.Box) ?*graphene.Box;
@@ -71,7 +71,7 @@ pub const Box = extern struct {
     extern fn graphene_box_init_from_points(self: *Self, n_points: u32, points: [*c]graphene.Point3D) ?*graphene.Box;
     pub const initFromPoints = graphene_box_init_from_points;
 
-    extern fn graphene_box_init_from_vec3(self: *Self, min: *graphene.Vec3, max: *graphene.Vec3) ?*graphene.Box;
+    extern fn graphene_box_init_from_vec3(self: *Self, min: ?*graphene.Vec3, max: ?*graphene.Vec3) ?*graphene.Box;
     pub const initFromVec3 = graphene_box_init_from_vec3;
 
     extern fn graphene_box_init_from_vectors(self: *Self, n_vectors: u32, vectors: [*c]graphene.Vec3) ?*graphene.Box;

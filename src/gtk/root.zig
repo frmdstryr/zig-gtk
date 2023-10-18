@@ -19,7 +19,7 @@ pub const Root = extern struct {
     extern fn gtk_root_get_focus(self: *Self) ?*gtk.Widget;
     pub const getFocus = gtk_root_get_focus;
 
-    extern fn gtk_root_set_focus(self: *Self, focus: *gtk.Widget) void;
+    extern fn gtk_root_set_focus(self: *Self, focus: ?*gtk.Widget) void;
     pub const setFocus = gtk_root_set_focus;
 
 

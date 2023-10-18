@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const DBusMethodInvocation = extern struct {
@@ -76,10 +76,10 @@ pub const DBusMethodInvocation = extern struct {
     extern fn g_dbus_method_invocation_return_gerror(self: *Self, error_: *glib.Error) void;
     pub const returnGerror = g_dbus_method_invocation_return_gerror;
 
-    extern fn g_dbus_method_invocation_return_value(self: *Self, parameters: *glib.Variant) void;
+    extern fn g_dbus_method_invocation_return_value(self: *Self, parameters: ?*glib.Variant) void;
     pub const returnValue = g_dbus_method_invocation_return_value;
 
-    extern fn g_dbus_method_invocation_return_value_with_unix_fd_list(self: *Self, parameters: *glib.Variant, fd_list: *gio.UnixFDList) void;
+    extern fn g_dbus_method_invocation_return_value_with_unix_fd_list(self: *Self, parameters: ?*glib.Variant, fd_list: ?*gio.UnixFDList) void;
     pub const returnValueWithUnixFdList = g_dbus_method_invocation_return_value_with_unix_fd_list;
 
     extern fn g_object_run_dispose(self: *Self) void;

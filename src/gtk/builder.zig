@@ -39,7 +39,7 @@ pub const Builder = extern struct {
     extern fn gtk_builder_add_objects_from_resource(self: *Self, resource_path: [*c]const u8, object_ids: [*c][*c]const u8) bool;
     pub const addObjectsFromResource = gtk_builder_add_objects_from_resource;
 
-    extern fn gtk_builder_create_closure(self: *Self, function_name: [*c]const u8, flags: gtk.BuilderClosureFlags, object: *gobject.Object) ?*gobject.Closure;
+    extern fn gtk_builder_create_closure(self: *Self, function_name: [*c]const u8, flags: gtk.BuilderClosureFlags, object: ?*gobject.Object) ?*gobject.Closure;
     pub const createClosure = gtk_builder_create_closure;
 
     extern fn gtk_builder_expose_object(self: *Self, name: [*c]const u8, object: *gobject.Object) void;
@@ -94,10 +94,10 @@ pub const Builder = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_builder_set_current_object(self: *Self, current_object: *gobject.Object) void;
+    extern fn gtk_builder_set_current_object(self: *Self, current_object: ?*gobject.Object) void;
     pub const setCurrentObject = gtk_builder_set_current_object;
 
-    extern fn gtk_builder_set_scope(self: *Self, scope: *gtk.BuilderScope) void;
+    extern fn gtk_builder_set_scope(self: *Self, scope: ?*gtk.BuilderScope) void;
     pub const setScope = gtk_builder_set_scope;
 
     extern fn gtk_builder_set_translation_domain(self: *Self, domain: [*c]const u8) void;

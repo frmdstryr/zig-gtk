@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gobject = @import("gobject");
-const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const glib = @import("glib");
 const pango = @import("pango");
 const c = @import("c.zig");
 
@@ -56,7 +56,7 @@ pub const FontChooser = extern struct {
     extern fn gtk_font_chooser_set_font_desc(self: *Self, font_desc: *pango.FontDescription) void;
     pub const setFontDesc = gtk_font_chooser_set_font_desc;
 
-    extern fn gtk_font_chooser_set_font_map(self: *Self, fontmap: *pango.FontMap) void;
+    extern fn gtk_font_chooser_set_font_map(self: *Self, fontmap: ?*pango.FontMap) void;
     pub const setFontMap = gtk_font_chooser_set_font_map;
 
     extern fn gtk_font_chooser_set_language(self: *Self, language: [*c]const u8) void;

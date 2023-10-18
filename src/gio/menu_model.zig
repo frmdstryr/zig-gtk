@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const MenuModel = extern struct {
@@ -19,7 +19,7 @@ pub const MenuModel = extern struct {
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
     pub const findProperty = g_object_class_find_property;
 
-    extern fn g_menu_model_get_item_attribute_value(self: *Self, item_index: i32, attribute: [*c]const u8, expected_type: *glib.VariantType) ?*glib.Variant;
+    extern fn g_menu_model_get_item_attribute_value(self: *Self, item_index: i32, attribute: [*c]const u8, expected_type: ?*glib.VariantType) ?*glib.Variant;
     pub const getItemAttributeValue = g_menu_model_get_item_attribute_value;
 
     extern fn g_menu_model_get_item_link(self: *Self, item_index: i32, link: [*c]const u8) ?*gio.MenuModel;

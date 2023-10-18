@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const Permission = extern struct {
@@ -15,10 +15,10 @@ pub const Permission = extern struct {
 
 
     // Methods
-    extern fn g_permission_acquire(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_permission_acquire(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const acquire = g_permission_acquire;
 
-    extern fn g_permission_acquire_async(self: *Self, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_permission_acquire_async(self: *Self, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const acquireAsync = g_permission_acquire_async;
 
     extern fn g_permission_acquire_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -60,10 +60,10 @@ pub const Permission = extern struct {
     extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
     pub const overrideProperty = g_object_class_override_property;
 
-    extern fn g_permission_release(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_permission_release(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const release = g_permission_release;
 
-    extern fn g_permission_release_async(self: *Self, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_permission_release_async(self: *Self, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const releaseAsync = g_permission_release_async;
 
     extern fn g_permission_release_finish(self: *Self, result: *gio.AsyncResult) bool;

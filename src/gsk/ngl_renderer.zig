@@ -1,10 +1,10 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const cairo = @import("cairo");
-const gobject = @import("gobject");
 const gdk = @import("gdk");
-const gsk = @import("../gsk.zig");
+const gobject = @import("gobject");
+const cairo = @import("cairo");
 const graphene = @import("graphene");
+const gsk = @import("../gsk.zig");
 const c = @import("c.zig");
 
 pub const NglRenderer = extern struct {
@@ -54,13 +54,13 @@ pub const NglRenderer = extern struct {
     extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
     pub const overrideProperty = g_object_class_override_property;
 
-    extern fn gsk_renderer_realize(self: *Self, surface: *gdk.Surface) bool;
+    extern fn gsk_renderer_realize(self: *Self, surface: ?*gdk.Surface) bool;
     pub const realize = gsk_renderer_realize;
 
-    extern fn gsk_renderer_render(self: *Self, root: *gsk.RenderNode, region: *cairo.Region) void;
+    extern fn gsk_renderer_render(self: *Self, root: *gsk.RenderNode, region: ?*cairo.Region) void;
     pub const render = gsk_renderer_render;
 
-    extern fn gsk_renderer_render_texture(self: *Self, root: *gsk.RenderNode, viewport: *graphene.Rect) ?*gdk.Texture;
+    extern fn gsk_renderer_render_texture(self: *Self, root: *gsk.RenderNode, viewport: ?*graphene.Rect) ?*gdk.Texture;
     pub const renderTexture = gsk_renderer_render_texture;
 
     extern fn g_object_run_dispose(self: *Self) void;
@@ -95,10 +95,10 @@ pub const NglRenderer = extern struct {
 
 
     // Bases
-    pub fn asRenderer(self: *Self) *gsk.Renderer {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asRenderer(self: *Self) *gsk.Renderer {
         return @ptrCast(self);
     }
 };

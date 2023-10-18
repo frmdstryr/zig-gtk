@@ -1,13 +1,13 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const cairo = @import("cairo");
-const gobject = @import("gobject");
 const gdk = @import("gdk");
-const gsk = @import("gsk");
-const graphene = @import("graphene");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const cairo = @import("cairo");
+const graphene = @import("graphene");
 const pango = @import("pango");
+const gsk = @import("gsk");
 const c = @import("c.zig");
 
 pub const Snapshot = extern struct {
@@ -117,7 +117,7 @@ pub const Snapshot = extern struct {
     extern fn gtk_snapshot_push_opacity(self: *Self, opacity: f64) void;
     pub const pushOpacity = gtk_snapshot_push_opacity;
 
-    extern fn gtk_snapshot_push_repeat(self: *Self, bounds: *graphene.Rect, child_bounds: *graphene.Rect) void;
+    extern fn gtk_snapshot_push_repeat(self: *Self, bounds: *graphene.Rect, child_bounds: ?*graphene.Rect) void;
     pub const pushRepeat = gtk_snapshot_push_repeat;
 
     extern fn gtk_snapshot_push_rounded_clip(self: *Self, bounds: *gsk.RoundedRect) void;
@@ -168,10 +168,10 @@ pub const Snapshot = extern struct {
     extern fn gtk_snapshot_to_node(self: *Self) ?*gsk.RenderNode;
     pub const toNode = gtk_snapshot_to_node;
 
-    extern fn gtk_snapshot_to_paintable(self: *Self, size: *graphene.Size) ?*gdk.Paintable;
+    extern fn gtk_snapshot_to_paintable(self: *Self, size: ?*graphene.Size) ?*gdk.Paintable;
     pub const toPaintable = gtk_snapshot_to_paintable;
 
-    extern fn gtk_snapshot_transform(self: *Self, transform: *gsk.Transform) void;
+    extern fn gtk_snapshot_transform(self: *Self, transform: ?*gsk.Transform) void;
     pub const transform = gtk_snapshot_transform;
 
     extern fn gtk_snapshot_transform_matrix(self: *Self, matrix: *graphene.Matrix) void;
@@ -206,10 +206,10 @@ pub const Snapshot = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asSnapshot(self: *Self) *gdk.Snapshot {
         return @ptrCast(self);
     }
-    pub fn asSnapshot(self: *Self) *gdk.Snapshot {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

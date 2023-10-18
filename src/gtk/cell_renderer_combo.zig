@@ -64,7 +64,7 @@ pub const CellRendererCombo = extern struct {
     extern fn gtk_cell_renderer_get_sensitive(self: *Self) bool;
     pub const getSensitive = gtk_cell_renderer_get_sensitive;
 
-    extern fn gtk_cell_renderer_get_state(self: *Self, widget: *gtk.Widget, cell_state: gtk.CellRendererState) gtk.StateFlags;
+    extern fn gtk_cell_renderer_get_state(self: *Self, widget: ?*gtk.Widget, cell_state: gtk.CellRendererState) gtk.StateFlags;
     pub const getState = gtk_cell_renderer_get_state;
 
     extern fn gtk_cell_renderer_get_visible(self: *Self) bool;
@@ -124,7 +124,7 @@ pub const CellRendererCombo = extern struct {
     extern fn gtk_cell_renderer_snapshot(self: *Self, snapshot: *gtk.Snapshot, widget: *gtk.Widget, background_area: *gdk.Rectangle, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState) void;
     pub const snapshot = gtk_cell_renderer_snapshot;
 
-    extern fn gtk_cell_renderer_start_editing(self: *Self, event: *gdk.Event, widget: *gtk.Widget, path: [*c]const u8, background_area: *gdk.Rectangle, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState) ?*gtk.CellEditable;
+    extern fn gtk_cell_renderer_start_editing(self: *Self, event: ?*gdk.Event, widget: *gtk.Widget, path: [*c]const u8, background_area: *gdk.Rectangle, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState) ?*gtk.CellEditable;
     pub const startEditing = gtk_cell_renderer_start_editing;
 
     extern fn gtk_cell_renderer_stop_editing(self: *Self, canceled: bool) void;
@@ -156,13 +156,13 @@ pub const CellRendererCombo = extern struct {
 
 
     // Bases
+    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
+        return @ptrCast(self);
+    }
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asCellRenderer(self: *Self) *gtk.CellRenderer {
-        return @ptrCast(self);
-    }
-    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
         return @ptrCast(self);
     }
     pub fn asCellRendererText(self: *Self) *gtk.CellRendererText {

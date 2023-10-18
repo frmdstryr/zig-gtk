@@ -29,7 +29,7 @@ pub const FileAttributeMatcher = extern struct {
     extern fn g_file_attribute_matcher_ref(self: *Self) ?*gio.FileAttributeMatcher;
     pub const ref = g_file_attribute_matcher_ref;
 
-    extern fn g_file_attribute_matcher_subtract(self: *Self, subtract: *gio.FileAttributeMatcher) ?*gio.FileAttributeMatcher;
+    extern fn g_file_attribute_matcher_subtract(self: *Self, subtract: ?*gio.FileAttributeMatcher) ?*gio.FileAttributeMatcher;
     pub const subtract = g_file_attribute_matcher_subtract;
 
     extern fn g_file_attribute_matcher_to_string(self: *Self) [*c]const u8;

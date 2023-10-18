@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const cairo = @import("cairo");
 const gobject = @import("gobject");
 const gdk = @import("../gdk.zig");
+const cairo = @import("cairo");
 const c = @import("c.zig");
 
 pub const DrawContext = extern struct {

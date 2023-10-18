@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const DBusAuthObserver = extern struct {
@@ -21,7 +21,7 @@ pub const DBusAuthObserver = extern struct {
     extern fn g_dbus_auth_observer_allow_mechanism(self: *Self, mechanism: [*c]const u8) bool;
     pub const allowMechanism = g_dbus_auth_observer_allow_mechanism;
 
-    extern fn g_dbus_auth_observer_authorize_authenticated_peer(self: *Self, stream: *gio.IOStream, credentials: *gio.Credentials) bool;
+    extern fn g_dbus_auth_observer_authorize_authenticated_peer(self: *Self, stream: *gio.IOStream, credentials: ?*gio.Credentials) bool;
     pub const authorizeAuthenticatedPeer = g_dbus_auth_observer_authorize_authenticated_peer;
 
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;

@@ -11,7 +11,7 @@ pub const DropTargetAsync = extern struct {
     parent_instance: *anyopaque,
 
     // Constructors
-    extern fn gtk_drop_target_async_new(formats: *gdk.ContentFormats, actions: gdk.DragAction) ?*Self;
+    extern fn gtk_drop_target_async_new(formats: ?*gdk.ContentFormats, actions: gdk.DragAction) ?*Self;
     pub const new = gtk_drop_target_async_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -85,7 +85,7 @@ pub const DropTargetAsync = extern struct {
     extern fn gtk_drop_target_async_set_actions(self: *Self, actions: gdk.DragAction) void;
     pub const setActions = gtk_drop_target_async_set_actions;
 
-    extern fn gtk_drop_target_async_set_formats(self: *Self, formats: *gdk.ContentFormats) void;
+    extern fn gtk_drop_target_async_set_formats(self: *Self, formats: ?*gdk.ContentFormats) void;
     pub const setFormats = gtk_drop_target_async_set_formats;
 
     extern fn gtk_event_controller_set_name(self: *Self, name: [*c]const u8) void;

@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const cairo = @import("cairo");
-const gobject = @import("gobject");
-const gio = @import("gio");
 const gdk = @import("gdk");
-const gsk = @import("gsk");
-const graphene = @import("graphene");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const cairo = @import("cairo");
+const graphene = @import("graphene");
 const pango = @import("pango");
+const gsk = @import("gsk");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const IconView = extern struct {
@@ -37,7 +37,7 @@ pub const IconView = extern struct {
     extern fn gtk_widget_activate(self: *Self) bool;
     pub const activate = gtk_widget_activate;
 
-    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: *glib.Variant) bool;
+    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: ?*glib.Variant) bool;
     pub const activateAction = gtk_widget_activate_action_variant;
 
     extern fn gtk_widget_activate_default(self: *Self) void;
@@ -61,7 +61,7 @@ pub const IconView = extern struct {
     extern fn gtk_widget_add_tick_callback(self: *Self, callback: gtk.TickCallback, user_data: ?*anyopaque, notify: glib.DestroyNotify) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
-    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: *gsk.Transform) void;
+    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
     pub const allocate = gtk_widget_allocate;
 
     extern fn gtk_widget_class_bind_template_callback_full(self: *Self, callback_name: [*c]const u8, callback_symbol: gobject.Callback) void;
@@ -157,7 +157,7 @@ pub const IconView = extern struct {
     extern fn gtk_widget_get_can_target(self: *Self) bool;
     pub const getCanTarget = gtk_widget_get_can_target;
 
-    extern fn gtk_icon_view_get_cell_rect(self: *Self, path: *gtk.TreePath, cell: *gtk.CellRenderer, rect: gdk.Rectangle) bool;
+    extern fn gtk_icon_view_get_cell_rect(self: *Self, path: *gtk.TreePath, cell: ?*gtk.CellRenderer, rect: gdk.Rectangle) bool;
     pub const getCellRect = gtk_icon_view_get_cell_rect;
 
     extern fn gtk_cell_layout_get_cells(self: *Self) ?*glib.List;
@@ -190,7 +190,7 @@ pub const IconView = extern struct {
     extern fn gtk_widget_get_display(self: *Self) ?*gdk.Display;
     pub const getDisplay = gtk_widget_get_display;
 
-    extern fn gtk_icon_view_get_drag_dest_item(self: *Self, path: *gtk.TreePath, pos: gtk.IconViewDropPosition) void;
+    extern fn gtk_icon_view_get_drag_dest_item(self: *Self, path: ?*gtk.TreePath, pos: gtk.IconViewDropPosition) void;
     pub const getDragDestItem = gtk_icon_view_get_drag_dest_item;
 
     extern fn gtk_widget_get_first_child(self: *Self) ?*gtk.Widget;
@@ -433,13 +433,13 @@ pub const IconView = extern struct {
     extern fn gtk_widget_init_template(self: *Self) void;
     pub const initTemplate = gtk_widget_init_template;
 
-    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: *gio.ActionGroup) void;
+    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: ?*gio.ActionGroup) void;
     pub const insertActionGroup = gtk_widget_insert_action_group;
 
-    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: ?*gtk.Widget) void;
     pub const insertAfter = gtk_widget_insert_after;
 
-    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: ?*gtk.Widget) void;
     pub const insertBefore = gtk_widget_insert_before;
 
     extern fn gtk_widget_class_install_action(self: *Self, action_name: [*c]const u8, parameter_type: [*c]const u8, activate: gtk.WidgetActionActivateFunc) void;
@@ -517,7 +517,7 @@ pub const IconView = extern struct {
     extern fn gtk_widget_pick(self: *Self, x: f64, y: f64, flags: gtk.PickFlags) ?*gtk.Widget;
     pub const pick = gtk_widget_pick;
 
-    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: *glib.VariantType, property_name: [*c]const u8) bool;
+    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: ?*glib.VariantType, property_name: [*c]const u8) bool;
     pub const queryAction = gtk_widget_class_query_action;
 
     extern fn gtk_widget_queue_allocate(self: *Self) void;
@@ -607,7 +607,7 @@ pub const IconView = extern struct {
     extern fn gtk_widget_class_set_css_name(self: *Self, name: [*c]const u8) void;
     pub const setCssName = gtk_widget_class_set_css_name;
 
-    extern fn gtk_icon_view_set_cursor(self: *Self, path: *gtk.TreePath, cell: *gtk.CellRenderer, start_editing: bool) void;
+    extern fn gtk_icon_view_set_cursor(self: *Self, path: *gtk.TreePath, cell: ?*gtk.CellRenderer, start_editing: bool) void;
     pub const setCursor = gtk_icon_view_set_cursor;
 
     extern fn gtk_widget_set_cursor_from_name(self: *Self, name: [*c]const u8) void;
@@ -616,10 +616,10 @@ pub const IconView = extern struct {
     extern fn gtk_widget_set_direction(self: *Self, dir: gtk.TextDirection) void;
     pub const setDirection = gtk_widget_set_direction;
 
-    extern fn gtk_icon_view_set_drag_dest_item(self: *Self, path: *gtk.TreePath, pos: gtk.IconViewDropPosition) void;
+    extern fn gtk_icon_view_set_drag_dest_item(self: *Self, path: ?*gtk.TreePath, pos: gtk.IconViewDropPosition) void;
     pub const setDragDestItem = gtk_icon_view_set_drag_dest_item;
 
-    extern fn gtk_widget_set_focus_child(self: *Self, child: *gtk.Widget) void;
+    extern fn gtk_widget_set_focus_child(self: *Self, child: ?*gtk.Widget) void;
     pub const setFocusChild = gtk_widget_set_focus_child;
 
     extern fn gtk_widget_set_focus_on_click(self: *Self, focus_on_click: bool) void;
@@ -628,13 +628,13 @@ pub const IconView = extern struct {
     extern fn gtk_widget_set_focusable(self: *Self, focusable: bool) void;
     pub const setFocusable = gtk_widget_set_focusable;
 
-    extern fn gtk_widget_set_font_map(self: *Self, font_map: *pango.FontMap) void;
+    extern fn gtk_widget_set_font_map(self: *Self, font_map: ?*pango.FontMap) void;
     pub const setFontMap = gtk_widget_set_font_map;
 
-    extern fn gtk_widget_set_font_options(self: *Self, options: *cairo.FontOptions) void;
+    extern fn gtk_widget_set_font_options(self: *Self, options: ?*cairo.FontOptions) void;
     pub const setFontOptions = gtk_widget_set_font_options;
 
-    extern fn gtk_scrollable_set_hadjustment(self: *Self, hadjustment: *gtk.Adjustment) void;
+    extern fn gtk_scrollable_set_hadjustment(self: *Self, hadjustment: ?*gtk.Adjustment) void;
     pub const setHadjustment = gtk_scrollable_set_hadjustment;
 
     extern fn gtk_widget_set_halign(self: *Self, align_: gtk.Align) void;
@@ -661,7 +661,7 @@ pub const IconView = extern struct {
     extern fn gtk_icon_view_set_item_width(self: *Self, item_width: i32) void;
     pub const setItemWidth = gtk_icon_view_set_item_width;
 
-    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: *gtk.LayoutManager) void;
+    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: ?*gtk.LayoutManager) void;
     pub const setLayoutManager = gtk_widget_set_layout_manager;
 
     extern fn gtk_widget_class_set_layout_manager_type(self: *Self, type: usize) void;
@@ -685,7 +685,7 @@ pub const IconView = extern struct {
     extern fn gtk_icon_view_set_markup_column(self: *Self, column: i32) void;
     pub const setMarkupColumn = gtk_icon_view_set_markup_column;
 
-    extern fn gtk_icon_view_set_model(self: *Self, model: *gtk.TreeModel) void;
+    extern fn gtk_icon_view_set_model(self: *Self, model: ?*gtk.TreeModel) void;
     pub const setModel = gtk_icon_view_set_model;
 
     extern fn gtk_widget_set_name(self: *Self, name: [*c]const u8) void;
@@ -739,7 +739,7 @@ pub const IconView = extern struct {
     extern fn gtk_icon_view_set_text_column(self: *Self, column: i32) void;
     pub const setTextColumn = gtk_icon_view_set_text_column;
 
-    extern fn gtk_icon_view_set_tooltip_cell(self: *Self, tooltip: *gtk.Tooltip, path: *gtk.TreePath, cell: *gtk.CellRenderer) void;
+    extern fn gtk_icon_view_set_tooltip_cell(self: *Self, tooltip: *gtk.Tooltip, path: *gtk.TreePath, cell: ?*gtk.CellRenderer) void;
     pub const setTooltipCell = gtk_icon_view_set_tooltip_cell;
 
     extern fn gtk_icon_view_set_tooltip_column(self: *Self, column: i32) void;
@@ -754,7 +754,7 @@ pub const IconView = extern struct {
     extern fn gtk_widget_set_tooltip_text(self: *Self, text: [*c]const u8) void;
     pub const setTooltipText = gtk_widget_set_tooltip_text;
 
-    extern fn gtk_scrollable_set_vadjustment(self: *Self, vadjustment: *gtk.Adjustment) void;
+    extern fn gtk_scrollable_set_vadjustment(self: *Self, vadjustment: ?*gtk.Adjustment) void;
     pub const setVadjustment = gtk_scrollable_set_vadjustment;
 
     extern fn gtk_widget_set_valign(self: *Self, align_: gtk.Align) void;
@@ -846,19 +846,19 @@ pub const IconView = extern struct {
 
 
     // Bases
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
     pub fn asCellLayout(self: *Self) *gtk.CellLayout {
+        return @ptrCast(self);
+    }
+    pub fn asIconView(self: *Self) *gtk.IconView {
         return @ptrCast(self);
     }
     pub fn asScrollable(self: *Self) *gtk.Scrollable {
         return @ptrCast(self);
     }
     pub fn asWidget(self: *Self) *gtk.Widget {
-        return @ptrCast(self);
-    }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
-    pub fn asIconView(self: *Self) *gtk.IconView {
         return @ptrCast(self);
     }
 };

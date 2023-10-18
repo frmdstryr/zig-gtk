@@ -116,10 +116,10 @@ pub const Adjustment = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
         return @ptrCast(self);
     }
-    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asAdjustment(self: *Self) *gtk.Adjustment {

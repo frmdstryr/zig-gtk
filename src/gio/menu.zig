@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const Menu = extern struct {
@@ -37,7 +37,7 @@ pub const Menu = extern struct {
     extern fn g_menu_freeze(self: *Self) void;
     pub const freeze = g_menu_freeze;
 
-    extern fn g_menu_model_get_item_attribute_value(self: *Self, item_index: i32, attribute: [*c]const u8, expected_type: *glib.VariantType) ?*glib.Variant;
+    extern fn g_menu_model_get_item_attribute_value(self: *Self, item_index: i32, attribute: [*c]const u8, expected_type: ?*glib.VariantType) ?*glib.Variant;
     pub const getItemAttributeValue = g_menu_model_get_item_attribute_value;
 
     extern fn g_menu_model_get_item_link(self: *Self, item_index: i32, link: [*c]const u8) ?*gio.MenuModel;
@@ -138,10 +138,10 @@ pub const Menu = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asMenuModel(self: *Self) *gio.MenuModel {
         return @ptrCast(self);
     }
-    pub fn asMenuModel(self: *Self) *gio.MenuModel {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

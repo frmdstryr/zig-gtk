@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
 const gobject = @import("gobject");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const ProxyAddressEnumerator = extern struct {
@@ -33,10 +33,10 @@ pub const ProxyAddressEnumerator = extern struct {
     extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listProperties = g_object_class_list_properties;
 
-    extern fn g_socket_address_enumerator_next(self: *Self, cancellable: *gio.Cancellable) ?*gio.SocketAddress;
+    extern fn g_socket_address_enumerator_next(self: *Self, cancellable: ?*gio.Cancellable) ?*gio.SocketAddress;
     pub const next = g_socket_address_enumerator_next;
 
-    extern fn g_socket_address_enumerator_next_async(self: *Self, cancellable: *gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_socket_address_enumerator_next_async(self: *Self, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
     pub const nextAsync = g_socket_address_enumerator_next_async;
 
     extern fn g_socket_address_enumerator_next_finish(self: *Self, result: *gio.AsyncResult) ?*gio.SocketAddress;
@@ -77,10 +77,10 @@ pub const ProxyAddressEnumerator = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asSocketAddressEnumerator(self: *Self) *gio.SocketAddressEnumerator {
         return @ptrCast(self);
     }
-    pub fn asSocketAddressEnumerator(self: *Self) *gio.SocketAddressEnumerator {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

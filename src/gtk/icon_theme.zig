@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
 const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
 const gdk = @import("gdk");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const IconTheme = extern struct {

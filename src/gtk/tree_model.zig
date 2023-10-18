@@ -12,7 +12,7 @@ pub const TreeModel = extern struct {
     // Constructors
 
     // Methods
-    extern fn gtk_tree_model_filter_new(self: *Self, root: *gtk.TreePath) ?*gtk.TreeModel;
+    extern fn gtk_tree_model_filter_new(self: *Self, root: ?*gtk.TreePath) ?*gtk.TreeModel;
     pub const filterNew = gtk_tree_model_filter_new;
 
     extern fn gtk_tree_model_foreach(self: *Self, func: gtk.TreeModelForeachFunc, user_data: ?*anyopaque) void;
@@ -39,7 +39,7 @@ pub const TreeModel = extern struct {
     extern fn gtk_tree_model_iter_has_child(self: *Self, iter: *gtk.TreeIter) bool;
     pub const iterHasChild = gtk_tree_model_iter_has_child;
 
-    extern fn gtk_tree_model_iter_n_children(self: *Self, iter: *gtk.TreeIter) i32;
+    extern fn gtk_tree_model_iter_n_children(self: *Self, iter: ?*gtk.TreeIter) i32;
     pub const iterNChildren = gtk_tree_model_iter_n_children;
 
     extern fn gtk_tree_model_ref_node(self: *Self, iter: *gtk.TreeIter) void;

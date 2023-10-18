@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
-const gdk = @import("gdk");
-const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const gtk = @import("../gtk.zig");
+const gdk = @import("gdk");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const ShortcutController = extern struct {
@@ -145,19 +145,19 @@ pub const ShortcutController = extern struct {
 
 
     // Bases
+    pub fn asListModel(self: *Self) *gio.ListModel {
+        return @ptrCast(self);
+    }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asBuildable(self: *Self) *gtk.Buildable {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
     pub fn asEventController(self: *Self) *gtk.EventController {
-        return @ptrCast(self);
-    }
-    pub fn asListModel(self: *Self) *gio.ListModel {
         return @ptrCast(self);
     }
 };

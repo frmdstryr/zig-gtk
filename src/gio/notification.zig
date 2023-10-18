@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("../gio.zig");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const gio = @import("../gio.zig");
 const c = @import("c.zig");
 
 pub const Notification = extern struct {
@@ -22,7 +22,7 @@ pub const Notification = extern struct {
     extern fn g_notification_add_button(self: *Self, label: [*c]const u8, detailed_action: [*c]const u8) void;
     pub const addButton = g_notification_add_button;
 
-    extern fn g_notification_add_button_with_target_value(self: *Self, label: [*c]const u8, action: [*c]const u8, target: *glib.Variant) void;
+    extern fn g_notification_add_button_with_target_value(self: *Self, label: [*c]const u8, action: [*c]const u8, target: ?*glib.Variant) void;
     pub const addButtonWithTarget = g_notification_add_button_with_target_value;
 
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
@@ -61,7 +61,7 @@ pub const Notification = extern struct {
     extern fn g_notification_set_default_action(self: *Self, detailed_action: [*c]const u8) void;
     pub const setDefaultAction = g_notification_set_default_action;
 
-    extern fn g_notification_set_default_action_and_target_value(self: *Self, action: [*c]const u8, target: *glib.Variant) void;
+    extern fn g_notification_set_default_action_and_target_value(self: *Self, action: [*c]const u8, target: ?*glib.Variant) void;
     pub const setDefaultActionAndTarget = g_notification_set_default_action_and_target_value;
 
     extern fn g_notification_set_icon(self: *Self, icon: *gio.Icon) void;

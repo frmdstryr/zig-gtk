@@ -1,15 +1,15 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const cairo = @import("cairo");
-const gdkpixbuf = @import("gdkpixbuf");
-const gobject = @import("gobject");
-const gio = @import("gio");
-const gsk = @import("gsk");
 const gdk = @import("gdk");
-const graphene = @import("graphene");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const cairo = @import("cairo");
+const graphene = @import("graphene");
 const pango = @import("pango");
+const gsk = @import("gsk");
+const gdkpixbuf = @import("gdkpixbuf");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const Picture = extern struct {
@@ -21,16 +21,16 @@ pub const Picture = extern struct {
     extern fn gtk_picture_new() ?*Self;
     pub const new = gtk_picture_new;
 
-    extern fn gtk_picture_new_for_file(file: *gio.File) ?*Self;
+    extern fn gtk_picture_new_for_file(file: ?*gio.File) ?*Self;
     pub const newForFile = gtk_picture_new_for_file;
 
     extern fn gtk_picture_new_for_filename(filename: [*c]const u8) ?*Self;
     pub const newForFilename = gtk_picture_new_for_filename;
 
-    extern fn gtk_picture_new_for_paintable(paintable: *gdk.Paintable) ?*Self;
+    extern fn gtk_picture_new_for_paintable(paintable: ?*gdk.Paintable) ?*Self;
     pub const newForPaintable = gtk_picture_new_for_paintable;
 
-    extern fn gtk_picture_new_for_pixbuf(pixbuf: *gdkpixbuf.Pixbuf) ?*Self;
+    extern fn gtk_picture_new_for_pixbuf(pixbuf: ?*gdkpixbuf.Pixbuf) ?*Self;
     pub const newForPixbuf = gtk_picture_new_for_pixbuf;
 
     extern fn gtk_picture_new_for_resource(resource_path: [*c]const u8) ?*Self;
@@ -47,7 +47,7 @@ pub const Picture = extern struct {
     extern fn gtk_widget_activate(self: *Self) bool;
     pub const activate = gtk_widget_activate;
 
-    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: *glib.Variant) bool;
+    extern fn gtk_widget_activate_action_variant(self: *Self, name: [*c]const u8, args: ?*glib.Variant) bool;
     pub const activateAction = gtk_widget_activate_action_variant;
 
     extern fn gtk_widget_activate_default(self: *Self) void;
@@ -68,7 +68,7 @@ pub const Picture = extern struct {
     extern fn gtk_widget_add_tick_callback(self: *Self, callback: gtk.TickCallback, user_data: ?*anyopaque, notify: glib.DestroyNotify) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
-    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: *gsk.Transform) void;
+    extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
     pub const allocate = gtk_widget_allocate;
 
     extern fn gtk_widget_class_bind_template_callback_full(self: *Self, callback_name: [*c]const u8, callback_symbol: gobject.Callback) void;
@@ -350,13 +350,13 @@ pub const Picture = extern struct {
     extern fn gtk_widget_init_template(self: *Self) void;
     pub const initTemplate = gtk_widget_init_template;
 
-    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: *gio.ActionGroup) void;
+    extern fn gtk_widget_insert_action_group(self: *Self, name: [*c]const u8, group: ?*gio.ActionGroup) void;
     pub const insertActionGroup = gtk_widget_insert_action_group;
 
-    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_after(self: *Self, parent: *gtk.Widget, previous_sibling: ?*gtk.Widget) void;
     pub const insertAfter = gtk_widget_insert_after;
 
-    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: *gtk.Widget) void;
+    extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: ?*gtk.Widget) void;
     pub const insertBefore = gtk_widget_insert_before;
 
     extern fn gtk_widget_class_install_action(self: *Self, action_name: [*c]const u8, parameter_type: [*c]const u8, activate: gtk.WidgetActionActivateFunc) void;
@@ -422,7 +422,7 @@ pub const Picture = extern struct {
     extern fn gtk_widget_pick(self: *Self, x: f64, y: f64, flags: gtk.PickFlags) ?*gtk.Widget;
     pub const pick = gtk_widget_pick;
 
-    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: *glib.VariantType, property_name: [*c]const u8) bool;
+    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: ?*glib.VariantType, property_name: [*c]const u8) bool;
     pub const queryAction = gtk_widget_class_query_action;
 
     extern fn gtk_widget_queue_allocate(self: *Self) void;
@@ -491,7 +491,7 @@ pub const Picture = extern struct {
     extern fn gtk_widget_class_set_css_name(self: *Self, name: [*c]const u8) void;
     pub const setCssName = gtk_widget_class_set_css_name;
 
-    extern fn gtk_widget_set_cursor(self: *Self, cursor: *gdk.Cursor) void;
+    extern fn gtk_widget_set_cursor(self: *Self, cursor: ?*gdk.Cursor) void;
     pub const setCursor = gtk_widget_set_cursor;
 
     extern fn gtk_widget_set_cursor_from_name(self: *Self, name: [*c]const u8) void;
@@ -500,13 +500,13 @@ pub const Picture = extern struct {
     extern fn gtk_widget_set_direction(self: *Self, dir: gtk.TextDirection) void;
     pub const setDirection = gtk_widget_set_direction;
 
-    extern fn gtk_picture_set_file(self: *Self, file: *gio.File) void;
+    extern fn gtk_picture_set_file(self: *Self, file: ?*gio.File) void;
     pub const setFile = gtk_picture_set_file;
 
     extern fn gtk_picture_set_filename(self: *Self, filename: [*c]const u8) void;
     pub const setFilename = gtk_picture_set_filename;
 
-    extern fn gtk_widget_set_focus_child(self: *Self, child: *gtk.Widget) void;
+    extern fn gtk_widget_set_focus_child(self: *Self, child: ?*gtk.Widget) void;
     pub const setFocusChild = gtk_widget_set_focus_child;
 
     extern fn gtk_widget_set_focus_on_click(self: *Self, focus_on_click: bool) void;
@@ -515,10 +515,10 @@ pub const Picture = extern struct {
     extern fn gtk_widget_set_focusable(self: *Self, focusable: bool) void;
     pub const setFocusable = gtk_widget_set_focusable;
 
-    extern fn gtk_widget_set_font_map(self: *Self, font_map: *pango.FontMap) void;
+    extern fn gtk_widget_set_font_map(self: *Self, font_map: ?*pango.FontMap) void;
     pub const setFontMap = gtk_widget_set_font_map;
 
-    extern fn gtk_widget_set_font_options(self: *Self, options: *cairo.FontOptions) void;
+    extern fn gtk_widget_set_font_options(self: *Self, options: ?*cairo.FontOptions) void;
     pub const setFontOptions = gtk_widget_set_font_options;
 
     extern fn gtk_widget_set_halign(self: *Self, align_: gtk.Align) void;
@@ -536,7 +536,7 @@ pub const Picture = extern struct {
     extern fn gtk_picture_set_keep_aspect_ratio(self: *Self, keep_aspect_ratio: bool) void;
     pub const setKeepAspectRatio = gtk_picture_set_keep_aspect_ratio;
 
-    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: *gtk.LayoutManager) void;
+    extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: ?*gtk.LayoutManager) void;
     pub const setLayoutManager = gtk_widget_set_layout_manager;
 
     extern fn gtk_widget_class_set_layout_manager_type(self: *Self, type: usize) void;
@@ -563,13 +563,13 @@ pub const Picture = extern struct {
     extern fn gtk_widget_set_overflow(self: *Self, overflow: gtk.Overflow) void;
     pub const setOverflow = gtk_widget_set_overflow;
 
-    extern fn gtk_picture_set_paintable(self: *Self, paintable: *gdk.Paintable) void;
+    extern fn gtk_picture_set_paintable(self: *Self, paintable: ?*gdk.Paintable) void;
     pub const setPaintable = gtk_picture_set_paintable;
 
     extern fn gtk_widget_set_parent(self: *Self, parent: *gtk.Widget) void;
     pub const setParent = gtk_widget_set_parent;
 
-    extern fn gtk_picture_set_pixbuf(self: *Self, pixbuf: *gdkpixbuf.Pixbuf) void;
+    extern fn gtk_picture_set_pixbuf(self: *Self, pixbuf: ?*gdkpixbuf.Pixbuf) void;
     pub const setPixbuf = gtk_picture_set_pixbuf;
 
     extern fn gtk_widget_set_receives_default(self: *Self, receives_default: bool) void;

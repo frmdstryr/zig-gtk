@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gio = @import("gio");
-const cairo = @import("cairo");
 const gobject = @import("gobject");
 const gdk = @import("../gdk.zig");
+const cairo = @import("cairo");
+const gio = @import("gio");
 const c = @import("c.zig");
 
 pub const VulkanContext = extern struct {
@@ -38,7 +38,7 @@ pub const VulkanContext = extern struct {
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_initable_init(self: *Self, cancellable: *gio.Cancellable) bool;
+    extern fn g_initable_init(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const init = g_initable_init;
 
     extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
@@ -91,16 +91,16 @@ pub const VulkanContext = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asDrawContext(self: *Self) *gdk.DrawContext {
+        return @ptrCast(self);
+    }
+    pub fn asInitable(self: *Self) *gio.Initable {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asDrawContext(self: *Self) *gdk.DrawContext {
-        return @ptrCast(self);
-    }
-    pub fn asInitable(self: *Self) *gio.Initable {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };
