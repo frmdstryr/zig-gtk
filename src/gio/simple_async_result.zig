@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const SimpleAsyncResult = extern struct {
@@ -14,7 +14,7 @@ pub const SimpleAsyncResult = extern struct {
     extern fn g_simple_async_result_new(source_object: *gobject.Object, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque, source_tag: ?*anyopaque) ?*Self;
     pub const new = g_simple_async_result_new;
 
-    extern fn g_simple_async_result_new_from_error(source_object: *gobject.Object, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque, error_: *glib.GError) ?*Self;
+    extern fn g_simple_async_result_new_from_error(source_object: *gobject.Object, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque, error_: *glib.Error) ?*Self;
     pub const newFromError = g_simple_async_result_new_from_error;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -79,7 +79,7 @@ pub const SimpleAsyncResult = extern struct {
     extern fn g_simple_async_result_set_check_cancellable(self: *Self, check_cancellable: *gio.Cancellable) void;
     pub const setCheckCancellable = g_simple_async_result_set_check_cancellable;
 
-    extern fn g_simple_async_result_set_from_error(self: *Self, error_: *glib.GError) void;
+    extern fn g_simple_async_result_set_from_error(self: *Self, error_: *glib.Error) void;
     pub const setFromError = g_simple_async_result_set_from_error;
 
     extern fn g_simple_async_result_set_handle_cancellation(self: *Self, handle_cancellation: bool) void;

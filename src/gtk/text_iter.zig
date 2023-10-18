@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
 const gdk = @import("gdk");
-const pango = @import("pango");
 const gtk = @import("../gtk.zig");
+const pango = @import("pango");
 const c = @import("c.zig");
 
 pub const TextIter = extern struct {
@@ -187,7 +187,7 @@ pub const TextIter = extern struct {
     extern fn gtk_text_iter_get_line_offset(self: *Self) i32;
     pub const getLineOffset = gtk_text_iter_get_line_offset;
 
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn gtk_text_iter_get_marks(self: *Self) None;
     // pub const getMarks = gtk_text_iter_get_marks;
 
@@ -200,14 +200,14 @@ pub const TextIter = extern struct {
     extern fn gtk_text_iter_get_slice(self: *Self, end: *gtk.TextIter) [*c]const u8;
     pub const getSlice = gtk_text_iter_get_slice;
 
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn gtk_text_iter_get_tags(self: *Self) None;
     // pub const getTags = gtk_text_iter_get_tags;
 
     extern fn gtk_text_iter_get_text(self: *Self, end: *gtk.TextIter) [*c]const u8;
     pub const getText = gtk_text_iter_get_text;
 
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn gtk_text_iter_get_toggled_tags(self: *Self, toggled_on: bool) None;
     // pub const getToggledTags = gtk_text_iter_get_toggled_tags;
 

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
 const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const gdk = @import("gdk");
 const c = @import("c.zig");
 
 pub const TreeStore = extern struct {
@@ -165,28 +165,28 @@ pub const TreeStore = extern struct {
 
 
     // Bases
-    pub fn asTreeStore(self: *Self) *gtk.TreeStore {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
         return @ptrCast(self);
     }
     pub fn asTreeModel(self: *Self) *gtk.TreeModel {
         return @ptrCast(self);
     }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
     pub fn asBuildable(self: *Self) *gtk.Buildable {
         return @ptrCast(self);
     }
-    pub fn asTreeSortable(self: *Self) *gtk.TreeSortable {
+    pub fn asTreeStore(self: *Self) *gtk.TreeStore {
         return @ptrCast(self);
     }
     pub fn asTreeDragDest(self: *Self) *gtk.TreeDragDest {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
-    pub fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
+    pub fn asTreeSortable(self: *Self) *gtk.TreeSortable {
         return @ptrCast(self);
     }
 };

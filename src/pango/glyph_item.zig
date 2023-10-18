@@ -11,7 +11,7 @@ pub const GlyphItem = extern struct {
     // Constructors
 
     // Methods
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn pango_glyph_item_apply_attrs(self: *Self, text: [*c]const u8, list: *pango.AttrList) None;
     // pub const applyAttrs = pango_glyph_item_apply_attrs;
 

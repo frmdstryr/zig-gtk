@@ -11,7 +11,7 @@ pub const FileList = extern struct {
     // Constructors
 
     // Methods
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn gdk_file_list_get_files(self: *Self) None;
     // pub const getFiles = gdk_file_list_get_files;
 

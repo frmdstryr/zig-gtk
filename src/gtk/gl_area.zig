@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gsk = @import("gsk");
+const cairo = @import("cairo");
+const gobject = @import("gobject");
+const gio = @import("gio");
 const gdk = @import("gdk");
+const gsk = @import("gsk");
 const graphene = @import("graphene");
 const glib = @import("glib");
-const gobject = @import("gobject");
-const cairo = @import("cairo");
-const gio = @import("gio");
-const pango = @import("pango");
 const gtk = @import("../gtk.zig");
+const pango = @import("pango");
 const c = @import("c.zig");
 
 pub const GLArea = extern struct {
@@ -154,7 +154,7 @@ pub const GLArea = extern struct {
     extern fn gtk_widget_get_display(self: *Self) ?*gdk.Display;
     pub const getDisplay = gtk_widget_get_display;
 
-    extern fn gtk_gl_area_get_error(self: *Self) ?*glib.GError;
+    extern fn gtk_gl_area_get_error(self: *Self) ?*glib.Error;
     pub const getError = gtk_gl_area_get_error;
 
     extern fn gtk_widget_get_first_child(self: *Self) ?*gtk.Widget;
@@ -496,7 +496,7 @@ pub const GLArea = extern struct {
     extern fn gtk_widget_set_direction(self: *Self, dir: gtk.TextDirection) void;
     pub const setDirection = gtk_widget_set_direction;
 
-    extern fn gtk_gl_area_set_error(self: *Self, error_: *glib.GError) void;
+    extern fn gtk_gl_area_set_error(self: *Self, error_: *glib.Error) void;
     pub const setError = gtk_gl_area_set_error;
 
     extern fn gtk_widget_set_focus_child(self: *Self, child: *gtk.Widget) void;

@@ -1,6 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
 pub usingnamespace @import("graphene/enums.zig");
+pub usingnamespace @import("graphene/constants.zig");
 
 pub const Box = @import("graphene/box.zig").Box;
 pub const Euler = @import("graphene/euler.zig").Euler;

@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gio = @import("../gio.zig");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const TcpWrapperConnection = extern struct {
@@ -131,16 +131,16 @@ pub const TcpWrapperConnection = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asIOStream(self: *Self) *gio.IOStream {
         return @ptrCast(self);
     }
     pub fn asTcpConnection(self: *Self) *gio.TcpConnection {
         return @ptrCast(self);
     }
-    pub fn asIOStream(self: *Self) *gio.IOStream {
+    pub fn asSocketConnection(self: *Self) *gio.SocketConnection {
         return @ptrCast(self);
     }
-    pub fn asSocketConnection(self: *Self) *gio.SocketConnection {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

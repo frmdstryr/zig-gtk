@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
-const gdk = @import("gdk");
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const gdk = @import("gdk");
 const c = @import("c.zig");
 
 pub const GestureSingle = extern struct {
@@ -184,10 +184,10 @@ pub const GestureSingle = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asEventController(self: *Self) *gtk.EventController {
+    pub fn asGesture(self: *Self) *gtk.Gesture {
         return @ptrCast(self);
     }
-    pub fn asGesture(self: *Self) *gtk.Gesture {
+    pub fn asEventController(self: *Self) *gtk.EventController {
         return @ptrCast(self);
     }
 };

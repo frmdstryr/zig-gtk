@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
 const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const gdk = @import("gdk");
 const c = @import("c.zig");
 
 pub const CellRendererProgress = extern struct {
@@ -162,16 +162,16 @@ pub const CellRendererProgress = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
-        return @ptrCast(self);
-    }
     pub fn asCellRenderer(self: *Self) *gtk.CellRenderer {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
         return @ptrCast(self);
     }
     pub fn asOrientable(self: *Self) *gtk.Orientable {
+        return @ptrCast(self);
+    }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

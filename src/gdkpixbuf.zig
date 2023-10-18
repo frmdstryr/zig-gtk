@@ -2,6 +2,7 @@
 const std = @import("std");
 pub usingnamespace @import("gdkpixbuf/enums.zig");
 pub usingnamespace @import("gdkpixbuf/flags.zig");
+pub usingnamespace @import("gdkpixbuf/constants.zig");
 
 pub const Pixbuf = @import("gdkpixbuf/pixbuf.zig").Pixbuf;
 pub const PixbufAnimation = @import("gdkpixbuf/pixbuf_animation.zig").PixbufAnimation;

@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
-const gobject = @import("gobject");
 const gio = @import("gio");
+const gdk = @import("gdk");
 const gtk = @import("../gtk.zig");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const ShortcutController = extern struct {

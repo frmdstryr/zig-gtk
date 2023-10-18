@@ -57,7 +57,7 @@ pub const Builder = extern struct {
     extern fn gtk_builder_get_object(self: *Self, name: [*c]const u8) ?*gobject.Object;
     pub const getObject = gtk_builder_get_object;
 
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn gtk_builder_get_objects(self: *Self) None;
     // pub const getObjects = gtk_builder_get_objects;
 

@@ -26,7 +26,7 @@ pub const AttrList = extern struct {
     extern fn pango_attr_list_filter(self: *Self, func: pango.AttrFilterFunc, data: ?*anyopaque) ?*pango.AttrList;
     pub const filter = pango_attr_list_filter;
 
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn pango_attr_list_get_attributes(self: *Self) None;
     // pub const getAttributes = pango_attr_list_get_attributes;
 

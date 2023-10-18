@@ -119,10 +119,10 @@ pub const BoxLayout = extern struct {
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asOrientable(self: *Self) *gtk.Orientable {
+    pub fn asLayoutManager(self: *Self) *gtk.LayoutManager {
         return @ptrCast(self);
     }
-    pub fn asLayoutManager(self: *Self) *gtk.LayoutManager {
+    pub fn asOrientable(self: *Self) *gtk.Orientable {
         return @ptrCast(self);
     }
 };

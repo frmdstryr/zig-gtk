@@ -24,48 +24,76 @@ pub fn build(b: *Builder) void {
     const wayland = b.createModule(.{ .source_file = scanner.result });
 
 
-    const gtk_test = b.addTest(.{
-        .root_source_file=.{.path="src/gtk.zig"},
-        .target=target,
-        .optimize=optimize
-    });
-    gtk_test.linkLibC();
-
     const glib = b.createModule(.{
         .source_file = .{ .path = "src/glib.zig" } ,
     });
 
-    for (include_paths) |p| {
-        gtk_test.addIncludePath(.{.path=p});
-    }
-    gtk_test.linkSystemLibrary("gtk-4");
-    gtk_test.linkSystemLibrary("gobject-2.0");
-    gtk_test.linkSystemLibrary("gio-2.0");
-    gtk_test.addModule("glib", glib);
-
-    const gdk_test = b.addTest(.{
-        .root_source_file=.{.path="src/gdk.zig"},
+    const glib_test = b.addTest(.{
+        .root_source_file=.{.path="src/glib.zig"},
         .target=target,
         .optimize=optimize,
     });
-    gdk_test.addModule("wayland", wayland);
-    gdk_test.linkLibC();
-    gdk_test.linkSystemLibrary("gtk-4");
-    gdk_test.addModule("glib", glib);
+    glib_test.linkLibC();
+    glib_test.linkSystemLibrary("glib-2.0");
     for (include_paths) |p| {
-        gdk_test.addIncludePath(.{.path=p});
+        glib_test.addIncludePath(.{.path=p});
     }
 
-    const cairo_test = b.addTest(.{
-        .root_source_file=.{.path="src/cairo.zig"},
+    const gobject = b.createModule(.{
+        .source_file = .{ .path = "src/gobject.zig" } ,
+        .dependencies = &.{
+            .{ .name = "glib", .module = glib },
+        },
+    });
+    const gobject_test = b.addTest(.{
+        .root_source_file=.{.path="src/gobject.zig"},
         .target=target,
         .optimize=optimize,
     });
-    cairo_test.linkLibC();
-    cairo_test.linkSystemLibrary("gtk-4");
+    gobject_test.linkLibC();
+    gobject_test.linkSystemLibrary("gobject-2.0");
     for (include_paths) |p| {
-        cairo_test.addIncludePath(.{.path=p});
+        gobject_test.addIncludePath(.{.path=p});
     }
+    gobject_test.addModule("glib", glib);
+
+    const gio = b.createModule(.{
+        .source_file = .{ .path = "src/gio.zig" },
+        .dependencies = &.{
+            .{ .name = "glib", .module = glib },
+            .{ .name = "gobject", .module = gobject },
+        },
+    });
+
+    const gio_test = b.addTest(.{
+        .root_source_file=.{.path="src/gio.zig"},
+        .target=target,
+        .optimize=optimize,
+    });
+    gio_test.linkLibC();
+    gio_test.linkSystemLibrary("gobject-2.0");
+    gio_test.linkSystemLibrary("gio-2.0");
+    for (include_paths) |p| {
+        gio_test.addIncludePath(.{.path=p});
+    }
+    gio_test.addModule("glib", glib);
+    gio_test.addModule("gobject", gobject);
+
+    const gdkpixbuf = b.createModule(.{
+        .source_file = .{ .path = "src/gdkpixbuf.zig" },
+        .dependencies = &.{
+            .{ .name = "gobject", .module = gobject },
+        },
+    });
+
+    const pango = b.createModule(.{
+        .source_file = .{ .path = "src/pango.zig" },
+        .dependencies = &.{
+            .{ .name = "glib", .module = glib },
+            .{ .name = "gobject", .module = gobject },
+            // Also harfbuzz
+        },
+    });
 
     const pango_test = b.addTest(.{
         .root_source_file=.{.path="src/pango.zig"},
@@ -77,22 +105,133 @@ pub fn build(b: *Builder) void {
     for (include_paths) |p| {
         pango_test.addIncludePath(.{.path=p});
     }
+    pango_test.addModule("glib", glib);
+    pango_test.addModule("gobject", gobject);
 
+    const cairo = b.createModule(.{
+        .source_file = .{ .path = "src/cairo.zig" },
+    });
+    const cairo_test = b.addTest(.{
+        .root_source_file=.{.path="src/cairo.zig"},
+        .target=target,
+        .optimize=optimize,
+    });
+    cairo_test.linkLibC();
+    cairo_test.linkSystemLibrary("gtk-4");
+    for (include_paths) |p| {
+        cairo_test.addIncludePath(.{.path=p});
+    }
+
+    const gdk = b.createModule(.{
+        .source_file = .{ .path = "src/gdk.zig" },
+        .dependencies = &.{
+            .{ .name = "glib", .module = glib },
+            .{ .name = "gio", .module = gio },
+            .{ .name = "gobject", .module = gobject },
+            .{ .name = "gdkpixbuf", .module = gdkpixbuf },
+            .{ .name = "wayland", .module = wayland },
+            .{ .name = "pango", .module = pango },
+            .{ .name = "cairo", .module = cairo },
+        },
+    });
+
+    const gdk_test = b.addTest(.{
+        .root_source_file=.{.path="src/gdk.zig"},
+        .target=target,
+        .optimize=optimize,
+    });
+    gdk_test.linkLibC();
+    gdk_test.linkSystemLibrary("gtk-4");
+    gdk_test.addModule("wayland", wayland);
+    gdk_test.addModule("glib", glib);
+    gdk_test.addModule("gobject", gobject);
+    gdk_test.addModule("gio", gio);
+    gdk_test.addModule("gdkpixbuf", gdkpixbuf);
+    gdk_test.addModule("pango", pango);
+    gdk_test.addModule("cairo", cairo);
+
+    for (include_paths) |p| {
+        gdk_test.addIncludePath(.{.path=p});
+    }
+
+    const graphene = b.createModule(.{
+        .source_file = .{ .path = "src/graphene.zig" } ,
+    });
     const graphene_test = b.addTest(.{
         .root_source_file=.{.path="src/graphene.zig"},
         .target=target,
         .optimize=optimize,
     });
     graphene_test.linkLibC();
-    graphene_test.linkSystemLibrary("gtk-4");
+    graphene_test.linkSystemLibrary("graphene-1.0");
     for (include_paths) |p| {
         graphene_test.addIncludePath(.{.path=p});
     }
 
+    const gsk = b.createModule(.{
+        .source_file = .{ .path = "src/gsk.zig" },
+        .dependencies = &.{
+            .{ .name = "glib", .module = glib },
+            .{ .name = "gio", .module = gio },
+            .{ .name = "graphene", .module = graphene },
+            .{ .name = "gdk", .module = gdk },
+            .{ .name = "gobject", .module = gobject },
+            .{ .name = "cairo", .module = cairo },
+        },
+    });
+    const gsk_test = b.addTest(.{
+        .root_source_file=.{.path="src/gsk.zig"},
+        .target=target,
+        .optimize=optimize,
+
+    });
+    gsk_test.linkLibC();
+    gsk_test.linkSystemLibrary("gtk-4");
+    gsk_test.addModule("wayland", wayland);
+    gsk_test.addModule("glib", glib);
+    gsk_test.addModule("gobject", gobject);
+    gsk_test.addModule("gio", gio);
+    gsk_test.addModule("gdk", gdk);
+    gsk_test.addModule("graphene", graphene);
+    gsk_test.addModule("gdkpixbuf", gdkpixbuf);
+    gsk_test.addModule("pango", pango);
+    gsk_test.addModule("cairo", cairo);
+
+    for (include_paths) |p| {
+        gsk_test.addIncludePath(.{.path=p});
+    }
+
+
+    const gtk_test = b.addTest(.{
+        .root_source_file=.{.path="src/gtk.zig"},
+        .target=target,
+        .optimize=optimize
+    });
+    gtk_test.linkLibC();
+    for (include_paths) |p| {
+        gtk_test.addIncludePath(.{.path=p});
+    }
+    gtk_test.linkSystemLibrary("gtk-4");
+    gtk_test.linkSystemLibrary("gobject-2.0");
+    gtk_test.linkSystemLibrary("gio-2.0");
+    gtk_test.addModule("glib", glib);
+    gtk_test.addModule("gobject", gobject);
+    gtk_test.addModule("gio", gio);
+    gtk_test.addModule("gdk", gdk);
+    gtk_test.addModule("gsk", gsk);
+    gtk_test.addModule("cairo", cairo);
+    gtk_test.addModule("pango", pango);
+    gtk_test.addModule("graphene", graphene);
+    gtk_test.addModule("gdkpixbuf", gdkpixbuf);
 
     const test_step = b.step("test", "Run the tests");
-    test_step.dependOn(&gtk_test.step);
-    test_step.dependOn(&gdk_test.step);
-    test_step.dependOn(&cairo_test.step);
+    test_step.dependOn(&glib_test.step);
+    test_step.dependOn(&gobject_test.step);
+    test_step.dependOn(&gio_test.step);
     test_step.dependOn(&pango_test.step);
+    test_step.dependOn(&cairo_test.step);
+    test_step.dependOn(&graphene_test.step);
+    test_step.dependOn(&gsk_test.step);
+    test_step.dependOn(&gdk_test.step);
+    test_step.dependOn(&gtk_test.step);
 }

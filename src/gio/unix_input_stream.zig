@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const UnixInputStream = extern struct {
@@ -153,16 +153,16 @@ pub const UnixInputStream = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asPollableInputStream(self: *Self) *gio.PollableInputStream {
+    pub fn asFileDescriptorBased(self: *Self) *gio.FileDescriptorBased {
         return @ptrCast(self);
     }
-    pub fn asFileDescriptorBased(self: *Self) *gio.FileDescriptorBased {
+    pub fn asInputStream(self: *Self) *gio.InputStream {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asInputStream(self: *Self) *gio.InputStream {
+    pub fn asPollableInputStream(self: *Self) *gio.PollableInputStream {
         return @ptrCast(self);
     }
 };

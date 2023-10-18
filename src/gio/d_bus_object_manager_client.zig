@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const DBusObjectManagerClient = extern struct {
@@ -117,13 +117,13 @@ pub const DBusObjectManagerClient = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asInitable(self: *Self) *gio.Initable {
+    pub fn asAsyncInitable(self: *Self) *gio.AsyncInitable {
         return @ptrCast(self);
     }
     pub fn asDBusObjectManager(self: *Self) *gio.DBusObjectManager {
         return @ptrCast(self);
     }
-    pub fn asAsyncInitable(self: *Self) *gio.AsyncInitable {
+    pub fn asInitable(self: *Self) *gio.Initable {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {

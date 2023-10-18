@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gio = @import("gio");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -105,19 +105,19 @@ pub const EveryFilter = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asBuildable(self: *Self) *gtk.Buildable {
+    pub fn asFilter(self: *Self) *gtk.Filter {
         return @ptrCast(self);
     }
-    pub fn asFilter(self: *Self) *gtk.Filter {
+    pub fn asMultiFilter(self: *Self) *gtk.MultiFilter {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asListModel(self: *Self) *gio.ListModel {
+    pub fn asBuildable(self: *Self) *gtk.Buildable {
         return @ptrCast(self);
     }
-    pub fn asMultiFilter(self: *Self) *gtk.MultiFilter {
+    pub fn asListModel(self: *Self) *gio.ListModel {
         return @ptrCast(self);
     }
 };

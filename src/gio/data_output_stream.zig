@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const DataOutputStream = extern struct {
@@ -216,16 +216,16 @@ pub const DataOutputStream = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asOutputStream(self: *Self) *gio.OutputStream {
-        return @ptrCast(self);
-    }
     pub fn asFilterOutputStream(self: *Self) *gio.FilterOutputStream {
         return @ptrCast(self);
     }
-    pub fn asSeekable(self: *Self) *gio.Seekable {
+    pub fn asOutputStream(self: *Self) *gio.OutputStream {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asSeekable(self: *Self) *gio.Seekable {
         return @ptrCast(self);
     }
 };

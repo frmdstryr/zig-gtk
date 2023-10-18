@@ -1,10 +1,10 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("../gdk.zig");
-const glib = @import("glib");
 const gdkpixbuf = @import("gdkpixbuf");
 const gobject = @import("gobject");
 const gio = @import("gio");
+const gdk = @import("../gdk.zig");
+const glib = @import("glib");
 const c = @import("c.zig");
 
 pub const MemoryTexture = extern struct {
@@ -155,22 +155,22 @@ pub const MemoryTexture = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
     pub fn asTexture(self: *Self) *gdk.Texture {
         return @ptrCast(self);
     }
-    pub fn asPaintable(self: *Self) *gdk.Paintable {
-        return @ptrCast(self);
-    }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
     pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
         return @ptrCast(self);
     }
     pub fn asIcon(self: *Self) *gio.Icon {
+        return @ptrCast(self);
+    }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asPaintable(self: *Self) *gdk.Paintable {
         return @ptrCast(self);
     }
 };

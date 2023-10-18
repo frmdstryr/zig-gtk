@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gsk = @import("gsk");
+const cairo = @import("cairo");
+const gobject = @import("gobject");
+const gio = @import("gio");
 const gdk = @import("gdk");
+const gsk = @import("gsk");
 const graphene = @import("graphene");
 const glib = @import("glib");
-const gobject = @import("gobject");
-const cairo = @import("cairo");
-const pango = @import("pango");
-const gio = @import("gio");
 const gtk = @import("../gtk.zig");
+const pango = @import("pango");
 const c = @import("c.zig");
 
 pub const ApplicationWindow = extern struct {
@@ -852,28 +852,28 @@ pub const ApplicationWindow = extern struct {
 
 
     // Bases
-    pub fn asActionMap(self: *Self) *gio.ActionMap {
-        return @ptrCast(self);
-    }
-    pub fn asWindow(self: *Self) *gtk.Window {
-        return @ptrCast(self);
-    }
-    pub fn asActionGroup(self: *Self) *gio.ActionGroup {
-        return @ptrCast(self);
-    }
-    pub fn asRoot(self: *Self) *gtk.Root {
-        return @ptrCast(self);
-    }
     pub fn asNative(self: *Self) *gtk.Native {
         return @ptrCast(self);
     }
     pub fn asWidget(self: *Self) *gtk.Widget {
         return @ptrCast(self);
     }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub fn asWindow(self: *Self) *gtk.Window {
+        return @ptrCast(self);
+    }
     pub fn asShortcutManager(self: *Self) *gtk.ShortcutManager {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asActionGroup(self: *Self) *gio.ActionGroup {
+        return @ptrCast(self);
+    }
+    pub fn asActionMap(self: *Self) *gio.ActionMap {
+        return @ptrCast(self);
+    }
+    pub fn asRoot(self: *Self) *gtk.Root {
         return @ptrCast(self);
     }
 };

@@ -1,10 +1,10 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gsk = @import("../gsk.zig");
-const gdk = @import("gdk");
-const graphene = @import("graphene");
-const gobject = @import("gobject");
 const cairo = @import("cairo");
+const gobject = @import("gobject");
+const gdk = @import("gdk");
+const gsk = @import("../gsk.zig");
+const graphene = @import("graphene");
 const c = @import("c.zig");
 
 pub const GLRenderer = extern struct {
@@ -95,10 +95,10 @@ pub const GLRenderer = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asRenderer(self: *Self) *gsk.Renderer {
         return @ptrCast(self);
     }
-    pub fn asRenderer(self: *Self) *gsk.Renderer {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gio = @import("../gio.zig");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const ProxyAddressEnumerator = extern struct {
@@ -77,10 +77,10 @@ pub const ProxyAddressEnumerator = extern struct {
 
 
     // Bases
-    pub fn asSocketAddressEnumerator(self: *Self) *gio.SocketAddressEnumerator {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asSocketAddressEnumerator(self: *Self) *gio.SocketAddressEnumerator {
         return @ptrCast(self);
     }
 };

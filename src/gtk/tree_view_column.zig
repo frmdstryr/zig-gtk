@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -231,19 +231,19 @@ pub const TreeViewColumn = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asBuildable(self: *Self) *gtk.Buildable {
-        return @ptrCast(self);
-    }
-    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
+    pub fn asCellLayout(self: *Self) *gtk.CellLayout {
         return @ptrCast(self);
     }
     pub fn asTreeViewColumn(self: *Self) *gtk.TreeViewColumn {
         return @ptrCast(self);
     }
+    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
+        return @ptrCast(self);
+    }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asCellLayout(self: *Self) *gtk.CellLayout {
+    pub fn asBuildable(self: *Self) *gtk.Buildable {
         return @ptrCast(self);
     }
 };

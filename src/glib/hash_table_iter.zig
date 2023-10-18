@@ -11,7 +11,7 @@ pub const HashTableIter = extern struct {
     // Constructors
 
     // Methods
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn g_hash_table_iter_init(self: *Self, hash_table: None) void;
     // pub const init = g_hash_table_iter_init;
 

@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gsk = @import("gsk");
+const cairo = @import("cairo");
+const gobject = @import("gobject");
+const gio = @import("gio");
 const gdk = @import("gdk");
+const gsk = @import("gsk");
 const graphene = @import("graphene");
 const glib = @import("glib");
-const gobject = @import("gobject");
-const cairo = @import("cairo");
-const pango = @import("pango");
-const gio = @import("gio");
 const gtk = @import("../gtk.zig");
+const pango = @import("pango");
 const c = @import("c.zig");
 
 pub const PopoverMenu = extern struct {
@@ -708,19 +708,19 @@ pub const PopoverMenu = extern struct {
 
 
     // Bases
+    pub fn asShortcutManager(self: *Self) *gtk.ShortcutManager {
+        return @ptrCast(self);
+    }
+    pub fn asNative(self: *Self) *gtk.Native {
+        return @ptrCast(self);
+    }
     pub fn asWidget(self: *Self) *gtk.Widget {
         return @ptrCast(self);
     }
     pub fn asPopover(self: *Self) *gtk.Popover {
         return @ptrCast(self);
     }
-    pub fn asShortcutManager(self: *Self) *gtk.ShortcutManager {
-        return @ptrCast(self);
-    }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
-    pub fn asNative(self: *Self) *gtk.Native {
         return @ptrCast(self);
     }
 };

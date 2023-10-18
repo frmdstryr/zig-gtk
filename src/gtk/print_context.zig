@@ -2,8 +2,8 @@
 const std = @import("std");
 const gobject = @import("gobject");
 const cairo = @import("cairo");
-const pango = @import("pango");
 const gtk = @import("../gtk.zig");
+const pango = @import("pango");
 const c = @import("c.zig");
 
 pub const PrintContext = extern struct {

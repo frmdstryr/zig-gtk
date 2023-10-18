@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gio = @import("../gio.zig");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const NetworkService = extern struct {
@@ -98,10 +98,10 @@ pub const NetworkService = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asSocketConnectable(self: *Self) *gio.SocketConnectable {
         return @ptrCast(self);
     }
-    pub fn asSocketConnectable(self: *Self) *gio.SocketConnectable {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

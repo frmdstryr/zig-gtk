@@ -91,11 +91,11 @@ pub const Layout = extern struct {
     extern fn pango_layout_get_line_spacing(self: *Self) f32;
     pub const getLineSpacing = pango_layout_get_line_spacing;
 
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn pango_layout_get_lines(self: *Self) None;
     // pub const getLines = pango_layout_get_lines;
 
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn pango_layout_get_lines_readonly(self: *Self) None;
     // pub const getLinesReadonly = pango_layout_get_lines_readonly;
 

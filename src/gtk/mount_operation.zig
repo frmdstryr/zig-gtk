@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
-const gobject = @import("gobject");
 const gio = @import("gio");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const gdk = @import("gdk");
 const c = @import("c.zig");
 
 pub const MountOperation = extern struct {
@@ -145,10 +145,10 @@ pub const MountOperation = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asMountOperation(self: *Self) *gio.MountOperation {
         return @ptrCast(self);
     }
-    pub fn asMountOperation(self: *Self) *gio.MountOperation {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

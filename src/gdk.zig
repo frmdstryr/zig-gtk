@@ -2,6 +2,7 @@
 const std = @import("std");
 pub usingnamespace @import("gdk/enums.zig");
 pub usingnamespace @import("gdk/flags.zig");
+pub usingnamespace @import("gdk/constants.zig");
 
 pub const AppLaunchContext = @import("gdk/app_launch_context.zig").AppLaunchContext;
 pub const ButtonEvent = @import("gdk/button_event.zig").ButtonEvent;

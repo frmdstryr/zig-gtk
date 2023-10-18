@@ -104,10 +104,10 @@ pub const ConstraintGuide = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asConstraintTarget(self: *Self) *gtk.ConstraintTarget {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asConstraintTarget(self: *Self) *gtk.ConstraintTarget {
         return @ptrCast(self);
     }
 };

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const DBusMethodInvocation = extern struct {
@@ -73,7 +73,7 @@ pub const DBusMethodInvocation = extern struct {
     extern fn g_dbus_method_invocation_return_error_literal(self: *Self, domain: u32, code: i32, message: [*c]const u8) void;
     pub const returnErrorLiteral = g_dbus_method_invocation_return_error_literal;
 
-    extern fn g_dbus_method_invocation_return_gerror(self: *Self, error_: *glib.GError) void;
+    extern fn g_dbus_method_invocation_return_gerror(self: *Self, error_: *glib.Error) void;
     pub const returnGerror = g_dbus_method_invocation_return_gerror;
 
     extern fn g_dbus_method_invocation_return_value(self: *Self, parameters: *glib.Variant) void;

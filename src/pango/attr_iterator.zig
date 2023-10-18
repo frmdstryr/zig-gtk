@@ -20,11 +20,11 @@ pub const AttrIterator = extern struct {
     extern fn pango_attr_iterator_get(self: *Self, type: pango.AttrType) ?*pango.Attribute;
     pub const get = pango_attr_iterator_get;
 
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn pango_attr_iterator_get_attrs(self: *Self) None;
     // pub const getAttrs = pango_attr_iterator_get_attrs;
 
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn pango_attr_iterator_get_font(self: *Self, desc: *pango.FontDescription, language: *pango.Language, extra_attrs: None) void;
     // pub const getFont = pango_attr_iterator_get_font;
 

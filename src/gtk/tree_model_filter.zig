@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
-const gdk = @import("gdk");
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const gdk = @import("gdk");
 const c = @import("c.zig");
 
 pub const TreeModelFilter = extern struct {
@@ -145,16 +145,16 @@ pub const TreeModelFilter = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asTreeModel(self: *Self) *gtk.TreeModel {
-        return @ptrCast(self);
-    }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
     pub fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
         return @ptrCast(self);
     }
+    pub fn asTreeModel(self: *Self) *gtk.TreeModel {
+        return @ptrCast(self);
+    }
     pub fn asTreeModelFilter(self: *Self) *gtk.TreeModelFilter {
+        return @ptrCast(self);
+    }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

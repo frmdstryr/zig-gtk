@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
 const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const gdk = @import("gdk");
 const c = @import("c.zig");
 
 pub const TreeModelSort = extern struct {
@@ -153,16 +153,16 @@ pub const TreeModelSort = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asTreeSortable(self: *Self) *gtk.TreeSortable {
+    pub fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
         return @ptrCast(self);
     }
     pub fn asTreeModel(self: *Self) *gtk.TreeModel {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asTreeSortable(self: *Self) *gtk.TreeSortable {
         return @ptrCast(self);
     }
-    pub fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

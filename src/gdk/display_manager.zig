@@ -33,7 +33,7 @@ pub const DisplayManager = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn gdk_display_manager_list_displays(self: *Self) None;
     // pub const listDisplays = gdk_display_manager_list_displays;
 

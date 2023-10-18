@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gio = @import("../gio.zig");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const ThreadedSocketService = extern struct {
@@ -116,13 +116,13 @@ pub const ThreadedSocketService = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
     pub fn asSocketListener(self: *Self) *gio.SocketListener {
         return @ptrCast(self);
     }
     pub fn asSocketService(self: *Self) *gio.SocketService {
+        return @ptrCast(self);
+    }
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
 const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const gdk = @import("gdk");
 const c = @import("c.zig");
 
 pub const TextBuffer = extern struct {
@@ -258,10 +258,10 @@ pub const TextBuffer = extern struct {
 
 
     // Bases
-    pub fn asTextBuffer(self: *Self) *gtk.TextBuffer {
+    pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub fn asTextBuffer(self: *Self) *gtk.TextBuffer {
         return @ptrCast(self);
     }
 };

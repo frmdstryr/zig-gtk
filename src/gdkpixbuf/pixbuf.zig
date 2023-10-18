@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
+const gdkpixbuf = @import("../gdkpixbuf.zig");
+const gio = @import("gio");
 const glib = @import("glib");
 const gobject = @import("gobject");
-const gio = @import("gio");
-const gdkpixbuf = @import("../gdkpixbuf.zig");
 const c = @import("c.zig");
 
 pub const Pixbuf = extern struct {
@@ -110,7 +110,7 @@ pub const Pixbuf = extern struct {
     extern fn gdk_pixbuf_get_option(self: *Self, key: [*c]const u8) [*c]const u8;
     pub const getOption = gdk_pixbuf_get_option;
 
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn gdk_pixbuf_get_options(self: *Self) None;
     // pub const getOptions = gdk_pixbuf_get_options;
 
@@ -236,16 +236,16 @@ pub const Pixbuf = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asIcon(self: *Self) *gio.Icon {
-        return @ptrCast(self);
-    }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
     pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
         return @ptrCast(self);
     }
+    pub fn asIcon(self: *Self) *gio.Icon {
+        return @ptrCast(self);
+    }
     pub fn asPixbuf(self: *Self) *gdkpixbuf.Pixbuf {
+        return @ptrCast(self);
+    }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

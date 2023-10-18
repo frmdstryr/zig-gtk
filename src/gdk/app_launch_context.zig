@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
+const gio = @import("gio");
 const glib = @import("glib");
 const gobject = @import("gobject");
-const gio = @import("gio");
 const gdk = @import("../gdk.zig");
 const c = @import("c.zig");
 

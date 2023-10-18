@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
-const gobject = @import("gobject");
 const gio = @import("gio");
+const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const DirectoryList = extern struct {
@@ -26,7 +26,7 @@ pub const DirectoryList = extern struct {
     extern fn gtk_directory_list_get_attributes(self: *Self) [*c]const u8;
     pub const getAttributes = gtk_directory_list_get_attributes;
 
-    extern fn gtk_directory_list_get_error(self: *Self) ?*glib.GError;
+    extern fn gtk_directory_list_get_error(self: *Self) ?*glib.Error;
     pub const getError = gtk_directory_list_get_error;
 
     extern fn gtk_directory_list_get_file(self: *Self) ?*gio.File;

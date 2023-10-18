@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
-const gobject = @import("gobject");
 const gio = @import("gio");
+const gobject = @import("gobject");
+const glib = @import("glib");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -23,7 +23,7 @@ pub const ConstraintLayout = extern struct {
     extern fn gtk_constraint_layout_add_constraint(self: *Self, constraint: *gtk.Constraint) void;
     pub const addConstraint = gtk_constraint_layout_add_constraint;
 
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn gtk_constraint_layout_add_constraints_from_descriptionv(self: *Self, lines: [*c][*c]const u8, n_lines: u64, hspacing: i32, vspacing: i32, views: None) ?*glib.List;
     // pub const addConstraintsFromDescription = gtk_constraint_layout_add_constraints_from_descriptionv;
 

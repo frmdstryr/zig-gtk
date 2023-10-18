@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
-const gdk = @import("gdk");
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const gdk = @import("gdk");
 const c = @import("c.zig");
 
 pub const CellArea = extern struct {
@@ -229,7 +229,7 @@ pub const CellArea = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asBuildable(self: *Self) *gtk.Buildable {
+    pub fn asCellLayout(self: *Self) *gtk.CellLayout {
         return @ptrCast(self);
     }
     pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
@@ -238,7 +238,7 @@ pub const CellArea = extern struct {
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asCellLayout(self: *Self) *gtk.CellLayout {
+    pub fn asBuildable(self: *Self) *gtk.Buildable {
         return @ptrCast(self);
     }
 };

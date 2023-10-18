@@ -50,10 +50,10 @@ pub const TreeModel = extern struct {
 
 
     // Bases
-    pub fn asTreeModel(self: *Self) *gtk.TreeModel {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asTreeModel(self: *Self) *gtk.TreeModel {
         return @ptrCast(self);
     }
 };

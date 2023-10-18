@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gsk = @import("gsk");
+const cairo = @import("cairo");
+const gobject = @import("gobject");
+const gio = @import("gio");
 const gdk = @import("gdk");
+const gsk = @import("gsk");
 const graphene = @import("graphene");
 const glib = @import("glib");
-const gobject = @import("gobject");
-const cairo = @import("cairo");
-const gio = @import("gio");
-const pango = @import("pango");
 const gtk = @import("../gtk.zig");
+const pango = @import("pango");
 const c = @import("c.zig");
 
 pub const ColumnView = extern struct {
@@ -702,13 +702,13 @@ pub const ColumnView = extern struct {
 
 
     // Bases
-    pub fn asWidget(self: *Self) *gtk.Widget {
+    pub fn asScrollable(self: *Self) *gtk.Scrollable {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asScrollable(self: *Self) *gtk.Scrollable {
+    pub fn asWidget(self: *Self) *gtk.Widget {
         return @ptrCast(self);
     }
 };

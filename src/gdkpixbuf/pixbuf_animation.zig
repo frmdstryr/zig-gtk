@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
+const gdkpixbuf = @import("../gdkpixbuf.zig");
+const gio = @import("gio");
 const glib = @import("glib");
 const gobject = @import("gobject");
-const gio = @import("gio");
-const gdkpixbuf = @import("../gdkpixbuf.zig");
 const c = @import("c.zig");
 
 pub const PixbufAnimation = extern struct {

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const glib = @import("glib");
+const gobject = @import("gobject");
 const c = @import("c.zig");
 
 pub const Task = extern struct {
@@ -100,7 +100,7 @@ pub const Task = extern struct {
     extern fn g_task_return_boolean(self: *Self, result: bool) void;
     pub const returnBoolean = g_task_return_boolean;
 
-    extern fn g_task_return_error(self: *Self, error_: *glib.GError) void;
+    extern fn g_task_return_error(self: *Self, error_: *glib.Error) void;
     pub const returnError = g_task_return_error;
 
     extern fn g_task_return_error_if_cancelled(self: *Self) bool;

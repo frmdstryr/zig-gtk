@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
 const gio = @import("gio");
+const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 
@@ -90,10 +90,10 @@ pub const CssProvider = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub fn asStyleProvider(self: *Self) *gtk.StyleProvider {
         return @ptrCast(self);
     }
-    pub fn asStyleProvider(self: *Self) *gtk.StyleProvider {
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
     pub fn asCssProvider(self: *Self) *gtk.CssProvider {

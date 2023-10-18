@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gobject = @import("gobject");
-const cairo = @import("cairo");
 const gio = @import("gio");
+const cairo = @import("cairo");
+const gobject = @import("gobject");
 const gdk = @import("../gdk.zig");
 const c = @import("c.zig");
 
@@ -94,13 +94,13 @@ pub const VulkanContext = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asInitable(self: *Self) *gio.Initable {
-        return @ptrCast(self);
-    }
     pub fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
     pub fn asDrawContext(self: *Self) *gdk.DrawContext {
+        return @ptrCast(self);
+    }
+    pub fn asInitable(self: *Self) *gio.Initable {
         return @ptrCast(self);
     }
 };

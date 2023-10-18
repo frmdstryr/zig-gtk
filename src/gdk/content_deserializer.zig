@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
+const gio = @import("gio");
 const glib = @import("glib");
 const gobject = @import("gobject");
-const gio = @import("gio");
 const gdk = @import("../gdk.zig");
 const c = @import("c.zig");
 
@@ -74,7 +74,7 @@ pub const ContentDeserializer = extern struct {
     extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
     pub const overrideProperty = g_object_class_override_property;
 
-    extern fn gdk_content_deserializer_return_error(self: *Self, error_: *glib.GError) void;
+    extern fn gdk_content_deserializer_return_error(self: *Self, error_: *glib.Error) void;
     pub const returnError = gdk_content_deserializer_return_error;
 
     extern fn gdk_content_deserializer_return_success(self: *Self) void;

@@ -1,8 +1,8 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const gdk = @import("gdk");
 const gobject = @import("gobject");
 const gtk = @import("../gtk.zig");
+const gdk = @import("gdk");
 const c = @import("c.zig");
 
 pub const ListStore = extern struct {
@@ -70,7 +70,7 @@ pub const ListStore = extern struct {
     extern fn gtk_list_store_insert_with_valuesv(self: *Self, iter: gtk.TreeIter, position: i32, columns: [*c]i32, values: [*c]gobject.Value, n_values: i32) void;
     pub const insertWithValues = gtk_list_store_insert_with_valuesv;
 
-    // Binding gen failed (duplicate name) fn disabled
+    // Binding disabled (duplicate name)
     // extern fn gtk_list_store_insert_with_valuesv(self: *Self, iter: gtk.TreeIter, position: i32, columns: [*c]i32, values: [*c]gobject.Value, n_values: i32) void;
     // pub const insertWithValues = gtk_list_store_insert_with_valuesv;
 
@@ -169,25 +169,25 @@ pub const ListStore = extern struct {
     pub fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asListStore(self: *Self) *gtk.ListStore {
+    pub fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
         return @ptrCast(self);
     }
     pub fn asTreeModel(self: *Self) *gtk.TreeModel {
         return @ptrCast(self);
     }
+    pub fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
     pub fn asBuildable(self: *Self) *gtk.Buildable {
         return @ptrCast(self);
     }
-    pub fn asTreeSortable(self: *Self) *gtk.TreeSortable {
+    pub fn asListStore(self: *Self) *gtk.ListStore {
         return @ptrCast(self);
     }
     pub fn asTreeDragDest(self: *Self) *gtk.TreeDragDest {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
-    pub fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
+    pub fn asTreeSortable(self: *Self) *gtk.TreeSortable {
         return @ptrCast(self);
     }
 };

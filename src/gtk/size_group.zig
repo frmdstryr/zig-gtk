@@ -30,7 +30,7 @@ pub const SizeGroup = extern struct {
     extern fn gtk_size_group_get_mode(self: *Self) gtk.SizeGroupMode;
     pub const getMode = gtk_size_group_get_mode;
 
-    // Binding gen failed (unknown arg/return type) fn disabled
+    // Binding disabled (unknown arg/return type)
     // extern fn gtk_size_group_get_widgets(self: *Self) None;
     // pub const getWidgets = gtk_size_group_get_widgets;
 

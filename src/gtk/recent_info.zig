@@ -1,7 +1,7 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
 const gio = @import("gio");
+const glib = @import("glib");
 const gtk = @import("../gtk.zig");
 const c = @import("c.zig");
 

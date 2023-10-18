@@ -1,9 +1,9 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
-const gdk = @import("gdk");
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gtk = @import("../gtk.zig");
+const gdk = @import("gdk");
 const c = @import("c.zig");
 
 pub const MediaStream = extern struct {
@@ -23,7 +23,7 @@ pub const MediaStream = extern struct {
     extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
     pub const findProperty = g_object_class_find_property;
 
-    extern fn gtk_media_stream_gerror(self: *Self, error_: *glib.GError) void;
+    extern fn gtk_media_stream_gerror(self: *Self, error_: *glib.Error) void;
     pub const gerror = gtk_media_stream_gerror;
 
     extern fn gdk_paintable_get_current_image(self: *Self) ?*gdk.Paintable;
@@ -35,7 +35,7 @@ pub const MediaStream = extern struct {
     extern fn gtk_media_stream_get_ended(self: *Self) bool;
     pub const getEnded = gtk_media_stream_get_ended;
 
-    extern fn gtk_media_stream_get_error(self: *Self) ?*glib.GError;
+    extern fn gtk_media_stream_get_error(self: *Self) ?*glib.Error;
     pub const getError = gtk_media_stream_get_error;
 
     extern fn gdk_paintable_get_flags(self: *Self) gdk.PaintableFlags;
