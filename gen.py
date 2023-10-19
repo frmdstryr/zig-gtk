@@ -239,8 +239,11 @@ def generate_constants(ns: str, constants: list) -> list[str]:
 
 
 def camel_case(name: str) -> str:
-    first, *rest = name.split("_")
-    return first + "".join([it.title() for it in rest])
+    first, *rest = [
+        v for it in name.strip().split("_")
+        if (v := it.strip()) # Name may start with _ or have __
+    ]
+    return first.lower() + "".join([it.title() for it in rest])
 
 
 def snake_case(name: str) -> str:
@@ -517,6 +520,8 @@ def generate_class(ns: str, Cls: type):
             comment = "// "
             out.append("    // Binding disabled (import needed excluded)")
         used.add(name)
+
+        assert name[0] == name[0].lower(), f"'{name}' is not camel case (originally '{f.get_name()}')"
         out.append(
             "    %sextern fn %s(%s) %s;"
             % (comment, f.get_symbol(), ", ".join(args), rtype)

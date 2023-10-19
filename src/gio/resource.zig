@@ -17,10 +17,10 @@ pub const Resource = extern struct {
 
     // Methods
     extern fn g_resources_register(self: *Self) void;
-    pub const Register = g_resources_register;
+    pub const register = g_resources_register;
 
     extern fn g_resources_unregister(self: *Self) void;
-    pub const Unregister = g_resources_unregister;
+    pub const unregister = g_resources_unregister;
 
     extern fn g_resource_enumerate_children(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags) [*c][*c]const u8;
     pub const enumerateChildren = g_resource_enumerate_children;
