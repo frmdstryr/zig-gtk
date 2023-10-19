@@ -152,10 +152,10 @@ pub const EventControllerFocus = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asEventController(self: *Self) *gtk.EventController {
+    pub inline fn asEventController(self: *Self) *gtk.EventController {
         return @ptrCast(self);
     }
 };

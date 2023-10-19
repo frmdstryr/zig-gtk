@@ -133,10 +133,10 @@ pub const NglRenderer = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asRenderer(self: *Self) *gsk.Renderer {
+    pub inline fn asRenderer(self: *Self) *gsk.Renderer {
         return @ptrCast(self);
     }
 };

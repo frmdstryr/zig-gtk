@@ -131,13 +131,13 @@ pub const TypeModule = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asTypePlugin(self: *Self) *gobject.TypePlugin {
+    pub inline fn asTypePlugin(self: *Self) *gobject.TypePlugin {
         return @ptrCast(self);
     }
 };

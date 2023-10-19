@@ -211,19 +211,19 @@ pub const ConverterOutputStream = extern struct {
 
 
     // Bases
-    pub fn asFilterOutputStream(self: *Self) *gio.FilterOutputStream {
+    pub inline fn asFilterOutputStream(self: *Self) *gio.FilterOutputStream {
         return @ptrCast(self);
     }
-    pub fn asOutputStream(self: *Self) *gio.OutputStream {
+    pub inline fn asOutputStream(self: *Self) *gio.OutputStream {
         return @ptrCast(self);
     }
-    pub fn asPollableOutputStream(self: *Self) *gio.PollableOutputStream {
+    pub inline fn asPollableOutputStream(self: *Self) *gio.PollableOutputStream {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

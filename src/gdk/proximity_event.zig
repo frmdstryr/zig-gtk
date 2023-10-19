@@ -74,7 +74,7 @@ pub const ProximityEvent = extern struct {
 
 
     // Bases
-    pub fn asEvent(self: *Self) *gdk.Event {
+    pub inline fn asEvent(self: *Self) *gdk.Event {
         return @ptrCast(self);
     }
 };

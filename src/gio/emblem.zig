@@ -118,13 +118,13 @@ pub const Emblem = extern struct {
 
 
     // Bases
-    pub fn asIcon(self: *Self) *gio.Icon {
+    pub inline fn asIcon(self: *Self) *gio.Icon {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

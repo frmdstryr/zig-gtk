@@ -140,10 +140,10 @@ pub const PasswordEntryBuffer = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asEntryBuffer(self: *Self) *gtk.EntryBuffer {
+    pub inline fn asEntryBuffer(self: *Self) *gtk.EntryBuffer {
         return @ptrCast(self);
     }
 };

@@ -144,13 +144,13 @@ pub const DBusInterfaceSkeleton = extern struct {
 
 
     // Bases
-    pub fn asDBusInterface(self: *Self) *gio.DBusInterface {
+    pub inline fn asDBusInterface(self: *Self) *gio.DBusInterface {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

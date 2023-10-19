@@ -123,19 +123,19 @@ pub const MultiFilter = extern struct {
 
 
     // Bases
-    pub fn asListModel(self: *Self) *gio.ListModel {
+    pub inline fn asListModel(self: *Self) *gio.ListModel {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asBuildable(self: *Self) *gtk.Buildable {
+    pub inline fn asBuildable(self: *Self) *gtk.Buildable {
         return @ptrCast(self);
     }
-    pub fn asFilter(self: *Self) *gtk.Filter {
+    pub inline fn asFilter(self: *Self) *gtk.Filter {
         return @ptrCast(self);
     }
 };

@@ -169,13 +169,13 @@ pub const DesktopAppInfo = extern struct {
 
 
     // Bases
-    pub fn asAppInfo(self: *Self) *gio.AppInfo {
+    pub inline fn asAppInfo(self: *Self) *gio.AppInfo {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

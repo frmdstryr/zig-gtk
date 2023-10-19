@@ -158,10 +158,10 @@ pub const CenterLayout = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asLayoutManager(self: *Self) *gtk.LayoutManager {
+    pub inline fn asLayoutManager(self: *Self) *gtk.LayoutManager {
         return @ptrCast(self);
     }
 };

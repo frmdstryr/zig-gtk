@@ -124,13 +124,13 @@ pub const TextTagTable = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asBuildable(self: *Self) *gtk.Buildable {
+    pub inline fn asBuildable(self: *Self) *gtk.Buildable {
         return @ptrCast(self);
     }
 };

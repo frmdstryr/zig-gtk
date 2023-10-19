@@ -119,10 +119,10 @@ pub const PixbufSimpleAnimIter = extern struct {
 
 
     // Bases
-    pub fn asPixbufAnimationIter(self: *Self) *gdkpixbuf.PixbufAnimationIter {
+    pub inline fn asPixbufAnimationIter(self: *Self) *gdkpixbuf.PixbufAnimationIter {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

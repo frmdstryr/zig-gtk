@@ -36,7 +36,7 @@ pub const MainLoop = extern struct {
 
 
     // Bases
-    pub fn asMainLoop(self: *Self) *glib.MainLoop {
+    pub inline fn asMainLoop(self: *Self) *glib.MainLoop {
         return @ptrCast(self);
     }
 };

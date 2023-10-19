@@ -129,13 +129,13 @@ pub const DBusObjectManagerServer = extern struct {
 
 
     // Bases
-    pub fn asDBusObjectManager(self: *Self) *gio.DBusObjectManager {
+    pub inline fn asDBusObjectManager(self: *Self) *gio.DBusObjectManager {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

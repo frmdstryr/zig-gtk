@@ -15,7 +15,7 @@ pub const DtlsServerConnection = extern struct {
     // Methods
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
 };

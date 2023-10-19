@@ -150,16 +150,16 @@ pub const FileIOStream = extern struct {
 
 
     // Bases
-    pub fn asIOStream(self: *Self) *gio.IOStream {
+    pub inline fn asIOStream(self: *Self) *gio.IOStream {
         return @ptrCast(self);
     }
-    pub fn asSeekable(self: *Self) *gio.Seekable {
+    pub inline fn asSeekable(self: *Self) *gio.Seekable {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

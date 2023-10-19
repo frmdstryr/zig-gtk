@@ -565,6 +565,14 @@ pub const Widget = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
+    // Utility methods
+    pub inline fn setMargins(self: *Self, margin: struct{top: c_int = 0, bottom: c_int = 0, start: c_int = 0, end: c_int = 0}) void {
+        self.setMarginTop(margin.top);
+        self.setMarginBottom(margin.bottom);
+        self.setMarginStart(margin.start);
+        self.setMarginEnd(margin.end);
+    }
+
 
     // Signals
     pub inline fn connectSignal(
@@ -588,22 +596,22 @@ pub const Widget = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
+    pub inline fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asAccessible(self: *Self) *gtk.Accessible {
+    pub inline fn asAccessible(self: *Self) *gtk.Accessible {
         return @ptrCast(self);
     }
-    pub fn asBuildable(self: *Self) *gtk.Buildable {
+    pub inline fn asBuildable(self: *Self) *gtk.Buildable {
         return @ptrCast(self);
     }
-    pub fn asConstraintTarget(self: *Self) *gtk.ConstraintTarget {
+    pub inline fn asConstraintTarget(self: *Self) *gtk.ConstraintTarget {
         return @ptrCast(self);
     }
 };

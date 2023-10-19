@@ -198,13 +198,13 @@ pub const PrintOperation = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asPrintOperationPreview(self: *Self) *gtk.PrintOperationPreview {
+    pub inline fn asPrintOperationPreview(self: *Self) *gtk.PrintOperationPreview {
         return @ptrCast(self);
     }
 };

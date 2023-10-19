@@ -185,10 +185,10 @@ pub const MountOperation = extern struct {
 
 
     // Bases
-    pub fn asMountOperation(self: *Self) *gio.MountOperation {
+    pub inline fn asMountOperation(self: *Self) *gio.MountOperation {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

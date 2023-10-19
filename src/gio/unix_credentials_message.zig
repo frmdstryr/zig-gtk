@@ -129,10 +129,10 @@ pub const UnixCredentialsMessage = extern struct {
 
 
     // Bases
-    pub fn asSocketControlMessage(self: *Self) *gio.SocketControlMessage {
+    pub inline fn asSocketControlMessage(self: *Self) *gio.SocketControlMessage {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

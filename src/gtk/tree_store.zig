@@ -162,25 +162,25 @@ pub const TreeStore = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asBuildable(self: *Self) *gtk.Buildable {
+    pub inline fn asBuildable(self: *Self) *gtk.Buildable {
         return @ptrCast(self);
     }
-    pub fn asTreeDragDest(self: *Self) *gtk.TreeDragDest {
+    pub inline fn asTreeDragDest(self: *Self) *gtk.TreeDragDest {
         return @ptrCast(self);
     }
-    pub fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
+    pub inline fn asTreeDragSource(self: *Self) *gtk.TreeDragSource {
         return @ptrCast(self);
     }
-    pub fn asTreeModel(self: *Self) *gtk.TreeModel {
+    pub inline fn asTreeModel(self: *Self) *gtk.TreeModel {
         return @ptrCast(self);
     }
-    pub fn asTreeSortable(self: *Self) *gtk.TreeSortable {
+    pub inline fn asTreeSortable(self: *Self) *gtk.TreeSortable {
         return @ptrCast(self);
     }
 };

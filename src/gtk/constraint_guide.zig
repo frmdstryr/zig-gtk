@@ -139,13 +139,13 @@ pub const ConstraintGuide = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asConstraintTarget(self: *Self) *gtk.ConstraintTarget {
+    pub inline fn asConstraintTarget(self: *Self) *gtk.ConstraintTarget {
         return @ptrCast(self);
     }
 };

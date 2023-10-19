@@ -177,19 +177,19 @@ pub const UnixInputStream = extern struct {
 
 
     // Bases
-    pub fn asFileDescriptorBased(self: *Self) *gio.FileDescriptorBased {
+    pub inline fn asFileDescriptorBased(self: *Self) *gio.FileDescriptorBased {
         return @ptrCast(self);
     }
-    pub fn asInputStream(self: *Self) *gio.InputStream {
+    pub inline fn asInputStream(self: *Self) *gio.InputStream {
         return @ptrCast(self);
     }
-    pub fn asPollableInputStream(self: *Self) *gio.PollableInputStream {
+    pub inline fn asPollableInputStream(self: *Self) *gio.PollableInputStream {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

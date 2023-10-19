@@ -18,6 +18,7 @@ pub fn activate(app: *gtk.Application, data: ?*anyopaque) callconv(.C) void {
     var box = gtk.Box.new(.Vertical, 0).?;
     box.setHalign(.Center);
     box.setValign(.Center);
+    box.setMargins(.{.top=10, .bottom=10, .start=10, .end=10});
     window.setChild(box.asWidget());
 
     var button = gtk.Button.newWithLabel("Hello World!").?;

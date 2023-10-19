@@ -123,10 +123,10 @@ pub const NativeVolumeMonitor = extern struct {
 
 
     // Bases
-    pub fn asVolumeMonitor(self: *Self) *gio.VolumeMonitor {
+    pub inline fn asVolumeMonitor(self: *Self) *gio.VolumeMonitor {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

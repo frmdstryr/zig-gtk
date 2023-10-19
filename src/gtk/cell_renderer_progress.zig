@@ -193,19 +193,19 @@ pub const CellRendererProgress = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
+    pub inline fn asInitiallyUnowned(self: *Self) *gobject.InitiallyUnowned {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asCellRenderer(self: *Self) *gtk.CellRenderer {
+    pub inline fn asCellRenderer(self: *Self) *gtk.CellRenderer {
         return @ptrCast(self);
     }
-    pub fn asOrientable(self: *Self) *gtk.Orientable {
+    pub inline fn asOrientable(self: *Self) *gtk.Orientable {
         return @ptrCast(self);
     }
 };

@@ -109,13 +109,13 @@ pub const Settings = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asStyleProvider(self: *Self) *gtk.StyleProvider {
+    pub inline fn asStyleProvider(self: *Self) *gtk.StyleProvider {
         return @ptrCast(self);
     }
 };

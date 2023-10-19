@@ -59,7 +59,7 @@ pub const ParamSpecChar = extern struct {
 
 
     // Bases
-    pub fn asParamSpec(self: *Self) *gobject.ParamSpec {
+    pub inline fn asParamSpec(self: *Self) *gobject.ParamSpec {
         return @ptrCast(self);
     }
 };

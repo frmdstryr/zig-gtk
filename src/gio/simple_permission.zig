@@ -141,10 +141,10 @@ pub const SimplePermission = extern struct {
 
 
     // Bases
-    pub fn asPermission(self: *Self) *gio.Permission {
+    pub inline fn asPermission(self: *Self) *gio.Permission {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

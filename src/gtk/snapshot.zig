@@ -243,10 +243,10 @@ pub const Snapshot = extern struct {
 
 
     // Bases
-    pub fn asSnapshot(self: *Self) *gdk.Snapshot {
+    pub inline fn asSnapshot(self: *Self) *gdk.Snapshot {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

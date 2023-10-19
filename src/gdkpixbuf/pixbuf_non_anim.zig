@@ -138,10 +138,10 @@ pub const PixbufNonAnim = extern struct {
 
 
     // Bases
-    pub fn asPixbufAnimation(self: *Self) *gdkpixbuf.PixbufAnimation {
+    pub inline fn asPixbufAnimation(self: *Self) *gdkpixbuf.PixbufAnimation {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

@@ -140,13 +140,13 @@ pub const ContentSerializer = extern struct {
 
 
     // Bases
-    pub fn asAsyncResult(self: *Self) *gio.AsyncResult {
+    pub inline fn asAsyncResult(self: *Self) *gio.AsyncResult {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

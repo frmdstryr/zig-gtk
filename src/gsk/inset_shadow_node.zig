@@ -60,7 +60,7 @@ pub const InsetShadowNode = extern struct {
 
 
     // Bases
-    pub fn asRenderNode(self: *Self) *gsk.RenderNode {
+    pub inline fn asRenderNode(self: *Self) *gsk.RenderNode {
         return @ptrCast(self);
     }
 };

@@ -568,6 +568,14 @@ pub const FileChooserWidget = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
+    // Utility methods
+    pub inline fn setMargins(self: *Self, margin: struct{top: c_int = 0, bottom: c_int = 0, start: c_int = 0, end: c_int = 0}) void {
+        self.setMarginTop(margin.top);
+        self.setMarginBottom(margin.bottom);
+        self.setMarginStart(margin.start);
+        self.setMarginEnd(margin.end);
+    }
+
 
     // Signals
     pub inline fn connectSignal(
@@ -591,13 +599,13 @@ pub const FileChooserWidget = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asFileChooser(self: *Self) *gtk.FileChooser {
+    pub inline fn asFileChooser(self: *Self) *gtk.FileChooser {
         return @ptrCast(self);
     }
-    pub fn asWidget(self: *Self) *gtk.Widget {
+    pub inline fn asWidget(self: *Self) *gtk.Widget {
         return @ptrCast(self);
     }
 };

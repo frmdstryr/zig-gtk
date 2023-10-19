@@ -18,7 +18,7 @@ pub const PollFD = extern struct {
     // Methods
 
     // Bases
-    pub fn asPollFD(self: *Self) *glib.PollFD {
+    pub inline fn asPollFD(self: *Self) *glib.PollFD {
         return @ptrCast(self);
     }
 };

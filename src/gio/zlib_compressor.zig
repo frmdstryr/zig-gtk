@@ -115,13 +115,13 @@ pub const ZlibCompressor = extern struct {
 
 
     // Bases
-    pub fn asConverter(self: *Self) *gio.Converter {
+    pub inline fn asConverter(self: *Self) *gio.Converter {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

@@ -136,6 +136,15 @@ SIGNAL_METHODS = """
     }
 """
 
+WIDGET_METHODS = """    // Utility methods
+    pub inline fn setMargins(self: *Self, margin: struct{top: c_int = 0, bottom: c_int = 0, start: c_int = 0, end: c_int = 0}) void {
+        self.setMarginTop(margin.top);
+        self.setMarginBottom(margin.bottom);
+        self.setMarginStart(margin.start);
+        self.setMarginEnd(margin.end);
+    }
+"""
+
 # List of methods to redefine
 METHOD_OVERRIDES: dict[type, dict[str, list[str]]] = {
     GdkPixbuf.Pixbuf: {
@@ -413,6 +422,7 @@ def generate_class(ns: str, Cls: type):
     has_connect = False
 
     mro = all_parents(info)
+    bases = expand_bases(Cls)
 
     out.append("    // Fields")
     field_names = set()
@@ -529,13 +539,17 @@ def generate_class(ns: str, Cls: type):
         out.append("    %spub const %s = %s;" % (comment, name, f.get_symbol()))
         out.append("")
 
+    # Add helper methods
+    if "gtk.Widget" in bases:
+        out.append(WIDGET_METHODS)
+
     # HACK: A way to override...
     if extra_methods := EXTRA_METHODS.get(Cls):
         out.extend(extra_methods)
 
     if has_connect:
         out.append(SIGNAL_METHODS)
-    bases = expand_bases(Cls)
+
     this_cls = f"{ns.lower()}.{Cls.__name__}"
     if this_cls in bases:
         bases.remove(this_cls)
@@ -545,7 +559,7 @@ def generate_class(ns: str, Cls: type):
         for name in sorted(list(bases)):
             mod, base = name.split(".")
             imports.add(mod.lower())
-            out.append("    pub fn as%s(self: *Self) *%s {" % (base, name))
+            out.append("    pub inline fn as%s(self: *Self) *%s {" % (base, name))
             out.append("        return @ptrCast(self);")
             out.append("    }")
 

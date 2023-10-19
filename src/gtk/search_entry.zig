@@ -574,6 +574,14 @@ pub const SearchEntry = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
+    // Utility methods
+    pub inline fn setMargins(self: *Self, margin: struct{top: c_int = 0, bottom: c_int = 0, start: c_int = 0, end: c_int = 0}) void {
+        self.setMarginTop(margin.top);
+        self.setMarginBottom(margin.bottom);
+        self.setMarginStart(margin.start);
+        self.setMarginEnd(margin.end);
+    }
+
 
     // Signals
     pub inline fn connectSignal(
@@ -597,13 +605,13 @@ pub const SearchEntry = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asEditable(self: *Self) *gtk.Editable {
+    pub inline fn asEditable(self: *Self) *gtk.Editable {
         return @ptrCast(self);
     }
-    pub fn asWidget(self: *Self) *gtk.Widget {
+    pub inline fn asWidget(self: *Self) *gtk.Widget {
         return @ptrCast(self);
     }
 };

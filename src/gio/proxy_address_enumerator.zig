@@ -117,10 +117,10 @@ pub const ProxyAddressEnumerator = extern struct {
 
 
     // Bases
-    pub fn asSocketAddressEnumerator(self: *Self) *gio.SocketAddressEnumerator {
+    pub inline fn asSocketAddressEnumerator(self: *Self) *gio.SocketAddressEnumerator {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

@@ -116,16 +116,16 @@ pub const NoSelection = extern struct {
 
 
     // Bases
-    pub fn asListModel(self: *Self) *gio.ListModel {
+    pub inline fn asListModel(self: *Self) *gio.ListModel {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asSelectionModel(self: *Self) *gtk.SelectionModel {
+    pub inline fn asSelectionModel(self: *Self) *gtk.SelectionModel {
         return @ptrCast(self);
     }
 };

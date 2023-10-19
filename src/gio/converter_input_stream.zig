@@ -181,19 +181,19 @@ pub const ConverterInputStream = extern struct {
 
 
     // Bases
-    pub fn asFilterInputStream(self: *Self) *gio.FilterInputStream {
+    pub inline fn asFilterInputStream(self: *Self) *gio.FilterInputStream {
         return @ptrCast(self);
     }
-    pub fn asInputStream(self: *Self) *gio.InputStream {
+    pub inline fn asInputStream(self: *Self) *gio.InputStream {
         return @ptrCast(self);
     }
-    pub fn asPollableInputStream(self: *Self) *gio.PollableInputStream {
+    pub inline fn asPollableInputStream(self: *Self) *gio.PollableInputStream {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

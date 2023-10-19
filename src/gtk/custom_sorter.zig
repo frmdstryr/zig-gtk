@@ -122,10 +122,10 @@ pub const CustomSorter = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asSorter(self: *Self) *gtk.Sorter {
+    pub inline fn asSorter(self: *Self) *gtk.Sorter {
         return @ptrCast(self);
     }
 };

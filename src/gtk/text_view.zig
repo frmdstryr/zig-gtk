@@ -784,6 +784,14 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_window_to_buffer_coords(self: *Self, win: gtk.TextWindowType, window_x: i32, window_y: i32, buffer_x: i32, buffer_y: i32) void;
     pub const windowToBufferCoords = gtk_text_view_window_to_buffer_coords;
 
+    // Utility methods
+    pub inline fn setMargins(self: *Self, margin: struct{top: c_int = 0, bottom: c_int = 0, start: c_int = 0, end: c_int = 0}) void {
+        self.setMarginTop(margin.top);
+        self.setMarginBottom(margin.bottom);
+        self.setMarginStart(margin.start);
+        self.setMarginEnd(margin.end);
+    }
+
 
     // Signals
     pub inline fn connectSignal(
@@ -807,13 +815,13 @@ pub const TextView = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asScrollable(self: *Self) *gtk.Scrollable {
+    pub inline fn asScrollable(self: *Self) *gtk.Scrollable {
         return @ptrCast(self);
     }
-    pub fn asWidget(self: *Self) *gtk.Widget {
+    pub inline fn asWidget(self: *Self) *gtk.Widget {
         return @ptrCast(self);
     }
 };

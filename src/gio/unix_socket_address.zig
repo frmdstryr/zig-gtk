@@ -141,16 +141,16 @@ pub const UnixSocketAddress = extern struct {
 
 
     // Bases
-    pub fn asSocketAddress(self: *Self) *gio.SocketAddress {
+    pub inline fn asSocketAddress(self: *Self) *gio.SocketAddress {
         return @ptrCast(self);
     }
-    pub fn asSocketConnectable(self: *Self) *gio.SocketConnectable {
+    pub inline fn asSocketConnectable(self: *Self) *gio.SocketConnectable {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

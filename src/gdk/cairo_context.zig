@@ -128,10 +128,10 @@ pub const CairoContext = extern struct {
 
 
     // Bases
-    pub fn asDrawContext(self: *Self) *gdk.DrawContext {
+    pub inline fn asDrawContext(self: *Self) *gdk.DrawContext {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

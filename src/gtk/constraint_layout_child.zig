@@ -113,10 +113,10 @@ pub const ConstraintLayoutChild = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asLayoutChild(self: *Self) *gtk.LayoutChild {
+    pub inline fn asLayoutChild(self: *Self) *gtk.LayoutChild {
         return @ptrCast(self);
     }
 };

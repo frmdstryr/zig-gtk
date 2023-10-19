@@ -232,16 +232,16 @@ pub const MediaFile = extern struct {
 
 
     // Bases
-    pub fn asPaintable(self: *Self) *gdk.Paintable {
+    pub inline fn asPaintable(self: *Self) *gdk.Paintable {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asMediaStream(self: *Self) *gtk.MediaStream {
+    pub inline fn asMediaStream(self: *Self) *gtk.MediaStream {
         return @ptrCast(self);
     }
 };

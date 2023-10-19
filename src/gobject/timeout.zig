@@ -118,7 +118,7 @@ pub const Timeout = extern struct {
 
 
     // Bases
-    pub fn asSource(self: *Self) *glib.Source {
+    pub inline fn asSource(self: *Self) *glib.Source {
         return @ptrCast(self);
     }
 };

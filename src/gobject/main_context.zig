@@ -84,7 +84,7 @@ pub const MainContext = extern struct {
 
 
     // Bases
-    pub fn asMainContext(self: *Self) *glib.MainContext {
+    pub inline fn asMainContext(self: *Self) *glib.MainContext {
         return @ptrCast(self);
     }
 };

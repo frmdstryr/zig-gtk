@@ -113,13 +113,13 @@ pub const BuilderCScope = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asBuilderScope(self: *Self) *gtk.BuilderScope {
+    pub inline fn asBuilderScope(self: *Self) *gtk.BuilderScope {
         return @ptrCast(self);
     }
 };

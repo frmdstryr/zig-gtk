@@ -143,10 +143,10 @@ pub const KeyvalTrigger = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asShortcutTrigger(self: *Self) *gtk.ShortcutTrigger {
+    pub inline fn asShortcutTrigger(self: *Self) *gtk.ShortcutTrigger {
         return @ptrCast(self);
     }
 };

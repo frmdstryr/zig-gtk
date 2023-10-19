@@ -123,16 +123,16 @@ pub const SimpleActionGroup = extern struct {
 
 
     // Bases
-    pub fn asActionGroup(self: *Self) *gio.ActionGroup {
+    pub inline fn asActionGroup(self: *Self) *gio.ActionGroup {
         return @ptrCast(self);
     }
-    pub fn asActionMap(self: *Self) *gio.ActionMap {
+    pub inline fn asActionMap(self: *Self) *gio.ActionMap {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

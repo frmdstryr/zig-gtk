@@ -42,7 +42,7 @@ pub const ObjectExpression = extern struct {
 
 
     // Bases
-    pub fn asExpression(self: *Self) *gtk.Expression {
+    pub inline fn asExpression(self: *Self) *gtk.Expression {
         return @ptrCast(self);
     }
 };

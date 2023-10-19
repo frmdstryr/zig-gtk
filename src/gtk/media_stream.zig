@@ -195,13 +195,13 @@ pub const MediaStream = extern struct {
 
 
     // Bases
-    pub fn asPaintable(self: *Self) *gdk.Paintable {
+    pub inline fn asPaintable(self: *Self) *gdk.Paintable {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

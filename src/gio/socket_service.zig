@@ -156,10 +156,10 @@ pub const SocketService = extern struct {
 
 
     // Bases
-    pub fn asSocketListener(self: *Self) *gio.SocketListener {
+    pub inline fn asSocketListener(self: *Self) *gio.SocketListener {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

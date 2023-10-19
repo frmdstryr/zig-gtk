@@ -146,16 +146,16 @@ pub const BoxLayout = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asLayoutManager(self: *Self) *gtk.LayoutManager {
+    pub inline fn asLayoutManager(self: *Self) *gtk.LayoutManager {
         return @ptrCast(self);
     }
-    pub fn asOrientable(self: *Self) *gtk.Orientable {
+    pub inline fn asOrientable(self: *Self) *gtk.Orientable {
         return @ptrCast(self);
     }
 };

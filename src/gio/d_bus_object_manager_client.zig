@@ -132,19 +132,19 @@ pub const DBusObjectManagerClient = extern struct {
 
 
     // Bases
-    pub fn asAsyncInitable(self: *Self) *gio.AsyncInitable {
+    pub inline fn asAsyncInitable(self: *Self) *gio.AsyncInitable {
         return @ptrCast(self);
     }
-    pub fn asDBusObjectManager(self: *Self) *gio.DBusObjectManager {
+    pub inline fn asDBusObjectManager(self: *Self) *gio.DBusObjectManager {
         return @ptrCast(self);
     }
-    pub fn asInitable(self: *Self) *gio.Initable {
+    pub inline fn asInitable(self: *Self) *gio.Initable {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

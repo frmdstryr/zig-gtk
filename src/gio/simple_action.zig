@@ -121,13 +121,13 @@ pub const SimpleAction = extern struct {
 
 
     // Bases
-    pub fn asAction(self: *Self) *gio.Action {
+    pub inline fn asAction(self: *Self) *gio.Action {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

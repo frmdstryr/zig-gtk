@@ -279,16 +279,16 @@ pub const Socket = extern struct {
 
 
     // Bases
-    pub fn asDatagramBased(self: *Self) *gio.DatagramBased {
+    pub inline fn asDatagramBased(self: *Self) *gio.DatagramBased {
         return @ptrCast(self);
     }
-    pub fn asInitable(self: *Self) *gio.Initable {
+    pub inline fn asInitable(self: *Self) *gio.Initable {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

@@ -177,19 +177,19 @@ pub const DBusProxy = extern struct {
 
 
     // Bases
-    pub fn asAsyncInitable(self: *Self) *gio.AsyncInitable {
+    pub inline fn asAsyncInitable(self: *Self) *gio.AsyncInitable {
         return @ptrCast(self);
     }
-    pub fn asDBusInterface(self: *Self) *gio.DBusInterface {
+    pub inline fn asDBusInterface(self: *Self) *gio.DBusInterface {
         return @ptrCast(self);
     }
-    pub fn asInitable(self: *Self) *gio.Initable {
+    pub inline fn asInitable(self: *Self) *gio.Initable {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

@@ -126,16 +126,16 @@ pub const VulkanContext = extern struct {
 
 
     // Bases
-    pub fn asDrawContext(self: *Self) *gdk.DrawContext {
+    pub inline fn asDrawContext(self: *Self) *gdk.DrawContext {
         return @ptrCast(self);
     }
-    pub fn asInitable(self: *Self) *gio.Initable {
+    pub inline fn asInitable(self: *Self) *gio.Initable {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

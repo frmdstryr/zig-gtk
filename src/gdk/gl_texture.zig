@@ -150,22 +150,22 @@ pub const GLTexture = extern struct {
 
 
     // Bases
-    pub fn asPaintable(self: *Self) *gdk.Paintable {
+    pub inline fn asPaintable(self: *Self) *gdk.Paintable {
         return @ptrCast(self);
     }
-    pub fn asTexture(self: *Self) *gdk.Texture {
+    pub inline fn asTexture(self: *Self) *gdk.Texture {
         return @ptrCast(self);
     }
-    pub fn asIcon(self: *Self) *gio.Icon {
+    pub inline fn asIcon(self: *Self) *gio.Icon {
         return @ptrCast(self);
     }
-    pub fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
+    pub inline fn asLoadableIcon(self: *Self) *gio.LoadableIcon {
         return @ptrCast(self);
     }
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

@@ -152,16 +152,16 @@ pub const FileChooserNative = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asFileChooser(self: *Self) *gtk.FileChooser {
+    pub inline fn asFileChooser(self: *Self) *gtk.FileChooser {
         return @ptrCast(self);
     }
-    pub fn asNativeDialog(self: *Self) *gtk.NativeDialog {
+    pub inline fn asNativeDialog(self: *Self) *gtk.NativeDialog {
         return @ptrCast(self);
     }
 };

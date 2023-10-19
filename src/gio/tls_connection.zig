@@ -207,10 +207,10 @@ pub const TlsConnection = extern struct {
 
 
     // Bases
-    pub fn asIOStream(self: *Self) *gio.IOStream {
+    pub inline fn asIOStream(self: *Self) *gio.IOStream {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

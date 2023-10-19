@@ -145,13 +145,13 @@ pub const StackPage = extern struct {
 
 
     // Bases
-    pub fn asGInterface(self: *Self) *gobject.GInterface {
+    pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asAccessible(self: *Self) *gtk.Accessible {
+    pub inline fn asAccessible(self: *Self) *gtk.Accessible {
         return @ptrCast(self);
     }
 };

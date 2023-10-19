@@ -125,10 +125,10 @@ pub const FontsetSimple = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asFontset(self: *Self) *pango.Fontset {
+    pub inline fn asFontset(self: *Self) *pango.Fontset {
         return @ptrCast(self);
     }
 };

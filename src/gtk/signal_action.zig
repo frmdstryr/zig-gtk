@@ -124,10 +124,10 @@ pub const SignalAction = extern struct {
 
 
     // Bases
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
-    pub fn asShortcutAction(self: *Self) *gtk.ShortcutAction {
+    pub inline fn asShortcutAction(self: *Self) *gtk.ShortcutAction {
         return @ptrCast(self);
     }
 };

@@ -205,10 +205,10 @@ pub const FilterOutputStream = extern struct {
 
 
     // Bases
-    pub fn asOutputStream(self: *Self) *gio.OutputStream {
+    pub inline fn asOutputStream(self: *Self) *gio.OutputStream {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };

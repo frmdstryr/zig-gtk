@@ -129,10 +129,10 @@ pub const DBusMenuModel = extern struct {
 
 
     // Bases
-    pub fn asMenuModel(self: *Self) *gio.MenuModel {
+    pub inline fn asMenuModel(self: *Self) *gio.MenuModel {
         return @ptrCast(self);
     }
-    pub fn asObject(self: *Self) *gobject.Object {
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 };
