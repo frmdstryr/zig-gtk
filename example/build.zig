@@ -45,6 +45,9 @@ pub fn build(b: *std.Build) void {
     });
     const gobject = b.createModule(.{
         .source_file = .{ .path = "deps/zig-gtk/src/gobject.zig" },
+        .dependencies = &.{
+            .{ .name = "glib", .module = glib },
+        },
     });
     const gio = b.createModule(.{
         .source_file = .{ .path = "deps/zig-gtk/src/gio.zig" },
