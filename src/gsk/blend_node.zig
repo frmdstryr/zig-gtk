@@ -1,15 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(BlendNode)
 const gsk = @import("../gsk.zig");
 const graphene = @import("graphene");
 const glib = @import("glib");
 const cairo = @import("cairo");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const BlendNode = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gsk_blend_node_new(bottom: *gsk.RenderNode, top: *gsk.RenderNode, blend_mode: gsk.BlendMode) ?*Self;

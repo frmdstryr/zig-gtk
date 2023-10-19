@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Color)
 const pango = @import("../pango.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Color = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    red: u16,
+    green: u16,
+    blue: u16,
 
     // Constructors
 

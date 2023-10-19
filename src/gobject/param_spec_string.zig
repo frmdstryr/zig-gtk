@@ -1,12 +1,31 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(ParamSpecString)
 const gobject = @import("../gobject.zig");
+const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const ParamSpecString = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_instance: *gobject.ParamSpec,
+    default_value: [*c]const u8,
+    cset_first: [*c]const u8,
+    cset_nth: [*c]const u8,
+    substitutor: i8,
+    null_fold_if_empty: u32,
+    ensure_non_null: u32,
+    g_type_instance: *gobject.TypeInstance,
+    name: [*c]const u8,
+    flags: *gobject.ParamFlags,
+    value_type: usize,
+    owner_type: usize,
+    _nick: [*c]const u8,
+    _blurb: [*c]const u8,
+    qdata: *glib.Data,
+    ref_count: u32,
+    param_id: u32,
 
     // Constructors
 

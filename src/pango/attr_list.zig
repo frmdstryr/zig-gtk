@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(AttrList)
 const pango = @import("../pango.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const AttrList = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn pango_attr_list_new() ?*Self;
@@ -23,7 +24,7 @@ pub const AttrList = extern struct {
     extern fn pango_attr_list_equal(self: *Self, other_list: *pango.AttrList) bool;
     pub const equal = pango_attr_list_equal;
 
-    extern fn pango_attr_list_filter(self: *Self, func: pango.AttrFilterFunc, data: ?*anyopaque) ?*pango.AttrList;
+    extern fn pango_attr_list_filter(self: *Self, func: *const fn (attribute: *pango.Attribute, user_data: ?*anyopaque) callconv(.C) bool, data: ?*anyopaque) ?*pango.AttrList;
     pub const filter = pango_attr_list_filter;
 
     // Binding disabled (unknown arg/return type)

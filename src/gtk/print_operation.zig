@@ -1,13 +1,20 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(PrintOperation)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const PrintOperation = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_instance: *gobject.Object,
+    priv: *gtk.PrintOperationPrivate,
+    g_type_instance: *gobject.TypeInstance,
+    ref_count: u32,
+    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_print_operation_new() ?*Self;
@@ -18,17 +25,26 @@ pub const PrintOperation = extern struct {
 
 
     // Methods
+    extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
+    pub const bindProperty = g_object_bind_property;
+
+    extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
+    pub const bindPropertyFull = g_object_bind_property_with_closures;
+
     extern fn gtk_print_operation_cancel(self: *Self) void;
     pub const cancel = gtk_print_operation_cancel;
 
     extern fn gtk_print_operation_draw_page_finish(self: *Self) void;
     pub const drawPageFinish = gtk_print_operation_draw_page_finish;
 
-    extern fn gtk_print_operation_preview_end_preview(self: *Self) void;
-    pub const endPreview = gtk_print_operation_preview_end_preview;
+    extern fn g_object_force_floating(self: *Self) void;
+    pub const forceFloating = g_object_force_floating;
 
-    extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
-    pub const findProperty = g_object_class_find_property;
+    extern fn g_object_freeze_notify(self: *Self) void;
+    pub const freezeNotify = g_object_freeze_notify;
+
+    extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const getData = g_object_get_data;
 
     extern fn gtk_print_operation_get_default_page_setup(self: *Self) ?*gtk.PageSetup;
     pub const getDefaultPageSetup = gtk_print_operation_get_default_page_setup;
@@ -48,6 +64,12 @@ pub const PrintOperation = extern struct {
     extern fn gtk_print_operation_get_print_settings(self: *Self) ?*gtk.PrintSettings;
     pub const getPrintSettings = gtk_print_operation_get_print_settings;
 
+    extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const getProperty = g_object_get_property;
+
+    extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const getQdata = g_object_get_qdata;
+
     extern fn gtk_print_operation_get_status(self: *Self) gtk.PrintStatus;
     pub const getStatus = gtk_print_operation_get_status;
 
@@ -60,32 +82,23 @@ pub const PrintOperation = extern struct {
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
-    pub const installProperties = g_object_class_install_properties;
-
-    extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
-    pub const installProperty = g_object_class_install_property;
-
     extern fn gtk_print_operation_is_finished(self: *Self) bool;
     pub const isFinished = gtk_print_operation_is_finished;
 
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn gtk_print_operation_preview_is_selected(self: *Self, page_nr: i32) bool;
-    pub const isSelected = gtk_print_operation_preview_is_selected;
-
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
-    pub const listProperties = g_object_class_list_properties;
-
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
-    extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
-    pub const overrideProperty = g_object_class_override_property;
+    extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
+    pub const notifyByPspec = g_object_notify_by_pspec;
 
-    extern fn gtk_print_operation_preview_render_page(self: *Self, page_nr: i32) void;
-    pub const renderPage = gtk_print_operation_preview_render_page;
+    extern fn g_object_ref(self: *Self) ?*gobject.Object;
+    pub const ref = g_object_ref;
+
+    extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
+    pub const refSink = g_object_ref_sink;
 
     extern fn gtk_print_operation_run(self: *Self, action: gtk.PrintOperationAction, parent: ?*gtk.Window) gtk.PrintOperationResult;
     pub const run = gtk_print_operation_run;
@@ -101,6 +114,9 @@ pub const PrintOperation = extern struct {
 
     extern fn gtk_print_operation_set_custom_tab_label(self: *Self, label: [*c]const u8) void;
     pub const setCustomTabLabel = gtk_print_operation_set_custom_tab_label;
+
+    extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
+    pub const setData = g_object_set_data;
 
     extern fn gtk_print_operation_set_default_page_setup(self: *Self, default_page_setup: ?*gtk.PageSetup) void;
     pub const setDefaultPageSetup = gtk_print_operation_set_default_page_setup;
@@ -126,6 +142,9 @@ pub const PrintOperation = extern struct {
     extern fn gtk_print_operation_set_print_settings(self: *Self, print_settings: ?*gtk.PrintSettings) void;
     pub const setPrintSettings = gtk_print_operation_set_print_settings;
 
+    extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const setProperty = g_object_set_property;
+
     extern fn gtk_print_operation_set_show_progress(self: *Self, show_progress: bool) void;
     pub const setShowProgress = gtk_print_operation_set_show_progress;
 
@@ -141,8 +160,20 @@ pub const PrintOperation = extern struct {
     extern fn gtk_print_operation_set_use_full_page(self: *Self, full_page: bool) void;
     pub const setUseFullPage = gtk_print_operation_set_use_full_page;
 
+    extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const stealData = g_object_steal_data;
+
+    extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const stealQdata = g_object_steal_qdata;
+
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
+
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
+
+    extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
+    pub const watchClosure = g_object_watch_closure;
 
 
     // Signals

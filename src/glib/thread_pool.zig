@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(ThreadPool)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const ThreadPool = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    func: *const fn (data: ?*anyopaque, user_data: ?*anyopaque) callconv(.C) void,
+    user_data: ?*anyopaque,
+    exclusive: bool,
 
     // Constructors
 

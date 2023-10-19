@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(DateTime)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const DateTime = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn g_date_time_new(tz: *glib.TimeZone, year: i32, month: i32, day: i32, hour: i32, minute: i32, seconds: f64) ?*Self;

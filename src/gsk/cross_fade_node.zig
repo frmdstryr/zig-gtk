@@ -1,15 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(CrossFadeNode)
 const gsk = @import("../gsk.zig");
 const graphene = @import("graphene");
 const glib = @import("glib");
 const cairo = @import("cairo");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const CrossFadeNode = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gsk_cross_fade_node_new(start: *gsk.RenderNode, end: *gsk.RenderNode, progress: f32) ?*Self;

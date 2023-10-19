@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(GLRendererClass)
 const gsk = @import("../gsk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const GLRendererClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 

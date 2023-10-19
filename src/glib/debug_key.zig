@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(DebugKey)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const DebugKey = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    key: [*c]const u8,
+    value: u32,
 
     // Constructors
 

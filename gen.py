@@ -99,6 +99,7 @@ TYPE_MAP = {
     "GError": "*glib.Error",
     "error": "*glib.Error",
     "glist": "*glib.List",
+    "ghash": "*glib.HashTable",
     # "array": "[*c][*c]const u8", # TODO: Determine constness
     "GType": "usize",
 }
@@ -151,109 +152,17 @@ METHOD_OVERRIDES: dict[type, dict[str, list[str]]] = {
 
 # List of methods to add
 EXTRA_METHODS: dict[type, list[str]] = {
-    Gtk.Application: [
-        "",
-        "    extern fn g_application_run(self: *Self, argc: c_int, [*c][*c]const u8) c_int;",
-        "    pub const run = g_application_run;",
-    ],
-    GObject.Object: [
-        "    extern fn g_object_unref(self: *Self) void;",
-        "    pub const unref = g_object_unref;",
-    ],
 }
 
 # Lines added to the top of each api file
 EXTRA_API_IMPORTS: dict[str, list[str]] = {
-    "Gio": [
-        'const glib = @import("glib");',
-        'const gobject = @import("gobject");',
-    ],
-    "Gtk": [
-        'const glib = @import("glib");',
-        'const gobject = @import("gobject");',
-        'const gdk = @import("gdk");',
-        'const pango = @import("pango");',
-        'const cairo = @import("cairo");',
-    ],
 }
 
 EXTRA_API_DEFS: dict[str, list[str]] = {
-    "GLib": [
-        "pub const SourceFunc = *const fn(data: ?*anyopaque) callconv(.C) bool;",
-        "pub const ThreadFunc = *const fn(data: ?*anyopaque) callconv(.C) ?*anyopaque;",
-        "pub const SpawnChildSetupFunc = *const fn(data: ?*anyopaque) callconv(.C) void;",
-        "pub const CompareDataFunc = *const fn(a: ?*const anyopaque, b: ?*const anyopaque, data: ?*anyopaque) callconv(.C) c_int;",
-        "pub const EqualFunc = *const fn(a: ?*const anyopaque, b: ?*const anyopaque) callconv(.C) bool;",
-        "pub const DestroyNotify = *const fn(data: ?*anyopaque) callconv(.C) void;",
-    ],
-    "GObject": [
-        "pub const Callback = *const fn() callconv(.C) void;",
-        "pub const ClosureNotify = *const fn(data: ?*anyopaque, closure: *Closure) callconv(.C) void;",
-        "pub const ClosureMarshal = *const fn(closure: *Closure, return_value: ?*Value, n_param_values: u32, param_values: [*c]*Value, invocation_hint: ?*anyopaque, marshal_data: ?*anyopaque) callconv(.C) void;",
-    ],
-    "Gio": [
-        "pub const AsyncReadyCallback = *const fn(source_object: ?*gobject.Object, res: *AsyncResult, data: ?*anyopaque) callconv(.C) void;",
-        "pub const DBusMessageFilterFunction = *const fn(connection: *DBusConnection, message: *DBusMessage, incoming: bool, data: ?*anyopaque) callconv(.C) ?*DBusMessage;",
-        "pub const DBusProxyTypeFunc = *const fn(manager: *DBusObjectManagerClient, object_path: [*c]const u8, interface_name: [*c]const u8, data: ?*anyopaque) callconv(.C) usize;",
-        "pub const DBusSignalCallback = *const fn(connection: *DBusConnection, sender_name: [*c]const u8, object_path: [*c]const u8, interface_name: [*c]const u8, signal_name: [*c]const u8, parameters: [*c]glib.Variant, data: ?*anyopaque) callconv(.C) void;",
-        "pub const DesktopAppLaunchCallback = *const fn(appinfo: *DesktopAppInfo, pid: i32, data: ?*anyopaque) callconv(.C) void;",
-        "pub const FileProgressCallback = *const fn(current_num_bytes: usize, total_num_bytes: usize, data: ?*anyopaque) callconv(.C) void;",
-        "pub const FileMeasureProgressCallback = *const fn(reporting: bool, current_size: u64, num_dirs: u64, num_files: u64, data: ?*anyopaque) callconv(.C) void;",
-        "pub const SettingsGetMapping = *const fn(value: ?*glib.Variant, result: ?*anyopaque, data: ?*anyopaque) callconv(.C) bool;",
-        "pub const TaskThreadFunc = *const fn(task: *Task, source_object: *gobject.Object, task_data: ?*anyopaque, cancellable: ?*Cancellable) callconv(.C) void;",
-        "pub const VfsFileLookupFunc = *const fn(vfs: *Vfs, identifier: [*c]const u8, user_data: ?*anyopaque) callconv(.C) ?*File;",
-    ],
     "Gtk": [
-        "pub const AssistantPageFunc = *const fn(current_page: c_int, data: ?*anyopaque) callconv(.C) c_int;",
-        "pub const CellCallback = *const fn(renderer: *CellRenderer, data: ?*anyopaque) callconv(.C) bool;",
-        "pub const CellAllocCallback = *const fn(renderer: *CellRenderer, cell_area: *const gdk.Rectangle, cell_background: *const gdk.Rectangle, data: ?*anyopaque) callconv(.C) bool;",
-        "pub const CellLayoutDataFunc = *const fn(cell_layout: *CellLayout, cell: *CellRenderer, tree_model: *TreeModel, iter: *TreeIter, data: ?*anyopaque) callconv(.C) void;",
-        "pub const CustomRequestModeFunc = *const fn(widget: *Widget) callconv(.C) @This().SizeRequestMode;",
-        "pub const CustomFilterFunc = *const fn(item: *gobject.Object, user_data: ?*anyopaque) callconv(.C) bool;",
-        "pub const CustomMeasureFunc = *const fn(widget: *Widget, orientation: @This().Orientation, for_size: c_int, minimum: *c_int, natural: *c_int, minimum_baseline: *c_int, natural_baseline: *c_int) callconv(.C) void;",
-        "pub const CustomAllocateFunc = *const fn(widget: *Widget, width: c_int, height: c_int, baseline: c_int) callconv(.C) void;",
-        "pub const DrawingAreaDrawFunc = *const fn(drawing_area: *DrawingArea, cr: *cairo.Context, width: c_int, height: c_int, user_data: ?*anyopaque) callconv(.C) void;",
-        "pub const EntryCompletionMatchFunc = *const fn(completion: *EntryCompletion, key: [*c]const u8, iter: *TreeIter, data: ?*anyopaque) callconv(.C) bool;",
-        "pub const ExpressionNotify = *const fn(data: ?*anyopaque) callconv(.C) void;",
-        "pub const FlowBoxCreateWidgetFunc = *const fn(item: *gobject.Object, user_data: ?*anyopaque) callconv(.C) ?*Widget;",
-        "pub const FlowBoxForeachFunc = *const fn(box: *FlowBox, child: *FlowBoxChild, user_data: ?*anyopaque) callconv(.C) void;",
-        "pub const FlowBoxFilterFunc = *const fn(child: *FlowBoxChild, user_data: ?*anyopaque) callconv(.C) bool;",
-        "pub const FlowBoxSortFunc = *const fn(child1: *FlowBoxChild, child2: *FlowBoxChild, user_data: ?*anyopaque) callconv(.C) c_int;",
-        "pub const FontFilterFunc = *const fn(family: *pango.FontFamily, face: *pango.FontFace, data: ?*anyopaque) callconv(.C) bool;",
-        "pub const IconViewForeachFunc = *const fn(icon_view: *IconView, path: *TreePath, data: ?*anyopaque) callconv(.C) void;",
-        "pub const ListBoxCreateWidgetFunc = *const fn(item: *gobject.Object, data: ?*anyopaque) callconv(.C) ?*Widget;",
-        "pub const ListBoxForeachFunc = *const fn(box: *ListBox, row: *ListBoxRow, data: ?*anyopaque) callconv(.C) void;",
-        "pub const ListBoxFilterFunc = *const fn(row: *ListBoxRow, data: ?*anyopaque) callconv(.C) bool;",
-        "pub const ListBoxUpdateHeaderFunc = *const fn(row: *ListBoxRow, before: ?*ListBoxRow, data: ?*anyopaque) callconv(.C) void;",
-        "pub const ListBoxSortFunc = *const fn(row1: *ListBoxRow, row1: *ListBoxRow, data: ?*anyopaque) callconv(.C) c_int;",
-        "pub const MenuButtonCreatePopupFunc = *const fn(menu_button: *MenuButton, user_data: ?*anyopaque) callconv(.C) void;",
-        "pub const MapListModelMapFunc = *const fn(item: *gobject.Object, user_data: ?*anyopaque) callconv(.C) ?*gobject.Object;",
-        "pub const PrintJobCompleteFunc = *const fn(print_job: *PrintJob, user_data: ?*anyopaque, print_error: ?*gobject.Error) callconv(.C) void;",
-        "pub const PrintSettingsFunc = *const fn(key: [*c]const u8, value: [*c]const u8, data: ?*anyopaque) callconv(.C) void;",
-        "pub const ShortcutFunc = *const fn(widget: *Widget, args: ?*glib.Variant, user_data: ?*anyopaque) callconv(.C) bool;",
-        "pub const ScaleFormatValueFunc = *const fn(scale: *Scale, value: f64, user_data: ?*anyopaque) callconv(.C) [*c]u8;",
-        "pub const TextCharPredicate = *const fn(ch: u16, data: ?*anyopaque) callconv(.C) bool;",
-        "pub const TextTagTableForeach = *const fn(tag: *TextTag, data: ?*anyopaque) callconv(.C) void;",
-        "pub const TickCallback = *const fn(widget: *Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool;",
-        "pub const TreeListModelCreateModelFunc = *const fn(item: *gobject.Object, data: ?*anyopaque) callconv(.C) ?*TreeListModel;",
-        "pub const TreeSelectionFunc = *const fn(model: *TreeSelection, path: *TreePath, path_currently_selected: bool, data: ?*anyopaque) callconv(.C) bool;",
-        "pub const TreeSelectionForeachFunc = *const fn(model: *TreeModel, path: *TreePath, iter: *TreeIter, data: ?*anyopaque) callconv(.C) void;",
-        "pub const TreeModelFilterModifyFunc = *const fn(model: *TreeModel, iter: *TreeIter, value: *gobject.Value, column: c_int, data: ?*anyopaque) callconv(.C) void;",
-        "pub const TreeModelForeachFunc = *const fn(model: *TreeModel, path: *TreePath, iter: *TreeIter, data: ?*anyopaque) callconv(.C) bool;",
-        "pub const TreeViewSearchEqualFunc = *const fn(model: *TreeModel, column: c_int, key: [*c]const u8, iter: *TreeIter, data: ?*anyopaque) callconv(.C) bool;",
-        "pub const TreeViewRowSeparatorFunc = *const fn(model: *TreeModel, iter: *TreeIter, data: ?*anyopaque) callconv(.C) bool;",
-        "pub const TreeViewColumnDropFunc = *const fn(tree_view: *TreeView, column: *TreeViewColumn, prev_column: *TreeViewColumn, next_column: *TreeViewColumn,data: ?*anyopaque) callconv(.C) bool;",
-        "pub const TreeViewMappingFunc = *const fn(tree_view: *TreeView, path: *TreePath, data: ?*anyopaque) callconv(.C) void;",
-        "pub const TreeCellDataFunc = *const fn(tree_column: *TreeViewColumn, cell: *CellRenderer, tree_model: *TreeModel, iter: *TreeIter, data: ?*anyopaque) callconv(.C) void;",
-        "pub const WidgetActionActivateFunc = *const fn(widget: *Widget, action_name: [*c]const u8, parameter: ?*glib.Variant) callconv(.C) void;",
         "",
         "extern fn gtk_init() void;",
         "pub const init = gtk_init;",
-    ],
-    "Pango": [
-        "pub const AttrDataCopyFunc = *const fn(data: ?*const anyopaque) callconv(.C) ?*anyopaque;",
-        "pub const AttrFilterFunc = *const fn(attribute: *Attribute, data: ?*anyopaque) callconv(.C) bool;",
-        "pub const FontsetForeachFunc = *const fn(fontset: *Fontset, font: *Font, data: ?*anyopaque) callconv(.C) bool;",
     ],
 }
 
@@ -365,16 +274,19 @@ def clean_zig_name(name: str) -> str:
     return name
 
 
-def func_arg_type(func, arg) -> Optional[str]:
+def func_arg_type(func, arg, imports: set[str]) -> Optional[str]:
     atype = arg.get_type()
     t = atype.get_tag_as_string()
     if t == "void" and atype.is_pointer():
         return "?*anyopaque"
     if t in TYPE_MAP:
-        return TYPE_MAP[t]
-    if t == "interface" and (it := interface_type_to_string(atype)):
+        r = TYPE_MAP[t]
+        if '.' in r:
+            imports.add(r.split(".")[0].strip("?*"))
+        return r
+    if t == "interface" and (it := interface_type_to_string(atype, imports)):
         if arg.is_caller_allocates() and not it.startswith("*"):
-            it = f"*{it}" # Arg is modification?
+            it = f"*{it}"  # Arg is modification?
         if it.startswith("*") and arg.may_be_null():
             return f"?{it}"
         return it
@@ -383,7 +295,7 @@ def func_arg_type(func, arg) -> Optional[str]:
         pt = ptype.get_tag_as_string()
         if pt in TYPE_MAP:
             return f"[*c]{TYPE_MAP[pt]}"
-        elif pt == "interface" and (it := interface_type_to_string(ptype)):
+        elif pt == "interface" and (it := interface_type_to_string(ptype, imports)):
             return f"[*c]{it}"
         t = f"[]{pt}"
     if t not in UNKNOWN_TYPES:
@@ -392,27 +304,40 @@ def func_arg_type(func, arg) -> Optional[str]:
     return None
 
 
-def interface_type_to_string(type_info) -> Optional[str]:
+def interface_type_to_string(type_info, imports: set[str]) -> Optional[str]:
     i = type_info.get_interface()
+    if str(i).startswith("gi.CallbackInfo"):
+        args = []
+        rtype = func_return_type(i, imports)
+        for arg in i.get_arguments():
+            arg_name = clean_zig_name(arg.get_name())
+            arg_type = func_arg_type(i, arg, imports)
+            args.append(f"{arg_name}: {arg_type}")
+        return "*const fn (%s) callconv(.C) %s" % (", ".join(args), rtype)
     ptr = "*" if type_info.is_pointer() else ""
-    return f"{ptr}{i.get_namespace().lower()}.{i.get_name()}"
+    mod = i.get_namespace().lower()
+    imports.add(mod)
+    return f"{ptr}{mod}.{i.get_name()}"
 
 
-def func_return_type(func) -> Optional[str]:
+def func_return_type(func, imports: set[str]) -> Optional[str]:
     rtype = func.get_return_type()
     t = rtype.get_tag_as_string()
     if t == "void" and rtype.is_pointer():
         return "?*anyopaque"
     if t in TYPE_MAP:
-        return TYPE_MAP[t]
-    if t == "interface" and (it := interface_type_to_string(rtype)):
+        r =  TYPE_MAP[t]
+        if '.' in r:
+            imports.add(r.split(".")[0].strip("?*"))
+        return r
+    if t == "interface" and (it := interface_type_to_string(rtype, imports)):
         return it
     if t == "array":
         ptype = rtype.get_param_type(0)
         pt = ptype.get_tag_as_string()
         if pt in TYPE_MAP:
             return f"[*c]{TYPE_MAP[pt]}"
-        if pt == "interface" and (it := interface_type_to_string(ptype)):
+        if pt == "interface" and (it := interface_type_to_string(ptype, imports)):
             return f"[*c]{it}"
         t = f"[]{pt}"
     if t not in UNKNOWN_TYPES:
@@ -421,65 +346,122 @@ def func_return_type(func) -> Optional[str]:
     return None
 
 
+def struct_field_type(field, imports: set[str]) -> Optional[str]:
+    ftype = field.get_type()
+    t = ftype.get_tag_as_string()
+    if t == "void" and ftype.is_pointer():
+        return "?*anyopaque"
+    if t in TYPE_MAP:
+        return TYPE_MAP[t]
+    if t == "interface" and (it := interface_type_to_string(ftype, imports)):
+        if not it.startswith("*"):
+            return f"*{it}"
+        return it
+    if t == "array":
+        ptype = ftype.get_param_type(0)
+        pt = ptype.get_tag_as_string()
+        if pt in TYPE_MAP:
+            if pt == "void":
+                return "?*anyopaque"; # HACK for [*c]void
+            return f"[*c]{TYPE_MAP[pt]}"
+        if pt == "interface" and (it := interface_type_to_string(ptype, imports)):
+            if it == "gobject._Value__data__union":
+                return "?*anyopaque" # Hack for [*c]gobject._Value__data__union
+            return f"[*c]{it}"
+        t = f"[]{pt}"
+    if t not in UNKNOWN_TYPES:
+        UNKNOWN_TYPES.add(t)
+    print(f"  Unknown field type {field} ({t})")
+    return None
+
+
+def all_parents(info):
+    """ Retrieve info and all parents """
+    parent = info
+    mro = []
+    while parent is not None:
+        mro.append(parent)
+        if not hasattr(parent, "get_parent"):
+            break # StructInfo
+        parent = parent.get_parent()
+
+    return mro
+
 def generate_class(ns: str, Cls: type):
     print(f"Generating class {Cls}")
+    info = getattr(Cls, "__info__", None)
+
     out = HEADER_LINES + [
+        f'// {info}',
         'const std = @import("std");',
         'const c = @import("c.zig");',
         "",
         "pub const %s = extern struct {" % Cls.__name__,
         "    const Self = @This();",
         "",
-        "    parent_instance: *anyopaque,",
     ]
-    namespace = ns.lower()
-    if namespace in ("gio", "glib", "gobject"):
-        namespace = "g"
+    if info is None:
+        out.append("};")
+        return out # TODO What is this??
 
-    prefix = f"{namespace}_{snake_case(Cls.__name__)}"
     imports = {ns.lower()}
     constructors = []
     methods = []
     has_connect = False
-    for name in dir(Cls):
-        if name.startswith("_"):
-            continue
-        f = getattr(Cls, name)
-        if name == "connect":
-            has_connect = True
-        if not str(f).startswith("gi.FunctionInfo"):
-            continue
 
-        symbol = f.get_symbol()
-        # if not symbol.startswith(prefix):
-        #    continue # Do not include inherited methods
+    mro = all_parents(info)
 
-        if f.is_constructor():
-            constructors.append(f)
-        elif f.is_method():
-            methods.append(f)
-        # Else what is it??
+    out.append("    // Fields")
+    field_names = set()
+    for obj_info in mro:
+        if hasattr(obj_info, "get_fields"):
+            for field in obj_info.get_fields():
+                field_type = struct_field_type(field, imports)
+                if field_type in ("*glib.error", "*gtk.error"):
+                    field_type = "*gobject.Error"
+                field_name = clean_zig_name(field.get_name())
+                if field_name not in field_names:
+                    field_names.add(field_name)
+                    if field_type is None:
+                        field_type = "?*anyopaque" # FIXME
+                    # HACK OUT harfbuzz for now...
+                    if "*const fn" in field_type and "[*c]harfbuzz.feature_t" in field_type:
+                        out.append("    // Warning [*c]harfbuzz.feature_t replaced ")
+                        field_type = field_type.replace("[*c]harfbuzz.feature_t", "?*anyopaque")
+                    if "*const fn" in field_type and "*harfbuzz.font_t" in field_type:
+                        out.append("    // Warning *harfbuzz.font_t replaced ")
+                        field_type = field_type.replace("*harfbuzz.font_t", "*anyopaque")
+                    out.append("    %s: %s," % (field_name, field_type))
 
-    def maybe_add_import(arg_type) -> Optional[str]:
-        if arg_type and "." in arg_type:
-            if arg_type.startswith("[*c]"):
-                arg_type = arg_type[4:]
-            mod = arg_type.split(".")[0].strip("?*").lower()
-            imports.add(mod)
-            return mod
+
+    if hasattr(Cls, "connect"):
+        has_connect = True
+
+    function_names = set()
+    for obj_info in mro:
+        if hasattr(obj_info, "get_methods"):
+            for f in obj_info.get_methods():
+                func_name = f.get_name()
+                if func_name not in function_names:
+                    function_names.add(func_name)
+                    if f.is_constructor():
+                        constructors.append(f)
+                    elif f.is_method():
+                        methods.append(f)
+                    # Else what is it??
 
     out.append("")
     out.append("    // Constructors")
+    constructors.sort(key=lambda f: f.get_name())
     for f in constructors:
         name = clean_zig_name(camel_case(f.get_name()))
         args = []
         rtype = "?*Self"
         comment = ""
         for arg in f.get_arguments():
-            arg_type = func_arg_type(f, arg)
+            arg_type = func_arg_type(f, arg, imports)
             if arg_type is None:
                 comment = "// "
-            maybe_add_import(arg_type)
             arg_name = clean_zig_name(arg.get_name())
             args.append(f"{arg_name}: {arg_type}")
         if comment:
@@ -495,6 +477,7 @@ def generate_class(ns: str, Cls: type):
     out.append("    // Methods")
     used = set()
     method_overrides = METHOD_OVERRIDES.get(Cls, {})
+    methods.sort(key=lambda f: f.get_name())
     for f in methods:
         name = clean_zig_name(camel_case(f.get_name()))
 
@@ -505,21 +488,26 @@ def generate_class(ns: str, Cls: type):
 
         comment = ""
         import_excluded = False
-        rtype = func_return_type(f)
+        rtype = func_return_type(f, imports)
         if rtype and rtype.startswith("*"):
             rtype = "?" + rtype  # Make optional
-        maybe_add_import(rtype)
         args = ["self: *Self"]
         if rtype is None:
             comment = "// "
         for arg in f.get_arguments():
-            arg_type = func_arg_type(f, arg)
-            if (mod := maybe_add_import(arg_type)) and mod in EXCLUDED_IMPORTS:
-                import_excluded = True
+            arg_type = func_arg_type(f, arg, imports)
             if arg_type is None:
                 comment = "// "
             arg_name = clean_zig_name(arg.get_name())
             args.append(f"{arg_name}: {arg_type}")
+
+        # Check if any new imports were added by the fn that
+        # should be excluded
+        for mod in EXCLUDED_IMPORTS:
+            if mod in imports:
+                import_excluded = True
+                imports.remove(mod)
+
         if comment:
             out.append("    // Binding disabled (unknown arg/return type)")
         elif name in used:
@@ -543,9 +531,10 @@ def generate_class(ns: str, Cls: type):
     if has_connect:
         out.append(SIGNAL_METHODS)
     bases = expand_bases(Cls)
+    this_cls = f"{ns.lower()}.{Cls.__name__}"
+    if this_cls in bases:
+        bases.remove(this_cls)
     if bases:
-        if Cls is Gtk.Widget:
-            bases.remove("gtk.Widget")
         out.append("")
         out.append("    // Bases")
         for name in sorted(list(bases)):

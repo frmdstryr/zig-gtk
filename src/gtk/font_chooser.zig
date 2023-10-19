@@ -1,15 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// InterfaceInfo(FontChooser)
 const pango = @import("pango");
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
-const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const FontChooser = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 
@@ -47,7 +47,7 @@ pub const FontChooser = extern struct {
     extern fn gtk_font_chooser_get_show_preview_entry(self: *Self) bool;
     pub const getShowPreviewEntry = gtk_font_chooser_get_show_preview_entry;
 
-    extern fn gtk_font_chooser_set_filter_func(self: *Self, filter: gtk.FontFilterFunc, user_data: ?*anyopaque, destroy: glib.DestroyNotify) void;
+    extern fn gtk_font_chooser_set_filter_func(self: *Self, filter: ?*const fn (family: *pango.FontFamily, face: *pango.FontFace, data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, destroy: *const fn (data: ?*anyopaque) callconv(.C) void) void;
     pub const setFilterFunc = gtk_font_chooser_set_filter_func;
 
     extern fn gtk_font_chooser_set_font(self: *Self, fontname: [*c]const u8) void;

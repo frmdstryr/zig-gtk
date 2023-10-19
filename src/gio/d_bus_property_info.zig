@@ -1,12 +1,18 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(DBusPropertyInfo)
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const DBusPropertyInfo = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    ref_count: i32,
+    name: [*c]const u8,
+    signature: [*c]const u8,
+    flags: *gio.DBusPropertyInfoFlags,
+    annotations: [*c]*gio.DBusAnnotationInfo,
 
     // Constructors
 

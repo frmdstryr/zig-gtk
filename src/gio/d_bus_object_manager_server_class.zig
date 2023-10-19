@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(DBusObjectManagerServerClass)
+const gobject = @import("gobject");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const DBusObjectManagerServerClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_class: *gobject.ObjectClass,
+    padding: ?*anyopaque,
 
     // Constructors
 

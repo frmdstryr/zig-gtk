@@ -1,16 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(OutsetShadowNode)
 const gsk = @import("../gsk.zig");
 const graphene = @import("graphene");
 const glib = @import("glib");
 const gdk = @import("gdk");
 const cairo = @import("cairo");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const OutsetShadowNode = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gsk_outset_shadow_node_new(outline: *gsk.RoundedRect, color: *gdk.RGBA, dx: f32, dy: f32, spread: f32, blur_radius: f32) ?*Self;

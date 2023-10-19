@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Device)
 const cairo = @import("../cairo.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Device = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 

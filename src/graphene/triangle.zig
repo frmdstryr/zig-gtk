@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Triangle)
 const graphene = @import("../graphene.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Triangle = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    a: *graphene.Vec3,
+    b: *graphene.Vec3,
+    c: *graphene.Vec3,
 
     // Constructors
     extern fn graphene_triangle_alloc() ?*Self;

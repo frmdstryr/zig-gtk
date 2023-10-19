@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(KeymapKey)
 const gdk = @import("../gdk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const KeymapKey = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    keycode: u32,
+    group: i32,
+    level: i32,
 
     // Constructors
 

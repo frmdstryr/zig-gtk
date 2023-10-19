@@ -1,13 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(RoundedRect)
 const gsk = @import("../gsk.zig");
 const graphene = @import("graphene");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const RoundedRect = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    bounds: *graphene.Rect,
+    corner: [*c]graphene.Size,
 
     // Constructors
 

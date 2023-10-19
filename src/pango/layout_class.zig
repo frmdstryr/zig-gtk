@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(LayoutClass)
 const pango = @import("../pango.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const LayoutClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 

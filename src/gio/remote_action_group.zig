@@ -1,14 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// InterfaceInfo(RemoteActionGroup)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const RemoteActionGroup = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 

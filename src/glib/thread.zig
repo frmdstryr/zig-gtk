@@ -1,18 +1,19 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Thread)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Thread = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
-    extern fn g_thread_new(name: [*c]const u8, func: glib.ThreadFunc, data: ?*anyopaque) ?*Self;
+    extern fn g_thread_new(name: [*c]const u8, func: *const fn (data: ?*anyopaque) callconv(.C) ?*anyopaque, data: ?*anyopaque) ?*Self;
     pub const new = g_thread_new;
 
-    extern fn g_thread_try_new(name: [*c]const u8, func: glib.ThreadFunc, data: ?*anyopaque) ?*Self;
+    extern fn g_thread_try_new(name: [*c]const u8, func: *const fn (data: ?*anyopaque) callconv(.C) ?*anyopaque, data: ?*anyopaque) ?*Self;
     pub const tryNew = g_thread_try_new;
 
 

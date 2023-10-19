@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(VariantType)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const VariantType = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn g_variant_type_new(type_string: [*c]const u8) ?*Self;

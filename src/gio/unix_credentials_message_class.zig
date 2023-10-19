@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(UnixCredentialsMessageClass)
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const UnixCredentialsMessageClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_class: *gio.SocketControlMessageClass,
+    _g_reserved1: ?*anyopaque,
+    _g_reserved2: ?*anyopaque,
 
     // Constructors
 

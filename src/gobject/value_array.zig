@@ -1,13 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(ValueArray)
 const gobject = @import("../gobject.zig");
-const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const ValueArray = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    n_values: u32,
+    values: *gobject.Value,
+    n_prealloced: u32,
 
     // Constructors
     extern fn g_value_array_new(n_prealloced: u32) ?*Self;
@@ -33,7 +36,7 @@ pub const ValueArray = extern struct {
     extern fn g_value_array_remove(self: *Self, index_: u32) ?*gobject.ValueArray;
     pub const remove = g_value_array_remove;
 
-    extern fn g_value_array_sort_with_data(self: *Self, compare_func: glib.CompareDataFunc, user_data: ?*anyopaque) ?*gobject.ValueArray;
+    extern fn g_value_array_sort_with_data(self: *Self, compare_func: *const fn (a: ?*anyopaque, b: ?*anyopaque, user_data: ?*anyopaque) callconv(.C) i32, user_data: ?*anyopaque) ?*gobject.ValueArray;
     pub const sort = g_value_array_sort_with_data;
 
 };

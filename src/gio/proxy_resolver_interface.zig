@@ -1,12 +1,19 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(ProxyResolverInterface)
+const gobject = @import("gobject");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const ProxyResolverInterface = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_iface: *gobject.TypeInterface,
+    is_supported: *const fn (resolver: *gio.ProxyResolver) callconv(.C) bool,
+    lookup: *const fn (resolver: *gio.ProxyResolver, uri: [*c]const u8, cancellable: ?*gio.Cancellable) callconv(.C) [*c][*c]const u8,
+    lookup_async: *const fn (resolver: *gio.ProxyResolver, uri: [*c]const u8, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) callconv(.C) void,
+    lookup_finish: *const fn (resolver: *gio.ProxyResolver, result: *gio.AsyncResult) callconv(.C) [*c][*c]const u8,
 
     // Constructors
 

@@ -1,18 +1,9 @@
 // This file is auto generated do not edit
+// None
 const std = @import("std");
-const glib = @import("../glib.zig");
 const c = @import("c.zig");
 
 pub const Pid = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
-
-    // Constructors
-
-    // Methods
 };
-
-test {
-    std.testing.refAllDecls(Pid);
-}

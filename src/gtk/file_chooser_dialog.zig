@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(FileChooserDialog)
 const pango = @import("pango");
 const gtk = @import("../gtk.zig");
 const gsk = @import("gsk");
@@ -9,12 +9,18 @@ const glib = @import("glib");
 const gio = @import("gio");
 const gdk = @import("gdk");
 const cairo = @import("cairo");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const FileChooserDialog = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_instance: *gtk.Window,
+    priv: *gtk.WidgetPrivate,
+    g_type_instance: *gobject.TypeInstance,
+    ref_count: u32,
+    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_dialog_new() ?*Self;
@@ -43,38 +49,26 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_dialog_add_button(self: *Self, button_text: [*c]const u8, response_id: i32) ?*gtk.Widget;
     pub const addButton = gtk_dialog_add_button;
 
-    extern fn gtk_file_chooser_add_choice(self: *Self, id: [*c]const u8, label: [*c]const u8, options: [*c][*c]const u8, option_labels: [*c][*c]const u8) void;
-    pub const addChoice = gtk_file_chooser_add_choice;
-
     extern fn gtk_widget_add_controller(self: *Self, controller: *gtk.EventController) void;
     pub const addController = gtk_widget_add_controller;
 
     extern fn gtk_widget_add_css_class(self: *Self, css_class: [*c]const u8) void;
     pub const addCssClass = gtk_widget_add_css_class;
 
-    extern fn gtk_file_chooser_add_filter(self: *Self, filter: *gtk.FileFilter) void;
-    pub const addFilter = gtk_file_chooser_add_filter;
-
     extern fn gtk_widget_add_mnemonic_label(self: *Self, label: *gtk.Widget) void;
     pub const addMnemonicLabel = gtk_widget_add_mnemonic_label;
 
-    extern fn gtk_widget_class_add_shortcut(self: *Self, shortcut: *gtk.Shortcut) void;
-    pub const addShortcut = gtk_widget_class_add_shortcut;
-
-    extern fn gtk_file_chooser_add_shortcut_folder(self: *Self, folder: *gio.File) bool;
-    pub const addShortcutFolder = gtk_file_chooser_add_shortcut_folder;
-
-    extern fn gtk_widget_add_tick_callback(self: *Self, callback: gtk.TickCallback, user_data: ?*anyopaque, notify: glib.DestroyNotify) u32;
+    extern fn gtk_widget_add_tick_callback(self: *Self, callback: *const fn (widget: *gtk.Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify: *const fn (data: ?*anyopaque) callconv(.C) void) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
     extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
     pub const allocate = gtk_widget_allocate;
 
-    extern fn gtk_widget_class_bind_template_callback_full(self: *Self, callback_name: [*c]const u8, callback_symbol: gobject.Callback) void;
-    pub const bindTemplateCallbackFull = gtk_widget_class_bind_template_callback_full;
+    extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
+    pub const bindProperty = g_object_bind_property;
 
-    extern fn gtk_widget_class_bind_template_child_full(self: *Self, name: [*c]const u8, internal_child: bool, struct_offset: i64) void;
-    pub const bindTemplateChildFull = gtk_widget_class_bind_template_child_full;
+    extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
+    pub const bindPropertyFull = g_object_bind_property_with_closures;
 
     extern fn gtk_widget_child_focus(self: *Self, direction: gtk.DirectionType) bool;
     pub const childFocus = gtk_widget_child_focus;
@@ -112,23 +106,17 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_error_bell(self: *Self) void;
     pub const errorBell = gtk_widget_error_bell;
 
-    extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
-    pub const findProperty = g_object_class_find_property;
+    extern fn g_object_force_floating(self: *Self) void;
+    pub const forceFloating = g_object_force_floating;
+
+    extern fn g_object_freeze_notify(self: *Self) void;
+    pub const freezeNotify = g_object_freeze_notify;
 
     extern fn gtk_window_fullscreen(self: *Self) void;
     pub const fullscreen = gtk_window_fullscreen;
 
     extern fn gtk_window_fullscreen_on_monitor(self: *Self, monitor: *gdk.Monitor) void;
     pub const fullscreenOnMonitor = gtk_window_fullscreen_on_monitor;
-
-    extern fn gtk_accessible_get_accessible_role(self: *Self) gtk.AccessibleRole;
-    pub const getAccessibleRole = gtk_accessible_get_accessible_role;
-
-    extern fn gtk_file_chooser_get_action(self: *Self) gtk.FileChooserAction;
-    pub const getAction = gtk_file_chooser_get_action;
-
-    extern fn gtk_widget_class_get_activate_signal(self: *Self) u32;
-    pub const getActivateSignal = gtk_widget_class_get_activate_signal;
 
     extern fn gtk_widget_get_allocated_baseline(self: *Self) i32;
     pub const getAllocatedBaseline = gtk_widget_get_allocated_baseline;
@@ -148,9 +136,6 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_window_get_application(self: *Self) ?*gtk.Application;
     pub const getApplication = gtk_window_get_application;
 
-    extern fn gtk_buildable_get_buildable_id(self: *Self) [*c]const u8;
-    pub const getBuildableId = gtk_buildable_get_buildable_id;
-
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -163,17 +148,11 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_get_child_visible(self: *Self) bool;
     pub const getChildVisible = gtk_widget_get_child_visible;
 
-    extern fn gtk_file_chooser_get_choice(self: *Self, id: [*c]const u8) [*c]const u8;
-    pub const getChoice = gtk_file_chooser_get_choice;
-
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
 
     extern fn gtk_dialog_get_content_area(self: *Self) ?*gtk.Box;
     pub const getContentArea = gtk_dialog_get_content_area;
-
-    extern fn gtk_file_chooser_get_create_folders(self: *Self) bool;
-    pub const getCreateFolders = gtk_file_chooser_get_create_folders;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -181,14 +160,11 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_get_css_name(self: *Self) [*c]const u8;
     pub const getCssName = gtk_widget_get_css_name;
 
-    extern fn gtk_file_chooser_get_current_folder(self: *Self) ?*gio.File;
-    pub const getCurrentFolder = gtk_file_chooser_get_current_folder;
-
-    extern fn gtk_file_chooser_get_current_name(self: *Self) [*c]const u8;
-    pub const getCurrentName = gtk_file_chooser_get_current_name;
-
     extern fn gtk_widget_get_cursor(self: *Self) ?*gdk.Cursor;
     pub const getCursor = gtk_widget_get_cursor;
+
+    extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const getData = g_object_get_data;
 
     extern fn gtk_window_get_decorated(self: *Self) bool;
     pub const getDecorated = gtk_window_get_decorated;
@@ -210,18 +186,6 @@ pub const FileChooserDialog = extern struct {
 
     extern fn gtk_widget_get_display(self: *Self) ?*gdk.Display;
     pub const getDisplay = gtk_widget_get_display;
-
-    extern fn gtk_file_chooser_get_file(self: *Self) ?*gio.File;
-    pub const getFile = gtk_file_chooser_get_file;
-
-    extern fn gtk_file_chooser_get_files(self: *Self) ?*gio.ListModel;
-    pub const getFiles = gtk_file_chooser_get_files;
-
-    extern fn gtk_file_chooser_get_filter(self: *Self) ?*gtk.FileFilter;
-    pub const getFilter = gtk_file_chooser_get_filter;
-
-    extern fn gtk_file_chooser_get_filters(self: *Self) ?*gio.ListModel;
-    pub const getFilters = gtk_file_chooser_get_filters;
 
     extern fn gtk_widget_get_first_child(self: *Self) ?*gtk.Widget;
     pub const getFirstChild = gtk_widget_get_first_child;
@@ -286,9 +250,6 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_get_layout_manager(self: *Self) ?*gtk.LayoutManager;
     pub const getLayoutManager = gtk_widget_get_layout_manager;
 
-    extern fn gtk_widget_class_get_layout_manager_type(self: *Self) usize;
-    pub const getLayoutManagerType = gtk_widget_class_get_layout_manager_type;
-
     extern fn gtk_widget_get_mapped(self: *Self) bool;
     pub const getMapped = gtk_widget_get_mapped;
 
@@ -340,14 +301,17 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_get_primary_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getPrimaryClipboard = gtk_widget_get_primary_clipboard;
 
+    extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const getProperty = g_object_get_property;
+
+    extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const getQdata = g_object_get_qdata;
+
     extern fn gtk_widget_get_realized(self: *Self) bool;
     pub const getRealized = gtk_widget_get_realized;
 
     extern fn gtk_widget_get_receives_default(self: *Self) bool;
     pub const getReceivesDefault = gtk_widget_get_receives_default;
-
-    extern fn gtk_native_get_renderer(self: *Self) ?*gsk.Renderer;
-    pub const getRenderer = gtk_native_get_renderer;
 
     extern fn gtk_widget_get_request_mode(self: *Self) gtk.SizeRequestMode;
     pub const getRequestMode = gtk_widget_get_request_mode;
@@ -364,17 +328,11 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_get_scale_factor(self: *Self) i32;
     pub const getScaleFactor = gtk_widget_get_scale_factor;
 
-    extern fn gtk_file_chooser_get_select_multiple(self: *Self) bool;
-    pub const getSelectMultiple = gtk_file_chooser_get_select_multiple;
-
     extern fn gtk_widget_get_sensitive(self: *Self) bool;
     pub const getSensitive = gtk_widget_get_sensitive;
 
     extern fn gtk_widget_get_settings(self: *Self) ?*gtk.Settings;
     pub const getSettings = gtk_widget_get_settings;
-
-    extern fn gtk_file_chooser_get_shortcut_folders(self: *Self) ?*gio.ListModel;
-    pub const getShortcutFolders = gtk_file_chooser_get_shortcut_folders;
 
     extern fn gtk_widget_get_size(self: *Self, orientation: gtk.Orientation) i32;
     pub const getSize = gtk_widget_get_size;
@@ -387,12 +345,6 @@ pub const FileChooserDialog = extern struct {
 
     extern fn gtk_widget_get_style_context(self: *Self) ?*gtk.StyleContext;
     pub const getStyleContext = gtk_widget_get_style_context;
-
-    extern fn gtk_native_get_surface(self: *Self) ?*gdk.Surface;
-    pub const getSurface = gtk_native_get_surface;
-
-    extern fn gtk_native_get_surface_transform(self: *Self, x: f64, y: f64) void;
-    pub const getSurfaceTransform = gtk_native_get_surface_transform;
 
     extern fn gtk_widget_get_template_child(self: *Self, widget_type: usize, name: [*c]const u8) ?*gobject.Object;
     pub const getTemplateChild = gtk_widget_get_template_child;
@@ -469,18 +421,6 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: ?*gtk.Widget) void;
     pub const insertBefore = gtk_widget_insert_before;
 
-    extern fn gtk_widget_class_install_action(self: *Self, action_name: [*c]const u8, parameter_type: [*c]const u8, activate: gtk.WidgetActionActivateFunc) void;
-    pub const installAction = gtk_widget_class_install_action;
-
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
-    pub const installProperties = g_object_class_install_properties;
-
-    extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
-    pub const installProperty = g_object_class_install_property;
-
-    extern fn gtk_widget_class_install_property_action(self: *Self, action_name: [*c]const u8, property_name: [*c]const u8) void;
-    pub const installPropertyAction = gtk_widget_class_install_property_action;
-
     extern fn gtk_window_is_active(self: *Self) bool;
     pub const isActive = gtk_window_is_active;
 
@@ -514,9 +454,6 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_list_mnemonic_labels(self: *Self) ?*glib.List;
     pub const listMnemonicLabels = gtk_widget_list_mnemonic_labels;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
-    pub const listProperties = g_object_class_list_properties;
-
     extern fn gtk_widget_map(self: *Self) void;
     pub const map = gtk_widget_map;
 
@@ -535,14 +472,14 @@ pub const FileChooserDialog = extern struct {
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
+    extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
+    pub const notifyByPspec = g_object_notify_by_pspec;
+
     extern fn gtk_widget_observe_children(self: *Self) ?*gio.ListModel;
     pub const observeChildren = gtk_widget_observe_children;
 
     extern fn gtk_widget_observe_controllers(self: *Self) ?*gio.ListModel;
     pub const observeControllers = gtk_widget_observe_controllers;
-
-    extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
-    pub const overrideProperty = g_object_class_override_property;
 
     extern fn gtk_widget_pick(self: *Self, x: f64, y: f64, flags: gtk.PickFlags) ?*gtk.Widget;
     pub const pick = gtk_widget_pick;
@@ -552,9 +489,6 @@ pub const FileChooserDialog = extern struct {
 
     extern fn gtk_window_present_with_time(self: *Self, timestamp: u32) void;
     pub const presentWithTime = gtk_window_present_with_time;
-
-    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: ?*glib.VariantType, property_name: [*c]const u8) bool;
-    pub const queryAction = gtk_widget_class_query_action;
 
     extern fn gtk_widget_queue_allocate(self: *Self) void;
     pub const queueAllocate = gtk_widget_queue_allocate;
@@ -568,8 +502,11 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_realize(self: *Self) void;
     pub const realize = gtk_widget_realize;
 
-    extern fn gtk_file_chooser_remove_choice(self: *Self, id: [*c]const u8) void;
-    pub const removeChoice = gtk_file_chooser_remove_choice;
+    extern fn g_object_ref(self: *Self) ?*gobject.Object;
+    pub const ref = g_object_ref;
+
+    extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
+    pub const refSink = g_object_ref_sink;
 
     extern fn gtk_widget_remove_controller(self: *Self, controller: *gtk.EventController) void;
     pub const removeController = gtk_widget_remove_controller;
@@ -577,44 +514,17 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_remove_css_class(self: *Self, css_class: [*c]const u8) void;
     pub const removeCssClass = gtk_widget_remove_css_class;
 
-    extern fn gtk_file_chooser_remove_filter(self: *Self, filter: *gtk.FileFilter) void;
-    pub const removeFilter = gtk_file_chooser_remove_filter;
-
     extern fn gtk_widget_remove_mnemonic_label(self: *Self, label: *gtk.Widget) void;
     pub const removeMnemonicLabel = gtk_widget_remove_mnemonic_label;
 
-    extern fn gtk_file_chooser_remove_shortcut_folder(self: *Self, folder: *gio.File) bool;
-    pub const removeShortcutFolder = gtk_file_chooser_remove_shortcut_folder;
-
     extern fn gtk_widget_remove_tick_callback(self: *Self, id: u32) void;
     pub const removeTickCallback = gtk_widget_remove_tick_callback;
-
-    extern fn gtk_accessible_reset_property(self: *Self, property: gtk.AccessibleProperty) void;
-    pub const resetProperty = gtk_accessible_reset_property;
-
-    extern fn gtk_accessible_reset_relation(self: *Self, relation: gtk.AccessibleRelation) void;
-    pub const resetRelation = gtk_accessible_reset_relation;
-
-    extern fn gtk_accessible_reset_state(self: *Self, state: gtk.AccessibleState) void;
-    pub const resetState = gtk_accessible_reset_state;
 
     extern fn gtk_dialog_response(self: *Self, response_id: i32) void;
     pub const response = gtk_dialog_response;
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
-
-    extern fn gtk_widget_class_set_accessible_role(self: *Self, accessible_role: gtk.AccessibleRole) void;
-    pub const setAccessibleRole = gtk_widget_class_set_accessible_role;
-
-    extern fn gtk_file_chooser_set_action(self: *Self, action: gtk.FileChooserAction) void;
-    pub const setAction = gtk_file_chooser_set_action;
-
-    extern fn gtk_widget_class_set_activate_signal(self: *Self, signal_id: u32) void;
-    pub const setActivateSignal = gtk_widget_class_set_activate_signal;
-
-    extern fn gtk_widget_class_set_activate_signal_from_name(self: *Self, signal_name: [*c]const u8) void;
-    pub const setActivateSignalFromName = gtk_widget_class_set_activate_signal_from_name;
 
     extern fn gtk_window_set_application(self: *Self, application: ?*gtk.Application) void;
     pub const setApplication = gtk_window_set_application;
@@ -631,29 +541,17 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_set_child_visible(self: *Self, child_visible: bool) void;
     pub const setChildVisible = gtk_widget_set_child_visible;
 
-    extern fn gtk_file_chooser_set_choice(self: *Self, id: [*c]const u8, option: [*c]const u8) void;
-    pub const setChoice = gtk_file_chooser_set_choice;
-
-    extern fn gtk_file_chooser_set_create_folders(self: *Self, create_folders: bool) void;
-    pub const setCreateFolders = gtk_file_chooser_set_create_folders;
-
     extern fn gtk_widget_set_css_classes(self: *Self, classes: [*c][*c]const u8) void;
     pub const setCssClasses = gtk_widget_set_css_classes;
-
-    extern fn gtk_widget_class_set_css_name(self: *Self, name: [*c]const u8) void;
-    pub const setCssName = gtk_widget_class_set_css_name;
-
-    extern fn gtk_file_chooser_set_current_folder(self: *Self, file: ?*gio.File) bool;
-    pub const setCurrentFolder = gtk_file_chooser_set_current_folder;
-
-    extern fn gtk_file_chooser_set_current_name(self: *Self, name: [*c]const u8) void;
-    pub const setCurrentName = gtk_file_chooser_set_current_name;
 
     extern fn gtk_widget_set_cursor(self: *Self, cursor: ?*gdk.Cursor) void;
     pub const setCursor = gtk_widget_set_cursor;
 
     extern fn gtk_widget_set_cursor_from_name(self: *Self, name: [*c]const u8) void;
     pub const setCursorFromName = gtk_widget_set_cursor_from_name;
+
+    extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
+    pub const setData = g_object_set_data;
 
     extern fn gtk_window_set_decorated(self: *Self, setting: bool) void;
     pub const setDecorated = gtk_window_set_decorated;
@@ -678,12 +576,6 @@ pub const FileChooserDialog = extern struct {
 
     extern fn gtk_window_set_display(self: *Self, display: *gdk.Display) void;
     pub const setDisplay = gtk_window_set_display;
-
-    extern fn gtk_file_chooser_set_file(self: *Self, file: *gio.File) bool;
-    pub const setFile = gtk_file_chooser_set_file;
-
-    extern fn gtk_file_chooser_set_filter(self: *Self, filter: *gtk.FileFilter) void;
-    pub const setFilter = gtk_file_chooser_set_filter;
 
     extern fn gtk_window_set_focus(self: *Self, focus: ?*gtk.Widget) void;
     pub const setFocus = gtk_window_set_focus;
@@ -730,9 +622,6 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: ?*gtk.LayoutManager) void;
     pub const setLayoutManager = gtk_widget_set_layout_manager;
 
-    extern fn gtk_widget_class_set_layout_manager_type(self: *Self, type: usize) void;
-    pub const setLayoutManagerType = gtk_widget_class_set_layout_manager_type;
-
     extern fn gtk_widget_set_margin_bottom(self: *Self, margin: i32) void;
     pub const setMarginBottom = gtk_widget_set_margin_bottom;
 
@@ -763,6 +652,9 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_set_parent(self: *Self, parent: *gtk.Widget) void;
     pub const setParent = gtk_widget_set_parent;
 
+    extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const setProperty = g_object_set_property;
+
     extern fn gtk_widget_set_receives_default(self: *Self, receives_default: bool) void;
     pub const setReceivesDefault = gtk_widget_set_receives_default;
 
@@ -771,9 +663,6 @@ pub const FileChooserDialog = extern struct {
 
     extern fn gtk_dialog_set_response_sensitive(self: *Self, response_id: i32, setting: bool) void;
     pub const setResponseSensitive = gtk_dialog_set_response_sensitive;
-
-    extern fn gtk_file_chooser_set_select_multiple(self: *Self, select_multiple: bool) void;
-    pub const setSelectMultiple = gtk_file_chooser_set_select_multiple;
 
     extern fn gtk_widget_set_sensitive(self: *Self, sensitive: bool) void;
     pub const setSensitive = gtk_widget_set_sensitive;
@@ -786,15 +675,6 @@ pub const FileChooserDialog = extern struct {
 
     extern fn gtk_widget_set_state_flags(self: *Self, flags: gtk.StateFlags, clear: bool) void;
     pub const setStateFlags = gtk_widget_set_state_flags;
-
-    extern fn gtk_widget_class_set_template(self: *Self, template_bytes: *glib.Bytes) void;
-    pub const setTemplate = gtk_widget_class_set_template;
-
-    extern fn gtk_widget_class_set_template_from_resource(self: *Self, resource_name: [*c]const u8) void;
-    pub const setTemplateFromResource = gtk_widget_class_set_template_from_resource;
-
-    extern fn gtk_widget_class_set_template_scope(self: *Self, scope: *gtk.BuilderScope) void;
-    pub const setTemplateScope = gtk_widget_class_set_template_scope;
 
     extern fn gtk_window_set_title(self: *Self, title: [*c]const u8) void;
     pub const setTitle = gtk_window_set_title;
@@ -835,8 +715,17 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_snapshot_child(self: *Self, child: *gtk.Widget, snapshot: *gtk.Snapshot) void;
     pub const snapshotChild = gtk_widget_snapshot_child;
 
+    extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const stealData = g_object_steal_data;
+
+    extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const stealQdata = g_object_steal_qdata;
+
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
+
+    extern fn gtk_widget_translate_coordinates(self: *Self, dest_widget: *gtk.Widget, src_x: f64, src_y: f64, dest_x: f64, dest_y: f64) bool;
+    pub const translateCoordinates = gtk_widget_translate_coordinates;
 
     extern fn gtk_widget_trigger_tooltip_query(self: *Self) void;
     pub const triggerTooltipQuery = gtk_widget_trigger_tooltip_query;
@@ -859,17 +748,14 @@ pub const FileChooserDialog = extern struct {
     extern fn gtk_widget_unrealize(self: *Self) void;
     pub const unrealize = gtk_widget_unrealize;
 
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
+
     extern fn gtk_widget_unset_state_flags(self: *Self, flags: gtk.StateFlags) void;
     pub const unsetStateFlags = gtk_widget_unset_state_flags;
 
-    extern fn gtk_accessible_update_property_value(self: *Self, n_properties: i32, properties: [*c]gtk.AccessibleProperty, values: [*c]gobject.Value) void;
-    pub const updateProperty = gtk_accessible_update_property_value;
-
-    extern fn gtk_accessible_update_relation_value(self: *Self, n_relations: i32, relations: [*c]gtk.AccessibleRelation, values: [*c]gobject.Value) void;
-    pub const updateRelation = gtk_accessible_update_relation_value;
-
-    extern fn gtk_accessible_update_state_value(self: *Self, n_states: i32, states: [*c]gtk.AccessibleState, values: [*c]gobject.Value) void;
-    pub const updateState = gtk_accessible_update_state_value;
+    extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
+    pub const watchClosure = g_object_watch_closure;
 
 
     // Signals

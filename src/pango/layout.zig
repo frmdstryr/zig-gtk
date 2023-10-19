@@ -1,14 +1,18 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(Layout)
 const pango = @import("../pango.zig");
 const gobject = @import("gobject");
 const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Layout = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_type_instance: *gobject.TypeInstance,
+    ref_count: u32,
+    qdata: *glib.Data,
 
     // Constructors
     extern fn pango_layout_new(context: *pango.Context) ?*Self;
@@ -19,14 +23,23 @@ pub const Layout = extern struct {
 
 
     // Methods
+    extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
+    pub const bindProperty = g_object_bind_property;
+
+    extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
+    pub const bindPropertyFull = g_object_bind_property_with_closures;
+
     extern fn pango_layout_context_changed(self: *Self) void;
     pub const contextChanged = pango_layout_context_changed;
 
     extern fn pango_layout_copy(self: *Self) ?*pango.Layout;
     pub const copy = pango_layout_copy;
 
-    extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
-    pub const findProperty = g_object_class_find_property;
+    extern fn g_object_force_floating(self: *Self) void;
+    pub const forceFloating = g_object_force_floating;
+
+    extern fn g_object_freeze_notify(self: *Self) void;
+    pub const freezeNotify = g_object_freeze_notify;
 
     extern fn pango_layout_get_alignment(self: *Self) pango.Alignment;
     pub const getAlignment = pango_layout_get_alignment;
@@ -51,6 +64,9 @@ pub const Layout = extern struct {
 
     extern fn pango_layout_get_cursor_pos(self: *Self, index_: i32, strong_pos: *pango.Rectangle, weak_pos: *pango.Rectangle) void;
     pub const getCursorPos = pango_layout_get_cursor_pos;
+
+    extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const getData = g_object_get_data;
 
     extern fn pango_layout_get_direction(self: *Self, index: i32) pango.Direction;
     pub const getDirection = pango_layout_get_direction;
@@ -111,6 +127,12 @@ pub const Layout = extern struct {
     extern fn pango_layout_get_pixel_size(self: *Self, width: i32, height: i32) void;
     pub const getPixelSize = pango_layout_get_pixel_size;
 
+    extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const getProperty = g_object_get_property;
+
+    extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const getQdata = g_object_get_qdata;
+
     extern fn pango_layout_get_serial(self: *Self) u32;
     pub const getSerial = pango_layout_get_serial;
 
@@ -147,12 +169,6 @@ pub const Layout = extern struct {
     extern fn pango_layout_index_to_pos(self: *Self, index_: i32, pos: *pango.Rectangle) void;
     pub const indexToPos = pango_layout_index_to_pos;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
-    pub const installProperties = g_object_class_install_properties;
-
-    extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
-    pub const installProperty = g_object_class_install_property;
-
     extern fn pango_layout_is_ellipsized(self: *Self) bool;
     pub const isEllipsized = pango_layout_is_ellipsized;
 
@@ -162,17 +178,20 @@ pub const Layout = extern struct {
     extern fn pango_layout_is_wrapped(self: *Self) bool;
     pub const isWrapped = pango_layout_is_wrapped;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
-    pub const listProperties = g_object_class_list_properties;
-
     extern fn pango_layout_move_cursor_visually(self: *Self, strong: bool, old_index: i32, old_trailing: i32, direction: i32, new_index: i32, new_trailing: i32) void;
     pub const moveCursorVisually = pango_layout_move_cursor_visually;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
-    extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
-    pub const overrideProperty = g_object_class_override_property;
+    extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
+    pub const notifyByPspec = g_object_notify_by_pspec;
+
+    extern fn g_object_ref(self: *Self) ?*gobject.Object;
+    pub const ref = g_object_ref;
+
+    extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
+    pub const refSink = g_object_ref_sink;
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
@@ -188,6 +207,9 @@ pub const Layout = extern struct {
 
     extern fn pango_layout_set_auto_dir(self: *Self, auto_dir: bool) void;
     pub const setAutoDir = pango_layout_set_auto_dir;
+
+    extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
+    pub const setData = g_object_set_data;
 
     extern fn pango_layout_set_ellipsize(self: *Self, ellipsize: pango.EllipsizeMode) void;
     pub const setEllipsize = pango_layout_set_ellipsize;
@@ -210,8 +232,14 @@ pub const Layout = extern struct {
     extern fn pango_layout_set_line_spacing(self: *Self, factor: f32) void;
     pub const setLineSpacing = pango_layout_set_line_spacing;
 
+    extern fn pango_layout_set_markup(self: *Self, markup: [*c]const u8, length: i32) void;
+    pub const setMarkup = pango_layout_set_markup;
+
     extern fn pango_layout_set_markup_with_accel(self: *Self, markup: [*c]const u8, length: i32, accel_marker: u32, accel_char: u32) void;
     pub const setMarkupWithAccel = pango_layout_set_markup_with_accel;
+
+    extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const setProperty = g_object_set_property;
 
     extern fn pango_layout_set_single_paragraph_mode(self: *Self, setting: bool) void;
     pub const setSingleParagraphMode = pango_layout_set_single_paragraph_mode;
@@ -222,14 +250,29 @@ pub const Layout = extern struct {
     extern fn pango_layout_set_tabs(self: *Self, tabs: ?*pango.TabArray) void;
     pub const setTabs = pango_layout_set_tabs;
 
+    extern fn pango_layout_set_text(self: *Self, text: [*c]const u8, length: i32) void;
+    pub const setText = pango_layout_set_text;
+
     extern fn pango_layout_set_width(self: *Self, width: i32) void;
     pub const setWidth = pango_layout_set_width;
 
     extern fn pango_layout_set_wrap(self: *Self, wrap: pango.WrapMode) void;
     pub const setWrap = pango_layout_set_wrap;
 
+    extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const stealData = g_object_steal_data;
+
+    extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const stealQdata = g_object_steal_qdata;
+
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
+
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
+
+    extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
+    pub const watchClosure = g_object_watch_closure;
 
     extern fn pango_layout_write_to_file(self: *Self, flags: pango.LayoutSerializeFlags, filename: [*c]const u8) bool;
     pub const writeToFile = pango_layout_write_to_file;
@@ -261,9 +304,6 @@ pub const Layout = extern struct {
 
     // Bases
     pub fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub fn asLayout(self: *Self) *pango.Layout {
         return @ptrCast(self);
     }
 };

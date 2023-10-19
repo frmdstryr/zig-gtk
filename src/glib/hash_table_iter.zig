@@ -1,19 +1,25 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(HashTableIter)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const HashTableIter = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    dummy1: ?*anyopaque,
+    dummy2: ?*anyopaque,
+    dummy3: ?*anyopaque,
+    dummy4: i32,
+    dummy5: bool,
+    dummy6: ?*anyopaque,
 
     // Constructors
 
     // Methods
-    // Binding disabled (unknown arg/return type)
-    // extern fn g_hash_table_iter_init(self: *Self, hash_table: None) void;
-    // pub const init = g_hash_table_iter_init;
+    extern fn g_hash_table_iter_init(self: *Self, hash_table: *glib.HashTable) void;
+    pub const init = g_hash_table_iter_init;
 
     extern fn g_hash_table_iter_next(self: *Self, key: ?*anyopaque, value: ?*anyopaque) bool;
     pub const next = g_hash_table_iter_next;

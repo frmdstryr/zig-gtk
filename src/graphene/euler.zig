@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Euler)
 const graphene = @import("../graphene.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Euler = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    angles: *graphene.Vec3,
+    order: *graphene.EulerOrder,
 
     // Constructors
     extern fn graphene_euler_alloc() ?*Self;

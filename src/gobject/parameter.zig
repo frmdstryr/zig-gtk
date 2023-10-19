@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Parameter)
 const gobject = @import("../gobject.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Parameter = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    name: [*c]const u8,
+    value: *gobject.Value,
 
     // Constructors
 

@@ -1,13 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(ContentFormats)
 const glib = @import("glib");
 const gdk = @import("../gdk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const ContentFormats = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gdk_content_formats_new(mime_types: [*c][*c]const u8, n_mime_types: u32) ?*Self;

@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(FileDescriptorBasedIface)
+const gobject = @import("gobject");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const FileDescriptorBasedIface = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_iface: *gobject.TypeInterface,
+    get_fd: *const fn (fd_based: *gio.FileDescriptorBased) callconv(.C) i32,
 
     // Constructors
 

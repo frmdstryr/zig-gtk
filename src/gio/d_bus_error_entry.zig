@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(DBusErrorEntry)
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const DBusErrorEntry = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    error_code: i32,
+    dbus_error_name: [*c]const u8,
 
     // Constructors
 

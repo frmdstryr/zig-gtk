@@ -1,14 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// InterfaceInfo(Actionable)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Actionable = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 

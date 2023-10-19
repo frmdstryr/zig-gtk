@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Queue)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Queue = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    head: *glib.List,
+    tail: *glib.List,
+    length: u32,
 
     // Constructors
 
@@ -14,13 +18,13 @@ pub const Queue = extern struct {
     extern fn g_queue_clear(self: *Self) void;
     pub const clear = g_queue_clear;
 
-    extern fn g_queue_clear_full(self: *Self, free_func: glib.DestroyNotify) void;
+    extern fn g_queue_clear_full(self: *Self, free_func: ?*const fn (data: ?*anyopaque) callconv(.C) void) void;
     pub const clearFull = g_queue_clear_full;
 
     extern fn g_queue_free(self: *Self) void;
     pub const free = g_queue_free;
 
-    extern fn g_queue_free_full(self: *Self, free_func: glib.DestroyNotify) void;
+    extern fn g_queue_free_full(self: *Self, free_func: *const fn (data: ?*anyopaque) callconv(.C) void) void;
     pub const freeFull = g_queue_free_full;
 
     extern fn g_queue_get_length(self: *Self) u32;

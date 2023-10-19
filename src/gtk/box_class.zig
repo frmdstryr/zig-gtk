@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(BoxClass)
 const gtk = @import("../gtk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const BoxClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_class: *gtk.WidgetClass,
+    padding: ?*anyopaque,
 
     // Constructors
 

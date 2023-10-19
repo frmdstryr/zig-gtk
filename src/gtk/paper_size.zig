@@ -1,13 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(PaperSize)
 const gtk = @import("../gtk.zig");
 const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const PaperSize = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gtk_paper_size_new(name: [*c]const u8) ?*Self;

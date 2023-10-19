@@ -1,12 +1,19 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(MountOperationClass)
 const gtk = @import("../gtk.zig");
+const gio = @import("gio");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const MountOperationClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_class: *gio.MountOperationClass,
+    _gtk_reserved1: ?*anyopaque,
+    _gtk_reserved2: ?*anyopaque,
+    _gtk_reserved3: ?*anyopaque,
+    _gtk_reserved4: ?*anyopaque,
 
     // Constructors
 

@@ -1,12 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Rectangle)
 const pango = @import("../pango.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Rectangle = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    x: i32,
+    y: i32,
+    width: i32,
+    height: i32,
 
     // Constructors
 

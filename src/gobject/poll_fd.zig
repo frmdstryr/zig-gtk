@@ -1,13 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(PollFD)
 const gobject = @import("../gobject.zig");
 const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const PollFD = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    fd: i32,
+    events: u16,
+    revents: u16,
 
     // Constructors
 

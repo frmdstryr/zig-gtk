@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(SettingsSchemaSource)
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const SettingsSchemaSource = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn g_settings_schema_source_new_from_directory(directory: [*c]const u8, parent: ?*gio.SettingsSchemaSource, trusted: bool) ?*Self;

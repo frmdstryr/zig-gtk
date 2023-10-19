@@ -1,12 +1,18 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(EnumClass)
 const gobject = @import("../gobject.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const EnumClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_type_class: *gobject.TypeClass,
+    minimum: i32,
+    maximum: i32,
+    n_values: u32,
+    values: *gobject.EnumValue,
 
     // Constructors
 

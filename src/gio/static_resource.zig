@@ -1,12 +1,18 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(StaticResource)
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const StaticResource = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    data: u8,
+    data_len: u64,
+    resource: *gio.Resource,
+    next: *gio.StaticResource,
+    padding: ?*anyopaque,
 
     // Constructors
 

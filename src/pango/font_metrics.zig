@@ -1,12 +1,23 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(FontMetrics)
 const pango = @import("../pango.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const FontMetrics = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    ref_count: u32,
+    ascent: i32,
+    descent: i32,
+    height: i32,
+    approximate_char_width: i32,
+    approximate_digit_width: i32,
+    underline_position: i32,
+    underline_thickness: i32,
+    strikethrough_position: i32,
+    strikethrough_thickness: i32,
 
     // Constructors
 

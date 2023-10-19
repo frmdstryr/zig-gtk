@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(InputVector)
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const InputVector = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    buffer: ?*anyopaque,
+    size: u64,
 
     // Constructors
 

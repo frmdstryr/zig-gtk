@@ -1,12 +1,19 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Matrix)
 const pango = @import("../pango.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Matrix = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    xx: f64,
+    xy: f64,
+    yx: f64,
+    yy: f64,
+    x0: f64,
+    y0: f64,
 
     // Constructors
 

@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(TimeVal)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const TimeVal = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    tv_sec: i64,
+    tv_usec: i64,
 
     // Constructors
 

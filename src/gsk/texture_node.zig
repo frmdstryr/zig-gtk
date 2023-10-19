@@ -1,16 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(TextureNode)
 const gsk = @import("../gsk.zig");
 const graphene = @import("graphene");
 const glib = @import("glib");
 const gdk = @import("gdk");
 const cairo = @import("cairo");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const TextureNode = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gsk_texture_node_new(texture: *gdk.Texture, bounds: *graphene.Rect) ?*Self;

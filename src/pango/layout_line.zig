@@ -1,12 +1,19 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(LayoutLine)
 const pango = @import("../pango.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const LayoutLine = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    layout: *pango.Layout,
+    start_index: i32,
+    length: i32,
+    runs: ?*anyopaque,
+    is_paragraph_start: u32,
+    resolved_dir: u32,
 
     // Constructors
 

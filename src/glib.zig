@@ -88,13 +88,6 @@ pub const VariantBuilder = @import("glib/variant_builder.zig").VariantBuilder;
 pub const VariantDict = @import("glib/variant_dict.zig").VariantDict;
 pub const VariantType = @import("glib/variant_type.zig").VariantType;
 
-pub const SourceFunc = *const fn(data: ?*anyopaque) callconv(.C) bool;
-pub const ThreadFunc = *const fn(data: ?*anyopaque) callconv(.C) ?*anyopaque;
-pub const SpawnChildSetupFunc = *const fn(data: ?*anyopaque) callconv(.C) void;
-pub const CompareDataFunc = *const fn(a: ?*const anyopaque, b: ?*const anyopaque, data: ?*anyopaque) callconv(.C) c_int;
-pub const EqualFunc = *const fn(a: ?*const anyopaque, b: ?*const anyopaque) callconv(.C) bool;
-pub const DestroyNotify = *const fn(data: ?*anyopaque) callconv(.C) void;
-
 test {
     std.testing.refAllDecls(@This());
 }

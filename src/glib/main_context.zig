@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(MainContext)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const MainContext = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn g_main_context_new() ?*Self;
@@ -38,11 +39,14 @@ pub const MainContext = extern struct {
     extern fn g_main_context_find_source_by_user_data(self: *Self, user_data: ?*anyopaque) ?*glib.Source;
     pub const findSourceByUserData = g_main_context_find_source_by_user_data;
 
-    extern fn g_main_context_invoke_full(self: *Self, priority: i32, function: glib.SourceFunc, data: ?*anyopaque, notify: glib.DestroyNotify) void;
+    extern fn g_main_context_invoke_full(self: *Self, priority: i32, function: *const fn (user_data: ?*anyopaque) callconv(.C) bool, data: ?*anyopaque, notify: ?*const fn (data: ?*anyopaque) callconv(.C) void) void;
     pub const invokeFull = g_main_context_invoke_full;
 
     extern fn g_main_context_is_owner(self: *Self) bool;
     pub const isOwner = g_main_context_is_owner;
+
+    extern fn g_main_context_iteration(self: *Self, may_block: bool) bool;
+    pub const iteration = g_main_context_iteration;
 
     extern fn g_main_context_pending(self: *Self) bool;
     pub const pending = g_main_context_pending;
@@ -77,11 +81,6 @@ pub const MainContext = extern struct {
     extern fn g_main_context_wakeup(self: *Self) void;
     pub const wakeup = g_main_context_wakeup;
 
-
-    // Bases
-    pub fn asMainContext(self: *Self) *glib.MainContext {
-        return @ptrCast(self);
-    }
 };
 
 test {

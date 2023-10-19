@@ -1,14 +1,18 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(DesktopAppInfo)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const DesktopAppInfo = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_type_instance: *gobject.TypeInstance,
+    ref_count: u32,
+    qdata: *glib.Data,
 
     // Constructors
     extern fn g_desktop_app_info_new(desktop_id: [*c]const u8) ?*Self;
@@ -25,26 +29,17 @@ pub const DesktopAppInfo = extern struct {
 
 
     // Methods
-    extern fn g_app_info_add_supports_type(self: *Self, content_type: [*c]const u8) bool;
-    pub const addSupportsType = g_app_info_add_supports_type;
+    extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
+    pub const bindProperty = g_object_bind_property;
 
-    extern fn g_app_info_can_delete(self: *Self) bool;
-    pub const canDelete = g_app_info_can_delete;
+    extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
+    pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn g_app_info_can_remove_supports_type(self: *Self) bool;
-    pub const canRemoveSupportsType = g_app_info_can_remove_supports_type;
+    extern fn g_object_force_floating(self: *Self) void;
+    pub const forceFloating = g_object_force_floating;
 
-    extern fn g_app_info_delete(self: *Self) bool;
-    pub const delete = g_app_info_delete;
-
-    extern fn g_app_info_dup(self: *Self) ?*gio.AppInfo;
-    pub const dup = g_app_info_dup;
-
-    extern fn g_app_info_equal(self: *Self, appinfo2: *gio.AppInfo) bool;
-    pub const equal = g_app_info_equal;
-
-    extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
-    pub const findProperty = g_object_class_find_property;
+    extern fn g_object_freeze_notify(self: *Self) void;
+    pub const freezeNotify = g_object_freeze_notify;
 
     extern fn g_desktop_app_info_get_action_name(self: *Self, action_name: [*c]const u8) [*c]const u8;
     pub const getActionName = g_desktop_app_info_get_action_name;
@@ -55,29 +50,14 @@ pub const DesktopAppInfo = extern struct {
     extern fn g_desktop_app_info_get_categories(self: *Self) [*c]const u8;
     pub const getCategories = g_desktop_app_info_get_categories;
 
-    extern fn g_app_info_get_commandline(self: *Self) [*c]const u8;
-    pub const getCommandline = g_app_info_get_commandline;
-
-    extern fn g_app_info_get_description(self: *Self) [*c]const u8;
-    pub const getDescription = g_app_info_get_description;
-
-    extern fn g_app_info_get_display_name(self: *Self) [*c]const u8;
-    pub const getDisplayName = g_app_info_get_display_name;
-
-    extern fn g_app_info_get_executable(self: *Self) [*c]const u8;
-    pub const getExecutable = g_app_info_get_executable;
+    extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const getData = g_object_get_data;
 
     extern fn g_desktop_app_info_get_filename(self: *Self) [*c]const u8;
     pub const getFilename = g_desktop_app_info_get_filename;
 
     extern fn g_desktop_app_info_get_generic_name(self: *Self) [*c]const u8;
     pub const getGenericName = g_desktop_app_info_get_generic_name;
-
-    extern fn g_app_info_get_icon(self: *Self) ?*gio.Icon;
-    pub const getIcon = g_app_info_get_icon;
-
-    extern fn g_app_info_get_id(self: *Self) [*c]const u8;
-    pub const getId = g_app_info_get_id;
 
     extern fn g_desktop_app_info_get_is_hidden(self: *Self) bool;
     pub const getIsHidden = g_desktop_app_info_get_is_hidden;
@@ -88,11 +68,14 @@ pub const DesktopAppInfo = extern struct {
     extern fn g_desktop_app_info_get_locale_string(self: *Self, key: [*c]const u8) [*c]const u8;
     pub const getLocaleString = g_desktop_app_info_get_locale_string;
 
-    extern fn g_app_info_get_name(self: *Self) [*c]const u8;
-    pub const getName = g_app_info_get_name;
-
     extern fn g_desktop_app_info_get_nodisplay(self: *Self) bool;
     pub const getNodisplay = g_desktop_app_info_get_nodisplay;
+
+    extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const getProperty = g_object_get_property;
+
+    extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const getQdata = g_object_get_qdata;
 
     extern fn g_desktop_app_info_get_show_in(self: *Self, desktop_env: [*c]const u8) bool;
     pub const getShowIn = g_desktop_app_info_get_show_in;
@@ -106,83 +89,62 @@ pub const DesktopAppInfo = extern struct {
     extern fn g_desktop_app_info_get_string_list(self: *Self, key: [*c]const u8, length: u64) [*c][*c]const u8;
     pub const getStringList = g_desktop_app_info_get_string_list;
 
-    extern fn g_app_info_get_supported_types(self: *Self) [*c][*c]const u8;
-    pub const getSupportedTypes = g_app_info_get_supported_types;
-
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
     extern fn g_desktop_app_info_has_key(self: *Self, key: [*c]const u8) bool;
     pub const hasKey = g_desktop_app_info_has_key;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
-    pub const installProperties = g_object_class_install_properties;
-
-    extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
-    pub const installProperty = g_object_class_install_property;
-
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
-
-    extern fn g_app_info_launch(self: *Self, files: *glib.List, context: ?*gio.AppLaunchContext) bool;
-    pub const launch = g_app_info_launch;
 
     extern fn g_desktop_app_info_launch_action(self: *Self, action_name: [*c]const u8, launch_context: ?*gio.AppLaunchContext) void;
     pub const launchAction = g_desktop_app_info_launch_action;
 
-    extern fn g_app_info_launch_uris(self: *Self, uris: *glib.List, context: ?*gio.AppLaunchContext) bool;
-    pub const launchUris = g_app_info_launch_uris;
-
-    extern fn g_desktop_app_info_launch_uris_as_manager(self: *Self, uris: *glib.List, launch_context: ?*gio.AppLaunchContext, spawn_flags: glib.SpawnFlags, user_setup: glib.SpawnChildSetupFunc, user_setup_data: ?*anyopaque, pid_callback: gio.DesktopAppLaunchCallback, pid_callback_data: ?*anyopaque) bool;
+    extern fn g_desktop_app_info_launch_uris_as_manager(self: *Self, uris: *glib.List, launch_context: ?*gio.AppLaunchContext, spawn_flags: glib.SpawnFlags, user_setup: ?*const fn (user_data: ?*anyopaque) callconv(.C) void, user_setup_data: ?*anyopaque, pid_callback: ?*const fn (appinfo: *gio.DesktopAppInfo, pid: i32, user_data: ?*anyopaque) callconv(.C) void, pid_callback_data: ?*anyopaque) bool;
     pub const launchUrisAsManager = g_desktop_app_info_launch_uris_as_manager;
 
-    extern fn g_desktop_app_info_launch_uris_as_manager_with_fds(self: *Self, uris: *glib.List, launch_context: ?*gio.AppLaunchContext, spawn_flags: glib.SpawnFlags, user_setup: glib.SpawnChildSetupFunc, user_setup_data: ?*anyopaque, pid_callback: gio.DesktopAppLaunchCallback, pid_callback_data: ?*anyopaque, stdin_fd: i32, stdout_fd: i32, stderr_fd: i32) bool;
+    extern fn g_desktop_app_info_launch_uris_as_manager_with_fds(self: *Self, uris: *glib.List, launch_context: ?*gio.AppLaunchContext, spawn_flags: glib.SpawnFlags, user_setup: ?*const fn (user_data: ?*anyopaque) callconv(.C) void, user_setup_data: ?*anyopaque, pid_callback: ?*const fn (appinfo: *gio.DesktopAppInfo, pid: i32, user_data: ?*anyopaque) callconv(.C) void, pid_callback_data: ?*anyopaque, stdin_fd: i32, stdout_fd: i32, stderr_fd: i32) bool;
     pub const launchUrisAsManagerWithFds = g_desktop_app_info_launch_uris_as_manager_with_fds;
-
-    extern fn g_app_info_launch_uris_async(self: *Self, uris: *glib.List, context: ?*gio.AppLaunchContext, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
-    pub const launchUrisAsync = g_app_info_launch_uris_async;
-
-    extern fn g_app_info_launch_uris_finish(self: *Self, result: *gio.AsyncResult) bool;
-    pub const launchUrisFinish = g_app_info_launch_uris_finish;
 
     extern fn g_desktop_app_info_list_actions(self: *Self) [*c][*c]const u8;
     pub const listActions = g_desktop_app_info_list_actions;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
-    pub const listProperties = g_object_class_list_properties;
-
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
-    extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
-    pub const overrideProperty = g_object_class_override_property;
+    extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
+    pub const notifyByPspec = g_object_notify_by_pspec;
 
-    extern fn g_app_info_remove_supports_type(self: *Self, content_type: [*c]const u8) bool;
-    pub const removeSupportsType = g_app_info_remove_supports_type;
+    extern fn g_object_ref(self: *Self) ?*gobject.Object;
+    pub const ref = g_object_ref;
+
+    extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
+    pub const refSink = g_object_ref_sink;
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn g_app_info_set_as_default_for_extension(self: *Self, extension: [*c]const u8) bool;
-    pub const setAsDefaultForExtension = g_app_info_set_as_default_for_extension;
+    extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
+    pub const setData = g_object_set_data;
 
-    extern fn g_app_info_set_as_default_for_type(self: *Self, content_type: [*c]const u8) bool;
-    pub const setAsDefaultForType = g_app_info_set_as_default_for_type;
+    extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const setProperty = g_object_set_property;
 
-    extern fn g_app_info_set_as_last_used_for_type(self: *Self, content_type: [*c]const u8) bool;
-    pub const setAsLastUsedForType = g_app_info_set_as_last_used_for_type;
+    extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const stealData = g_object_steal_data;
 
-    extern fn g_app_info_should_show(self: *Self) bool;
-    pub const shouldShow = g_app_info_should_show;
-
-    extern fn g_app_info_supports_files(self: *Self) bool;
-    pub const supportsFiles = g_app_info_supports_files;
-
-    extern fn g_app_info_supports_uris(self: *Self) bool;
-    pub const supportsUris = g_app_info_supports_uris;
+    extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const stealQdata = g_object_steal_qdata;
 
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
+
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
+
+    extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
+    pub const watchClosure = g_object_watch_closure;
 
 
     // Signals

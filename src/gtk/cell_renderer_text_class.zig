@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(CellRendererTextClass)
 const gtk = @import("../gtk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const CellRendererTextClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_class: *gtk.CellRendererClass,
+    edited: *const fn (cell_renderer_text: *gtk.CellRendererText, path: [*c]const u8, new_text: [*c]const u8) callconv(.C) void,
+    padding: ?*anyopaque,
 
     // Constructors
 

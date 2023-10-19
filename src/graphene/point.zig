@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Point)
 const graphene = @import("../graphene.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Point = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    x: f32,
+    y: f32,
 
     // Constructors
     extern fn graphene_point_alloc() ?*Self;

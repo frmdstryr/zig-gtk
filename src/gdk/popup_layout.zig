@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(PopupLayout)
 const gdk = @import("../gdk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const PopupLayout = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gdk_popup_layout_new(anchor_rect: *gdk.Rectangle, rect_anchor: gdk.Gravity, surface_anchor: gdk.Gravity) ?*Self;

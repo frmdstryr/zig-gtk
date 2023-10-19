@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(GlyphGeometry)
 const pango = @import("../pango.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const GlyphGeometry = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    width: i32,
+    x_offset: i32,
+    y_offset: i32,
 
     // Constructors
 

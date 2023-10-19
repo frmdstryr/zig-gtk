@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(DevicePadInterface)
 const gdk = @import("../gdk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const DevicePadInterface = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 

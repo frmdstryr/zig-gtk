@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Sphere)
 const graphene = @import("../graphene.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Sphere = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    center: *graphene.Vec3,
+    radius: f32,
 
     // Constructors
     extern fn graphene_sphere_alloc() ?*Self;

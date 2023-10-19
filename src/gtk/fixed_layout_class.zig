@@ -1,12 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(FixedLayoutClass)
 const gtk = @import("../gtk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const FixedLayoutClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_class: *gtk.LayoutManagerClass,
 
     // Constructors
 

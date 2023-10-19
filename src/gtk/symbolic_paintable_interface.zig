@@ -1,12 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(SymbolicPaintableInterface)
 const gtk = @import("../gtk.zig");
+const gobject = @import("gobject");
+const gdk = @import("gdk");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const SymbolicPaintableInterface = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_iface: *gobject.TypeInterface,
+    snapshot_symbolic: *const fn (paintable: *gtk.SymbolicPaintable, snapshot: *gdk.Snapshot, width: f64, height: f64, colors: [*c]gdk.RGBA, n_colors: u64) callconv(.C) void,
 
     // Constructors
 

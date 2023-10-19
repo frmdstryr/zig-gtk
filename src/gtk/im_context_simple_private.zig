@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(IMContextSimplePrivate)
 const gtk = @import("../gtk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const IMContextSimplePrivate = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 

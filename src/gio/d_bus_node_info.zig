@@ -1,13 +1,19 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(DBusNodeInfo)
 const glib = @import("glib");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const DBusNodeInfo = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    ref_count: i32,
+    path: [*c]const u8,
+    interfaces: [*c]*gio.DBusInterfaceInfo,
+    nodes: [*c]*gio.DBusNodeInfo,
+    annotations: [*c]*gio.DBusAnnotationInfo,
 
     // Constructors
     extern fn g_dbus_node_info_new_for_xml(xml_data: [*c]const u8) ?*Self;
@@ -27,11 +33,6 @@ pub const DBusNodeInfo = extern struct {
     extern fn g_dbus_node_info_unref(self: *Self) void;
     pub const unref = g_dbus_node_info_unref;
 
-
-    // Bases
-    pub fn asDBusNodeInfo(self: *Self) *gio.DBusNodeInfo {
-        return @ptrCast(self);
-    }
 };
 
 test {

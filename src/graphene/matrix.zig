@@ -1,12 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Matrix)
 const graphene = @import("../graphene.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Matrix = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    value: *graphene.Simd4X4F,
 
     // Constructors
     extern fn graphene_matrix_alloc() ?*Self;

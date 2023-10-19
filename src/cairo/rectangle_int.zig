@@ -1,12 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(RectangleInt)
 const cairo = @import("../cairo.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const RectangleInt = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    x: i32,
+    y: i32,
+    width: i32,
+    height: i32,
 
     // Constructors
 

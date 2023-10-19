@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(EditableLabel)
 const pango = @import("pango");
 const gtk = @import("../gtk.zig");
 const gsk = @import("gsk");
@@ -9,12 +9,18 @@ const glib = @import("glib");
 const gio = @import("gio");
 const gdk = @import("gdk");
 const cairo = @import("cairo");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const EditableLabel = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_instance: *gobject.InitiallyUnowned,
+    priv: *gtk.WidgetPrivate,
+    g_type_instance: *gobject.TypeInstance,
+    ref_count: u32,
+    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_editable_label_new(str: [*c]const u8) ?*Self;
@@ -46,20 +52,17 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_add_mnemonic_label(self: *Self, label: *gtk.Widget) void;
     pub const addMnemonicLabel = gtk_widget_add_mnemonic_label;
 
-    extern fn gtk_widget_class_add_shortcut(self: *Self, shortcut: *gtk.Shortcut) void;
-    pub const addShortcut = gtk_widget_class_add_shortcut;
-
-    extern fn gtk_widget_add_tick_callback(self: *Self, callback: gtk.TickCallback, user_data: ?*anyopaque, notify: glib.DestroyNotify) u32;
+    extern fn gtk_widget_add_tick_callback(self: *Self, callback: *const fn (widget: *gtk.Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify: *const fn (data: ?*anyopaque) callconv(.C) void) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
     extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
     pub const allocate = gtk_widget_allocate;
 
-    extern fn gtk_widget_class_bind_template_callback_full(self: *Self, callback_name: [*c]const u8, callback_symbol: gobject.Callback) void;
-    pub const bindTemplateCallbackFull = gtk_widget_class_bind_template_callback_full;
+    extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
+    pub const bindProperty = g_object_bind_property;
 
-    extern fn gtk_widget_class_bind_template_child_full(self: *Self, name: [*c]const u8, internal_child: bool, struct_offset: i64) void;
-    pub const bindTemplateChildFull = gtk_widget_class_bind_template_child_full;
+    extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
+    pub const bindPropertyFull = g_object_bind_property_with_closures;
 
     extern fn gtk_widget_child_focus(self: *Self, direction: gtk.DirectionType) bool;
     pub const childFocus = gtk_widget_child_focus;
@@ -85,32 +88,17 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
-    extern fn gtk_editable_delete_selection(self: *Self) void;
-    pub const deleteSelection = gtk_editable_delete_selection;
-
-    extern fn gtk_editable_delete_text(self: *Self, start_pos: i32, end_pos: i32) void;
-    pub const deleteText = gtk_editable_delete_text;
-
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
     extern fn gtk_widget_error_bell(self: *Self) void;
     pub const errorBell = gtk_widget_error_bell;
 
-    extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
-    pub const findProperty = g_object_class_find_property;
+    extern fn g_object_force_floating(self: *Self) void;
+    pub const forceFloating = g_object_force_floating;
 
-    extern fn gtk_editable_finish_delegate(self: *Self) void;
-    pub const finishDelegate = gtk_editable_finish_delegate;
-
-    extern fn gtk_accessible_get_accessible_role(self: *Self) gtk.AccessibleRole;
-    pub const getAccessibleRole = gtk_accessible_get_accessible_role;
-
-    extern fn gtk_widget_class_get_activate_signal(self: *Self) u32;
-    pub const getActivateSignal = gtk_widget_class_get_activate_signal;
-
-    extern fn gtk_editable_get_alignment(self: *Self) f32;
-    pub const getAlignment = gtk_editable_get_alignment;
+    extern fn g_object_freeze_notify(self: *Self) void;
+    pub const freezeNotify = g_object_freeze_notify;
 
     extern fn gtk_widget_get_allocated_baseline(self: *Self) i32;
     pub const getAllocatedBaseline = gtk_widget_get_allocated_baseline;
@@ -127,17 +115,11 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
-    extern fn gtk_buildable_get_buildable_id(self: *Self) [*c]const u8;
-    pub const getBuildableId = gtk_buildable_get_buildable_id;
-
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
     extern fn gtk_widget_get_can_target(self: *Self) bool;
     pub const getCanTarget = gtk_widget_get_can_target;
-
-    extern fn gtk_editable_get_chars(self: *Self, start_pos: i32, end_pos: i32) [*c]const u8;
-    pub const getChars = gtk_editable_get_chars;
 
     extern fn gtk_widget_get_child_visible(self: *Self) bool;
     pub const getChildVisible = gtk_widget_get_child_visible;
@@ -154,8 +136,8 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_get_cursor(self: *Self) ?*gdk.Cursor;
     pub const getCursor = gtk_widget_get_cursor;
 
-    extern fn gtk_editable_get_delegate(self: *Self) ?*gtk.Editable;
-    pub const getDelegate = gtk_editable_get_delegate;
+    extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const getData = g_object_get_data;
 
     extern fn gtk_widget_get_direction(self: *Self) gtk.TextDirection;
     pub const getDirection = gtk_widget_get_direction;
@@ -163,14 +145,8 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_get_display(self: *Self) ?*gdk.Display;
     pub const getDisplay = gtk_widget_get_display;
 
-    extern fn gtk_editable_get_editable(self: *Self) bool;
-    pub const getEditable = gtk_editable_get_editable;
-
     extern fn gtk_editable_label_get_editing(self: *Self) bool;
     pub const getEditing = gtk_editable_label_get_editing;
-
-    extern fn gtk_editable_get_enable_undo(self: *Self) bool;
-    pub const getEnableUndo = gtk_editable_get_enable_undo;
 
     extern fn gtk_widget_get_first_child(self: *Self) ?*gtk.Widget;
     pub const getFirstChild = gtk_widget_get_first_child;
@@ -214,9 +190,6 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_get_layout_manager(self: *Self) ?*gtk.LayoutManager;
     pub const getLayoutManager = gtk_widget_get_layout_manager;
 
-    extern fn gtk_widget_class_get_layout_manager_type(self: *Self) usize;
-    pub const getLayoutManagerType = gtk_widget_class_get_layout_manager_type;
-
     extern fn gtk_widget_get_mapped(self: *Self) bool;
     pub const getMapped = gtk_widget_get_mapped;
 
@@ -231,9 +204,6 @@ pub const EditableLabel = extern struct {
 
     extern fn gtk_widget_get_margin_top(self: *Self) i32;
     pub const getMarginTop = gtk_widget_get_margin_top;
-
-    extern fn gtk_editable_get_max_width_chars(self: *Self) i32;
-    pub const getMaxWidthChars = gtk_editable_get_max_width_chars;
 
     extern fn gtk_widget_get_name(self: *Self) [*c]const u8;
     pub const getName = gtk_widget_get_name;
@@ -256,9 +226,6 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_get_parent(self: *Self) ?*gtk.Widget;
     pub const getParent = gtk_widget_get_parent;
 
-    extern fn gtk_editable_get_position(self: *Self) i32;
-    pub const getPosition = gtk_editable_get_position;
-
     extern fn gtk_widget_get_preferred_size(self: *Self, minimum_size: *gtk.Requisition, natural_size: *gtk.Requisition) void;
     pub const getPreferredSize = gtk_widget_get_preferred_size;
 
@@ -267,6 +234,12 @@ pub const EditableLabel = extern struct {
 
     extern fn gtk_widget_get_primary_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getPrimaryClipboard = gtk_widget_get_primary_clipboard;
+
+    extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const getProperty = g_object_get_property;
+
+    extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const getQdata = g_object_get_qdata;
 
     extern fn gtk_widget_get_realized(self: *Self) bool;
     pub const getRealized = gtk_widget_get_realized;
@@ -304,9 +277,6 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_get_template_child(self: *Self, widget_type: usize, name: [*c]const u8) ?*gobject.Object;
     pub const getTemplateChild = gtk_widget_get_template_child;
 
-    extern fn gtk_editable_get_text(self: *Self) [*c]const u8;
-    pub const getText = gtk_editable_get_text;
-
     extern fn gtk_widget_get_tooltip_markup(self: *Self) [*c]const u8;
     pub const getTooltipMarkup = gtk_widget_get_tooltip_markup;
 
@@ -327,9 +297,6 @@ pub const EditableLabel = extern struct {
 
     extern fn gtk_widget_get_width(self: *Self) i32;
     pub const getWidth = gtk_widget_get_width;
-
-    extern fn gtk_editable_get_width_chars(self: *Self) i32;
-    pub const getWidthChars = gtk_editable_get_width_chars;
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
@@ -355,9 +322,6 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_in_destruction(self: *Self) bool;
     pub const inDestruction = gtk_widget_in_destruction;
 
-    extern fn gtk_editable_init_delegate(self: *Self) void;
-    pub const initDelegate = gtk_editable_init_delegate;
-
     extern fn gtk_widget_init_template(self: *Self) void;
     pub const initTemplate = gtk_widget_init_template;
 
@@ -369,18 +333,6 @@ pub const EditableLabel = extern struct {
 
     extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: ?*gtk.Widget) void;
     pub const insertBefore = gtk_widget_insert_before;
-
-    extern fn gtk_widget_class_install_action(self: *Self, action_name: [*c]const u8, parameter_type: [*c]const u8, activate: gtk.WidgetActionActivateFunc) void;
-    pub const installAction = gtk_widget_class_install_action;
-
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
-    pub const installProperties = g_object_class_install_properties;
-
-    extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
-    pub const installProperty = g_object_class_install_property;
-
-    extern fn gtk_widget_class_install_property_action(self: *Self, action_name: [*c]const u8, property_name: [*c]const u8) void;
-    pub const installPropertyAction = gtk_widget_class_install_property_action;
 
     extern fn gtk_widget_is_ancestor(self: *Self, ancestor: *gtk.Widget) bool;
     pub const isAncestor = gtk_widget_is_ancestor;
@@ -406,9 +358,6 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_list_mnemonic_labels(self: *Self) ?*glib.List;
     pub const listMnemonicLabels = gtk_widget_list_mnemonic_labels;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
-    pub const listProperties = g_object_class_list_properties;
-
     extern fn gtk_widget_map(self: *Self) void;
     pub const map = gtk_widget_map;
 
@@ -421,20 +370,17 @@ pub const EditableLabel = extern struct {
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
+    extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
+    pub const notifyByPspec = g_object_notify_by_pspec;
+
     extern fn gtk_widget_observe_children(self: *Self) ?*gio.ListModel;
     pub const observeChildren = gtk_widget_observe_children;
 
     extern fn gtk_widget_observe_controllers(self: *Self) ?*gio.ListModel;
     pub const observeControllers = gtk_widget_observe_controllers;
 
-    extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
-    pub const overrideProperty = g_object_class_override_property;
-
     extern fn gtk_widget_pick(self: *Self, x: f64, y: f64, flags: gtk.PickFlags) ?*gtk.Widget;
     pub const pick = gtk_widget_pick;
-
-    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: ?*glib.VariantType, property_name: [*c]const u8) bool;
-    pub const queryAction = gtk_widget_class_query_action;
 
     extern fn gtk_widget_queue_allocate(self: *Self) void;
     pub const queueAllocate = gtk_widget_queue_allocate;
@@ -448,6 +394,12 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_realize(self: *Self) void;
     pub const realize = gtk_widget_realize;
 
+    extern fn g_object_ref(self: *Self) ?*gobject.Object;
+    pub const ref = g_object_ref;
+
+    extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
+    pub const refSink = g_object_ref_sink;
+
     extern fn gtk_widget_remove_controller(self: *Self, controller: *gtk.EventController) void;
     pub const removeController = gtk_widget_remove_controller;
 
@@ -460,32 +412,8 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_remove_tick_callback(self: *Self, id: u32) void;
     pub const removeTickCallback = gtk_widget_remove_tick_callback;
 
-    extern fn gtk_accessible_reset_property(self: *Self, property: gtk.AccessibleProperty) void;
-    pub const resetProperty = gtk_accessible_reset_property;
-
-    extern fn gtk_accessible_reset_relation(self: *Self, relation: gtk.AccessibleRelation) void;
-    pub const resetRelation = gtk_accessible_reset_relation;
-
-    extern fn gtk_accessible_reset_state(self: *Self, state: gtk.AccessibleState) void;
-    pub const resetState = gtk_accessible_reset_state;
-
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
-
-    extern fn gtk_editable_select_region(self: *Self, start_pos: i32, end_pos: i32) void;
-    pub const selectRegion = gtk_editable_select_region;
-
-    extern fn gtk_widget_class_set_accessible_role(self: *Self, accessible_role: gtk.AccessibleRole) void;
-    pub const setAccessibleRole = gtk_widget_class_set_accessible_role;
-
-    extern fn gtk_widget_class_set_activate_signal(self: *Self, signal_id: u32) void;
-    pub const setActivateSignal = gtk_widget_class_set_activate_signal;
-
-    extern fn gtk_widget_class_set_activate_signal_from_name(self: *Self, signal_name: [*c]const u8) void;
-    pub const setActivateSignalFromName = gtk_widget_class_set_activate_signal_from_name;
-
-    extern fn gtk_editable_set_alignment(self: *Self, xalign: f32) void;
-    pub const setAlignment = gtk_editable_set_alignment;
 
     extern fn gtk_widget_set_can_focus(self: *Self, can_focus: bool) void;
     pub const setCanFocus = gtk_widget_set_can_focus;
@@ -499,23 +427,17 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_set_css_classes(self: *Self, classes: [*c][*c]const u8) void;
     pub const setCssClasses = gtk_widget_set_css_classes;
 
-    extern fn gtk_widget_class_set_css_name(self: *Self, name: [*c]const u8) void;
-    pub const setCssName = gtk_widget_class_set_css_name;
-
     extern fn gtk_widget_set_cursor(self: *Self, cursor: ?*gdk.Cursor) void;
     pub const setCursor = gtk_widget_set_cursor;
 
     extern fn gtk_widget_set_cursor_from_name(self: *Self, name: [*c]const u8) void;
     pub const setCursorFromName = gtk_widget_set_cursor_from_name;
 
+    extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
+    pub const setData = g_object_set_data;
+
     extern fn gtk_widget_set_direction(self: *Self, dir: gtk.TextDirection) void;
     pub const setDirection = gtk_widget_set_direction;
-
-    extern fn gtk_editable_set_editable(self: *Self, is_editable: bool) void;
-    pub const setEditable = gtk_editable_set_editable;
-
-    extern fn gtk_editable_set_enable_undo(self: *Self, enable_undo: bool) void;
-    pub const setEnableUndo = gtk_editable_set_enable_undo;
 
     extern fn gtk_widget_set_focus_child(self: *Self, child: ?*gtk.Widget) void;
     pub const setFocusChild = gtk_widget_set_focus_child;
@@ -547,9 +469,6 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: ?*gtk.LayoutManager) void;
     pub const setLayoutManager = gtk_widget_set_layout_manager;
 
-    extern fn gtk_widget_class_set_layout_manager_type(self: *Self, type: usize) void;
-    pub const setLayoutManagerType = gtk_widget_class_set_layout_manager_type;
-
     extern fn gtk_widget_set_margin_bottom(self: *Self, margin: i32) void;
     pub const setMarginBottom = gtk_widget_set_margin_bottom;
 
@@ -561,9 +480,6 @@ pub const EditableLabel = extern struct {
 
     extern fn gtk_widget_set_margin_top(self: *Self, margin: i32) void;
     pub const setMarginTop = gtk_widget_set_margin_top;
-
-    extern fn gtk_editable_set_max_width_chars(self: *Self, n_chars: i32) void;
-    pub const setMaxWidthChars = gtk_editable_set_max_width_chars;
 
     extern fn gtk_widget_set_name(self: *Self, name: [*c]const u8) void;
     pub const setName = gtk_widget_set_name;
@@ -577,8 +493,8 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_set_parent(self: *Self, parent: *gtk.Widget) void;
     pub const setParent = gtk_widget_set_parent;
 
-    extern fn gtk_editable_set_position(self: *Self, position: i32) void;
-    pub const setPosition = gtk_editable_set_position;
+    extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const setProperty = g_object_set_property;
 
     extern fn gtk_widget_set_receives_default(self: *Self, receives_default: bool) void;
     pub const setReceivesDefault = gtk_widget_set_receives_default;
@@ -591,18 +507,6 @@ pub const EditableLabel = extern struct {
 
     extern fn gtk_widget_set_state_flags(self: *Self, flags: gtk.StateFlags, clear: bool) void;
     pub const setStateFlags = gtk_widget_set_state_flags;
-
-    extern fn gtk_widget_class_set_template(self: *Self, template_bytes: *glib.Bytes) void;
-    pub const setTemplate = gtk_widget_class_set_template;
-
-    extern fn gtk_widget_class_set_template_from_resource(self: *Self, resource_name: [*c]const u8) void;
-    pub const setTemplateFromResource = gtk_widget_class_set_template_from_resource;
-
-    extern fn gtk_widget_class_set_template_scope(self: *Self, scope: *gtk.BuilderScope) void;
-    pub const setTemplateScope = gtk_widget_class_set_template_scope;
-
-    extern fn gtk_editable_set_text(self: *Self, text: [*c]const u8) void;
-    pub const setText = gtk_editable_set_text;
 
     extern fn gtk_widget_set_tooltip_markup(self: *Self, markup: [*c]const u8) void;
     pub const setTooltipMarkup = gtk_widget_set_tooltip_markup;
@@ -622,9 +526,6 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_set_visible(self: *Self, visible: bool) void;
     pub const setVisible = gtk_widget_set_visible;
 
-    extern fn gtk_editable_set_width_chars(self: *Self, n_chars: i32) void;
-    pub const setWidthChars = gtk_editable_set_width_chars;
-
     extern fn gtk_widget_should_layout(self: *Self) bool;
     pub const shouldLayout = gtk_widget_should_layout;
 
@@ -640,11 +541,20 @@ pub const EditableLabel = extern struct {
     extern fn gtk_editable_label_start_editing(self: *Self) void;
     pub const startEditing = gtk_editable_label_start_editing;
 
+    extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const stealData = g_object_steal_data;
+
+    extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const stealQdata = g_object_steal_qdata;
+
     extern fn gtk_editable_label_stop_editing(self: *Self, commit: bool) void;
     pub const stopEditing = gtk_editable_label_stop_editing;
 
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
+
+    extern fn gtk_widget_translate_coordinates(self: *Self, dest_widget: *gtk.Widget, src_x: f64, src_y: f64, dest_x: f64, dest_y: f64) bool;
+    pub const translateCoordinates = gtk_widget_translate_coordinates;
 
     extern fn gtk_widget_trigger_tooltip_query(self: *Self) void;
     pub const triggerTooltipQuery = gtk_widget_trigger_tooltip_query;
@@ -658,17 +568,14 @@ pub const EditableLabel = extern struct {
     extern fn gtk_widget_unrealize(self: *Self) void;
     pub const unrealize = gtk_widget_unrealize;
 
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
+
     extern fn gtk_widget_unset_state_flags(self: *Self, flags: gtk.StateFlags) void;
     pub const unsetStateFlags = gtk_widget_unset_state_flags;
 
-    extern fn gtk_accessible_update_property_value(self: *Self, n_properties: i32, properties: [*c]gtk.AccessibleProperty, values: [*c]gobject.Value) void;
-    pub const updateProperty = gtk_accessible_update_property_value;
-
-    extern fn gtk_accessible_update_relation_value(self: *Self, n_relations: i32, relations: [*c]gtk.AccessibleRelation, values: [*c]gobject.Value) void;
-    pub const updateRelation = gtk_accessible_update_relation_value;
-
-    extern fn gtk_accessible_update_state_value(self: *Self, n_states: i32, states: [*c]gtk.AccessibleState, values: [*c]gobject.Value) void;
-    pub const updateState = gtk_accessible_update_state_value;
+    extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
+    pub const watchClosure = g_object_watch_closure;
 
 
     // Signals

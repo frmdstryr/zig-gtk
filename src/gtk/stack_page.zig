@@ -1,13 +1,18 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(StackPage)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const StackPage = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_type_instance: *gobject.TypeInstance,
+    ref_count: u32,
+    qdata: *glib.Data,
 
     // Constructors
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -15,14 +20,23 @@ pub const StackPage = extern struct {
 
 
     // Methods
-    extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
-    pub const findProperty = g_object_class_find_property;
+    extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
+    pub const bindProperty = g_object_bind_property;
 
-    extern fn gtk_accessible_get_accessible_role(self: *Self) gtk.AccessibleRole;
-    pub const getAccessibleRole = gtk_accessible_get_accessible_role;
+    extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
+    pub const bindPropertyFull = g_object_bind_property_with_closures;
+
+    extern fn g_object_force_floating(self: *Self) void;
+    pub const forceFloating = g_object_force_floating;
+
+    extern fn g_object_freeze_notify(self: *Self) void;
+    pub const freezeNotify = g_object_freeze_notify;
 
     extern fn gtk_stack_page_get_child(self: *Self) ?*gtk.Widget;
     pub const getChild = gtk_stack_page_get_child;
+
+    extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const getData = g_object_get_data;
 
     extern fn gtk_stack_page_get_icon_name(self: *Self) [*c]const u8;
     pub const getIconName = gtk_stack_page_get_icon_name;
@@ -32,6 +46,12 @@ pub const StackPage = extern struct {
 
     extern fn gtk_stack_page_get_needs_attention(self: *Self) bool;
     pub const getNeedsAttention = gtk_stack_page_get_needs_attention;
+
+    extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const getProperty = g_object_get_property;
+
+    extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const getQdata = g_object_get_qdata;
 
     extern fn gtk_stack_page_get_title(self: *Self) [*c]const u8;
     pub const getTitle = gtk_stack_page_get_title;
@@ -45,35 +65,26 @@ pub const StackPage = extern struct {
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
-    pub const installProperties = g_object_class_install_properties;
-
-    extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
-    pub const installProperty = g_object_class_install_property;
-
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
-
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
-    pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
-    extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
-    pub const overrideProperty = g_object_class_override_property;
+    extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
+    pub const notifyByPspec = g_object_notify_by_pspec;
 
-    extern fn gtk_accessible_reset_property(self: *Self, property: gtk.AccessibleProperty) void;
-    pub const resetProperty = gtk_accessible_reset_property;
+    extern fn g_object_ref(self: *Self) ?*gobject.Object;
+    pub const ref = g_object_ref;
 
-    extern fn gtk_accessible_reset_relation(self: *Self, relation: gtk.AccessibleRelation) void;
-    pub const resetRelation = gtk_accessible_reset_relation;
-
-    extern fn gtk_accessible_reset_state(self: *Self, state: gtk.AccessibleState) void;
-    pub const resetState = gtk_accessible_reset_state;
+    extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
+    pub const refSink = g_object_ref_sink;
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
+
+    extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
+    pub const setData = g_object_set_data;
 
     extern fn gtk_stack_page_set_icon_name(self: *Self, setting: [*c]const u8) void;
     pub const setIconName = gtk_stack_page_set_icon_name;
@@ -84,6 +95,9 @@ pub const StackPage = extern struct {
     extern fn gtk_stack_page_set_needs_attention(self: *Self, setting: bool) void;
     pub const setNeedsAttention = gtk_stack_page_set_needs_attention;
 
+    extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const setProperty = g_object_set_property;
+
     extern fn gtk_stack_page_set_title(self: *Self, setting: [*c]const u8) void;
     pub const setTitle = gtk_stack_page_set_title;
 
@@ -93,17 +107,20 @@ pub const StackPage = extern struct {
     extern fn gtk_stack_page_set_visible(self: *Self, visible: bool) void;
     pub const setVisible = gtk_stack_page_set_visible;
 
+    extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const stealData = g_object_steal_data;
+
+    extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const stealQdata = g_object_steal_qdata;
+
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn gtk_accessible_update_property_value(self: *Self, n_properties: i32, properties: [*c]gtk.AccessibleProperty, values: [*c]gobject.Value) void;
-    pub const updateProperty = gtk_accessible_update_property_value;
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
 
-    extern fn gtk_accessible_update_relation_value(self: *Self, n_relations: i32, relations: [*c]gtk.AccessibleRelation, values: [*c]gobject.Value) void;
-    pub const updateRelation = gtk_accessible_update_relation_value;
-
-    extern fn gtk_accessible_update_state_value(self: *Self, n_states: i32, states: [*c]gtk.AccessibleState, values: [*c]gobject.Value) void;
-    pub const updateState = gtk_accessible_update_state_value;
+    extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
+    pub const watchClosure = g_object_watch_closure;
 
 
     // Signals

@@ -1,16 +1,21 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(MediaFile)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("gio");
 const gdk = @import("gdk");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const MediaFile = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_instance: *gtk.MediaStream,
+    g_type_instance: *gobject.TypeInstance,
+    ref_count: u32,
+    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_media_file_new() ?*Self;
@@ -33,20 +38,26 @@ pub const MediaFile = extern struct {
 
 
     // Methods
+    extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
+    pub const bindProperty = g_object_bind_property;
+
+    extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
+    pub const bindPropertyFull = g_object_bind_property_with_closures;
+
     extern fn gtk_media_file_clear(self: *Self) void;
     pub const clear = gtk_media_file_clear;
 
-    extern fn gdk_paintable_compute_concrete_size(self: *Self, specified_width: f64, specified_height: f64, default_width: f64, default_height: f64, concrete_width: f64, concrete_height: f64) void;
-    pub const computeConcreteSize = gdk_paintable_compute_concrete_size;
+    extern fn g_object_force_floating(self: *Self) void;
+    pub const forceFloating = g_object_force_floating;
 
-    extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
-    pub const findProperty = g_object_class_find_property;
+    extern fn g_object_freeze_notify(self: *Self) void;
+    pub const freezeNotify = g_object_freeze_notify;
 
     extern fn gtk_media_stream_gerror(self: *Self, error_: *glib.Error) void;
     pub const gerror = gtk_media_stream_gerror;
 
-    extern fn gdk_paintable_get_current_image(self: *Self) ?*gdk.Paintable;
-    pub const getCurrentImage = gdk_paintable_get_current_image;
+    extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const getData = g_object_get_data;
 
     extern fn gtk_media_stream_get_duration(self: *Self) i64;
     pub const getDuration = gtk_media_stream_get_duration;
@@ -60,20 +71,8 @@ pub const MediaFile = extern struct {
     extern fn gtk_media_file_get_file(self: *Self) ?*gio.File;
     pub const getFile = gtk_media_file_get_file;
 
-    extern fn gdk_paintable_get_flags(self: *Self) gdk.PaintableFlags;
-    pub const getFlags = gdk_paintable_get_flags;
-
     extern fn gtk_media_file_get_input_stream(self: *Self) ?*gio.InputStream;
     pub const getInputStream = gtk_media_file_get_input_stream;
-
-    extern fn gdk_paintable_get_intrinsic_aspect_ratio(self: *Self) f64;
-    pub const getIntrinsicAspectRatio = gdk_paintable_get_intrinsic_aspect_ratio;
-
-    extern fn gdk_paintable_get_intrinsic_height(self: *Self) i32;
-    pub const getIntrinsicHeight = gdk_paintable_get_intrinsic_height;
-
-    extern fn gdk_paintable_get_intrinsic_width(self: *Self) i32;
-    pub const getIntrinsicWidth = gdk_paintable_get_intrinsic_width;
 
     extern fn gtk_media_stream_get_loop(self: *Self) bool;
     pub const getLoop = gtk_media_stream_get_loop;
@@ -83,6 +82,12 @@ pub const MediaFile = extern struct {
 
     extern fn gtk_media_stream_get_playing(self: *Self) bool;
     pub const getPlaying = gtk_media_stream_get_playing;
+
+    extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const getProperty = g_object_get_property;
+
+    extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const getQdata = g_object_get_qdata;
 
     extern fn gtk_media_stream_get_timestamp(self: *Self) i64;
     pub const getTimestamp = gtk_media_stream_get_timestamp;
@@ -99,18 +104,6 @@ pub const MediaFile = extern struct {
     extern fn gtk_media_stream_has_video(self: *Self) bool;
     pub const hasVideo = gtk_media_stream_has_video;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
-    pub const installProperties = g_object_class_install_properties;
-
-    extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
-    pub const installProperty = g_object_class_install_property;
-
-    extern fn gdk_paintable_invalidate_contents(self: *Self) void;
-    pub const invalidateContents = gdk_paintable_invalidate_contents;
-
-    extern fn gdk_paintable_invalidate_size(self: *Self) void;
-    pub const invalidateSize = gdk_paintable_invalidate_size;
-
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
@@ -123,14 +116,11 @@ pub const MediaFile = extern struct {
     extern fn gtk_media_stream_is_seeking(self: *Self) bool;
     pub const isSeeking = gtk_media_stream_is_seeking;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
-    pub const listProperties = g_object_class_list_properties;
-
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
-    extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
-    pub const overrideProperty = g_object_class_override_property;
+    extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
+    pub const notifyByPspec = g_object_notify_by_pspec;
 
     extern fn gtk_media_stream_pause(self: *Self) void;
     pub const pause = gtk_media_stream_pause;
@@ -140,6 +130,12 @@ pub const MediaFile = extern struct {
 
     extern fn gtk_media_stream_realize(self: *Self, surface: *gdk.Surface) void;
     pub const realize = gtk_media_stream_realize;
+
+    extern fn g_object_ref(self: *Self) ?*gobject.Object;
+    pub const ref = g_object_ref;
+
+    extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
+    pub const refSink = g_object_ref_sink;
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
@@ -152,6 +148,9 @@ pub const MediaFile = extern struct {
 
     extern fn gtk_media_stream_seek_success(self: *Self) void;
     pub const seekSuccess = gtk_media_stream_seek_success;
+
+    extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
+    pub const setData = g_object_set_data;
 
     extern fn gtk_media_file_set_file(self: *Self, file: ?*gio.File) void;
     pub const setFile = gtk_media_file_set_file;
@@ -171,14 +170,20 @@ pub const MediaFile = extern struct {
     extern fn gtk_media_stream_set_playing(self: *Self, playing: bool) void;
     pub const setPlaying = gtk_media_stream_set_playing;
 
+    extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const setProperty = g_object_set_property;
+
     extern fn gtk_media_file_set_resource(self: *Self, resource_path: [*c]const u8) void;
     pub const setResource = gtk_media_file_set_resource;
 
     extern fn gtk_media_stream_set_volume(self: *Self, volume: f64) void;
     pub const setVolume = gtk_media_stream_set_volume;
 
-    extern fn gdk_paintable_snapshot(self: *Self, snapshot: *gdk.Snapshot, width: f64, height: f64) void;
-    pub const snapshot = gdk_paintable_snapshot;
+    extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const stealData = g_object_steal_data;
+
+    extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const stealQdata = g_object_steal_qdata;
 
     extern fn gtk_media_stream_stream_ended(self: *Self) void;
     pub const streamEnded = gtk_media_stream_stream_ended;
@@ -195,8 +200,14 @@ pub const MediaFile = extern struct {
     extern fn gtk_media_stream_unrealize(self: *Self, surface: *gdk.Surface) void;
     pub const unrealize = gtk_media_stream_unrealize;
 
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
+
     extern fn gtk_media_stream_update(self: *Self, timestamp: i64) void;
     pub const update = gtk_media_stream_update;
+
+    extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
+    pub const watchClosure = g_object_watch_closure;
 
 
     // Signals

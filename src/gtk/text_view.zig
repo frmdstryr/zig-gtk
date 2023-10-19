@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(TextView)
 const pango = @import("pango");
 const gtk = @import("../gtk.zig");
 const gsk = @import("gsk");
@@ -9,12 +9,18 @@ const glib = @import("glib");
 const gio = @import("gio");
 const gdk = @import("gdk");
 const cairo = @import("cairo");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const TextView = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_instance: *gtk.Widget,
+    priv: *gtk.TextViewPrivate,
+    g_type_instance: *gobject.TypeInstance,
+    ref_count: u32,
+    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_text_view_new() ?*Self;
@@ -55,10 +61,7 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_add_overlay(self: *Self, child: *gtk.Widget, xpos: i32, ypos: i32) void;
     pub const addOverlay = gtk_text_view_add_overlay;
 
-    extern fn gtk_widget_class_add_shortcut(self: *Self, shortcut: *gtk.Shortcut) void;
-    pub const addShortcut = gtk_widget_class_add_shortcut;
-
-    extern fn gtk_widget_add_tick_callback(self: *Self, callback: gtk.TickCallback, user_data: ?*anyopaque, notify: glib.DestroyNotify) u32;
+    extern fn gtk_widget_add_tick_callback(self: *Self, callback: *const fn (widget: *gtk.Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify: *const fn (data: ?*anyopaque) callconv(.C) void) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
     extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
@@ -70,11 +73,11 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_backward_display_line_start(self: *Self, iter: *gtk.TextIter) bool;
     pub const backwardDisplayLineStart = gtk_text_view_backward_display_line_start;
 
-    extern fn gtk_widget_class_bind_template_callback_full(self: *Self, callback_name: [*c]const u8, callback_symbol: gobject.Callback) void;
-    pub const bindTemplateCallbackFull = gtk_widget_class_bind_template_callback_full;
+    extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
+    pub const bindProperty = g_object_bind_property;
 
-    extern fn gtk_widget_class_bind_template_child_full(self: *Self, name: [*c]const u8, internal_child: bool, struct_offset: i64) void;
-    pub const bindTemplateChildFull = gtk_widget_class_bind_template_child_full;
+    extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
+    pub const bindPropertyFull = g_object_bind_property_with_closures;
 
     extern fn gtk_text_view_buffer_to_window_coords(self: *Self, win: gtk.TextWindowType, buffer_x: i32, buffer_y: i32, window_x: i32, window_y: i32) void;
     pub const bufferToWindowCoords = gtk_text_view_buffer_to_window_coords;
@@ -109,8 +112,8 @@ pub const TextView = extern struct {
     extern fn gtk_widget_error_bell(self: *Self) void;
     pub const errorBell = gtk_widget_error_bell;
 
-    extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
-    pub const findProperty = g_object_class_find_property;
+    extern fn g_object_force_floating(self: *Self) void;
+    pub const forceFloating = g_object_force_floating;
 
     extern fn gtk_text_view_forward_display_line(self: *Self, iter: *gtk.TextIter) bool;
     pub const forwardDisplayLine = gtk_text_view_forward_display_line;
@@ -118,14 +121,11 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_forward_display_line_end(self: *Self, iter: *gtk.TextIter) bool;
     pub const forwardDisplayLineEnd = gtk_text_view_forward_display_line_end;
 
+    extern fn g_object_freeze_notify(self: *Self) void;
+    pub const freezeNotify = g_object_freeze_notify;
+
     extern fn gtk_text_view_get_accepts_tab(self: *Self) bool;
     pub const getAcceptsTab = gtk_text_view_get_accepts_tab;
-
-    extern fn gtk_accessible_get_accessible_role(self: *Self) gtk.AccessibleRole;
-    pub const getAccessibleRole = gtk_accessible_get_accessible_role;
-
-    extern fn gtk_widget_class_get_activate_signal(self: *Self) u32;
-    pub const getActivateSignal = gtk_widget_class_get_activate_signal;
 
     extern fn gtk_widget_get_allocated_baseline(self: *Self) i32;
     pub const getAllocatedBaseline = gtk_widget_get_allocated_baseline;
@@ -142,17 +142,11 @@ pub const TextView = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
-    extern fn gtk_scrollable_get_border(self: *Self, border: *gtk.Border) bool;
-    pub const getBorder = gtk_scrollable_get_border;
-
     extern fn gtk_text_view_get_bottom_margin(self: *Self) i32;
     pub const getBottomMargin = gtk_text_view_get_bottom_margin;
 
     extern fn gtk_text_view_get_buffer(self: *Self) ?*gtk.TextBuffer;
     pub const getBuffer = gtk_text_view_get_buffer;
-
-    extern fn gtk_buildable_get_buildable_id(self: *Self) [*c]const u8;
-    pub const getBuildableId = gtk_buildable_get_buildable_id;
 
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
@@ -180,6 +174,9 @@ pub const TextView = extern struct {
 
     extern fn gtk_text_view_get_cursor_visible(self: *Self) bool;
     pub const getCursorVisible = gtk_text_view_get_cursor_visible;
+
+    extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const getData = g_object_get_data;
 
     extern fn gtk_widget_get_direction(self: *Self) gtk.TextDirection;
     pub const getDirection = gtk_widget_get_direction;
@@ -217,9 +214,6 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_get_gutter(self: *Self, win: gtk.TextWindowType) ?*gtk.Widget;
     pub const getGutter = gtk_text_view_get_gutter;
 
-    extern fn gtk_scrollable_get_hadjustment(self: *Self) ?*gtk.Adjustment;
-    pub const getHadjustment = gtk_scrollable_get_hadjustment;
-
     extern fn gtk_widget_get_halign(self: *Self) gtk.Align;
     pub const getHalign = gtk_widget_get_halign;
 
@@ -234,9 +228,6 @@ pub const TextView = extern struct {
 
     extern fn gtk_widget_get_hexpand_set(self: *Self) bool;
     pub const getHexpandSet = gtk_widget_get_hexpand_set;
-
-    extern fn gtk_scrollable_get_hscroll_policy(self: *Self) gtk.ScrollablePolicy;
-    pub const getHscrollPolicy = gtk_scrollable_get_hscroll_policy;
 
     extern fn gtk_text_view_get_indent(self: *Self) i32;
     pub const getIndent = gtk_text_view_get_indent;
@@ -264,9 +255,6 @@ pub const TextView = extern struct {
 
     extern fn gtk_widget_get_layout_manager(self: *Self) ?*gtk.LayoutManager;
     pub const getLayoutManager = gtk_widget_get_layout_manager;
-
-    extern fn gtk_widget_class_get_layout_manager_type(self: *Self) usize;
-    pub const getLayoutManagerType = gtk_widget_class_get_layout_manager_type;
 
     extern fn gtk_text_view_get_left_margin(self: *Self) i32;
     pub const getLeftMargin = gtk_text_view_get_left_margin;
@@ -340,6 +328,12 @@ pub const TextView = extern struct {
     extern fn gtk_widget_get_primary_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getPrimaryClipboard = gtk_widget_get_primary_clipboard;
 
+    extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const getProperty = g_object_get_property;
+
+    extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const getQdata = g_object_get_qdata;
+
     extern fn gtk_widget_get_realized(self: *Self) bool;
     pub const getRealized = gtk_widget_get_realized;
 
@@ -394,9 +388,6 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_get_top_margin(self: *Self) i32;
     pub const getTopMargin = gtk_text_view_get_top_margin;
 
-    extern fn gtk_scrollable_get_vadjustment(self: *Self) ?*gtk.Adjustment;
-    pub const getVadjustment = gtk_scrollable_get_vadjustment;
-
     extern fn gtk_widget_get_valign(self: *Self) gtk.Align;
     pub const getValign = gtk_widget_get_valign;
 
@@ -411,9 +402,6 @@ pub const TextView = extern struct {
 
     extern fn gtk_text_view_get_visible_rect(self: *Self, visible_rect: *gdk.Rectangle) void;
     pub const getVisibleRect = gtk_text_view_get_visible_rect;
-
-    extern fn gtk_scrollable_get_vscroll_policy(self: *Self) gtk.ScrollablePolicy;
-    pub const getVscrollPolicy = gtk_scrollable_get_vscroll_policy;
 
     extern fn gtk_widget_get_width(self: *Self) i32;
     pub const getWidth = gtk_widget_get_width;
@@ -460,18 +448,6 @@ pub const TextView = extern struct {
     extern fn gtk_widget_insert_before(self: *Self, parent: *gtk.Widget, next_sibling: ?*gtk.Widget) void;
     pub const insertBefore = gtk_widget_insert_before;
 
-    extern fn gtk_widget_class_install_action(self: *Self, action_name: [*c]const u8, parameter_type: [*c]const u8, activate: gtk.WidgetActionActivateFunc) void;
-    pub const installAction = gtk_widget_class_install_action;
-
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
-    pub const installProperties = g_object_class_install_properties;
-
-    extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
-    pub const installProperty = g_object_class_install_property;
-
-    extern fn gtk_widget_class_install_property_action(self: *Self, action_name: [*c]const u8, property_name: [*c]const u8) void;
-    pub const installPropertyAction = gtk_widget_class_install_property_action;
-
     extern fn gtk_widget_is_ancestor(self: *Self, ancestor: *gtk.Widget) bool;
     pub const isAncestor = gtk_widget_is_ancestor;
 
@@ -496,9 +472,6 @@ pub const TextView = extern struct {
     extern fn gtk_widget_list_mnemonic_labels(self: *Self) ?*glib.List;
     pub const listMnemonicLabels = gtk_widget_list_mnemonic_labels;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
-    pub const listProperties = g_object_class_list_properties;
-
     extern fn gtk_widget_map(self: *Self) void;
     pub const map = gtk_widget_map;
 
@@ -520,23 +493,20 @@ pub const TextView = extern struct {
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
+    extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
+    pub const notifyByPspec = g_object_notify_by_pspec;
+
     extern fn gtk_widget_observe_children(self: *Self) ?*gio.ListModel;
     pub const observeChildren = gtk_widget_observe_children;
 
     extern fn gtk_widget_observe_controllers(self: *Self) ?*gio.ListModel;
     pub const observeControllers = gtk_widget_observe_controllers;
 
-    extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
-    pub const overrideProperty = g_object_class_override_property;
-
     extern fn gtk_widget_pick(self: *Self, x: f64, y: f64, flags: gtk.PickFlags) ?*gtk.Widget;
     pub const pick = gtk_widget_pick;
 
     extern fn gtk_text_view_place_cursor_onscreen(self: *Self) bool;
     pub const placeCursorOnscreen = gtk_text_view_place_cursor_onscreen;
-
-    extern fn gtk_widget_class_query_action(self: *Self, index_: u32, owner: usize, action_name: [*c]const u8, parameter_type: ?*glib.VariantType, property_name: [*c]const u8) bool;
-    pub const queryAction = gtk_widget_class_query_action;
 
     extern fn gtk_widget_queue_allocate(self: *Self) void;
     pub const queueAllocate = gtk_widget_queue_allocate;
@@ -549,6 +519,12 @@ pub const TextView = extern struct {
 
     extern fn gtk_widget_realize(self: *Self) void;
     pub const realize = gtk_widget_realize;
+
+    extern fn g_object_ref(self: *Self) ?*gobject.Object;
+    pub const ref = g_object_ref;
+
+    extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
+    pub const refSink = g_object_ref_sink;
 
     extern fn gtk_text_view_remove(self: *Self, child: *gtk.Widget) void;
     pub const remove = gtk_text_view_remove;
@@ -571,15 +547,6 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_reset_im_context(self: *Self) void;
     pub const resetImContext = gtk_text_view_reset_im_context;
 
-    extern fn gtk_accessible_reset_property(self: *Self, property: gtk.AccessibleProperty) void;
-    pub const resetProperty = gtk_accessible_reset_property;
-
-    extern fn gtk_accessible_reset_relation(self: *Self, relation: gtk.AccessibleRelation) void;
-    pub const resetRelation = gtk_accessible_reset_relation;
-
-    extern fn gtk_accessible_reset_state(self: *Self, state: gtk.AccessibleState) void;
-    pub const resetState = gtk_accessible_reset_state;
-
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
@@ -594,15 +561,6 @@ pub const TextView = extern struct {
 
     extern fn gtk_text_view_set_accepts_tab(self: *Self, accepts_tab: bool) void;
     pub const setAcceptsTab = gtk_text_view_set_accepts_tab;
-
-    extern fn gtk_widget_class_set_accessible_role(self: *Self, accessible_role: gtk.AccessibleRole) void;
-    pub const setAccessibleRole = gtk_widget_class_set_accessible_role;
-
-    extern fn gtk_widget_class_set_activate_signal(self: *Self, signal_id: u32) void;
-    pub const setActivateSignal = gtk_widget_class_set_activate_signal;
-
-    extern fn gtk_widget_class_set_activate_signal_from_name(self: *Self, signal_name: [*c]const u8) void;
-    pub const setActivateSignalFromName = gtk_widget_class_set_activate_signal_from_name;
 
     extern fn gtk_text_view_set_bottom_margin(self: *Self, bottom_margin: i32) void;
     pub const setBottomMargin = gtk_text_view_set_bottom_margin;
@@ -622,9 +580,6 @@ pub const TextView = extern struct {
     extern fn gtk_widget_set_css_classes(self: *Self, classes: [*c][*c]const u8) void;
     pub const setCssClasses = gtk_widget_set_css_classes;
 
-    extern fn gtk_widget_class_set_css_name(self: *Self, name: [*c]const u8) void;
-    pub const setCssName = gtk_widget_class_set_css_name;
-
     extern fn gtk_widget_set_cursor(self: *Self, cursor: ?*gdk.Cursor) void;
     pub const setCursor = gtk_widget_set_cursor;
 
@@ -633,6 +588,9 @@ pub const TextView = extern struct {
 
     extern fn gtk_text_view_set_cursor_visible(self: *Self, setting: bool) void;
     pub const setCursorVisible = gtk_text_view_set_cursor_visible;
+
+    extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
+    pub const setData = g_object_set_data;
 
     extern fn gtk_widget_set_direction(self: *Self, dir: gtk.TextDirection) void;
     pub const setDirection = gtk_widget_set_direction;
@@ -661,9 +619,6 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_set_gutter(self: *Self, win: gtk.TextWindowType, widget: ?*gtk.Widget) void;
     pub const setGutter = gtk_text_view_set_gutter;
 
-    extern fn gtk_scrollable_set_hadjustment(self: *Self, hadjustment: ?*gtk.Adjustment) void;
-    pub const setHadjustment = gtk_scrollable_set_hadjustment;
-
     extern fn gtk_widget_set_halign(self: *Self, align_: gtk.Align) void;
     pub const setHalign = gtk_widget_set_halign;
 
@@ -675,9 +630,6 @@ pub const TextView = extern struct {
 
     extern fn gtk_widget_set_hexpand_set(self: *Self, set: bool) void;
     pub const setHexpandSet = gtk_widget_set_hexpand_set;
-
-    extern fn gtk_scrollable_set_hscroll_policy(self: *Self, policy: gtk.ScrollablePolicy) void;
-    pub const setHscrollPolicy = gtk_scrollable_set_hscroll_policy;
 
     extern fn gtk_text_view_set_indent(self: *Self, indent: i32) void;
     pub const setIndent = gtk_text_view_set_indent;
@@ -693,9 +645,6 @@ pub const TextView = extern struct {
 
     extern fn gtk_widget_set_layout_manager(self: *Self, layout_manager: ?*gtk.LayoutManager) void;
     pub const setLayoutManager = gtk_widget_set_layout_manager;
-
-    extern fn gtk_widget_class_set_layout_manager_type(self: *Self, type: usize) void;
-    pub const setLayoutManagerType = gtk_widget_class_set_layout_manager_type;
 
     extern fn gtk_text_view_set_left_margin(self: *Self, left_margin: i32) void;
     pub const setLeftMargin = gtk_text_view_set_left_margin;
@@ -739,6 +688,9 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_set_pixels_inside_wrap(self: *Self, pixels_inside_wrap: i32) void;
     pub const setPixelsInsideWrap = gtk_text_view_set_pixels_inside_wrap;
 
+    extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const setProperty = g_object_set_property;
+
     extern fn gtk_widget_set_receives_default(self: *Self, receives_default: bool) void;
     pub const setReceivesDefault = gtk_widget_set_receives_default;
 
@@ -757,15 +709,6 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_set_tabs(self: *Self, tabs: *pango.TabArray) void;
     pub const setTabs = gtk_text_view_set_tabs;
 
-    extern fn gtk_widget_class_set_template(self: *Self, template_bytes: *glib.Bytes) void;
-    pub const setTemplate = gtk_widget_class_set_template;
-
-    extern fn gtk_widget_class_set_template_from_resource(self: *Self, resource_name: [*c]const u8) void;
-    pub const setTemplateFromResource = gtk_widget_class_set_template_from_resource;
-
-    extern fn gtk_widget_class_set_template_scope(self: *Self, scope: *gtk.BuilderScope) void;
-    pub const setTemplateScope = gtk_widget_class_set_template_scope;
-
     extern fn gtk_widget_set_tooltip_markup(self: *Self, markup: [*c]const u8) void;
     pub const setTooltipMarkup = gtk_widget_set_tooltip_markup;
 
@@ -774,9 +717,6 @@ pub const TextView = extern struct {
 
     extern fn gtk_text_view_set_top_margin(self: *Self, top_margin: i32) void;
     pub const setTopMargin = gtk_text_view_set_top_margin;
-
-    extern fn gtk_scrollable_set_vadjustment(self: *Self, vadjustment: ?*gtk.Adjustment) void;
-    pub const setVadjustment = gtk_scrollable_set_vadjustment;
 
     extern fn gtk_widget_set_valign(self: *Self, align_: gtk.Align) void;
     pub const setValign = gtk_widget_set_valign;
@@ -789,9 +729,6 @@ pub const TextView = extern struct {
 
     extern fn gtk_widget_set_visible(self: *Self, visible: bool) void;
     pub const setVisible = gtk_widget_set_visible;
-
-    extern fn gtk_scrollable_set_vscroll_policy(self: *Self, policy: gtk.ScrollablePolicy) void;
-    pub const setVscrollPolicy = gtk_scrollable_set_vscroll_policy;
 
     extern fn gtk_text_view_set_wrap_mode(self: *Self, wrap_mode: gtk.WrapMode) void;
     pub const setWrapMode = gtk_text_view_set_wrap_mode;
@@ -811,8 +748,17 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_starts_display_line(self: *Self, iter: *gtk.TextIter) bool;
     pub const startsDisplayLine = gtk_text_view_starts_display_line;
 
+    extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const stealData = g_object_steal_data;
+
+    extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const stealQdata = g_object_steal_qdata;
+
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
+
+    extern fn gtk_widget_translate_coordinates(self: *Self, dest_widget: *gtk.Widget, src_x: f64, src_y: f64, dest_x: f64, dest_y: f64) bool;
+    pub const translateCoordinates = gtk_widget_translate_coordinates;
 
     extern fn gtk_widget_trigger_tooltip_query(self: *Self) void;
     pub const triggerTooltipQuery = gtk_widget_trigger_tooltip_query;
@@ -826,17 +772,14 @@ pub const TextView = extern struct {
     extern fn gtk_widget_unrealize(self: *Self) void;
     pub const unrealize = gtk_widget_unrealize;
 
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
+
     extern fn gtk_widget_unset_state_flags(self: *Self, flags: gtk.StateFlags) void;
     pub const unsetStateFlags = gtk_widget_unset_state_flags;
 
-    extern fn gtk_accessible_update_property_value(self: *Self, n_properties: i32, properties: [*c]gtk.AccessibleProperty, values: [*c]gobject.Value) void;
-    pub const updateProperty = gtk_accessible_update_property_value;
-
-    extern fn gtk_accessible_update_relation_value(self: *Self, n_relations: i32, relations: [*c]gtk.AccessibleRelation, values: [*c]gobject.Value) void;
-    pub const updateRelation = gtk_accessible_update_relation_value;
-
-    extern fn gtk_accessible_update_state_value(self: *Self, n_states: i32, states: [*c]gtk.AccessibleState, values: [*c]gobject.Value) void;
-    pub const updateState = gtk_accessible_update_state_value;
+    extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
+    pub const watchClosure = g_object_watch_closure;
 
     extern fn gtk_text_view_window_to_buffer_coords(self: *Self, win: gtk.TextWindowType, window_x: i32, window_y: i32, buffer_x: i32, buffer_y: i32) void;
     pub const windowToBufferCoords = gtk_text_view_window_to_buffer_coords;

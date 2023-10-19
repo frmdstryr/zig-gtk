@@ -1,12 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// gi.UnionInfo(DoubleIEEE754)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const DoubleIEEE754 = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    v_double: f64,
 
     // Constructors
 

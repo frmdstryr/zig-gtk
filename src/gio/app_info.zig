@@ -1,14 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// InterfaceInfo(AppInfo)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const AppInfo = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 
@@ -61,7 +62,7 @@ pub const AppInfo = extern struct {
     extern fn g_app_info_launch_uris(self: *Self, uris: *glib.List, context: ?*gio.AppLaunchContext) bool;
     pub const launchUris = g_app_info_launch_uris;
 
-    extern fn g_app_info_launch_uris_async(self: *Self, uris: *glib.List, context: ?*gio.AppLaunchContext, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_app_info_launch_uris_async(self: *Self, uris: *glib.List, context: ?*gio.AppLaunchContext, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const launchUrisAsync = g_app_info_launch_uris_async;
 
     extern fn g_app_info_launch_uris_finish(self: *Self, result: *gio.AsyncResult) bool;

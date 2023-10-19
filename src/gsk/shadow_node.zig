@@ -1,15 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(ShadowNode)
 const gsk = @import("../gsk.zig");
 const graphene = @import("graphene");
 const glib = @import("glib");
 const cairo = @import("cairo");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const ShadowNode = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gsk_shadow_node_new(child: *gsk.RenderNode, shadows: [*c]gsk.Shadow, n_shadows: u64) ?*Self;

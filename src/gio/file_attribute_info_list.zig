@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(FileAttributeInfoList)
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const FileAttributeInfoList = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    infos: *gio.FileAttributeInfo,
+    n_infos: i32,
 
     // Constructors
     extern fn g_file_attribute_info_list_new() ?*Self;

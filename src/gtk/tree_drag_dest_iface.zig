@@ -1,12 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(TreeDragDestIface)
 const gtk = @import("../gtk.zig");
+const gobject = @import("gobject");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const TreeDragDestIface = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_iface: *gobject.TypeInterface,
+    drag_data_received: *const fn (drag_dest: *gtk.TreeDragDest, dest: *gtk.TreePath, value: *gobject.Value) callconv(.C) bool,
+    row_drop_possible: *const fn (drag_dest: *gtk.TreeDragDest, dest_path: *gtk.TreePath, value: *gobject.Value) callconv(.C) bool,
 
     // Constructors
 

@@ -1,12 +1,21 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(IconIface)
+const gobject = @import("gobject");
+const glib = @import("glib");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const IconIface = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_iface: *gobject.TypeInterface,
+    hash: *const fn (icon: *gio.Icon) callconv(.C) u32,
+    equal: *const fn (icon1: ?*gio.Icon, icon2: ?*gio.Icon) callconv(.C) bool,
+    to_tokens: ?*anyopaque,
+    from_tokens: ?*anyopaque,
+    serialize: *const fn (icon: *gio.Icon) callconv(.C) *glib.Variant,
 
     // Constructors
 

@@ -1,7 +1,5 @@
 // This file is auto generated do not edit
 const std = @import("std");
-const glib = @import("glib");
-const gobject = @import("gobject");
 pub usingnamespace @import("gio/enums.zig");
 pub usingnamespace @import("gio/flags.zig");
 pub usingnamespace @import("gio/constants.zig");
@@ -378,17 +376,6 @@ pub const ZlibCompressor = @import("gio/zlib_compressor.zig").ZlibCompressor;
 pub const ZlibCompressorClass = @import("gio/zlib_compressor_class.zig").ZlibCompressorClass;
 pub const ZlibDecompressor = @import("gio/zlib_decompressor.zig").ZlibDecompressor;
 pub const ZlibDecompressorClass = @import("gio/zlib_decompressor_class.zig").ZlibDecompressorClass;
-
-pub const AsyncReadyCallback = *const fn(source_object: ?*gobject.Object, res: *AsyncResult, data: ?*anyopaque) callconv(.C) void;
-pub const DBusMessageFilterFunction = *const fn(connection: *DBusConnection, message: *DBusMessage, incoming: bool, data: ?*anyopaque) callconv(.C) ?*DBusMessage;
-pub const DBusProxyTypeFunc = *const fn(manager: *DBusObjectManagerClient, object_path: [*c]const u8, interface_name: [*c]const u8, data: ?*anyopaque) callconv(.C) usize;
-pub const DBusSignalCallback = *const fn(connection: *DBusConnection, sender_name: [*c]const u8, object_path: [*c]const u8, interface_name: [*c]const u8, signal_name: [*c]const u8, parameters: [*c]glib.Variant, data: ?*anyopaque) callconv(.C) void;
-pub const DesktopAppLaunchCallback = *const fn(appinfo: *DesktopAppInfo, pid: i32, data: ?*anyopaque) callconv(.C) void;
-pub const FileProgressCallback = *const fn(current_num_bytes: usize, total_num_bytes: usize, data: ?*anyopaque) callconv(.C) void;
-pub const FileMeasureProgressCallback = *const fn(reporting: bool, current_size: u64, num_dirs: u64, num_files: u64, data: ?*anyopaque) callconv(.C) void;
-pub const SettingsGetMapping = *const fn(value: ?*glib.Variant, result: ?*anyopaque, data: ?*anyopaque) callconv(.C) bool;
-pub const TaskThreadFunc = *const fn(task: *Task, source_object: *gobject.Object, task_data: ?*anyopaque, cancellable: ?*Cancellable) callconv(.C) void;
-pub const VfsFileLookupFunc = *const fn(vfs: *Vfs, identifier: [*c]const u8, user_data: ?*anyopaque) callconv(.C) ?*File;
 
 test {
     std.testing.refAllDecls(@This());

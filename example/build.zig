@@ -50,6 +50,7 @@ pub fn build(b: *std.Build) void {
         .source_file = .{ .path = "deps/zig-gtk/src/gio.zig" },
         .dependencies = &.{
             .{ .name = "glib", .module = glib },
+            .{ .name = "gobject", .module = gobject },
         },
     });
     const gtk = b.createModule(.{

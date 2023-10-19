@@ -1,13 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Resource)
 const glib = @import("glib");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Resource = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn g_resource_new_from_data(data: *glib.Bytes) ?*Self;
@@ -15,6 +16,12 @@ pub const Resource = extern struct {
 
 
     // Methods
+    extern fn g_resources_register(self: *Self) void;
+    pub const Register = g_resources_register;
+
+    extern fn g_resources_unregister(self: *Self) void;
+    pub const Unregister = g_resources_unregister;
+
     extern fn g_resource_enumerate_children(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags) [*c][*c]const u8;
     pub const enumerateChildren = g_resource_enumerate_children;
 

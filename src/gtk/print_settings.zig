@@ -1,14 +1,18 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(PrintSettings)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const PrintSettings = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_type_instance: *gobject.TypeInstance,
+    ref_count: u32,
+    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_print_settings_new() ?*Self;
@@ -28,14 +32,23 @@ pub const PrintSettings = extern struct {
 
 
     // Methods
+    extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
+    pub const bindProperty = g_object_bind_property;
+
+    extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
+    pub const bindPropertyFull = g_object_bind_property_with_closures;
+
     extern fn gtk_print_settings_copy(self: *Self) ?*gtk.PrintSettings;
     pub const copy = gtk_print_settings_copy;
 
-    extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
-    pub const findProperty = g_object_class_find_property;
+    extern fn g_object_force_floating(self: *Self) void;
+    pub const forceFloating = g_object_force_floating;
 
-    extern fn gtk_print_settings_foreach(self: *Self, func: gtk.PrintSettingsFunc, user_data: ?*anyopaque) void;
+    extern fn gtk_print_settings_foreach(self: *Self, func: *const fn (key: [*c]const u8, value: [*c]const u8, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const foreach = gtk_print_settings_foreach;
+
+    extern fn g_object_freeze_notify(self: *Self) void;
+    pub const freezeNotify = g_object_freeze_notify;
 
     extern fn gtk_print_settings_get(self: *Self, key: [*c]const u8) [*c]const u8;
     pub const get = gtk_print_settings_get;
@@ -45,6 +58,9 @@ pub const PrintSettings = extern struct {
 
     extern fn gtk_print_settings_get_collate(self: *Self) bool;
     pub const getCollate = gtk_print_settings_get_collate;
+
+    extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const getData = g_object_get_data;
 
     extern fn gtk_print_settings_get_default_source(self: *Self) [*c]const u8;
     pub const getDefaultSource = gtk_print_settings_get_default_source;
@@ -115,6 +131,12 @@ pub const PrintSettings = extern struct {
     extern fn gtk_print_settings_get_printer_lpi(self: *Self) f64;
     pub const getPrinterLpi = gtk_print_settings_get_printer_lpi;
 
+    extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const getProperty = g_object_get_property;
+
+    extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const getQdata = g_object_get_qdata;
+
     extern fn gtk_print_settings_get_quality(self: *Self) gtk.PrintQuality;
     pub const getQuality = gtk_print_settings_get_quality;
 
@@ -142,17 +164,8 @@ pub const PrintSettings = extern struct {
     extern fn gtk_print_settings_has_key(self: *Self, key: [*c]const u8) bool;
     pub const hasKey = gtk_print_settings_has_key;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
-    pub const installProperties = g_object_class_install_properties;
-
-    extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
-    pub const installProperty = g_object_class_install_property;
-
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
-
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
-    pub const listProperties = g_object_class_list_properties;
 
     extern fn gtk_print_settings_load_file(self: *Self, file_name: [*c]const u8) bool;
     pub const loadFile = gtk_print_settings_load_file;
@@ -163,8 +176,14 @@ pub const PrintSettings = extern struct {
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
-    extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
-    pub const overrideProperty = g_object_class_override_property;
+    extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
+    pub const notifyByPspec = g_object_notify_by_pspec;
+
+    extern fn g_object_ref(self: *Self) ?*gobject.Object;
+    pub const ref = g_object_ref;
+
+    extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
+    pub const refSink = g_object_ref_sink;
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
@@ -177,6 +196,9 @@ pub const PrintSettings = extern struct {
 
     extern fn gtk_print_settings_set_collate(self: *Self, collate: bool) void;
     pub const setCollate = gtk_print_settings_set_collate;
+
+    extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
+    pub const setData = g_object_set_data;
 
     extern fn gtk_print_settings_set_default_source(self: *Self, default_source: [*c]const u8) void;
     pub const setDefaultSource = gtk_print_settings_set_default_source;
@@ -241,6 +263,9 @@ pub const PrintSettings = extern struct {
     extern fn gtk_print_settings_set_printer_lpi(self: *Self, lpi: f64) void;
     pub const setPrinterLpi = gtk_print_settings_set_printer_lpi;
 
+    extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const setProperty = g_object_set_property;
+
     extern fn gtk_print_settings_set_quality(self: *Self, quality: gtk.PrintQuality) void;
     pub const setQuality = gtk_print_settings_set_quality;
 
@@ -259,6 +284,12 @@ pub const PrintSettings = extern struct {
     extern fn gtk_print_settings_set_use_color(self: *Self, use_color: bool) void;
     pub const setUseColor = gtk_print_settings_set_use_color;
 
+    extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const stealData = g_object_steal_data;
+
+    extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const stealQdata = g_object_steal_qdata;
+
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
@@ -271,8 +302,14 @@ pub const PrintSettings = extern struct {
     extern fn gtk_print_settings_to_key_file(self: *Self, key_file: *glib.KeyFile, group_name: [*c]const u8) void;
     pub const toKeyFile = gtk_print_settings_to_key_file;
 
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
+
     extern fn gtk_print_settings_unset(self: *Self, key: [*c]const u8) void;
     pub const unset = gtk_print_settings_unset;
+
+    extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
+    pub const watchClosure = g_object_watch_closure;
 
 
     // Signals

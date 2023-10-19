@@ -82,6 +82,7 @@ pub fn build(b: *Builder) void {
     const gdkpixbuf = b.createModule(.{
         .source_file = .{ .path = "src/gdkpixbuf.zig" },
         .dependencies = &.{
+            .{ .name = "glib", .module = glib },
             .{ .name = "gobject", .module = gobject },
         },
     });

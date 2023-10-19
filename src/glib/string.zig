@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(String)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const String = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    str: [*c]const u8,
+    len: u64,
+    allocated_len: u64,
 
     // Constructors
     extern fn g_string_new(init: [*c]const u8) ?*Self;

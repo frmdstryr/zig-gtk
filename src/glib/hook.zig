@@ -1,12 +1,21 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Hook)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Hook = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    data: ?*anyopaque,
+    next: *glib.Hook,
+    prev: *glib.Hook,
+    ref_count: u32,
+    hook_id: u64,
+    flags: u32,
+    func: ?*anyopaque,
+    destroy: *const fn (data: ?*anyopaque) callconv(.C) void,
 
     // Constructors
 

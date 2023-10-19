@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(FrameClockPrivate)
 const gdk = @import("../gdk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const FrameClockPrivate = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 

@@ -1,16 +1,26 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(FocusEvent)
 const gdk = @import("../gdk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const FocusEvent = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 
     // Methods
+    extern fn gdk_events_get_angle(self: *Self, event2: *gdk.Event, angle: f64) bool;
+    pub const GetAngle = gdk_events_get_angle;
+
+    extern fn gdk_events_get_center(self: *Self, event2: *gdk.Event, x: f64, y: f64) bool;
+    pub const GetCenter = gdk_events_get_center;
+
+    extern fn gdk_events_get_distance(self: *Self, event2: *gdk.Event, distance: f64) bool;
+    pub const GetDistance = gdk_events_get_distance;
+
     extern fn gdk_event_get_axes(self: *Self, axes: [*c]f64, n_axes: u32) bool;
     pub const getAxes = gdk_event_get_axes;
 

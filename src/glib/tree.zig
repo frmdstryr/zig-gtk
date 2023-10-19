@@ -1,15 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Tree)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Tree = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
-    extern fn g_tree_new_full(key_compare_func: glib.CompareDataFunc, key_compare_data: ?*anyopaque, key_destroy_func: glib.DestroyNotify, value_destroy_func: glib.DestroyNotify) ?*Self;
+    extern fn g_tree_new_full(key_compare_func: *const fn (a: ?*anyopaque, b: ?*anyopaque, user_data: ?*anyopaque) callconv(.C) i32, key_compare_data: ?*anyopaque, key_destroy_func: *const fn (data: ?*anyopaque) callconv(.C) void, value_destroy_func: *const fn (data: ?*anyopaque) callconv(.C) void) ?*Self;
     pub const newFull = g_tree_new_full;
 
 

@@ -1,12 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(TypeQuery)
 const gobject = @import("../gobject.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const TypeQuery = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    type: usize,
+    type_name: [*c]const u8,
+    class_size: u32,
+    instance_size: u32,
 
     // Constructors
 

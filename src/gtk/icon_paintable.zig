@@ -1,15 +1,20 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(IconPaintable)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gio = @import("gio");
 const gdk = @import("gdk");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const IconPaintable = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_type_instance: *gobject.TypeInstance,
+    ref_count: u32,
+    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_icon_paintable_new_for_file(file: *gio.File, size: i32, scale: i32) ?*Self;
@@ -20,47 +25,35 @@ pub const IconPaintable = extern struct {
 
 
     // Methods
-    extern fn gdk_paintable_compute_concrete_size(self: *Self, specified_width: f64, specified_height: f64, default_width: f64, default_height: f64, concrete_width: f64, concrete_height: f64) void;
-    pub const computeConcreteSize = gdk_paintable_compute_concrete_size;
+    extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
+    pub const bindProperty = g_object_bind_property;
 
-    extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
-    pub const findProperty = g_object_class_find_property;
+    extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
+    pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn gdk_paintable_get_current_image(self: *Self) ?*gdk.Paintable;
-    pub const getCurrentImage = gdk_paintable_get_current_image;
+    extern fn g_object_force_floating(self: *Self) void;
+    pub const forceFloating = g_object_force_floating;
+
+    extern fn g_object_freeze_notify(self: *Self) void;
+    pub const freezeNotify = g_object_freeze_notify;
+
+    extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const getData = g_object_get_data;
 
     extern fn gtk_icon_paintable_get_file(self: *Self) ?*gio.File;
     pub const getFile = gtk_icon_paintable_get_file;
 
-    extern fn gdk_paintable_get_flags(self: *Self) gdk.PaintableFlags;
-    pub const getFlags = gdk_paintable_get_flags;
-
     extern fn gtk_icon_paintable_get_icon_name(self: *Self) [*c]const u8;
     pub const getIconName = gtk_icon_paintable_get_icon_name;
 
-    extern fn gdk_paintable_get_intrinsic_aspect_ratio(self: *Self) f64;
-    pub const getIntrinsicAspectRatio = gdk_paintable_get_intrinsic_aspect_ratio;
+    extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const getProperty = g_object_get_property;
 
-    extern fn gdk_paintable_get_intrinsic_height(self: *Self) i32;
-    pub const getIntrinsicHeight = gdk_paintable_get_intrinsic_height;
-
-    extern fn gdk_paintable_get_intrinsic_width(self: *Self) i32;
-    pub const getIntrinsicWidth = gdk_paintable_get_intrinsic_width;
+    extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const getQdata = g_object_get_qdata;
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
-
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
-    pub const installProperties = g_object_class_install_properties;
-
-    extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
-    pub const installProperty = g_object_class_install_property;
-
-    extern fn gdk_paintable_invalidate_contents(self: *Self) void;
-    pub const invalidateContents = gdk_paintable_invalidate_contents;
-
-    extern fn gdk_paintable_invalidate_size(self: *Self) void;
-    pub const invalidateSize = gdk_paintable_invalidate_size;
 
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
@@ -68,26 +61,41 @@ pub const IconPaintable = extern struct {
     extern fn gtk_icon_paintable_is_symbolic(self: *Self) bool;
     pub const isSymbolic = gtk_icon_paintable_is_symbolic;
 
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
-    pub const listProperties = g_object_class_list_properties;
-
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
-    extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
-    pub const overrideProperty = g_object_class_override_property;
+    extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
+    pub const notifyByPspec = g_object_notify_by_pspec;
+
+    extern fn g_object_ref(self: *Self) ?*gobject.Object;
+    pub const ref = g_object_ref;
+
+    extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
+    pub const refSink = g_object_ref_sink;
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gdk_paintable_snapshot(self: *Self, snapshot: *gdk.Snapshot, width: f64, height: f64) void;
-    pub const snapshot = gdk_paintable_snapshot;
+    extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
+    pub const setData = g_object_set_data;
 
-    extern fn gtk_symbolic_paintable_snapshot_symbolic(self: *Self, snapshot: *gdk.Snapshot, width: f64, height: f64, colors: [*c]gdk.RGBA, n_colors: u64) void;
-    pub const snapshotSymbolic = gtk_symbolic_paintable_snapshot_symbolic;
+    extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const setProperty = g_object_set_property;
+
+    extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const stealData = g_object_steal_data;
+
+    extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const stealQdata = g_object_steal_qdata;
 
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
+
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
+
+    extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
+    pub const watchClosure = g_object_watch_closure;
 
 
     // Signals

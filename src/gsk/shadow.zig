@@ -1,12 +1,18 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Shadow)
 const gsk = @import("../gsk.zig");
+const gdk = @import("gdk");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Shadow = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    color: *gdk.RGBA,
+    dx: f32,
+    dy: f32,
+    radius: f32,
 
     // Constructors
 

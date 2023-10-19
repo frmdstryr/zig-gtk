@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(SourceCallbackFuncs)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const SourceCallbackFuncs = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    ref: *const fn (cb_data: ?*anyopaque) callconv(.C) void,
+    unref: *const fn (cb_data: ?*anyopaque) callconv(.C) void,
+    get: ?*anyopaque,
 
     // Constructors
 

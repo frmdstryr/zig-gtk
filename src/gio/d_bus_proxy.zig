@@ -1,14 +1,20 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(DBusProxy)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const DBusProxy = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_instance: *gobject.Object,
+    priv: *gio.DBusProxyPrivate,
+    g_type_instance: *gobject.TypeInstance,
+    ref_count: u32,
+    qdata: *glib.Data,
 
     // Constructors
     extern fn g_dbus_proxy_new_finish(res: *gio.AsyncResult) ?*Self;
@@ -28,7 +34,13 @@ pub const DBusProxy = extern struct {
 
 
     // Methods
-    extern fn g_dbus_proxy_call(self: *Self, method_name: [*c]const u8, parameters: ?*glib.Variant, flags: gio.DBusCallFlags, timeout_msec: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
+    pub const bindProperty = g_object_bind_property;
+
+    extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
+    pub const bindPropertyFull = g_object_bind_property_with_closures;
+
+    extern fn g_dbus_proxy_call(self: *Self, method_name: [*c]const u8, parameters: ?*glib.Variant, flags: gio.DBusCallFlags, timeout_msec: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const call = g_dbus_proxy_call;
 
     extern fn g_dbus_proxy_call_finish(self: *Self, res: *gio.AsyncResult) ?*glib.Variant;
@@ -37,7 +49,7 @@ pub const DBusProxy = extern struct {
     extern fn g_dbus_proxy_call_sync(self: *Self, method_name: [*c]const u8, parameters: ?*glib.Variant, flags: gio.DBusCallFlags, timeout_msec: i32, cancellable: ?*gio.Cancellable) ?*glib.Variant;
     pub const callSync = g_dbus_proxy_call_sync;
 
-    extern fn g_dbus_proxy_call_with_unix_fd_list(self: *Self, method_name: [*c]const u8, parameters: ?*glib.Variant, flags: gio.DBusCallFlags, timeout_msec: i32, fd_list: ?*gio.UnixFDList, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_dbus_proxy_call_with_unix_fd_list(self: *Self, method_name: [*c]const u8, parameters: ?*glib.Variant, flags: gio.DBusCallFlags, timeout_msec: i32, fd_list: ?*gio.UnixFDList, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const callWithUnixFdList = g_dbus_proxy_call_with_unix_fd_list;
 
     extern fn g_dbus_proxy_call_with_unix_fd_list_finish(self: *Self, out_fd_list: *gio.UnixFDList, res: *gio.AsyncResult) ?*glib.Variant;
@@ -46,8 +58,11 @@ pub const DBusProxy = extern struct {
     extern fn g_dbus_proxy_call_with_unix_fd_list_sync(self: *Self, method_name: [*c]const u8, parameters: ?*glib.Variant, flags: gio.DBusCallFlags, timeout_msec: i32, fd_list: ?*gio.UnixFDList, out_fd_list: *gio.UnixFDList, cancellable: ?*gio.Cancellable) ?*glib.Variant;
     pub const callWithUnixFdListSync = g_dbus_proxy_call_with_unix_fd_list_sync;
 
-    extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
-    pub const findProperty = g_object_class_find_property;
+    extern fn g_object_force_floating(self: *Self) void;
+    pub const forceFloating = g_object_force_floating;
+
+    extern fn g_object_freeze_notify(self: *Self) void;
+    pub const freezeNotify = g_object_freeze_notify;
 
     extern fn g_dbus_proxy_get_cached_property(self: *Self, property_name: [*c]const u8) ?*glib.Variant;
     pub const getCachedProperty = g_dbus_proxy_get_cached_property;
@@ -58,14 +73,14 @@ pub const DBusProxy = extern struct {
     extern fn g_dbus_proxy_get_connection(self: *Self) ?*gio.DBusConnection;
     pub const getConnection = g_dbus_proxy_get_connection;
 
+    extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const getData = g_object_get_data;
+
     extern fn g_dbus_proxy_get_default_timeout(self: *Self) i32;
     pub const getDefaultTimeout = g_dbus_proxy_get_default_timeout;
 
     extern fn g_dbus_proxy_get_flags(self: *Self) gio.DBusProxyFlags;
     pub const getFlags = g_dbus_proxy_get_flags;
-
-    extern fn g_dbus_interface_get_info(self: *Self) ?*gio.DBusInterfaceInfo;
-    pub const getInfo = g_dbus_interface_get_info;
 
     extern fn g_dbus_proxy_get_interface_info(self: *Self) ?*gio.DBusInterfaceInfo;
     pub const getInterfaceInfo = g_dbus_proxy_get_interface_info;
@@ -79,41 +94,32 @@ pub const DBusProxy = extern struct {
     extern fn g_dbus_proxy_get_name_owner(self: *Self) [*c]const u8;
     pub const getNameOwner = g_dbus_proxy_get_name_owner;
 
-    extern fn g_dbus_interface_dup_object(self: *Self) ?*gio.DBusObject;
-    pub const getObject = g_dbus_interface_dup_object;
-
     extern fn g_dbus_proxy_get_object_path(self: *Self) [*c]const u8;
     pub const getObjectPath = g_dbus_proxy_get_object_path;
+
+    extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const getProperty = g_object_get_property;
+
+    extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const getQdata = g_object_get_qdata;
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_initable_init(self: *Self, cancellable: ?*gio.Cancellable) bool;
-    pub const init = g_initable_init;
-
-    extern fn g_async_initable_init_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
-    pub const initAsync = g_async_initable_init_async;
-
-    extern fn g_async_initable_init_finish(self: *Self, res: *gio.AsyncResult) bool;
-    pub const initFinish = g_async_initable_init_finish;
-
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
-    pub const installProperties = g_object_class_install_properties;
-
-    extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
-    pub const installProperty = g_object_class_install_property;
-
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
-
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
-    pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
-    extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
-    pub const overrideProperty = g_object_class_override_property;
+    extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
+    pub const notifyByPspec = g_object_notify_by_pspec;
+
+    extern fn g_object_ref(self: *Self) ?*gobject.Object;
+    pub const ref = g_object_ref;
+
+    extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
+    pub const refSink = g_object_ref_sink;
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
@@ -121,17 +127,32 @@ pub const DBusProxy = extern struct {
     extern fn g_dbus_proxy_set_cached_property(self: *Self, property_name: [*c]const u8, value: ?*glib.Variant) void;
     pub const setCachedProperty = g_dbus_proxy_set_cached_property;
 
+    extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
+    pub const setData = g_object_set_data;
+
     extern fn g_dbus_proxy_set_default_timeout(self: *Self, timeout_msec: i32) void;
     pub const setDefaultTimeout = g_dbus_proxy_set_default_timeout;
 
     extern fn g_dbus_proxy_set_interface_info(self: *Self, info: ?*gio.DBusInterfaceInfo) void;
     pub const setInterfaceInfo = g_dbus_proxy_set_interface_info;
 
-    extern fn g_dbus_interface_set_object(self: *Self, object: ?*gio.DBusObject) void;
-    pub const setObject = g_dbus_interface_set_object;
+    extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const setProperty = g_object_set_property;
+
+    extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const stealData = g_object_steal_data;
+
+    extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const stealQdata = g_object_steal_qdata;
 
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
+
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
+
+    extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
+    pub const watchClosure = g_object_watch_closure;
 
 
     // Signals
@@ -160,9 +181,6 @@ pub const DBusProxy = extern struct {
         return @ptrCast(self);
     }
     pub fn asDBusInterface(self: *Self) *gio.DBusInterface {
-        return @ptrCast(self);
-    }
-    pub fn asDBusProxy(self: *Self) *gio.DBusProxy {
         return @ptrCast(self);
     }
     pub fn asInitable(self: *Self) *gio.Initable {

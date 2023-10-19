@@ -1,13 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// InterfaceInfo(Editable)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Editable = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 
@@ -42,6 +43,9 @@ pub const Editable = extern struct {
     extern fn gtk_editable_get_position(self: *Self) i32;
     pub const getPosition = gtk_editable_get_position;
 
+    extern fn gtk_editable_get_selection_bounds(self: *Self, start_pos: i32, end_pos: i32) bool;
+    pub const getSelectionBounds = gtk_editable_get_selection_bounds;
+
     extern fn gtk_editable_get_text(self: *Self) [*c]const u8;
     pub const getText = gtk_editable_get_text;
 
@@ -50,6 +54,9 @@ pub const Editable = extern struct {
 
     extern fn gtk_editable_init_delegate(self: *Self) void;
     pub const initDelegate = gtk_editable_init_delegate;
+
+    extern fn gtk_editable_insert_text(self: *Self, text: [*c]const u8, length: i32, position: i32) void;
+    pub const insertText = gtk_editable_insert_text;
 
     extern fn gtk_editable_select_region(self: *Self, start_pos: i32, end_pos: i32) void;
     pub const selectRegion = gtk_editable_select_region;
@@ -78,9 +85,6 @@ pub const Editable = extern struct {
 
     // Bases
     pub fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
-    pub fn asEditable(self: *Self) *gtk.Editable {
         return @ptrCast(self);
     }
 };

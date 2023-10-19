@@ -1,14 +1,29 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(TextIter)
 const pango = @import("pango");
 const gtk = @import("../gtk.zig");
 const gdk = @import("gdk");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const TextIter = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    dummy1: ?*anyopaque,
+    dummy2: ?*anyopaque,
+    dummy3: i32,
+    dummy4: i32,
+    dummy5: i32,
+    dummy6: i32,
+    dummy7: i32,
+    dummy8: i32,
+    dummy9: ?*anyopaque,
+    dummy10: ?*anyopaque,
+    dummy11: i32,
+    dummy12: i32,
+    dummy13: i32,
+    dummy14: ?*anyopaque,
 
     // Constructors
 
@@ -28,7 +43,7 @@ pub const TextIter = extern struct {
     extern fn gtk_text_iter_backward_cursor_positions(self: *Self, count: i32) bool;
     pub const backwardCursorPositions = gtk_text_iter_backward_cursor_positions;
 
-    extern fn gtk_text_iter_backward_find_char(self: *Self, pred: gtk.TextCharPredicate, user_data: ?*anyopaque, limit: ?*gtk.TextIter) bool;
+    extern fn gtk_text_iter_backward_find_char(self: *Self, pred: *const fn (ch: u32, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, limit: ?*gtk.TextIter) bool;
     pub const backwardFindChar = gtk_text_iter_backward_find_char;
 
     extern fn gtk_text_iter_backward_line(self: *Self) bool;
@@ -36,6 +51,9 @@ pub const TextIter = extern struct {
 
     extern fn gtk_text_iter_backward_lines(self: *Self, count: i32) bool;
     pub const backwardLines = gtk_text_iter_backward_lines;
+
+    extern fn gtk_text_iter_backward_search(self: *Self, str: [*c]const u8, flags: gtk.TextSearchFlags, match_start: *gtk.TextIter, match_end: *gtk.TextIter, limit: ?*gtk.TextIter) bool;
+    pub const backwardSearch = gtk_text_iter_backward_search;
 
     extern fn gtk_text_iter_backward_sentence_start(self: *Self) bool;
     pub const backwardSentenceStart = gtk_text_iter_backward_sentence_start;
@@ -109,7 +127,7 @@ pub const TextIter = extern struct {
     extern fn gtk_text_iter_forward_cursor_positions(self: *Self, count: i32) bool;
     pub const forwardCursorPositions = gtk_text_iter_forward_cursor_positions;
 
-    extern fn gtk_text_iter_forward_find_char(self: *Self, pred: gtk.TextCharPredicate, user_data: ?*anyopaque, limit: ?*gtk.TextIter) bool;
+    extern fn gtk_text_iter_forward_find_char(self: *Self, pred: *const fn (ch: u32, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, limit: ?*gtk.TextIter) bool;
     pub const forwardFindChar = gtk_text_iter_forward_find_char;
 
     extern fn gtk_text_iter_forward_line(self: *Self) bool;
@@ -117,6 +135,9 @@ pub const TextIter = extern struct {
 
     extern fn gtk_text_iter_forward_lines(self: *Self, count: i32) bool;
     pub const forwardLines = gtk_text_iter_forward_lines;
+
+    extern fn gtk_text_iter_forward_search(self: *Self, str: [*c]const u8, flags: gtk.TextSearchFlags, match_start: *gtk.TextIter, match_end: *gtk.TextIter, limit: ?*gtk.TextIter) bool;
+    pub const forwardSearch = gtk_text_iter_forward_search;
 
     extern fn gtk_text_iter_forward_sentence_end(self: *Self) bool;
     pub const forwardSentenceEnd = gtk_text_iter_forward_sentence_end;
@@ -280,11 +301,6 @@ pub const TextIter = extern struct {
     extern fn gtk_text_iter_toggles_tag(self: *Self, tag: ?*gtk.TextTag) bool;
     pub const togglesTag = gtk_text_iter_toggles_tag;
 
-
-    // Bases
-    pub fn asTextIter(self: *Self) *gtk.TextIter {
-        return @ptrCast(self);
-    }
 };
 
 test {

@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(GlyphVisAttr)
 const pango = @import("../pango.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const GlyphVisAttr = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    is_cluster_start: u32,
+    is_color: u32,
 
     // Constructors
 

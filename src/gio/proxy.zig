@@ -1,13 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// InterfaceInfo(Proxy)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Proxy = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 
@@ -15,7 +16,7 @@ pub const Proxy = extern struct {
     extern fn g_proxy_connect(self: *Self, connection: *gio.IOStream, proxy_address: *gio.ProxyAddress, cancellable: ?*gio.Cancellable) ?*gio.IOStream;
     pub const connect = g_proxy_connect;
 
-    extern fn g_proxy_connect_async(self: *Self, connection: *gio.IOStream, proxy_address: *gio.ProxyAddress, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_proxy_connect_async(self: *Self, connection: *gio.IOStream, proxy_address: *gio.ProxyAddress, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const connectAsync = g_proxy_connect_async;
 
     extern fn g_proxy_connect_finish(self: *Self, result: *gio.AsyncResult) ?*gio.IOStream;

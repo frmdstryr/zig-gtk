@@ -1,13 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// InterfaceInfo(Mount)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Mount = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 
@@ -18,13 +19,13 @@ pub const Mount = extern struct {
     extern fn g_mount_can_unmount(self: *Self) bool;
     pub const canUnmount = g_mount_can_unmount;
 
-    extern fn g_mount_eject(self: *Self, flags: gio.MountUnmountFlags, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_mount_eject(self: *Self, flags: gio.MountUnmountFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const eject = g_mount_eject;
 
     extern fn g_mount_eject_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const ejectFinish = g_mount_eject_finish;
 
-    extern fn g_mount_eject_with_operation(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_mount_eject_with_operation(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const ejectWithOperation = g_mount_eject_with_operation;
 
     extern fn g_mount_eject_with_operation_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -57,7 +58,7 @@ pub const Mount = extern struct {
     extern fn g_mount_get_volume(self: *Self) ?*gio.Volume;
     pub const getVolume = g_mount_get_volume;
 
-    extern fn g_mount_guess_content_type(self: *Self, force_rescan: bool, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_mount_guess_content_type(self: *Self, force_rescan: bool, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const guessContentType = g_mount_guess_content_type;
 
     extern fn g_mount_guess_content_type_finish(self: *Self, result: *gio.AsyncResult) [*c][*c]const u8;
@@ -69,7 +70,7 @@ pub const Mount = extern struct {
     extern fn g_mount_is_shadowed(self: *Self) bool;
     pub const isShadowed = g_mount_is_shadowed;
 
-    extern fn g_mount_remount(self: *Self, flags: gio.MountMountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_mount_remount(self: *Self, flags: gio.MountMountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const remount = g_mount_remount;
 
     extern fn g_mount_remount_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -78,13 +79,13 @@ pub const Mount = extern struct {
     extern fn g_mount_shadow(self: *Self) void;
     pub const shadow = g_mount_shadow;
 
-    extern fn g_mount_unmount(self: *Self, flags: gio.MountUnmountFlags, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_mount_unmount(self: *Self, flags: gio.MountUnmountFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const unmount = g_mount_unmount;
 
     extern fn g_mount_unmount_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const unmountFinish = g_mount_unmount_finish;
 
-    extern fn g_mount_unmount_with_operation(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_mount_unmount_with_operation(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const unmountWithOperation = g_mount_unmount_with_operation;
 
     extern fn g_mount_unmount_with_operation_finish(self: *Self, result: *gio.AsyncResult) bool;

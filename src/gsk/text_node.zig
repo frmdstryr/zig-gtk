@@ -1,17 +1,18 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(TextNode)
 const pango = @import("pango");
 const gsk = @import("../gsk.zig");
 const graphene = @import("graphene");
 const glib = @import("glib");
 const gdk = @import("gdk");
 const cairo = @import("cairo");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const TextNode = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gsk_text_node_new(font: *pango.Font, glyphs: *pango.GlyphString, color: *gdk.RGBA, offset: *graphene.Point) ?*Self;

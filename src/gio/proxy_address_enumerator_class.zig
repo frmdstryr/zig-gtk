@@ -1,12 +1,21 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(ProxyAddressEnumeratorClass)
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const ProxyAddressEnumeratorClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_class: *gio.SocketAddressEnumeratorClass,
+    _g_reserved1: ?*anyopaque,
+    _g_reserved2: ?*anyopaque,
+    _g_reserved3: ?*anyopaque,
+    _g_reserved4: ?*anyopaque,
+    _g_reserved5: ?*anyopaque,
+    _g_reserved6: ?*anyopaque,
+    _g_reserved7: ?*anyopaque,
 
     // Constructors
 

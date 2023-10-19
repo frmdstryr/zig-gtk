@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(PtrArray)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const PtrArray = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    pdata: ?*anyopaque,
+    len: u32,
 
     // Constructors
 

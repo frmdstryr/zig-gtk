@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(PixbufModulePattern)
 const gdkpixbuf = @import("../gdkpixbuf.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const PixbufModulePattern = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    prefix: [*c]const u8,
+    mask: [*c]const u8,
+    relevance: i32,
 
     // Constructors
 

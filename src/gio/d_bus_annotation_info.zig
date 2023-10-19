@@ -1,12 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(DBusAnnotationInfo)
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const DBusAnnotationInfo = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    ref_count: i32,
+    key: [*c]const u8,
+    value: [*c]const u8,
+    annotations: [*c]*gio.DBusAnnotationInfo,
 
     // Constructors
 
@@ -17,11 +22,6 @@ pub const DBusAnnotationInfo = extern struct {
     extern fn g_dbus_annotation_info_unref(self: *Self) void;
     pub const unref = g_dbus_annotation_info_unref;
 
-
-    // Bases
-    pub fn asDBusAnnotationInfo(self: *Self) *gio.DBusAnnotationInfo {
-        return @ptrCast(self);
-    }
 };
 
 test {

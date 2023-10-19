@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(ClosureNotifyData)
 const gobject = @import("../gobject.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const ClosureNotifyData = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    data: ?*anyopaque,
+    notify: *const fn (data: ?*anyopaque, closure: *gobject.Closure) callconv(.C) void,
 
     // Constructors
 

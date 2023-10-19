@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Variant)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Variant = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn g_variant_new_array(child_type: ?*glib.VariantType, children: [*c]*glib.Variant, n_children: u64) ?*Self;
@@ -36,7 +37,7 @@ pub const Variant = extern struct {
     extern fn g_variant_new_from_bytes(type: *glib.VariantType, bytes: *glib.Bytes, trusted: bool) ?*Self;
     pub const newFromBytes = g_variant_new_from_bytes;
 
-    extern fn g_variant_new_from_data(type: *glib.VariantType, data: [*c]u8, size: u64, trusted: bool, notify: glib.DestroyNotify, user_data: ?*anyopaque) ?*Self;
+    extern fn g_variant_new_from_data(type: *glib.VariantType, data: [*c]u8, size: u64, trusted: bool, notify: *const fn (data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) ?*Self;
     pub const newFromData = g_variant_new_from_data;
 
     extern fn g_variant_new_handle(value: i32) ?*Self;
@@ -68,6 +69,9 @@ pub const Variant = extern struct {
 
     extern fn g_variant_new_strv(strv: [*c][*c]const u8, length: i64) ?*Self;
     pub const newStrv = g_variant_new_strv;
+
+    extern fn g_variant_new_tuple(children: [*c]*glib.Variant, n_children: u64) ?*Self;
+    pub const newTuple = g_variant_new_tuple;
 
     extern fn g_variant_new_uint16(value: u16) ?*Self;
     pub const newUint16 = g_variant_new_uint16;
@@ -161,6 +165,9 @@ pub const Variant = extern struct {
     extern fn g_variant_get_size(self: *Self) u64;
     pub const getSize = g_variant_get_size;
 
+    extern fn g_variant_get_string(self: *Self, length: u64) [*c]const u8;
+    pub const getString = g_variant_get_string;
+
     extern fn g_variant_get_strv(self: *Self, length: u64) [*c][*c]const u8;
     pub const getStrv = g_variant_get_strv;
 
@@ -221,11 +228,6 @@ pub const Variant = extern struct {
     extern fn g_variant_unref(self: *Self) void;
     pub const unref = g_variant_unref;
 
-
-    // Bases
-    pub fn asVariant(self: *Self) *glib.Variant {
-        return @ptrCast(self);
-    }
 };
 
 test {

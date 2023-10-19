@@ -1,12 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(TypeClass)
 const gobject = @import("../gobject.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const TypeClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_type: usize,
 
     // Constructors
 

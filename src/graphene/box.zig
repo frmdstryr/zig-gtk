@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Box)
 const graphene = @import("../graphene.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Box = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    min: *graphene.Vec3,
+    max: *graphene.Vec3,
 
     // Constructors
     extern fn graphene_box_alloc() ?*Self;

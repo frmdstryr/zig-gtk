@@ -86,10 +86,6 @@ pub const ValueArray = @import("gobject/value_array.zig").ValueArray;
 pub const Warning = @import("gobject/warning.zig").Warning;
 pub const WeakRef = @import("gobject/weak_ref.zig").WeakRef;
 
-pub const Callback = *const fn() callconv(.C) void;
-pub const ClosureNotify = *const fn(data: ?*anyopaque, closure: *Closure) callconv(.C) void;
-pub const ClosureMarshal = *const fn(closure: *Closure, return_value: ?*Value, n_param_values: u32, param_values: [*c]*Value, invocation_hint: ?*anyopaque, marshal_data: ?*anyopaque) callconv(.C) void;
-
 test {
     std.testing.refAllDecls(@This());
 }

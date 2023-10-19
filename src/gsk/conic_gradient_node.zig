@@ -1,15 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(ConicGradientNode)
 const gsk = @import("../gsk.zig");
 const graphene = @import("graphene");
 const glib = @import("glib");
 const cairo = @import("cairo");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const ConicGradientNode = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gsk_conic_gradient_node_new(bounds: *graphene.Rect, center: *graphene.Point, rotation: f32, color_stops: [*c]gsk.ColorStop, n_color_stops: u64) ?*Self;

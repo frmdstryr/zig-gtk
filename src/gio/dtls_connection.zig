@@ -1,13 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// InterfaceInfo(DtlsConnection)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const DtlsConnection = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 
@@ -15,7 +16,7 @@ pub const DtlsConnection = extern struct {
     extern fn g_dtls_connection_close(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const close = g_dtls_connection_close;
 
-    extern fn g_dtls_connection_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_dtls_connection_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const closeAsync = g_dtls_connection_close_async;
 
     extern fn g_dtls_connection_close_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -60,7 +61,7 @@ pub const DtlsConnection = extern struct {
     extern fn g_dtls_connection_handshake(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const handshake = g_dtls_connection_handshake;
 
-    extern fn g_dtls_connection_handshake_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_dtls_connection_handshake_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const handshakeAsync = g_dtls_connection_handshake_async;
 
     extern fn g_dtls_connection_handshake_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -87,7 +88,7 @@ pub const DtlsConnection = extern struct {
     extern fn g_dtls_connection_shutdown(self: *Self, shutdown_read: bool, shutdown_write: bool, cancellable: ?*gio.Cancellable) bool;
     pub const shutdown = g_dtls_connection_shutdown;
 
-    extern fn g_dtls_connection_shutdown_async(self: *Self, shutdown_read: bool, shutdown_write: bool, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_dtls_connection_shutdown_async(self: *Self, shutdown_read: bool, shutdown_write: bool, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const shutdownAsync = g_dtls_connection_shutdown_async;
 
     extern fn g_dtls_connection_shutdown_finish(self: *Self, result: *gio.AsyncResult) bool;

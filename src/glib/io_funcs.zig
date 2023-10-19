@@ -1,12 +1,21 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(IOFuncs)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const IOFuncs = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    io_read: *const fn (channel: *glib.IOChannel, buf: [*c]const u8, count: u64, bytes_read: u64) callconv(.C) glib.IOStatus,
+    io_write: *const fn (channel: *glib.IOChannel, buf: [*c]const u8, count: u64, bytes_written: u64) callconv(.C) glib.IOStatus,
+    io_seek: *const fn (channel: *glib.IOChannel, offset: i64, type: glib.SeekType) callconv(.C) glib.IOStatus,
+    io_close: *const fn (channel: *glib.IOChannel) callconv(.C) glib.IOStatus,
+    io_create_watch: *const fn (channel: *glib.IOChannel, condition: glib.IOCondition) callconv(.C) *glib.Source,
+    io_free: *const fn (channel: *glib.IOChannel) callconv(.C) void,
+    io_set_flags: *const fn (channel: *glib.IOChannel, flags: glib.IOFlags) callconv(.C) glib.IOStatus,
+    io_get_flags: *const fn (channel: *glib.IOChannel) callconv(.C) glib.IOFlags,
 
     // Constructors
 

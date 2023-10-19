@@ -1,12 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Border)
 const gtk = @import("../gtk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Border = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    left: i16,
+    right: i16,
+    top: i16,
+    bottom: i16,
 
     // Constructors
     extern fn gtk_border_new() ?*Self;

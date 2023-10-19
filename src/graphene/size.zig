@@ -1,12 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Size)
 const graphene = @import("../graphene.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Size = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    width: f32,
+    height: f32,
 
     // Constructors
     extern fn graphene_size_alloc() ?*Self;

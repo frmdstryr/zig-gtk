@@ -1,12 +1,18 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(PadActionEntry)
 const gtk = @import("../gtk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const PadActionEntry = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    type: *gtk.PadActionType,
+    index: i32,
+    mode: i32,
+    label: [*c]const u8,
+    action_name: [*c]const u8,
 
     // Constructors
 

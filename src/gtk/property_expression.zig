@@ -1,14 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(PropertyExpression)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
-const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const PropertyExpression = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gtk_property_expression_new(this_type: usize, expression: ?*gtk.Expression, property_name: [*c]const u8) ?*Self;
@@ -43,7 +43,7 @@ pub const PropertyExpression = extern struct {
     extern fn gtk_expression_unref(self: *Self) void;
     pub const unref = gtk_expression_unref;
 
-    extern fn gtk_expression_watch(self: *Self, this_: ?*gobject.Object, notify: gtk.ExpressionNotify, user_data: ?*anyopaque, user_destroy: glib.DestroyNotify) ?*gtk.ExpressionWatch;
+    extern fn gtk_expression_watch(self: *Self, this_: ?*gobject.Object, notify: *const fn (user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque, user_destroy: *const fn (data: ?*anyopaque) callconv(.C) void) ?*gtk.ExpressionWatch;
     pub const watch = gtk_expression_watch;
 
 

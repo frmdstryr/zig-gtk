@@ -1,14 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(RecentInfo)
 const gtk = @import("../gtk.zig");
 const glib = @import("glib");
 const gio = @import("gio");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const RecentInfo = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 
@@ -24,6 +25,9 @@ pub const RecentInfo = extern struct {
 
     extern fn gtk_recent_info_get_age(self: *Self) i32;
     pub const getAge = gtk_recent_info_get_age;
+
+    extern fn gtk_recent_info_get_application_info(self: *Self, app_name: [*c]const u8, app_exec: [*c]const u8, count: u32, stamp: *glib.DateTime) bool;
+    pub const getApplicationInfo = gtk_recent_info_get_application_info;
 
     extern fn gtk_recent_info_get_applications(self: *Self, length: u64) [*c][*c]const u8;
     pub const getApplications = gtk_recent_info_get_applications;
@@ -82,11 +86,6 @@ pub const RecentInfo = extern struct {
     extern fn gtk_recent_info_unref(self: *Self) void;
     pub const unref = gtk_recent_info_unref;
 
-
-    // Bases
-    pub fn asRecentInfo(self: *Self) *gtk.RecentInfo {
-        return @ptrCast(self);
-    }
 };
 
 test {

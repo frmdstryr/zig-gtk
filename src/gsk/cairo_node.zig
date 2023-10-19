@@ -1,15 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(CairoNode)
 const gsk = @import("../gsk.zig");
 const graphene = @import("graphene");
 const glib = @import("glib");
 const cairo = @import("cairo");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const CairoNode = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gsk_cairo_node_new(bounds: *graphene.Rect) ?*Self;

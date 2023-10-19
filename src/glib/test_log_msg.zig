@@ -1,12 +1,18 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(TestLogMsg)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const TestLogMsg = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    log_type: *glib.TestLogType,
+    n_strings: u32,
+    strings: [*c]const u8,
+    n_nums: u32,
+    nums: ?*anyopaque,
 
     // Constructors
 

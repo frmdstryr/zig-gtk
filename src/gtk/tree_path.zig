@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(TreePath)
 const gtk = @import("../gtk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const TreePath = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gtk_tree_path_new() ?*Self;
@@ -65,11 +66,6 @@ pub const TreePath = extern struct {
     extern fn gtk_tree_path_up(self: *Self) bool;
     pub const up = gtk_tree_path_up;
 
-
-    // Bases
-    pub fn asTreePath(self: *Self) *gtk.TreePath {
-        return @ptrCast(self);
-    }
 };
 
 test {

@@ -1,14 +1,19 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(NoSelection)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gio = @import("gio");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const NoSelection = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_type_instance: *gobject.TypeInstance,
+    ref_count: u32,
+    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_no_selection_new(model: ?*gio.ListModel) ?*Self;
@@ -19,86 +24,74 @@ pub const NoSelection = extern struct {
 
 
     // Methods
-    extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
-    pub const findProperty = g_object_class_find_property;
+    extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
+    pub const bindProperty = g_object_bind_property;
 
-    extern fn g_list_model_get_object(self: *Self, position: u32) ?*gobject.Object;
-    pub const getItem = g_list_model_get_object;
+    extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
+    pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn g_list_model_get_item_type(self: *Self) usize;
-    pub const getItemType = g_list_model_get_item_type;
+    extern fn g_object_force_floating(self: *Self) void;
+    pub const forceFloating = g_object_force_floating;
+
+    extern fn g_object_freeze_notify(self: *Self) void;
+    pub const freezeNotify = g_object_freeze_notify;
+
+    extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const getData = g_object_get_data;
 
     extern fn gtk_no_selection_get_model(self: *Self) ?*gio.ListModel;
     pub const getModel = gtk_no_selection_get_model;
 
-    extern fn g_list_model_get_n_items(self: *Self) u32;
-    pub const getNItems = g_list_model_get_n_items;
+    extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const getProperty = g_object_get_property;
 
-    extern fn gtk_selection_model_get_selection(self: *Self) ?*gtk.Bitset;
-    pub const getSelection = gtk_selection_model_get_selection;
-
-    extern fn gtk_selection_model_get_selection_in_range(self: *Self, position: u32, n_items: u32) ?*gtk.Bitset;
-    pub const getSelectionInRange = gtk_selection_model_get_selection_in_range;
+    extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const getQdata = g_object_get_qdata;
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
-    pub const installProperties = g_object_class_install_properties;
-
-    extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
-    pub const installProperty = g_object_class_install_property;
-
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
-
-    extern fn gtk_selection_model_is_selected(self: *Self, position: u32) bool;
-    pub const isSelected = gtk_selection_model_is_selected;
-
-    extern fn g_list_model_items_changed(self: *Self, position: u32, removed: u32, added: u32) void;
-    pub const itemsChanged = g_list_model_items_changed;
-
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
-    pub const listProperties = g_object_class_list_properties;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
-    extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
-    pub const overrideProperty = g_object_class_override_property;
+    extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
+    pub const notifyByPspec = g_object_notify_by_pspec;
+
+    extern fn g_object_ref(self: *Self) ?*gobject.Object;
+    pub const ref = g_object_ref;
+
+    extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
+    pub const refSink = g_object_ref_sink;
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_selection_model_select_all(self: *Self) bool;
-    pub const selectAll = gtk_selection_model_select_all;
-
-    extern fn gtk_selection_model_select_item(self: *Self, position: u32, unselect_rest: bool) bool;
-    pub const selectItem = gtk_selection_model_select_item;
-
-    extern fn gtk_selection_model_select_range(self: *Self, position: u32, n_items: u32, unselect_rest: bool) bool;
-    pub const selectRange = gtk_selection_model_select_range;
-
-    extern fn gtk_selection_model_selection_changed(self: *Self, position: u32, n_items: u32) void;
-    pub const selectionChanged = gtk_selection_model_selection_changed;
+    extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
+    pub const setData = g_object_set_data;
 
     extern fn gtk_no_selection_set_model(self: *Self, model: ?*gio.ListModel) void;
     pub const setModel = gtk_no_selection_set_model;
 
-    extern fn gtk_selection_model_set_selection(self: *Self, selected: *gtk.Bitset, mask: *gtk.Bitset) bool;
-    pub const setSelection = gtk_selection_model_set_selection;
+    extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const setProperty = g_object_set_property;
+
+    extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const stealData = g_object_steal_data;
+
+    extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const stealQdata = g_object_steal_qdata;
 
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn gtk_selection_model_unselect_all(self: *Self) bool;
-    pub const unselectAll = gtk_selection_model_unselect_all;
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
 
-    extern fn gtk_selection_model_unselect_item(self: *Self, position: u32) bool;
-    pub const unselectItem = gtk_selection_model_unselect_item;
-
-    extern fn gtk_selection_model_unselect_range(self: *Self, position: u32, n_items: u32) bool;
-    pub const unselectRange = gtk_selection_model_unselect_range;
+    extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
+    pub const watchClosure = g_object_watch_closure;
 
 
     // Signals

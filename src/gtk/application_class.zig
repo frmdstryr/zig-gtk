@@ -1,12 +1,18 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(ApplicationClass)
 const gtk = @import("../gtk.zig");
+const gio = @import("gio");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const ApplicationClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_class: *gio.ApplicationClass,
+    window_added: *const fn (application: *gtk.Application, window: *gtk.Window) callconv(.C) void,
+    window_removed: *const fn (application: *gtk.Application, window: *gtk.Window) callconv(.C) void,
+    padding: ?*anyopaque,
 
     // Constructors
 

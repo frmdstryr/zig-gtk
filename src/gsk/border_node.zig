@@ -1,16 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(BorderNode)
 const gsk = @import("../gsk.zig");
 const graphene = @import("graphene");
 const glib = @import("glib");
 const gdk = @import("gdk");
 const cairo = @import("cairo");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const BorderNode = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn gsk_border_node_new(outline: *gsk.RoundedRect, border_width: [*c]f32, border_color: [*c]gdk.RGBA) ?*Self;

@@ -1,12 +1,13 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(FontDescription)
 const pango = @import("../pango.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const FontDescription = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
     extern fn pango_font_description_new() ?*Self;
@@ -110,11 +111,6 @@ pub const FontDescription = extern struct {
     extern fn pango_font_description_unset_fields(self: *Self, to_unset: pango.FontMask) void;
     pub const unsetFields = pango_font_description_unset_fields;
 
-
-    // Bases
-    pub fn asFontDescription(self: *Self) *pango.FontDescription {
-        return @ptrCast(self);
-    }
 };
 
 test {

@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(ToggleButtonClass)
 const gtk = @import("../gtk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const ToggleButtonClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_class: *gtk.ButtonClass,
+    toggled: *const fn (toggle_button: *gtk.ToggleButton) callconv(.C) void,
+    padding: ?*anyopaque,
 
     // Constructors
 

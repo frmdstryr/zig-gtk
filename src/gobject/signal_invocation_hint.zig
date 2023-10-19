@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(SignalInvocationHint)
 const gobject = @import("../gobject.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const SignalInvocationHint = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    signal_id: u32,
+    detail: u32,
+    run_type: *gobject.SignalFlags,
 
     // Constructors
 

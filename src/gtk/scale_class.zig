@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(ScaleClass)
 const gtk = @import("../gtk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const ScaleClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_class: *gtk.RangeClass,
+    get_layout_offsets: *const fn (scale: *gtk.Scale, x: i32, y: i32) callconv(.C) void,
+    padding: ?*anyopaque,
 
     // Constructors
 

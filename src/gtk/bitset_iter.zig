@@ -1,12 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(BitsetIter)
 const gtk = @import("../gtk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const BitsetIter = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    private_data: ?*anyopaque,
 
     // Constructors
 

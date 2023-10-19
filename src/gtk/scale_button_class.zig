@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(ScaleButtonClass)
 const gtk = @import("../gtk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const ScaleButtonClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_class: *gtk.WidgetClass,
+    value_changed: *const fn (button: *gtk.ScaleButton, value: f64) callconv(.C) void,
+    padding: ?*anyopaque,
 
     // Constructors
 

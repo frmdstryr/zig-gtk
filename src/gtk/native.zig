@@ -1,15 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// InterfaceInfo(Native)
 const gtk = @import("../gtk.zig");
 const gsk = @import("gsk");
 const gobject = @import("gobject");
 const gdk = @import("gdk");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Native = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 

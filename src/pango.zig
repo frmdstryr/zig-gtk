@@ -57,10 +57,6 @@ pub const RendererPrivate = @import("pango/renderer_private.zig").RendererPrivat
 pub const ScriptIter = @import("pango/script_iter.zig").ScriptIter;
 pub const TabArray = @import("pango/tab_array.zig").TabArray;
 
-pub const AttrDataCopyFunc = *const fn(data: ?*const anyopaque) callconv(.C) ?*anyopaque;
-pub const AttrFilterFunc = *const fn(attribute: *Attribute, data: ?*anyopaque) callconv(.C) bool;
-pub const FontsetForeachFunc = *const fn(fontset: *Fontset, font: *Font, data: ?*anyopaque) callconv(.C) bool;
-
 test {
     std.testing.refAllDecls(@This());
 }

@@ -1,12 +1,33 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(IOChannel)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const IOChannel = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    ref_count: i32,
+    funcs: *glib.IOFuncs,
+    encoding: [*c]const u8,
+    read_cd: ?*anyopaque,
+    write_cd: ?*anyopaque,
+    line_term: [*c]const u8,
+    line_term_len: u32,
+    buf_size: u64,
+    read_buf: *glib.String,
+    encoded_read_buf: *glib.String,
+    write_buf: *glib.String,
+    partial_write_buf: [*c]i8,
+    use_buffer: u32,
+    do_encode: u32,
+    close_on_unref: u32,
+    is_readable: u32,
+    is_writeable: u32,
+    is_seekable: u32,
+    reserved1: ?*anyopaque,
+    reserved2: ?*anyopaque,
 
     // Constructors
     extern fn g_io_channel_new_file(filename: [*c]const u8, mode: [*c]const u8) ?*Self;
@@ -47,6 +68,9 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_init(self: *Self) void;
     pub const init = g_io_channel_init;
 
+    extern fn g_io_channel_read(self: *Self, buf: [*c]const u8, count: u64, bytes_read: u64) glib.IOError;
+    pub const read = g_io_channel_read;
+
     extern fn g_io_channel_read_chars(self: *Self, buf: [*c]u8, count: u64, bytes_read: u64) glib.IOStatus;
     pub const readChars = g_io_channel_read_chars;
 
@@ -64,6 +88,9 @@ pub const IOChannel = extern struct {
 
     extern fn g_io_channel_ref(self: *Self) ?*glib.IOChannel;
     pub const ref = g_io_channel_ref;
+
+    extern fn g_io_channel_seek(self: *Self, offset: i64, type: glib.SeekType) glib.IOError;
+    pub const seek = g_io_channel_seek;
 
     extern fn g_io_channel_seek_position(self: *Self, offset: i64, type: glib.SeekType) glib.IOStatus;
     pub const seekPosition = g_io_channel_seek_position;
@@ -95,17 +122,15 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_unref(self: *Self) void;
     pub const unref = g_io_channel_unref;
 
+    extern fn g_io_channel_write(self: *Self, buf: [*c]const u8, count: u64, bytes_written: u64) glib.IOError;
+    pub const write = g_io_channel_write;
+
     extern fn g_io_channel_write_chars(self: *Self, buf: [*c]u8, count: i64, bytes_written: u64) glib.IOStatus;
     pub const writeChars = g_io_channel_write_chars;
 
     extern fn g_io_channel_write_unichar(self: *Self, thechar: u32) glib.IOStatus;
     pub const writeUnichar = g_io_channel_write_unichar;
 
-
-    // Bases
-    pub fn asIOChannel(self: *Self) *glib.IOChannel {
-        return @ptrCast(self);
-    }
 };
 
 test {

@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Attribute)
 const pango = @import("../pango.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Attribute = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    klass: *pango.AttrClass,
+    start_index: u32,
+    end_index: u32,
 
     // Constructors
 

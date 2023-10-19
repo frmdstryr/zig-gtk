@@ -1,17 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(CClosureExpression)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
-const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const CClosureExpression = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
-    extern fn gtk_cclosure_expression_new(value_type: usize, marshal: gobject.ClosureMarshal, n_params: u32, params: [*c]*gtk.Expression, callback_func: gobject.Callback, user_data: ?*anyopaque, user_destroy: gobject.ClosureNotify) ?*Self;
+    extern fn gtk_cclosure_expression_new(value_type: usize, marshal: ?*const fn (closure: *gobject.Closure, return_value: ?*gobject.Value, n_param_values: u32, param_values: [*c]gobject.Value, invocation_hint: ?*anyopaque, marshal_data: ?*anyopaque) callconv(.C) void, n_params: u32, params: [*c]*gtk.Expression, callback_func: *const fn () callconv(.C) void, user_data: ?*anyopaque, user_destroy: ?*const fn (data: ?*anyopaque, closure: *gobject.Closure) callconv(.C) void) ?*Self;
     pub const new = gtk_cclosure_expression_new;
 
 
@@ -34,7 +34,7 @@ pub const CClosureExpression = extern struct {
     extern fn gtk_expression_unref(self: *Self) void;
     pub const unref = gtk_expression_unref;
 
-    extern fn gtk_expression_watch(self: *Self, this_: ?*gobject.Object, notify: gtk.ExpressionNotify, user_data: ?*anyopaque, user_destroy: glib.DestroyNotify) ?*gtk.ExpressionWatch;
+    extern fn gtk_expression_watch(self: *Self, this_: ?*gobject.Object, notify: *const fn (user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque, user_destroy: *const fn (data: ?*anyopaque) callconv(.C) void) ?*gtk.ExpressionWatch;
     pub const watch = gtk_expression_watch;
 
 

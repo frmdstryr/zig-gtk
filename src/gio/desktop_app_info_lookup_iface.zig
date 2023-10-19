@@ -1,12 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(DesktopAppInfoLookupIface)
+const gobject = @import("gobject");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const DesktopAppInfoLookupIface = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_iface: *gobject.TypeInterface,
+    get_default_for_uri_scheme: *const fn (lookup: *gio.DesktopAppInfoLookup, uri_scheme: [*c]const u8) callconv(.C) *gio.AppInfo,
 
     // Constructors
 

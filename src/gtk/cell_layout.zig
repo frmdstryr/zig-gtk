@@ -1,14 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// InterfaceInfo(CellLayout)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const CellLayout = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 
@@ -37,7 +38,7 @@ pub const CellLayout = extern struct {
     extern fn gtk_cell_layout_reorder(self: *Self, cell: *gtk.CellRenderer, position: i32) void;
     pub const reorder = gtk_cell_layout_reorder;
 
-    extern fn gtk_cell_layout_set_cell_data_func(self: *Self, cell: *gtk.CellRenderer, func: gtk.CellLayoutDataFunc, func_data: ?*anyopaque, destroy: glib.DestroyNotify) void;
+    extern fn gtk_cell_layout_set_cell_data_func(self: *Self, cell: *gtk.CellRenderer, func: ?*const fn (cell_layout: *gtk.CellLayout, cell: *gtk.CellRenderer, tree_model: *gtk.TreeModel, iter: *gtk.TreeIter, data: ?*anyopaque) callconv(.C) void, func_data: ?*anyopaque, destroy: *const fn (data: ?*anyopaque) callconv(.C) void) void;
     pub const setCellDataFunc = gtk_cell_layout_set_cell_data_func;
 
 

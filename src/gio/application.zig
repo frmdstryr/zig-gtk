@@ -1,14 +1,20 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// ObjectInfo(Application)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Application = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_instance: *gobject.Object,
+    priv: *gio.ApplicationPrivate,
+    g_type_instance: *gobject.TypeInstance,
+    ref_count: u32,
+    qdata: *glib.Data,
 
     // Constructors
     extern fn g_application_new(application_id: [*c]const u8, flags: gio.ApplicationFlags) ?*Self;
@@ -19,29 +25,8 @@ pub const Application = extern struct {
 
 
     // Methods
-    extern fn g_action_group_action_added(self: *Self, action_name: [*c]const u8) void;
-    pub const actionAdded = g_action_group_action_added;
-
-    extern fn g_action_group_action_enabled_changed(self: *Self, action_name: [*c]const u8, enabled: bool) void;
-    pub const actionEnabledChanged = g_action_group_action_enabled_changed;
-
-    extern fn g_action_group_action_removed(self: *Self, action_name: [*c]const u8) void;
-    pub const actionRemoved = g_action_group_action_removed;
-
-    extern fn g_action_group_action_state_changed(self: *Self, action_name: [*c]const u8, state: *glib.Variant) void;
-    pub const actionStateChanged = g_action_group_action_state_changed;
-
     extern fn g_application_activate(self: *Self) void;
     pub const activate = g_application_activate;
-
-    extern fn g_action_group_activate_action(self: *Self, action_name: [*c]const u8, parameter: ?*glib.Variant) void;
-    pub const activateAction = g_action_group_activate_action;
-
-    extern fn g_action_map_add_action(self: *Self, action: *gio.Action) void;
-    pub const addAction = g_action_map_add_action;
-
-    extern fn g_action_map_add_action_entries(self: *Self, entries: [*c]gio.ActionEntry, n_entries: i32, user_data: ?*anyopaque) void;
-    pub const addActionEntries = g_action_map_add_action_entries;
 
     extern fn g_application_add_main_option(self: *Self, long_name: [*c]const u8, short_name: i8, flags: glib.OptionFlags, arg: glib.OptionArg, description: [*c]const u8, arg_description: [*c]const u8) void;
     pub const addMainOption = g_application_add_main_option;
@@ -55,29 +40,23 @@ pub const Application = extern struct {
     extern fn g_application_bind_busy_property(self: *Self, object: *gobject.Object, property: [*c]const u8) void;
     pub const bindBusyProperty = g_application_bind_busy_property;
 
-    extern fn g_action_group_change_action_state(self: *Self, action_name: [*c]const u8, value: *glib.Variant) void;
-    pub const changeActionState = g_action_group_change_action_state;
+    extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
+    pub const bindProperty = g_object_bind_property;
 
-    extern fn g_object_class_find_property(self: *Self, property_name: [*c]const u8) ?*gobject.ParamSpec;
-    pub const findProperty = g_object_class_find_property;
+    extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
+    pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn g_action_group_get_action_enabled(self: *Self, action_name: [*c]const u8) bool;
-    pub const getActionEnabled = g_action_group_get_action_enabled;
+    extern fn g_object_force_floating(self: *Self) void;
+    pub const forceFloating = g_object_force_floating;
 
-    extern fn g_action_group_get_action_parameter_type(self: *Self, action_name: [*c]const u8) ?*glib.VariantType;
-    pub const getActionParameterType = g_action_group_get_action_parameter_type;
-
-    extern fn g_action_group_get_action_state(self: *Self, action_name: [*c]const u8) ?*glib.Variant;
-    pub const getActionState = g_action_group_get_action_state;
-
-    extern fn g_action_group_get_action_state_hint(self: *Self, action_name: [*c]const u8) ?*glib.Variant;
-    pub const getActionStateHint = g_action_group_get_action_state_hint;
-
-    extern fn g_action_group_get_action_state_type(self: *Self, action_name: [*c]const u8) ?*glib.VariantType;
-    pub const getActionStateType = g_action_group_get_action_state_type;
+    extern fn g_object_freeze_notify(self: *Self) void;
+    pub const freezeNotify = g_object_freeze_notify;
 
     extern fn g_application_get_application_id(self: *Self) [*c]const u8;
     pub const getApplicationId = g_application_get_application_id;
+
+    extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const getData = g_object_get_data;
 
     extern fn g_application_get_dbus_connection(self: *Self) ?*gio.DBusConnection;
     pub const getDbusConnection = g_application_get_dbus_connection;
@@ -100,35 +79,23 @@ pub const Application = extern struct {
     extern fn g_application_get_is_remote(self: *Self) bool;
     pub const getIsRemote = g_application_get_is_remote;
 
+    extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const getProperty = g_object_get_property;
+
+    extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const getQdata = g_object_get_qdata;
+
     extern fn g_application_get_resource_base_path(self: *Self) [*c]const u8;
     pub const getResourceBasePath = g_application_get_resource_base_path;
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_action_group_has_action(self: *Self, action_name: [*c]const u8) bool;
-    pub const hasAction = g_action_group_has_action;
-
     extern fn g_application_hold(self: *Self) void;
     pub const hold = g_application_hold;
 
-    extern fn g_object_class_install_properties(self: *Self, n_pspecs: u32, pspecs: [*c]*gobject.ParamSpec) void;
-    pub const installProperties = g_object_class_install_properties;
-
-    extern fn g_object_class_install_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
-    pub const installProperty = g_object_class_install_property;
-
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
-
-    extern fn g_action_group_list_actions(self: *Self) [*c][*c]const u8;
-    pub const listActions = g_action_group_list_actions;
-
-    extern fn g_object_class_list_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
-    pub const listProperties = g_object_class_list_properties;
-
-    extern fn g_action_map_lookup_action(self: *Self, action_name: [*c]const u8) ?*gio.Action;
-    pub const lookupAction = g_action_map_lookup_action;
 
     extern fn g_application_mark_busy(self: *Self) void;
     pub const markBusy = g_application_mark_busy;
@@ -136,17 +103,20 @@ pub const Application = extern struct {
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
 
+    extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
+    pub const notifyByPspec = g_object_notify_by_pspec;
+
     extern fn g_application_open(self: *Self, files: [*c]*gio.File, n_files: i32, hint: [*c]const u8) void;
     pub const open = g_application_open;
 
-    extern fn g_object_class_override_property(self: *Self, property_id: u32, name: [*c]const u8) void;
-    pub const overrideProperty = g_object_class_override_property;
-
-    extern fn g_action_group_query_action(self: *Self, action_name: [*c]const u8, enabled: bool, parameter_type: *glib.VariantType, state_type: *glib.VariantType, state_hint: *glib.Variant, state: *glib.Variant) bool;
-    pub const queryAction = g_action_group_query_action;
-
     extern fn g_application_quit(self: *Self) void;
     pub const quit = g_application_quit;
+
+    extern fn g_object_ref(self: *Self) ?*gobject.Object;
+    pub const ref = g_object_ref;
+
+    extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
+    pub const refSink = g_object_ref_sink;
 
     extern fn g_application_register(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const register = g_application_register;
@@ -154,8 +124,8 @@ pub const Application = extern struct {
     extern fn g_application_release(self: *Self) void;
     pub const release = g_application_release;
 
-    extern fn g_action_map_remove_action(self: *Self, action_name: [*c]const u8) void;
-    pub const removeAction = g_action_map_remove_action;
+    extern fn g_application_run(self: *Self, argc: i32, argv: [*c][*c]const u8) i32;
+    pub const run = g_application_run;
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
@@ -168,6 +138,9 @@ pub const Application = extern struct {
 
     extern fn g_application_set_application_id(self: *Self, application_id: [*c]const u8) void;
     pub const setApplicationId = g_application_set_application_id;
+
+    extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
+    pub const setData = g_object_set_data;
 
     extern fn g_application_set_default(self: *Self) void;
     pub const setDefault = g_application_set_default;
@@ -187,8 +160,17 @@ pub const Application = extern struct {
     extern fn g_application_set_option_context_summary(self: *Self, summary: [*c]const u8) void;
     pub const setOptionContextSummary = g_application_set_option_context_summary;
 
+    extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
+    pub const setProperty = g_object_set_property;
+
     extern fn g_application_set_resource_base_path(self: *Self, resource_path: [*c]const u8) void;
     pub const setResourceBasePath = g_application_set_resource_base_path;
+
+    extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
+    pub const stealData = g_object_steal_data;
+
+    extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
+    pub const stealQdata = g_object_steal_qdata;
 
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
@@ -198,6 +180,12 @@ pub const Application = extern struct {
 
     extern fn g_application_unmark_busy(self: *Self) void;
     pub const unmarkBusy = g_application_unmark_busy;
+
+    extern fn g_object_unref(self: *Self) void;
+    pub const unref = g_object_unref;
+
+    extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
+    pub const watchClosure = g_object_watch_closure;
 
     extern fn g_application_withdraw_notification(self: *Self, id: [*c]const u8) void;
     pub const withdrawNotification = g_application_withdraw_notification;
@@ -229,9 +217,6 @@ pub const Application = extern struct {
         return @ptrCast(self);
     }
     pub fn asActionMap(self: *Self) *gio.ActionMap {
-        return @ptrCast(self);
-    }
-    pub fn asApplication(self: *Self) *gio.Application {
         return @ptrCast(self);
     }
     pub fn asGInterface(self: *Self) *gobject.GInterface {

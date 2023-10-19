@@ -1,12 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(FrameClass)
 const gtk = @import("../gtk.zig");
+const gdk = @import("gdk");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const FrameClass = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    parent_class: *gtk.WidgetClass,
+    compute_child_allocation: *const fn (frame: *gtk.Frame, allocation: *gdk.Rectangle) callconv(.C) void,
+    padding: ?*anyopaque,
 
     // Constructors
 

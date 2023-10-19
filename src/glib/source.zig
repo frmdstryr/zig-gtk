@@ -1,12 +1,26 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Source)
 const glib = @import("../glib.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Source = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    callback_data: ?*anyopaque,
+    callback_funcs: *glib.SourceCallbackFuncs,
+    source_funcs: *glib.SourceFuncs,
+    ref_count: u32,
+    context: *glib.MainContext,
+    priority: i32,
+    flags: u32,
+    source_id: u32,
+    poll_fds: ?*anyopaque,
+    prev: *glib.Source,
+    next: *glib.Source,
+    name: [*c]const u8,
+    priv: *glib.SourcePrivate,
 
     // Constructors
     extern fn g_source_new(source_funcs: *glib.SourceFuncs, struct_size: u32) ?*Self;
@@ -34,6 +48,9 @@ pub const Source = extern struct {
 
     extern fn g_source_get_context(self: *Self) ?*glib.MainContext;
     pub const getContext = g_source_get_context;
+
+    extern fn g_source_get_current_time(self: *Self, timeval: *glib.TimeVal) void;
+    pub const getCurrentTime = g_source_get_current_time;
 
     extern fn g_source_get_id(self: *Self) u32;
     pub const getId = g_source_get_id;
@@ -71,6 +88,9 @@ pub const Source = extern struct {
     extern fn g_source_remove_unix_fd(self: *Self, tag: ?*anyopaque) void;
     pub const removeUnixFd = g_source_remove_unix_fd;
 
+    extern fn g_source_set_callback(self: *Self, func: *const fn (user_data: ?*anyopaque) callconv(.C) bool, data: ?*anyopaque, notify: ?*const fn (data: ?*anyopaque) callconv(.C) void) void;
+    pub const setCallback = g_source_set_callback;
+
     extern fn g_source_set_callback_indirect(self: *Self, callback_data: ?*anyopaque, callback_funcs: *glib.SourceCallbackFuncs) void;
     pub const setCallbackIndirect = g_source_set_callback_indirect;
 
@@ -95,11 +115,6 @@ pub const Source = extern struct {
     extern fn g_source_unref(self: *Self) void;
     pub const unref = g_source_unref;
 
-
-    // Bases
-    pub fn asSource(self: *Self) *glib.Source {
-        return @ptrCast(self);
-    }
 };
 
 test {

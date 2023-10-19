@@ -1,13 +1,16 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Value)
 const gobject = @import("../gobject.zig");
 const glib = @import("glib");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Value = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    g_type: usize,
+    data: ?*anyopaque,
 
     // Constructors
 
@@ -29,6 +32,9 @@ pub const Value = extern struct {
 
     extern fn g_value_get_boolean(self: *Self) bool;
     pub const getBoolean = g_value_get_boolean;
+
+    extern fn g_value_get_boxed(self: *Self) ?*anyopaque;
+    pub const getBoxed = g_value_get_boxed;
 
     extern fn g_value_get_char(self: *Self) i8;
     pub const getChar = g_value_get_char;
@@ -101,6 +107,9 @@ pub const Value = extern struct {
 
     extern fn g_value_set_boolean(self: *Self, v_boolean: bool) void;
     pub const setBoolean = g_value_set_boolean;
+
+    extern fn g_value_set_boxed(self: *Self, v_boxed: ?*anyopaque) void;
+    pub const setBoxed = g_value_set_boxed;
 
     extern fn g_value_set_boxed_take_ownership(self: *Self, v_boxed: ?*anyopaque) void;
     pub const setBoxedTakeOwnership = g_value_set_boxed_take_ownership;
@@ -192,11 +201,6 @@ pub const Value = extern struct {
     extern fn g_value_unset(self: *Self) void;
     pub const unset = g_value_unset;
 
-
-    // Bases
-    pub fn asValue(self: *Self) *gobject.Value {
-        return @ptrCast(self);
-    }
 };
 
 test {

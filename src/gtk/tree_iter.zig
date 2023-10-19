@@ -1,12 +1,17 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(TreeIter)
 const gtk = @import("../gtk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const TreeIter = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    stamp: i32,
+    user_data: ?*anyopaque,
+    user_data2: ?*anyopaque,
+    user_data3: ?*anyopaque,
 
     // Constructors
 

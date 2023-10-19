@@ -1,12 +1,18 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(CssLocation)
 const gtk = @import("../gtk.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const CssLocation = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    bytes: u64,
+    chars: u64,
+    lines: u64,
+    line_bytes: u64,
+    line_chars: u64,
 
     // Constructors
 

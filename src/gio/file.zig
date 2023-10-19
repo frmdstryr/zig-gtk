@@ -1,14 +1,15 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// InterfaceInfo(File)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const File = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
 
     // Constructors
 
@@ -16,7 +17,7 @@ pub const File = extern struct {
     extern fn g_file_append_to(self: *Self, flags: gio.FileCreateFlags, cancellable: ?*gio.Cancellable) ?*gio.FileOutputStream;
     pub const appendTo = g_file_append_to;
 
-    extern fn g_file_append_to_async(self: *Self, flags: gio.FileCreateFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_append_to_async(self: *Self, flags: gio.FileCreateFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const appendToAsync = g_file_append_to_async;
 
     extern fn g_file_append_to_finish(self: *Self, res: *gio.AsyncResult) ?*gio.FileOutputStream;
@@ -25,10 +26,10 @@ pub const File = extern struct {
     extern fn g_file_build_attribute_list_for_copy(self: *Self, flags: gio.FileCopyFlags, cancellable: ?*gio.Cancellable) [*c]const u8;
     pub const buildAttributeListForCopy = g_file_build_attribute_list_for_copy;
 
-    extern fn g_file_copy(self: *Self, destination: *gio.File, flags: gio.FileCopyFlags, cancellable: ?*gio.Cancellable, progress_callback: gio.FileProgressCallback, progress_callback_data: ?*anyopaque) bool;
+    extern fn g_file_copy(self: *Self, destination: *gio.File, flags: gio.FileCopyFlags, cancellable: ?*gio.Cancellable, progress_callback: ?*const fn (current_num_bytes: i64, total_num_bytes: i64, user_data: ?*anyopaque) callconv(.C) void, progress_callback_data: ?*anyopaque) bool;
     pub const copy = g_file_copy;
 
-    extern fn g_file_copy_async(self: *Self, destination: *gio.File, flags: gio.FileCopyFlags, io_priority: i32, cancellable: ?*gio.Cancellable, progress_callback: gio.FileProgressCallback, progress_callback_data: ?*anyopaque, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_copy_async(self: *Self, destination: *gio.File, flags: gio.FileCopyFlags, io_priority: i32, cancellable: ?*gio.Cancellable, progress_callback: ?*const fn (current_num_bytes: i64, total_num_bytes: i64, user_data: ?*anyopaque) callconv(.C) void, progress_callback_data: ?*anyopaque, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const copyAsync = g_file_copy_async;
 
     extern fn g_file_copy_attributes(self: *Self, destination: *gio.File, flags: gio.FileCopyFlags, cancellable: ?*gio.Cancellable) bool;
@@ -40,7 +41,7 @@ pub const File = extern struct {
     extern fn g_file_create(self: *Self, flags: gio.FileCreateFlags, cancellable: ?*gio.Cancellable) ?*gio.FileOutputStream;
     pub const create = g_file_create;
 
-    extern fn g_file_create_async(self: *Self, flags: gio.FileCreateFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_create_async(self: *Self, flags: gio.FileCreateFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const createAsync = g_file_create_async;
 
     extern fn g_file_create_finish(self: *Self, res: *gio.AsyncResult) ?*gio.FileOutputStream;
@@ -49,7 +50,7 @@ pub const File = extern struct {
     extern fn g_file_create_readwrite(self: *Self, flags: gio.FileCreateFlags, cancellable: ?*gio.Cancellable) ?*gio.FileIOStream;
     pub const createReadwrite = g_file_create_readwrite;
 
-    extern fn g_file_create_readwrite_async(self: *Self, flags: gio.FileCreateFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_create_readwrite_async(self: *Self, flags: gio.FileCreateFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const createReadwriteAsync = g_file_create_readwrite_async;
 
     extern fn g_file_create_readwrite_finish(self: *Self, res: *gio.AsyncResult) ?*gio.FileIOStream;
@@ -58,7 +59,7 @@ pub const File = extern struct {
     extern fn g_file_delete(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const delete = g_file_delete;
 
-    extern fn g_file_delete_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_delete_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const deleteAsync = g_file_delete_async;
 
     extern fn g_file_delete_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -67,13 +68,13 @@ pub const File = extern struct {
     extern fn g_file_dup(self: *Self) ?*gio.File;
     pub const dup = g_file_dup;
 
-    extern fn g_file_eject_mountable(self: *Self, flags: gio.MountUnmountFlags, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_eject_mountable(self: *Self, flags: gio.MountUnmountFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const ejectMountable = g_file_eject_mountable;
 
     extern fn g_file_eject_mountable_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const ejectMountableFinish = g_file_eject_mountable_finish;
 
-    extern fn g_file_eject_mountable_with_operation(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_eject_mountable_with_operation(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const ejectMountableWithOperation = g_file_eject_mountable_with_operation;
 
     extern fn g_file_eject_mountable_with_operation_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -82,7 +83,7 @@ pub const File = extern struct {
     extern fn g_file_enumerate_children(self: *Self, attributes: [*c]const u8, flags: gio.FileQueryInfoFlags, cancellable: ?*gio.Cancellable) ?*gio.FileEnumerator;
     pub const enumerateChildren = g_file_enumerate_children;
 
-    extern fn g_file_enumerate_children_async(self: *Self, attributes: [*c]const u8, flags: gio.FileQueryInfoFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_enumerate_children_async(self: *Self, attributes: [*c]const u8, flags: gio.FileQueryInfoFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const enumerateChildrenAsync = g_file_enumerate_children_async;
 
     extern fn g_file_enumerate_children_finish(self: *Self, res: *gio.AsyncResult) ?*gio.FileEnumerator;
@@ -94,7 +95,7 @@ pub const File = extern struct {
     extern fn g_file_find_enclosing_mount(self: *Self, cancellable: ?*gio.Cancellable) ?*gio.Mount;
     pub const findEnclosingMount = g_file_find_enclosing_mount;
 
-    extern fn g_file_find_enclosing_mount_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_find_enclosing_mount_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const findEnclosingMountAsync = g_file_find_enclosing_mount_async;
 
     extern fn g_file_find_enclosing_mount_finish(self: *Self, res: *gio.AsyncResult) ?*gio.Mount;
@@ -145,7 +146,7 @@ pub const File = extern struct {
     extern fn g_file_load_bytes(self: *Self, cancellable: ?*gio.Cancellable, etag_out: [*c]const u8) ?*glib.Bytes;
     pub const loadBytes = g_file_load_bytes;
 
-    extern fn g_file_load_bytes_async(self: *Self, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_load_bytes_async(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const loadBytesAsync = g_file_load_bytes_async;
 
     extern fn g_file_load_bytes_finish(self: *Self, result: *gio.AsyncResult, etag_out: [*c]const u8) ?*glib.Bytes;
@@ -154,7 +155,7 @@ pub const File = extern struct {
     extern fn g_file_load_contents(self: *Self, cancellable: ?*gio.Cancellable, contents: [*c]u8, length: u64, etag_out: [*c]const u8) bool;
     pub const loadContents = g_file_load_contents;
 
-    extern fn g_file_load_contents_async(self: *Self, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_load_contents_async(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const loadContentsAsync = g_file_load_contents_async;
 
     extern fn g_file_load_contents_finish(self: *Self, res: *gio.AsyncResult, contents: [*c]u8, length: u64, etag_out: [*c]const u8) bool;
@@ -166,7 +167,7 @@ pub const File = extern struct {
     extern fn g_file_make_directory(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const makeDirectory = g_file_make_directory;
 
-    extern fn g_file_make_directory_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_make_directory_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const makeDirectoryAsync = g_file_make_directory_async;
 
     extern fn g_file_make_directory_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -190,22 +191,22 @@ pub const File = extern struct {
     extern fn g_file_monitor_file(self: *Self, flags: gio.FileMonitorFlags, cancellable: ?*gio.Cancellable) ?*gio.FileMonitor;
     pub const monitorFile = g_file_monitor_file;
 
-    extern fn g_file_mount_enclosing_volume(self: *Self, flags: gio.MountMountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_mount_enclosing_volume(self: *Self, flags: gio.MountMountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const mountEnclosingVolume = g_file_mount_enclosing_volume;
 
     extern fn g_file_mount_enclosing_volume_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const mountEnclosingVolumeFinish = g_file_mount_enclosing_volume_finish;
 
-    extern fn g_file_mount_mountable(self: *Self, flags: gio.MountMountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_mount_mountable(self: *Self, flags: gio.MountMountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const mountMountable = g_file_mount_mountable;
 
     extern fn g_file_mount_mountable_finish(self: *Self, result: *gio.AsyncResult) ?*gio.File;
     pub const mountMountableFinish = g_file_mount_mountable_finish;
 
-    extern fn g_file_move(self: *Self, destination: *gio.File, flags: gio.FileCopyFlags, cancellable: ?*gio.Cancellable, progress_callback: gio.FileProgressCallback, progress_callback_data: ?*anyopaque) bool;
+    extern fn g_file_move(self: *Self, destination: *gio.File, flags: gio.FileCopyFlags, cancellable: ?*gio.Cancellable, progress_callback: ?*const fn (current_num_bytes: i64, total_num_bytes: i64, user_data: ?*anyopaque) callconv(.C) void, progress_callback_data: ?*anyopaque) bool;
     pub const move = g_file_move;
 
-    extern fn g_file_move_async(self: *Self, destination: *gio.File, flags: gio.FileCopyFlags, io_priority: i32, cancellable: ?*gio.Cancellable, progress_callback: gio.FileProgressCallback, progress_callback_data: ?*anyopaque, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_move_async(self: *Self, destination: *gio.File, flags: gio.FileCopyFlags, io_priority: i32, cancellable: ?*gio.Cancellable, progress_callback: ?*const fn (current_num_bytes: i64, total_num_bytes: i64, user_data: ?*anyopaque) callconv(.C) void, progress_callback_data: ?*anyopaque, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const moveAsync = g_file_move_async;
 
     extern fn g_file_move_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -214,7 +215,7 @@ pub const File = extern struct {
     extern fn g_file_open_readwrite(self: *Self, cancellable: ?*gio.Cancellable) ?*gio.FileIOStream;
     pub const openReadwrite = g_file_open_readwrite;
 
-    extern fn g_file_open_readwrite_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_open_readwrite_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const openReadwriteAsync = g_file_open_readwrite_async;
 
     extern fn g_file_open_readwrite_finish(self: *Self, res: *gio.AsyncResult) ?*gio.FileIOStream;
@@ -223,7 +224,7 @@ pub const File = extern struct {
     extern fn g_file_peek_path(self: *Self) [*c]const u8;
     pub const peekPath = g_file_peek_path;
 
-    extern fn g_file_poll_mountable(self: *Self, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_poll_mountable(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const pollMountable = g_file_poll_mountable;
 
     extern fn g_file_poll_mountable_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -232,7 +233,7 @@ pub const File = extern struct {
     extern fn g_file_query_default_handler(self: *Self, cancellable: ?*gio.Cancellable) ?*gio.AppInfo;
     pub const queryDefaultHandler = g_file_query_default_handler;
 
-    extern fn g_file_query_default_handler_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_query_default_handler_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const queryDefaultHandlerAsync = g_file_query_default_handler_async;
 
     extern fn g_file_query_default_handler_finish(self: *Self, result: *gio.AsyncResult) ?*gio.AppInfo;
@@ -247,7 +248,7 @@ pub const File = extern struct {
     extern fn g_file_query_filesystem_info(self: *Self, attributes: [*c]const u8, cancellable: ?*gio.Cancellable) ?*gio.FileInfo;
     pub const queryFilesystemInfo = g_file_query_filesystem_info;
 
-    extern fn g_file_query_filesystem_info_async(self: *Self, attributes: [*c]const u8, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_query_filesystem_info_async(self: *Self, attributes: [*c]const u8, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const queryFilesystemInfoAsync = g_file_query_filesystem_info_async;
 
     extern fn g_file_query_filesystem_info_finish(self: *Self, res: *gio.AsyncResult) ?*gio.FileInfo;
@@ -256,7 +257,7 @@ pub const File = extern struct {
     extern fn g_file_query_info(self: *Self, attributes: [*c]const u8, flags: gio.FileQueryInfoFlags, cancellable: ?*gio.Cancellable) ?*gio.FileInfo;
     pub const queryInfo = g_file_query_info;
 
-    extern fn g_file_query_info_async(self: *Self, attributes: [*c]const u8, flags: gio.FileQueryInfoFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_query_info_async(self: *Self, attributes: [*c]const u8, flags: gio.FileQueryInfoFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const queryInfoAsync = g_file_query_info_async;
 
     extern fn g_file_query_info_finish(self: *Self, res: *gio.AsyncResult) ?*gio.FileInfo;
@@ -271,7 +272,7 @@ pub const File = extern struct {
     extern fn g_file_read(self: *Self, cancellable: ?*gio.Cancellable) ?*gio.FileInputStream;
     pub const read = g_file_read;
 
-    extern fn g_file_read_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_read_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const readAsync = g_file_read_async;
 
     extern fn g_file_read_finish(self: *Self, res: *gio.AsyncResult) ?*gio.FileInputStream;
@@ -280,16 +281,16 @@ pub const File = extern struct {
     extern fn g_file_replace(self: *Self, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, cancellable: ?*gio.Cancellable) ?*gio.FileOutputStream;
     pub const replace = g_file_replace;
 
-    extern fn g_file_replace_async(self: *Self, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_replace_async(self: *Self, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const replaceAsync = g_file_replace_async;
 
     extern fn g_file_replace_contents(self: *Self, contents: [*c]u8, length: u64, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, new_etag: [*c]const u8, cancellable: ?*gio.Cancellable) bool;
     pub const replaceContents = g_file_replace_contents;
 
-    extern fn g_file_replace_contents_async(self: *Self, contents: [*c]u8, length: u64, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_replace_contents_async(self: *Self, contents: [*c]u8, length: u64, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const replaceContentsAsync = g_file_replace_contents_async;
 
-    extern fn g_file_replace_contents_bytes_async(self: *Self, contents: *glib.Bytes, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_replace_contents_bytes_async(self: *Self, contents: *glib.Bytes, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const replaceContentsBytesAsync = g_file_replace_contents_bytes_async;
 
     extern fn g_file_replace_contents_finish(self: *Self, res: *gio.AsyncResult, new_etag: [*c]const u8) bool;
@@ -301,7 +302,7 @@ pub const File = extern struct {
     extern fn g_file_replace_readwrite(self: *Self, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, cancellable: ?*gio.Cancellable) ?*gio.FileIOStream;
     pub const replaceReadwrite = g_file_replace_readwrite;
 
-    extern fn g_file_replace_readwrite_async(self: *Self, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_replace_readwrite_async(self: *Self, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const replaceReadwriteAsync = g_file_replace_readwrite_async;
 
     extern fn g_file_replace_readwrite_finish(self: *Self, res: *gio.AsyncResult) ?*gio.FileIOStream;
@@ -331,7 +332,7 @@ pub const File = extern struct {
     extern fn g_file_set_attribute_uint64(self: *Self, attribute: [*c]const u8, value: u64, flags: gio.FileQueryInfoFlags, cancellable: ?*gio.Cancellable) bool;
     pub const setAttributeUint64 = g_file_set_attribute_uint64;
 
-    extern fn g_file_set_attributes_async(self: *Self, info: *gio.FileInfo, flags: gio.FileQueryInfoFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_set_attributes_async(self: *Self, info: *gio.FileInfo, flags: gio.FileQueryInfoFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const setAttributesAsync = g_file_set_attributes_async;
 
     extern fn g_file_set_attributes_finish(self: *Self, result: *gio.AsyncResult, info: *gio.FileInfo) bool;
@@ -343,19 +344,19 @@ pub const File = extern struct {
     extern fn g_file_set_display_name(self: *Self, display_name: [*c]const u8, cancellable: ?*gio.Cancellable) ?*gio.File;
     pub const setDisplayName = g_file_set_display_name;
 
-    extern fn g_file_set_display_name_async(self: *Self, display_name: [*c]const u8, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_set_display_name_async(self: *Self, display_name: [*c]const u8, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const setDisplayNameAsync = g_file_set_display_name_async;
 
     extern fn g_file_set_display_name_finish(self: *Self, res: *gio.AsyncResult) ?*gio.File;
     pub const setDisplayNameFinish = g_file_set_display_name_finish;
 
-    extern fn g_file_start_mountable(self: *Self, flags: gio.DriveStartFlags, start_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_start_mountable(self: *Self, flags: gio.DriveStartFlags, start_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const startMountable = g_file_start_mountable;
 
     extern fn g_file_start_mountable_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const startMountableFinish = g_file_start_mountable_finish;
 
-    extern fn g_file_stop_mountable(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_stop_mountable(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const stopMountable = g_file_stop_mountable;
 
     extern fn g_file_stop_mountable_finish(self: *Self, result: *gio.AsyncResult) bool;
@@ -367,19 +368,19 @@ pub const File = extern struct {
     extern fn g_file_trash(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const trash = g_file_trash;
 
-    extern fn g_file_trash_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_trash_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const trashAsync = g_file_trash_async;
 
     extern fn g_file_trash_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const trashFinish = g_file_trash_finish;
 
-    extern fn g_file_unmount_mountable(self: *Self, flags: gio.MountUnmountFlags, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_unmount_mountable(self: *Self, flags: gio.MountUnmountFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const unmountMountable = g_file_unmount_mountable;
 
     extern fn g_file_unmount_mountable_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const unmountMountableFinish = g_file_unmount_mountable_finish;
 
-    extern fn g_file_unmount_mountable_with_operation(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: ?*anyopaque) void;
+    extern fn g_file_unmount_mountable_with_operation(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const unmountMountableWithOperation = g_file_unmount_mountable_with_operation;
 
     extern fn g_file_unmount_mountable_with_operation_finish(self: *Self, result: *gio.AsyncResult) bool;

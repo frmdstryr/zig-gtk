@@ -1,12 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Vec2)
 const graphene = @import("../graphene.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Vec2 = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    value: *graphene.Simd4F,
 
     // Constructors
     extern fn graphene_vec2_alloc() ?*Self;

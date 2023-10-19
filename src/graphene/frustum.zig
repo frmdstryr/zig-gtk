@@ -1,12 +1,14 @@
 // This file is auto generated do not edit
-const std = @import("std");
+// StructInfo(Frustum)
 const graphene = @import("../graphene.zig");
+const std = @import("std");
 const c = @import("c.zig");
 
 pub const Frustum = extern struct {
     const Self = @This();
 
-    parent_instance: *anyopaque,
+    // Fields
+    planes: [*c]graphene.Plane,
 
     // Constructors
     extern fn graphene_frustum_alloc() ?*Self;
