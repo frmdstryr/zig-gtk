@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(PaintableInterface)
+// StructInfo(PaintableInterface) align(8) size(64)
 const gobject = @import("gobject");
 const gdk = @import("../gdk.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const PaintableInterface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     snapshot: *const fn (paintable: *gdk.Paintable, snapshot: *gdk.Snapshot, width: f64, height: f64) callconv(.C) void,
     get_current_image: *const fn (paintable: *gdk.Paintable) callconv(.C) *gdk.Paintable,
     get_flags: *const fn (paintable: *gdk.Paintable) callconv(.C) gdk.PaintableFlags,

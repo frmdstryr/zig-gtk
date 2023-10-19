@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(MemoryInputStreamClass)
+// StructInfo(MemoryInputStreamClass) align(8) size(288)
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const MemoryInputStreamClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gio.InputStreamClass,
+    parent_class: gio.InputStreamClass,
     _g_reserved1: ?*anyopaque,
     _g_reserved2: ?*anyopaque,
     _g_reserved3: ?*anyopaque,

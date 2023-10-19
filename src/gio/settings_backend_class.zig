@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(SettingsBackendClass)
+// StructInfo(SettingsBackendClass) align(8) size(400)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const SettingsBackendClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     read: *const fn (backend: *gio.SettingsBackend, key: [*c]const u8, expected_type: *glib.VariantType, default_value: bool) callconv(.C) *glib.Variant,
     get_writable: *const fn (backend: *gio.SettingsBackend, key: [*c]const u8) callconv(.C) bool,
     write: *const fn (backend: *gio.SettingsBackend, key: [*c]const u8, value: *glib.Variant, origin_tag: ?*anyopaque) callconv(.C) bool,
@@ -21,7 +21,7 @@ pub const SettingsBackendClass = extern struct {
     sync: *const fn (backend: *gio.SettingsBackend) callconv(.C) void,
     get_permission: ?*anyopaque,
     read_user_value: *const fn (backend: *gio.SettingsBackend, key: [*c]const u8, expected_type: *glib.VariantType) callconv(.C) *glib.Variant,
-    padding: ?*anyopaque,
+    padding: [23]?*anyopaque,
 
     // Constructors
 

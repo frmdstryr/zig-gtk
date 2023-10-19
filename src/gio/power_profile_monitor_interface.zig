@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(PowerProfileMonitorInterface)
+// StructInfo(PowerProfileMonitorInterface) align(8) size(16)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const PowerProfileMonitorInterface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
 
     // Constructors
 

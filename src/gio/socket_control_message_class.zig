@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(SocketControlMessageClass)
+// StructInfo(SocketControlMessageClass) align(8) size(216)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const SocketControlMessageClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     get_size: *const fn (message: *gio.SocketControlMessage) callconv(.C) u64,
     get_level: *const fn (message: *gio.SocketControlMessage) callconv(.C) i32,
     get_type: *const fn (message: *gio.SocketControlMessage) callconv(.C) i32,

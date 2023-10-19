@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Frustum)
+// StructInfo(Frustum) align(4) size(120)
 const graphene = @import("../graphene.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const Frustum = extern struct {
     const Self = @This();
 
     // Fields
-    planes: [*c]graphene.Plane,
+    planes: [6]graphene.Plane,
 
     // Constructors
     extern fn graphene_frustum_alloc() ?*Self;
@@ -25,7 +25,7 @@ pub const Frustum = extern struct {
     extern fn graphene_frustum_free(self: *Self) void;
     pub const free = graphene_frustum_free;
 
-    extern fn graphene_frustum_get_planes(self: *Self, planes: [*c]graphene.Plane) void;
+    extern fn graphene_frustum_get_planes(self: *Self, planes: [6]graphene.Plane) void;
     pub const getPlanes = graphene_frustum_get_planes;
 
     extern fn graphene_frustum_init(self: *Self, p0: *graphene.Plane, p1: *graphene.Plane, p2: *graphene.Plane, p3: *graphene.Plane, p4: *graphene.Plane, p5: *graphene.Plane) ?*graphene.Frustum;

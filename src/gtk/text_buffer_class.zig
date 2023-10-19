@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TextBufferClass)
+// StructInfo(TextBufferClass) align(8) size(288)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const gdk = @import("gdk");
@@ -10,7 +10,7 @@ pub const TextBufferClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     insert_text: *const fn (buffer: *gtk.TextBuffer, pos: *gtk.TextIter, new_text: [*c]const u8, new_text_length: i32) callconv(.C) void,
     insert_paintable: *const fn (buffer: *gtk.TextBuffer, iter: *gtk.TextIter, paintable: *gdk.Paintable) callconv(.C) void,
     insert_child_anchor: *const fn (buffer: *gtk.TextBuffer, iter: *gtk.TextIter, anchor: *gtk.TextChildAnchor) callconv(.C) void,

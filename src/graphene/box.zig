@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Box)
+// StructInfo(Box) align(4) size(32)
 const graphene = @import("../graphene.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,8 +8,8 @@ pub const Box = extern struct {
     const Self = @This();
 
     // Fields
-    min: *graphene.Vec3,
-    max: *graphene.Vec3,
+    min: graphene.Vec3,
+    max: graphene.Vec3,
 
     // Constructors
     extern fn graphene_box_alloc() ?*Self;
@@ -59,7 +59,7 @@ pub const Box = extern struct {
     extern fn graphene_box_get_size(self: *Self, size: *graphene.Vec3) void;
     pub const getSize = graphene_box_get_size;
 
-    extern fn graphene_box_get_vertices(self: *Self, vertices: [*c]graphene.Vec3) void;
+    extern fn graphene_box_get_vertices(self: *Self, vertices: [8]graphene.Vec3) void;
     pub const getVertices = graphene_box_get_vertices;
 
     extern fn graphene_box_get_width(self: *Self) f32;

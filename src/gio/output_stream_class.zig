@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(OutputStreamClass)
+// StructInfo(OutputStreamClass) align(8) size(296)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const OutputStreamClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     write_fn: *const fn (stream: *gio.OutputStream, buffer: [*c]u8, count: u64, cancellable: ?*gio.Cancellable) callconv(.C) i64,
     splice: *const fn (stream: *gio.OutputStream, source: *gio.InputStream, flags: gio.OutputStreamSpliceFlags, cancellable: ?*gio.Cancellable) callconv(.C) i64,
     flush: *const fn (stream: *gio.OutputStream, cancellable: ?*gio.Cancellable) callconv(.C) bool,

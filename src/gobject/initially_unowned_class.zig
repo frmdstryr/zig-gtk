@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(InitiallyUnownedClass)
+// StructInfo(InitiallyUnownedClass) align(8) size(136)
 const gobject = @import("../gobject.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const InitiallyUnownedClass = extern struct {
     const Self = @This();
 
     // Fields
-    g_type_class: *gobject.TypeClass,
+    g_type_class: gobject.TypeClass,
     construct_properties: ?*anyopaque,
     constructor: ?*anyopaque,
     set_property: *const fn (object: *gobject.Object, property_id: u32, value: *gobject.Value, pspec: *gobject.ParamSpec) callconv(.C) void,
@@ -19,7 +19,7 @@ pub const InitiallyUnownedClass = extern struct {
     notify: *const fn (object: *gobject.Object, pspec: *gobject.ParamSpec) callconv(.C) void,
     constructed: *const fn (object: *gobject.Object) callconv(.C) void,
     flags: u64,
-    pdummy: ?*anyopaque,
+    pdummy: [6]?*anyopaque,
 
     // Constructors
 

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TreeIter)
+// StructInfo(TreeIter) align(8) size(32)
 const gtk = @import("../gtk.zig");
 const std = @import("std");
 const c = @import("c.zig");

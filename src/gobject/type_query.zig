@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TypeQuery)
+// StructInfo(TypeQuery) align(8) size(24)
 const gobject = @import("../gobject.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -9,7 +9,7 @@ pub const TypeQuery = extern struct {
 
     // Fields
     type: usize,
-    type_name: *[*c]const u8,
+    type_name: [*c]const u8,
     class_size: u32,
     instance_size: u32,
 

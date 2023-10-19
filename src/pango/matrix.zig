@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Matrix)
+// StructInfo(Matrix) align(8) size(48)
 const pango = @import("../pango.zig");
 const std = @import("std");
 const c = @import("c.zig");

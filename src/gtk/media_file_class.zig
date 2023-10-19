@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(MediaFileClass)
+// StructInfo(MediaFileClass) align(8) size(296)
 const gtk = @import("../gtk.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const MediaFileClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gtk.MediaStreamClass,
+    parent_class: gtk.MediaStreamClass,
     open: *const fn (self: *gtk.MediaFile) callconv(.C) void,
     close: *const fn (self: *gtk.MediaFile) callconv(.C) void,
     _gtk_reserved1: ?*anyopaque,

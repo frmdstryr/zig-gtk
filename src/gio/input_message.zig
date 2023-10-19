@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(InputMessage)
+// StructInfo(InputMessage) align(8) size(56)
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");

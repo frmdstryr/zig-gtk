@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ParamSpecTypeInfo)
+// StructInfo(ParamSpecTypeInfo) align(8) size(56)
 const gobject = @import("../gobject.zig");
 const std = @import("std");
 const c = @import("c.zig");

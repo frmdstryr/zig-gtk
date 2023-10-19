@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(List)
+// StructInfo(List) align(8) size(24)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");

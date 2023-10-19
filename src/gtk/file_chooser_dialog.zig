@@ -16,9 +16,9 @@ pub const FileChooserDialog = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gtk.Window,
+    parent_instance: gtk.Window,
     priv: *gtk.WidgetPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

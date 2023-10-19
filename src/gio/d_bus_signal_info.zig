@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(DBusSignalInfo)
+// StructInfo(DBusSignalInfo) align(8) size(32)
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -9,7 +9,7 @@ pub const DBusSignalInfo = extern struct {
 
     // Fields
     ref_count: i32,
-    name: *[*c]const u8,
+    name: [*c]const u8,
     args: [*c]*gio.DBusArgInfo,
     annotations: [*c]*gio.DBusAnnotationInfo,
 

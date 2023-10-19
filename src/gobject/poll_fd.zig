@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(PollFD)
+// StructInfo(PollFD) align(4) size(8)
 const gobject = @import("../gobject.zig");
 const glib = @import("glib");
 const std = @import("std");

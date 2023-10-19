@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ThreadedSocketServiceClass)
+// StructInfo(ThreadedSocketServiceClass) align(8) size(296)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const ThreadedSocketServiceClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gio.SocketServiceClass,
+    parent_class: gio.SocketServiceClass,
     run: *const fn (service: *gio.ThreadedSocketService, connection: *gio.SocketConnection, source_object: *gobject.Object) callconv(.C) bool,
     _g_reserved1: ?*anyopaque,
     _g_reserved2: ?*anyopaque,

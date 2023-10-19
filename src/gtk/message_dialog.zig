@@ -16,9 +16,9 @@ pub const MessageDialog = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gtk.Dialog,
+    parent_instance: gtk.Dialog,
     priv: *gtk.WidgetPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

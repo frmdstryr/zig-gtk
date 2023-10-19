@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(OrientableIface)
+// StructInfo(OrientableIface) align(8) size(16)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const OrientableIface = extern struct {
     const Self = @This();
 
     // Fields
-    base_iface: *gobject.TypeInterface,
+    base_iface: gobject.TypeInterface,
 
     // Constructors
 

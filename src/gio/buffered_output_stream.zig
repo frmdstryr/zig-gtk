@@ -10,10 +10,10 @@ pub const BufferedOutputStream = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gio.FilterOutputStream,
+    parent_instance: gio.FilterOutputStream,
     priv: *gio.BufferedOutputStreamPrivate,
     base_stream: *gio.OutputStream,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

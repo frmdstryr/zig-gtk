@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(MountIface)
+// StructInfo(MountIface) align(8) size(232)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const MountIface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     changed: *const fn (mount: *gio.Mount) callconv(.C) void,
     unmounted: *const fn (mount: *gio.Mount) callconv(.C) void,
     get_root: *const fn (mount: *gio.Mount) callconv(.C) *gio.File,

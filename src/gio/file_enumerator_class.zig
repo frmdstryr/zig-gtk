@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(FileEnumeratorClass)
+// StructInfo(FileEnumeratorClass) align(8) size(240)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const FileEnumeratorClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     next_file: *const fn (enumerator: *gio.FileEnumerator, cancellable: ?*gio.Cancellable) callconv(.C) *gio.FileInfo,
     close_fn: *const fn (enumerator: *gio.FileEnumerator, cancellable: ?*gio.Cancellable) callconv(.C) bool,
     next_files_async: *const fn (enumerator: *gio.FileEnumerator, num_files: i32, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) callconv(.C) void,

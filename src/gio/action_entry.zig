@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ActionEntry)
+// StructInfo(ActionEntry) align(8) size(64)
 const glib = @import("glib");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,12 +9,12 @@ pub const ActionEntry = extern struct {
     const Self = @This();
 
     // Fields
-    name: *[*c]const u8,
+    name: [*c]const u8,
     activate: *const fn (action: *gio.SimpleAction, parameter: *glib.Variant, user_data: ?*anyopaque) callconv(.C) void,
-    parameter_type: *[*c]const u8,
-    state: *[*c]const u8,
+    parameter_type: [*c]const u8,
+    state: [*c]const u8,
     change_state: *const fn (action: *gio.SimpleAction, value: *glib.Variant, user_data: ?*anyopaque) callconv(.C) void,
-    padding: [*c]u64,
+    padding: [3]u64,
 
     // Constructors
 

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(SeekableIface)
+// StructInfo(SeekableIface) align(8) size(56)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const SeekableIface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     tell: *const fn (seekable: *gio.Seekable) callconv(.C) i64,
     can_seek: *const fn (seekable: *gio.Seekable) callconv(.C) bool,
     seek: *const fn (seekable: *gio.Seekable, offset: i64, type: glib.SeekType, cancellable: ?*gio.Cancellable) callconv(.C) bool,

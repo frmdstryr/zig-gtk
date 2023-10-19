@@ -10,10 +10,10 @@ pub const ConverterInputStream = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gio.FilterInputStream,
+    parent_instance: gio.FilterInputStream,
     priv: *gio.ConverterInputStreamPrivate,
     base_stream: *gio.InputStream,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

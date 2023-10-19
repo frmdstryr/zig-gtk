@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Rect)
+// StructInfo(Rect) align(4) size(16)
 const graphene = @import("../graphene.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,8 +8,8 @@ pub const Rect = extern struct {
     const Self = @This();
 
     // Fields
-    origin: *graphene.Point,
-    size: *graphene.Size,
+    origin: graphene.Point,
+    size: graphene.Size,
 
     // Constructors
 
@@ -50,7 +50,7 @@ pub const Rect = extern struct {
     extern fn graphene_rect_get_top_right(self: *Self, p: *graphene.Point) void;
     pub const getTopRight = graphene_rect_get_top_right;
 
-    extern fn graphene_rect_get_vertices(self: *Self, vertices: [*c]graphene.Vec2) void;
+    extern fn graphene_rect_get_vertices(self: *Self, vertices: [4]graphene.Vec2) void;
     pub const getVertices = graphene_rect_get_vertices;
 
     extern fn graphene_rect_get_width(self: *Self) f32;

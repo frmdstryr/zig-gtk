@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TlsFileDatabaseInterface)
+// StructInfo(TlsFileDatabaseInterface) align(8) size(80)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,8 +9,8 @@ pub const TlsFileDatabaseInterface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
-    padding: ?*anyopaque,
+    g_iface: gobject.TypeInterface,
+    padding: [8]?*anyopaque,
 
     // Constructors
 

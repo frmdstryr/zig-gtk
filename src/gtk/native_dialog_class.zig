@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(NativeDialogClass)
+// StructInfo(NativeDialogClass) align(8) size(192)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const NativeDialogClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     response: *const fn (self: *gtk.NativeDialog, response_id: i32) callconv(.C) void,
     show: *const fn (self: *gtk.NativeDialog) callconv(.C) void,
     hide: *const fn (self: *gtk.NativeDialog) callconv(.C) void,

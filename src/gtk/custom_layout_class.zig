@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(CustomLayoutClass)
+// StructInfo(CustomLayoutClass) align(8) size(320)
 const gtk = @import("../gtk.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const CustomLayoutClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gtk.LayoutManagerClass,
+    parent_class: gtk.LayoutManagerClass,
 
     // Constructors
 

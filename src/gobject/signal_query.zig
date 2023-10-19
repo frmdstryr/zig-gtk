@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(SignalQuery)
+// StructInfo(SignalQuery) align(8) size(56)
 const gobject = @import("../gobject.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -9,9 +9,9 @@ pub const SignalQuery = extern struct {
 
     // Fields
     signal_id: u32,
-    signal_name: *[*c]const u8,
+    signal_name: [*c]const u8,
     itype: usize,
-    signal_flags: *gobject.SignalFlags,
+    signal_flags: gobject.SignalFlags,
     return_type: usize,
     n_params: u32,
     param_types: [*c]usize,

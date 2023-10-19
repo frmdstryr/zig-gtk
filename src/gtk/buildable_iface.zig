@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(BuildableIface)
+// StructInfo(BuildableIface) align(8) size(96)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const BuildableIface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     set_id: *const fn (buildable: *gtk.Buildable, id: [*c]const u8) callconv(.C) void,
     get_id: *const fn (buildable: *gtk.Buildable) callconv(.C) [*c]const u8,
     add_child: *const fn (buildable: *gtk.Buildable, builder: *gtk.Builder, child: *gobject.Object, type: [*c]const u8) callconv(.C) void,

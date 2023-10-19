@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(SocketListenerClass)
+// StructInfo(SocketListenerClass) align(8) size(192)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const SocketListenerClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     changed: *const fn (listener: *gio.SocketListener) callconv(.C) void,
     event: *const fn (listener: *gio.SocketListener, event: gio.SocketListenerEvent, socket: *gio.Socket) callconv(.C) void,
     _g_reserved2: ?*anyopaque,

@@ -14,7 +14,7 @@ pub const BorderNode = extern struct {
     // Fields
 
     // Constructors
-    extern fn gsk_border_node_new(outline: *gsk.RoundedRect, border_width: [*c]f32, border_color: [*c]gdk.RGBA) ?*Self;
+    extern fn gsk_border_node_new(outline: *gsk.RoundedRect, border_width: [4]f32, border_color: [4]gdk.RGBA) ?*Self;
     pub const new = gsk_border_node_new;
 
 
@@ -34,7 +34,7 @@ pub const BorderNode = extern struct {
     extern fn gsk_border_node_get_outline(self: *Self) ?*gsk.RoundedRect;
     pub const getOutline = gsk_border_node_get_outline;
 
-    extern fn gsk_border_node_get_widths(self: *Self) [*c]f32;
+    extern fn gsk_border_node_get_widths(self: *Self) [4]f32;
     pub const getWidths = gsk_border_node_get_widths;
 
     extern fn gsk_render_node_ref(self: *Self) ?*gsk.RenderNode;

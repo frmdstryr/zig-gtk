@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(SorterClass)
+// StructInfo(SorterClass) align(8) size(216)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const SorterClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     compare: *const fn (self: *gtk.Sorter, item1: ?*gobject.Object, item2: ?*gobject.Object) callconv(.C) gtk.Ordering,
     get_order: *const fn (self: *gtk.Sorter) callconv(.C) gtk.SorterOrder,
     _gtk_reserved1: ?*anyopaque,

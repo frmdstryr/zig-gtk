@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(GlyphItemIter)
+// StructInfo(GlyphItemIter) align(8) size(40)
 const pango = @import("../pango.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -9,7 +9,7 @@ pub const GlyphItemIter = extern struct {
 
     // Fields
     glyph_item: *pango.GlyphItem,
-    text: *[*c]const u8,
+    text: [*c]const u8,
     start_glyph: i32,
     start_index: i32,
     start_char: i32,

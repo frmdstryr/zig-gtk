@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(LayoutClass)
+// StructInfo(LayoutClass) align(1) size(0)
 const pango = @import("../pango.zig");
 const std = @import("std");
 const c = @import("c.zig");

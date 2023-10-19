@@ -11,10 +11,10 @@ pub const CellRendererAccel = extern struct {
     const Self = @This();
 
     // Fields
-    parent: *gtk.CellRenderer,
-    parent_instance: *gobject.InitiallyUnowned,
+    parent: gtk.CellRenderer,
+    parent_instance: gobject.InitiallyUnowned,
     priv: *gtk.CellRendererPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

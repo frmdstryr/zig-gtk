@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(SelectionModelInterface)
+// StructInfo(SelectionModelInterface) align(8) size(88)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const SelectionModelInterface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     is_selected: *const fn (model: *gtk.SelectionModel, position: u32) callconv(.C) bool,
     get_selection_in_range: *const fn (model: *gtk.SelectionModel, position: u32, n_items: u32) callconv(.C) *gtk.Bitset,
     select_item: *const fn (model: *gtk.SelectionModel, position: u32, unselect_rest: bool) callconv(.C) bool,

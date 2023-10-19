@@ -15,7 +15,7 @@ pub const Snapshot = extern struct {
     const Self = @This();
 
     // Fields
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 
@@ -28,7 +28,7 @@ pub const Snapshot = extern struct {
 
 
     // Methods
-    extern fn gtk_snapshot_append_border(self: *Self, outline: *gsk.RoundedRect, border_width: [*c]f32, border_color: [*c]gdk.RGBA) void;
+    extern fn gtk_snapshot_append_border(self: *Self, outline: *gsk.RoundedRect, border_width: [4]f32, border_color: [4]gdk.RGBA) void;
     pub const appendBorder = gtk_snapshot_append_border;
 
     extern fn gtk_snapshot_append_cairo(self: *Self, bounds: *graphene.Rect) ?*cairo.Context;

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(DebugControllerDBusClass)
+// StructInfo(DebugControllerDBusClass) align(8) size(240)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,9 +9,9 @@ pub const DebugControllerDBusClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     authorize: *const fn (controller: *gio.DebugControllerDBus, invocation: *gio.DBusMethodInvocation) callconv(.C) bool,
-    padding: ?*anyopaque,
+    padding: [12]?*anyopaque,
 
     // Constructors
 

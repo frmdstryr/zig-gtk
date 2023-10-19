@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(DBusAnnotationInfo)
+// StructInfo(DBusAnnotationInfo) align(8) size(32)
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -9,8 +9,8 @@ pub const DBusAnnotationInfo = extern struct {
 
     // Fields
     ref_count: i32,
-    key: *[*c]const u8,
-    value: *[*c]const u8,
+    key: [*c]const u8,
+    value: [*c]const u8,
     annotations: [*c]*gio.DBusAnnotationInfo,
 
     // Constructors

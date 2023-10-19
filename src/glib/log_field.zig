@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(LogField)
+// StructInfo(LogField) align(8) size(24)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const LogField = extern struct {
     const Self = @This();
 
     // Fields
-    key: *[*c]const u8,
+    key: [*c]const u8,
     value: ?*anyopaque,
     length: i64,
 

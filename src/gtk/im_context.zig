@@ -12,8 +12,8 @@ pub const IMContext = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gobject.Object,
-    g_type_instance: *gobject.TypeInstance,
+    parent_instance: gobject.Object,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

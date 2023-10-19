@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(RecMutex)
+// StructInfo(RecMutex) align(8) size(16)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -9,7 +9,7 @@ pub const RecMutex = extern struct {
 
     // Fields
     p: ?*anyopaque,
-    i: [*c]u32,
+    i: [2]u32,
 
     // Constructors
 

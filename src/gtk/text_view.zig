@@ -16,9 +16,9 @@ pub const TextView = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gtk.Widget,
+    parent_instance: gtk.Widget,
     priv: *gtk.TextViewPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(PixbufAnimationIterClass)
+// StructInfo(PixbufAnimationIterClass) align(8) size(168)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gdkpixbuf = @import("../gdkpixbuf.zig");
@@ -10,7 +10,7 @@ pub const PixbufAnimationIterClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     get_delay_time: *const fn (iter: *gdkpixbuf.PixbufAnimationIter) callconv(.C) i32,
     get_pixbuf: *const fn (iter: *gdkpixbuf.PixbufAnimationIter) callconv(.C) *gdkpixbuf.Pixbuf,
     on_currently_loading_frame: *const fn (iter: *gdkpixbuf.PixbufAnimationIter) callconv(.C) bool,

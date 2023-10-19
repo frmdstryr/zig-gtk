@@ -1,10 +1,10 @@
 // This file is auto generated do not edit
-// gi.UnionInfo(TypeCValue)
+// gi.UnionInfo(TypeCValue) align(1) size(0)
 const gobject = @import("../gobject.zig");
 const std = @import("std");
 const c = @import("c.zig");
 
-pub const TypeCValue = extern struct {
+pub const TypeCValue = extern union {
     const Self = @This();
 
     // Fields

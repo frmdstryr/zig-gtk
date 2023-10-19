@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(AppInfoIface)
+// StructInfo(AppInfoIface) align(8) size(216)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const AppInfoIface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     dup: *const fn (appinfo: *gio.AppInfo) callconv(.C) *gio.AppInfo,
     equal: *const fn (appinfo1: *gio.AppInfo, appinfo2: *gio.AppInfo) callconv(.C) bool,
     get_id: *const fn (appinfo: *gio.AppInfo) callconv(.C) [*c]const u8,

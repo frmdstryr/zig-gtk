@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TreeModelIface)
+// StructInfo(TreeModelIface) align(8) size(176)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const TreeModelIface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     row_changed: *const fn (tree_model: *gtk.TreeModel, path: *gtk.TreePath, iter: *gtk.TreeIter) callconv(.C) void,
     row_inserted: *const fn (tree_model: *gtk.TreeModel, path: *gtk.TreePath, iter: *gtk.TreeIter) callconv(.C) void,
     row_has_child_toggled: *const fn (tree_model: *gtk.TreeModel, path: *gtk.TreePath, iter: *gtk.TreeIter) callconv(.C) void,

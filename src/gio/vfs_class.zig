@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(VfsClass)
+// StructInfo(VfsClass) align(8) size(272)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const VfsClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     is_active: *const fn (vfs: *gio.Vfs) callconv(.C) bool,
     get_file_for_path: *const fn (vfs: *gio.Vfs, path: [*c]const u8) callconv(.C) *gio.File,
     get_file_for_uri: *const fn (vfs: *gio.Vfs, uri: [*c]const u8) callconv(.C) *gio.File,

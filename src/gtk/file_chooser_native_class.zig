@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(FileChooserNativeClass)
+// StructInfo(FileChooserNativeClass) align(8) size(192)
 const gtk = @import("../gtk.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const FileChooserNativeClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gtk.NativeDialogClass,
+    parent_class: gtk.NativeDialogClass,
 
     // Constructors
 

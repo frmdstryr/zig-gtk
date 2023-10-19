@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(CellAreaClass)
+// StructInfo(CellAreaClass) align(8) size(352)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const gdk = @import("gdk");
@@ -10,7 +10,7 @@ pub const CellAreaClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.InitiallyUnownedClass,
+    parent_class: gobject.InitiallyUnownedClass,
     add: *const fn (area: *gtk.CellArea, renderer: *gtk.CellRenderer) callconv(.C) void,
     remove: *const fn (area: *gtk.CellArea, renderer: *gtk.CellRenderer) callconv(.C) void,
     foreach: *const fn (area: *gtk.CellArea, callback: *const fn (renderer: *gtk.CellRenderer, data: ?*anyopaque) callconv(.C) bool, callback_data: ?*anyopaque) callconv(.C) void,
@@ -30,7 +30,7 @@ pub const CellAreaClass = extern struct {
     focus: *const fn (area: *gtk.CellArea, direction: gtk.DirectionType) callconv(.C) bool,
     is_activatable: *const fn (area: *gtk.CellArea) callconv(.C) bool,
     activate: *const fn (area: *gtk.CellArea, context: *gtk.CellAreaContext, widget: *gtk.Widget, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState, edit_only: bool) callconv(.C) bool,
-    padding: ?*anyopaque,
+    padding: [8]?*anyopaque,
 
     // Constructors
 

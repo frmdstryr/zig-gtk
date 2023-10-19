@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ProxyAddressClass)
+// StructInfo(ProxyAddressClass) align(8) size(160)
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const ProxyAddressClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gio.InetSocketAddressClass,
+    parent_class: gio.InetSocketAddressClass,
 
     // Constructors
 

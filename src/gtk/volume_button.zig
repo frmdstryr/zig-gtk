@@ -16,10 +16,10 @@ pub const VolumeButton = extern struct {
     const Self = @This();
 
     // Fields
-    parent: *gtk.ScaleButton,
-    parent_instance: *gtk.Widget,
+    parent: gtk.ScaleButton,
+    parent_instance: gtk.Widget,
     priv: *gtk.WidgetPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

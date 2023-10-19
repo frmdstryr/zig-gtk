@@ -1,15 +1,15 @@
 // This file is auto generated do not edit
-// gi.UnionInfo(Mutex)
+// gi.UnionInfo(Mutex) align(8) size(8)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");
 
-pub const Mutex = extern struct {
+pub const Mutex = extern union {
     const Self = @This();
 
     // Fields
     p: ?*anyopaque,
-    i: [*c]u32,
+    i: [2]u32,
 
     // Constructors
 

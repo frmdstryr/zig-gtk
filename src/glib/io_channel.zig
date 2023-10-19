@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(IOChannel)
+// StructInfo(IOChannel) align(8) size(136)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -10,16 +10,16 @@ pub const IOChannel = extern struct {
     // Fields
     ref_count: i32,
     funcs: *glib.IOFuncs,
-    encoding: *[*c]const u8,
+    encoding: [*c]const u8,
     read_cd: ?*anyopaque,
     write_cd: ?*anyopaque,
-    line_term: *[*c]const u8,
+    line_term: [*c]const u8,
     line_term_len: u32,
     buf_size: u64,
     read_buf: *glib.String,
     encoded_read_buf: *glib.String,
     write_buf: *glib.String,
-    partial_write_buf: [*c]i8,
+    partial_write_buf: [6]i8,
     use_buffer: u32,
     do_encode: u32,
     close_on_unref: u32,

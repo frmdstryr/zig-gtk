@@ -301,14 +301,8 @@ def func_arg_type(func, arg, imports: set[str]) -> Optional[str]:
         if it.startswith("*") and arg.may_be_null():
             return f"?{it}"
         return it
-    if t == "array":
-        ptype = atype.get_param_type(0)
-        pt = ptype.get_tag_as_string()
-        if pt in TYPE_MAP:
-            return f"[*c]{TYPE_MAP[pt]}"
-        elif pt == "interface" and (it := interface_type_to_string(ptype, imports)):
-            return f"[*c]{it}"
-        t = f"[]{pt}"
+    if t == "array" and (at := array_type_to_string(atype, imports)):
+        return at
     if t not in UNKNOWN_TYPES:
         UNKNOWN_TYPES.add(t)
     print(f"  Unknown arg type {func} {arg} ({t})")
@@ -343,47 +337,53 @@ def func_return_type(func, imports: set[str]) -> Optional[str]:
         return r
     if t == "interface" and (it := interface_type_to_string(rtype, imports)):
         return it
-    if t == "array":
-        ptype = rtype.get_param_type(0)
-        pt = ptype.get_tag_as_string()
-        if pt in TYPE_MAP:
-            return f"[*c]{TYPE_MAP[pt]}"
-        if pt == "interface" and (it := interface_type_to_string(ptype, imports)):
-            return f"[*c]{it}"
-        t = f"[]{pt}"
+    if t == "array" and (at := array_type_to_string(rtype, imports)):
+        return at
     if t not in UNKNOWN_TYPES:
         UNKNOWN_TYPES.add(t)
     print(f"  Unknown return type {func} ({t})")
     return None
 
 
-def struct_field_type(field, imports: set[str]) -> Optional[str]:
+def array_type_to_string(atype, imports) -> Optional[str]:
+    ptype = atype.get_param_type(0)
+    pt = ptype.get_tag_as_string()
+    array_type = None
+    if pt == "void":
+        array_type = "?*anyopaque" # HACK for [*c]void
+    elif pt in TYPE_MAP:
+        array_type = TYPE_MAP[pt]
+    elif pt == "interface" and (array_type := interface_type_to_string(ptype, imports)):
+        if array_type == "gobject._Value__data__union":
+            array_type = "?*anyopaque"  # Hack for [*c]gobject._Value__data__union
+    if array_type is not None:
+        n = atype.get_array_fixed_size()
+        if n > 0:
+            return f"[{n}]{array_type}"
+        return f"[*c]{array_type}"
+    return None
+
+
+def struct_field_type(info, field, imports: set[str]) -> Optional[str]:
+    if hasattr(info, "get_alignment"):
+        alignment = info.get_alignment()
+    else:
+        alignment = None
     ftype = field.get_type()
     t = ftype.get_tag_as_string()
     if t == "void" and ftype.is_pointer():
         return "?*anyopaque"
     if t in TYPE_MAP:
         r = TYPE_MAP[t]
-        if ftype.is_pointer() and not r.startswith("*"):
+        if ftype.is_pointer() and not (r.startswith("*") or r.startswith("[*")):
             return f"*{r}"
+        if r == "bool":
+            r = "bool align(4)"
         return r
     if t == "interface" and (it := interface_type_to_string(ftype, imports)):
-        if not it.startswith("*"):
-            return f"*{it}"
         return it
-    if t == "array":
-        ptype = ftype.get_param_type(0)
-        pt = ptype.get_tag_as_string()
-        if pt in TYPE_MAP:
-            if pt == "void":
-                return "?*anyopaque"
-                # HACK for [*c]void
-            return f"[*c]{TYPE_MAP[pt]}"
-        if pt == "interface" and (it := interface_type_to_string(ptype, imports)):
-            if it == "gobject._Value__data__union":
-                return "?*anyopaque"  # Hack for [*c]gobject._Value__data__union
-            return f"[*c]{it}"
-        t = f"[]{pt}"
+    if t == "array" and (at := array_type_to_string(ftype, imports)):
+        return at
     if t not in UNKNOWN_TYPES:
         UNKNOWN_TYPES.add(t)
     print(f"  Unknown field type {field} ({t})")
@@ -407,15 +407,31 @@ def generate_class(ns: str, Cls: type):
     print(f"Generating class {Cls}")
     info = getattr(Cls, "__info__", None)
 
+    is_struct = str(info).startswith("StructInfo")
+    is_union = str(info).startswith("gi.UnionInfo")
+
+    if is_union:
+        zig_type = "union"
+    else:
+        zig_type = "struct"
+
+    summary = str(info)
+    if hasattr(info, "get_alignment"):
+        summary += f" align({info.get_alignment()})"
+    if hasattr(info, "get_size"):
+        summary += f" size({info.get_size()})"
+
+
     out = HEADER_LINES + [
-        f"// {info}",
+        f"// {summary}",
         'const std = @import("std");',
         'const c = @import("c.zig");',
         "",
-        "pub const %s = extern struct {" % Cls.__name__,
+        "pub const %s = extern %s {" % (Cls.__name__, zig_type),
         "    const Self = @This();",
         "",
     ]
+
     if info is None:
         out.append("};")
         return out  # TODO What is this??
@@ -430,10 +446,11 @@ def generate_class(ns: str, Cls: type):
 
     out.append("    // Fields")
     field_names = set()
+
     for obj_info in mro:
         if hasattr(obj_info, "get_fields"):
             for field in obj_info.get_fields():
-                field_type = struct_field_type(field, imports)
+                field_type = struct_field_type(obj_info, field, imports)
                 if field_type in ("*glib.error", "*gtk.error"):
                     field_type = "*gobject.Error"
                 field_name = clean_zig_name(field.get_name())

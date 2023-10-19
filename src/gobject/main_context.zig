@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(MainContext)
+// StructInfo(MainContext) align(1) size(0)
 const gobject = @import("../gobject.zig");
 const glib = @import("glib");
 const std = @import("std");

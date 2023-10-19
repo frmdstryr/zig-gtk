@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(MenuModelClass)
+// StructInfo(MenuModelClass) align(8) size(200)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const MenuModelClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     is_mutable: *const fn (model: *gio.MenuModel) callconv(.C) bool,
     get_n_items: *const fn (model: *gio.MenuModel) callconv(.C) i32,
     get_item_attributes: *const fn (model: *gio.MenuModel, item_index: i32, attributes: *glib.HashTable) callconv(.C) void,

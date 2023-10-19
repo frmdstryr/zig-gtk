@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(AppLaunchContextClass)
+// StructInfo(AppLaunchContextClass) align(8) size(200)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const AppLaunchContextClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     get_display: *const fn (context: *gio.AppLaunchContext, info: *gio.AppInfo, files: *glib.List) callconv(.C) [*c]const u8,
     get_startup_notify_id: *const fn (context: *gio.AppLaunchContext, info: *gio.AppInfo, files: *glib.List) callconv(.C) [*c]const u8,
     launch_failed: *const fn (context: *gio.AppLaunchContext, startup_notify_id: [*c]const u8) callconv(.C) void,

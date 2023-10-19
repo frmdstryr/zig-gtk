@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(FilenameCompleterClass)
+// StructInfo(FilenameCompleterClass) align(8) size(168)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const FilenameCompleterClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     got_completion_data: *const fn (filename_completer: *gio.FilenameCompleter) callconv(.C) void,
     _g_reserved1: ?*anyopaque,
     _g_reserved2: ?*anyopaque,

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(MemoryMonitorInterface)
+// StructInfo(MemoryMonitorInterface) align(8) size(24)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const MemoryMonitorInterface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     low_memory_warning: *const fn (monitor: *gio.MemoryMonitor, level: gio.MemoryMonitorWarningLevel) callconv(.C) void,
 
     // Constructors

@@ -12,10 +12,10 @@ pub const IMMulticontext = extern struct {
     const Self = @This();
 
     // Fields
-    object: *gtk.IMContext,
+    object: gtk.IMContext,
     priv: *gtk.IMMulticontextPrivate,
-    parent_instance: *gobject.Object,
-    g_type_instance: *gobject.TypeInstance,
+    parent_instance: gobject.Object,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

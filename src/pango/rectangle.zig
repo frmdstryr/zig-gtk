@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Rectangle)
+// StructInfo(Rectangle) align(4) size(16)
 const pango = @import("../pango.zig");
 const std = @import("std");
 const c = @import("c.zig");

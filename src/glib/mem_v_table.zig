@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(MemVTable)
+// StructInfo(MemVTable) align(8) size(48)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Point)
+// StructInfo(Point) align(4) size(8)
 const graphene = @import("../graphene.zig");
 const std = @import("std");
 const c = @import("c.zig");

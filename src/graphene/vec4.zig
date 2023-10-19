@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Vec4)
+// StructInfo(Vec4) align(4) size(16)
 const graphene = @import("../graphene.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const Vec4 = extern struct {
     const Self = @This();
 
     // Fields
-    value: *graphene.Simd4F,
+    value: graphene.Simd4F,
 
     // Constructors
     extern fn graphene_vec4_alloc() ?*Self;
@@ -52,7 +52,7 @@ pub const Vec4 = extern struct {
     extern fn graphene_vec4_init(self: *Self, x: f32, y: f32, z: f32, w: f32) ?*graphene.Vec4;
     pub const init = graphene_vec4_init;
 
-    extern fn graphene_vec4_init_from_float(self: *Self, src: [*c]f32) ?*graphene.Vec4;
+    extern fn graphene_vec4_init_from_float(self: *Self, src: [4]f32) ?*graphene.Vec4;
     pub const initFromFloat = graphene_vec4_init_from_float;
 
     extern fn graphene_vec4_init_from_vec2(self: *Self, src: *graphene.Vec2, z: f32, w: f32) ?*graphene.Vec4;
@@ -94,7 +94,7 @@ pub const Vec4 = extern struct {
     extern fn graphene_vec4_subtract(self: *Self, b: *graphene.Vec4, res: *graphene.Vec4) void;
     pub const subtract = graphene_vec4_subtract;
 
-    extern fn graphene_vec4_to_float(self: *Self, dest: [*c]f32) void;
+    extern fn graphene_vec4_to_float(self: *Self, dest: [4]f32) void;
     pub const toFloat = graphene_vec4_to_float;
 
 };

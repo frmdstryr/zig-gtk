@@ -10,12 +10,12 @@ pub const IOModule = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gobject.Object,
+    parent_instance: gobject.Object,
     use_count: u32,
     type_infos: ?*anyopaque,
     interface_infos: ?*anyopaque,
-    name: *[*c]const u8,
-    g_type_instance: *gobject.TypeInstance,
+    name: [*c]const u8,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

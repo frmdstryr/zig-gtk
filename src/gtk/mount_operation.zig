@@ -12,9 +12,9 @@ pub const MountOperation = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gio.MountOperation,
+    parent_instance: gio.MountOperation,
     priv: *gtk.MountOperationPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

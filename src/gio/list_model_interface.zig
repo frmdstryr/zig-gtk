@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ListModelInterface)
+// StructInfo(ListModelInterface) align(8) size(40)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const ListModelInterface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     get_item_type: *const fn (list: *gio.ListModel) callconv(.C) usize,
     get_n_items: *const fn (list: *gio.ListModel) callconv(.C) u32,
     get_item: *const fn (list: *gio.ListModel, position: u32) callconv(.C) *gobject.Object,

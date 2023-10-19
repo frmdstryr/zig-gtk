@@ -10,10 +10,10 @@ pub const DataInputStream = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gio.BufferedInputStream,
+    parent_instance: gio.BufferedInputStream,
     priv: *gio.DataInputStreamPrivate,
     base_stream: *gio.InputStream,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

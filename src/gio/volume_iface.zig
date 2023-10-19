@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(VolumeIface)
+// StructInfo(VolumeIface) align(8) size(184)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const VolumeIface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     changed: *const fn (volume: *gio.Volume) callconv(.C) void,
     removed: *const fn (volume: *gio.Volume) callconv(.C) void,
     get_name: *const fn (volume: *gio.Volume) callconv(.C) [*c]const u8,

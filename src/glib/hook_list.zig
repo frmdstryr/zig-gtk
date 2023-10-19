@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(HookList)
+// StructInfo(HookList) align(8) size(56)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -14,7 +14,7 @@ pub const HookList = extern struct {
     hooks: *glib.Hook,
     dummy3: ?*anyopaque,
     finalize_hook: *const fn (hook_list: *glib.HookList, hook: *glib.Hook) callconv(.C) void,
-    dummy: ?*anyopaque,
+    dummy: [2]?*anyopaque,
 
     // Constructors
 

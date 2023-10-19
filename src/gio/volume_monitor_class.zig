@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(VolumeMonitorClass)
+// StructInfo(VolumeMonitorClass) align(8) size(336)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const VolumeMonitorClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     volume_added: *const fn (volume_monitor: *gio.VolumeMonitor, volume: *gio.Volume) callconv(.C) void,
     volume_removed: *const fn (volume_monitor: *gio.VolumeMonitor, volume: *gio.Volume) callconv(.C) void,
     volume_changed: *const fn (volume_monitor: *gio.VolumeMonitor, volume: *gio.Volume) callconv(.C) void,

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Simd4F)
+// StructInfo(Simd4F) align(4) size(16)
 const graphene = @import("../graphene.zig");
 const std = @import("std");
 const c = @import("c.zig");

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(RemoteActionGroupInterface)
+// StructInfo(RemoteActionGroupInterface) align(8) size(32)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const RemoteActionGroupInterface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     activate_action_full: *const fn (remote: *gio.RemoteActionGroup, action_name: [*c]const u8, parameter: ?*glib.Variant, platform_data: *glib.Variant) callconv(.C) void,
     change_action_state_full: *const fn (remote: *gio.RemoteActionGroup, action_name: [*c]const u8, value: *glib.Variant, platform_data: *glib.Variant) callconv(.C) void,
 

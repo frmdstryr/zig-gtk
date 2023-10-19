@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(RGBA)
+// StructInfo(RGBA) align(4) size(16)
 const gdk = @import("../gdk.zig");
 const std = @import("std");
 const c = @import("c.zig");

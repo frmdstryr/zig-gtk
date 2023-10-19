@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(GlyphInfo)
+// StructInfo(GlyphInfo) align(4) size(24)
 const pango = @import("../pango.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -9,8 +9,8 @@ pub const GlyphInfo = extern struct {
 
     // Fields
     glyph: u32,
-    geometry: *pango.GlyphGeometry,
-    attr: *pango.GlyphVisAttr,
+    geometry: pango.GlyphGeometry,
+    attr: pango.GlyphVisAttr,
 
     // Constructors
 

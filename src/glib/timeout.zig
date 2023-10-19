@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Source)
+// StructInfo(Source) align(8) size(96)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -19,7 +19,7 @@ pub const Timeout = extern struct {
     poll_fds: ?*anyopaque,
     prev: *glib.Source,
     next: *glib.Source,
-    name: *[*c]const u8,
+    name: [*c]const u8,
     priv: *glib.SourcePrivate,
 
     // Constructors

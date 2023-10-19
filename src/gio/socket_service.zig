@@ -10,9 +10,9 @@ pub const SocketService = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gio.SocketListener,
+    parent_instance: gio.SocketListener,
     priv: *gio.SocketServicePrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

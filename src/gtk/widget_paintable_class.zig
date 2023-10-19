@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(WidgetPaintableClass)
+// StructInfo(WidgetPaintableClass) align(8) size(136)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const WidgetPaintableClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
 
     // Constructors
 

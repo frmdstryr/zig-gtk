@@ -11,9 +11,9 @@ pub const Application = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gio.Application,
+    parent_instance: gio.Application,
     priv: *gio.ApplicationPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

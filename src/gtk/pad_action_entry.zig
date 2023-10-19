@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(PadActionEntry)
+// StructInfo(PadActionEntry) align(8) size(32)
 const gtk = @import("../gtk.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,11 +8,11 @@ pub const PadActionEntry = extern struct {
     const Self = @This();
 
     // Fields
-    type: *gtk.PadActionType,
+    type: gtk.PadActionType,
     index: i32,
     mode: i32,
-    label: *[*c]const u8,
-    action_name: *[*c]const u8,
+    label: [*c]const u8,
+    action_name: [*c]const u8,
 
     // Constructors
 

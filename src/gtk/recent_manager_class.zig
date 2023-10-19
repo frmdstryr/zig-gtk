@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(RecentManagerClass)
+// StructInfo(RecentManagerClass) align(8) size(176)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const RecentManagerClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     changed: *const fn (manager: *gtk.RecentManager) callconv(.C) void,
     _gtk_recent1: ?*anyopaque,
     _gtk_recent2: ?*anyopaque,

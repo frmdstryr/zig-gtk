@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TcpWrapperConnectionClass)
+// StructInfo(TcpWrapperConnectionClass) align(8) size(304)
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const TcpWrapperConnectionClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gio.TcpConnectionClass,
+    parent_class: gio.TcpConnectionClass,
 
     // Constructors
 

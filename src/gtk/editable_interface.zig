@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(EditableInterface)
+// StructInfo(EditableInterface) align(8) size(88)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const EditableInterface = extern struct {
     const Self = @This();
 
     // Fields
-    base_iface: *gobject.TypeInterface,
+    base_iface: gobject.TypeInterface,
     insert_text: *const fn (editable: *gtk.Editable, text: [*c]const u8, length: i32, position: i32) callconv(.C) void,
     delete_text: *const fn (editable: *gtk.Editable, start_pos: i32, end_pos: i32) callconv(.C) void,
     changed: *const fn (editable: *gtk.Editable) callconv(.C) void,

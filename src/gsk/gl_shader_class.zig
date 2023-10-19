@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(GLShaderClass)
+// StructInfo(GLShaderClass) align(8) size(136)
 const gsk = @import("../gsk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const GLShaderClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
 
     // Constructors
 

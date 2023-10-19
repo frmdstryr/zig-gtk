@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(PrintOperationClass)
+// StructInfo(PrintOperationClass) align(8) size(288)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const PrintOperationClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     done: *const fn (operation: *gtk.PrintOperation, result: gtk.PrintOperationResult) callconv(.C) void,
     begin_print: *const fn (operation: *gtk.PrintOperation, context: *gtk.PrintContext) callconv(.C) void,
     paginate: *const fn (operation: *gtk.PrintOperation, context: *gtk.PrintContext) callconv(.C) bool,
@@ -21,7 +21,7 @@ pub const PrintOperationClass = extern struct {
     custom_widget_apply: *const fn (operation: *gtk.PrintOperation, widget: *gtk.Widget) callconv(.C) void,
     preview: *const fn (operation: *gtk.PrintOperation, preview: *gtk.PrintOperationPreview, context: *gtk.PrintContext, parent: *gtk.Window) callconv(.C) bool,
     update_custom_widget: *const fn (operation: *gtk.PrintOperation, widget: *gtk.Widget, setup: *gtk.PageSetup, settings: *gtk.PrintSettings) callconv(.C) void,
-    padding: ?*anyopaque,
+    padding: [8]?*anyopaque,
 
     // Constructors
 

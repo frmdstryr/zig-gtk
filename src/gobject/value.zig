@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Value)
+// StructInfo(Value) align(8) size(24)
 const gobject = @import("../gobject.zig");
 const glib = @import("glib");
 const std = @import("std");
@@ -10,7 +10,7 @@ pub const Value = extern struct {
 
     // Fields
     g_type: usize,
-    data: ?*anyopaque,
+    data: [2]?*anyopaque,
 
     // Constructors
 

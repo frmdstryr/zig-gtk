@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(DBusNodeInfo)
+// StructInfo(DBusNodeInfo) align(8) size(40)
 const glib = @import("glib");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -10,7 +10,7 @@ pub const DBusNodeInfo = extern struct {
 
     // Fields
     ref_count: i32,
-    path: *[*c]const u8,
+    path: [*c]const u8,
     interfaces: [*c]*gio.DBusInterfaceInfo,
     nodes: [*c]*gio.DBusNodeInfo,
     annotations: [*c]*gio.DBusAnnotationInfo,

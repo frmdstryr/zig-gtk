@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TreeSortableIface)
+// StructInfo(TreeSortableIface) align(8) size(64)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const TreeSortableIface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     sort_column_changed: *const fn (sortable: *gtk.TreeSortable) callconv(.C) void,
     get_sort_column_id: *const fn (sortable: *gtk.TreeSortable, sort_column_id: i32, order: gtk.SortType) callconv(.C) bool,
     set_sort_column_id: *const fn (sortable: *gtk.TreeSortable, sort_column_id: i32, order: gtk.SortType) callconv(.C) void,

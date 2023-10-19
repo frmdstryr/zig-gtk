@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(StyleContextClass)
+// StructInfo(StyleContextClass) align(8) size(176)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const StyleContextClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     changed: *const fn (context: *gtk.StyleContext) callconv(.C) void,
     _gtk_reserved1: ?*anyopaque,
     _gtk_reserved2: ?*anyopaque,

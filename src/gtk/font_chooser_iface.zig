@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(FontChooserIface)
+// StructInfo(FontChooserIface) align(8) size(152)
 const pango = @import("pango");
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
@@ -10,7 +10,7 @@ pub const FontChooserIface = extern struct {
     const Self = @This();
 
     // Fields
-    base_iface: *gobject.TypeInterface,
+    base_iface: gobject.TypeInterface,
     get_font_family: *const fn (fontchooser: *gtk.FontChooser) callconv(.C) *pango.FontFamily,
     get_font_face: *const fn (fontchooser: *gtk.FontChooser) callconv(.C) *pango.FontFace,
     get_font_size: *const fn (fontchooser: *gtk.FontChooser) callconv(.C) i32,
@@ -18,7 +18,7 @@ pub const FontChooserIface = extern struct {
     font_activated: *const fn (chooser: *gtk.FontChooser, fontname: [*c]const u8) callconv(.C) void,
     set_font_map: *const fn (fontchooser: *gtk.FontChooser, fontmap: ?*pango.FontMap) callconv(.C) void,
     get_font_map: *const fn (fontchooser: *gtk.FontChooser) callconv(.C) *pango.FontMap,
-    padding: ?*anyopaque,
+    padding: [10]?*anyopaque,
 
     // Constructors
 

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(PixbufAnimationClass)
+// StructInfo(PixbufAnimationClass) align(8) size(168)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gdkpixbuf = @import("../gdkpixbuf.zig");
@@ -10,7 +10,7 @@ pub const PixbufAnimationClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     is_static_image: *const fn (animation: *gdkpixbuf.PixbufAnimation) callconv(.C) bool,
     get_static_image: *const fn (animation: *gdkpixbuf.PixbufAnimation) callconv(.C) *gdkpixbuf.Pixbuf,
     get_size: *const fn (animation: *gdkpixbuf.PixbufAnimation, width: i32, height: i32) callconv(.C) void,

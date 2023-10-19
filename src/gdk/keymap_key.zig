@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(KeymapKey)
+// StructInfo(KeymapKey) align(4) size(12)
 const gdk = @import("../gdk.zig");
 const std = @import("std");
 const c = @import("c.zig");

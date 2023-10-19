@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(DriveIface)
+// StructInfo(DriveIface) align(8) size(272)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const DriveIface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     changed: *const fn (drive: *gio.Drive) callconv(.C) void,
     disconnected: *const fn (drive: *gio.Drive) callconv(.C) void,
     eject_button: *const fn (drive: *gio.Drive) callconv(.C) void,

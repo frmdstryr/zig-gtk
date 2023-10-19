@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ResolverClass)
+// StructInfo(ResolverClass) align(8) size(264)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const ResolverClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     reload: *const fn (resolver: *gio.Resolver) callconv(.C) void,
     lookup_by_name: *const fn (resolver: *gio.Resolver, hostname: [*c]const u8, cancellable: ?*gio.Cancellable) callconv(.C) *glib.List,
     lookup_by_name_async: *const fn (resolver: *gio.Resolver, hostname: [*c]const u8, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) callconv(.C) void,

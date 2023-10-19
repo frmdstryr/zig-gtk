@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(PaperSize)
+// StructInfo(PaperSize) align(1) size(0)
 const gtk = @import("../gtk.zig");
 const glib = @import("glib");
 const std = @import("std");

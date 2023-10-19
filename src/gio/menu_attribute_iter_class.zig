@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(MenuAttributeIterClass)
+// StructInfo(MenuAttributeIterClass) align(8) size(144)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const MenuAttributeIterClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     get_next: *const fn (iter: *gio.MenuAttributeIter, out_name: [*c]const u8, value: *glib.Variant) callconv(.C) bool,
 
     // Constructors

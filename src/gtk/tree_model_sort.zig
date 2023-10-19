@@ -10,9 +10,9 @@ pub const TreeModelSort = extern struct {
     const Self = @This();
 
     // Fields
-    parent: *gobject.Object,
+    parent: gobject.Object,
     priv: *gtk.TreeModelSortPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

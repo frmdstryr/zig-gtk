@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(IOStreamClass)
+// StructInfo(IOStreamClass) align(8) size(256)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const IOStreamClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     get_input_stream: *const fn (stream: *gio.IOStream) callconv(.C) *gio.InputStream,
     get_output_stream: *const fn (stream: *gio.IOStream) callconv(.C) *gio.OutputStream,
     close_fn: *const fn (stream: *gio.IOStream, cancellable: ?*gio.Cancellable) callconv(.C) bool,

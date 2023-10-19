@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(DBusObjectManagerIface)
+// StructInfo(DBusObjectManagerIface) align(8) size(80)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const DBusObjectManagerIface = extern struct {
     const Self = @This();
 
     // Fields
-    parent_iface: *gobject.TypeInterface,
+    parent_iface: gobject.TypeInterface,
     get_object_path: *const fn (manager: *gio.DBusObjectManager) callconv(.C) [*c]const u8,
     get_objects: *const fn (manager: *gio.DBusObjectManager) callconv(.C) *glib.List,
     get_object: *const fn (manager: *gio.DBusObjectManager, object_path: [*c]const u8) callconv(.C) *gio.DBusObject,

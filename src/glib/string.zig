@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(String)
+// StructInfo(String) align(8) size(24)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const String = extern struct {
     const Self = @This();
 
     // Fields
-    str: *[*c]const u8,
+    str: [*c]const u8,
     len: u64,
     allocated_len: u64,
 

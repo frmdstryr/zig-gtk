@@ -16,10 +16,10 @@ pub const DrawingArea = extern struct {
     const Self = @This();
 
     // Fields
-    widget: *gtk.Widget,
-    parent_instance: *gobject.InitiallyUnowned,
+    widget: gtk.Widget,
+    parent_instance: gobject.InitiallyUnowned,
     priv: *gtk.WidgetPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

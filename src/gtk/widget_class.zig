@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(WidgetClass)
+// StructInfo(WidgetClass) align(8) size(408)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const glib = @import("glib");
@@ -10,7 +10,7 @@ pub const WidgetClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.InitiallyUnownedClass,
+    parent_class: gobject.InitiallyUnownedClass,
     show: *const fn (widget: *gtk.Widget) callconv(.C) void,
     hide: *const fn (widget: *gtk.Widget) callconv(.C) void,
     map: *const fn (widget: *gtk.Widget) callconv(.C) void,
@@ -37,7 +37,7 @@ pub const WidgetClass = extern struct {
     snapshot: *const fn (widget: *gtk.Widget, snapshot: *gtk.Snapshot) callconv(.C) void,
     contains: *const fn (widget: *gtk.Widget, x: f64, y: f64) callconv(.C) bool,
     priv: *gtk.WidgetClassPrivate,
-    padding: ?*anyopaque,
+    padding: [8]?*anyopaque,
 
     // Constructors
 

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TimeCoord)
+// StructInfo(TimeCoord) align(8) size(104)
 const gdk = @import("../gdk.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -9,8 +9,8 @@ pub const TimeCoord = extern struct {
 
     // Fields
     time: u32,
-    flags: *gdk.AxisFlags,
-    axes: [*c]f64,
+    flags: gdk.AxisFlags,
+    axes: [12]f64,
 
     // Constructors
 

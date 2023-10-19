@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TlsCertificateClass)
+// StructInfo(TlsCertificateClass) align(8) size(208)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,9 +9,9 @@ pub const TlsCertificateClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     verify: *const fn (cert: *gio.TlsCertificate, identity: ?*gio.SocketConnectable, trusted_ca: ?*gio.TlsCertificate) callconv(.C) gio.TlsCertificateFlags,
-    padding: ?*anyopaque,
+    padding: [8]?*anyopaque,
 
     // Constructors
 

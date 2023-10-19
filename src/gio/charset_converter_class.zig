@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(CharsetConverterClass)
+// StructInfo(CharsetConverterClass) align(8) size(136)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const CharsetConverterClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
 
     // Constructors
 

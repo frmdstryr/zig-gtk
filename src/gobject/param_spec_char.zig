@@ -9,17 +9,17 @@ pub const ParamSpecChar = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gobject.ParamSpec,
+    parent_instance: gobject.ParamSpec,
     minimum: i8,
     maximum: i8,
     default_value: i8,
-    g_type_instance: *gobject.TypeInstance,
-    name: *[*c]const u8,
-    flags: *gobject.ParamFlags,
+    g_type_instance: gobject.TypeInstance,
+    name: [*c]const u8,
+    flags: gobject.ParamFlags,
     value_type: usize,
     owner_type: usize,
-    _nick: *[*c]const u8,
-    _blurb: *[*c]const u8,
+    _nick: [*c]const u8,
+    _blurb: [*c]const u8,
     qdata: *glib.Data,
     ref_count: u32,
     param_id: u32,

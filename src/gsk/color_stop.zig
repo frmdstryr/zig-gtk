@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ColorStop)
+// StructInfo(ColorStop) align(4) size(20)
 const gsk = @import("../gsk.zig");
 const gdk = @import("gdk");
 const std = @import("std");
@@ -10,7 +10,7 @@ pub const ColorStop = extern struct {
 
     // Fields
     offset: f32,
-    color: *gdk.RGBA,
+    color: gdk.RGBA,
 
     // Constructors
 

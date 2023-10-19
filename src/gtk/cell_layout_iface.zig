@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(CellLayoutIface)
+// StructInfo(CellLayoutIface) align(8) size(88)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const glib = @import("glib");
@@ -10,7 +10,7 @@ pub const CellLayoutIface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     pack_start: *const fn (cell_layout: *gtk.CellLayout, cell: *gtk.CellRenderer, expand: bool) callconv(.C) void,
     pack_end: *const fn (cell_layout: *gtk.CellLayout, cell: *gtk.CellRenderer, expand: bool) callconv(.C) void,
     clear: *const fn (cell_layout: *gtk.CellLayout) callconv(.C) void,

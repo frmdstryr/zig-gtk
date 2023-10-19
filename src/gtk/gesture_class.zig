@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(GestureClass)
+// StructInfo(GestureClass) align(1) size(0)
 const gtk = @import("../gtk.zig");
 const std = @import("std");
 const c = @import("c.zig");

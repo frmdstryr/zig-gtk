@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(MountOperationClass)
+// StructInfo(MountOperationClass) align(8) size(288)
 const gtk = @import("../gtk.zig");
 const gio = @import("gio");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const MountOperationClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gio.MountOperationClass,
+    parent_class: gio.MountOperationClass,
     _gtk_reserved1: ?*anyopaque,
     _gtk_reserved2: ?*anyopaque,
     _gtk_reserved3: ?*anyopaque,

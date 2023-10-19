@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ShaderArgsBuilder)
+// StructInfo(ShaderArgsBuilder) align(1) size(0)
 const gsk = @import("../gsk.zig");
 const graphene = @import("graphene");
 const glib = @import("glib");

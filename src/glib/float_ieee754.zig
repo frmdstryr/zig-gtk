@@ -1,10 +1,10 @@
 // This file is auto generated do not edit
-// gi.UnionInfo(FloatIEEE754)
+// gi.UnionInfo(FloatIEEE754) align(4) size(4)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");
 
-pub const FloatIEEE754 = extern struct {
+pub const FloatIEEE754 = extern union {
     const Self = @This();
 
     // Fields

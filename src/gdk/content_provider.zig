@@ -11,8 +11,8 @@ pub const ContentProvider = extern struct {
     const Self = @This();
 
     // Fields
-    parent: *gobject.Object,
-    g_type_instance: *gobject.TypeInstance,
+    parent: gobject.Object,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

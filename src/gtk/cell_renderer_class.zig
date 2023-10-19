@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(CellRendererClass)
+// StructInfo(CellRendererClass) align(8) size(288)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const gdk = @import("gdk");
@@ -10,7 +10,7 @@ pub const CellRendererClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.InitiallyUnownedClass,
+    parent_class: gobject.InitiallyUnownedClass,
     get_request_mode: *const fn (cell: *gtk.CellRenderer) callconv(.C) gtk.SizeRequestMode,
     get_preferred_width: *const fn (cell: *gtk.CellRenderer, widget: *gtk.Widget, minimum_size: i32, natural_size: i32) callconv(.C) void,
     get_preferred_height_for_width: *const fn (cell: *gtk.CellRenderer, widget: *gtk.Widget, width: i32, minimum_height: i32, natural_height: i32) callconv(.C) void,
@@ -22,7 +22,7 @@ pub const CellRendererClass = extern struct {
     start_editing: *const fn (cell: *gtk.CellRenderer, event: ?*gdk.Event, widget: *gtk.Widget, path: [*c]const u8, background_area: *gdk.Rectangle, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState) callconv(.C) *gtk.CellEditable,
     editing_canceled: *const fn (cell: *gtk.CellRenderer) callconv(.C) void,
     editing_started: *const fn (cell: *gtk.CellRenderer, editable: *gtk.CellEditable, path: [*c]const u8) callconv(.C) void,
-    padding: ?*anyopaque,
+    padding: [8]?*anyopaque,
 
     // Constructors
 

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TrashStack)
+// StructInfo(TrashStack) align(8) size(8)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(FileIface)
+// StructInfo(FileIface) align(8) size(840)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const FileIface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     dup: *const fn (file: *gio.File) callconv(.C) *gio.File,
     hash: *const fn (file: *gio.File) callconv(.C) u32,
     equal: *const fn (file1: *gio.File, file2: *gio.File) callconv(.C) bool,
@@ -103,7 +103,7 @@ pub const FileIface = extern struct {
     start_mountable_finish: *const fn (file: *gio.File, result: *gio.AsyncResult) callconv(.C) bool,
     stop_mountable: *const fn (file: *gio.File, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) callconv(.C) void,
     stop_mountable_finish: *const fn (file: *gio.File, result: *gio.AsyncResult) callconv(.C) bool,
-    supports_thread_contexts: bool,
+    supports_thread_contexts: bool align(4),
     unmount_mountable_with_operation: *const fn (file: *gio.File, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) callconv(.C) void,
     unmount_mountable_with_operation_finish: *const fn (file: *gio.File, result: *gio.AsyncResult) callconv(.C) bool,
     eject_mountable_with_operation: *const fn (file: *gio.File, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) callconv(.C) void,

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Requisition)
+// StructInfo(Requisition) align(4) size(8)
 const gtk = @import("../gtk.zig");
 const std = @import("std");
 const c = @import("c.zig");

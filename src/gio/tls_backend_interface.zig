@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TlsBackendInterface)
+// StructInfo(TlsBackendInterface) align(8) size(88)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const TlsBackendInterface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     supports_tls: *const fn (backend: *gio.TlsBackend) callconv(.C) bool,
     get_certificate_type: *const fn () callconv(.C) usize,
     get_client_connection_type: *const fn () callconv(.C) usize,

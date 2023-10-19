@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(MountOperationClass)
+// StructInfo(MountOperationClass) align(8) size(256)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const MountOperationClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     ask_password: *const fn (op: *gio.MountOperation, message: [*c]const u8, default_user: [*c]const u8, default_domain: [*c]const u8, flags: gio.AskPasswordFlags) callconv(.C) void,
     ask_question: *const fn (op: *gio.MountOperation, message: [*c]const u8, choices: [*c][*c]const u8) callconv(.C) void,
     reply: *const fn (op: *gio.MountOperation, result: gio.MountOperationResult) callconv(.C) void,

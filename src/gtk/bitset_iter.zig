@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(BitsetIter)
+// StructInfo(BitsetIter) align(8) size(80)
 const gtk = @import("../gtk.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const BitsetIter = extern struct {
     const Self = @This();
 
     // Fields
-    private_data: ?*anyopaque,
+    private_data: [10]?*anyopaque,
 
     // Constructors
 

@@ -12,8 +12,8 @@ pub const MediaFile = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gtk.MediaStream,
-    g_type_instance: *gobject.TypeInstance,
+    parent_instance: gtk.MediaStream,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

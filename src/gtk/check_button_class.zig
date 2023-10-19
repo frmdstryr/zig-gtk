@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(CheckButtonClass)
+// StructInfo(CheckButtonClass) align(8) size(480)
 const gtk = @import("../gtk.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,10 +8,10 @@ pub const CheckButtonClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gtk.WidgetClass,
+    parent_class: gtk.WidgetClass,
     toggled: *const fn (check_button: *gtk.CheckButton) callconv(.C) void,
     activate: *const fn (check_button: *gtk.CheckButton) callconv(.C) void,
-    padding: ?*anyopaque,
+    padding: [7]?*anyopaque,
 
     // Constructors
 

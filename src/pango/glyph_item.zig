@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(GlyphItem)
+// StructInfo(GlyphItem) align(8) size(32)
 const pango = @import("../pango.zig");
 const std = @import("std");
 const c = @import("c.zig");

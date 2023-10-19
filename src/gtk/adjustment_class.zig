@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(AdjustmentClass)
+// StructInfo(AdjustmentClass) align(8) size(184)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const AdjustmentClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.InitiallyUnownedClass,
+    parent_class: gobject.InitiallyUnownedClass,
     changed: *const fn (adjustment: *gtk.Adjustment) callconv(.C) void,
     value_changed: *const fn (adjustment: *gtk.Adjustment) callconv(.C) void,
     _gtk_reserved1: ?*anyopaque,

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(EntryClass)
+// StructInfo(EntryClass) align(8) size(480)
 const gtk = @import("../gtk.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,9 +8,9 @@ pub const EntryClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gtk.WidgetClass,
+    parent_class: gtk.WidgetClass,
     activate: *const fn (entry: *gtk.Entry) callconv(.C) void,
-    padding: ?*anyopaque,
+    padding: [8]?*anyopaque,
 
     // Constructors
 

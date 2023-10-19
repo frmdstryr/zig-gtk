@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(WindowGroupClass)
+// StructInfo(WindowGroupClass) align(8) size(168)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const WindowGroupClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     _gtk_reserved1: ?*anyopaque,
     _gtk_reserved2: ?*anyopaque,
     _gtk_reserved3: ?*anyopaque,

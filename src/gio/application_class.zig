@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ApplicationClass)
+// StructInfo(ApplicationClass) align(8) size(312)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const ApplicationClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     startup: *const fn (application: *gio.Application) callconv(.C) void,
     activate: *const fn (application: *gio.Application) callconv(.C) void,
     open: *const fn (application: *gio.Application, files: [*c]*gio.File, n_files: i32, hint: [*c]const u8) callconv(.C) void,
@@ -26,7 +26,7 @@ pub const ApplicationClass = extern struct {
     dbus_unregister: *const fn (application: *gio.Application, connection: *gio.DBusConnection, object_path: [*c]const u8) callconv(.C) void,
     handle_local_options: *const fn (application: *gio.Application, options: *glib.VariantDict) callconv(.C) i32,
     name_lost: *const fn (application: *gio.Application) callconv(.C) bool,
-    padding: ?*anyopaque,
+    padding: [7]?*anyopaque,
 
     // Constructors
 

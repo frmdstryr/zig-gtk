@@ -237,12 +237,12 @@ pub fn build(b: *Builder) void {
 
     const test_step = b.step("test", "Run the tests");
     test_step.dependOn(&b.addRunArtifact(glib_test).step);
-//     test_step.dependOn(&b.addRunArtifact(gobject_test).step);
-//     test_step.dependOn(&b.addRunArtifact(gio_test).step);
-//     test_step.dependOn(&b.addRunArtifact(pango_test).step);
-//     test_step.dependOn(&b.addRunArtifact(cairo_test).step);
-//     test_step.dependOn(&b.addRunArtifact(graphene_test).step);
-//     test_step.dependOn(&b.addRunArtifact(gsk_test).step);
-//     test_step.dependOn(&b.addRunArtifact(gdk_test).step);
-//     test_step.dependOn(&b.addRunArtifact(gtk_test).step);
+    test_step.dependOn(&b.addRunArtifact(gobject_test).step);
+    test_step.dependOn(&b.addRunArtifact(gio_test).step);
+    test_step.dependOn(&b.addRunArtifact(pango_test).step);
+    test_step.dependOn(&b.addRunArtifact(cairo_test).step);
+    test_step.dependOn(&b.addRunArtifact(graphene_test).step);
+    test_step.dependOn(&b.addRunArtifact(gsk_test).step);
+    test_step.dependOn(&b.addRunArtifact(gdk_test).step);
+    test_step.dependOn(&b.addRunArtifact(gtk_test).step);
 }

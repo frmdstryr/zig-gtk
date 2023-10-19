@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(AttrFontDesc)
+// StructInfo(AttrFontDesc) align(8) size(24)
 const pango = @import("../pango.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const AttrFontDesc = extern struct {
     const Self = @This();
 
     // Fields
-    attr: *pango.Attribute,
+    attr: pango.Attribute,
     desc: *pango.FontDescription,
 
     // Constructors

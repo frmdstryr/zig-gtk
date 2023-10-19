@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ActionGroupInterface)
+// StructInfo(ActionGroupInterface) align(8) size(128)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const ActionGroupInterface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     has_action: *const fn (action_group: *gio.ActionGroup, action_name: [*c]const u8) callconv(.C) bool,
     list_actions: *const fn (action_group: *gio.ActionGroup) callconv(.C) [*c][*c]const u8,
     get_action_enabled: *const fn (action_group: *gio.ActionGroup, action_name: [*c]const u8) callconv(.C) bool,

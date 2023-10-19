@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(PrintOperationPreviewIface)
+// StructInfo(PrintOperationPreviewIface) align(8) size(120)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const PrintOperationPreviewIface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     ready: *const fn (preview: *gtk.PrintOperationPreview, context: *gtk.PrintContext) callconv(.C) void,
     got_page_size: *const fn (preview: *gtk.PrintOperationPreview, context: *gtk.PrintContext, page_setup: *gtk.PageSetup) callconv(.C) void,
     render_page: *const fn (preview: *gtk.PrintOperationPreview, page_nr: i32) callconv(.C) void,

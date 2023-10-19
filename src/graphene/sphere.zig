@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Sphere)
+// StructInfo(Sphere) align(4) size(20)
 const graphene = @import("../graphene.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const Sphere = extern struct {
     const Self = @This();
 
     // Fields
-    center: *graphene.Vec3,
+    center: graphene.Vec3,
     radius: f32,
 
     // Constructors

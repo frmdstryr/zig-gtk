@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(SimpleProxyResolverClass)
+// StructInfo(SimpleProxyResolverClass) align(8) size(176)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const SimpleProxyResolverClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     _g_reserved1: ?*anyopaque,
     _g_reserved2: ?*anyopaque,
     _g_reserved3: ?*anyopaque,

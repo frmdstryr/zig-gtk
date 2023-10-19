@@ -13,7 +13,7 @@ pub const GLRenderer = extern struct {
     const Self = @This();
 
     // Fields
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

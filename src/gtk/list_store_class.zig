@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ListStoreClass)
+// StructInfo(ListStoreClass) align(8) size(200)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,8 +9,8 @@ pub const ListStoreClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
-    padding: ?*anyopaque,
+    parent_class: gobject.ObjectClass,
+    padding: [8]?*anyopaque,
 
     // Constructors
 

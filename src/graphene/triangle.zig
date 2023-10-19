@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Triangle)
+// StructInfo(Triangle) align(4) size(48)
 const graphene = @import("../graphene.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,9 +8,9 @@ pub const Triangle = extern struct {
     const Self = @This();
 
     // Fields
-    a: *graphene.Vec3,
-    b: *graphene.Vec3,
-    c: *graphene.Vec3,
+    a: graphene.Vec3,
+    b: graphene.Vec3,
+    c: graphene.Vec3,
 
     // Constructors
     extern fn graphene_triangle_alloc() ?*Self;
@@ -54,7 +54,7 @@ pub const Triangle = extern struct {
     extern fn graphene_triangle_get_vertices(self: *Self, a: *graphene.Vec3, b: *graphene.Vec3, c: *graphene.Vec3) void;
     pub const getVertices = graphene_triangle_get_vertices;
 
-    extern fn graphene_triangle_init_from_float(self: *Self, a: [*c]f32, b: [*c]f32, c: [*c]f32) ?*graphene.Triangle;
+    extern fn graphene_triangle_init_from_float(self: *Self, a: [3]f32, b: [3]f32, c: [3]f32) ?*graphene.Triangle;
     pub const initFromFloat = graphene_triangle_init_from_float;
 
     extern fn graphene_triangle_init_from_point3d(self: *Self, a: ?*graphene.Point3D, b: ?*graphene.Point3D, c: ?*graphene.Point3D) ?*graphene.Triangle;

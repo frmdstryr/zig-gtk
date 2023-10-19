@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(UriParamsIter)
+// StructInfo(UriParamsIter) align(8) size(280)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -11,7 +11,7 @@ pub const UriParamsIter = extern struct {
     dummy0: i32,
     dummy1: ?*anyopaque,
     dummy2: ?*anyopaque,
-    dummy3: [*c]u8,
+    dummy3: [256]u8,
 
     // Constructors
 

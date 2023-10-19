@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(FontFaceClass)
+// StructInfo(FontFaceClass) align(8) size(192)
 const pango = @import("../pango.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const FontFaceClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     get_face_name: *const fn (face: *pango.FontFace) callconv(.C) [*c]const u8,
     describe: *const fn (face: *pango.FontFace) callconv(.C) *pango.FontDescription,
     list_sizes: *const fn (face: *pango.FontFace, sizes: [*c]i32, n_sizes: i32) callconv(.C) void,

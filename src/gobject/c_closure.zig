@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(CClosure)
+// StructInfo(CClosure) align(8) size(72)
 const gobject = @import("../gobject.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const CClosure = extern struct {
     const Self = @This();
 
     // Fields
-    closure: *gobject.Closure,
+    closure: gobject.Closure,
     callback: ?*anyopaque,
 
     // Constructors

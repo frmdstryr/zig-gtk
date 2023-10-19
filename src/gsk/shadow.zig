@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Shadow)
+// StructInfo(Shadow) align(4) size(28)
 const gsk = @import("../gsk.zig");
 const gdk = @import("gdk");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const Shadow = extern struct {
     const Self = @This();
 
     // Fields
-    color: *gdk.RGBA,
+    color: gdk.RGBA,
     dx: f32,
     dy: f32,
     radius: f32,

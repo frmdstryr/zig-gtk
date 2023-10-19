@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(CssLocation)
+// StructInfo(CssLocation) align(8) size(40)
 const gtk = @import("../gtk.zig");
 const std = @import("std");
 const c = @import("c.zig");

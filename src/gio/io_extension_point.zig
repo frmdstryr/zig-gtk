@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(IOExtensionPoint)
+// StructInfo(IOExtensionPoint) align(1) size(0)
 const glib = @import("glib");
 const gio = @import("../gio.zig");
 const std = @import("std");

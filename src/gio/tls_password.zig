@@ -10,9 +10,9 @@ pub const TlsPassword = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gobject.Object,
+    parent_instance: gobject.Object,
     priv: *gio.TlsPasswordPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

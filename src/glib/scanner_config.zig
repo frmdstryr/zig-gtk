@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ScannerConfig)
+// StructInfo(ScannerConfig) align(8) size(128)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,10 +8,10 @@ pub const ScannerConfig = extern struct {
     const Self = @This();
 
     // Fields
-    cset_skip_characters: *[*c]const u8,
-    cset_identifier_first: *[*c]const u8,
-    cset_identifier_nth: *[*c]const u8,
-    cpair_comment_single: *[*c]const u8,
+    cset_skip_characters: [*c]const u8,
+    cset_identifier_first: [*c]const u8,
+    cset_identifier_nth: [*c]const u8,
+    cpair_comment_single: [*c]const u8,
     case_sensitive: u32,
     skip_comment_multi: u32,
     skip_comment_single: u32,

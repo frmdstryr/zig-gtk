@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(PollableOutputStreamInterface)
+// StructInfo(PollableOutputStreamInterface) align(8) size(56)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const PollableOutputStreamInterface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     can_poll: *const fn (stream: *gio.PollableOutputStream) callconv(.C) bool,
     is_writable: *const fn (stream: *gio.PollableOutputStream) callconv(.C) bool,
     create_source: *const fn (stream: *gio.PollableOutputStream, cancellable: ?*gio.Cancellable) callconv(.C) *glib.Source,

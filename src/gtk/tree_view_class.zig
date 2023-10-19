@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TreeViewClass)
+// StructInfo(TreeViewClass) align(8) size(656)
 const gtk = @import("../gtk.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const TreeViewClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gtk.WidgetClass,
+    parent_class: gtk.WidgetClass,
     row_activated: *const fn (tree_view: *gtk.TreeView, path: *gtk.TreePath, column: ?*gtk.TreeViewColumn) callconv(.C) void,
     test_expand_row: *const fn (tree_view: *gtk.TreeView, iter: *gtk.TreeIter, path: *gtk.TreePath) callconv(.C) bool,
     test_collapse_row: *const fn (tree_view: *gtk.TreeView, iter: *gtk.TreeIter, path: *gtk.TreePath) callconv(.C) bool,
@@ -24,7 +24,7 @@ pub const TreeViewClass = extern struct {
     expand_collapse_cursor_row: *const fn (tree_view: *gtk.TreeView, logical: bool, expand: bool, open_all: bool) callconv(.C) bool,
     select_cursor_parent: *const fn (tree_view: *gtk.TreeView) callconv(.C) bool,
     start_interactive_search: *const fn (tree_view: *gtk.TreeView) callconv(.C) bool,
-    _reserved: ?*anyopaque,
+    _reserved: [16]?*anyopaque,
 
     // Constructors
 

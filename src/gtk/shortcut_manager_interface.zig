@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ShortcutManagerInterface)
+// StructInfo(ShortcutManagerInterface) align(8) size(32)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const ShortcutManagerInterface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     add_controller: *const fn (self: *gtk.ShortcutManager, controller: *gtk.ShortcutController) callconv(.C) void,
     remove_controller: *const fn (self: *gtk.ShortcutManager, controller: *gtk.ShortcutController) callconv(.C) void,
 

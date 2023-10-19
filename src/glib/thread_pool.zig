@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ThreadPool)
+// StructInfo(ThreadPool) align(8) size(24)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -10,7 +10,7 @@ pub const ThreadPool = extern struct {
     // Fields
     func: *const fn (data: ?*anyopaque, user_data: ?*anyopaque) callconv(.C) void,
     user_data: ?*anyopaque,
-    exclusive: bool,
+    exclusive: bool align(4),
 
     // Constructors
 

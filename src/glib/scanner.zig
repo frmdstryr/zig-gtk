@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Scanner)
+// StructInfo(Scanner) align(8) size(144)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -11,22 +11,22 @@ pub const Scanner = extern struct {
     user_data: ?*anyopaque,
     max_parse_errors: u32,
     parse_errors: u32,
-    input_name: *[*c]const u8,
+    input_name: [*c]const u8,
     qdata: *glib.Data,
     config: *glib.ScannerConfig,
-    token: *glib.TokenType,
-    value: *glib.TokenValue,
+    token: glib.TokenType,
+    value: glib.TokenValue,
     line: u32,
     position: u32,
-    next_token: *glib.TokenType,
-    next_value: *glib.TokenValue,
+    next_token: glib.TokenType,
+    next_value: glib.TokenValue,
     next_line: u32,
     next_position: u32,
     symbol_table: *glib.HashTable,
     input_fd: i32,
-    text: *[*c]const u8,
-    text_end: *[*c]const u8,
-    buffer: *[*c]const u8,
+    text: [*c]const u8,
+    text_end: [*c]const u8,
+    buffer: [*c]const u8,
     scope_id: u32,
     msg_handler: *const fn (scanner: *glib.Scanner, message: [*c]const u8, error_: bool) callconv(.C) void,
 

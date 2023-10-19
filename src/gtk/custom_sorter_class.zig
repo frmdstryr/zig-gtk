@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(CustomSorterClass)
+// StructInfo(CustomSorterClass) align(8) size(216)
 const gtk = @import("../gtk.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const CustomSorterClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gtk.SorterClass,
+    parent_class: gtk.SorterClass,
 
     // Constructors
 

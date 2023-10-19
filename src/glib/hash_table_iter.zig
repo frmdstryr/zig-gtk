@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(HashTableIter)
+// StructInfo(HashTableIter) align(8) size(40)
 const glib = @import("../glib.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -12,7 +12,7 @@ pub const HashTableIter = extern struct {
     dummy2: ?*anyopaque,
     dummy3: ?*anyopaque,
     dummy4: i32,
-    dummy5: bool,
+    dummy5: bool align(4),
     dummy6: ?*anyopaque,
 
     // Constructors

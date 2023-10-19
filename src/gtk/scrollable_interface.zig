@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ScrollableInterface)
+// StructInfo(ScrollableInterface) align(8) size(24)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const ScrollableInterface = extern struct {
     const Self = @This();
 
     // Fields
-    base_iface: *gobject.TypeInterface,
+    base_iface: gobject.TypeInterface,
     get_border: *const fn (scrollable: *gtk.Scrollable, border: *gtk.Border) callconv(.C) bool,
 
     // Constructors

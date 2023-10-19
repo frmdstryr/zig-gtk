@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(SignalInvocationHint)
+// StructInfo(SignalInvocationHint) align(4) size(12)
 const gobject = @import("../gobject.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -10,7 +10,7 @@ pub const SignalInvocationHint = extern struct {
     // Fields
     signal_id: u32,
     detail: u32,
-    run_type: *gobject.SignalFlags,
+    run_type: gobject.SignalFlags,
 
     // Constructors
 

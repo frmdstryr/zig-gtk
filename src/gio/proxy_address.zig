@@ -10,9 +10,9 @@ pub const ProxyAddress = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gio.InetSocketAddress,
+    parent_instance: gio.InetSocketAddress,
     priv: *gio.ProxyAddressPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

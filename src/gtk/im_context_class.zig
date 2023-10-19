@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(IMContextClass)
+// StructInfo(IMContextClass) align(8) size(320)
 const pango = @import("pango");
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
@@ -11,7 +11,7 @@ pub const IMContextClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     preedit_start: *const fn (context: *gtk.IMContext) callconv(.C) void,
     preedit_end: *const fn (context: *gtk.IMContext) callconv(.C) void,
     preedit_changed: *const fn (context: *gtk.IMContext) callconv(.C) void,

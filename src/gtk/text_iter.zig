@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TextIter)
+// StructInfo(TextIter) align(8) size(80)
 const pango = @import("pango");
 const gtk = @import("../gtk.zig");
 const gdk = @import("gdk");

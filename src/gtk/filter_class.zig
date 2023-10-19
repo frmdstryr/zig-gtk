@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(FilterClass)
+// StructInfo(FilterClass) align(8) size(216)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const FilterClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     match: *const fn (self: *gtk.Filter, item: ?*gobject.Object) callconv(.C) bool,
     get_strictness: *const fn (self: *gtk.Filter) callconv(.C) gtk.FilterMatch,
     _gtk_reserved1: ?*anyopaque,

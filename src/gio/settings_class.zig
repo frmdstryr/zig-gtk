@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(SettingsClass)
+// StructInfo(SettingsClass) align(8) size(328)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,12 +9,12 @@ pub const SettingsClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     writable_changed: *const fn (settings: *gio.Settings, key: [*c]const u8) callconv(.C) void,
     changed: *const fn (settings: *gio.Settings, key: [*c]const u8) callconv(.C) void,
     writable_change_event: *const fn (settings: *gio.Settings, key: u32) callconv(.C) bool,
     change_event: *const fn (settings: *gio.Settings, keys: u32, n_keys: i32) callconv(.C) bool,
-    padding: ?*anyopaque,
+    padding: [20]?*anyopaque,
 
     // Constructors
 

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(RoundedRect)
+// StructInfo(RoundedRect) align(4) size(48)
 const gsk = @import("../gsk.zig");
 const graphene = @import("graphene");
 const std = @import("std");
@@ -9,8 +9,8 @@ pub const RoundedRect = extern struct {
     const Self = @This();
 
     // Fields
-    bounds: *graphene.Rect,
-    corner: [*c]graphene.Size,
+    bounds: graphene.Rect,
+    corner: [4]graphene.Size,
 
     // Constructors
 

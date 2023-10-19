@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Item)
+// StructInfo(Item) align(8) size(64)
 const pango = @import("../pango.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -11,7 +11,7 @@ pub const Item = extern struct {
     offset: i32,
     length: i32,
     num_chars: i32,
-    analysis: *pango.Analysis,
+    analysis: pango.Analysis,
 
     // Constructors
     extern fn pango_item_new() ?*Self;

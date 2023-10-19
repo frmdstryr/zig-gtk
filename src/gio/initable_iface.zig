@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(InitableIface)
+// StructInfo(InitableIface) align(8) size(24)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const InitableIface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     init: *const fn (initable: *gio.Initable, cancellable: ?*gio.Cancellable) callconv(.C) bool,
 
     // Constructors

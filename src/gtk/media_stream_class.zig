@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(MediaStreamClass)
+// StructInfo(MediaStreamClass) align(8) size(248)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const gdk = @import("gdk");
@@ -10,7 +10,7 @@ pub const MediaStreamClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     play: *const fn (self: *gtk.MediaStream) callconv(.C) bool,
     pause: *const fn (self: *gtk.MediaStream) callconv(.C) void,
     seek: *const fn (self: *gtk.MediaStream, timestamp: i64) callconv(.C) void,

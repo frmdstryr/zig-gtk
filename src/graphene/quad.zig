@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Quad)
+// StructInfo(Quad) align(4) size(32)
 const graphene = @import("../graphene.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const Quad = extern struct {
     const Self = @This();
 
     // Fields
-    points: [*c]graphene.Point,
+    points: [4]graphene.Point,
 
     // Constructors
     extern fn graphene_quad_alloc() ?*Self;
@@ -31,7 +31,7 @@ pub const Quad = extern struct {
     extern fn graphene_quad_init(self: *Self, p1: *graphene.Point, p2: *graphene.Point, p3: *graphene.Point, p4: *graphene.Point) ?*graphene.Quad;
     pub const init = graphene_quad_init;
 
-    extern fn graphene_quad_init_from_points(self: *Self, points: [*c]graphene.Point) ?*graphene.Quad;
+    extern fn graphene_quad_init_from_points(self: *Self, points: [4]graphene.Point) ?*graphene.Quad;
     pub const initFromPoints = graphene_quad_init_from_points;
 
     extern fn graphene_quad_init_from_rect(self: *Self, r: *graphene.Rect) ?*graphene.Quad;

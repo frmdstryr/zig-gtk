@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(DtlsConnectionInterface)
+// StructInfo(DtlsConnectionInterface) align(8) size(96)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const DtlsConnectionInterface = extern struct {
     const Self = @This();
 
     // Fields
-    g_iface: *gobject.TypeInterface,
+    g_iface: gobject.TypeInterface,
     accept_certificate: *const fn (connection: *gio.DtlsConnection, peer_cert: *gio.TlsCertificate, errors: gio.TlsCertificateFlags) callconv(.C) bool,
     handshake: *const fn (conn: *gio.DtlsConnection, cancellable: ?*gio.Cancellable) callconv(.C) bool,
     handshake_async: *const fn (conn: *gio.DtlsConnection, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) callconv(.C) void,

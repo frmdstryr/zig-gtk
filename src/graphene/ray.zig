@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Ray)
+// StructInfo(Ray) align(4) size(32)
 const graphene = @import("../graphene.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,8 +8,8 @@ pub const Ray = extern struct {
     const Self = @This();
 
     // Fields
-    origin: *graphene.Vec3,
-    direction: *graphene.Vec3,
+    origin: graphene.Vec3,
+    direction: graphene.Vec3,
 
     // Constructors
     extern fn graphene_ray_alloc() ?*Self;

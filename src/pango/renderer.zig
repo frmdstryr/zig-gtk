@@ -10,13 +10,13 @@ pub const Renderer = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gobject.Object,
-    underline: *pango.Underline,
-    strikethrough: bool,
+    parent_instance: gobject.Object,
+    underline: pango.Underline,
+    strikethrough: bool align(4),
     active_count: i32,
     matrix: *pango.Matrix,
     priv: *pango.RendererPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

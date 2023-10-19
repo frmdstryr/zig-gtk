@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ContentFormats)
+// StructInfo(ContentFormats) align(1) size(0)
 const glib = @import("glib");
 const gdk = @import("../gdk.zig");
 const std = @import("std");

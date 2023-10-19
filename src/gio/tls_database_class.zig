@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(TlsDatabaseClass)
+// StructInfo(TlsDatabaseClass) align(8) size(368)
 const gobject = @import("gobject");
 const glib = @import("glib");
 const gio = @import("../gio.zig");
@@ -10,7 +10,7 @@ pub const TlsDatabaseClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     verify_chain: *const fn (self: *gio.TlsDatabase, chain: *gio.TlsCertificate, purpose: [*c]const u8, identity: ?*gio.SocketConnectable, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseVerifyFlags, cancellable: ?*gio.Cancellable) callconv(.C) gio.TlsCertificateFlags,
     verify_chain_async: *const fn (self: *gio.TlsDatabase, chain: *gio.TlsCertificate, purpose: [*c]const u8, identity: ?*gio.SocketConnectable, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseVerifyFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) callconv(.C) void,
     verify_chain_finish: *const fn (self: *gio.TlsDatabase, result: *gio.AsyncResult) callconv(.C) gio.TlsCertificateFlags,
@@ -24,7 +24,7 @@ pub const TlsDatabaseClass = extern struct {
     lookup_certificates_issued_by: *const fn (self: *gio.TlsDatabase, issuer_raw_dn: [*c]u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable) callconv(.C) *glib.List,
     lookup_certificates_issued_by_async: *const fn (self: *gio.TlsDatabase, issuer_raw_dn: [*c]u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) callconv(.C) void,
     lookup_certificates_issued_by_finish: *const fn (self: *gio.TlsDatabase, result: *gio.AsyncResult) callconv(.C) *glib.List,
-    padding: ?*anyopaque,
+    padding: [16]?*anyopaque,
 
     // Constructors
 

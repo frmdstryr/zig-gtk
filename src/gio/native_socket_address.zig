@@ -10,9 +10,9 @@ pub const NativeSocketAddress = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gio.SocketAddress,
+    parent_instance: gio.SocketAddress,
     priv: *gio.NativeSocketAddressPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

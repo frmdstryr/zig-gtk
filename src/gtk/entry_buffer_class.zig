@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(EntryBufferClass)
+// StructInfo(EntryBufferClass) align(8) size(248)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const EntryBufferClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     inserted_text: *const fn (buffer: *gtk.EntryBuffer, position: u32, chars: [*c]const u8, n_chars: u32) callconv(.C) void,
     deleted_text: *const fn (buffer: *gtk.EntryBuffer, position: u32, n_chars: u32) callconv(.C) void,
     get_text: *const fn (buffer: *gtk.EntryBuffer, n_bytes: u64) callconv(.C) [*c]const u8,

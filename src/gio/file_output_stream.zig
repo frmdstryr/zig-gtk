@@ -10,9 +10,9 @@ pub const FileOutputStream = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gio.OutputStream,
+    parent_instance: gio.OutputStream,
     priv: *gio.FileOutputStreamPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

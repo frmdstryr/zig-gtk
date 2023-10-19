@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(PixbufModule)
+// StructInfo(PixbufModule) align(8) size(136)
 const gmodule = @import("gmodule");
 const gdkpixbuf = @import("../gdkpixbuf.zig");
 const std = @import("std");
@@ -9,8 +9,8 @@ pub const PixbufModule = extern struct {
     const Self = @This();
 
     // Fields
-    module_name: *[*c]const u8,
-    module_path: *[*c]const u8,
+    module_name: [*c]const u8,
+    module_path: [*c]const u8,
     module: *gmodule.Module,
     info: *gdkpixbuf.PixbufFormat,
     load: *const fn (f: ?*anyopaque) callconv(.C) *gdkpixbuf.Pixbuf,

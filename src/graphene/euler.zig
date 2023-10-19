@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Euler)
+// StructInfo(Euler) align(4) size(20)
 const graphene = @import("../graphene.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,8 +8,8 @@ pub const Euler = extern struct {
     const Self = @This();
 
     // Fields
-    angles: *graphene.Vec3,
-    order: *graphene.EulerOrder,
+    angles: graphene.Vec3,
+    order: graphene.EulerOrder,
 
     // Constructors
     extern fn graphene_euler_alloc() ?*Self;

@@ -10,9 +10,9 @@ pub const TcpConnection = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gio.SocketConnection,
+    parent_instance: gio.SocketConnection,
     priv: *gio.TcpConnectionPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

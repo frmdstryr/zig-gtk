@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(RendererClass)
+// StructInfo(RendererClass) align(8) size(248)
 const pango = @import("../pango.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const RendererClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     draw_glyphs: *const fn (renderer: *pango.Renderer, font: *pango.Font, glyphs: *pango.GlyphString, x: i32, y: i32) callconv(.C) void,
     draw_rectangle: *const fn (renderer: *pango.Renderer, part: pango.RenderPart, x: i32, y: i32, width: i32, height: i32) callconv(.C) void,
     draw_error_underline: *const fn (renderer: *pango.Renderer, x: i32, y: i32, width: i32, height: i32) callconv(.C) void,

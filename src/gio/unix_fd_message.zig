@@ -10,9 +10,9 @@ pub const UnixFDMessage = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gio.SocketControlMessage,
+    parent_instance: gio.SocketControlMessage,
     priv: *gio.UnixFDMessagePrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

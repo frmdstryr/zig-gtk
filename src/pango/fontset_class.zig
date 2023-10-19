@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(FontsetClass)
+// StructInfo(FontsetClass) align(8) size(200)
 const pango = @import("../pango.zig");
 const gobject = @import("gobject");
 const std = @import("std");
@@ -9,7 +9,7 @@ pub const FontsetClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     get_font: *const fn (fontset: *pango.Fontset, wc: u32) callconv(.C) *pango.Font,
     get_metrics: *const fn (fontset: *pango.Fontset) callconv(.C) *pango.FontMetrics,
     get_language: *const fn (fontset: *pango.Fontset) callconv(.C) *pango.Language,

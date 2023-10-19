@@ -10,9 +10,9 @@ pub const ProxyAddressEnumerator = extern struct {
     const Self = @This();
 
     // Fields
-    parent_instance: *gio.SocketAddressEnumerator,
+    parent_instance: gio.SocketAddressEnumerator,
     priv: *gio.ProxyAddressEnumeratorPrivate,
-    g_type_instance: *gobject.TypeInstance,
+    g_type_instance: gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
 

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(SimpleActionGroupClass)
+// StructInfo(SimpleActionGroupClass) align(8) size(232)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,8 +9,8 @@ pub const SimpleActionGroupClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
-    padding: ?*anyopaque,
+    parent_class: gobject.ObjectClass,
+    padding: [12]?*anyopaque,
 
     // Constructors
 

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(DBusObjectSkeletonClass)
+// StructInfo(DBusObjectSkeletonClass) align(8) size(208)
 const gobject = @import("gobject");
 const gio = @import("../gio.zig");
 const std = @import("std");
@@ -9,9 +9,9 @@ pub const DBusObjectSkeletonClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     authorize_method: *const fn (object: *gio.DBusObjectSkeleton, interface_: *gio.DBusInterfaceSkeleton, invocation: *gio.DBusMethodInvocation) callconv(.C) bool,
-    padding: ?*anyopaque,
+    padding: [8]?*anyopaque,
 
     // Constructors
 

@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(FontClass)
+// StructInfo(FontClass) align(8) size(200)
 const pango = @import("../pango.zig");
 // const harfbuzz = @import("harfbuzz");
 const gobject = @import("gobject");
@@ -10,7 +10,7 @@ pub const FontClass = extern struct {
     const Self = @This();
 
     // Fields
-    parent_class: *gobject.ObjectClass,
+    parent_class: gobject.ObjectClass,
     describe: *const fn (font: *pango.Font) callconv(.C) *pango.FontDescription,
     get_coverage: *const fn (font: *pango.Font, language: *pango.Language) callconv(.C) *pango.Coverage,
     get_glyph_extents: *const fn (font: ?*pango.Font, glyph: u32, ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) callconv(.C) void,

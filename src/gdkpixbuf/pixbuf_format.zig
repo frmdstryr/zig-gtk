@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(PixbufFormat)
+// StructInfo(PixbufFormat) align(8) size(64)
 const gdkpixbuf = @import("../gdkpixbuf.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,15 +8,15 @@ pub const PixbufFormat = extern struct {
     const Self = @This();
 
     // Fields
-    name: *[*c]const u8,
+    name: [*c]const u8,
     signature: *gdkpixbuf.PixbufModulePattern,
-    domain: *[*c]const u8,
-    description: *[*c]const u8,
+    domain: [*c]const u8,
+    description: [*c]const u8,
     mime_types: [*c][*c]const u8,
     extensions: [*c][*c]const u8,
     flags: u32,
-    disabled: bool,
-    license: *[*c]const u8,
+    disabled: bool align(4),
+    license: [*c]const u8,
 
     // Constructors
 

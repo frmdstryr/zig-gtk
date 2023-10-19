@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(BuildableParser)
+// StructInfo(BuildableParser) align(8) size(64)
 const gtk = @import("../gtk.zig");
 const glib = @import("glib");
 const std = @import("std");
@@ -13,7 +13,7 @@ pub const BuildableParser = extern struct {
     end_element: *const fn (context: *gtk.BuildableParseContext, element_name: [*c]const u8, user_data: ?*anyopaque) callconv(.C) void,
     text: *const fn (context: *gtk.BuildableParseContext, text: [*c]const u8, text_len: u64, user_data: ?*anyopaque) callconv(.C) void,
     error_: *const fn (context: *gtk.BuildableParseContext, error_: *glib.Error, user_data: ?*anyopaque) callconv(.C) void,
-    padding: ?*anyopaque,
+    padding: [4]?*anyopaque,
 
     // Constructors
 

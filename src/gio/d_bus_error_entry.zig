@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(DBusErrorEntry)
+// StructInfo(DBusErrorEntry) align(8) size(16)
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -9,7 +9,7 @@ pub const DBusErrorEntry = extern struct {
 
     // Fields
     error_code: i32,
-    dbus_error_name: *[*c]const u8,
+    dbus_error_name: [*c]const u8,
 
     // Constructors
 

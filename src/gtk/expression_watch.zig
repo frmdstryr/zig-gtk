@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(ExpressionWatch)
+// StructInfo(ExpressionWatch) align(1) size(0)
 const gtk = @import("../gtk.zig");
 const gobject = @import("gobject");
 const std = @import("std");

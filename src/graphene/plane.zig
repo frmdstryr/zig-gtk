@@ -1,5 +1,5 @@
 // This file is auto generated do not edit
-// StructInfo(Plane)
+// StructInfo(Plane) align(4) size(20)
 const graphene = @import("../graphene.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -8,7 +8,7 @@ pub const Plane = extern struct {
     const Self = @This();
 
     // Fields
-    normal: *graphene.Vec3,
+    normal: graphene.Vec3,
     constant: f32,
 
     // Constructors
