@@ -140,6 +140,6 @@ pub const MultiFilter = extern struct {
     }
 };
 
-test {
+test "gtk.MultiFilter" {
     std.testing.refAllDecls(MultiFilter);
 }

@@ -17,6 +17,6 @@ pub const ListBoxRowClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ListBoxRowClass" {
     std.testing.refAllDecls(ListBoxRowClass);
 }

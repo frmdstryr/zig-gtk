@@ -14,6 +14,6 @@ pub const FileInfoClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.FileInfoClass" {
     std.testing.refAllDecls(FileInfoClass);
 }

@@ -144,6 +144,6 @@ pub const Notification = extern struct {
     }
 };
 
-test {
+test "gio.Notification" {
     std.testing.refAllDecls(Notification);
 }

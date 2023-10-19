@@ -160,12 +160,10 @@ METHOD_OVERRIDES: dict[type, dict[str, list[str]]] = {
 }
 
 # List of methods to add
-EXTRA_METHODS: dict[type, list[str]] = {
-}
+EXTRA_METHODS: dict[type, list[str]] = {}
 
 # Lines added to the top of each api file
-EXTRA_API_IMPORTS: dict[str, list[str]] = {
-}
+EXTRA_API_IMPORTS: dict[str, list[str]] = {}
 
 EXTRA_API_DEFS: dict[str, list[str]] = {
     "Gtk": [
@@ -249,8 +247,9 @@ def generate_constants(ns: str, constants: list) -> list[str]:
 
 def camel_case(name: str) -> str:
     first, *rest = [
-        v for it in name.strip().split("_")
-        if (v := it.strip()) # Name may start with _ or have __
+        v
+        for it in name.strip().split("_")
+        if (v := it.strip())  # Name may start with _ or have __
     ]
     return first.lower() + "".join([it.title() for it in rest])
 
@@ -293,7 +292,7 @@ def func_arg_type(func, arg, imports: set[str]) -> Optional[str]:
         return "?*anyopaque"
     if t in TYPE_MAP:
         r = TYPE_MAP[t]
-        if '.' in r:
+        if "." in r:
             imports.add(r.split(".")[0].strip("?*"))
         return r
     if t == "interface" and (it := interface_type_to_string(atype, imports)):
@@ -338,8 +337,8 @@ def func_return_type(func, imports: set[str]) -> Optional[str]:
     if t == "void" and rtype.is_pointer():
         return "?*anyopaque"
     if t in TYPE_MAP:
-        r =  TYPE_MAP[t]
-        if '.' in r:
+        r = TYPE_MAP[t]
+        if "." in r:
             imports.add(r.split(".")[0].strip("?*"))
         return r
     if t == "interface" and (it := interface_type_to_string(rtype, imports)):
@@ -374,11 +373,12 @@ def struct_field_type(field, imports: set[str]) -> Optional[str]:
         pt = ptype.get_tag_as_string()
         if pt in TYPE_MAP:
             if pt == "void":
-                return "?*anyopaque"; # HACK for [*c]void
+                return "?*anyopaque"
+                # HACK for [*c]void
             return f"[*c]{TYPE_MAP[pt]}"
         if pt == "interface" and (it := interface_type_to_string(ptype, imports)):
             if it == "gobject._Value__data__union":
-                return "?*anyopaque" # Hack for [*c]gobject._Value__data__union
+                return "?*anyopaque"  # Hack for [*c]gobject._Value__data__union
             return f"[*c]{it}"
         t = f"[]{pt}"
     if t not in UNKNOWN_TYPES:
@@ -388,23 +388,24 @@ def struct_field_type(field, imports: set[str]) -> Optional[str]:
 
 
 def all_parents(info):
-    """ Retrieve info and all parents """
+    """Retrieve info and all parents"""
     parent = info
     mro = []
     while parent is not None:
         mro.append(parent)
         if not hasattr(parent, "get_parent"):
-            break # StructInfo
+            break  # StructInfo
         parent = parent.get_parent()
 
     return mro
+
 
 def generate_class(ns: str, Cls: type):
     print(f"Generating class {Cls}")
     info = getattr(Cls, "__info__", None)
 
     out = HEADER_LINES + [
-        f'// {info}',
+        f"// {info}",
         'const std = @import("std");',
         'const c = @import("c.zig");',
         "",
@@ -414,7 +415,7 @@ def generate_class(ns: str, Cls: type):
     ]
     if info is None:
         out.append("};")
-        return out # TODO What is this??
+        return out  # TODO What is this??
 
     imports = {ns.lower()}
     constructors = []
@@ -436,16 +437,22 @@ def generate_class(ns: str, Cls: type):
                 if field_name not in field_names:
                     field_names.add(field_name)
                     if field_type is None:
-                        field_type = "?*anyopaque" # FIXME
+                        field_type = "?*anyopaque"  # FIXME
                     # HACK OUT harfbuzz for now...
-                    if "*const fn" in field_type and "[*c]harfbuzz.feature_t" in field_type:
+                    if (
+                        "*const fn" in field_type
+                        and "[*c]harfbuzz.feature_t" in field_type
+                    ):
                         out.append("    // Warning [*c]harfbuzz.feature_t replaced ")
-                        field_type = field_type.replace("[*c]harfbuzz.feature_t", "?*anyopaque")
+                        field_type = field_type.replace(
+                            "[*c]harfbuzz.feature_t", "?*anyopaque"
+                        )
                     if "*const fn" in field_type and "*harfbuzz.font_t" in field_type:
                         out.append("    // Warning *harfbuzz.font_t replaced ")
-                        field_type = field_type.replace("*harfbuzz.font_t", "*anyopaque")
+                        field_type = field_type.replace(
+                            "*harfbuzz.font_t", "*anyopaque"
+                        )
                     out.append("    %s: %s," % (field_name, field_type))
-
 
     if hasattr(Cls, "connect"):
         has_connect = True
@@ -531,7 +538,9 @@ def generate_class(ns: str, Cls: type):
             out.append("    // Binding disabled (import needed excluded)")
         used.add(name)
 
-        assert name[0] == name[0].lower(), f"'{name}' is not camel case (originally '{f.get_name()}')"
+        assert (
+            name[0] == name[0].lower()
+        ), f"'{name}' is not camel case (originally '{f.get_name()}')"
         out.append(
             "    %sextern fn %s(%s) %s;"
             % (comment, f.get_symbol(), ", ".join(args), rtype)
@@ -571,10 +580,20 @@ def generate_class(ns: str, Cls: type):
             out.insert(2, f'{comment}const {mod} = @import("../{mod}.zig");')
         else:
             out.insert(2, f'{comment}const {mod} = @import("{mod}");')
+    out.append("};")
+    out.append("")
 
-    out.extend(
-        ["};", "", "test {", f"    std.testing.refAllDecls({Cls.__name__});", "}"]
-    )
+    test = ['test "%s" {' % this_cls]
+    test.append(f"    std.testing.refAllDecls({Cls.__name__});")
+    # Verify struct size is correct
+    # if hasattr(info, "get_size"):
+    #     expected_size = info.get_size()
+    #     test.append(
+    #         f"    try std.testing.expectEqual(@sizeOf({Cls.__name__}), {expected_size});",
+    #     )
+    test.append("}")
+    out.extend(test)
+
     return out
 
 
@@ -688,11 +707,11 @@ def main():
             if cls in used:
                 print(f"WARNING: Duplicate class name {cls} in {ns} for {Cls}")
                 continue
-            filename = snake_case(cls)
-            api.append(f'pub const {cls} = @import("{k}/{filename}.zig").{cls};')
+            filename = f"{k}/{snake_case(cls)}.zig"
+            api.append(f'pub const {cls} = @import("{filename}").{cls};')
             used.add(cls)
             cls_zig = generate_class(ns, Cls)
-            with open(f"{output_dir}/{k}/{filename}.zig", "w") as f:
+            with open(f"{output_dir}/{filename}", "w") as f:
                 f.write("\n".join(cls_zig))
 
         # Extra defines
@@ -700,7 +719,11 @@ def main():
             api.append("")
             api.extend(extra)
 
-        api.extend(["", "test {", "    std.testing.refAllDecls(@This());", "}"])
+        api.append("")
+        test = ['test "%s" {' % k]
+        test.append("    std.testing.refAllDecls(@This());")
+        test.append("}")
+        api.extend(test)
 
         with open(f"{output_dir}/{k}.zig", "w") as f:
             f.write("\n".join(api))

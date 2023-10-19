@@ -15,6 +15,6 @@ pub const PictureClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.PictureClass" {
     std.testing.refAllDecls(PictureClass);
 }

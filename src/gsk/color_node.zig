@@ -50,6 +50,6 @@ pub const ColorNode = extern struct {
     }
 };
 
-test {
+test "gsk.ColorNode" {
     std.testing.refAllDecls(ColorNode);
 }

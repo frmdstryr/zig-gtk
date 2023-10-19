@@ -22,6 +22,6 @@ pub const PollableOutputStreamInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.PollableOutputStreamInterface" {
     std.testing.refAllDecls(PollableOutputStreamInterface);
 }

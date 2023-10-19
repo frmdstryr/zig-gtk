@@ -31,6 +31,6 @@ pub const TlsDatabaseClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.TlsDatabaseClass" {
     std.testing.refAllDecls(TlsDatabaseClass);
 }

@@ -16,6 +16,6 @@ pub const ConstraintClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ConstraintClass" {
     std.testing.refAllDecls(ConstraintClass);
 }

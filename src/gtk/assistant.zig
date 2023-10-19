@@ -850,6 +850,6 @@ pub const Assistant = extern struct {
     }
 };
 
-test {
+test "gtk.Assistant" {
     std.testing.refAllDecls(Assistant);
 }

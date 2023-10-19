@@ -18,6 +18,6 @@ pub const PopoverClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.PopoverClass" {
     std.testing.refAllDecls(PopoverClass);
 }

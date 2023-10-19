@@ -16,6 +16,6 @@ pub const Parameter = extern struct {
     // Methods
 };
 
-test {
+test "gobject.Parameter" {
     std.testing.refAllDecls(Parameter);
 }

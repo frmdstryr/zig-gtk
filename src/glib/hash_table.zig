@@ -14,6 +14,6 @@ pub const HashTable = extern struct {
     // Methods
 };
 
-test {
+test "glib.HashTable" {
     std.testing.refAllDecls(HashTable);
 }

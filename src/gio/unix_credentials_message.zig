@@ -137,6 +137,6 @@ pub const UnixCredentialsMessage = extern struct {
     }
 };
 
-test {
+test "gio.UnixCredentialsMessage" {
     std.testing.refAllDecls(UnixCredentialsMessage);
 }

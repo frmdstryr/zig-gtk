@@ -165,6 +165,6 @@ pub const TreeSelection = extern struct {
     }
 };
 
-test {
+test "gtk.TreeSelection" {
     std.testing.refAllDecls(TreeSelection);
 }

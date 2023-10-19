@@ -17,6 +17,6 @@ pub const SimpleActionGroupClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.SimpleActionGroupClass" {
     std.testing.refAllDecls(SimpleActionGroupClass);
 }

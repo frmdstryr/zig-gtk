@@ -14,6 +14,6 @@ pub const SettingsPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.SettingsPrivate" {
     std.testing.refAllDecls(SettingsPrivate);
 }

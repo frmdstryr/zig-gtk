@@ -193,6 +193,6 @@ pub const MountOperation = extern struct {
     }
 };
 
-test {
+test "gtk.MountOperation" {
     std.testing.refAllDecls(MountOperation);
 }

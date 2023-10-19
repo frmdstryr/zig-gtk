@@ -210,6 +210,6 @@ pub const CellRendererProgress = extern struct {
     }
 };
 
-test {
+test "gtk.CellRendererProgress" {
     std.testing.refAllDecls(CellRendererProgress);
 }

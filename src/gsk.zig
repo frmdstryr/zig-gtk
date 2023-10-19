@@ -44,6 +44,6 @@ pub const TextureNode = @import("gsk/texture_node.zig").TextureNode;
 pub const Transform = @import("gsk/transform.zig").Transform;
 pub const TransformNode = @import("gsk/transform_node.zig").TransformNode;
 
-test {
+test "gsk" {
     std.testing.refAllDecls(@This());
 }

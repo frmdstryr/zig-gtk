@@ -36,6 +36,6 @@ pub const PollableOutputStream = extern struct {
     }
 };
 
-test {
+test "gio.PollableOutputStream" {
     std.testing.refAllDecls(PollableOutputStream);
 }

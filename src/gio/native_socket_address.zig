@@ -137,6 +137,6 @@ pub const NativeSocketAddress = extern struct {
     }
 };
 
-test {
+test "gio.NativeSocketAddress" {
     std.testing.refAllDecls(NativeSocketAddress);
 }

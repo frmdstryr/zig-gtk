@@ -148,6 +148,6 @@ pub const PasswordEntryBuffer = extern struct {
     }
 };
 
-test {
+test "gtk.PasswordEntryBuffer" {
     std.testing.refAllDecls(PasswordEntryBuffer);
 }

@@ -30,6 +30,6 @@ pub const CellEditable = extern struct {
     }
 };
 
-test {
+test "gtk.CellEditable" {
     std.testing.refAllDecls(CellEditable);
 }

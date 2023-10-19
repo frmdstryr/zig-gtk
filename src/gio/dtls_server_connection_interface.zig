@@ -16,6 +16,6 @@ pub const DtlsServerConnectionInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.DtlsServerConnectionInterface" {
     std.testing.refAllDecls(DtlsServerConnectionInterface);
 }

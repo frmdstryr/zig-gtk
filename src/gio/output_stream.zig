@@ -200,6 +200,6 @@ pub const OutputStream = extern struct {
     }
 };
 
-test {
+test "gio.OutputStream" {
     std.testing.refAllDecls(OutputStream);
 }

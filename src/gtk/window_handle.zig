@@ -610,6 +610,6 @@ pub const WindowHandle = extern struct {
     }
 };
 
-test {
+test "gtk.WindowHandle" {
     std.testing.refAllDecls(WindowHandle);
 }

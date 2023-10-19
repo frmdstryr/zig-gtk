@@ -24,6 +24,6 @@ pub const TypeInfo = extern struct {
     // Methods
 };
 
-test {
+test "gobject.TypeInfo" {
     std.testing.refAllDecls(TypeInfo);
 }

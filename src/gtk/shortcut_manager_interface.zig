@@ -18,6 +18,6 @@ pub const ShortcutManagerInterface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ShortcutManagerInterface" {
     std.testing.refAllDecls(ShortcutManagerInterface);
 }

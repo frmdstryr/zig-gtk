@@ -15,6 +15,6 @@ pub const BoolFilterClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.BoolFilterClass" {
     std.testing.refAllDecls(BoolFilterClass);
 }

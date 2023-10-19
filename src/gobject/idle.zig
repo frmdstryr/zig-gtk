@@ -123,6 +123,6 @@ pub const Idle = extern struct {
     }
 };
 
-test {
+test "gobject.Idle" {
     std.testing.refAllDecls(Idle);
 }

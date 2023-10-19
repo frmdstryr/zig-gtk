@@ -143,6 +143,6 @@ pub const Permission = extern struct {
     }
 };
 
-test {
+test "gio.Permission" {
     std.testing.refAllDecls(Permission);
 }

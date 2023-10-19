@@ -41,6 +41,6 @@ pub const ValueArray = extern struct {
 
 };
 
-test {
+test "gobject.ValueArray" {
     std.testing.refAllDecls(ValueArray);
 }

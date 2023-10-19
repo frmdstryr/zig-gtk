@@ -164,6 +164,6 @@ pub const SocketService = extern struct {
     }
 };
 
-test {
+test "gio.SocketService" {
     std.testing.refAllDecls(SocketService);
 }

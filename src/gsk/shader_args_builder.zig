@@ -49,6 +49,6 @@ pub const ShaderArgsBuilder = extern struct {
 
 };
 
-test {
+test "gsk.ShaderArgsBuilder" {
     std.testing.refAllDecls(ShaderArgsBuilder);
 }

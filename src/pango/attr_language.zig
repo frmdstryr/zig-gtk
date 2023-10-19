@@ -16,6 +16,6 @@ pub const AttrLanguage = extern struct {
     // Methods
 };
 
-test {
+test "pango.AttrLanguage" {
     std.testing.refAllDecls(AttrLanguage);
 }

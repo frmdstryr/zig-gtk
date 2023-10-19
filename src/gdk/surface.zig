@@ -190,6 +190,6 @@ pub const Surface = extern struct {
     }
 };
 
-test {
+test "gdk.Surface" {
     std.testing.refAllDecls(Surface);
 }

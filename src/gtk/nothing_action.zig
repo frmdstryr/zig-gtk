@@ -126,6 +126,6 @@ pub const NothingAction = extern struct {
     }
 };
 
-test {
+test "gtk.NothingAction" {
     std.testing.refAllDecls(NothingAction);
 }

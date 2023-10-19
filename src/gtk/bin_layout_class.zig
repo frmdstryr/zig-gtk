@@ -15,6 +15,6 @@ pub const BinLayoutClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.BinLayoutClass" {
     std.testing.refAllDecls(BinLayoutClass);
 }

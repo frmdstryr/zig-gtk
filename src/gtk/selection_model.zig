@@ -53,6 +53,6 @@ pub const SelectionModel = extern struct {
     }
 };
 
-test {
+test "gtk.SelectionModel" {
     std.testing.refAllDecls(SelectionModel);
 }

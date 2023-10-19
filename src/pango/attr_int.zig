@@ -16,6 +16,6 @@ pub const AttrInt = extern struct {
     // Methods
 };
 
-test {
+test "pango.AttrInt" {
     std.testing.refAllDecls(AttrInt);
 }

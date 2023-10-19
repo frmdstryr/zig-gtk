@@ -41,6 +41,6 @@ pub const MainLoop = extern struct {
     }
 };
 
-test {
+test "gobject.MainLoop" {
     std.testing.refAllDecls(MainLoop);
 }

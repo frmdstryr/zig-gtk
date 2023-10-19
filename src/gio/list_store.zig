@@ -147,6 +147,6 @@ pub const ListStore = extern struct {
     }
 };
 
-test {
+test "gio.ListStore" {
     std.testing.refAllDecls(ListStore);
 }

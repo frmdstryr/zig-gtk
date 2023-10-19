@@ -32,6 +32,6 @@ pub const PatternSpec = extern struct {
 
 };
 
-test {
+test "glib.PatternSpec" {
     std.testing.refAllDecls(PatternSpec);
 }

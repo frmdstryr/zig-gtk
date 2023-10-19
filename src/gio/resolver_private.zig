@@ -14,6 +14,6 @@ pub const ResolverPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.ResolverPrivate" {
     std.testing.refAllDecls(ResolverPrivate);
 }

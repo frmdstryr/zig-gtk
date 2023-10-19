@@ -180,6 +180,6 @@ pub const Printer = extern struct {
     }
 };
 
-test {
+test "gtk.Printer" {
     std.testing.refAllDecls(Printer);
 }

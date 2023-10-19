@@ -135,6 +135,6 @@ pub const ThemedIcon = extern struct {
     }
 };
 
-test {
+test "gio.ThemedIcon" {
     std.testing.refAllDecls(ThemedIcon);
 }

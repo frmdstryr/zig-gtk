@@ -46,6 +46,6 @@ pub const RepeatingRadialGradientNode = extern struct {
     }
 };
 
-test {
+test "gsk.RepeatingRadialGradientNode" {
     std.testing.refAllDecls(RepeatingRadialGradientNode);
 }

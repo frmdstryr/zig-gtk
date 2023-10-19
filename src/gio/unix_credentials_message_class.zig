@@ -17,6 +17,6 @@ pub const UnixCredentialsMessageClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.UnixCredentialsMessageClass" {
     std.testing.refAllDecls(UnixCredentialsMessageClass);
 }

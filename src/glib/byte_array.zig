@@ -16,6 +16,6 @@ pub const ByteArray = extern struct {
     // Methods
 };
 
-test {
+test "glib.ByteArray" {
     std.testing.refAllDecls(ByteArray);
 }

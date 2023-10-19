@@ -117,6 +117,6 @@ pub const Source = extern struct {
 
 };
 
-test {
+test "glib.Source" {
     std.testing.refAllDecls(Source);
 }

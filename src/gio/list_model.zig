@@ -32,6 +32,6 @@ pub const ListModel = extern struct {
     }
 };
 
-test {
+test "gio.ListModel" {
     std.testing.refAllDecls(ListModel);
 }

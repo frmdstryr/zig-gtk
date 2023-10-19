@@ -14,6 +14,6 @@ pub const ShortcutsGroupClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ShortcutsGroupClass" {
     std.testing.refAllDecls(ShortcutsGroupClass);
 }

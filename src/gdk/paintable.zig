@@ -47,6 +47,6 @@ pub const Paintable = extern struct {
     }
 };
 
-test {
+test "gdk.Paintable" {
     std.testing.refAllDecls(Paintable);
 }

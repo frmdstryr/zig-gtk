@@ -151,6 +151,6 @@ pub const StringFilter = extern struct {
     }
 };
 
-test {
+test "gtk.StringFilter" {
     std.testing.refAllDecls(StringFilter);
 }

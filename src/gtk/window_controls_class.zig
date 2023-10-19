@@ -15,6 +15,6 @@ pub const WindowControlsClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.WindowControlsClass" {
     std.testing.refAllDecls(WindowControlsClass);
 }

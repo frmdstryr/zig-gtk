@@ -84,6 +84,6 @@ pub const PaperSize = extern struct {
 
 };
 
-test {
+test "gtk.PaperSize" {
     std.testing.refAllDecls(PaperSize);
 }

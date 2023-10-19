@@ -14,6 +14,6 @@ pub const FileIconClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.FileIconClass" {
     std.testing.refAllDecls(FileIconClass);
 }

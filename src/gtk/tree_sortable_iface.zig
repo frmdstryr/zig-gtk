@@ -22,6 +22,6 @@ pub const TreeSortableIface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TreeSortableIface" {
     std.testing.refAllDecls(TreeSortableIface);
 }

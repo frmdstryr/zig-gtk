@@ -70,6 +70,6 @@ pub const Ray = extern struct {
 
 };
 
-test {
+test "graphene.Ray" {
     std.testing.refAllDecls(Ray);
 }

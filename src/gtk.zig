@@ -513,6 +513,6 @@ pub const WindowHandleClass = @import("gtk/window_handle_class.zig").WindowHandl
 extern fn gtk_init() void;
 pub const init = gtk_init;
 
-test {
+test "gtk" {
     std.testing.refAllDecls(@This());
 }

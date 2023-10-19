@@ -21,6 +21,6 @@ pub const OptionEntry = extern struct {
     // Methods
 };
 
-test {
+test "glib.OptionEntry" {
     std.testing.refAllDecls(OptionEntry);
 }

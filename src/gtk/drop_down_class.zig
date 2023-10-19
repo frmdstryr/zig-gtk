@@ -15,6 +15,6 @@ pub const DropDownClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.DropDownClass" {
     std.testing.refAllDecls(DropDownClass);
 }

@@ -697,6 +697,6 @@ pub const ListBox = extern struct {
     }
 };
 
-test {
+test "gtk.ListBox" {
     std.testing.refAllDecls(ListBox);
 }

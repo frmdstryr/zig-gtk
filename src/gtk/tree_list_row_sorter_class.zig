@@ -15,6 +15,6 @@ pub const TreeListRowSorterClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TreeListRowSorterClass" {
     std.testing.refAllDecls(TreeListRowSorterClass);
 }

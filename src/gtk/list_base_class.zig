@@ -14,6 +14,6 @@ pub const ListBaseClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ListBaseClass" {
     std.testing.refAllDecls(ListBaseClass);
 }

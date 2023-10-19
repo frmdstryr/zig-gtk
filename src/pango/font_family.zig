@@ -127,6 +127,6 @@ pub const FontFamily = extern struct {
     }
 };
 
-test {
+test "pango.FontFamily" {
     std.testing.refAllDecls(FontFamily);
 }

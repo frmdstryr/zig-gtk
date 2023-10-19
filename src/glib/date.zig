@@ -134,6 +134,6 @@ pub const Date = extern struct {
 
 };
 
-test {
+test "glib.Date" {
     std.testing.refAllDecls(Date);
 }

@@ -119,6 +119,6 @@ pub const FileIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.FileIface" {
     std.testing.refAllDecls(FileIface);
 }

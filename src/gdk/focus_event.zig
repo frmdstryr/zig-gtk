@@ -82,6 +82,6 @@ pub const FocusEvent = extern struct {
     }
 };
 
-test {
+test "gdk.FocusEvent" {
     std.testing.refAllDecls(FocusEvent);
 }

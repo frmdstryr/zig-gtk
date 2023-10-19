@@ -160,6 +160,6 @@ pub const EventControllerScroll = extern struct {
     }
 };
 
-test {
+test "gtk.EventControllerScroll" {
     std.testing.refAllDecls(EventControllerScroll);
 }

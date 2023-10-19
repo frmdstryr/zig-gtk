@@ -88,6 +88,6 @@ pub const VariantBuilder = @import("glib/variant_builder.zig").VariantBuilder;
 pub const VariantDict = @import("glib/variant_dict.zig").VariantDict;
 pub const VariantType = @import("glib/variant_type.zig").VariantType;
 
-test {
+test "glib" {
     std.testing.refAllDecls(@This());
 }

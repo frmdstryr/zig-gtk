@@ -16,6 +16,6 @@ pub const GLShaderClass = extern struct {
     // Methods
 };
 
-test {
+test "gsk.GLShaderClass" {
     std.testing.refAllDecls(GLShaderClass);
 }

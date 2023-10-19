@@ -40,6 +40,6 @@ pub const GlyphItemIter = extern struct {
 
 };
 
-test {
+test "pango.GlyphItemIter" {
     std.testing.refAllDecls(GlyphItemIter);
 }

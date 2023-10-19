@@ -17,6 +17,6 @@ pub const FileDescriptorBasedIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.FileDescriptorBasedIface" {
     std.testing.refAllDecls(FileDescriptorBasedIface);
 }

@@ -209,6 +209,6 @@ pub const PrintOperation = extern struct {
     }
 };
 
-test {
+test "gtk.PrintOperation" {
     std.testing.refAllDecls(PrintOperation);
 }

@@ -38,6 +38,6 @@ pub const NetworkMonitor = extern struct {
     }
 };
 
-test {
+test "gio.NetworkMonitor" {
     std.testing.refAllDecls(NetworkMonitor);
 }

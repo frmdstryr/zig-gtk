@@ -140,6 +140,6 @@ pub const VulkanContext = extern struct {
     }
 };
 
-test {
+test "gdk.VulkanContext" {
     std.testing.refAllDecls(VulkanContext);
 }

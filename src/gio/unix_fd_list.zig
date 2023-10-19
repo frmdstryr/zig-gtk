@@ -134,6 +134,6 @@ pub const UnixFDList = extern struct {
     }
 };
 
-test {
+test "gio.UnixFDList" {
     std.testing.refAllDecls(UnixFDList);
 }

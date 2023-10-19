@@ -159,6 +159,6 @@ pub const SubprocessLauncher = extern struct {
     }
 };
 
-test {
+test "gio.SubprocessLauncher" {
     std.testing.refAllDecls(SubprocessLauncher);
 }

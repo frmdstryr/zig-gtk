@@ -263,6 +263,6 @@ pub const CellAreaBox = extern struct {
     }
 };
 
-test {
+test "gtk.CellAreaBox" {
     std.testing.refAllDecls(CellAreaBox);
 }

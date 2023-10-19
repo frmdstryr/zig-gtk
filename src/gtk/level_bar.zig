@@ -652,6 +652,6 @@ pub const LevelBar = extern struct {
     }
 };
 
-test {
+test "gtk.LevelBar" {
     std.testing.refAllDecls(LevelBar);
 }

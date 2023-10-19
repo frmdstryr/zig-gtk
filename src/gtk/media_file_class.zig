@@ -21,6 +21,6 @@ pub const MediaFileClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.MediaFileClass" {
     std.testing.refAllDecls(MediaFileClass);
 }

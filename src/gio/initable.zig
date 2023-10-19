@@ -23,6 +23,6 @@ pub const Initable = extern struct {
     }
 };
 
-test {
+test "gio.Initable" {
     std.testing.refAllDecls(Initable);
 }

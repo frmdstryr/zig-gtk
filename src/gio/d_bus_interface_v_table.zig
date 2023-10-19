@@ -19,6 +19,6 @@ pub const DBusInterfaceVTable = extern struct {
     // Methods
 };
 
-test {
+test "gio.DBusInterfaceVTable" {
     std.testing.refAllDecls(DBusInterfaceVTable);
 }

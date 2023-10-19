@@ -136,6 +136,6 @@ pub const CustomLayout = extern struct {
     }
 };
 
-test {
+test "gtk.CustomLayout" {
     std.testing.refAllDecls(CustomLayout);
 }

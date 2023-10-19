@@ -142,6 +142,6 @@ pub const FilterListModel = extern struct {
     }
 };
 
-test {
+test "gtk.FilterListModel" {
     std.testing.refAllDecls(FilterListModel);
 }

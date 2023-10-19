@@ -44,6 +44,6 @@ pub const ClosureExpression = extern struct {
     }
 };
 
-test {
+test "gtk.ClosureExpression" {
     std.testing.refAllDecls(ClosureExpression);
 }

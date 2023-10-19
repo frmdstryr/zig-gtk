@@ -14,6 +14,6 @@ pub const Data = extern struct {
     // Methods
 };
 
-test {
+test "glib.Data" {
     std.testing.refAllDecls(Data);
 }

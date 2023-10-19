@@ -20,6 +20,6 @@ pub const StyleProvider = extern struct {
     }
 };
 
-test {
+test "gtk.StyleProvider" {
     std.testing.refAllDecls(StyleProvider);
 }

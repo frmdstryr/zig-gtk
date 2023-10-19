@@ -140,6 +140,6 @@ pub const PixbufAnimation = extern struct {
     }
 };
 
-test {
+test "gdkpixbuf.PixbufAnimation" {
     std.testing.refAllDecls(PixbufAnimation);
 }

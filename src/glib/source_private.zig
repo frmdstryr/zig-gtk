@@ -14,6 +14,6 @@ pub const SourcePrivate = extern struct {
     // Methods
 };
 
-test {
+test "glib.SourcePrivate" {
     std.testing.refAllDecls(SourcePrivate);
 }

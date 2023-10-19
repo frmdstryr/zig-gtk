@@ -20,6 +20,6 @@ pub const GLAreaClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.GLAreaClass" {
     std.testing.refAllDecls(GLAreaClass);
 }

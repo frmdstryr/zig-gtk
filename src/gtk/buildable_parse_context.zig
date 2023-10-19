@@ -29,6 +29,6 @@ pub const BuildableParseContext = extern struct {
 
 };
 
-test {
+test "gtk.BuildableParseContext" {
     std.testing.refAllDecls(BuildableParseContext);
 }

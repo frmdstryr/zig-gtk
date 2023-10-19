@@ -23,6 +23,6 @@ pub const FontFaceClass = extern struct {
     // Methods
 };
 
-test {
+test "pango.FontFaceClass" {
     std.testing.refAllDecls(FontFaceClass);
 }

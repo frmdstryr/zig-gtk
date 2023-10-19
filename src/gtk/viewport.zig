@@ -622,6 +622,6 @@ pub const Viewport = extern struct {
     }
 };
 
-test {
+test "gtk.Viewport" {
     std.testing.refAllDecls(Viewport);
 }

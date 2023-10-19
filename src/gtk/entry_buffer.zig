@@ -145,6 +145,6 @@ pub const EntryBuffer = extern struct {
     }
 };
 
-test {
+test "gtk.EntryBuffer" {
     std.testing.refAllDecls(EntryBuffer);
 }

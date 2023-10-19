@@ -105,6 +105,6 @@ pub const Drive = extern struct {
     }
 };
 
-test {
+test "gio.Drive" {
     std.testing.refAllDecls(Drive);
 }

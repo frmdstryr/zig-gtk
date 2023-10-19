@@ -20,6 +20,6 @@ pub const BuildableParser = extern struct {
     // Methods
 };
 
-test {
+test "gtk.BuildableParser" {
     std.testing.refAllDecls(BuildableParser);
 }

@@ -18,6 +18,6 @@ pub const TreeDragDestIface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TreeDragDestIface" {
     std.testing.refAllDecls(TreeDragDestIface);
 }

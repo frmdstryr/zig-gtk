@@ -16,6 +16,6 @@ pub const GridClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.GridClass" {
     std.testing.refAllDecls(GridClass);
 }

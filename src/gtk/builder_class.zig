@@ -14,6 +14,6 @@ pub const BuilderClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.BuilderClass" {
     std.testing.refAllDecls(BuilderClass);
 }

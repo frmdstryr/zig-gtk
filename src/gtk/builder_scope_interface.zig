@@ -19,6 +19,6 @@ pub const BuilderScopeInterface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.BuilderScopeInterface" {
     std.testing.refAllDecls(BuilderScopeInterface);
 }

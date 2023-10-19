@@ -42,6 +42,6 @@ pub const RGBA = extern struct {
 
 };
 
-test {
+test "gdk.RGBA" {
     std.testing.refAllDecls(RGBA);
 }

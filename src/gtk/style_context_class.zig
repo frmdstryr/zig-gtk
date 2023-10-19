@@ -21,6 +21,6 @@ pub const StyleContextClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.StyleContextClass" {
     std.testing.refAllDecls(StyleContextClass);
 }

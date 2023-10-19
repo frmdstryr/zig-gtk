@@ -15,6 +15,6 @@ pub const TcpConnectionClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.TcpConnectionClass" {
     std.testing.refAllDecls(TcpConnectionClass);
 }

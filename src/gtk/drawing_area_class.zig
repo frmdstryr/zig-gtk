@@ -17,6 +17,6 @@ pub const DrawingAreaClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.DrawingAreaClass" {
     std.testing.refAllDecls(DrawingAreaClass);
 }

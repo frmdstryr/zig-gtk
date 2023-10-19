@@ -132,6 +132,6 @@ pub const Credentials = extern struct {
     }
 };
 
-test {
+test "gio.Credentials" {
     std.testing.refAllDecls(Credentials);
 }

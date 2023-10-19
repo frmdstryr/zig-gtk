@@ -140,6 +140,6 @@ pub const ContentProvider = extern struct {
     }
 };
 
-test {
+test "gdk.ContentProvider" {
     std.testing.refAllDecls(ContentProvider);
 }

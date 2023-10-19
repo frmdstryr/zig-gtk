@@ -92,6 +92,6 @@ pub const VariantType = extern struct {
 
 };
 
-test {
+test "glib.VariantType" {
     std.testing.refAllDecls(VariantType);
 }

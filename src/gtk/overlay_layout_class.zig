@@ -15,6 +15,6 @@ pub const OverlayLayoutClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.OverlayLayoutClass" {
     std.testing.refAllDecls(OverlayLayoutClass);
 }

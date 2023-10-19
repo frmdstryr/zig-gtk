@@ -63,6 +63,6 @@ pub const ActionGroup = extern struct {
     }
 };
 
-test {
+test "gio.ActionGroup" {
     std.testing.refAllDecls(ActionGroup);
 }

@@ -85,6 +85,6 @@ pub const GrabBrokenEvent = extern struct {
     }
 };
 
-test {
+test "gdk.GrabBrokenEvent" {
     std.testing.refAllDecls(GrabBrokenEvent);
 }

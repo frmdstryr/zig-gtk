@@ -123,6 +123,6 @@ pub const Timeout = extern struct {
     }
 };
 
-test {
+test "gobject.Timeout" {
     std.testing.refAllDecls(Timeout);
 }

@@ -20,6 +20,6 @@ pub const TreeDragSourceIface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TreeDragSourceIface" {
     std.testing.refAllDecls(TreeDragSourceIface);
 }

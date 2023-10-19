@@ -17,6 +17,6 @@ pub const FlowBoxChildClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.FlowBoxChildClass" {
     std.testing.refAllDecls(FlowBoxChildClass);
 }

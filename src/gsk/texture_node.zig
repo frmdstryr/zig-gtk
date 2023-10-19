@@ -50,6 +50,6 @@ pub const TextureNode = extern struct {
     }
 };
 
-test {
+test "gsk.TextureNode" {
     std.testing.refAllDecls(TextureNode);
 }

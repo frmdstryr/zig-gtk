@@ -14,6 +14,6 @@ pub const ListViewClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ListViewClass" {
     std.testing.refAllDecls(ListViewClass);
 }

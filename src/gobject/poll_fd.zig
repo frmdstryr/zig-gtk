@@ -23,6 +23,6 @@ pub const PollFD = extern struct {
     }
 };
 
-test {
+test "gobject.PollFD" {
     std.testing.refAllDecls(PollFD);
 }

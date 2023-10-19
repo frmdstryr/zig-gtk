@@ -628,6 +628,6 @@ pub const Overlay = extern struct {
     }
 };
 
-test {
+test "gtk.Overlay" {
     std.testing.refAllDecls(Overlay);
 }

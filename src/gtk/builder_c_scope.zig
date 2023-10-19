@@ -124,6 +124,6 @@ pub const BuilderCScope = extern struct {
     }
 };
 
-test {
+test "gtk.BuilderCScope" {
     std.testing.refAllDecls(BuilderCScope);
 }

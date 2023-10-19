@@ -318,6 +318,6 @@ pub const FileInfo = extern struct {
     }
 };
 
-test {
+test "gio.FileInfo" {
     std.testing.refAllDecls(FileInfo);
 }

@@ -15,6 +15,6 @@ pub const EditableLabelClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.EditableLabelClass" {
     std.testing.refAllDecls(EditableLabelClass);
 }

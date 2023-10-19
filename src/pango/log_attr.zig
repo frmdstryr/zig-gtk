@@ -30,6 +30,6 @@ pub const LogAttr = extern struct {
     // Methods
 };
 
-test {
+test "pango.LogAttr" {
     std.testing.refAllDecls(LogAttr);
 }

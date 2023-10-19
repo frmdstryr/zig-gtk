@@ -198,6 +198,6 @@ pub const CellRenderer = extern struct {
     }
 };
 
-test {
+test "gtk.CellRenderer" {
     std.testing.refAllDecls(CellRenderer);
 }

@@ -18,6 +18,6 @@ pub const AsyncInitableIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.AsyncInitableIface" {
     std.testing.refAllDecls(AsyncInitableIface);
 }

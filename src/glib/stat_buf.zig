@@ -14,6 +14,6 @@ pub const StatBuf = extern struct {
     // Methods
 };
 
-test {
+test "glib.StatBuf" {
     std.testing.refAllDecls(StatBuf);
 }

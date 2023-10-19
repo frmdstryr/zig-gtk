@@ -111,6 +111,6 @@ pub const Snapshot = extern struct {
     }
 };
 
-test {
+test "gdk.Snapshot" {
     std.testing.refAllDecls(Snapshot);
 }

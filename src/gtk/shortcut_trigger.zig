@@ -139,6 +139,6 @@ pub const ShortcutTrigger = extern struct {
     }
 };
 
-test {
+test "gtk.ShortcutTrigger" {
     std.testing.refAllDecls(ShortcutTrigger);
 }

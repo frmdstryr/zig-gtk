@@ -29,6 +29,6 @@ pub const Language = extern struct {
 
 };
 
-test {
+test "pango.Language" {
     std.testing.refAllDecls(Language);
 }

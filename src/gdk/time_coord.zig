@@ -17,6 +17,6 @@ pub const TimeCoord = extern struct {
     // Methods
 };
 
-test {
+test "gdk.TimeCoord" {
     std.testing.refAllDecls(TimeCoord);
 }

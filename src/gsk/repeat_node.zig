@@ -52,6 +52,6 @@ pub const RepeatNode = extern struct {
     }
 };
 
-test {
+test "gsk.RepeatNode" {
     std.testing.refAllDecls(RepeatNode);
 }

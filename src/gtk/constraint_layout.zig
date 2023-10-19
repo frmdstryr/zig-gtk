@@ -167,6 +167,6 @@ pub const ConstraintLayout = extern struct {
     }
 };
 
-test {
+test "gtk.ConstraintLayout" {
     std.testing.refAllDecls(ConstraintLayout);
 }

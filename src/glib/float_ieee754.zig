@@ -15,6 +15,6 @@ pub const FloatIEEE754 = extern struct {
     // Methods
 };
 
-test {
+test "glib.FloatIEEE754" {
     std.testing.refAllDecls(FloatIEEE754);
 }

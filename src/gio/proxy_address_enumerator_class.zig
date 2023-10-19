@@ -22,6 +22,6 @@ pub const ProxyAddressEnumeratorClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.ProxyAddressEnumeratorClass" {
     std.testing.refAllDecls(ProxyAddressEnumeratorClass);
 }

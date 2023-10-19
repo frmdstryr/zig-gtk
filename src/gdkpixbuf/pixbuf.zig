@@ -268,6 +268,6 @@ pub const Pixbuf = extern struct {
     }
 };
 
-test {
+test "gdkpixbuf.Pixbuf" {
     std.testing.refAllDecls(Pixbuf);
 }

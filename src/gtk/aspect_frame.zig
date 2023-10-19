@@ -634,6 +634,6 @@ pub const AspectFrame = extern struct {
     }
 };
 
-test {
+test "gtk.AspectFrame" {
     std.testing.refAllDecls(AspectFrame);
 }

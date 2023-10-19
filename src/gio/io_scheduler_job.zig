@@ -20,6 +20,6 @@ pub const IOSchedulerJob = extern struct {
 
 };
 
-test {
+test "gio.IOSchedulerJob" {
     std.testing.refAllDecls(IOSchedulerJob);
 }

@@ -19,6 +19,6 @@ pub const CssLocation = extern struct {
     // Methods
 };
 
-test {
+test "gtk.CssLocation" {
     std.testing.refAllDecls(CssLocation);
 }

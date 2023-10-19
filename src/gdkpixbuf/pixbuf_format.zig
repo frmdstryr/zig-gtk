@@ -59,6 +59,6 @@ pub const PixbufFormat = extern struct {
 
 };
 
-test {
+test "gdkpixbuf.PixbufFormat" {
     std.testing.refAllDecls(PixbufFormat);
 }

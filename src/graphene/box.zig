@@ -88,6 +88,6 @@ pub const Box = extern struct {
 
 };
 
-test {
+test "graphene.Box" {
     std.testing.refAllDecls(Box);
 }

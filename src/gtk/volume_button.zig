@@ -638,6 +638,6 @@ pub const VolumeButton = extern struct {
     }
 };
 
-test {
+test "gtk.VolumeButton" {
     std.testing.refAllDecls(VolumeButton);
 }

@@ -42,6 +42,6 @@ pub const VolumeMonitorClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.VolumeMonitorClass" {
     std.testing.refAllDecls(VolumeMonitorClass);
 }

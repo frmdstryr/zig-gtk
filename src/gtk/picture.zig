@@ -659,6 +659,6 @@ pub const Picture = extern struct {
     }
 };
 
-test {
+test "gtk.Picture" {
     std.testing.refAllDecls(Picture);
 }

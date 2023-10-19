@@ -41,6 +41,6 @@ pub const ScannerConfig = extern struct {
     // Methods
 };
 
-test {
+test "glib.ScannerConfig" {
     std.testing.refAllDecls(ScannerConfig);
 }

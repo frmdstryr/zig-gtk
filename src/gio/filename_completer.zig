@@ -123,6 +123,6 @@ pub const FilenameCompleter = extern struct {
     }
 };
 
-test {
+test "gio.FilenameCompleter" {
     std.testing.refAllDecls(FilenameCompleter);
 }

@@ -152,6 +152,6 @@ pub const SocketListener = extern struct {
     }
 };
 
-test {
+test "gio.SocketListener" {
     std.testing.refAllDecls(SocketListener);
 }

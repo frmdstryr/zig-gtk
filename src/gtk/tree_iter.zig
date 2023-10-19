@@ -24,6 +24,6 @@ pub const TreeIter = extern struct {
 
 };
 
-test {
+test "gtk.TreeIter" {
     std.testing.refAllDecls(TreeIter);
 }

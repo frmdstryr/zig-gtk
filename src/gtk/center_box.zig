@@ -634,6 +634,6 @@ pub const CenterBox = extern struct {
     }
 };
 
-test {
+test "gtk.CenterBox" {
     std.testing.refAllDecls(CenterBox);
 }

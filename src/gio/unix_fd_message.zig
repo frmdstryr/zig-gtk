@@ -143,6 +143,6 @@ pub const UnixFDMessage = extern struct {
     }
 };
 
-test {
+test "gio.UnixFDMessage" {
     std.testing.refAllDecls(UnixFDMessage);
 }

@@ -111,6 +111,6 @@ pub const AppInfoMonitor = extern struct {
     }
 };
 
-test {
+test "gio.AppInfoMonitor" {
     std.testing.refAllDecls(AppInfoMonitor);
 }

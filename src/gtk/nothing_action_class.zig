@@ -14,6 +14,6 @@ pub const NothingActionClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.NothingActionClass" {
     std.testing.refAllDecls(NothingActionClass);
 }

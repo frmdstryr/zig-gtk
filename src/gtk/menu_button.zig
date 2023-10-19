@@ -667,6 +667,6 @@ pub const MenuButton = extern struct {
     }
 };
 
-test {
+test "gtk.MenuButton" {
     std.testing.refAllDecls(MenuButton);
 }

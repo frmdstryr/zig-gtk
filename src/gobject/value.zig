@@ -203,6 +203,6 @@ pub const Value = extern struct {
 
 };
 
-test {
+test "gobject.Value" {
     std.testing.refAllDecls(Value);
 }

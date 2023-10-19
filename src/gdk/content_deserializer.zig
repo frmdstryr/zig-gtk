@@ -151,6 +151,6 @@ pub const ContentDeserializer = extern struct {
     }
 };
 
-test {
+test "gdk.ContentDeserializer" {
     std.testing.refAllDecls(ContentDeserializer);
 }

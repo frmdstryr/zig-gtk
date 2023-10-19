@@ -14,6 +14,6 @@ pub const CssProviderClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.CssProviderClass" {
     std.testing.refAllDecls(CssProviderClass);
 }

@@ -126,6 +126,6 @@ pub const FileIcon = extern struct {
     }
 };
 
-test {
+test "gio.FileIcon" {
     std.testing.refAllDecls(FileIcon);
 }

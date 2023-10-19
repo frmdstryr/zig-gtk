@@ -14,6 +14,6 @@ pub const ApplicationPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.ApplicationPrivate" {
     std.testing.refAllDecls(ApplicationPrivate);
 }

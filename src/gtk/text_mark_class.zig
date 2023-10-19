@@ -17,6 +17,6 @@ pub const TextMarkClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TextMarkClass" {
     std.testing.refAllDecls(TextMarkClass);
 }

@@ -14,6 +14,6 @@ pub const DataInputStreamPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.DataInputStreamPrivate" {
     std.testing.refAllDecls(DataInputStreamPrivate);
 }

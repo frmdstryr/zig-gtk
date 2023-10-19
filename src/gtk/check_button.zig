@@ -643,6 +643,6 @@ pub const CheckButton = extern struct {
     }
 };
 
-test {
+test "gtk.CheckButton" {
     std.testing.refAllDecls(CheckButton);
 }

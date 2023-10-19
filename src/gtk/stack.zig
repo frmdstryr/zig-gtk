@@ -673,6 +673,6 @@ pub const Stack = extern struct {
     }
 };
 
-test {
+test "gtk.Stack" {
     std.testing.refAllDecls(Stack);
 }

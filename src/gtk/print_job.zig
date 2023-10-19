@@ -205,6 +205,6 @@ pub const PrintJob = extern struct {
     }
 };
 
-test {
+test "gtk.PrintJob" {
     std.testing.refAllDecls(PrintJob);
 }

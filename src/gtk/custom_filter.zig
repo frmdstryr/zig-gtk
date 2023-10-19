@@ -130,6 +130,6 @@ pub const CustomFilter = extern struct {
     }
 };
 
-test {
+test "gtk.CustomFilter" {
     std.testing.refAllDecls(CustomFilter);
 }

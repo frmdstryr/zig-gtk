@@ -20,6 +20,6 @@ pub const MountOperationClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.MountOperationClass" {
     std.testing.refAllDecls(MountOperationClass);
 }

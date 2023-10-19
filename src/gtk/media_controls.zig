@@ -610,6 +610,6 @@ pub const MediaControls = extern struct {
     }
 };
 
-test {
+test "gtk.MediaControls" {
     std.testing.refAllDecls(MediaControls);
 }

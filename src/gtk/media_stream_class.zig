@@ -31,6 +31,6 @@ pub const MediaStreamClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.MediaStreamClass" {
     std.testing.refAllDecls(MediaStreamClass);
 }

@@ -20,6 +20,6 @@ pub const TestConfig = extern struct {
     // Methods
 };
 
-test {
+test "glib.TestConfig" {
     std.testing.refAllDecls(TestConfig);
 }

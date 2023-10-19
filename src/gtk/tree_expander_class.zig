@@ -15,6 +15,6 @@ pub const TreeExpanderClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TreeExpanderClass" {
     std.testing.refAllDecls(TreeExpanderClass);
 }

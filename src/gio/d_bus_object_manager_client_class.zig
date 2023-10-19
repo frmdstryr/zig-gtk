@@ -20,6 +20,6 @@ pub const DBusObjectManagerClientClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.DBusObjectManagerClientClass" {
     std.testing.refAllDecls(DBusObjectManagerClientClass);
 }

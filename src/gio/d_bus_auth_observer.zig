@@ -120,6 +120,6 @@ pub const DBusAuthObserver = extern struct {
     }
 };
 
-test {
+test "gio.DBusAuthObserver" {
     std.testing.refAllDecls(DBusAuthObserver);
 }

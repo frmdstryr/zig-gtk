@@ -16,6 +16,6 @@ pub const AttrFontDesc = extern struct {
     // Methods
 };
 
-test {
+test "pango.AttrFontDesc" {
     std.testing.refAllDecls(AttrFontDesc);
 }

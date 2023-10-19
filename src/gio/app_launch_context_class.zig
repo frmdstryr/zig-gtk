@@ -25,6 +25,6 @@ pub const AppLaunchContextClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.AppLaunchContextClass" {
     std.testing.refAllDecls(AppLaunchContextClass);
 }

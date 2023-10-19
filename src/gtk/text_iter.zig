@@ -303,6 +303,6 @@ pub const TextIter = extern struct {
 
 };
 
-test {
+test "gtk.TextIter" {
     std.testing.refAllDecls(TextIter);
 }

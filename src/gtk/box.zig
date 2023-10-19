@@ -643,6 +643,6 @@ pub const Box = extern struct {
     }
 };
 
-test {
+test "gtk.Box" {
     std.testing.refAllDecls(Box);
 }

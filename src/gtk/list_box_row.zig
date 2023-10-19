@@ -643,6 +643,6 @@ pub const ListBoxRow = extern struct {
     }
 };
 
-test {
+test "gtk.ListBoxRow" {
     std.testing.refAllDecls(ListBoxRow);
 }

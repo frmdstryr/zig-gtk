@@ -57,6 +57,6 @@ pub const FontMetrics = extern struct {
 
 };
 
-test {
+test "pango.FontMetrics" {
     std.testing.refAllDecls(FontMetrics);
 }

@@ -38,6 +38,6 @@ pub const ThreadPool = extern struct {
 
 };
 
-test {
+test "glib.ThreadPool" {
     std.testing.refAllDecls(ThreadPool);
 }

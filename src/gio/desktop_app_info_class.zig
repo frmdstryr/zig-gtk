@@ -16,6 +16,6 @@ pub const DesktopAppInfoClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.DesktopAppInfoClass" {
     std.testing.refAllDecls(DesktopAppInfoClass);
 }

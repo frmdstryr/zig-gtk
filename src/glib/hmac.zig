@@ -26,6 +26,6 @@ pub const Hmac = extern struct {
 
 };
 
-test {
+test "glib.Hmac" {
     std.testing.refAllDecls(Hmac);
 }

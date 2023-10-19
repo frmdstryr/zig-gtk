@@ -78,6 +78,6 @@ pub const FontChooser = extern struct {
     }
 };
 
-test {
+test "gtk.FontChooser" {
     std.testing.refAllDecls(FontChooser);
 }

@@ -252,6 +252,6 @@ pub const DBusConnection = extern struct {
     }
 };
 
-test {
+test "gio.DBusConnection" {
     std.testing.refAllDecls(DBusConnection);
 }

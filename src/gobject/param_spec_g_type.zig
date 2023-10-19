@@ -62,6 +62,6 @@ pub const ParamSpecGType = extern struct {
     }
 };
 
-test {
+test "gobject.ParamSpecGType" {
     std.testing.refAllDecls(ParamSpecGType);
 }

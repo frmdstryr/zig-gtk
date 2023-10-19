@@ -676,6 +676,6 @@ pub const Grid = extern struct {
     }
 };
 
-test {
+test "gtk.Grid" {
     std.testing.refAllDecls(Grid);
 }

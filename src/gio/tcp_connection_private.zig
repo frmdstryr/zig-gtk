@@ -14,6 +14,6 @@ pub const TcpConnectionPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.TcpConnectionPrivate" {
     std.testing.refAllDecls(TcpConnectionPrivate);
 }

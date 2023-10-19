@@ -152,6 +152,6 @@ pub const InetSocketAddress = extern struct {
     }
 };
 
-test {
+test "gio.InetSocketAddress" {
     std.testing.refAllDecls(InetSocketAddress);
 }

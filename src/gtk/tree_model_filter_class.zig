@@ -19,6 +19,6 @@ pub const TreeModelFilterClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TreeModelFilterClass" {
     std.testing.refAllDecls(TreeModelFilterClass);
 }

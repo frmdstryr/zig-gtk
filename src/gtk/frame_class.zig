@@ -18,6 +18,6 @@ pub const FrameClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.FrameClass" {
     std.testing.refAllDecls(FrameClass);
 }

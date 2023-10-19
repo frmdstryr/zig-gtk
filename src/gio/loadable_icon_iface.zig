@@ -19,6 +19,6 @@ pub const LoadableIconIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.LoadableIconIface" {
     std.testing.refAllDecls(LoadableIconIface);
 }

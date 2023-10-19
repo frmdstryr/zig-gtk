@@ -20,6 +20,6 @@ pub const ApplicationCommandLineClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.ApplicationCommandLineClass" {
     std.testing.refAllDecls(ApplicationCommandLineClass);
 }

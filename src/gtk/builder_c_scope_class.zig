@@ -16,6 +16,6 @@ pub const BuilderCScopeClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.BuilderCScopeClass" {
     std.testing.refAllDecls(BuilderCScopeClass);
 }

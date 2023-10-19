@@ -207,6 +207,6 @@ pub const Task = extern struct {
     }
 };
 
-test {
+test "gio.Task" {
     std.testing.refAllDecls(Task);
 }

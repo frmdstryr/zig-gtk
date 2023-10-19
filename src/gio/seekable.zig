@@ -36,6 +36,6 @@ pub const Seekable = extern struct {
     }
 };
 
-test {
+test "gio.Seekable" {
     std.testing.refAllDecls(Seekable);
 }

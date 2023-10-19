@@ -146,6 +146,6 @@ pub const PixbufNonAnim = extern struct {
     }
 };
 
-test {
+test "gdkpixbuf.PixbufNonAnim" {
     std.testing.refAllDecls(PixbufNonAnim);
 }

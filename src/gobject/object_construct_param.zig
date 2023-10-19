@@ -16,6 +16,6 @@ pub const ObjectConstructParam = extern struct {
     // Methods
 };
 
-test {
+test "gobject.ObjectConstructParam" {
     std.testing.refAllDecls(ObjectConstructParam);
 }

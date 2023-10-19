@@ -20,6 +20,6 @@ pub const TlsPasswordClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.TlsPasswordClass" {
     std.testing.refAllDecls(TlsPasswordClass);
 }

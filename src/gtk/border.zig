@@ -27,6 +27,6 @@ pub const Border = extern struct {
 
 };
 
-test {
+test "gtk.Border" {
     std.testing.refAllDecls(Border);
 }

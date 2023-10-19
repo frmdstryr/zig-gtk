@@ -38,6 +38,6 @@ pub const RenderNode = extern struct {
 
 };
 
-test {
+test "gsk.RenderNode" {
     std.testing.refAllDecls(RenderNode);
 }

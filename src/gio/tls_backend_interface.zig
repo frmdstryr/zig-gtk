@@ -25,6 +25,6 @@ pub const TlsBackendInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.TlsBackendInterface" {
     std.testing.refAllDecls(TlsBackendInterface);
 }

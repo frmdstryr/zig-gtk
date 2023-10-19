@@ -15,6 +15,6 @@ pub const TcpWrapperConnectionClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.TcpWrapperConnectionClass" {
     std.testing.refAllDecls(TcpWrapperConnectionClass);
 }

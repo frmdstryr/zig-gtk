@@ -18,6 +18,6 @@ pub const DebugControllerDBusClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.DebugControllerDBusClass" {
     std.testing.refAllDecls(DebugControllerDBusClass);
 }

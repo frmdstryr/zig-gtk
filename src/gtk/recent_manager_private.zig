@@ -14,6 +14,6 @@ pub const RecentManagerPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gtk.RecentManagerPrivate" {
     std.testing.refAllDecls(RecentManagerPrivate);
 }

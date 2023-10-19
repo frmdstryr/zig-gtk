@@ -14,6 +14,6 @@ pub const ColumnViewClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ColumnViewClass" {
     std.testing.refAllDecls(ColumnViewClass);
 }

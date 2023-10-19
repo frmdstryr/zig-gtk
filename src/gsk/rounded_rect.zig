@@ -47,6 +47,6 @@ pub const RoundedRect = extern struct {
 
 };
 
-test {
+test "gsk.RoundedRect" {
     std.testing.refAllDecls(RoundedRect);
 }

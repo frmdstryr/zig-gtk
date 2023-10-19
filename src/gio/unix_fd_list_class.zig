@@ -21,6 +21,6 @@ pub const UnixFDListClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.UnixFDListClass" {
     std.testing.refAllDecls(UnixFDListClass);
 }

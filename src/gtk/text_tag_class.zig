@@ -17,6 +17,6 @@ pub const TextTagClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TextTagClass" {
     std.testing.refAllDecls(TextTagClass);
 }

@@ -20,6 +20,6 @@ pub const SourceFuncs = extern struct {
     // Methods
 };
 
-test {
+test "glib.SourceFuncs" {
     std.testing.refAllDecls(SourceFuncs);
 }

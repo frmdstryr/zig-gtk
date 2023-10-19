@@ -110,6 +110,6 @@ pub const String = extern struct {
 
 };
 
-test {
+test "glib.String" {
     std.testing.refAllDecls(String);
 }

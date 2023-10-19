@@ -174,6 +174,6 @@ pub const Renderer = extern struct {
     }
 };
 
-test {
+test "pango.Renderer" {
     std.testing.refAllDecls(Renderer);
 }

@@ -34,6 +34,6 @@ pub const Cond = extern struct {
 
 };
 
-test {
+test "glib.Cond" {
     std.testing.refAllDecls(Cond);
 }

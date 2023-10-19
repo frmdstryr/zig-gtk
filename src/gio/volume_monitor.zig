@@ -128,6 +128,6 @@ pub const VolumeMonitor = extern struct {
     }
 };
 
-test {
+test "gio.VolumeMonitor" {
     std.testing.refAllDecls(VolumeMonitor);
 }

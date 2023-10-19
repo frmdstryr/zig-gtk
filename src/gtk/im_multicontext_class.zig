@@ -19,6 +19,6 @@ pub const IMMulticontextClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.IMMulticontextClass" {
     std.testing.refAllDecls(IMMulticontextClass);
 }

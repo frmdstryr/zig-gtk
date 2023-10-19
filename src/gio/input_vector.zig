@@ -16,6 +16,6 @@ pub const InputVector = extern struct {
     // Methods
 };
 
-test {
+test "gio.InputVector" {
     std.testing.refAllDecls(InputVector);
 }

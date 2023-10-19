@@ -18,6 +18,6 @@ pub const FilterOutputStreamClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.FilterOutputStreamClass" {
     std.testing.refAllDecls(FilterOutputStreamClass);
 }

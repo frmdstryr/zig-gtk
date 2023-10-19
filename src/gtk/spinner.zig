@@ -616,6 +616,6 @@ pub const Spinner = extern struct {
     }
 };
 
-test {
+test "gtk.Spinner" {
     std.testing.refAllDecls(Spinner);
 }

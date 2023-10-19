@@ -14,6 +14,6 @@ pub const SocketListenerPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.SocketListenerPrivate" {
     std.testing.refAllDecls(SocketListenerPrivate);
 }

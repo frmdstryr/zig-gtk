@@ -151,6 +151,6 @@ pub const SingleSelection = extern struct {
     }
 };
 
-test {
+test "gtk.SingleSelection" {
     std.testing.refAllDecls(SingleSelection);
 }

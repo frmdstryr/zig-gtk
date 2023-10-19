@@ -25,6 +25,6 @@ pub const MenuModelClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.MenuModelClass" {
     std.testing.refAllDecls(MenuModelClass);
 }

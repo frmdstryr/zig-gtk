@@ -62,6 +62,6 @@ pub const ParamSpecBoolean = extern struct {
     }
 };
 
-test {
+test "gobject.ParamSpecBoolean" {
     std.testing.refAllDecls(ParamSpecBoolean);
 }

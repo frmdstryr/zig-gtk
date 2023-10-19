@@ -127,6 +127,6 @@ pub const FontFace = extern struct {
     }
 };
 
-test {
+test "pango.FontFace" {
     std.testing.refAllDecls(FontFace);
 }

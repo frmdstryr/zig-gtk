@@ -42,6 +42,6 @@ pub const AppInfoIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.AppInfoIface" {
     std.testing.refAllDecls(AppInfoIface);
 }

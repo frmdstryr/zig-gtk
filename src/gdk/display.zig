@@ -190,6 +190,6 @@ pub const Display = extern struct {
     }
 };
 
-test {
+test "gdk.Display" {
     std.testing.refAllDecls(Display);
 }

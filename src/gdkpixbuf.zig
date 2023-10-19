@@ -19,6 +19,6 @@ pub const PixbufSimpleAnim = @import("gdkpixbuf/pixbuf_simple_anim.zig").PixbufS
 pub const PixbufSimpleAnimClass = @import("gdkpixbuf/pixbuf_simple_anim_class.zig").PixbufSimpleAnimClass;
 pub const PixbufSimpleAnimIter = @import("gdkpixbuf/pixbuf_simple_anim_iter.zig").PixbufSimpleAnimIter;
 
-test {
+test "gdkpixbuf" {
     std.testing.refAllDecls(@This());
 }

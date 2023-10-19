@@ -123,6 +123,6 @@ pub const ShortcutAction = extern struct {
     }
 };
 
-test {
+test "gtk.ShortcutAction" {
     std.testing.refAllDecls(ShortcutAction);
 }

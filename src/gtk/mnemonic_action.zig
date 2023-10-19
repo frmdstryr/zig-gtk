@@ -126,6 +126,6 @@ pub const MnemonicAction = extern struct {
     }
 };
 
-test {
+test "gtk.MnemonicAction" {
     std.testing.refAllDecls(MnemonicAction);
 }

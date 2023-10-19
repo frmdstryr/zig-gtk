@@ -14,6 +14,6 @@ pub const TaskClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.TaskClass" {
     std.testing.refAllDecls(TaskClass);
 }

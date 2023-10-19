@@ -34,6 +34,6 @@ pub const FileAttributeInfoList = extern struct {
 
 };
 
-test {
+test "gio.FileAttributeInfoList" {
     std.testing.refAllDecls(FileAttributeInfoList);
 }

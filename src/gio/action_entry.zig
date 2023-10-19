@@ -21,6 +21,6 @@ pub const ActionEntry = extern struct {
     // Methods
 };
 
-test {
+test "gio.ActionEntry" {
     std.testing.refAllDecls(ActionEntry);
 }

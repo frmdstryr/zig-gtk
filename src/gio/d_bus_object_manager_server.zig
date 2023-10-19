@@ -140,6 +140,6 @@ pub const DBusObjectManagerServer = extern struct {
     }
 };
 
-test {
+test "gio.DBusObjectManagerServer" {
     std.testing.refAllDecls(DBusObjectManagerServer);
 }

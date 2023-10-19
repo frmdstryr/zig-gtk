@@ -16,6 +16,6 @@ pub const ListStoreClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.ListStoreClass" {
     std.testing.refAllDecls(ListStoreClass);
 }

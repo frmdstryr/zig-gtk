@@ -122,6 +122,6 @@ pub const Timeout = extern struct {
     }
 };
 
-test {
+test "glib.Timeout" {
     std.testing.refAllDecls(Timeout);
 }

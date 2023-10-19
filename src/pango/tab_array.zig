@@ -56,6 +56,6 @@ pub const TabArray = extern struct {
 
 };
 
-test {
+test "pango.TabArray" {
     std.testing.refAllDecls(TabArray);
 }

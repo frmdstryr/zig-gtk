@@ -16,6 +16,6 @@ pub const AttrColor = extern struct {
     // Methods
 };
 
-test {
+test "pango.AttrColor" {
     std.testing.refAllDecls(AttrColor);
 }

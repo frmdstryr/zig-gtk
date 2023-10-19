@@ -24,6 +24,6 @@ pub const LayoutManagerClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.LayoutManagerClass" {
     std.testing.refAllDecls(LayoutManagerClass);
 }

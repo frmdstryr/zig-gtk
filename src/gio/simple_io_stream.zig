@@ -149,6 +149,6 @@ pub const SimpleIOStream = extern struct {
     }
 };
 
-test {
+test "gio.SimpleIOStream" {
     std.testing.refAllDecls(SimpleIOStream);
 }

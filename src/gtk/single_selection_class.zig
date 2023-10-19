@@ -16,6 +16,6 @@ pub const SingleSelectionClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.SingleSelectionClass" {
     std.testing.refAllDecls(SingleSelectionClass);
 }

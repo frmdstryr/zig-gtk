@@ -21,6 +21,6 @@ pub const CellAreaContextClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.CellAreaContextClass" {
     std.testing.refAllDecls(CellAreaContextClass);
 }

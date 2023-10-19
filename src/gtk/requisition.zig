@@ -25,6 +25,6 @@ pub const Requisition = extern struct {
 
 };
 
-test {
+test "gtk.Requisition" {
     std.testing.refAllDecls(Requisition);
 }

@@ -213,6 +213,6 @@ pub const FilterOutputStream = extern struct {
     }
 };
 
-test {
+test "gio.FilterOutputStream" {
     std.testing.refAllDecls(FilterOutputStream);
 }

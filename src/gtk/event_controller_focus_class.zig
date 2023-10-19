@@ -14,6 +14,6 @@ pub const EventControllerFocusClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.EventControllerFocusClass" {
     std.testing.refAllDecls(EventControllerFocusClass);
 }

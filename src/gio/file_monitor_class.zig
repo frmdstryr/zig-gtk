@@ -23,6 +23,6 @@ pub const FileMonitorClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.FileMonitorClass" {
     std.testing.refAllDecls(FileMonitorClass);
 }

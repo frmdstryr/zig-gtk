@@ -144,6 +144,6 @@ pub const Monitor = extern struct {
     }
 };
 
-test {
+test "gdk.Monitor" {
     std.testing.refAllDecls(Monitor);
 }

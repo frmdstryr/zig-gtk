@@ -19,6 +19,6 @@ pub const ComboBoxClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ComboBoxClass" {
     std.testing.refAllDecls(ComboBoxClass);
 }

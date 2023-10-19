@@ -88,6 +88,6 @@ pub const CrossingEvent = extern struct {
     }
 };
 
-test {
+test "gdk.CrossingEvent" {
     std.testing.refAllDecls(CrossingEvent);
 }

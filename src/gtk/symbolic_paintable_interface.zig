@@ -18,6 +18,6 @@ pub const SymbolicPaintableInterface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.SymbolicPaintableInterface" {
     std.testing.refAllDecls(SymbolicPaintableInterface);
 }

@@ -17,6 +17,6 @@ pub const MenuLinkIterClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.MenuLinkIterClass" {
     std.testing.refAllDecls(MenuLinkIterClass);
 }

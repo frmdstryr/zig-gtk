@@ -16,6 +16,6 @@ pub const NetworkServiceClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.NetworkServiceClass" {
     std.testing.refAllDecls(NetworkServiceClass);
 }

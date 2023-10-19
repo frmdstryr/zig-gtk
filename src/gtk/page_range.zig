@@ -16,6 +16,6 @@ pub const PageRange = extern struct {
     // Methods
 };
 
-test {
+test "gtk.PageRange" {
     std.testing.refAllDecls(PageRange);
 }

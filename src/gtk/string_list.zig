@@ -139,6 +139,6 @@ pub const StringList = extern struct {
     }
 };
 
-test {
+test "gtk.StringList" {
     std.testing.refAllDecls(StringList);
 }

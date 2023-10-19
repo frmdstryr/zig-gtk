@@ -166,6 +166,6 @@ pub const CenterLayout = extern struct {
     }
 };
 
-test {
+test "gtk.CenterLayout" {
     std.testing.refAllDecls(CenterLayout);
 }

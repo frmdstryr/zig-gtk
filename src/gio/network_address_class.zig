@@ -16,6 +16,6 @@ pub const NetworkAddressClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.NetworkAddressClass" {
     std.testing.refAllDecls(NetworkAddressClass);
 }

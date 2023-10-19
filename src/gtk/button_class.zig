@@ -18,6 +18,6 @@ pub const ButtonClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ButtonClass" {
     std.testing.refAllDecls(ButtonClass);
 }

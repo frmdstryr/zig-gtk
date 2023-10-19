@@ -20,6 +20,6 @@ pub const PixbufLoaderClass = extern struct {
     // Methods
 };
 
-test {
+test "gdkpixbuf.PixbufLoaderClass" {
     std.testing.refAllDecls(PixbufLoaderClass);
 }

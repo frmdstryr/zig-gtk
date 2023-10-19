@@ -37,6 +37,6 @@ pub const Size = extern struct {
 
 };
 
-test {
+test "graphene.Size" {
     std.testing.refAllDecls(Size);
 }

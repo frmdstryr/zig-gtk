@@ -23,6 +23,6 @@ pub const PermissionClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.PermissionClass" {
     std.testing.refAllDecls(PermissionClass);
 }

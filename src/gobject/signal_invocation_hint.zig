@@ -17,6 +17,6 @@ pub const SignalInvocationHint = extern struct {
     // Methods
 };
 
-test {
+test "gobject.SignalInvocationHint" {
     std.testing.refAllDecls(SignalInvocationHint);
 }

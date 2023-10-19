@@ -48,6 +48,6 @@ pub const Closure = extern struct {
 
 };
 
-test {
+test "gobject.Closure" {
     std.testing.refAllDecls(Closure);
 }

@@ -17,6 +17,6 @@ pub const ScaleButtonClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ScaleButtonClass" {
     std.testing.refAllDecls(ScaleButtonClass);
 }

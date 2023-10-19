@@ -14,6 +14,6 @@ pub const CssProviderPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gtk.CssProviderPrivate" {
     std.testing.refAllDecls(CssProviderPrivate);
 }

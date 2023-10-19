@@ -628,6 +628,6 @@ pub const Frame = extern struct {
     }
 };
 
-test {
+test "gtk.Frame" {
     std.testing.refAllDecls(Frame);
 }

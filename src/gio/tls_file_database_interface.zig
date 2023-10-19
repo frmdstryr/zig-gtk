@@ -17,6 +17,6 @@ pub const TlsFileDatabaseInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.TlsFileDatabaseInterface" {
     std.testing.refAllDecls(TlsFileDatabaseInterface);
 }

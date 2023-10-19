@@ -15,6 +15,6 @@ pub const CenterLayoutClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.CenterLayoutClass" {
     std.testing.refAllDecls(CenterLayoutClass);
 }

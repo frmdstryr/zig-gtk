@@ -19,6 +19,6 @@ pub const RemoteActionGroupInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.RemoteActionGroupInterface" {
     std.testing.refAllDecls(RemoteActionGroupInterface);
 }

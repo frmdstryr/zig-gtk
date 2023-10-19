@@ -161,6 +161,6 @@ pub const Resolver = extern struct {
     }
 };
 
-test {
+test "gio.Resolver" {
     std.testing.refAllDecls(Resolver);
 }

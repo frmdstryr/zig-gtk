@@ -14,6 +14,6 @@ pub const TreeRowData = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TreeRowData" {
     std.testing.refAllDecls(TreeRowData);
 }

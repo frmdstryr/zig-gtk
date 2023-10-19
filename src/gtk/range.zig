@@ -673,6 +673,6 @@ pub const Range = extern struct {
     }
 };
 
-test {
+test "gtk.Range" {
     std.testing.refAllDecls(Range);
 }

@@ -15,6 +15,6 @@ pub const ProxyAddressClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.ProxyAddressClass" {
     std.testing.refAllDecls(ProxyAddressClass);
 }

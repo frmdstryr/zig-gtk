@@ -16,6 +16,6 @@ pub const BookmarkListClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.BookmarkListClass" {
     std.testing.refAllDecls(BookmarkListClass);
 }

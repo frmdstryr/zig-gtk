@@ -16,6 +16,6 @@ pub const ClosureNotifyData = extern struct {
     // Methods
 };
 
-test {
+test "gobject.ClosureNotifyData" {
     std.testing.refAllDecls(ClosureNotifyData);
 }

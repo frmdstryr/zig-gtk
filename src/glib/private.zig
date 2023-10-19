@@ -26,6 +26,6 @@ pub const Private = extern struct {
 
 };
 
-test {
+test "glib.Private" {
     std.testing.refAllDecls(Private);
 }

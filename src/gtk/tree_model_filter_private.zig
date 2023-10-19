@@ -14,6 +14,6 @@ pub const TreeModelFilterPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TreeModelFilterPrivate" {
     std.testing.refAllDecls(TreeModelFilterPrivate);
 }

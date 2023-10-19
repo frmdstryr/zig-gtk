@@ -17,6 +17,6 @@ pub const ScaleClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ScaleClass" {
     std.testing.refAllDecls(ScaleClass);
 }

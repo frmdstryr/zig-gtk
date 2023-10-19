@@ -166,6 +166,6 @@ pub const FileChooserNative = extern struct {
     }
 };
 
-test {
+test "gtk.FileChooserNative" {
     std.testing.refAllDecls(FileChooserNative);
 }

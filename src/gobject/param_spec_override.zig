@@ -62,6 +62,6 @@ pub const ParamSpecOverride = extern struct {
     }
 };
 
-test {
+test "gobject.ParamSpecOverride" {
     std.testing.refAllDecls(ParamSpecOverride);
 }

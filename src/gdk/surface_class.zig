@@ -14,6 +14,6 @@ pub const SurfaceClass = extern struct {
     // Methods
 };
 
-test {
+test "gdk.SurfaceClass" {
     std.testing.refAllDecls(SurfaceClass);
 }

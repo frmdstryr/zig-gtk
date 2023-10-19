@@ -622,6 +622,6 @@ pub const Switch = extern struct {
     }
 };
 
-test {
+test "gtk.Switch" {
     std.testing.refAllDecls(Switch);
 }

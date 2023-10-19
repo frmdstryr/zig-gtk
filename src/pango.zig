@@ -57,6 +57,6 @@ pub const RendererPrivate = @import("pango/renderer_private.zig").RendererPrivat
 pub const ScriptIter = @import("pango/script_iter.zig").ScriptIter;
 pub const TabArray = @import("pango/tab_array.zig").TabArray;
 
-test {
+test "pango" {
     std.testing.refAllDecls(@This());
 }

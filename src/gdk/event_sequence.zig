@@ -14,6 +14,6 @@ pub const EventSequence = extern struct {
     // Methods
 };
 
-test {
+test "gdk.EventSequence" {
     std.testing.refAllDecls(EventSequence);
 }

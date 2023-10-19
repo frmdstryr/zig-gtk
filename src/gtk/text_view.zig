@@ -826,6 +826,6 @@ pub const TextView = extern struct {
     }
 };
 
-test {
+test "gtk.TextView" {
     std.testing.refAllDecls(TextView);
 }

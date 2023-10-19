@@ -15,6 +15,6 @@ pub const VideoClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.VideoClass" {
     std.testing.refAllDecls(VideoClass);
 }

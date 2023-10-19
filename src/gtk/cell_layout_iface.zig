@@ -26,6 +26,6 @@ pub const CellLayoutIface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.CellLayoutIface" {
     std.testing.refAllDecls(CellLayoutIface);
 }

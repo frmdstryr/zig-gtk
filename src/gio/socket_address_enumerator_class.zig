@@ -19,6 +19,6 @@ pub const SocketAddressEnumeratorClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.SocketAddressEnumeratorClass" {
     std.testing.refAllDecls(SocketAddressEnumeratorClass);
 }

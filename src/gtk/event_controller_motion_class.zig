@@ -14,6 +14,6 @@ pub const EventControllerMotionClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.EventControllerMotionClass" {
     std.testing.refAllDecls(EventControllerMotionClass);
 }

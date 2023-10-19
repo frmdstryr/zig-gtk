@@ -14,6 +14,6 @@ pub const TreeStorePrivate = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TreeStorePrivate" {
     std.testing.refAllDecls(TreeStorePrivate);
 }

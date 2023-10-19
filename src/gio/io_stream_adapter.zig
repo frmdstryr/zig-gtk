@@ -14,6 +14,6 @@ pub const IOStreamAdapter = extern struct {
     // Methods
 };
 
-test {
+test "gio.IOStreamAdapter" {
     std.testing.refAllDecls(IOStreamAdapter);
 }

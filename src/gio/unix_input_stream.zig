@@ -194,6 +194,6 @@ pub const UnixInputStream = extern struct {
     }
 };
 
-test {
+test "gio.UnixInputStream" {
     std.testing.refAllDecls(UnixInputStream);
 }

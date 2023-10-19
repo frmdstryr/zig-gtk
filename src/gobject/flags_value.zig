@@ -17,6 +17,6 @@ pub const FlagsValue = extern struct {
     // Methods
 };
 
-test {
+test "gobject.FlagsValue" {
     std.testing.refAllDecls(FlagsValue);
 }

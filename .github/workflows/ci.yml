@@ -12,7 +12,7 @@ jobs:
             zig version
             git submodule update --init --recursive
       - name: Test
-        run: zig build test
+        run: zig build test --summary all
       - name: Test example
         run: |
             cd example

@@ -41,6 +41,6 @@ pub const Popup = extern struct {
     }
 };
 
-test {
+test "gdk.Popup" {
     std.testing.refAllDecls(Popup);
 }

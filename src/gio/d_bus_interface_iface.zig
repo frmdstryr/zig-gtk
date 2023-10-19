@@ -20,6 +20,6 @@ pub const DBusInterfaceIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.DBusInterfaceIface" {
     std.testing.refAllDecls(DBusInterfaceIface);
 }

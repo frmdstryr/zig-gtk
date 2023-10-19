@@ -23,6 +23,6 @@ pub const Dir = extern struct {
 
 };
 
-test {
+test "glib.Dir" {
     std.testing.refAllDecls(Dir);
 }

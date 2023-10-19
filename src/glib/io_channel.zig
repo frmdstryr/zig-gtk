@@ -133,6 +133,6 @@ pub const IOChannel = extern struct {
 
 };
 
-test {
+test "glib.IOChannel" {
     std.testing.refAllDecls(IOChannel);
 }

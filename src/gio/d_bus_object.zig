@@ -30,6 +30,6 @@ pub const DBusObject = extern struct {
     }
 };
 
-test {
+test "gio.DBusObject" {
     std.testing.refAllDecls(DBusObject);
 }

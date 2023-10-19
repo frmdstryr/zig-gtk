@@ -88,6 +88,6 @@ pub const ScrollEvent = extern struct {
     }
 };
 
-test {
+test "gdk.ScrollEvent" {
     std.testing.refAllDecls(ScrollEvent);
 }

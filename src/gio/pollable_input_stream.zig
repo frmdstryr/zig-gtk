@@ -33,6 +33,6 @@ pub const PollableInputStream = extern struct {
     }
 };
 
-test {
+test "gio.PollableInputStream" {
     std.testing.refAllDecls(PollableInputStream);
 }

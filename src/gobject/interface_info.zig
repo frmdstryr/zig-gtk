@@ -17,6 +17,6 @@ pub const InterfaceInfo = extern struct {
     // Methods
 };
 
-test {
+test "gobject.InterfaceInfo" {
     std.testing.refAllDecls(InterfaceInfo);
 }

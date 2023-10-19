@@ -16,6 +16,6 @@ pub const PowerProfileMonitorInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.PowerProfileMonitorInterface" {
     std.testing.refAllDecls(PowerProfileMonitorInterface);
 }

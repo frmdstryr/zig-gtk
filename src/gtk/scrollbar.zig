@@ -616,6 +616,6 @@ pub const Scrollbar = extern struct {
     }
 };
 
-test {
+test "gtk.Scrollbar" {
     std.testing.refAllDecls(Scrollbar);
 }

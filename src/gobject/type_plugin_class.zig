@@ -19,6 +19,6 @@ pub const TypePluginClass = extern struct {
     // Methods
 };
 
-test {
+test "gobject.TypePluginClass" {
     std.testing.refAllDecls(TypePluginClass);
 }

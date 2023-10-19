@@ -21,6 +21,6 @@ pub const PixbufAnimationClass = extern struct {
     // Methods
 };
 
-test {
+test "gdkpixbuf.PixbufAnimationClass" {
     std.testing.refAllDecls(PixbufAnimationClass);
 }

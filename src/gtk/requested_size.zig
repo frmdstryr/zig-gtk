@@ -17,6 +17,6 @@ pub const RequestedSize = extern struct {
     // Methods
 };
 
-test {
+test "gtk.RequestedSize" {
     std.testing.refAllDecls(RequestedSize);
 }

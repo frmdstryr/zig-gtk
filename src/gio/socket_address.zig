@@ -130,6 +130,6 @@ pub const SocketAddress = extern struct {
     }
 };
 
-test {
+test "gio.SocketAddress" {
     std.testing.refAllDecls(SocketAddress);
 }

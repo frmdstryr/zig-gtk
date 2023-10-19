@@ -160,6 +160,6 @@ pub const EventControllerFocus = extern struct {
     }
 };
 
-test {
+test "gtk.EventControllerFocus" {
     std.testing.refAllDecls(EventControllerFocus);
 }

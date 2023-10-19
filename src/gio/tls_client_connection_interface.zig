@@ -17,6 +17,6 @@ pub const TlsClientConnectionInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.TlsClientConnectionInterface" {
     std.testing.refAllDecls(TlsClientConnectionInterface);
 }

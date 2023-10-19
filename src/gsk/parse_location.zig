@@ -19,6 +19,6 @@ pub const ParseLocation = extern struct {
     // Methods
 };
 
-test {
+test "gsk.ParseLocation" {
     std.testing.refAllDecls(ParseLocation);
 }

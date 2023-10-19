@@ -16,6 +16,6 @@ pub const BoxClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.BoxClass" {
     std.testing.refAllDecls(BoxClass);
 }

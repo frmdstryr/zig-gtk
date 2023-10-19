@@ -16,6 +16,6 @@ pub const ShortcutClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ShortcutClass" {
     std.testing.refAllDecls(ShortcutClass);
 }

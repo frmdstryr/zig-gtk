@@ -22,6 +22,6 @@ pub const AdjustmentClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.AdjustmentClass" {
     std.testing.refAllDecls(AdjustmentClass);
 }

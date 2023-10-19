@@ -20,6 +20,6 @@ pub const AttrShape = extern struct {
     // Methods
 };
 
-test {
+test "pango.AttrShape" {
     std.testing.refAllDecls(AttrShape);
 }

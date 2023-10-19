@@ -21,6 +21,6 @@ pub const RangeClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.RangeClass" {
     std.testing.refAllDecls(RangeClass);
 }

@@ -24,6 +24,6 @@ pub const UriParamsIter = extern struct {
 
 };
 
-test {
+test "glib.UriParamsIter" {
     std.testing.refAllDecls(UriParamsIter);
 }

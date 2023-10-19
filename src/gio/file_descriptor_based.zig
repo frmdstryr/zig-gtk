@@ -23,6 +23,6 @@ pub const FileDescriptorBased = extern struct {
     }
 };
 
-test {
+test "gio.FileDescriptorBased" {
     std.testing.refAllDecls(FileDescriptorBased);
 }

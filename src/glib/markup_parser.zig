@@ -19,6 +19,6 @@ pub const MarkupParser = extern struct {
     // Methods
 };
 
-test {
+test "glib.MarkupParser" {
     std.testing.refAllDecls(MarkupParser);
 }

@@ -23,6 +23,6 @@ pub const DragSurface = extern struct {
     }
 };
 
-test {
+test "gdk.DragSurface" {
     std.testing.refAllDecls(DragSurface);
 }

@@ -39,6 +39,6 @@ pub const Quad = extern struct {
 
 };
 
-test {
+test "graphene.Quad" {
     std.testing.refAllDecls(Quad);
 }

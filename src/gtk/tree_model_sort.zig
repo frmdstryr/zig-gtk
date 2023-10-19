@@ -152,6 +152,6 @@ pub const TreeModelSort = extern struct {
     }
 };
 
-test {
+test "gtk.TreeModelSort" {
     std.testing.refAllDecls(TreeModelSort);
 }

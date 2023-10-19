@@ -620,6 +620,6 @@ pub const DrawingArea = extern struct {
     }
 };
 
-test {
+test "gtk.DrawingArea" {
     std.testing.refAllDecls(DrawingArea);
 }

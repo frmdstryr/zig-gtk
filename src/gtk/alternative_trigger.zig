@@ -151,6 +151,6 @@ pub const AlternativeTrigger = extern struct {
     }
 };
 
-test {
+test "gtk.AlternativeTrigger" {
     std.testing.refAllDecls(AlternativeTrigger);
 }

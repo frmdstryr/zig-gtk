@@ -118,6 +118,6 @@ pub const LayoutChild = extern struct {
     }
 };
 
-test {
+test "gtk.LayoutChild" {
     std.testing.refAllDecls(LayoutChild);
 }

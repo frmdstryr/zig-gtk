@@ -90,6 +90,6 @@ pub const Quaternion = extern struct {
 
 };
 
-test {
+test "graphene.Quaternion" {
     std.testing.refAllDecls(Quaternion);
 }

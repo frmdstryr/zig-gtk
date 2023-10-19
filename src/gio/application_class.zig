@@ -33,6 +33,6 @@ pub const ApplicationClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.ApplicationClass" {
     std.testing.refAllDecls(ApplicationClass);
 }

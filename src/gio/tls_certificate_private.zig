@@ -14,6 +14,6 @@ pub const TlsCertificatePrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.TlsCertificatePrivate" {
     std.testing.refAllDecls(TlsCertificatePrivate);
 }

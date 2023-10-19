@@ -36,6 +36,6 @@ pub const Actionable = extern struct {
     }
 };
 
-test {
+test "gtk.Actionable" {
     std.testing.refAllDecls(Actionable);
 }

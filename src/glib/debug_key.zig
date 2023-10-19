@@ -16,6 +16,6 @@ pub const DebugKey = extern struct {
     // Methods
 };
 
-test {
+test "glib.DebugKey" {
     std.testing.refAllDecls(DebugKey);
 }

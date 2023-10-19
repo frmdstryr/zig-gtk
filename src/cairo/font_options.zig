@@ -14,6 +14,6 @@ pub const FontOptions = extern struct {
     // Methods
 };
 
-test {
+test "cairo.FontOptions" {
     std.testing.refAllDecls(FontOptions);
 }

@@ -23,6 +23,6 @@ pub const PowerProfileMonitor = extern struct {
     }
 };
 
-test {
+test "gio.PowerProfileMonitor" {
     std.testing.refAllDecls(PowerProfileMonitor);
 }

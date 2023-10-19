@@ -14,6 +14,6 @@ pub const AccessibleInterface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.AccessibleInterface" {
     std.testing.refAllDecls(AccessibleInterface);
 }

@@ -15,6 +15,6 @@ pub const GridLayoutChildClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.GridLayoutChildClass" {
     std.testing.refAllDecls(GridLayoutChildClass);
 }

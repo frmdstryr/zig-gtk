@@ -62,6 +62,6 @@ pub const ParamSpecExpression = extern struct {
     }
 };
 
-test {
+test "gtk.ParamSpecExpression" {
     std.testing.refAllDecls(ParamSpecExpression);
 }

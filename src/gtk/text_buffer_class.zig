@@ -36,6 +36,6 @@ pub const TextBufferClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TextBufferClass" {
     std.testing.refAllDecls(TextBufferClass);
 }

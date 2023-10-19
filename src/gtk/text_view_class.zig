@@ -29,6 +29,6 @@ pub const TextViewClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TextViewClass" {
     std.testing.refAllDecls(TextViewClass);
 }

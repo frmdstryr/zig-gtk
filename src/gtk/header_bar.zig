@@ -631,6 +631,6 @@ pub const HeaderBar = extern struct {
     }
 };
 
-test {
+test "gtk.HeaderBar" {
     std.testing.refAllDecls(HeaderBar);
 }

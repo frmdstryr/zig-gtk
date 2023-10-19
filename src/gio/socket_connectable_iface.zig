@@ -19,6 +19,6 @@ pub const SocketConnectableIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.SocketConnectableIface" {
     std.testing.refAllDecls(SocketConnectableIface);
 }

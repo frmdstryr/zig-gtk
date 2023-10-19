@@ -146,6 +146,6 @@ pub const ApplicationCommandLine = extern struct {
     }
 };
 
-test {
+test "gio.ApplicationCommandLine" {
     std.testing.refAllDecls(ApplicationCommandLine);
 }

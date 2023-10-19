@@ -652,6 +652,6 @@ pub const DropDown = extern struct {
     }
 };
 
-test {
+test "gtk.DropDown" {
     std.testing.refAllDecls(DropDown);
 }

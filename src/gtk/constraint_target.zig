@@ -20,6 +20,6 @@ pub const ConstraintTarget = extern struct {
     }
 };
 
-test {
+test "gtk.ConstraintTarget" {
     std.testing.refAllDecls(ConstraintTarget);
 }

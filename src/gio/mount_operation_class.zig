@@ -31,6 +31,6 @@ pub const MountOperationClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.MountOperationClass" {
     std.testing.refAllDecls(MountOperationClass);
 }

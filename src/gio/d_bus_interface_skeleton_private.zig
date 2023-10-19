@@ -14,6 +14,6 @@ pub const DBusInterfaceSkeletonPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.DBusInterfaceSkeletonPrivate" {
     std.testing.refAllDecls(DBusInterfaceSkeletonPrivate);
 }

@@ -29,6 +29,6 @@ pub const StringChunk = extern struct {
 
 };
 
-test {
+test "glib.StringChunk" {
     std.testing.refAllDecls(StringChunk);
 }

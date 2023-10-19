@@ -130,6 +130,6 @@ pub const LayoutManager = extern struct {
     }
 };
 
-test {
+test "gtk.LayoutManager" {
     std.testing.refAllDecls(LayoutManager);
 }

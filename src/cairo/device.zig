@@ -14,6 +14,6 @@ pub const Device = extern struct {
     // Methods
 };
 
-test {
+test "cairo.Device" {
     std.testing.refAllDecls(Device);
 }

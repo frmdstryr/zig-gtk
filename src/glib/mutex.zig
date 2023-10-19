@@ -31,6 +31,6 @@ pub const Mutex = extern struct {
 
 };
 
-test {
+test "glib.Mutex" {
     std.testing.refAllDecls(Mutex);
 }

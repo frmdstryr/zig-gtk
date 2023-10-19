@@ -111,6 +111,6 @@ pub const ListItemFactory = extern struct {
     }
 };
 
-test {
+test "gtk.ListItemFactory" {
     std.testing.refAllDecls(ListItemFactory);
 }

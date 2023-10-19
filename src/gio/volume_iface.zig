@@ -37,6 +37,6 @@ pub const VolumeIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.VolumeIface" {
     std.testing.refAllDecls(VolumeIface);
 }

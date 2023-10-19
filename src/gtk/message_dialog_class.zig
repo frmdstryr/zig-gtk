@@ -14,6 +14,6 @@ pub const MessageDialogClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.MessageDialogClass" {
     std.testing.refAllDecls(MessageDialogClass);
 }

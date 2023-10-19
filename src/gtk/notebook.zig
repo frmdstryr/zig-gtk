@@ -736,6 +736,6 @@ pub const Notebook = extern struct {
     }
 };
 
-test {
+test "gtk.Notebook" {
     std.testing.refAllDecls(Notebook);
 }

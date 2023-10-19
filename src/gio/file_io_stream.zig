@@ -164,6 +164,6 @@ pub const FileIOStream = extern struct {
     }
 };
 
-test {
+test "gio.FileIOStream" {
     std.testing.refAllDecls(FileIOStream);
 }

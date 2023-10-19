@@ -241,6 +241,6 @@ pub const GestureLongPress = extern struct {
     }
 };
 
-test {
+test "gtk.GestureLongPress" {
     std.testing.refAllDecls(GestureLongPress);
 }

@@ -211,6 +211,6 @@ pub const GestureRotate = extern struct {
     }
 };
 
-test {
+test "gtk.GestureRotate" {
     std.testing.refAllDecls(GestureRotate);
 }

@@ -15,6 +15,6 @@ pub const FixedLayoutChildClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.FixedLayoutChildClass" {
     std.testing.refAllDecls(FixedLayoutChildClass);
 }

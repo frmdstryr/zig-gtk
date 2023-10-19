@@ -77,6 +77,6 @@ pub const Queue = extern struct {
 
 };
 
-test {
+test "glib.Queue" {
     std.testing.refAllDecls(Queue);
 }

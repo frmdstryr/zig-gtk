@@ -30,6 +30,6 @@ pub const AppChooser = extern struct {
     }
 };
 
-test {
+test "gtk.AppChooser" {
     std.testing.refAllDecls(AppChooser);
 }

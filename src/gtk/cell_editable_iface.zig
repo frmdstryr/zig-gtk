@@ -20,6 +20,6 @@ pub const CellEditableIface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.CellEditableIface" {
     std.testing.refAllDecls(CellEditableIface);
 }

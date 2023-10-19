@@ -160,6 +160,6 @@ pub const EventControllerMotion = extern struct {
     }
 };
 
-test {
+test "gtk.EventControllerMotion" {
     std.testing.refAllDecls(EventControllerMotion);
 }

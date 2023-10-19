@@ -170,6 +170,6 @@ pub const IMMulticontext = extern struct {
     }
 };
 
-test {
+test "gtk.IMMulticontext" {
     std.testing.refAllDecls(IMMulticontext);
 }

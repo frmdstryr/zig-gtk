@@ -18,6 +18,6 @@ pub const AttrClass = extern struct {
     // Methods
 };
 
-test {
+test "pango.AttrClass" {
     std.testing.refAllDecls(AttrClass);
 }

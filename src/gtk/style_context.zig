@@ -170,6 +170,6 @@ pub const StyleContext = extern struct {
     }
 };
 
-test {
+test "gtk.StyleContext" {
     std.testing.refAllDecls(StyleContext);
 }

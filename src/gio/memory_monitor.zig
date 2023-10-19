@@ -20,6 +20,6 @@ pub const MemoryMonitor = extern struct {
     }
 };
 
-test {
+test "gio.MemoryMonitor" {
     std.testing.refAllDecls(MemoryMonitor);
 }

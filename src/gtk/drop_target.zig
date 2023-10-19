@@ -187,6 +187,6 @@ pub const DropTarget = extern struct {
     }
 };
 
-test {
+test "gtk.DropTarget" {
     std.testing.refAllDecls(DropTarget);
 }

@@ -126,6 +126,6 @@ pub const ActivateAction = extern struct {
     }
 };
 
-test {
+test "gtk.ActivateAction" {
     std.testing.refAllDecls(ActivateAction);
 }

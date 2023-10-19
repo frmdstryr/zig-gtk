@@ -33,6 +33,6 @@ pub const VfsClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.VfsClass" {
     std.testing.refAllDecls(VfsClass);
 }

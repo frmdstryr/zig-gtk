@@ -14,6 +14,6 @@ pub const ThemedIconClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.ThemedIconClass" {
     std.testing.refAllDecls(ThemedIconClass);
 }

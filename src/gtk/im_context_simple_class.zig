@@ -15,6 +15,6 @@ pub const IMContextSimpleClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.IMContextSimpleClass" {
     std.testing.refAllDecls(IMContextSimpleClass);
 }

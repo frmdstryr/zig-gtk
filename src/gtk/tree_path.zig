@@ -68,6 +68,6 @@ pub const TreePath = extern struct {
 
 };
 
-test {
+test "gtk.TreePath" {
     std.testing.refAllDecls(TreePath);
 }

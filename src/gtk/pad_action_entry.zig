@@ -19,6 +19,6 @@ pub const PadActionEntry = extern struct {
     // Methods
 };
 
-test {
+test "gtk.PadActionEntry" {
     std.testing.refAllDecls(PadActionEntry);
 }

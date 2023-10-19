@@ -121,6 +121,6 @@ pub const Filter = extern struct {
     }
 };
 
-test {
+test "gtk.Filter" {
     std.testing.refAllDecls(Filter);
 }

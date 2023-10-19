@@ -14,6 +14,6 @@ pub const EmblemClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.EmblemClass" {
     std.testing.refAllDecls(EmblemClass);
 }

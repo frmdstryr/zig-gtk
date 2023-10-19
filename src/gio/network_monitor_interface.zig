@@ -20,6 +20,6 @@ pub const NetworkMonitorInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.NetworkMonitorInterface" {
     std.testing.refAllDecls(NetworkMonitorInterface);
 }

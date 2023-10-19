@@ -38,6 +38,6 @@ pub const FrameTimings = extern struct {
 
 };
 
-test {
+test "gdk.FrameTimings" {
     std.testing.refAllDecls(FrameTimings);
 }

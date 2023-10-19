@@ -16,6 +16,6 @@ pub const FlattenListModelClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.FlattenListModelClass" {
     std.testing.refAllDecls(FlattenListModelClass);
 }

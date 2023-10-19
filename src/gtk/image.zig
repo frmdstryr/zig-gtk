@@ -668,6 +668,6 @@ pub const Image = extern struct {
     }
 };
 
-test {
+test "gtk.Image" {
     std.testing.refAllDecls(Image);
 }

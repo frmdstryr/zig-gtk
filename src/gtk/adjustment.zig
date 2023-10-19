@@ -163,6 +163,6 @@ pub const Adjustment = extern struct {
     }
 };
 
-test {
+test "gtk.Adjustment" {
     std.testing.refAllDecls(Adjustment);
 }

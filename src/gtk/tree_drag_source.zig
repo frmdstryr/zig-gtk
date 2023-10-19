@@ -30,6 +30,6 @@ pub const TreeDragSource = extern struct {
     }
 };
 
-test {
+test "gtk.TreeDragSource" {
     std.testing.refAllDecls(TreeDragSource);
 }

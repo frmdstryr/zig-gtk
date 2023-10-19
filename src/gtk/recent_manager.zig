@@ -140,6 +140,6 @@ pub const RecentManager = extern struct {
     }
 };
 
-test {
+test "gtk.RecentManager" {
     std.testing.refAllDecls(RecentManager);
 }

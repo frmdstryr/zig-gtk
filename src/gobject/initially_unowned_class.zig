@@ -26,6 +26,6 @@ pub const InitiallyUnownedClass = extern struct {
     // Methods
 };
 
-test {
+test "gobject.InitiallyUnownedClass" {
     std.testing.refAllDecls(InitiallyUnownedClass);
 }

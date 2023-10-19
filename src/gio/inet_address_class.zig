@@ -18,6 +18,6 @@ pub const InetAddressClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.InetAddressClass" {
     std.testing.refAllDecls(InetAddressClass);
 }

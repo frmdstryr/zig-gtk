@@ -25,6 +25,6 @@ pub const ActionInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.ActionInterface" {
     std.testing.refAllDecls(ActionInterface);
 }

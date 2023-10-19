@@ -17,6 +17,6 @@ pub const EntryClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.EntryClass" {
     std.testing.refAllDecls(EntryClass);
 }

@@ -148,6 +148,6 @@ pub const Drop = extern struct {
     }
 };
 
-test {
+test "gdk.Drop" {
     std.testing.refAllDecls(Drop);
 }

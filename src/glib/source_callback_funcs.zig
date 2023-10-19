@@ -17,6 +17,6 @@ pub const SourceCallbackFuncs = extern struct {
     // Methods
 };
 
-test {
+test "glib.SourceCallbackFuncs" {
     std.testing.refAllDecls(SourceCallbackFuncs);
 }

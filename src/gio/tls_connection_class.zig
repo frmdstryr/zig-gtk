@@ -23,6 +23,6 @@ pub const TlsConnectionClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.TlsConnectionClass" {
     std.testing.refAllDecls(TlsConnectionClass);
 }

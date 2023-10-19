@@ -17,6 +17,6 @@ pub const BufferedOutputStreamClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.BufferedOutputStreamClass" {
     std.testing.refAllDecls(BufferedOutputStreamClass);
 }

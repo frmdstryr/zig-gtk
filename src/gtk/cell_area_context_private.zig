@@ -14,6 +14,6 @@ pub const CellAreaContextPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gtk.CellAreaContextPrivate" {
     std.testing.refAllDecls(CellAreaContextPrivate);
 }

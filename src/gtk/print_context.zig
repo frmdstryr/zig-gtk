@@ -146,6 +146,6 @@ pub const PrintContext = extern struct {
     }
 };
 
-test {
+test "gtk.PrintContext" {
     std.testing.refAllDecls(PrintContext);
 }

@@ -31,6 +31,6 @@ pub const TreeViewClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TreeViewClass" {
     std.testing.refAllDecls(TreeViewClass);
 }

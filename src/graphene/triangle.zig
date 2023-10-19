@@ -65,6 +65,6 @@ pub const Triangle = extern struct {
 
 };
 
-test {
+test "graphene.Triangle" {
     std.testing.refAllDecls(Triangle);
 }

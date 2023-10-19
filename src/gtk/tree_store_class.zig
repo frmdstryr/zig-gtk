@@ -17,6 +17,6 @@ pub const TreeStoreClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TreeStoreClass" {
     std.testing.refAllDecls(TreeStoreClass);
 }

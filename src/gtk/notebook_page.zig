@@ -114,6 +114,6 @@ pub const NotebookPage = extern struct {
     }
 };
 
-test {
+test "gtk.NotebookPage" {
     std.testing.refAllDecls(NotebookPage);
 }

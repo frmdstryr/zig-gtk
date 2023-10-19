@@ -30,6 +30,6 @@ pub const EntryBufferClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.EntryBufferClass" {
     std.testing.refAllDecls(EntryBufferClass);
 }

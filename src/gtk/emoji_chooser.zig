@@ -677,6 +677,6 @@ pub const EmojiChooser = extern struct {
     }
 };
 
-test {
+test "gtk.EmojiChooser" {
     std.testing.refAllDecls(EmojiChooser);
 }

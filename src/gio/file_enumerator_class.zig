@@ -30,6 +30,6 @@ pub const FileEnumeratorClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.FileEnumeratorClass" {
     std.testing.refAllDecls(FileEnumeratorClass);
 }

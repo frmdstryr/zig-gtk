@@ -808,6 +808,6 @@ pub const Dialog = extern struct {
     }
 };
 
-test {
+test "gtk.Dialog" {
     std.testing.refAllDecls(Dialog);
 }

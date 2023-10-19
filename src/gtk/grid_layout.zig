@@ -172,6 +172,6 @@ pub const GridLayout = extern struct {
     }
 };
 
-test {
+test "gtk.GridLayout" {
     std.testing.refAllDecls(GridLayout);
 }

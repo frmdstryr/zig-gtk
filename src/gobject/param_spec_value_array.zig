@@ -63,6 +63,6 @@ pub const ParamSpecValueArray = extern struct {
     }
 };
 
-test {
+test "gobject.ParamSpecValueArray" {
     std.testing.refAllDecls(ParamSpecValueArray);
 }

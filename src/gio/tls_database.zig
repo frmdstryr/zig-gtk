@@ -152,6 +152,6 @@ pub const TlsDatabase = extern struct {
     }
 };
 
-test {
+test "gio.TlsDatabase" {
     std.testing.refAllDecls(TlsDatabase);
 }

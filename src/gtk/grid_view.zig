@@ -652,6 +652,6 @@ pub const GridView = extern struct {
     }
 };
 
-test {
+test "gtk.GridView" {
     std.testing.refAllDecls(GridView);
 }

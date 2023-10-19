@@ -18,6 +18,6 @@ pub const TypeInstance = extern struct {
 
 };
 
-test {
+test "gobject.TypeInstance" {
     std.testing.refAllDecls(TypeInstance);
 }

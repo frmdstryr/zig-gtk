@@ -17,6 +17,6 @@ pub const DBusObjectManagerServerClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.DBusObjectManagerServerClass" {
     std.testing.refAllDecls(DBusObjectManagerServerClass);
 }

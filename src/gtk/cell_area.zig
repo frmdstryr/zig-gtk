@@ -242,6 +242,6 @@ pub const CellArea = extern struct {
     }
 };
 
-test {
+test "gtk.CellArea" {
     std.testing.refAllDecls(CellArea);
 }

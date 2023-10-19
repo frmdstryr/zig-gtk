@@ -149,6 +149,6 @@ pub const IOModule = extern struct {
     }
 };
 
-test {
+test "gio.IOModule" {
     std.testing.refAllDecls(IOModule);
 }

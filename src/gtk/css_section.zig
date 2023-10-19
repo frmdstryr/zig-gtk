@@ -43,6 +43,6 @@ pub const CssSection = extern struct {
 
 };
 
-test {
+test "gtk.CssSection" {
     std.testing.refAllDecls(CssSection);
 }

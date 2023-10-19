@@ -631,6 +631,6 @@ pub const SearchBar = extern struct {
     }
 };
 
-test {
+test "gtk.SearchBar" {
     std.testing.refAllDecls(SearchBar);
 }

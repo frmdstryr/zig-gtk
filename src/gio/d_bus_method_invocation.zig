@@ -153,6 +153,6 @@ pub const DBusMethodInvocation = extern struct {
     }
 };
 
-test {
+test "gio.DBusMethodInvocation" {
     std.testing.refAllDecls(DBusMethodInvocation);
 }

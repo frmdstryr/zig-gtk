@@ -14,6 +14,6 @@ pub const TextViewPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TextViewPrivate" {
     std.testing.refAllDecls(TextViewPrivate);
 }

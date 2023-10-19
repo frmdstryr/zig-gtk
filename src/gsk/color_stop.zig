@@ -17,6 +17,6 @@ pub const ColorStop = extern struct {
     // Methods
 };
 
-test {
+test "gsk.ColorStop" {
     std.testing.refAllDecls(ColorStop);
 }

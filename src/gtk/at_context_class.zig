@@ -14,6 +14,6 @@ pub const ATContextClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ATContextClass" {
     std.testing.refAllDecls(ATContextClass);
 }

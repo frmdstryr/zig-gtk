@@ -22,6 +22,6 @@ pub const FontFamilyClass = extern struct {
     // Methods
 };
 
-test {
+test "pango.FontFamilyClass" {
     std.testing.refAllDecls(FontFamilyClass);
 }

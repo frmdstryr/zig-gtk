@@ -880,6 +880,6 @@ pub const AboutDialog = extern struct {
     }
 };
 
-test {
+test "gtk.AboutDialog" {
     std.testing.refAllDecls(AboutDialog);
 }

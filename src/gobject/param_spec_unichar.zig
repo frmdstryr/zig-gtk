@@ -62,6 +62,6 @@ pub const ParamSpecUnichar = extern struct {
     }
 };
 
-test {
+test "gobject.ParamSpecUnichar" {
     std.testing.refAllDecls(ParamSpecUnichar);
 }

@@ -26,6 +26,6 @@ pub const ContentProviderClass = extern struct {
     // Methods
 };
 
-test {
+test "gdk.ContentProviderClass" {
     std.testing.refAllDecls(ContentProviderClass);
 }

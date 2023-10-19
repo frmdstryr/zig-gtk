@@ -64,6 +64,6 @@ pub const ParamSpecUInt64 = extern struct {
     }
 };
 
-test {
+test "gobject.ParamSpecUInt64" {
     std.testing.refAllDecls(ParamSpecUInt64);
 }

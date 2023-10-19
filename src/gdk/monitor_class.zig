@@ -14,6 +14,6 @@ pub const MonitorClass = extern struct {
     // Methods
 };
 
-test {
+test "gdk.MonitorClass" {
     std.testing.refAllDecls(MonitorClass);
 }

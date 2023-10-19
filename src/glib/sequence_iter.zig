@@ -38,6 +38,6 @@ pub const SequenceIter = extern struct {
 
 };
 
-test {
+test "glib.SequenceIter" {
     std.testing.refAllDecls(SequenceIter);
 }

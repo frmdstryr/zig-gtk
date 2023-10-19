@@ -133,6 +133,6 @@ pub const MapListModel = extern struct {
     }
 };
 
-test {
+test "gtk.MapListModel" {
     std.testing.refAllDecls(MapListModel);
 }

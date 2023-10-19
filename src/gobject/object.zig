@@ -105,6 +105,6 @@ pub const Object = extern struct {
 
 };
 
-test {
+test "gobject.Object" {
     std.testing.refAllDecls(Object);
 }

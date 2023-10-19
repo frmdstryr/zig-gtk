@@ -247,6 +247,6 @@ pub const GestureStylus = extern struct {
     }
 };
 
-test {
+test "gtk.GestureStylus" {
     std.testing.refAllDecls(GestureStylus);
 }

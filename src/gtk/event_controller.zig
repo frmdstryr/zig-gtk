@@ -148,6 +148,6 @@ pub const EventController = extern struct {
     }
 };
 
-test {
+test "gtk.EventController" {
     std.testing.refAllDecls(EventController);
 }

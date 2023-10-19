@@ -103,6 +103,6 @@ pub const KeyEvent = extern struct {
     }
 };
 
-test {
+test "gdk.KeyEvent" {
     std.testing.refAllDecls(KeyEvent);
 }

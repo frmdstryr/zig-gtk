@@ -14,6 +14,6 @@ pub const ShortcutLabelClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ShortcutLabelClass" {
     std.testing.refAllDecls(ShortcutLabelClass);
 }

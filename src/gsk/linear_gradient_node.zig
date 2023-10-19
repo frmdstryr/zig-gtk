@@ -58,6 +58,6 @@ pub const LinearGradientNode = extern struct {
     }
 };
 
-test {
+test "gsk.LinearGradientNode" {
     std.testing.refAllDecls(LinearGradientNode);
 }

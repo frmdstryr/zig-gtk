@@ -646,6 +646,6 @@ pub const ShortcutsSection = extern struct {
     }
 };
 
-test {
+test "gtk.ShortcutsSection" {
     std.testing.refAllDecls(ShortcutsSection);
 }

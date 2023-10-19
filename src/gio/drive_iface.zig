@@ -49,6 +49,6 @@ pub const DriveIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.DriveIface" {
     std.testing.refAllDecls(DriveIface);
 }

@@ -17,6 +17,6 @@ pub const ScrollableInterface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ScrollableInterface" {
     std.testing.refAllDecls(ScrollableInterface);
 }

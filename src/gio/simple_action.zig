@@ -132,6 +132,6 @@ pub const SimpleAction = extern struct {
     }
 };
 
-test {
+test "gio.SimpleAction" {
     std.testing.refAllDecls(SimpleAction);
 }

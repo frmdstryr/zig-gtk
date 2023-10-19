@@ -16,6 +16,6 @@ pub const StringListClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.StringListClass" {
     std.testing.refAllDecls(StringListClass);
 }

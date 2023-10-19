@@ -26,6 +26,6 @@ pub const TokenValue = extern struct {
     // Methods
 };
 
-test {
+test "glib.TokenValue" {
     std.testing.refAllDecls(TokenValue);
 }

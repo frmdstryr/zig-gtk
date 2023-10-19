@@ -99,6 +99,6 @@ pub const Vec4 = extern struct {
 
 };
 
-test {
+test "graphene.Vec4" {
     std.testing.refAllDecls(Vec4);
 }

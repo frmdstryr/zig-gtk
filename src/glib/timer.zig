@@ -35,6 +35,6 @@ pub const Timer = extern struct {
 
 };
 
-test {
+test "glib.Timer" {
     std.testing.refAllDecls(Timer);
 }

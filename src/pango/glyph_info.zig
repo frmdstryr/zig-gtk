@@ -17,6 +17,6 @@ pub const GlyphInfo = extern struct {
     // Methods
 };
 
-test {
+test "pango.GlyphInfo" {
     std.testing.refAllDecls(GlyphInfo);
 }

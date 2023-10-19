@@ -17,6 +17,6 @@ pub const KeymapKey = extern struct {
     // Methods
 };
 
-test {
+test "gdk.KeymapKey" {
     std.testing.refAllDecls(KeymapKey);
 }

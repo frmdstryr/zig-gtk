@@ -120,6 +120,6 @@ pub const PropertyAction = extern struct {
     }
 };
 
-test {
+test "gio.PropertyAction" {
     std.testing.refAllDecls(PropertyAction);
 }

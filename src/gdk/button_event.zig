@@ -82,6 +82,6 @@ pub const ButtonEvent = extern struct {
     }
 };
 
-test {
+test "gdk.ButtonEvent" {
     std.testing.refAllDecls(ButtonEvent);
 }

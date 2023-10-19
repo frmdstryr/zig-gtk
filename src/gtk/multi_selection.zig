@@ -130,6 +130,6 @@ pub const MultiSelection = extern struct {
     }
 };
 
-test {
+test "gtk.MultiSelection" {
     std.testing.refAllDecls(MultiSelection);
 }

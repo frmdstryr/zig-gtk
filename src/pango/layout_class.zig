@@ -14,6 +14,6 @@ pub const LayoutClass = extern struct {
     // Methods
 };
 
-test {
+test "pango.LayoutClass" {
     std.testing.refAllDecls(LayoutClass);
 }

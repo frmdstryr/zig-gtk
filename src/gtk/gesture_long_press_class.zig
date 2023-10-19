@@ -14,6 +14,6 @@ pub const GestureLongPressClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.GestureLongPressClass" {
     std.testing.refAllDecls(GestureLongPressClass);
 }

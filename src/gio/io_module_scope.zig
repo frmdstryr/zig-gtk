@@ -20,6 +20,6 @@ pub const IOModuleScope = extern struct {
 
 };
 
-test {
+test "gio.IOModuleScope" {
     std.testing.refAllDecls(IOModuleScope);
 }

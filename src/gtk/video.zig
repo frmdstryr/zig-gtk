@@ -646,6 +646,6 @@ pub const Video = extern struct {
     }
 };
 
-test {
+test "gtk.Video" {
     std.testing.refAllDecls(Video);
 }

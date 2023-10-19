@@ -18,6 +18,6 @@ pub const RectangleInt = extern struct {
     // Methods
 };
 
-test {
+test "cairo.RectangleInt" {
     std.testing.refAllDecls(RectangleInt);
 }

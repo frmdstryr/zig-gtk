@@ -20,6 +20,6 @@ pub const BuilderScope = extern struct {
     }
 };
 
-test {
+test "gtk.BuilderScope" {
     std.testing.refAllDecls(BuilderScope);
 }

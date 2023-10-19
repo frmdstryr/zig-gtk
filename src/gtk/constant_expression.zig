@@ -47,6 +47,6 @@ pub const ConstantExpression = extern struct {
     }
 };
 
-test {
+test "gtk.ConstantExpression" {
     std.testing.refAllDecls(ConstantExpression);
 }

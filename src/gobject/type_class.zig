@@ -27,6 +27,6 @@ pub const TypeClass = extern struct {
 
 };
 
-test {
+test "gobject.TypeClass" {
     std.testing.refAllDecls(TypeClass);
 }

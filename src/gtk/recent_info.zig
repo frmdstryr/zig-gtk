@@ -88,6 +88,6 @@ pub const RecentInfo = extern struct {
 
 };
 
-test {
+test "gtk.RecentInfo" {
     std.testing.refAllDecls(RecentInfo);
 }

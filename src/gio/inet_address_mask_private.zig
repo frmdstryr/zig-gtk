@@ -14,6 +14,6 @@ pub const InetAddressMaskPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.InetAddressMaskPrivate" {
     std.testing.refAllDecls(InetAddressMaskPrivate);
 }

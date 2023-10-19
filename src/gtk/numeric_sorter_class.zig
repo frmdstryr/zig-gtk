@@ -15,6 +15,6 @@ pub const NumericSorterClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.NumericSorterClass" {
     std.testing.refAllDecls(NumericSorterClass);
 }

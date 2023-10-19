@@ -814,6 +814,6 @@ pub const FontChooserDialog = extern struct {
     }
 };
 
-test {
+test "gtk.FontChooserDialog" {
     std.testing.refAllDecls(FontChooserDialog);
 }

@@ -16,6 +16,6 @@ pub const MapListModelClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.MapListModelClass" {
     std.testing.refAllDecls(MapListModelClass);
 }

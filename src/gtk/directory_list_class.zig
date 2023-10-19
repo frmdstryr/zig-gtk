@@ -16,6 +16,6 @@ pub const DirectoryListClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.DirectoryListClass" {
     std.testing.refAllDecls(DirectoryListClass);
 }

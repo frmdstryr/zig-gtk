@@ -14,6 +14,6 @@ pub const CenterBoxClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.CenterBoxClass" {
     std.testing.refAllDecls(CenterBoxClass);
 }

@@ -216,6 +216,6 @@ pub const Matrix = extern struct {
 
 };
 
-test {
+test "graphene.Matrix" {
     std.testing.refAllDecls(Matrix);
 }

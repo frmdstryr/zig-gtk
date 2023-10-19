@@ -18,6 +18,6 @@ pub const MenuAttributeIterClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.MenuAttributeIterClass" {
     std.testing.refAllDecls(MenuAttributeIterClass);
 }

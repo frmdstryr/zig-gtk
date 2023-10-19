@@ -14,6 +14,6 @@ pub const IOModuleClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.IOModuleClass" {
     std.testing.refAllDecls(IOModuleClass);
 }

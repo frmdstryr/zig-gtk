@@ -21,6 +21,6 @@ pub const SignalQuery = extern struct {
     // Methods
 };
 
-test {
+test "gobject.SignalQuery" {
     std.testing.refAllDecls(SignalQuery);
 }

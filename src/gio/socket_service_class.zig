@@ -23,6 +23,6 @@ pub const SocketServiceClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.SocketServiceClass" {
     std.testing.refAllDecls(SocketServiceClass);
 }

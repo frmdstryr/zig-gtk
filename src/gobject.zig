@@ -86,6 +86,6 @@ pub const ValueArray = @import("gobject/value_array.zig").ValueArray;
 pub const Warning = @import("gobject/warning.zig").Warning;
 pub const WeakRef = @import("gobject/weak_ref.zig").WeakRef;
 
-test {
+test "gobject" {
     std.testing.refAllDecls(@This());
 }

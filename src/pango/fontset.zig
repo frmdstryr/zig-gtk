@@ -121,6 +121,6 @@ pub const Fontset = extern struct {
     }
 };
 
-test {
+test "pango.Fontset" {
     std.testing.refAllDecls(Fontset);
 }

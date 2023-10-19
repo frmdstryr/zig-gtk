@@ -208,6 +208,6 @@ pub const CellRendererText = extern struct {
     }
 };
 
-test {
+test "gtk.CellRendererText" {
     std.testing.refAllDecls(CellRendererText);
 }

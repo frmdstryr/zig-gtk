@@ -15,6 +15,6 @@ pub const MediaControlsClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.MediaControlsClass" {
     std.testing.refAllDecls(MediaControlsClass);
 }

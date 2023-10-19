@@ -46,6 +46,6 @@ pub const Point = extern struct {
 
 };
 
-test {
+test "graphene.Point" {
     std.testing.refAllDecls(Point);
 }

@@ -150,6 +150,6 @@ pub const AppLaunchContext = extern struct {
     }
 };
 
-test {
+test "gdk.AppLaunchContext" {
     std.testing.refAllDecls(AppLaunchContext);
 }

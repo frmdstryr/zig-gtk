@@ -133,6 +133,6 @@ pub const FontMap = extern struct {
     }
 };
 
-test {
+test "pango.FontMap" {
     std.testing.refAllDecls(FontMap);
 }

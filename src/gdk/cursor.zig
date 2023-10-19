@@ -132,6 +132,6 @@ pub const Cursor = extern struct {
     }
 };
 
-test {
+test "gdk.Cursor" {
     std.testing.refAllDecls(Cursor);
 }

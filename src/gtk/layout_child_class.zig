@@ -16,6 +16,6 @@ pub const LayoutChildClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.LayoutChildClass" {
     std.testing.refAllDecls(LayoutChildClass);
 }

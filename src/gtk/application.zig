@@ -273,6 +273,6 @@ pub const Application = extern struct {
     }
 };
 
-test {
+test "gtk.Application" {
     std.testing.refAllDecls(Application);
 }

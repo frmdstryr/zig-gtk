@@ -14,6 +14,6 @@ pub const UnixMountEntry = extern struct {
     // Methods
 };
 
-test {
+test "gio.UnixMountEntry" {
     std.testing.refAllDecls(UnixMountEntry);
 }

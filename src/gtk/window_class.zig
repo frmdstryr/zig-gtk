@@ -21,6 +21,6 @@ pub const WindowClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.WindowClass" {
     std.testing.refAllDecls(WindowClass);
 }

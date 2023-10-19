@@ -22,6 +22,6 @@ pub const CancellableClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.CancellableClass" {
     std.testing.refAllDecls(CancellableClass);
 }

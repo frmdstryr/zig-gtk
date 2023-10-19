@@ -176,6 +176,6 @@ pub const ProxyAddress = extern struct {
     }
 };
 
-test {
+test "gio.ProxyAddress" {
     std.testing.refAllDecls(ProxyAddress);
 }

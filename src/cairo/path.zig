@@ -14,6 +14,6 @@ pub const Path = extern struct {
     // Methods
 };
 
-test {
+test "cairo.Path" {
     std.testing.refAllDecls(Path);
 }

@@ -52,6 +52,6 @@ pub const TransformNode = extern struct {
     }
 };
 
-test {
+test "gsk.TransformNode" {
     std.testing.refAllDecls(TransformNode);
 }

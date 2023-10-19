@@ -137,6 +137,6 @@ pub const DBusObjectSkeleton = extern struct {
     }
 };
 
-test {
+test "gio.DBusObjectSkeleton" {
     std.testing.refAllDecls(DBusObjectSkeleton);
 }

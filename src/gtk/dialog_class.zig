@@ -18,6 +18,6 @@ pub const DialogClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.DialogClass" {
     std.testing.refAllDecls(DialogClass);
 }

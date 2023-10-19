@@ -14,6 +14,6 @@ pub const GestureZoomClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.GestureZoomClass" {
     std.testing.refAllDecls(GestureZoomClass);
 }

@@ -130,6 +130,6 @@ pub const FlattenListModel = extern struct {
     }
 };
 
-test {
+test "gtk.FlattenListModel" {
     std.testing.refAllDecls(FlattenListModel);
 }

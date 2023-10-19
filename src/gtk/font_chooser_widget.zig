@@ -610,6 +610,6 @@ pub const FontChooserWidget = extern struct {
     }
 };
 
-test {
+test "gtk.FontChooserWidget" {
     std.testing.refAllDecls(FontChooserWidget);
 }

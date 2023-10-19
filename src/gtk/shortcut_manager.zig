@@ -20,6 +20,6 @@ pub const ShortcutManager = extern struct {
     }
 };
 
-test {
+test "gtk.ShortcutManager" {
     std.testing.refAllDecls(ShortcutManager);
 }

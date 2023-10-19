@@ -22,6 +22,6 @@ pub const TimeVal = extern struct {
 
 };
 
-test {
+test "glib.TimeVal" {
     std.testing.refAllDecls(TimeVal);
 }

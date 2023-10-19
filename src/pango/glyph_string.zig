@@ -51,6 +51,6 @@ pub const GlyphString = extern struct {
 
 };
 
-test {
+test "pango.GlyphString" {
     std.testing.refAllDecls(GlyphString);
 }

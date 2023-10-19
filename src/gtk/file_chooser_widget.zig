@@ -610,6 +610,6 @@ pub const FileChooserWidget = extern struct {
     }
 };
 
-test {
+test "gtk.FileChooserWidget" {
     std.testing.refAllDecls(FileChooserWidget);
 }

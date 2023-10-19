@@ -211,6 +211,6 @@ pub const GestureZoom = extern struct {
     }
 };
 
-test {
+test "gtk.GestureZoom" {
     std.testing.refAllDecls(GestureZoom);
 }

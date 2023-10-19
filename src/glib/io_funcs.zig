@@ -22,6 +22,6 @@ pub const IOFuncs = extern struct {
     // Methods
 };
 
-test {
+test "glib.IOFuncs" {
     std.testing.refAllDecls(IOFuncs);
 }

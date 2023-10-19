@@ -15,6 +15,6 @@ pub const DragIconClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.DragIconClass" {
     std.testing.refAllDecls(DragIconClass);
 }

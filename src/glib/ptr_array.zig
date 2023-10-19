@@ -16,6 +16,6 @@ pub const PtrArray = extern struct {
     // Methods
 };
 
-test {
+test "glib.PtrArray" {
     std.testing.refAllDecls(PtrArray);
 }

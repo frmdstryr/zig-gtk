@@ -649,6 +649,6 @@ pub const Expander = extern struct {
     }
 };
 
-test {
+test "gtk.Expander" {
     std.testing.refAllDecls(Expander);
 }

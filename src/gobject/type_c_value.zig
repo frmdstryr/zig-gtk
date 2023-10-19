@@ -14,6 +14,6 @@ pub const TypeCValue = extern struct {
     // Methods
 };
 
-test {
+test "gobject.TypeCValue" {
     std.testing.refAllDecls(TypeCValue);
 }

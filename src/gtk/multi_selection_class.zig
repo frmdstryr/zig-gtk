@@ -16,6 +16,6 @@ pub const MultiSelectionClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.MultiSelectionClass" {
     std.testing.refAllDecls(MultiSelectionClass);
 }

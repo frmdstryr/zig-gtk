@@ -29,6 +29,6 @@ pub const PrintOperationPreviewIface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.PrintOperationPreviewIface" {
     std.testing.refAllDecls(PrintOperationPreviewIface);
 }

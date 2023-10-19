@@ -715,6 +715,6 @@ pub const Text = extern struct {
     }
 };
 
-test {
+test "gtk.Text" {
     std.testing.refAllDecls(Text);
 }

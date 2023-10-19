@@ -138,6 +138,6 @@ pub const ListItem = extern struct {
     }
 };
 
-test {
+test "gtk.ListItem" {
     std.testing.refAllDecls(ListItem);
 }

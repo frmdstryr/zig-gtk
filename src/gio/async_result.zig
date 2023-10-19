@@ -32,6 +32,6 @@ pub const AsyncResult = extern struct {
     }
 };
 
-test {
+test "gio.AsyncResult" {
     std.testing.refAllDecls(AsyncResult);
 }

@@ -110,6 +110,6 @@ pub const InitiallyUnowned = extern struct {
     }
 };
 
-test {
+test "gobject.InitiallyUnowned" {
     std.testing.refAllDecls(InitiallyUnowned);
 }

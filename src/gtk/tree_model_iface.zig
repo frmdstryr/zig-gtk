@@ -36,6 +36,6 @@ pub const TreeModelIface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TreeModelIface" {
     std.testing.refAllDecls(TreeModelIface);
 }

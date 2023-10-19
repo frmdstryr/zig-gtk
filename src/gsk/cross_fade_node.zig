@@ -55,6 +55,6 @@ pub const CrossFadeNode = extern struct {
     }
 };
 
-test {
+test "gsk.CrossFadeNode" {
     std.testing.refAllDecls(CrossFadeNode);
 }

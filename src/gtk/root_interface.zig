@@ -14,6 +14,6 @@ pub const RootInterface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.RootInterface" {
     std.testing.refAllDecls(RootInterface);
 }

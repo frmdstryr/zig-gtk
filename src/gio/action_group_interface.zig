@@ -31,6 +31,6 @@ pub const ActionGroupInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.ActionGroupInterface" {
     std.testing.refAllDecls(ActionGroupInterface);
 }

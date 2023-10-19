@@ -31,6 +31,6 @@ pub const IOStreamClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.IOStreamClass" {
     std.testing.refAllDecls(IOStreamClass);
 }

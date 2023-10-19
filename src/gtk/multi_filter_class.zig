@@ -14,6 +14,6 @@ pub const MultiFilterClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.MultiFilterClass" {
     std.testing.refAllDecls(MultiFilterClass);
 }

@@ -126,6 +126,6 @@ pub const ZlibCompressor = extern struct {
     }
 };
 
-test {
+test "gio.ZlibCompressor" {
     std.testing.refAllDecls(ZlibCompressor);
 }

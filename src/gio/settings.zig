@@ -245,6 +245,6 @@ pub const Settings = extern struct {
     }
 };
 
-test {
+test "gio.Settings" {
     std.testing.refAllDecls(Settings);
 }

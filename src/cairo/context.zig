@@ -14,6 +14,6 @@ pub const Context = extern struct {
     // Methods
 };
 
-test {
+test "cairo.Context" {
     std.testing.refAllDecls(Context);
 }

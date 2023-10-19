@@ -18,6 +18,6 @@ pub const Rectangle = extern struct {
     // Methods
 };
 
-test {
+test "pango.Rectangle" {
     std.testing.refAllDecls(Rectangle);
 }

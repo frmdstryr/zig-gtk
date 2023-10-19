@@ -79,6 +79,6 @@ pub const Euler = extern struct {
 
 };
 
-test {
+test "graphene.Euler" {
     std.testing.refAllDecls(Euler);
 }

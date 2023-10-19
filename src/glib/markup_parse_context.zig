@@ -47,6 +47,6 @@ pub const MarkupParseContext = extern struct {
 
 };
 
-test {
+test "glib.MarkupParseContext" {
     std.testing.refAllDecls(MarkupParseContext);
 }

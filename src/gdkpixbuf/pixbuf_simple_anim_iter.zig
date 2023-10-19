@@ -127,6 +127,6 @@ pub const PixbufSimpleAnimIter = extern struct {
     }
 };
 
-test {
+test "gdkpixbuf.PixbufSimpleAnimIter" {
     std.testing.refAllDecls(PixbufSimpleAnimIter);
 }

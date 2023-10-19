@@ -14,6 +14,6 @@ pub const NativeSocketAddressPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.NativeSocketAddressPrivate" {
     std.testing.refAllDecls(NativeSocketAddressPrivate);
 }

@@ -65,6 +65,6 @@ pub const ParamSpecFloat = extern struct {
     }
 };
 
-test {
+test "gobject.ParamSpecFloat" {
     std.testing.refAllDecls(ParamSpecFloat);
 }

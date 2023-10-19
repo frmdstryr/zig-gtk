@@ -19,6 +19,6 @@ pub const SocketAddressClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.SocketAddressClass" {
     std.testing.refAllDecls(SocketAddressClass);
 }

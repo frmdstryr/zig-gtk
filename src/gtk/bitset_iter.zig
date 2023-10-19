@@ -27,6 +27,6 @@ pub const BitsetIter = extern struct {
 
 };
 
-test {
+test "gtk.BitsetIter" {
     std.testing.refAllDecls(BitsetIter);
 }

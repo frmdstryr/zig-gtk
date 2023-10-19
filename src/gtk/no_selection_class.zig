@@ -16,6 +16,6 @@ pub const NoSelectionClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.NoSelectionClass" {
     std.testing.refAllDecls(NoSelectionClass);
 }

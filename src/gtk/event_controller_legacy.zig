@@ -154,6 +154,6 @@ pub const EventControllerLegacy = extern struct {
     }
 };
 
-test {
+test "gtk.EventControllerLegacy" {
     std.testing.refAllDecls(EventControllerLegacy);
 }

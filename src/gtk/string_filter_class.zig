@@ -15,6 +15,6 @@ pub const StringFilterClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.StringFilterClass" {
     std.testing.refAllDecls(StringFilterClass);
 }

@@ -109,6 +109,6 @@ pub const Rect = extern struct {
 
 };
 
-test {
+test "graphene.Rect" {
     std.testing.refAllDecls(Rect);
 }

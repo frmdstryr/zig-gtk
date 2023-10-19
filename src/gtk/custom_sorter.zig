@@ -130,6 +130,6 @@ pub const CustomSorter = extern struct {
     }
 };
 
-test {
+test "gtk.CustomSorter" {
     std.testing.refAllDecls(CustomSorter);
 }

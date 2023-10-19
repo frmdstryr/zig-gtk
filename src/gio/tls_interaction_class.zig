@@ -23,6 +23,6 @@ pub const TlsInteractionClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.TlsInteractionClass" {
     std.testing.refAllDecls(TlsInteractionClass);
 }

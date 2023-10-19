@@ -14,6 +14,6 @@ pub const GesturePanClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.GesturePanClass" {
     std.testing.refAllDecls(GesturePanClass);
 }

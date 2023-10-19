@@ -143,6 +143,6 @@ pub const IOStream = extern struct {
     }
 };
 
-test {
+test "gio.IOStream" {
     std.testing.refAllDecls(IOStream);
 }

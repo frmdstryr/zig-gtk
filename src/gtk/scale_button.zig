@@ -634,6 +634,6 @@ pub const ScaleButton = extern struct {
     }
 };
 
-test {
+test "gtk.ScaleButton" {
     std.testing.refAllDecls(ScaleButton);
 }

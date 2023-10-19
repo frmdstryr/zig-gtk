@@ -197,6 +197,6 @@ pub const MemoryInputStream = extern struct {
     }
 };
 
-test {
+test "gio.MemoryInputStream" {
     std.testing.refAllDecls(MemoryInputStream);
 }

@@ -646,6 +646,6 @@ pub const ListView = extern struct {
     }
 };
 
-test {
+test "gtk.ListView" {
     std.testing.refAllDecls(ListView);
 }

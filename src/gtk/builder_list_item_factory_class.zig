@@ -14,6 +14,6 @@ pub const BuilderListItemFactoryClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.BuilderListItemFactoryClass" {
     std.testing.refAllDecls(BuilderListItemFactoryClass);
 }

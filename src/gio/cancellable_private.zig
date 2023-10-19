@@ -14,6 +14,6 @@ pub const CancellablePrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.CancellablePrivate" {
     std.testing.refAllDecls(CancellablePrivate);
 }

@@ -17,6 +17,6 @@ pub const ToggleButtonClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ToggleButtonClass" {
     std.testing.refAllDecls(ToggleButtonClass);
 }

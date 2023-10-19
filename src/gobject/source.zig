@@ -123,6 +123,6 @@ pub const Source = extern struct {
     }
 };
 
-test {
+test "gobject.Source" {
     std.testing.refAllDecls(Source);
 }

@@ -64,6 +64,6 @@ pub const ParamSpecULong = extern struct {
     }
 };
 
-test {
+test "gobject.ParamSpecULong" {
     std.testing.refAllDecls(ParamSpecULong);
 }

@@ -17,6 +17,6 @@ pub const InitableIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.InitableIface" {
     std.testing.refAllDecls(InitableIface);
 }

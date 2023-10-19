@@ -15,6 +15,6 @@ pub const TrashStack = extern struct {
     // Methods
 };
 
-test {
+test "glib.TrashStack" {
     std.testing.refAllDecls(TrashStack);
 }

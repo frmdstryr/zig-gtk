@@ -59,6 +59,6 @@ pub const Matrix = extern struct {
 
 };
 
-test {
+test "pango.Matrix" {
     std.testing.refAllDecls(Matrix);
 }

@@ -98,6 +98,6 @@ pub const WidgetClass = extern struct {
 
 };
 
-test {
+test "gtk.WidgetClass" {
     std.testing.refAllDecls(WidgetClass);
 }

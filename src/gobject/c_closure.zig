@@ -16,6 +16,6 @@ pub const CClosure = extern struct {
     // Methods
 };
 
-test {
+test "gobject.CClosure" {
     std.testing.refAllDecls(CClosure);
 }

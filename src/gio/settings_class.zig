@@ -21,6 +21,6 @@ pub const SettingsClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.SettingsClass" {
     std.testing.refAllDecls(SettingsClass);
 }

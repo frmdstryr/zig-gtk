@@ -778,6 +778,6 @@ pub const Window = extern struct {
     }
 };
 
-test {
+test "gtk.Window" {
     std.testing.refAllDecls(Window);
 }

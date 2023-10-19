@@ -137,6 +137,6 @@ pub const NetworkService = extern struct {
     }
 };
 
-test {
+test "gio.NetworkService" {
     std.testing.refAllDecls(NetworkService);
 }

@@ -619,6 +619,6 @@ pub const EditableLabel = extern struct {
     }
 };
 
-test {
+test "gtk.EditableLabel" {
     std.testing.refAllDecls(EditableLabel);
 }

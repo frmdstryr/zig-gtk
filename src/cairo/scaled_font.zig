@@ -14,6 +14,6 @@ pub const ScaledFont = extern struct {
     // Methods
 };
 
-test {
+test "cairo.ScaledFont" {
     std.testing.refAllDecls(ScaledFont);
 }

@@ -25,6 +25,6 @@ pub const EditableInterface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.EditableInterface" {
     std.testing.refAllDecls(EditableInterface);
 }

@@ -14,6 +14,6 @@ pub const MenuModelPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.MenuModelPrivate" {
     std.testing.refAllDecls(MenuModelPrivate);
 }

@@ -20,6 +20,6 @@ pub const MemVTable = extern struct {
     // Methods
 };
 
-test {
+test "glib.MemVTable" {
     std.testing.refAllDecls(MemVTable);
 }

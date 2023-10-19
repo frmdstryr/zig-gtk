@@ -55,6 +55,6 @@ pub const Sphere = extern struct {
 
 };
 
-test {
+test "graphene.Sphere" {
     std.testing.refAllDecls(Sphere);
 }

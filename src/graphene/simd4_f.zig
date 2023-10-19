@@ -18,6 +18,6 @@ pub const Simd4F = extern struct {
     // Methods
 };
 
-test {
+test "graphene.Simd4F" {
     std.testing.refAllDecls(Simd4F);
 }

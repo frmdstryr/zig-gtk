@@ -25,6 +25,6 @@ pub const SelectionModelInterface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.SelectionModelInterface" {
     std.testing.refAllDecls(SelectionModelInterface);
 }

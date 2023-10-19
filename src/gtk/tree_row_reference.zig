@@ -36,6 +36,6 @@ pub const TreeRowReference = extern struct {
 
 };
 
-test {
+test "gtk.TreeRowReference" {
     std.testing.refAllDecls(TreeRowReference);
 }

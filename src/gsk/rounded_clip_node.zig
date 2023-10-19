@@ -52,6 +52,6 @@ pub const RoundedClipNode = extern struct {
     }
 };
 
-test {
+test "gsk.RoundedClipNode" {
     std.testing.refAllDecls(RoundedClipNode);
 }

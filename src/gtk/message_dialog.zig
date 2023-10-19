@@ -817,6 +817,6 @@ pub const MessageDialog = extern struct {
     }
 };
 
-test {
+test "gtk.MessageDialog" {
     std.testing.refAllDecls(MessageDialog);
 }

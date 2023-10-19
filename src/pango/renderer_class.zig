@@ -30,6 +30,6 @@ pub const RendererClass = extern struct {
     // Methods
 };
 
-test {
+test "pango.RendererClass" {
     std.testing.refAllDecls(RendererClass);
 }

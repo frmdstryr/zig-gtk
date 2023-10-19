@@ -89,6 +89,6 @@ pub const Editable = extern struct {
     }
 };
 
-test {
+test "gtk.Editable" {
     std.testing.refAllDecls(Editable);
 }

@@ -41,6 +41,6 @@ pub const Accessible = extern struct {
     }
 };
 
-test {
+test "gtk.Accessible" {
     std.testing.refAllDecls(Accessible);
 }

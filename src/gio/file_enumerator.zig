@@ -149,6 +149,6 @@ pub const FileEnumerator = extern struct {
     }
 };
 
-test {
+test "gio.FileEnumerator" {
     std.testing.refAllDecls(FileEnumerator);
 }

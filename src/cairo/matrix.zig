@@ -14,6 +14,6 @@ pub const Matrix = extern struct {
     // Methods
 };
 
-test {
+test "cairo.Matrix" {
     std.testing.refAllDecls(Matrix);
 }

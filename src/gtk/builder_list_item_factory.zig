@@ -129,6 +129,6 @@ pub const BuilderListItemFactory = extern struct {
     }
 };
 
-test {
+test "gtk.BuilderListItemFactory" {
     std.testing.refAllDecls(BuilderListItemFactory);
 }

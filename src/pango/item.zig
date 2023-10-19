@@ -33,6 +33,6 @@ pub const Item = extern struct {
 
 };
 
-test {
+test "pango.Item" {
     std.testing.refAllDecls(Item);
 }

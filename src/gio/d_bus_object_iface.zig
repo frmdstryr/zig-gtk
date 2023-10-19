@@ -22,6 +22,6 @@ pub const DBusObjectIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.DBusObjectIface" {
     std.testing.refAllDecls(DBusObjectIface);
 }

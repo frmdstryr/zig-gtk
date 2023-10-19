@@ -21,6 +21,6 @@ pub const TypeModuleClass = extern struct {
     // Methods
 };
 
-test {
+test "gobject.TypeModuleClass" {
     std.testing.refAllDecls(TypeModuleClass);
 }

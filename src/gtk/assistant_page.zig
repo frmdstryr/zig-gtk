@@ -114,6 +114,6 @@ pub const AssistantPage = extern struct {
     }
 };
 
-test {
+test "gtk.AssistantPage" {
     std.testing.refAllDecls(AssistantPage);
 }

@@ -21,6 +21,6 @@ pub const ParamSpecClass = extern struct {
     // Methods
 };
 
-test {
+test "gobject.ParamSpecClass" {
     std.testing.refAllDecls(ParamSpecClass);
 }

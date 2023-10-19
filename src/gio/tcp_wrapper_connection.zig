@@ -185,6 +185,6 @@ pub const TcpWrapperConnection = extern struct {
     }
 };
 
-test {
+test "gio.TcpWrapperConnection" {
     std.testing.refAllDecls(TcpWrapperConnection);
 }

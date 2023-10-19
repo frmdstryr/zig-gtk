@@ -377,6 +377,6 @@ pub const ZlibCompressorClass = @import("gio/zlib_compressor_class.zig").ZlibCom
 pub const ZlibDecompressor = @import("gio/zlib_decompressor.zig").ZlibDecompressor;
 pub const ZlibDecompressorClass = @import("gio/zlib_decompressor_class.zig").ZlibDecompressorClass;
 
-test {
+test "gio" {
     std.testing.refAllDecls(@This());
 }

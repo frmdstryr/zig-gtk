@@ -17,6 +17,6 @@ pub const DesktopAppInfoLookupIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.DesktopAppInfoLookupIface" {
     std.testing.refAllDecls(DesktopAppInfoLookupIface);
 }

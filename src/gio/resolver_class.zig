@@ -33,6 +33,6 @@ pub const ResolverClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.ResolverClass" {
     std.testing.refAllDecls(ResolverClass);
 }

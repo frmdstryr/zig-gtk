@@ -132,6 +132,6 @@ pub const NamedAction = extern struct {
     }
 };
 
-test {
+test "gtk.NamedAction" {
     std.testing.refAllDecls(NamedAction);
 }

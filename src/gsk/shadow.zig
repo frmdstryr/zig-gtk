@@ -19,6 +19,6 @@ pub const Shadow = extern struct {
     // Methods
 };
 
-test {
+test "gsk.Shadow" {
     std.testing.refAllDecls(Shadow);
 }

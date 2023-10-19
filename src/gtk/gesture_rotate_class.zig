@@ -14,6 +14,6 @@ pub const GestureRotateClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.GestureRotateClass" {
     std.testing.refAllDecls(GestureRotateClass);
 }

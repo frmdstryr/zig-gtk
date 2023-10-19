@@ -74,6 +74,6 @@ pub const TouchEvent = @import("gdk/touch_event.zig").TouchEvent;
 pub const TouchpadEvent = @import("gdk/touchpad_event.zig").TouchpadEvent;
 pub const VulkanContext = @import("gdk/vulkan_context.zig").VulkanContext;
 
-test {
+test "gdk" {
     std.testing.refAllDecls(@This());
 }

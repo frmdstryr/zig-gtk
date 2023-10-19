@@ -19,6 +19,6 @@ pub const ActionMapInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.ActionMapInterface" {
     std.testing.refAllDecls(ActionMapInterface);
 }

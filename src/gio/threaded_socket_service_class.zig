@@ -22,6 +22,6 @@ pub const ThreadedSocketServiceClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.ThreadedSocketServiceClass" {
     std.testing.refAllDecls(ThreadedSocketServiceClass);
 }

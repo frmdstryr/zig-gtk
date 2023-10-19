@@ -158,6 +158,6 @@ pub const TlsCertificate = extern struct {
     }
 };
 
-test {
+test "gio.TlsCertificate" {
     std.testing.refAllDecls(TlsCertificate);
 }

@@ -20,6 +20,6 @@ pub const TextChildAnchorClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TextChildAnchorClass" {
     std.testing.refAllDecls(TextChildAnchorClass);
 }

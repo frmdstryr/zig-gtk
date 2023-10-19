@@ -17,6 +17,6 @@ pub const CellRendererTextClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.CellRendererTextClass" {
     std.testing.refAllDecls(CellRendererTextClass);
 }

@@ -138,6 +138,6 @@ pub const DBusServer = extern struct {
     }
 };
 
-test {
+test "gio.DBusServer" {
     std.testing.refAllDecls(DBusServer);
 }

@@ -52,6 +52,6 @@ pub const DebugNode = extern struct {
     }
 };
 
-test {
+test "gsk.DebugNode" {
     std.testing.refAllDecls(DebugNode);
 }

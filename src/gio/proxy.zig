@@ -53,6 +53,6 @@ pub const Proxy = extern struct {
     }
 };
 
-test {
+test "gio.Proxy" {
     std.testing.refAllDecls(Proxy);
 }

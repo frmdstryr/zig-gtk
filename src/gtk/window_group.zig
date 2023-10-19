@@ -125,6 +125,6 @@ pub const WindowGroup = extern struct {
     }
 };
 
-test {
+test "gtk.WindowGroup" {
     std.testing.refAllDecls(WindowGroup);
 }

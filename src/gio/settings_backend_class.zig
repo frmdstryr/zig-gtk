@@ -28,6 +28,6 @@ pub const SettingsBackendClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.SettingsBackendClass" {
     std.testing.refAllDecls(SettingsBackendClass);
 }

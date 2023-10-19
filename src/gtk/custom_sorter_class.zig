@@ -15,6 +15,6 @@ pub const CustomSorterClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.CustomSorterClass" {
     std.testing.refAllDecls(CustomSorterClass);
 }

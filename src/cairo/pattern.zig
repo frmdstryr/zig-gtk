@@ -14,6 +14,6 @@ pub const Pattern = extern struct {
     // Methods
 };
 
-test {
+test "cairo.Pattern" {
     std.testing.refAllDecls(Pattern);
 }

@@ -130,6 +130,6 @@ pub const Seat = extern struct {
     }
 };
 
-test {
+test "gdk.Seat" {
     std.testing.refAllDecls(Seat);
 }

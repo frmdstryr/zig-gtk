@@ -56,6 +56,6 @@ pub const Uri = extern struct {
 
 };
 
-test {
+test "glib.Uri" {
     std.testing.refAllDecls(Uri);
 }

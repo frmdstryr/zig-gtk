@@ -17,6 +17,6 @@ pub const LogField = extern struct {
     // Methods
 };
 
-test {
+test "glib.LogField" {
     std.testing.refAllDecls(LogField);
 }

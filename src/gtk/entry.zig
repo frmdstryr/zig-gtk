@@ -790,6 +790,6 @@ pub const Entry = extern struct {
     }
 };
 
-test {
+test "gtk.Entry" {
     std.testing.refAllDecls(Entry);
 }

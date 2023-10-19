@@ -125,6 +125,6 @@ pub const MenuLinkIter = extern struct {
     }
 };
 
-test {
+test "gio.MenuLinkIter" {
     std.testing.refAllDecls(MenuLinkIter);
 }

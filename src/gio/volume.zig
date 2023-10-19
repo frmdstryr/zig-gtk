@@ -77,6 +77,6 @@ pub const Volume = extern struct {
     }
 };
 
-test {
+test "gio.Volume" {
     std.testing.refAllDecls(Volume);
 }

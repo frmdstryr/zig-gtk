@@ -74,6 +74,6 @@ pub const Event = extern struct {
 
 };
 
-test {
+test "gdk.Event" {
     std.testing.refAllDecls(Event);
 }

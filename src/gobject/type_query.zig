@@ -18,6 +18,6 @@ pub const TypeQuery = extern struct {
     // Methods
 };
 
-test {
+test "gobject.TypeQuery" {
     std.testing.refAllDecls(TypeQuery);
 }

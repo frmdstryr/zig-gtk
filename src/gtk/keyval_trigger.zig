@@ -151,6 +151,6 @@ pub const KeyvalTrigger = extern struct {
     }
 };
 
-test {
+test "gtk.KeyvalTrigger" {
     std.testing.refAllDecls(KeyvalTrigger);
 }

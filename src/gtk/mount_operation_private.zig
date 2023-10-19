@@ -14,6 +14,6 @@ pub const MountOperationPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gtk.MountOperationPrivate" {
     std.testing.refAllDecls(MountOperationPrivate);
 }

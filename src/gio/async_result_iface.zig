@@ -19,6 +19,6 @@ pub const AsyncResultIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.AsyncResultIface" {
     std.testing.refAllDecls(AsyncResultIface);
 }

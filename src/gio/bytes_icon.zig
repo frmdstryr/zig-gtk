@@ -126,6 +126,6 @@ pub const BytesIcon = extern struct {
     }
 };
 
-test {
+test "gio.BytesIcon" {
     std.testing.refAllDecls(BytesIcon);
 }

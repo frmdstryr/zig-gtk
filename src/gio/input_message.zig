@@ -21,6 +21,6 @@ pub const InputMessage = extern struct {
     // Methods
 };
 
-test {
+test "gio.InputMessage" {
     std.testing.refAllDecls(InputMessage);
 }

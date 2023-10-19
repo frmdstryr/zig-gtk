@@ -161,6 +161,6 @@ pub const PadController = extern struct {
     }
 };
 
-test {
+test "gtk.PadController" {
     std.testing.refAllDecls(PadController);
 }

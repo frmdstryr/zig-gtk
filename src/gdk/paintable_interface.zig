@@ -22,6 +22,6 @@ pub const PaintableInterface = extern struct {
     // Methods
 };
 
-test {
+test "gdk.PaintableInterface" {
     std.testing.refAllDecls(PaintableInterface);
 }

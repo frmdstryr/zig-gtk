@@ -19,6 +19,6 @@ pub const ListModelInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.ListModelInterface" {
     std.testing.refAllDecls(ListModelInterface);
 }

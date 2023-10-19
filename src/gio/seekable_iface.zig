@@ -22,6 +22,6 @@ pub const SeekableIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.SeekableIface" {
     std.testing.refAllDecls(SeekableIface);
 }

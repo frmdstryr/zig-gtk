@@ -14,6 +14,6 @@ pub const FileMonitorPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.FileMonitorPrivate" {
     std.testing.refAllDecls(FileMonitorPrivate);
 }

@@ -47,6 +47,6 @@ pub const Scrollable = extern struct {
     }
 };
 
-test {
+test "gtk.Scrollable" {
     std.testing.refAllDecls(Scrollable);
 }

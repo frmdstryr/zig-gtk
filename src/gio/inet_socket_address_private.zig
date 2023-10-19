@@ -14,6 +14,6 @@ pub const InetSocketAddressPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.InetSocketAddressPrivate" {
     std.testing.refAllDecls(InetSocketAddressPrivate);
 }

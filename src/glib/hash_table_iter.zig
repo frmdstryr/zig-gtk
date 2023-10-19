@@ -35,6 +35,6 @@ pub const HashTableIter = extern struct {
 
 };
 
-test {
+test "glib.HashTableIter" {
     std.testing.refAllDecls(HashTableIter);
 }

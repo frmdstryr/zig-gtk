@@ -40,6 +40,6 @@ pub const RWLock = extern struct {
 
 };
 
-test {
+test "glib.RWLock" {
     std.testing.refAllDecls(RWLock);
 }

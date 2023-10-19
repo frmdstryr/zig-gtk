@@ -21,6 +21,6 @@ pub const SimpleProxyResolverClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.SimpleProxyResolverClass" {
     std.testing.refAllDecls(SimpleProxyResolverClass);
 }

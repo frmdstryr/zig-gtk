@@ -151,6 +151,6 @@ pub const ContentSerializer = extern struct {
     }
 };
 
-test {
+test "gdk.ContentSerializer" {
     std.testing.refAllDecls(ContentSerializer);
 }

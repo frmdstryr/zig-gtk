@@ -16,6 +16,6 @@ pub const Once = extern struct {
     // Methods
 };
 
-test {
+test "glib.Once" {
     std.testing.refAllDecls(Once);
 }

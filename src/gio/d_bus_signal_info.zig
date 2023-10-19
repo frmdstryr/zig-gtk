@@ -24,6 +24,6 @@ pub const DBusSignalInfo = extern struct {
 
 };
 
-test {
+test "gio.DBusSignalInfo" {
     std.testing.refAllDecls(DBusSignalInfo);
 }

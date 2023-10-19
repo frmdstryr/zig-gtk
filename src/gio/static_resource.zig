@@ -28,6 +28,6 @@ pub const StaticResource = extern struct {
 
 };
 
-test {
+test "gio.StaticResource" {
     std.testing.refAllDecls(StaticResource);
 }

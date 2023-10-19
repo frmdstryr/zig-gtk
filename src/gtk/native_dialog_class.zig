@@ -23,6 +23,6 @@ pub const NativeDialogClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.NativeDialogClass" {
     std.testing.refAllDecls(NativeDialogClass);
 }

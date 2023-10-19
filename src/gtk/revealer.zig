@@ -631,6 +631,6 @@ pub const Revealer = extern struct {
     }
 };
 
-test {
+test "gtk.Revealer" {
     std.testing.refAllDecls(Revealer);
 }

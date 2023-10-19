@@ -89,6 +89,6 @@ pub const MainContext = extern struct {
     }
 };
 
-test {
+test "gobject.MainContext" {
     std.testing.refAllDecls(MainContext);
 }

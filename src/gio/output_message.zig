@@ -20,6 +20,6 @@ pub const OutputMessage = extern struct {
     // Methods
 };
 
-test {
+test "gio.OutputMessage" {
     std.testing.refAllDecls(OutputMessage);
 }

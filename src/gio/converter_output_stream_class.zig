@@ -20,6 +20,6 @@ pub const ConverterOutputStreamClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.ConverterOutputStreamClass" {
     std.testing.refAllDecls(ConverterOutputStreamClass);
 }

@@ -18,6 +18,6 @@ pub const FlagsClass = extern struct {
     // Methods
 };
 
-test {
+test "gobject.FlagsClass" {
     std.testing.refAllDecls(FlagsClass);
 }

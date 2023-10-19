@@ -128,6 +128,6 @@ pub const SimpleProxyResolver = extern struct {
     }
 };
 
-test {
+test "gio.SimpleProxyResolver" {
     std.testing.refAllDecls(SimpleProxyResolver);
 }

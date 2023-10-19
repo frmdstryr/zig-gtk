@@ -17,6 +17,6 @@ pub const PixbufModulePattern = extern struct {
     // Methods
 };
 
-test {
+test "gdkpixbuf.PixbufModulePattern" {
     std.testing.refAllDecls(PixbufModulePattern);
 }

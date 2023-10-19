@@ -29,6 +29,6 @@ pub const SocketConnectable = extern struct {
     }
 };
 
-test {
+test "gio.SocketConnectable" {
     std.testing.refAllDecls(SocketConnectable);
 }

@@ -14,6 +14,6 @@ pub const ConverterInputStreamPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.ConverterInputStreamPrivate" {
     std.testing.refAllDecls(ConverterInputStreamPrivate);
 }

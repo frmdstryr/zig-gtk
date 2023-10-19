@@ -16,6 +16,6 @@ pub const FixedClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.FixedClass" {
     std.testing.refAllDecls(FixedClass);
 }

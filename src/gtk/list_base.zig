@@ -610,6 +610,6 @@ pub const ListBase = extern struct {
     }
 };
 
-test {
+test "gtk.ListBase" {
     std.testing.refAllDecls(ListBase);
 }

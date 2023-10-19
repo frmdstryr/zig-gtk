@@ -610,6 +610,6 @@ pub const ColorChooserWidget = extern struct {
     }
 };
 
-test {
+test "gtk.ColorChooserWidget" {
     std.testing.refAllDecls(ColorChooserWidget);
 }

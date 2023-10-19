@@ -26,6 +26,6 @@ pub const SocketControlMessageClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.SocketControlMessageClass" {
     std.testing.refAllDecls(SocketControlMessageClass);
 }

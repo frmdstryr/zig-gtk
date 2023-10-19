@@ -35,6 +35,6 @@ pub const ContentFormatsBuilder = extern struct {
 
 };
 
-test {
+test "gdk.ContentFormatsBuilder" {
     std.testing.refAllDecls(ContentFormatsBuilder);
 }

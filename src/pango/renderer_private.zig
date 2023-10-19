@@ -14,6 +14,6 @@ pub const RendererPrivate = extern struct {
     // Methods
 };
 
-test {
+test "pango.RendererPrivate" {
     std.testing.refAllDecls(RendererPrivate);
 }

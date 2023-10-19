@@ -17,6 +17,6 @@ pub const AttrSize = extern struct {
     // Methods
 };
 
-test {
+test "pango.AttrSize" {
     std.testing.refAllDecls(AttrSize);
 }

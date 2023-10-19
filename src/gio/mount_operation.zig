@@ -173,6 +173,6 @@ pub const MountOperation = extern struct {
     }
 };
 
-test {
+test "gio.MountOperation" {
     std.testing.refAllDecls(MountOperation);
 }

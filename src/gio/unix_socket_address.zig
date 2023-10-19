@@ -155,6 +155,6 @@ pub const UnixSocketAddress = extern struct {
     }
 };
 
-test {
+test "gio.UnixSocketAddress" {
     std.testing.refAllDecls(UnixSocketAddress);
 }

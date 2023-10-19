@@ -192,6 +192,6 @@ pub const Subprocess = extern struct {
     }
 };
 
-test {
+test "gio.Subprocess" {
     std.testing.refAllDecls(Subprocess);
 }

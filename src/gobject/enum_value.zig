@@ -17,6 +17,6 @@ pub const EnumValue = extern struct {
     // Methods
 };
 
-test {
+test "gobject.EnumValue" {
     std.testing.refAllDecls(EnumValue);
 }

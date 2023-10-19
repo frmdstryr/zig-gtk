@@ -23,6 +23,6 @@ pub const TestSuite = extern struct {
 
 };
 
-test {
+test "glib.TestSuite" {
     std.testing.refAllDecls(TestSuite);
 }

@@ -17,6 +17,6 @@ pub const MemoryMonitorInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.MemoryMonitorInterface" {
     std.testing.refAllDecls(MemoryMonitorInterface);
 }

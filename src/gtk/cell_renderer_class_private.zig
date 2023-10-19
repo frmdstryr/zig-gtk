@@ -14,6 +14,6 @@ pub const CellRendererClassPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gtk.CellRendererClassPrivate" {
     std.testing.refAllDecls(CellRendererClassPrivate);
 }

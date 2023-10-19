@@ -21,6 +21,6 @@ pub const ActionableInterface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ActionableInterface" {
     std.testing.refAllDecls(ActionableInterface);
 }

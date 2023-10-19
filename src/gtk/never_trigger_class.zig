@@ -14,6 +14,6 @@ pub const NeverTriggerClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.NeverTriggerClass" {
     std.testing.refAllDecls(NeverTriggerClass);
 }

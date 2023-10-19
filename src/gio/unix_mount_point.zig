@@ -56,6 +56,6 @@ pub const UnixMountPoint = extern struct {
 
 };
 
-test {
+test "gio.UnixMountPoint" {
     std.testing.refAllDecls(UnixMountPoint);
 }

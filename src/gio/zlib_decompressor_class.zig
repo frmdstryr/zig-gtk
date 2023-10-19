@@ -16,6 +16,6 @@ pub const ZlibDecompressorClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.ZlibDecompressorClass" {
     std.testing.refAllDecls(ZlibDecompressorClass);
 }

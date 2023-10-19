@@ -16,6 +16,6 @@ pub const Array = extern struct {
     // Methods
 };
 
-test {
+test "glib.Array" {
     std.testing.refAllDecls(Array);
 }

@@ -18,6 +18,6 @@ pub const TlsCertificateClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.TlsCertificateClass" {
     std.testing.refAllDecls(TlsCertificateClass);
 }

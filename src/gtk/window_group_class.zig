@@ -20,6 +20,6 @@ pub const WindowGroupClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.WindowGroupClass" {
     std.testing.refAllDecls(WindowGroupClass);
 }

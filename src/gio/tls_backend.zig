@@ -50,6 +50,6 @@ pub const TlsBackend = extern struct {
     }
 };
 
-test {
+test "gio.TlsBackend" {
     std.testing.refAllDecls(TlsBackend);
 }

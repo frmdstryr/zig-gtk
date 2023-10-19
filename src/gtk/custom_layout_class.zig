@@ -15,6 +15,6 @@ pub const CustomLayoutClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.CustomLayoutClass" {
     std.testing.refAllDecls(CustomLayoutClass);
 }

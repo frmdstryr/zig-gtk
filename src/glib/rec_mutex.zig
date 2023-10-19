@@ -31,6 +31,6 @@ pub const RecMutex = extern struct {
 
 };
 
-test {
+test "glib.RecMutex" {
     std.testing.refAllDecls(RecMutex);
 }

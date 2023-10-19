@@ -14,6 +14,6 @@ pub const CairoRendererClass = extern struct {
     // Methods
 };
 
-test {
+test "gsk.CairoRendererClass" {
     std.testing.refAllDecls(CairoRendererClass);
 }

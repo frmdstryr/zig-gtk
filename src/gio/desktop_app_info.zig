@@ -180,6 +180,6 @@ pub const DesktopAppInfo = extern struct {
     }
 };
 
-test {
+test "gio.DesktopAppInfo" {
     std.testing.refAllDecls(DesktopAppInfo);
 }

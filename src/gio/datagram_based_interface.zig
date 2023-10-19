@@ -22,6 +22,6 @@ pub const DatagramBasedInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.DatagramBasedInterface" {
     std.testing.refAllDecls(DatagramBasedInterface);
 }

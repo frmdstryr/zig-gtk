@@ -230,6 +230,6 @@ pub const Variant = extern struct {
 
 };
 
-test {
+test "glib.Variant" {
     std.testing.refAllDecls(Variant);
 }

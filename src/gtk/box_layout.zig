@@ -160,6 +160,6 @@ pub const BoxLayout = extern struct {
     }
 };
 
-test {
+test "gtk.BoxLayout" {
     std.testing.refAllDecls(BoxLayout);
 }

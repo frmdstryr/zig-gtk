@@ -56,6 +56,6 @@ pub const LayoutLine = extern struct {
 
 };
 
-test {
+test "pango.LayoutLine" {
     std.testing.refAllDecls(LayoutLine);
 }

@@ -125,6 +125,6 @@ pub const ProxyAddressEnumerator = extern struct {
     }
 };
 
-test {
+test "gio.ProxyAddressEnumerator" {
     std.testing.refAllDecls(ProxyAddressEnumerator);
 }

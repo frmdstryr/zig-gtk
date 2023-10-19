@@ -25,6 +25,6 @@ pub const Hook = extern struct {
 
 };
 
-test {
+test "glib.Hook" {
     std.testing.refAllDecls(Hook);
 }

@@ -16,6 +16,6 @@ pub const OrientableIface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.OrientableIface" {
     std.testing.refAllDecls(OrientableIface);
 }

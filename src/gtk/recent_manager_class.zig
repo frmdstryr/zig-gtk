@@ -21,6 +21,6 @@ pub const RecentManagerClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.RecentManagerClass" {
     std.testing.refAllDecls(RecentManagerClass);
 }

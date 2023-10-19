@@ -15,6 +15,6 @@ pub const MultiSorterClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.MultiSorterClass" {
     std.testing.refAllDecls(MultiSorterClass);
 }

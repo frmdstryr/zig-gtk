@@ -20,6 +20,6 @@ pub const UnixOutputStreamClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.UnixOutputStreamClass" {
     std.testing.refAllDecls(UnixOutputStreamClass);
 }

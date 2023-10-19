@@ -133,6 +133,6 @@ pub const FontsetSimple = extern struct {
     }
 };
 
-test {
+test "pango.FontsetSimple" {
     std.testing.refAllDecls(FontsetSimple);
 }

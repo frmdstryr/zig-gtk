@@ -339,6 +339,6 @@ pub const PrintSettings = extern struct {
     }
 };
 
-test {
+test "gtk.PrintSettings" {
     std.testing.refAllDecls(PrintSettings);
 }

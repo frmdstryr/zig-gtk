@@ -45,6 +45,6 @@ pub const Frustum = extern struct {
 
 };
 
-test {
+test "graphene.Frustum" {
     std.testing.refAllDecls(Frustum);
 }

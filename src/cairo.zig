@@ -15,6 +15,6 @@ pub const Region = @import("cairo/region.zig").Region;
 pub const ScaledFont = @import("cairo/scaled_font.zig").ScaledFont;
 pub const Surface = @import("cairo/surface.zig").Surface;
 
-test {
+test "cairo" {
     std.testing.refAllDecls(@This());
 }

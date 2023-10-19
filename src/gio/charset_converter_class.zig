@@ -16,6 +16,6 @@ pub const CharsetConverterClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.CharsetConverterClass" {
     std.testing.refAllDecls(CharsetConverterClass);
 }

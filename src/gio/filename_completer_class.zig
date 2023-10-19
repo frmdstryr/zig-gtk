@@ -20,6 +20,6 @@ pub const FilenameCompleterClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.FilenameCompleterClass" {
     std.testing.refAllDecls(FilenameCompleterClass);
 }

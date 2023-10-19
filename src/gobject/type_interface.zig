@@ -19,6 +19,6 @@ pub const TypeInterface = extern struct {
 
 };
 
-test {
+test "gobject.TypeInterface" {
     std.testing.refAllDecls(TypeInterface);
 }

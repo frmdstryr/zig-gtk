@@ -43,6 +43,6 @@ pub const MountIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.MountIface" {
     std.testing.refAllDecls(MountIface);
 }

@@ -14,6 +14,6 @@ pub const WeakRef = extern struct {
     // Methods
 };
 
-test {
+test "gobject.WeakRef" {
     std.testing.refAllDecls(WeakRef);
 }

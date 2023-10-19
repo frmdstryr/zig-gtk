@@ -18,6 +18,6 @@ pub const DBusSubtreeVTable = extern struct {
     // Methods
 };
 
-test {
+test "gio.DBusSubtreeVTable" {
     std.testing.refAllDecls(DBusSubtreeVTable);
 }

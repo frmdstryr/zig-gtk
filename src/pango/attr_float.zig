@@ -16,6 +16,6 @@ pub const AttrFloat = extern struct {
     // Methods
 };
 
-test {
+test "pango.AttrFloat" {
     std.testing.refAllDecls(AttrFloat);
 }

@@ -19,6 +19,6 @@ pub const ApplicationClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ApplicationClass" {
     std.testing.refAllDecls(ApplicationClass);
 }

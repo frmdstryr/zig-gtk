@@ -33,6 +33,6 @@ pub const HookList = extern struct {
 
 };
 
-test {
+test "glib.HookList" {
     std.testing.refAllDecls(HookList);
 }

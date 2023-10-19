@@ -610,6 +610,6 @@ pub const StackSidebar = extern struct {
     }
 };
 
-test {
+test "gtk.StackSidebar" {
     std.testing.refAllDecls(StackSidebar);
 }

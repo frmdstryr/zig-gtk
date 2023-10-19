@@ -29,6 +29,6 @@ pub const AsyncInitable = extern struct {
     }
 };
 
-test {
+test "gio.AsyncInitable" {
     std.testing.refAllDecls(AsyncInitable);
 }

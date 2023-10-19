@@ -18,6 +18,6 @@ pub const ConverterIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.ConverterIface" {
     std.testing.refAllDecls(ConverterIface);
 }

@@ -41,6 +41,6 @@ pub const ObjectClass = extern struct {
 
 };
 
-test {
+test "gobject.ObjectClass" {
     std.testing.refAllDecls(ObjectClass);
 }

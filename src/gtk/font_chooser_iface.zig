@@ -25,6 +25,6 @@ pub const FontChooserIface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.FontChooserIface" {
     std.testing.refAllDecls(FontChooserIface);
 }

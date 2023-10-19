@@ -19,6 +19,6 @@ pub const EnumClass = extern struct {
     // Methods
 };
 
-test {
+test "gobject.EnumClass" {
     std.testing.refAllDecls(EnumClass);
 }

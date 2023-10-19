@@ -53,6 +53,6 @@ pub const Bytes = extern struct {
 
 };
 
-test {
+test "glib.Bytes" {
     std.testing.refAllDecls(Bytes);
 }

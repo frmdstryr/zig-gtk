@@ -25,6 +25,6 @@ pub const DBusObjectManagerIface = extern struct {
     // Methods
 };
 
-test {
+test "gio.DBusObjectManagerIface" {
     std.testing.refAllDecls(DBusObjectManagerIface);
 }

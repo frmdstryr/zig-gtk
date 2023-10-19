@@ -793,6 +793,6 @@ pub const IconView = extern struct {
     }
 };
 
-test {
+test "gtk.IconView" {
     std.testing.refAllDecls(IconView);
 }

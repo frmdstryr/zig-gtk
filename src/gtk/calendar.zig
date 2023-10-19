@@ -640,6 +640,6 @@ pub const Calendar = extern struct {
     }
 };
 
-test {
+test "gtk.Calendar" {
     std.testing.refAllDecls(Calendar);
 }

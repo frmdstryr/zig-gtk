@@ -102,6 +102,6 @@ pub const Vec3 = extern struct {
 
 };
 
-test {
+test "graphene.Vec3" {
     std.testing.refAllDecls(Vec3);
 }

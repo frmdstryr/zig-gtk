@@ -15,6 +15,6 @@ pub const DoubleIEEE754 = extern struct {
     // Methods
 };
 
-test {
+test "glib.DoubleIEEE754" {
     std.testing.refAllDecls(DoubleIEEE754);
 }

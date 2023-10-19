@@ -17,6 +17,6 @@ pub const ListStoreClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ListStoreClass" {
     std.testing.refAllDecls(ListStoreClass);
 }

@@ -101,6 +101,6 @@ pub const Bitset = extern struct {
 
 };
 
-test {
+test "gtk.Bitset" {
     std.testing.refAllDecls(Bitset);
 }

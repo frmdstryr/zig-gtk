@@ -823,6 +823,6 @@ pub const PageSetupUnixDialog = extern struct {
     }
 };
 
-test {
+test "gtk.PageSetupUnixDialog" {
     std.testing.refAllDecls(PageSetupUnixDialog);
 }

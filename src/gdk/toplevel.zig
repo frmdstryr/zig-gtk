@@ -78,6 +78,6 @@ pub const Toplevel = extern struct {
     }
 };
 
-test {
+test "gdk.Toplevel" {
     std.testing.refAllDecls(Toplevel);
 }

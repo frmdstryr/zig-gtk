@@ -143,6 +143,6 @@ pub const InetAddressMask = extern struct {
     }
 };
 
-test {
+test "gio.InetAddressMask" {
     std.testing.refAllDecls(InetAddressMask);
 }

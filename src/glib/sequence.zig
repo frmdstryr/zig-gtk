@@ -38,6 +38,6 @@ pub const Sequence = extern struct {
 
 };
 
-test {
+test "glib.Sequence" {
     std.testing.refAllDecls(Sequence);
 }

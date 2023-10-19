@@ -47,6 +47,6 @@ pub const ObjectExpression = extern struct {
     }
 };
 
-test {
+test "gtk.ObjectExpression" {
     std.testing.refAllDecls(ObjectExpression);
 }

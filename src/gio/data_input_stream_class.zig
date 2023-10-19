@@ -20,6 +20,6 @@ pub const DataInputStreamClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.DataInputStreamClass" {
     std.testing.refAllDecls(DataInputStreamClass);
 }

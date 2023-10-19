@@ -45,6 +45,6 @@ pub const Action = extern struct {
     }
 };
 
-test {
+test "gio.Action" {
     std.testing.refAllDecls(Action);
 }

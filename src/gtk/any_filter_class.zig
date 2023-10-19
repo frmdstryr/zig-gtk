@@ -14,6 +14,6 @@ pub const AnyFilterClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.AnyFilterClass" {
     std.testing.refAllDecls(AnyFilterClass);
 }

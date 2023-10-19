@@ -56,6 +56,6 @@ pub const Attribute = extern struct {
 
 };
 
-test {
+test "pango.Attribute" {
     std.testing.refAllDecls(Attribute);
 }

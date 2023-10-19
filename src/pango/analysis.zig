@@ -23,6 +23,6 @@ pub const Analysis = extern struct {
     // Methods
 };
 
-test {
+test "pango.Analysis" {
     std.testing.refAllDecls(Analysis);
 }

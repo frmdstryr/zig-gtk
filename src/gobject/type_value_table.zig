@@ -22,6 +22,6 @@ pub const TypeValueTable = extern struct {
     // Methods
 };
 
-test {
+test "gobject.TypeValueTable" {
     std.testing.refAllDecls(TypeValueTable);
 }

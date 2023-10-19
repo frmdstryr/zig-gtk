@@ -22,6 +22,6 @@ pub const ColorChooserInterface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ColorChooserInterface" {
     std.testing.refAllDecls(ColorChooserInterface);
 }

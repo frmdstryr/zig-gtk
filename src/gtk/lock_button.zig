@@ -658,6 +658,6 @@ pub const LockButton = extern struct {
     }
 };
 
-test {
+test "gtk.LockButton" {
     std.testing.refAllDecls(LockButton);
 }

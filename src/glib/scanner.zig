@@ -83,6 +83,6 @@ pub const Scanner = extern struct {
 
 };
 
-test {
+test "glib.Scanner" {
     std.testing.refAllDecls(Scanner);
 }

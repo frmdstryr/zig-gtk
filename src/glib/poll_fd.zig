@@ -17,6 +17,6 @@ pub const PollFD = extern struct {
     // Methods
 };
 
-test {
+test "glib.PollFD" {
     std.testing.refAllDecls(PollFD);
 }

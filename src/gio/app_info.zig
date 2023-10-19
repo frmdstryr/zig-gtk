@@ -96,6 +96,6 @@ pub const AppInfo = extern struct {
     }
 };
 
-test {
+test "gio.AppInfo" {
     std.testing.refAllDecls(AppInfo);
 }

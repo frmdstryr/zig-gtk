@@ -21,6 +21,6 @@ pub const RecentData = extern struct {
     // Methods
 };
 
-test {
+test "gtk.RecentData" {
     std.testing.refAllDecls(RecentData);
 }

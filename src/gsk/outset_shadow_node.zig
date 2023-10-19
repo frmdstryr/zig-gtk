@@ -65,6 +65,6 @@ pub const OutsetShadowNode = extern struct {
     }
 };
 
-test {
+test "gsk.OutsetShadowNode" {
     std.testing.refAllDecls(OutsetShadowNode);
 }

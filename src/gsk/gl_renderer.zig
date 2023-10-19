@@ -141,6 +141,6 @@ pub const GLRenderer = extern struct {
     }
 };
 
-test {
+test "gsk.GLRenderer" {
     std.testing.refAllDecls(GLRenderer);
 }

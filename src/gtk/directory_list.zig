@@ -151,6 +151,6 @@ pub const DirectoryList = extern struct {
     }
 };
 
-test {
+test "gtk.DirectoryList" {
     std.testing.refAllDecls(DirectoryList);
 }

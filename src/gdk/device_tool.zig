@@ -123,6 +123,6 @@ pub const DeviceTool = extern struct {
     }
 };
 
-test {
+test "gdk.DeviceTool" {
     std.testing.refAllDecls(DeviceTool);
 }

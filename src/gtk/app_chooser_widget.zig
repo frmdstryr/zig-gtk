@@ -646,6 +646,6 @@ pub const AppChooserWidget = extern struct {
     }
 };
 
-test {
+test "gtk.AppChooserWidget" {
     std.testing.refAllDecls(AppChooserWidget);
 }

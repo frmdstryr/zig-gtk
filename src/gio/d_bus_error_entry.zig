@@ -16,6 +16,6 @@ pub const DBusErrorEntry = extern struct {
     // Methods
 };
 
-test {
+test "gio.DBusErrorEntry" {
     std.testing.refAllDecls(DBusErrorEntry);
 }

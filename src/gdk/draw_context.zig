@@ -130,6 +130,6 @@ pub const DrawContext = extern struct {
     }
 };
 
-test {
+test "gdk.DrawContext" {
     std.testing.refAllDecls(DrawContext);
 }

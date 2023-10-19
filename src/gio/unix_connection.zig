@@ -194,6 +194,6 @@ pub const UnixConnection = extern struct {
     }
 };
 
-test {
+test "gio.UnixConnection" {
     std.testing.refAllDecls(UnixConnection);
 }

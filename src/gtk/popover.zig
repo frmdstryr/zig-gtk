@@ -674,6 +674,6 @@ pub const Popover = extern struct {
     }
 };
 
-test {
+test "gtk.Popover" {
     std.testing.refAllDecls(Popover);
 }

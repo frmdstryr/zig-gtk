@@ -30,6 +30,6 @@ pub const Rectangle = extern struct {
 
 };
 
-test {
+test "gdk.Rectangle" {
     std.testing.refAllDecls(Rectangle);
 }

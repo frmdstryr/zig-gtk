@@ -16,6 +16,6 @@ pub const StringObjectClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.StringObjectClass" {
     std.testing.refAllDecls(StringObjectClass);
 }

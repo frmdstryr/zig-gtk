@@ -16,6 +16,6 @@ pub const SList = extern struct {
     // Methods
 };
 
-test {
+test "glib.SList" {
     std.testing.refAllDecls(SList);
 }

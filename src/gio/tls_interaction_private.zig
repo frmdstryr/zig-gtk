@@ -14,6 +14,6 @@ pub const TlsInteractionPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.TlsInteractionPrivate" {
     std.testing.refAllDecls(TlsInteractionPrivate);
 }

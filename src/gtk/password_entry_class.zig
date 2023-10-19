@@ -14,6 +14,6 @@ pub const PasswordEntryClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.PasswordEntryClass" {
     std.testing.refAllDecls(PasswordEntryClass);
 }

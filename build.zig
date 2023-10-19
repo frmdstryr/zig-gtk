@@ -29,6 +29,7 @@ pub fn build(b: *Builder) void {
     });
 
     const glib_test = b.addTest(.{
+        .name="test glib",
         .root_source_file=.{.path="src/glib.zig"},
         .target=target,
         .optimize=optimize,
@@ -46,6 +47,7 @@ pub fn build(b: *Builder) void {
         },
     });
     const gobject_test = b.addTest(.{
+        .name="test gobject",
         .root_source_file=.{.path="src/gobject.zig"},
         .target=target,
         .optimize=optimize,
@@ -66,6 +68,7 @@ pub fn build(b: *Builder) void {
     });
 
     const gio_test = b.addTest(.{
+        .name="test gio",
         .root_source_file=.{.path="src/gio.zig"},
         .target=target,
         .optimize=optimize,
@@ -97,6 +100,7 @@ pub fn build(b: *Builder) void {
     });
 
     const pango_test = b.addTest(.{
+        .name="test pango",
         .root_source_file=.{.path="src/pango.zig"},
         .target=target,
         .optimize=optimize,
@@ -113,6 +117,7 @@ pub fn build(b: *Builder) void {
         .source_file = .{ .path = "src/cairo.zig" },
     });
     const cairo_test = b.addTest(.{
+        .name="test cairo",
         .root_source_file=.{.path="src/cairo.zig"},
         .target=target,
         .optimize=optimize,
@@ -137,6 +142,7 @@ pub fn build(b: *Builder) void {
     });
 
     const gdk_test = b.addTest(.{
+        .name="test gdk",
         .root_source_file=.{.path="src/gdk.zig"},
         .target=target,
         .optimize=optimize,
@@ -159,6 +165,7 @@ pub fn build(b: *Builder) void {
         .source_file = .{ .path = "src/graphene.zig" } ,
     });
     const graphene_test = b.addTest(.{
+        .name="test graphene",
         .root_source_file=.{.path="src/graphene.zig"},
         .target=target,
         .optimize=optimize,
@@ -181,6 +188,7 @@ pub fn build(b: *Builder) void {
         },
     });
     const gsk_test = b.addTest(.{
+        .name="test gsk",
         .root_source_file=.{.path="src/gsk.zig"},
         .target=target,
         .optimize=optimize,
@@ -204,6 +212,7 @@ pub fn build(b: *Builder) void {
 
 
     const gtk_test = b.addTest(.{
+        .name="test gtk",
         .root_source_file=.{.path="src/gtk.zig"},
         .target=target,
         .optimize=optimize
@@ -225,14 +234,15 @@ pub fn build(b: *Builder) void {
     gtk_test.addModule("graphene", graphene);
     gtk_test.addModule("gdkpixbuf", gdkpixbuf);
 
+
     const test_step = b.step("test", "Run the tests");
-    test_step.dependOn(&glib_test.step);
-    test_step.dependOn(&gobject_test.step);
-    test_step.dependOn(&gio_test.step);
-    test_step.dependOn(&pango_test.step);
-    test_step.dependOn(&cairo_test.step);
-    test_step.dependOn(&graphene_test.step);
-    test_step.dependOn(&gsk_test.step);
-    test_step.dependOn(&gdk_test.step);
-    test_step.dependOn(&gtk_test.step);
+    test_step.dependOn(&b.addRunArtifact(glib_test).step);
+    test_step.dependOn(&b.addRunArtifact(gobject_test).step);
+    test_step.dependOn(&b.addRunArtifact(gio_test).step);
+    test_step.dependOn(&b.addRunArtifact(pango_test).step);
+    test_step.dependOn(&b.addRunArtifact(cairo_test).step);
+    test_step.dependOn(&b.addRunArtifact(graphene_test).step);
+    test_step.dependOn(&b.addRunArtifact(gsk_test).step);
+    test_step.dependOn(&b.addRunArtifact(gdk_test).step);
+    test_step.dependOn(&b.addRunArtifact(gtk_test).step);
 }

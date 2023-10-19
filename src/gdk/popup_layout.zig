@@ -65,6 +65,6 @@ pub const PopupLayout = extern struct {
 
 };
 
-test {
+test "gdk.PopupLayout" {
     std.testing.refAllDecls(PopupLayout);
 }

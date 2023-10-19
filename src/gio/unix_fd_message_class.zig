@@ -17,6 +17,6 @@ pub const UnixFDMessageClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.UnixFDMessageClass" {
     std.testing.refAllDecls(UnixFDMessageClass);
 }

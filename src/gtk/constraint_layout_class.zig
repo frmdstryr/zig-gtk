@@ -15,6 +15,6 @@ pub const ConstraintLayoutClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.ConstraintLayoutClass" {
     std.testing.refAllDecls(ConstraintLayoutClass);
 }

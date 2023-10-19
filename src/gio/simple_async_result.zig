@@ -153,6 +153,6 @@ pub const SimpleAsyncResult = extern struct {
     }
 };
 
-test {
+test "gio.SimpleAsyncResult" {
     std.testing.refAllDecls(SimpleAsyncResult);
 }

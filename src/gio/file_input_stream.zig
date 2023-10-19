@@ -188,6 +188,6 @@ pub const FileInputStream = extern struct {
     }
 };
 
-test {
+test "gio.FileInputStream" {
     std.testing.refAllDecls(FileInputStream);
 }

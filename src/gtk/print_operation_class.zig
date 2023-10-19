@@ -28,6 +28,6 @@ pub const PrintOperationClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.PrintOperationClass" {
     std.testing.refAllDecls(PrintOperationClass);
 }

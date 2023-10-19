@@ -26,6 +26,6 @@ pub const ScriptIter = extern struct {
 
 };
 
-test {
+test "pango.ScriptIter" {
     std.testing.refAllDecls(ScriptIter);
 }

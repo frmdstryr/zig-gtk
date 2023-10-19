@@ -26,6 +26,6 @@ pub const FilterClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.FilterClass" {
     std.testing.refAllDecls(FilterClass);
 }

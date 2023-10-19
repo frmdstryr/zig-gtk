@@ -291,6 +291,6 @@ pub const DataInputStream = extern struct {
     }
 };
 
-test {
+test "gio.DataInputStream" {
     std.testing.refAllDecls(DataInputStream);
 }

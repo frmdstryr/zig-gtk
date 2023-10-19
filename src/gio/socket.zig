@@ -293,6 +293,6 @@ pub const Socket = extern struct {
     }
 };
 
-test {
+test "gio.Socket" {
     std.testing.refAllDecls(Socket);
 }

@@ -38,6 +38,6 @@ pub const TreeSortable = extern struct {
     }
 };
 
-test {
+test "gtk.TreeSortable" {
     std.testing.refAllDecls(TreeSortable);
 }

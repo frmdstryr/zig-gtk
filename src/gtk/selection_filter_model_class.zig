@@ -16,6 +16,6 @@ pub const SelectionFilterModelClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.SelectionFilterModelClass" {
     std.testing.refAllDecls(SelectionFilterModelClass);
 }

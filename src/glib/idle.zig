@@ -122,6 +122,6 @@ pub const Idle = extern struct {
     }
 };
 
-test {
+test "glib.Idle" {
     std.testing.refAllDecls(Idle);
 }

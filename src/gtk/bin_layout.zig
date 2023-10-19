@@ -136,6 +136,6 @@ pub const BinLayout = extern struct {
     }
 };
 
-test {
+test "gtk.BinLayout" {
     std.testing.refAllDecls(BinLayout);
 }

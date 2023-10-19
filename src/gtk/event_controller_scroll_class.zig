@@ -14,6 +14,6 @@ pub const EventControllerScrollClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.EventControllerScrollClass" {
     std.testing.refAllDecls(EventControllerScrollClass);
 }

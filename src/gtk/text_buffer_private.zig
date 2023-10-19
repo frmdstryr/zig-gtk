@@ -14,6 +14,6 @@ pub const TextBufferPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gtk.TextBufferPrivate" {
     std.testing.refAllDecls(TextBufferPrivate);
 }

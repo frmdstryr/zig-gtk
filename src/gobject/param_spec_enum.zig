@@ -63,6 +63,6 @@ pub const ParamSpecEnum = extern struct {
     }
 };
 
-test {
+test "gobject.ParamSpecEnum" {
     std.testing.refAllDecls(ParamSpecEnum);
 }

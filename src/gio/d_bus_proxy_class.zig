@@ -20,6 +20,6 @@ pub const DBusProxyClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.DBusProxyClass" {
     std.testing.refAllDecls(DBusProxyClass);
 }

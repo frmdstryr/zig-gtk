@@ -24,6 +24,6 @@ pub const SymbolicPaintable = extern struct {
     }
 };
 
-test {
+test "gtk.SymbolicPaintable" {
     std.testing.refAllDecls(SymbolicPaintable);
 }

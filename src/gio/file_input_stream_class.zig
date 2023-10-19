@@ -28,6 +28,6 @@ pub const FileInputStreamClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.FileInputStreamClass" {
     std.testing.refAllDecls(FileInputStreamClass);
 }

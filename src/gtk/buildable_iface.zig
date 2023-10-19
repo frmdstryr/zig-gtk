@@ -26,6 +26,6 @@ pub const BuildableIface = extern struct {
     // Methods
 };
 
-test {
+test "gtk.BuildableIface" {
     std.testing.refAllDecls(BuildableIface);
 }

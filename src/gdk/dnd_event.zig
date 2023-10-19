@@ -82,6 +82,6 @@ pub const DNDEvent = extern struct {
     }
 };
 
-test {
+test "gdk.DNDEvent" {
     std.testing.refAllDecls(DNDEvent);
 }

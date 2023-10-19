@@ -17,6 +17,6 @@ pub const GlyphGeometry = extern struct {
     // Methods
 };
 
-test {
+test "pango.GlyphGeometry" {
     std.testing.refAllDecls(GlyphGeometry);
 }

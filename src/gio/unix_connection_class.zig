@@ -15,6 +15,6 @@ pub const UnixConnectionClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.UnixConnectionClass" {
     std.testing.refAllDecls(UnixConnectionClass);
 }

@@ -125,6 +125,6 @@ pub const BindingGroup = extern struct {
     }
 };
 
-test {
+test "gobject.BindingGroup" {
     std.testing.refAllDecls(BindingGroup);
 }

@@ -22,6 +22,6 @@ pub const TestLogBuffer = extern struct {
 
 };
 
-test {
+test "glib.TestLogBuffer" {
     std.testing.refAllDecls(TestLogBuffer);
 }

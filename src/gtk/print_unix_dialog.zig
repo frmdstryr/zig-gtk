@@ -859,6 +859,6 @@ pub const PrintUnixDialog = extern struct {
     }
 };
 
-test {
+test "gtk.PrintUnixDialog" {
     std.testing.refAllDecls(PrintUnixDialog);
 }

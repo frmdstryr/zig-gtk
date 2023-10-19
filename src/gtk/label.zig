@@ -748,6 +748,6 @@ pub const Label = extern struct {
     }
 };
 
-test {
+test "gtk.Label" {
     std.testing.refAllDecls(Label);
 }

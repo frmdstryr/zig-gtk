@@ -32,6 +32,6 @@ pub const Color = extern struct {
 
 };
 
-test {
+test "pango.Color" {
     std.testing.refAllDecls(Color);
 }

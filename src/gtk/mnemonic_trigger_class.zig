@@ -14,6 +14,6 @@ pub const MnemonicTriggerClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.MnemonicTriggerClass" {
     std.testing.refAllDecls(MnemonicTriggerClass);
 }

@@ -17,6 +17,6 @@ pub const TestCase = extern struct {
 
 };
 
-test {
+test "glib.TestCase" {
     std.testing.refAllDecls(TestCase);
 }

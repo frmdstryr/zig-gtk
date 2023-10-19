@@ -14,6 +14,6 @@ pub const SignalListItemFactoryClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.SignalListItemFactoryClass" {
     std.testing.refAllDecls(SignalListItemFactoryClass);
 }

@@ -160,6 +160,6 @@ pub const FileFilter = extern struct {
     }
 };
 
-test {
+test "gtk.FileFilter" {
     std.testing.refAllDecls(FileFilter);
 }

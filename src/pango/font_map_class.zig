@@ -24,6 +24,6 @@ pub const FontMapClass = extern struct {
     // Methods
 };
 
-test {
+test "pango.FontMapClass" {
     std.testing.refAllDecls(FontMapClass);
 }

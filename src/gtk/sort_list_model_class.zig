@@ -16,6 +16,6 @@ pub const SortListModelClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.SortListModelClass" {
     std.testing.refAllDecls(SortListModelClass);
 }

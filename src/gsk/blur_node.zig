@@ -52,6 +52,6 @@ pub const BlurNode = extern struct {
     }
 };
 
-test {
+test "gsk.BlurNode" {
     std.testing.refAllDecls(BlurNode);
 }

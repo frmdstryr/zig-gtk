@@ -163,6 +163,6 @@ pub const Device = extern struct {
     }
 };
 
-test {
+test "gdk.Device" {
     std.testing.refAllDecls(Device);
 }

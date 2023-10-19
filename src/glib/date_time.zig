@@ -164,6 +164,6 @@ pub const DateTime = extern struct {
 
 };
 
-test {
+test "glib.DateTime" {
     std.testing.refAllDecls(DateTime);
 }

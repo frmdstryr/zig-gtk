@@ -152,6 +152,6 @@ pub const BookmarkFile = extern struct {
 
 };
 
-test {
+test "glib.BookmarkFile" {
     std.testing.refAllDecls(BookmarkFile);
 }

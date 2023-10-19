@@ -14,6 +14,6 @@ pub const PrintBackend = extern struct {
     // Methods
 };
 
-test {
+test "gtk.PrintBackend" {
     std.testing.refAllDecls(PrintBackend);
 }

@@ -169,6 +169,6 @@ pub const GLShader = extern struct {
     }
 };
 
-test {
+test "gsk.GLShader" {
     std.testing.refAllDecls(GLShader);
 }

@@ -20,6 +20,6 @@ pub const MemoryInputStreamClass = extern struct {
     // Methods
 };
 
-test {
+test "gio.MemoryInputStreamClass" {
     std.testing.refAllDecls(MemoryInputStreamClass);
 }

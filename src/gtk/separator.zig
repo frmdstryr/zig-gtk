@@ -610,6 +610,6 @@ pub const Separator = extern struct {
     }
 };
 
-test {
+test "gtk.Separator" {
     std.testing.refAllDecls(Separator);
 }

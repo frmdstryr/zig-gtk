@@ -25,6 +25,6 @@ pub const DBusMethodInfo = extern struct {
 
 };
 
-test {
+test "gio.DBusMethodInfo" {
     std.testing.refAllDecls(DBusMethodInfo);
 }

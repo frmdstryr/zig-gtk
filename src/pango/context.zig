@@ -183,6 +183,6 @@ pub const Context = extern struct {
     }
 };
 
-test {
+test "pango.Context" {
     std.testing.refAllDecls(Context);
 }

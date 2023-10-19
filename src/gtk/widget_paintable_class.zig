@@ -16,6 +16,6 @@ pub const WidgetPaintableClass = extern struct {
     // Methods
 };
 
-test {
+test "gtk.WidgetPaintableClass" {
     std.testing.refAllDecls(WidgetPaintableClass);
 }

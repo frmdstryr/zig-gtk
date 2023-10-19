@@ -156,6 +156,6 @@ pub const IMContext = extern struct {
     }
 };
 
-test {
+test "gtk.IMContext" {
     std.testing.refAllDecls(IMContext);
 }

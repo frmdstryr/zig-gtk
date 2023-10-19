@@ -50,6 +50,6 @@ pub const ToplevelLayout = extern struct {
 
 };
 
-test {
+test "gdk.ToplevelLayout" {
     std.testing.refAllDecls(ToplevelLayout);
 }

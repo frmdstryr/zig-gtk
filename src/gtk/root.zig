@@ -30,6 +30,6 @@ pub const Root = extern struct {
     }
 };
 
-test {
+test "gtk.Root" {
     std.testing.refAllDecls(Root);
 }

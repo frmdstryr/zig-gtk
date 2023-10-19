@@ -276,6 +276,6 @@ pub const TreeViewColumn = extern struct {
     }
 };
 
-test {
+test "gtk.TreeViewColumn" {
     std.testing.refAllDecls(TreeViewColumn);
 }

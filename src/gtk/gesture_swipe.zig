@@ -238,6 +238,6 @@ pub const GestureSwipe = extern struct {
     }
 };
 
-test {
+test "gtk.GestureSwipe" {
     std.testing.refAllDecls(GestureSwipe);
 }

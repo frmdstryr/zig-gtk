@@ -665,6 +665,6 @@ pub const ToggleButton = extern struct {
     }
 };
 
-test {
+test "gtk.ToggleButton" {
     std.testing.refAllDecls(ToggleButton);
 }

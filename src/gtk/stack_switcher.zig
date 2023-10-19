@@ -616,6 +616,6 @@ pub const StackSwitcher = extern struct {
     }
 };
 
-test {
+test "gtk.StackSwitcher" {
     std.testing.refAllDecls(StackSwitcher);
 }

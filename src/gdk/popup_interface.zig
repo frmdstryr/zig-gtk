@@ -14,6 +14,6 @@ pub const PopupInterface = extern struct {
     // Methods
 };
 
-test {
+test "gdk.PopupInterface" {
     std.testing.refAllDecls(PopupInterface);
 }

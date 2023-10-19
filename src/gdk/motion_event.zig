@@ -79,6 +79,6 @@ pub const MotionEvent = extern struct {
     }
 };
 
-test {
+test "gdk.MotionEvent" {
     std.testing.refAllDecls(MotionEvent);
 }

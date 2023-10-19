@@ -38,6 +38,6 @@ pub const GlyphItem = extern struct {
 
 };
 
-test {
+test "pango.GlyphItem" {
     std.testing.refAllDecls(GlyphItem);
 }

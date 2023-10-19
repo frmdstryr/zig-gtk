@@ -16,6 +16,6 @@ pub const DebugControllerInterface = extern struct {
     // Methods
 };
 
-test {
+test "gio.DebugControllerInterface" {
     std.testing.refAllDecls(DebugControllerInterface);
 }

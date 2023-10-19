@@ -135,6 +135,6 @@ pub const Renderer = extern struct {
     }
 };
 
-test {
+test "gsk.Renderer" {
     std.testing.refAllDecls(Renderer);
 }

@@ -49,6 +49,6 @@ pub const Node = extern struct {
 
 };
 
-test {
+test "glib.Node" {
     std.testing.refAllDecls(Node);
 }

@@ -30,6 +30,6 @@ pub const Icon = extern struct {
     }
 };
 
-test {
+test "gio.Icon" {
     std.testing.refAllDecls(Icon);
 }

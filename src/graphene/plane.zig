@@ -58,6 +58,6 @@ pub const Plane = extern struct {
 
 };
 
-test {
+test "graphene.Plane" {
     std.testing.refAllDecls(Plane);
 }

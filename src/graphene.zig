@@ -23,6 +23,6 @@ pub const Vec2 = @import("graphene/vec2.zig").Vec2;
 pub const Vec3 = @import("graphene/vec3.zig").Vec3;
 pub const Vec4 = @import("graphene/vec4.zig").Vec4;
 
-test {
+test "graphene" {
     std.testing.refAllDecls(@This());
 }

@@ -153,6 +153,6 @@ pub const MenuItem = extern struct {
     }
 };
 
-test {
+test "gio.MenuItem" {
     std.testing.refAllDecls(MenuItem);
 }

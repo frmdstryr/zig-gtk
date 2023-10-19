@@ -14,6 +14,6 @@ pub const PermissionPrivate = extern struct {
     // Methods
 };
 
-test {
+test "gio.PermissionPrivate" {
     std.testing.refAllDecls(PermissionPrivate);
 }

@@ -616,6 +616,6 @@ pub const Widget = extern struct {
     }
 };
 
-test {
+test "gtk.Widget" {
     std.testing.refAllDecls(Widget);
 }
