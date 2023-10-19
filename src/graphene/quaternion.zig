@@ -91,5 +91,6 @@ pub const Quaternion = extern struct {
 };
 
 test "graphene.Quaternion" {
-    std.testing.refAllDecls(Quaternion);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(Quaternion));
 }

@@ -19,5 +19,6 @@ pub const FrameClass = extern struct {
 };
 
 test "gtk.FrameClass" {
-    std.testing.refAllDecls(FrameClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 480), @sizeOf(FrameClass));
 }

@@ -42,5 +42,5 @@ pub const VariantDict = extern struct {
 };
 
 test "glib.VariantDict" {
-    std.testing.refAllDecls(VariantDict);
+    std.testing.refAllDecls(@This());
 }

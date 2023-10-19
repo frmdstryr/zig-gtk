@@ -32,5 +32,5 @@ pub const TypePlugin = extern struct {
 };
 
 test "gobject.TypePlugin" {
-    std.testing.refAllDecls(TypePlugin);
+    std.testing.refAllDecls(@This());
 }

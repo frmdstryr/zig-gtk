@@ -782,5 +782,5 @@ pub const ShortcutsWindow = extern struct {
 };
 
 test "gtk.ShortcutsWindow" {
-    std.testing.refAllDecls(ShortcutsWindow);
+    std.testing.refAllDecls(@This());
 }

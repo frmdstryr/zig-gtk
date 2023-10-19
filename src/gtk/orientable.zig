@@ -27,5 +27,5 @@ pub const Orientable = extern struct {
 };
 
 test "gtk.Orientable" {
-    std.testing.refAllDecls(Orientable);
+    std.testing.refAllDecls(@This());
 }

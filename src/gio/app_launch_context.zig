@@ -135,5 +135,5 @@ pub const AppLaunchContext = extern struct {
 };
 
 test "gio.AppLaunchContext" {
-    std.testing.refAllDecls(AppLaunchContext);
+    std.testing.refAllDecls(@This());
 }

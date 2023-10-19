@@ -212,5 +212,5 @@ pub const CellRendererAccel = extern struct {
 };
 
 test "gtk.CellRendererAccel" {
-    std.testing.refAllDecls(CellRendererAccel);
+    std.testing.refAllDecls(@This());
 }

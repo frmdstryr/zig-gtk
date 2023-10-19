@@ -144,5 +144,5 @@ pub const InetAddressMask = extern struct {
 };
 
 test "gio.InetAddressMask" {
-    std.testing.refAllDecls(InetAddressMask);
+    std.testing.refAllDecls(@This());
 }

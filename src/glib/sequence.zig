@@ -39,5 +39,5 @@ pub const Sequence = extern struct {
 };
 
 test "glib.Sequence" {
-    std.testing.refAllDecls(Sequence);
+    std.testing.refAllDecls(@This());
 }

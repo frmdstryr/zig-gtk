@@ -644,5 +644,5 @@ pub const CheckButton = extern struct {
 };
 
 test "gtk.CheckButton" {
-    std.testing.refAllDecls(CheckButton);
+    std.testing.refAllDecls(@This());
 }

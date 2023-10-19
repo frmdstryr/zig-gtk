@@ -131,5 +131,5 @@ pub const CustomSorter = extern struct {
 };
 
 test "gtk.CustomSorter" {
-    std.testing.refAllDecls(CustomSorter);
+    std.testing.refAllDecls(@This());
 }

@@ -794,5 +794,5 @@ pub const IconView = extern struct {
 };
 
 test "gtk.IconView" {
-    std.testing.refAllDecls(IconView);
+    std.testing.refAllDecls(@This());
 }

@@ -39,5 +39,6 @@ pub const ThreadPool = extern struct {
 };
 
 test "glib.ThreadPool" {
-    std.testing.refAllDecls(ThreadPool);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(ThreadPool));
 }

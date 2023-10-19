@@ -15,5 +15,5 @@ pub const BufferedOutputStreamPrivate = extern struct {
 };
 
 test "gio.BufferedOutputStreamPrivate" {
-    std.testing.refAllDecls(BufferedOutputStreamPrivate);
+    std.testing.refAllDecls(@This());
 }

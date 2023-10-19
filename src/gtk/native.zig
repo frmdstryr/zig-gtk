@@ -38,5 +38,5 @@ pub const Native = extern struct {
 };
 
 test "gtk.Native" {
-    std.testing.refAllDecls(Native);
+    std.testing.refAllDecls(@This());
 }

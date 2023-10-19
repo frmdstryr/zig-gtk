@@ -57,5 +57,6 @@ pub const Attribute = extern struct {
 };
 
 test "pango.Attribute" {
-    std.testing.refAllDecls(Attribute);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(Attribute));
 }

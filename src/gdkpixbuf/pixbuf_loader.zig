@@ -144,5 +144,5 @@ pub const PixbufLoader = extern struct {
 };
 
 test "gdkpixbuf.PixbufLoader" {
-    std.testing.refAllDecls(PixbufLoader);
+    std.testing.refAllDecls(@This());
 }

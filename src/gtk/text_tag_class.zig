@@ -18,5 +18,6 @@ pub const TextTagClass = extern struct {
 };
 
 test "gtk.TextTagClass" {
-    std.testing.refAllDecls(TextTagClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 200), @sizeOf(TextTagClass));
 }

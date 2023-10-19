@@ -168,5 +168,5 @@ pub const ThreadedSocketService = extern struct {
 };
 
 test "gio.ThreadedSocketService" {
-    std.testing.refAllDecls(ThreadedSocketService);
+    std.testing.refAllDecls(@This());
 }

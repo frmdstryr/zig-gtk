@@ -21,5 +21,5 @@ pub const TlsFileDatabase = extern struct {
 };
 
 test "gio.TlsFileDatabase" {
-    std.testing.refAllDecls(TlsFileDatabase);
+    std.testing.refAllDecls(@This());
 }

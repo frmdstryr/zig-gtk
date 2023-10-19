@@ -23,5 +23,6 @@ pub const TreeSortableIface = extern struct {
 };
 
 test "gtk.TreeSortableIface" {
-    std.testing.refAllDecls(TreeSortableIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 64), @sizeOf(TreeSortableIface));
 }

@@ -144,5 +144,5 @@ pub const MultiSorter = extern struct {
 };
 
 test "gtk.MultiSorter" {
-    std.testing.refAllDecls(MultiSorter);
+    std.testing.refAllDecls(@This());
 }

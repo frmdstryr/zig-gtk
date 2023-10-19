@@ -15,5 +15,5 @@ pub const TcpWrapperConnectionPrivate = extern struct {
 };
 
 test "gio.TcpWrapperConnectionPrivate" {
-    std.testing.refAllDecls(TcpWrapperConnectionPrivate);
+    std.testing.refAllDecls(@This());
 }

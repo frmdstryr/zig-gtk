@@ -150,5 +150,5 @@ pub const SimpleIOStream = extern struct {
 };
 
 test "gio.SimpleIOStream" {
-    std.testing.refAllDecls(SimpleIOStream);
+    std.testing.refAllDecls(@This());
 }

@@ -21,5 +21,6 @@ pub const MemoryOutputStreamClass = extern struct {
 };
 
 test "gio.MemoryOutputStreamClass" {
-    std.testing.refAllDecls(MemoryOutputStreamClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 336), @sizeOf(MemoryOutputStreamClass));
 }

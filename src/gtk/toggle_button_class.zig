@@ -18,5 +18,6 @@ pub const ToggleButtonClass = extern struct {
 };
 
 test "gtk.ToggleButtonClass" {
-    std.testing.refAllDecls(ToggleButtonClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 560), @sizeOf(ToggleButtonClass));
 }

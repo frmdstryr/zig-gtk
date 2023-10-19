@@ -38,5 +38,5 @@ pub const AttrIterator = extern struct {
 };
 
 test "pango.AttrIterator" {
-    std.testing.refAllDecls(AttrIterator);
+    std.testing.refAllDecls(@This());
 }

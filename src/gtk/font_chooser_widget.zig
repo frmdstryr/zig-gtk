@@ -611,5 +611,5 @@ pub const FontChooserWidget = extern struct {
 };
 
 test "gtk.FontChooserWidget" {
-    std.testing.refAllDecls(FontChooserWidget);
+    std.testing.refAllDecls(@This());
 }

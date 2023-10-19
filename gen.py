@@ -363,7 +363,10 @@ def struct_field_type(field, imports: set[str]) -> Optional[str]:
     if t == "void" and ftype.is_pointer():
         return "?*anyopaque"
     if t in TYPE_MAP:
-        return TYPE_MAP[t]
+        r = TYPE_MAP[t]
+        if ftype.is_pointer() and not r.startswith("*"):
+            return f"*{r}"
+        return r
     if t == "interface" and (it := interface_type_to_string(ftype, imports)):
         if not it.startswith("*"):
             return f"*{it}"
@@ -584,13 +587,14 @@ def generate_class(ns: str, Cls: type):
     out.append("")
 
     test = ['test "%s" {' % this_cls]
-    test.append(f"    std.testing.refAllDecls({Cls.__name__});")
+    test.append("    std.testing.refAllDecls(@This());")
     # Verify struct size is correct
-    # if hasattr(info, "get_size"):
-    #     expected_size = info.get_size()
-    #     test.append(
-    #         f"    try std.testing.expectEqual(@sizeOf({Cls.__name__}), {expected_size});",
-    #     )
+    if hasattr(info, "get_size"):
+        expected_size = info.get_size()
+        if expected_size > 0:
+            test.append(
+                f"    try std.testing.expectEqual(@as(usize, {expected_size}), @sizeOf({Cls.__name__}));",
+            )
     test.append("}")
     out.extend(test)
 

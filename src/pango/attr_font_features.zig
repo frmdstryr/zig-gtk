@@ -9,7 +9,7 @@ pub const AttrFontFeatures = extern struct {
 
     // Fields
     attr: *pango.Attribute,
-    features: [*c]const u8,
+    features: *[*c]const u8,
 
     // Constructors
 
@@ -17,5 +17,6 @@ pub const AttrFontFeatures = extern struct {
 };
 
 test "pango.AttrFontFeatures" {
-    std.testing.refAllDecls(AttrFontFeatures);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(AttrFontFeatures));
 }

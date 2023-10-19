@@ -617,5 +617,5 @@ pub const ShortcutLabel = extern struct {
 };
 
 test "gtk.ShortcutLabel" {
-    std.testing.refAllDecls(ShortcutLabel);
+    std.testing.refAllDecls(@This());
 }

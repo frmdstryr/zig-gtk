@@ -31,5 +31,6 @@ pub const FileEnumeratorClass = extern struct {
 };
 
 test "gio.FileEnumeratorClass" {
-    std.testing.refAllDecls(FileEnumeratorClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 240), @sizeOf(FileEnumeratorClass));
 }

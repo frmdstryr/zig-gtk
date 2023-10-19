@@ -15,5 +15,5 @@ pub const DBusObjectManagerClientPrivate = extern struct {
 };
 
 test "gio.DBusObjectManagerClientPrivate" {
-    std.testing.refAllDecls(DBusObjectManagerClientPrivate);
+    std.testing.refAllDecls(@This());
 }

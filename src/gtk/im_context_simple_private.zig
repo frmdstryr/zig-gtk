@@ -15,5 +15,5 @@ pub const IMContextSimplePrivate = extern struct {
 };
 
 test "gtk.IMContextSimplePrivate" {
-    std.testing.refAllDecls(IMContextSimplePrivate);
+    std.testing.refAllDecls(@This());
 }

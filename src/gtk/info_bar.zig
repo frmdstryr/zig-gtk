@@ -647,5 +647,5 @@ pub const InfoBar = extern struct {
 };
 
 test "gtk.InfoBar" {
-    std.testing.refAllDecls(InfoBar);
+    std.testing.refAllDecls(@This());
 }

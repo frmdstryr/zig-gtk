@@ -20,5 +20,6 @@ pub const BuilderScopeInterface = extern struct {
 };
 
 test "gtk.BuilderScopeInterface" {
-    std.testing.refAllDecls(BuilderScopeInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(BuilderScopeInterface));
 }

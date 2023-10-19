@@ -78,5 +78,6 @@ pub const Queue = extern struct {
 };
 
 test "glib.Queue" {
-    std.testing.refAllDecls(Queue);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(Queue));
 }

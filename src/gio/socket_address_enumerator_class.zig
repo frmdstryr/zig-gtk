@@ -20,5 +20,6 @@ pub const SocketAddressEnumeratorClass = extern struct {
 };
 
 test "gio.SocketAddressEnumeratorClass" {
-    std.testing.refAllDecls(SocketAddressEnumeratorClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 160), @sizeOf(SocketAddressEnumeratorClass));
 }

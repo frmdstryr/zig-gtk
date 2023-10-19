@@ -8,8 +8,8 @@ pub const PixbufModulePattern = extern struct {
     const Self = @This();
 
     // Fields
-    prefix: [*c]const u8,
-    mask: [*c]const u8,
+    prefix: *[*c]const u8,
+    mask: *[*c]const u8,
     relevance: i32,
 
     // Constructors
@@ -18,5 +18,6 @@ pub const PixbufModulePattern = extern struct {
 };
 
 test "gdkpixbuf.PixbufModulePattern" {
-    std.testing.refAllDecls(PixbufModulePattern);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(PixbufModulePattern));
 }

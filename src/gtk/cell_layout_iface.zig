@@ -27,5 +27,6 @@ pub const CellLayoutIface = extern struct {
 };
 
 test "gtk.CellLayoutIface" {
-    std.testing.refAllDecls(CellLayoutIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 88), @sizeOf(CellLayoutIface));
 }

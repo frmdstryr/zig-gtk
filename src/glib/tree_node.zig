@@ -27,5 +27,5 @@ pub const TreeNode = extern struct {
 };
 
 test "glib.TreeNode" {
-    std.testing.refAllDecls(TreeNode);
+    std.testing.refAllDecls(@This());
 }

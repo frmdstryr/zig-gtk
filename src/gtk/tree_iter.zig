@@ -25,5 +25,6 @@ pub const TreeIter = extern struct {
 };
 
 test "gtk.TreeIter" {
-    std.testing.refAllDecls(TreeIter);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(TreeIter));
 }

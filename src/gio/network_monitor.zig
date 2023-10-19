@@ -39,5 +39,5 @@ pub const NetworkMonitor = extern struct {
 };
 
 test "gio.NetworkMonitor" {
-    std.testing.refAllDecls(NetworkMonitor);
+    std.testing.refAllDecls(@This());
 }

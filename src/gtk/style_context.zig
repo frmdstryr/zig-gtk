@@ -171,5 +171,5 @@ pub const StyleContext = extern struct {
 };
 
 test "gtk.StyleContext" {
-    std.testing.refAllDecls(StyleContext);
+    std.testing.refAllDecls(@This());
 }

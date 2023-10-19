@@ -145,5 +145,5 @@ pub const Monitor = extern struct {
 };
 
 test "gdk.Monitor" {
-    std.testing.refAllDecls(Monitor);
+    std.testing.refAllDecls(@This());
 }

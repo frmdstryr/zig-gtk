@@ -23,5 +23,6 @@ pub const TestLogBuffer = extern struct {
 };
 
 test "glib.TestLogBuffer" {
-    std.testing.refAllDecls(TestLogBuffer);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(TestLogBuffer));
 }

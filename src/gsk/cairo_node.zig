@@ -53,5 +53,5 @@ pub const CairoNode = extern struct {
 };
 
 test "gsk.CairoNode" {
-    std.testing.refAllDecls(CairoNode);
+    std.testing.refAllDecls(@This());
 }

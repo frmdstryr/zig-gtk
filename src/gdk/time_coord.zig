@@ -18,5 +18,6 @@ pub const TimeCoord = extern struct {
 };
 
 test "gdk.TimeCoord" {
-    std.testing.refAllDecls(TimeCoord);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 104), @sizeOf(TimeCoord));
 }

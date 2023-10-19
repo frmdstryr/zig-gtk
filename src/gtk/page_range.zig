@@ -17,5 +17,6 @@ pub const PageRange = extern struct {
 };
 
 test "gtk.PageRange" {
-    std.testing.refAllDecls(PageRange);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 8), @sizeOf(PageRange));
 }

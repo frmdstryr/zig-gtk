@@ -15,5 +15,5 @@ pub const Device = extern struct {
 };
 
 test "cairo.Device" {
-    std.testing.refAllDecls(Device);
+    std.testing.refAllDecls(@This());
 }

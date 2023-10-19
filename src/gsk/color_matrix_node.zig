@@ -56,5 +56,5 @@ pub const ColorMatrixNode = extern struct {
 };
 
 test "gsk.ColorMatrixNode" {
-    std.testing.refAllDecls(ColorMatrixNode);
+    std.testing.refAllDecls(@This());
 }

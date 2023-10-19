@@ -15,5 +15,5 @@ pub const SimpleProxyResolverPrivate = extern struct {
 };
 
 test "gio.SimpleProxyResolverPrivate" {
-    std.testing.refAllDecls(SimpleProxyResolverPrivate);
+    std.testing.refAllDecls(@This());
 }

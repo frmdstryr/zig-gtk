@@ -42,5 +42,5 @@ pub const Accessible = extern struct {
 };
 
 test "gtk.Accessible" {
-    std.testing.refAllDecls(Accessible);
+    std.testing.refAllDecls(@This());
 }

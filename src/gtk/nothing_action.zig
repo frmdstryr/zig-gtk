@@ -127,5 +127,5 @@ pub const NothingAction = extern struct {
 };
 
 test "gtk.NothingAction" {
-    std.testing.refAllDecls(NothingAction);
+    std.testing.refAllDecls(@This());
 }

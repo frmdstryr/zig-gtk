@@ -15,5 +15,5 @@ pub const SocketControlMessagePrivate = extern struct {
 };
 
 test "gio.SocketControlMessagePrivate" {
-    std.testing.refAllDecls(SocketControlMessagePrivate);
+    std.testing.refAllDecls(@This());
 }

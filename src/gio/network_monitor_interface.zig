@@ -21,5 +21,6 @@ pub const NetworkMonitorInterface = extern struct {
 };
 
 test "gio.NetworkMonitorInterface" {
-    std.testing.refAllDecls(NetworkMonitorInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 48), @sizeOf(NetworkMonitorInterface));
 }

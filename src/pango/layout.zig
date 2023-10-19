@@ -309,5 +309,5 @@ pub const Layout = extern struct {
 };
 
 test "pango.Layout" {
-    std.testing.refAllDecls(Layout);
+    std.testing.refAllDecls(@This());
 }

@@ -17,5 +17,6 @@ pub const StringObjectClass = extern struct {
 };
 
 test "gtk.StringObjectClass" {
-    std.testing.refAllDecls(StringObjectClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(StringObjectClass));
 }

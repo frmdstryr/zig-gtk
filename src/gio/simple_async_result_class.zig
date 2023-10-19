@@ -15,5 +15,5 @@ pub const SimpleAsyncResultClass = extern struct {
 };
 
 test "gio.SimpleAsyncResultClass" {
-    std.testing.refAllDecls(SimpleAsyncResultClass);
+    std.testing.refAllDecls(@This());
 }

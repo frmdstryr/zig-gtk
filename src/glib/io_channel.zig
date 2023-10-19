@@ -10,10 +10,10 @@ pub const IOChannel = extern struct {
     // Fields
     ref_count: i32,
     funcs: *glib.IOFuncs,
-    encoding: [*c]const u8,
+    encoding: *[*c]const u8,
     read_cd: ?*anyopaque,
     write_cd: ?*anyopaque,
-    line_term: [*c]const u8,
+    line_term: *[*c]const u8,
     line_term_len: u32,
     buf_size: u64,
     read_buf: *glib.String,
@@ -134,5 +134,6 @@ pub const IOChannel = extern struct {
 };
 
 test "glib.IOChannel" {
-    std.testing.refAllDecls(IOChannel);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(IOChannel));
 }

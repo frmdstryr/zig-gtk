@@ -20,7 +20,7 @@ pub const Source = extern struct {
     poll_fds: ?*anyopaque,
     prev: *glib.Source,
     next: *glib.Source,
-    name: [*c]const u8,
+    name: *[*c]const u8,
     priv: *glib.SourcePrivate,
 
     // Constructors
@@ -124,5 +124,6 @@ pub const Source = extern struct {
 };
 
 test "gobject.Source" {
-    std.testing.refAllDecls(Source);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 96), @sizeOf(Source));
 }

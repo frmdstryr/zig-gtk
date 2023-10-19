@@ -128,5 +128,5 @@ pub const SelectionFilterModel = extern struct {
 };
 
 test "gtk.SelectionFilterModel" {
-    std.testing.refAllDecls(SelectionFilterModel);
+    std.testing.refAllDecls(@This());
 }

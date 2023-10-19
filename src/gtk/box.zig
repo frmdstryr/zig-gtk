@@ -644,5 +644,5 @@ pub const Box = extern struct {
 };
 
 test "gtk.Box" {
-    std.testing.refAllDecls(Box);
+    std.testing.refAllDecls(@This());
 }

@@ -134,5 +134,5 @@ pub const TreeListRowSorter = extern struct {
 };
 
 test "gtk.TreeListRowSorter" {
-    std.testing.refAllDecls(TreeListRowSorter);
+    std.testing.refAllDecls(@This());
 }

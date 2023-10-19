@@ -22,5 +22,6 @@ pub const ActionableInterface = extern struct {
 };
 
 test "gtk.ActionableInterface" {
-    std.testing.refAllDecls(ActionableInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 48), @sizeOf(ActionableInterface));
 }

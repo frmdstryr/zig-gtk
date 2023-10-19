@@ -8,7 +8,7 @@ pub const Array = extern struct {
     const Self = @This();
 
     // Fields
-    data: [*c]const u8,
+    data: *[*c]const u8,
     len: u32,
 
     // Constructors
@@ -17,5 +17,6 @@ pub const Array = extern struct {
 };
 
 test "glib.Array" {
-    std.testing.refAllDecls(Array);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(Array));
 }

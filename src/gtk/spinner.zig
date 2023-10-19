@@ -617,5 +617,5 @@ pub const Spinner = extern struct {
 };
 
 test "gtk.Spinner" {
-    std.testing.refAllDecls(Spinner);
+    std.testing.refAllDecls(@This());
 }

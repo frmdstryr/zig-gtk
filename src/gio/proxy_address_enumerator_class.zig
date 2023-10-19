@@ -23,5 +23,6 @@ pub const ProxyAddressEnumeratorClass = extern struct {
 };
 
 test "gio.ProxyAddressEnumeratorClass" {
-    std.testing.refAllDecls(ProxyAddressEnumeratorClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 216), @sizeOf(ProxyAddressEnumeratorClass));
 }

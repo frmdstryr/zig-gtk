@@ -168,5 +168,5 @@ pub const IMContextSimple = extern struct {
 };
 
 test "gtk.IMContextSimple" {
-    std.testing.refAllDecls(IMContextSimple);
+    std.testing.refAllDecls(@This());
 }

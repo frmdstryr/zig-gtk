@@ -137,5 +137,5 @@ pub const FixedLayout = extern struct {
 };
 
 test "gtk.FixedLayout" {
-    std.testing.refAllDecls(FixedLayout);
+    std.testing.refAllDecls(@This());
 }

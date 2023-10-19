@@ -16,5 +16,6 @@ pub const UnixConnectionClass = extern struct {
 };
 
 test "gio.UnixConnectionClass" {
-    std.testing.refAllDecls(UnixConnectionClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 304), @sizeOf(UnixConnectionClass));
 }

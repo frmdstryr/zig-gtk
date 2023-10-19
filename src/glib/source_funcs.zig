@@ -21,5 +21,6 @@ pub const SourceFuncs = extern struct {
 };
 
 test "glib.SourceFuncs" {
-    std.testing.refAllDecls(SourceFuncs);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 48), @sizeOf(SourceFuncs));
 }

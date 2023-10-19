@@ -126,5 +126,5 @@ pub const TextTag = extern struct {
 };
 
 test "gtk.TextTag" {
-    std.testing.refAllDecls(TextTag);
+    std.testing.refAllDecls(@This());
 }

@@ -18,5 +18,6 @@ pub const FlowBoxChildClass = extern struct {
 };
 
 test "gtk.FlowBoxChildClass" {
-    std.testing.refAllDecls(FlowBoxChildClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 480), @sizeOf(FlowBoxChildClass));
 }

@@ -126,5 +126,5 @@ pub const MenuAttributeIter = extern struct {
 };
 
 test "gio.MenuAttributeIter" {
-    std.testing.refAllDecls(MenuAttributeIter);
+    std.testing.refAllDecls(@This());
 }

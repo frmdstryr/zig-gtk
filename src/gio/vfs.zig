@@ -134,5 +134,5 @@ pub const Vfs = extern struct {
 };
 
 test "gio.Vfs" {
-    std.testing.refAllDecls(Vfs);
+    std.testing.refAllDecls(@This());
 }

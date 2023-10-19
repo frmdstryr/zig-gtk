@@ -722,5 +722,5 @@ pub const Scale = extern struct {
 };
 
 test "gtk.Scale" {
-    std.testing.refAllDecls(Scale);
+    std.testing.refAllDecls(@This());
 }

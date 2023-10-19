@@ -737,5 +737,5 @@ pub const Notebook = extern struct {
 };
 
 test "gtk.Notebook" {
-    std.testing.refAllDecls(Notebook);
+    std.testing.refAllDecls(@This());
 }

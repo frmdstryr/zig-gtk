@@ -156,5 +156,5 @@ pub const DBusInterfaceSkeleton = extern struct {
 };
 
 test "gio.DBusInterfaceSkeleton" {
-    std.testing.refAllDecls(DBusInterfaceSkeleton);
+    std.testing.refAllDecls(@This());
 }

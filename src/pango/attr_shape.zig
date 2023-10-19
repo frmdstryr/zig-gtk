@@ -21,5 +21,6 @@ pub const AttrShape = extern struct {
 };
 
 test "pango.AttrShape" {
-    std.testing.refAllDecls(AttrShape);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 72), @sizeOf(AttrShape));
 }

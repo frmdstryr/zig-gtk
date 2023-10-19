@@ -89,5 +89,5 @@ pub const PadEvent = extern struct {
 };
 
 test "gdk.PadEvent" {
-    std.testing.refAllDecls(PadEvent);
+    std.testing.refAllDecls(@This());
 }

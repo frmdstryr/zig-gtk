@@ -15,5 +15,5 @@ pub const UnixConnectionPrivate = extern struct {
 };
 
 test "gio.UnixConnectionPrivate" {
-    std.testing.refAllDecls(UnixConnectionPrivate);
+    std.testing.refAllDecls(@This());
 }

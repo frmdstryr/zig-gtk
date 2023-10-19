@@ -15,5 +15,5 @@ pub const ToplevelInterface = extern struct {
 };
 
 test "gdk.ToplevelInterface" {
-    std.testing.refAllDecls(ToplevelInterface);
+    std.testing.refAllDecls(@This());
 }

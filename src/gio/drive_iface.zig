@@ -50,5 +50,6 @@ pub const DriveIface = extern struct {
 };
 
 test "gio.DriveIface" {
-    std.testing.refAllDecls(DriveIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 272), @sizeOf(DriveIface));
 }

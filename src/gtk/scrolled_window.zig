@@ -698,5 +698,5 @@ pub const ScrolledWindow = extern struct {
 };
 
 test "gtk.ScrolledWindow" {
-    std.testing.refAllDecls(ScrolledWindow);
+    std.testing.refAllDecls(@This());
 }

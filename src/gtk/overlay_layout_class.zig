@@ -16,5 +16,6 @@ pub const OverlayLayoutClass = extern struct {
 };
 
 test "gtk.OverlayLayoutClass" {
-    std.testing.refAllDecls(OverlayLayoutClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 320), @sizeOf(OverlayLayoutClass));
 }

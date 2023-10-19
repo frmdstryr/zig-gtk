@@ -144,5 +144,5 @@ pub const TlsPassword = extern struct {
 };
 
 test "gio.TlsPassword" {
-    std.testing.refAllDecls(TlsPassword);
+    std.testing.refAllDecls(@This());
 }

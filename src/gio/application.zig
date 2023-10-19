@@ -228,5 +228,5 @@ pub const Application = extern struct {
 };
 
 test "gio.Application" {
-    std.testing.refAllDecls(Application);
+    std.testing.refAllDecls(@This());
 }

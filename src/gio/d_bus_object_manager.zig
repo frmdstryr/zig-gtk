@@ -34,5 +34,5 @@ pub const DBusObjectManager = extern struct {
 };
 
 test "gio.DBusObjectManager" {
-    std.testing.refAllDecls(DBusObjectManager);
+    std.testing.refAllDecls(@This());
 }

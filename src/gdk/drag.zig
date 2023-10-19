@@ -142,5 +142,5 @@ pub const Drag = extern struct {
 };
 
 test "gdk.Drag" {
-    std.testing.refAllDecls(Drag);
+    std.testing.refAllDecls(@This());
 }

@@ -15,5 +15,5 @@ pub const MenuAttributeIterPrivate = extern struct {
 };
 
 test "gio.MenuAttributeIterPrivate" {
-    std.testing.refAllDecls(MenuAttributeIterPrivate);
+    std.testing.refAllDecls(@This());
 }

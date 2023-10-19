@@ -30,5 +30,5 @@ pub const Thread = extern struct {
 };
 
 test "glib.Thread" {
-    std.testing.refAllDecls(Thread);
+    std.testing.refAllDecls(@This());
 }

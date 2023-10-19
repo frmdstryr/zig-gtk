@@ -15,5 +15,5 @@ pub const UnixMountMonitorClass = extern struct {
 };
 
 test "gio.UnixMountMonitorClass" {
-    std.testing.refAllDecls(UnixMountMonitorClass);
+    std.testing.refAllDecls(@This());
 }

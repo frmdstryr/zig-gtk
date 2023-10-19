@@ -26,5 +26,6 @@ pub const EditableInterface = extern struct {
 };
 
 test "gtk.EditableInterface" {
-    std.testing.refAllDecls(EditableInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 88), @sizeOf(EditableInterface));
 }

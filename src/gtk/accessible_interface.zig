@@ -15,5 +15,5 @@ pub const AccessibleInterface = extern struct {
 };
 
 test "gtk.AccessibleInterface" {
-    std.testing.refAllDecls(AccessibleInterface);
+    std.testing.refAllDecls(@This());
 }

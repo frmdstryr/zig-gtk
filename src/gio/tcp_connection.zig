@@ -177,5 +177,5 @@ pub const TcpConnection = extern struct {
 };
 
 test "gio.TcpConnection" {
-    std.testing.refAllDecls(TcpConnection);
+    std.testing.refAllDecls(@This());
 }

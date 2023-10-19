@@ -8,11 +8,11 @@ pub const RecentData = extern struct {
     const Self = @This();
 
     // Fields
-    display_name: [*c]const u8,
-    description: [*c]const u8,
-    mime_type: [*c]const u8,
-    app_name: [*c]const u8,
-    app_exec: [*c]const u8,
+    display_name: *[*c]const u8,
+    description: *[*c]const u8,
+    mime_type: *[*c]const u8,
+    app_name: *[*c]const u8,
+    app_exec: *[*c]const u8,
     groups: [*c][*c]const u8,
     is_private: bool,
 
@@ -22,5 +22,6 @@ pub const RecentData = extern struct {
 };
 
 test "gtk.RecentData" {
-    std.testing.refAllDecls(RecentData);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 56), @sizeOf(RecentData));
 }

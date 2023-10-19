@@ -20,5 +20,6 @@ pub const RemoteActionGroupInterface = extern struct {
 };
 
 test "gio.RemoteActionGroupInterface" {
-    std.testing.refAllDecls(RemoteActionGroupInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(RemoteActionGroupInterface));
 }

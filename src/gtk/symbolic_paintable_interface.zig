@@ -19,5 +19,6 @@ pub const SymbolicPaintableInterface = extern struct {
 };
 
 test "gtk.SymbolicPaintableInterface" {
-    std.testing.refAllDecls(SymbolicPaintableInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(SymbolicPaintableInterface));
 }

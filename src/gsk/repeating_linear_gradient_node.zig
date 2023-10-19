@@ -47,5 +47,5 @@ pub const RepeatingLinearGradientNode = extern struct {
 };
 
 test "gsk.RepeatingLinearGradientNode" {
-    std.testing.refAllDecls(RepeatingLinearGradientNode);
+    std.testing.refAllDecls(@This());
 }

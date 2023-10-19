@@ -130,5 +130,5 @@ pub const Coverage = extern struct {
 };
 
 test "pango.Coverage" {
-    std.testing.refAllDecls(Coverage);
+    std.testing.refAllDecls(@This());
 }

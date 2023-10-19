@@ -67,5 +67,5 @@ pub const TextNode = extern struct {
 };
 
 test "gsk.TextNode" {
-    std.testing.refAllDecls(TextNode);
+    std.testing.refAllDecls(@This());
 }

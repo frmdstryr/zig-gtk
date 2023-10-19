@@ -15,5 +15,5 @@ pub const DevicePadInterface = extern struct {
 };
 
 test "gdk.DevicePadInterface" {
-    std.testing.refAllDecls(DevicePadInterface);
+    std.testing.refAllDecls(@This());
 }

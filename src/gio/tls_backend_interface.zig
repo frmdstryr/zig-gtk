@@ -26,5 +26,6 @@ pub const TlsBackendInterface = extern struct {
 };
 
 test "gio.TlsBackendInterface" {
-    std.testing.refAllDecls(TlsBackendInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 88), @sizeOf(TlsBackendInterface));
 }

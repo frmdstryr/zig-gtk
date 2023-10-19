@@ -16,5 +16,6 @@ pub const VideoClass = extern struct {
 };
 
 test "gtk.VideoClass" {
-    std.testing.refAllDecls(VideoClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 408), @sizeOf(VideoClass));
 }

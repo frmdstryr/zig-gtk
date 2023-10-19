@@ -66,5 +66,6 @@ pub const Point3D = extern struct {
 };
 
 test "graphene.Point3D" {
-    std.testing.refAllDecls(Point3D);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 12), @sizeOf(Point3D));
 }

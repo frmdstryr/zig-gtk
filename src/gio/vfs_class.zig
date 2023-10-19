@@ -34,5 +34,6 @@ pub const VfsClass = extern struct {
 };
 
 test "gio.VfsClass" {
-    std.testing.refAllDecls(VfsClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 272), @sizeOf(VfsClass));
 }

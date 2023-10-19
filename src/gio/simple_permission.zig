@@ -150,5 +150,5 @@ pub const SimplePermission = extern struct {
 };
 
 test "gio.SimplePermission" {
-    std.testing.refAllDecls(SimplePermission);
+    std.testing.refAllDecls(@This());
 }

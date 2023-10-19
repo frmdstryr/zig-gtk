@@ -15,5 +15,5 @@ pub const UnixCredentialsMessagePrivate = extern struct {
 };
 
 test "gio.UnixCredentialsMessagePrivate" {
-    std.testing.refAllDecls(UnixCredentialsMessagePrivate);
+    std.testing.refAllDecls(@This());
 }

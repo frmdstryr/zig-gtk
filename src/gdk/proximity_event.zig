@@ -80,5 +80,5 @@ pub const ProximityEvent = extern struct {
 };
 
 test "gdk.ProximityEvent" {
-    std.testing.refAllDecls(ProximityEvent);
+    std.testing.refAllDecls(@This());
 }

@@ -18,5 +18,6 @@ pub const TreeModelSortClass = extern struct {
 };
 
 test "gtk.TreeModelSortClass" {
-    std.testing.refAllDecls(TreeModelSortClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 200), @sizeOf(TreeModelSortClass));
 }

@@ -82,5 +82,6 @@ pub const Vec2 = extern struct {
 };
 
 test "graphene.Vec2" {
-    std.testing.refAllDecls(Vec2);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(Vec2));
 }

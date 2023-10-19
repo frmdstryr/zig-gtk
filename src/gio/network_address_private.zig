@@ -15,5 +15,5 @@ pub const NetworkAddressPrivate = extern struct {
 };
 
 test "gio.NetworkAddressPrivate" {
-    std.testing.refAllDecls(NetworkAddressPrivate);
+    std.testing.refAllDecls(@This());
 }

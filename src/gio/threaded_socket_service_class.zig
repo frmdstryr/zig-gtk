@@ -23,5 +23,6 @@ pub const ThreadedSocketServiceClass = extern struct {
 };
 
 test "gio.ThreadedSocketServiceClass" {
-    std.testing.refAllDecls(ThreadedSocketServiceClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 296), @sizeOf(ThreadedSocketServiceClass));
 }

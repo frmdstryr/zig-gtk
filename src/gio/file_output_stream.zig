@@ -222,5 +222,5 @@ pub const FileOutputStream = extern struct {
 };
 
 test "gio.FileOutputStream" {
-    std.testing.refAllDecls(FileOutputStream);
+    std.testing.refAllDecls(@This());
 }

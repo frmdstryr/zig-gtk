@@ -24,5 +24,6 @@ pub const PollFD = extern struct {
 };
 
 test "gobject.PollFD" {
-    std.testing.refAllDecls(PollFD);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 8), @sizeOf(PollFD));
 }

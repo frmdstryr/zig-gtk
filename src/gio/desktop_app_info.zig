@@ -181,5 +181,5 @@ pub const DesktopAppInfo = extern struct {
 };
 
 test "gio.DesktopAppInfo" {
-    std.testing.refAllDecls(DesktopAppInfo);
+    std.testing.refAllDecls(@This());
 }

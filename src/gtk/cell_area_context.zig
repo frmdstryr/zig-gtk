@@ -143,5 +143,5 @@ pub const CellAreaContext = extern struct {
 };
 
 test "gtk.CellAreaContext" {
-    std.testing.refAllDecls(CellAreaContext);
+    std.testing.refAllDecls(@This());
 }

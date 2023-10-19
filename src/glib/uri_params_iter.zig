@@ -25,5 +25,6 @@ pub const UriParamsIter = extern struct {
 };
 
 test "glib.UriParamsIter" {
-    std.testing.refAllDecls(UriParamsIter);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 280), @sizeOf(UriParamsIter));
 }

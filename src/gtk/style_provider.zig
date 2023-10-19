@@ -21,5 +21,5 @@ pub const StyleProvider = extern struct {
 };
 
 test "gtk.StyleProvider" {
-    std.testing.refAllDecls(StyleProvider);
+    std.testing.refAllDecls(@This());
 }

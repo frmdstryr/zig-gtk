@@ -17,5 +17,6 @@ pub const AttrLanguage = extern struct {
 };
 
 test "pango.AttrLanguage" {
-    std.testing.refAllDecls(AttrLanguage);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(AttrLanguage));
 }

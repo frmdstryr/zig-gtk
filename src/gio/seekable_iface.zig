@@ -23,5 +23,6 @@ pub const SeekableIface = extern struct {
 };
 
 test "gio.SeekableIface" {
-    std.testing.refAllDecls(SeekableIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 56), @sizeOf(SeekableIface));
 }

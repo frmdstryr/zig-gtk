@@ -90,5 +90,5 @@ pub const MainContext = extern struct {
 };
 
 test "gobject.MainContext" {
-    std.testing.refAllDecls(MainContext);
+    std.testing.refAllDecls(@This());
 }

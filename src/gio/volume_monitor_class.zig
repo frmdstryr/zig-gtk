@@ -43,5 +43,6 @@ pub const VolumeMonitorClass = extern struct {
 };
 
 test "gio.VolumeMonitorClass" {
-    std.testing.refAllDecls(VolumeMonitorClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 336), @sizeOf(VolumeMonitorClass));
 }

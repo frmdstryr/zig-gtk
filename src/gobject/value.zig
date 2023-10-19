@@ -204,5 +204,6 @@ pub const Value = extern struct {
 };
 
 test "gobject.Value" {
-    std.testing.refAllDecls(Value);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(Value));
 }

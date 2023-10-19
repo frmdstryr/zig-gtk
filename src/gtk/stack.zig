@@ -674,5 +674,5 @@ pub const Stack = extern struct {
 };
 
 test "gtk.Stack" {
-    std.testing.refAllDecls(Stack);
+    std.testing.refAllDecls(@This());
 }

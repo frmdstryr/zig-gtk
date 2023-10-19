@@ -15,5 +15,5 @@ pub const EmojiChooserClass = extern struct {
 };
 
 test "gtk.EmojiChooserClass" {
-    std.testing.refAllDecls(EmojiChooserClass);
+    std.testing.refAllDecls(@This());
 }

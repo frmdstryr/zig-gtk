@@ -15,5 +15,5 @@ pub const FrameClockPrivate = extern struct {
 };
 
 test "gdk.FrameClockPrivate" {
-    std.testing.refAllDecls(FrameClockPrivate);
+    std.testing.refAllDecls(@This());
 }

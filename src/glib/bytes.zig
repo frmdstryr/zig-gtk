@@ -54,5 +54,5 @@ pub const Bytes = extern struct {
 };
 
 test "glib.Bytes" {
-    std.testing.refAllDecls(Bytes);
+    std.testing.refAllDecls(@This());
 }

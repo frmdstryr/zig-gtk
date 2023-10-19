@@ -36,5 +36,5 @@ pub const SrvTarget = extern struct {
 };
 
 test "gio.SrvTarget" {
-    std.testing.refAllDecls(SrvTarget);
+    std.testing.refAllDecls(@This());
 }

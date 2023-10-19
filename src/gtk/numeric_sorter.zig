@@ -140,5 +140,5 @@ pub const NumericSorter = extern struct {
 };
 
 test "gtk.NumericSorter" {
-    std.testing.refAllDecls(NumericSorter);
+    std.testing.refAllDecls(@This());
 }

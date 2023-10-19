@@ -827,5 +827,5 @@ pub const AppChooserDialog = extern struct {
 };
 
 test "gtk.AppChooserDialog" {
-    std.testing.refAllDecls(AppChooserDialog);
+    std.testing.refAllDecls(@This());
 }

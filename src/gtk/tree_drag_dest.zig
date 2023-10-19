@@ -27,5 +27,5 @@ pub const TreeDragDest = extern struct {
 };
 
 test "gtk.TreeDragDest" {
-    std.testing.refAllDecls(TreeDragDest);
+    std.testing.refAllDecls(@This());
 }

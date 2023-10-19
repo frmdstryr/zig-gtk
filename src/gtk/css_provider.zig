@@ -141,5 +141,5 @@ pub const CssProvider = extern struct {
 };
 
 test "gtk.CssProvider" {
-    std.testing.refAllDecls(CssProvider);
+    std.testing.refAllDecls(@This());
 }

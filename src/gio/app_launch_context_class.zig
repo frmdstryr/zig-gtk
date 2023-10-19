@@ -26,5 +26,6 @@ pub const AppLaunchContextClass = extern struct {
 };
 
 test "gio.AppLaunchContextClass" {
-    std.testing.refAllDecls(AppLaunchContextClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 200), @sizeOf(AppLaunchContextClass));
 }

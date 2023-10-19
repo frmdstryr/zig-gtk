@@ -30,5 +30,5 @@ pub const StringChunk = extern struct {
 };
 
 test "glib.StringChunk" {
-    std.testing.refAllDecls(StringChunk);
+    std.testing.refAllDecls(@This());
 }

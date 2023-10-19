@@ -791,5 +791,5 @@ pub const Entry = extern struct {
 };
 
 test "gtk.Entry" {
-    std.testing.refAllDecls(Entry);
+    std.testing.refAllDecls(@This());
 }

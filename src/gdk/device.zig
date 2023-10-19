@@ -164,5 +164,5 @@ pub const Device = extern struct {
 };
 
 test "gdk.Device" {
-    std.testing.refAllDecls(Device);
+    std.testing.refAllDecls(@This());
 }

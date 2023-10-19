@@ -21,5 +21,6 @@ pub const DBusProxyClass = extern struct {
 };
 
 test "gio.DBusProxyClass" {
-    std.testing.refAllDecls(DBusProxyClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 408), @sizeOf(DBusProxyClass));
 }

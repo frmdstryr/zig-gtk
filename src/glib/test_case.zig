@@ -18,5 +18,5 @@ pub const TestCase = extern struct {
 };
 
 test "glib.TestCase" {
-    std.testing.refAllDecls(TestCase);
+    std.testing.refAllDecls(@This());
 }

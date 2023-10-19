@@ -186,5 +186,5 @@ pub const Menu = extern struct {
 };
 
 test "gio.Menu" {
-    std.testing.refAllDecls(Menu);
+    std.testing.refAllDecls(@This());
 }

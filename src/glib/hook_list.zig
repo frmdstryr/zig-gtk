@@ -34,5 +34,6 @@ pub const HookList = extern struct {
 };
 
 test "glib.HookList" {
-    std.testing.refAllDecls(HookList);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 56), @sizeOf(HookList));
 }

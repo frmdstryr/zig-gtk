@@ -15,5 +15,5 @@ pub const GestureStylusClass = extern struct {
 };
 
 test "gtk.GestureStylusClass" {
-    std.testing.refAllDecls(GestureStylusClass);
+    std.testing.refAllDecls(@This());
 }

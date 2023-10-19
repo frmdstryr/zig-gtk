@@ -14,12 +14,12 @@ pub const ParamSpecVariant = extern struct {
     default_value: *glib.Variant,
     padding: ?*anyopaque,
     g_type_instance: *gobject.TypeInstance,
-    name: [*c]const u8,
+    name: *[*c]const u8,
     flags: *gobject.ParamFlags,
     value_type: usize,
     owner_type: usize,
-    _nick: [*c]const u8,
-    _blurb: [*c]const u8,
+    _nick: *[*c]const u8,
+    _blurb: *[*c]const u8,
     qdata: *glib.Data,
     ref_count: u32,
     param_id: u32,
@@ -65,5 +65,5 @@ pub const ParamSpecVariant = extern struct {
 };
 
 test "gobject.ParamSpecVariant" {
-    std.testing.refAllDecls(ParamSpecVariant);
+    std.testing.refAllDecls(@This());
 }

@@ -40,5 +40,6 @@ pub const Quad = extern struct {
 };
 
 test "graphene.Quad" {
-    std.testing.refAllDecls(Quad);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(Quad));
 }

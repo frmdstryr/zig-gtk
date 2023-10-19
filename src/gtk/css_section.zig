@@ -44,5 +44,5 @@ pub const CssSection = extern struct {
 };
 
 test "gtk.CssSection" {
-    std.testing.refAllDecls(CssSection);
+    std.testing.refAllDecls(@This());
 }

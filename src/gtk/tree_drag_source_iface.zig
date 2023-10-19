@@ -21,5 +21,6 @@ pub const TreeDragSourceIface = extern struct {
 };
 
 test "gtk.TreeDragSourceIface" {
-    std.testing.refAllDecls(TreeDragSourceIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(TreeDragSourceIface));
 }

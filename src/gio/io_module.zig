@@ -14,7 +14,7 @@ pub const IOModule = extern struct {
     use_count: u32,
     type_infos: ?*anyopaque,
     interface_infos: ?*anyopaque,
-    name: [*c]const u8,
+    name: *[*c]const u8,
     g_type_instance: *gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
@@ -150,5 +150,5 @@ pub const IOModule = extern struct {
 };
 
 test "gio.IOModule" {
-    std.testing.refAllDecls(IOModule);
+    std.testing.refAllDecls(@This());
 }

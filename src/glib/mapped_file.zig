@@ -39,5 +39,5 @@ pub const MappedFile = extern struct {
 };
 
 test "glib.MappedFile" {
-    std.testing.refAllDecls(MappedFile);
+    std.testing.refAllDecls(@This());
 }

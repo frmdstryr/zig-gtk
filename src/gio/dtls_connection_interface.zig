@@ -27,5 +27,6 @@ pub const DtlsConnectionInterface = extern struct {
 };
 
 test "gio.DtlsConnectionInterface" {
-    std.testing.refAllDecls(DtlsConnectionInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 96), @sizeOf(DtlsConnectionInterface));
 }

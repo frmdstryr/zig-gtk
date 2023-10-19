@@ -60,5 +60,5 @@ pub const MatchInfo = extern struct {
 };
 
 test "glib.MatchInfo" {
-    std.testing.refAllDecls(MatchInfo);
+    std.testing.refAllDecls(@This());
 }

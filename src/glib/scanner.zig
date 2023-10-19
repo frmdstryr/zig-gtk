@@ -11,7 +11,7 @@ pub const Scanner = extern struct {
     user_data: ?*anyopaque,
     max_parse_errors: u32,
     parse_errors: u32,
-    input_name: [*c]const u8,
+    input_name: *[*c]const u8,
     qdata: *glib.Data,
     config: *glib.ScannerConfig,
     token: *glib.TokenType,
@@ -24,9 +24,9 @@ pub const Scanner = extern struct {
     next_position: u32,
     symbol_table: *glib.HashTable,
     input_fd: i32,
-    text: [*c]const u8,
-    text_end: [*c]const u8,
-    buffer: [*c]const u8,
+    text: *[*c]const u8,
+    text_end: *[*c]const u8,
+    buffer: *[*c]const u8,
     scope_id: u32,
     msg_handler: *const fn (scanner: *glib.Scanner, message: [*c]const u8, error_: bool) callconv(.C) void,
 
@@ -84,5 +84,6 @@ pub const Scanner = extern struct {
 };
 
 test "glib.Scanner" {
-    std.testing.refAllDecls(Scanner);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 144), @sizeOf(Scanner));
 }

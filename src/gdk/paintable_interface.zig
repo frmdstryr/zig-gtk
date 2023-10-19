@@ -23,5 +23,6 @@ pub const PaintableInterface = extern struct {
 };
 
 test "gdk.PaintableInterface" {
-    std.testing.refAllDecls(PaintableInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 64), @sizeOf(PaintableInterface));
 }

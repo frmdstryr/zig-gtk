@@ -19,5 +19,6 @@ pub const FilterInputStreamClass = extern struct {
 };
 
 test "gio.FilterInputStreamClass" {
-    std.testing.refAllDecls(FilterInputStreamClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 272), @sizeOf(FilterInputStreamClass));
 }

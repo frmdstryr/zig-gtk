@@ -143,5 +143,5 @@ pub const NeverTrigger = extern struct {
 };
 
 test "gtk.NeverTrigger" {
-    std.testing.refAllDecls(NeverTrigger);
+    std.testing.refAllDecls(@This());
 }

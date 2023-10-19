@@ -131,5 +131,5 @@ pub const FlattenListModel = extern struct {
 };
 
 test "gtk.FlattenListModel" {
-    std.testing.refAllDecls(FlattenListModel);
+    std.testing.refAllDecls(@This());
 }

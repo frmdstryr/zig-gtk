@@ -36,5 +36,5 @@ pub const VariantBuilder = extern struct {
 };
 
 test "glib.VariantBuilder" {
-    std.testing.refAllDecls(VariantBuilder);
+    std.testing.refAllDecls(@This());
 }

@@ -49,5 +49,6 @@ pub const Closure = extern struct {
 };
 
 test "gobject.Closure" {
-    std.testing.refAllDecls(Closure);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 64), @sizeOf(Closure));
 }

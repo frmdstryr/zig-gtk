@@ -140,5 +140,5 @@ pub const StringSorter = extern struct {
 };
 
 test "gtk.StringSorter" {
-    std.testing.refAllDecls(StringSorter);
+    std.testing.refAllDecls(@This());
 }

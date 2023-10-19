@@ -12,12 +12,12 @@ pub const ParamSpecOverride = extern struct {
     parent_instance: *gobject.ParamSpec,
     overridden: *gobject.ParamSpec,
     g_type_instance: *gobject.TypeInstance,
-    name: [*c]const u8,
+    name: *[*c]const u8,
     flags: *gobject.ParamFlags,
     value_type: usize,
     owner_type: usize,
-    _nick: [*c]const u8,
-    _blurb: [*c]const u8,
+    _nick: *[*c]const u8,
+    _blurb: *[*c]const u8,
     qdata: *glib.Data,
     ref_count: u32,
     param_id: u32,
@@ -63,5 +63,5 @@ pub const ParamSpecOverride = extern struct {
 };
 
 test "gobject.ParamSpecOverride" {
-    std.testing.refAllDecls(ParamSpecOverride);
+    std.testing.refAllDecls(@This());
 }

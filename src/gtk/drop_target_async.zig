@@ -170,5 +170,5 @@ pub const DropTargetAsync = extern struct {
 };
 
 test "gtk.DropTargetAsync" {
-    std.testing.refAllDecls(DropTargetAsync);
+    std.testing.refAllDecls(@This());
 }

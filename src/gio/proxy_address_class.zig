@@ -16,5 +16,6 @@ pub const ProxyAddressClass = extern struct {
 };
 
 test "gio.ProxyAddressClass" {
-    std.testing.refAllDecls(ProxyAddressClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 160), @sizeOf(ProxyAddressClass));
 }

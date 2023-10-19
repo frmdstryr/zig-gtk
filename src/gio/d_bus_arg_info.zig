@@ -9,8 +9,8 @@ pub const DBusArgInfo = extern struct {
 
     // Fields
     ref_count: i32,
-    name: [*c]const u8,
-    signature: [*c]const u8,
+    name: *[*c]const u8,
+    signature: *[*c]const u8,
     annotations: [*c]*gio.DBusAnnotationInfo,
 
     // Constructors
@@ -25,5 +25,6 @@ pub const DBusArgInfo = extern struct {
 };
 
 test "gio.DBusArgInfo" {
-    std.testing.refAllDecls(DBusArgInfo);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(DBusArgInfo));
 }

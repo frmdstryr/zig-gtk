@@ -16,5 +16,6 @@ pub const PasswordEntryBufferClass = extern struct {
 };
 
 test "gtk.PasswordEntryBufferClass" {
-    std.testing.refAllDecls(PasswordEntryBufferClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 248), @sizeOf(PasswordEntryBufferClass));
 }

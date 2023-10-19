@@ -9,7 +9,7 @@ pub const SignalQuery = extern struct {
 
     // Fields
     signal_id: u32,
-    signal_name: [*c]const u8,
+    signal_name: *[*c]const u8,
     itype: usize,
     signal_flags: *gobject.SignalFlags,
     return_type: usize,
@@ -22,5 +22,6 @@ pub const SignalQuery = extern struct {
 };
 
 test "gobject.SignalQuery" {
-    std.testing.refAllDecls(SignalQuery);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 56), @sizeOf(SignalQuery));
 }

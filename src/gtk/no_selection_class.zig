@@ -17,5 +17,6 @@ pub const NoSelectionClass = extern struct {
 };
 
 test "gtk.NoSelectionClass" {
-    std.testing.refAllDecls(NoSelectionClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(NoSelectionClass));
 }

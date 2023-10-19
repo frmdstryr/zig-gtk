@@ -16,5 +16,6 @@ pub const FloatIEEE754 = extern struct {
 };
 
 test "glib.FloatIEEE754" {
-    std.testing.refAllDecls(FloatIEEE754);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 4), @sizeOf(FloatIEEE754));
 }

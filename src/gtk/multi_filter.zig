@@ -141,5 +141,5 @@ pub const MultiFilter = extern struct {
 };
 
 test "gtk.MultiFilter" {
-    std.testing.refAllDecls(MultiFilter);
+    std.testing.refAllDecls(@This());
 }

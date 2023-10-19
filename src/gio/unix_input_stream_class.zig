@@ -21,5 +21,6 @@ pub const UnixInputStreamClass = extern struct {
 };
 
 test "gio.UnixInputStreamClass" {
-    std.testing.refAllDecls(UnixInputStreamClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 288), @sizeOf(UnixInputStreamClass));
 }

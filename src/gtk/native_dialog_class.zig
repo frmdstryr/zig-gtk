@@ -24,5 +24,6 @@ pub const NativeDialogClass = extern struct {
 };
 
 test "gtk.NativeDialogClass" {
-    std.testing.refAllDecls(NativeDialogClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 192), @sizeOf(NativeDialogClass));
 }

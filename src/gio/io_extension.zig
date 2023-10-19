@@ -24,5 +24,5 @@ pub const IOExtension = extern struct {
 };
 
 test "gio.IOExtension" {
-    std.testing.refAllDecls(IOExtension);
+    std.testing.refAllDecls(@This());
 }

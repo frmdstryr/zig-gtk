@@ -22,5 +22,6 @@ pub const RangeClass = extern struct {
 };
 
 test "gtk.RangeClass" {
-    std.testing.refAllDecls(RangeClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 512), @sizeOf(RangeClass));
 }

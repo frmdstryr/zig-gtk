@@ -21,5 +21,6 @@ pub const GLAreaClass = extern struct {
 };
 
 test "gtk.GLAreaClass" {
-    std.testing.refAllDecls(GLAreaClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 496), @sizeOf(GLAreaClass));
 }

@@ -24,5 +24,6 @@ pub const FileMonitorClass = extern struct {
 };
 
 test "gio.FileMonitorClass" {
-    std.testing.refAllDecls(FileMonitorClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 192), @sizeOf(FileMonitorClass));
 }

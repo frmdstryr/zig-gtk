@@ -8,10 +8,10 @@ pub const ScannerConfig = extern struct {
     const Self = @This();
 
     // Fields
-    cset_skip_characters: [*c]const u8,
-    cset_identifier_first: [*c]const u8,
-    cset_identifier_nth: [*c]const u8,
-    cpair_comment_single: [*c]const u8,
+    cset_skip_characters: *[*c]const u8,
+    cset_identifier_first: *[*c]const u8,
+    cset_identifier_nth: *[*c]const u8,
+    cpair_comment_single: *[*c]const u8,
     case_sensitive: u32,
     skip_comment_multi: u32,
     skip_comment_single: u32,
@@ -42,5 +42,6 @@ pub const ScannerConfig = extern struct {
 };
 
 test "glib.ScannerConfig" {
-    std.testing.refAllDecls(ScannerConfig);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 128), @sizeOf(ScannerConfig));
 }

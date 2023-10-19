@@ -51,5 +51,5 @@ pub const TlsBackend = extern struct {
 };
 
 test "gio.TlsBackend" {
-    std.testing.refAllDecls(TlsBackend);
+    std.testing.refAllDecls(@This());
 }

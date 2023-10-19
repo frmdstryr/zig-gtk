@@ -30,5 +30,6 @@ pub const TextViewClass = extern struct {
 };
 
 test "gtk.TextViewClass" {
-    std.testing.refAllDecls(TextViewClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 576), @sizeOf(TextViewClass));
 }

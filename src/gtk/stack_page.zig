@@ -157,5 +157,5 @@ pub const StackPage = extern struct {
 };
 
 test "gtk.StackPage" {
-    std.testing.refAllDecls(StackPage);
+    std.testing.refAllDecls(@This());
 }

@@ -15,5 +15,5 @@ pub const BuilderClass = extern struct {
 };
 
 test "gtk.BuilderClass" {
-    std.testing.refAllDecls(BuilderClass);
+    std.testing.refAllDecls(@This());
 }

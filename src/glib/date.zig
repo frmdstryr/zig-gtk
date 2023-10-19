@@ -135,5 +135,6 @@ pub const Date = extern struct {
 };
 
 test "glib.Date" {
-    std.testing.refAllDecls(Date);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(Date));
 }

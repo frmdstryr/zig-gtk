@@ -251,5 +251,5 @@ pub const GesturePan = extern struct {
 };
 
 test "gtk.GesturePan" {
-    std.testing.refAllDecls(GesturePan);
+    std.testing.refAllDecls(@This());
 }

@@ -13,12 +13,12 @@ pub const ParamSpecValueArray = extern struct {
     element_spec: *gobject.ParamSpec,
     fixed_n_elements: u32,
     g_type_instance: *gobject.TypeInstance,
-    name: [*c]const u8,
+    name: *[*c]const u8,
     flags: *gobject.ParamFlags,
     value_type: usize,
     owner_type: usize,
-    _nick: [*c]const u8,
-    _blurb: [*c]const u8,
+    _nick: *[*c]const u8,
+    _blurb: *[*c]const u8,
     qdata: *glib.Data,
     ref_count: u32,
     param_id: u32,
@@ -64,5 +64,5 @@ pub const ParamSpecValueArray = extern struct {
 };
 
 test "gobject.ParamSpecValueArray" {
-    std.testing.refAllDecls(ParamSpecValueArray);
+    std.testing.refAllDecls(@This());
 }

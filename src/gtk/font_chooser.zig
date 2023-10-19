@@ -79,5 +79,5 @@ pub const FontChooser = extern struct {
 };
 
 test "gtk.FontChooser" {
-    std.testing.refAllDecls(FontChooser);
+    std.testing.refAllDecls(@This());
 }

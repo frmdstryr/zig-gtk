@@ -15,5 +15,5 @@ pub const HashTable = extern struct {
 };
 
 test "glib.HashTable" {
-    std.testing.refAllDecls(HashTable);
+    std.testing.refAllDecls(@This());
 }

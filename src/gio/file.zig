@@ -394,5 +394,5 @@ pub const File = extern struct {
 };
 
 test "gio.File" {
-    std.testing.refAllDecls(File);
+    std.testing.refAllDecls(@This());
 }

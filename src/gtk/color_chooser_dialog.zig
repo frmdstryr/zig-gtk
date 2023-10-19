@@ -815,5 +815,5 @@ pub const ColorChooserDialog = extern struct {
 };
 
 test "gtk.ColorChooserDialog" {
-    std.testing.refAllDecls(ColorChooserDialog);
+    std.testing.refAllDecls(@This());
 }

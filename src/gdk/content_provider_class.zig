@@ -27,5 +27,6 @@ pub const ContentProviderClass = extern struct {
 };
 
 test "gdk.ContentProviderClass" {
-    std.testing.refAllDecls(ContentProviderClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 264), @sizeOf(ContentProviderClass));
 }

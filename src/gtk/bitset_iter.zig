@@ -28,5 +28,6 @@ pub const BitsetIter = extern struct {
 };
 
 test "gtk.BitsetIter" {
-    std.testing.refAllDecls(BitsetIter);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 80), @sizeOf(BitsetIter));
 }

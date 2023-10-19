@@ -133,5 +133,5 @@ pub const Credentials = extern struct {
 };
 
 test "gio.Credentials" {
-    std.testing.refAllDecls(Credentials);
+    std.testing.refAllDecls(@This());
 }

@@ -17,5 +17,6 @@ pub const WidgetPaintableClass = extern struct {
 };
 
 test "gtk.WidgetPaintableClass" {
-    std.testing.refAllDecls(WidgetPaintableClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(WidgetPaintableClass));
 }

@@ -229,5 +229,5 @@ pub const ConverterOutputStream = extern struct {
 };
 
 test "gio.ConverterOutputStream" {
-    std.testing.refAllDecls(ConverterOutputStream);
+    std.testing.refAllDecls(@This());
 }

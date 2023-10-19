@@ -623,5 +623,5 @@ pub const Switch = extern struct {
 };
 
 test "gtk.Switch" {
-    std.testing.refAllDecls(Switch);
+    std.testing.refAllDecls(@This());
 }

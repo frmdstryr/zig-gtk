@@ -42,5 +42,6 @@ pub const IMContextClass = extern struct {
 };
 
 test "gtk.IMContextClass" {
-    std.testing.refAllDecls(IMContextClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 320), @sizeOf(IMContextClass));
 }

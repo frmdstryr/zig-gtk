@@ -18,5 +18,6 @@ pub const GlyphGeometry = extern struct {
 };
 
 test "pango.GlyphGeometry" {
-    std.testing.refAllDecls(GlyphGeometry);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 12), @sizeOf(GlyphGeometry));
 }

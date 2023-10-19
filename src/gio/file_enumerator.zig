@@ -150,5 +150,5 @@ pub const FileEnumerator = extern struct {
 };
 
 test "gio.FileEnumerator" {
-    std.testing.refAllDecls(FileEnumerator);
+    std.testing.refAllDecls(@This());
 }

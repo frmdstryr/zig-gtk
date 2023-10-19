@@ -8,7 +8,7 @@ pub const FileAttributeInfo = extern struct {
     const Self = @This();
 
     // Fields
-    name: [*c]const u8,
+    name: *[*c]const u8,
     type: *gio.FileAttributeType,
     flags: *gio.FileAttributeInfoFlags,
 
@@ -18,5 +18,6 @@ pub const FileAttributeInfo = extern struct {
 };
 
 test "gio.FileAttributeInfo" {
-    std.testing.refAllDecls(FileAttributeInfo);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(FileAttributeInfo));
 }

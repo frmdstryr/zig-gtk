@@ -18,5 +18,6 @@ pub const SimpleActionGroupClass = extern struct {
 };
 
 test "gio.SimpleActionGroupClass" {
-    std.testing.refAllDecls(SimpleActionGroupClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 232), @sizeOf(SimpleActionGroupClass));
 }

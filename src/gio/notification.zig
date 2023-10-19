@@ -145,5 +145,5 @@ pub const Notification = extern struct {
 };
 
 test "gio.Notification" {
-    std.testing.refAllDecls(Notification);
+    std.testing.refAllDecls(@This());
 }

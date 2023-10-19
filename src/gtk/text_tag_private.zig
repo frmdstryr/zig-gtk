@@ -15,5 +15,5 @@ pub const TextTagPrivate = extern struct {
 };
 
 test "gtk.TextTagPrivate" {
-    std.testing.refAllDecls(TextTagPrivate);
+    std.testing.refAllDecls(@This());
 }

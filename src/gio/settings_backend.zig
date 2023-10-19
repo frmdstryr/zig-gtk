@@ -132,5 +132,5 @@ pub const SettingsBackend = extern struct {
 };
 
 test "gio.SettingsBackend" {
-    std.testing.refAllDecls(SettingsBackend);
+    std.testing.refAllDecls(@This());
 }

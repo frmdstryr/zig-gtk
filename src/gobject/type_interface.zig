@@ -20,5 +20,6 @@ pub const TypeInterface = extern struct {
 };
 
 test "gobject.TypeInterface" {
-    std.testing.refAllDecls(TypeInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(TypeInterface));
 }

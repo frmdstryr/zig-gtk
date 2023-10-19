@@ -644,5 +644,5 @@ pub const AppChooserButton = extern struct {
 };
 
 test "gtk.AppChooserButton" {
-    std.testing.refAllDecls(AppChooserButton);
+    std.testing.refAllDecls(@This());
 }

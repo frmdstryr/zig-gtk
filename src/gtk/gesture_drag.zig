@@ -242,5 +242,5 @@ pub const GestureDrag = extern struct {
 };
 
 test "gtk.GestureDrag" {
-    std.testing.refAllDecls(GestureDrag);
+    std.testing.refAllDecls(@This());
 }

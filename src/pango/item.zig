@@ -34,5 +34,6 @@ pub const Item = extern struct {
 };
 
 test "pango.Item" {
-    std.testing.refAllDecls(Item);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 64), @sizeOf(Item));
 }

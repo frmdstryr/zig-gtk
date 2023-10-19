@@ -650,5 +650,5 @@ pub const CellView = extern struct {
 };
 
 test "gtk.CellView" {
-    std.testing.refAllDecls(CellView);
+    std.testing.refAllDecls(@This());
 }

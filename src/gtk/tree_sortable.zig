@@ -39,5 +39,5 @@ pub const TreeSortable = extern struct {
 };
 
 test "gtk.TreeSortable" {
-    std.testing.refAllDecls(TreeSortable);
+    std.testing.refAllDecls(@This());
 }

@@ -83,5 +83,5 @@ pub const TouchEvent = extern struct {
 };
 
 test "gdk.TouchEvent" {
-    std.testing.refAllDecls(TouchEvent);
+    std.testing.refAllDecls(@This());
 }

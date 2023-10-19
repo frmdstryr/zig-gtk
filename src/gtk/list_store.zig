@@ -183,5 +183,5 @@ pub const ListStore = extern struct {
 };
 
 test "gtk.ListStore" {
-    std.testing.refAllDecls(ListStore);
+    std.testing.refAllDecls(@This());
 }

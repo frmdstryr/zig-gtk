@@ -17,5 +17,6 @@ pub const OrientableIface = extern struct {
 };
 
 test "gtk.OrientableIface" {
-    std.testing.refAllDecls(OrientableIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(OrientableIface));
 }

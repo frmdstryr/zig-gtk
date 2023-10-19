@@ -15,5 +15,5 @@ pub const ShortcutControllerClass = extern struct {
 };
 
 test "gtk.ShortcutControllerClass" {
-    std.testing.refAllDecls(ShortcutControllerClass);
+    std.testing.refAllDecls(@This());
 }

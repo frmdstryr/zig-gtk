@@ -70,5 +70,5 @@ pub const ContentFormats = extern struct {
 };
 
 test "gdk.ContentFormats" {
-    std.testing.refAllDecls(ContentFormats);
+    std.testing.refAllDecls(@This());
 }

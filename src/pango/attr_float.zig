@@ -17,5 +17,6 @@ pub const AttrFloat = extern struct {
 };
 
 test "pango.AttrFloat" {
-    std.testing.refAllDecls(AttrFloat);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(AttrFloat));
 }

@@ -18,5 +18,6 @@ pub const InterfaceInfo = extern struct {
 };
 
 test "gobject.InterfaceInfo" {
-    std.testing.refAllDecls(InterfaceInfo);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(InterfaceInfo));
 }

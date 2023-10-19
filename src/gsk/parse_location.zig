@@ -20,5 +20,6 @@ pub const ParseLocation = extern struct {
 };
 
 test "gsk.ParseLocation" {
-    std.testing.refAllDecls(ParseLocation);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(ParseLocation));
 }

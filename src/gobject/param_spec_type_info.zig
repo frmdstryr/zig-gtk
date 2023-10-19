@@ -23,5 +23,6 @@ pub const ParamSpecTypeInfo = extern struct {
 };
 
 test "gobject.ParamSpecTypeInfo" {
-    std.testing.refAllDecls(ParamSpecTypeInfo);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 56), @sizeOf(ParamSpecTypeInfo));
 }

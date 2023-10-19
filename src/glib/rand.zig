@@ -36,5 +36,5 @@ pub const Rand = extern struct {
 };
 
 test "glib.Rand" {
-    std.testing.refAllDecls(Rand);
+    std.testing.refAllDecls(@This());
 }

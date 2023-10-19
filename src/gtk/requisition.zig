@@ -26,5 +26,6 @@ pub const Requisition = extern struct {
 };
 
 test "gtk.Requisition" {
-    std.testing.refAllDecls(Requisition);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 8), @sizeOf(Requisition));
 }

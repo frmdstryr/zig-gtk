@@ -17,5 +17,6 @@ pub const FlattenListModelClass = extern struct {
 };
 
 test "gtk.FlattenListModelClass" {
-    std.testing.refAllDecls(FlattenListModelClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(FlattenListModelClass));
 }

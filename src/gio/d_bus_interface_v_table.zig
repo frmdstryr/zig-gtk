@@ -20,5 +20,6 @@ pub const DBusInterfaceVTable = extern struct {
 };
 
 test "gio.DBusInterfaceVTable" {
-    std.testing.refAllDecls(DBusInterfaceVTable);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 88), @sizeOf(DBusInterfaceVTable));
 }

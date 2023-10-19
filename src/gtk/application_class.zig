@@ -20,5 +20,6 @@ pub const ApplicationClass = extern struct {
 };
 
 test "gtk.ApplicationClass" {
-    std.testing.refAllDecls(ApplicationClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 392), @sizeOf(ApplicationClass));
 }

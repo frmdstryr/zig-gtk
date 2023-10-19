@@ -25,5 +25,6 @@ pub const LayoutManagerClass = extern struct {
 };
 
 test "gtk.LayoutManagerClass" {
-    std.testing.refAllDecls(LayoutManagerClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 320), @sizeOf(LayoutManagerClass));
 }

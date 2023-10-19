@@ -16,5 +16,6 @@ pub const TcpWrapperConnectionClass = extern struct {
 };
 
 test "gio.TcpWrapperConnectionClass" {
-    std.testing.refAllDecls(TcpWrapperConnectionClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 304), @sizeOf(TcpWrapperConnectionClass));
 }

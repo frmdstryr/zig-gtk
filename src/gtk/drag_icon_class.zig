@@ -16,5 +16,6 @@ pub const DragIconClass = extern struct {
 };
 
 test "gtk.DragIconClass" {
-    std.testing.refAllDecls(DragIconClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 408), @sizeOf(DragIconClass));
 }

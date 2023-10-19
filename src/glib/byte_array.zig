@@ -8,7 +8,7 @@ pub const ByteArray = extern struct {
     const Self = @This();
 
     // Fields
-    data: u8,
+    data: *u8,
     len: u32,
 
     // Constructors
@@ -17,5 +17,6 @@ pub const ByteArray = extern struct {
 };
 
 test "glib.ByteArray" {
-    std.testing.refAllDecls(ByteArray);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(ByteArray));
 }

@@ -22,5 +22,6 @@ pub const MediaFileClass = extern struct {
 };
 
 test "gtk.MediaFileClass" {
-    std.testing.refAllDecls(MediaFileClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 296), @sizeOf(MediaFileClass));
 }

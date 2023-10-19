@@ -125,5 +125,5 @@ pub const DisplayManager = extern struct {
 };
 
 test "gdk.DisplayManager" {
-    std.testing.refAllDecls(DisplayManager);
+    std.testing.refAllDecls(@This());
 }

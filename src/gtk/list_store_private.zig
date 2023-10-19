@@ -15,5 +15,5 @@ pub const ListStorePrivate = extern struct {
 };
 
 test "gtk.ListStorePrivate" {
-    std.testing.refAllDecls(ListStorePrivate);
+    std.testing.refAllDecls(@This());
 }

@@ -21,5 +21,6 @@ pub const ApplicationCommandLineClass = extern struct {
 };
 
 test "gio.ApplicationCommandLineClass" {
-    std.testing.refAllDecls(ApplicationCommandLineClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 248), @sizeOf(ApplicationCommandLineClass));
 }

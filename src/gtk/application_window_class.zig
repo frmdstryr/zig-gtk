@@ -17,5 +17,6 @@ pub const ApplicationWindowClass = extern struct {
 };
 
 test "gtk.ApplicationWindowClass" {
-    std.testing.refAllDecls(ApplicationWindowClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 576), @sizeOf(ApplicationWindowClass));
 }

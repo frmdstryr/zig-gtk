@@ -102,5 +102,5 @@ pub const Mount = extern struct {
 };
 
 test "gio.Mount" {
-    std.testing.refAllDecls(Mount);
+    std.testing.refAllDecls(@This());
 }

@@ -17,5 +17,6 @@ pub const SingleSelectionClass = extern struct {
 };
 
 test "gtk.SingleSelectionClass" {
-    std.testing.refAllDecls(SingleSelectionClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(SingleSelectionClass));
 }

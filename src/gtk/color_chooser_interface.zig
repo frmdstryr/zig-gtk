@@ -23,5 +23,6 @@ pub const ColorChooserInterface = extern struct {
 };
 
 test "gtk.ColorChooserInterface" {
-    std.testing.refAllDecls(ColorChooserInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 144), @sizeOf(ColorChooserInterface));
 }

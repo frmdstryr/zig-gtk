@@ -16,5 +16,6 @@ pub const TypeFundamentalInfo = extern struct {
 };
 
 test "gobject.TypeFundamentalInfo" {
-    std.testing.refAllDecls(TypeFundamentalInfo);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 4), @sizeOf(TypeFundamentalInfo));
 }

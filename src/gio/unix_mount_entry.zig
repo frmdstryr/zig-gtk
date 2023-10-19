@@ -15,5 +15,5 @@ pub const UnixMountEntry = extern struct {
 };
 
 test "gio.UnixMountEntry" {
-    std.testing.refAllDecls(UnixMountEntry);
+    std.testing.refAllDecls(@This());
 }

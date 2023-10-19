@@ -18,5 +18,6 @@ pub const TlsFileDatabaseInterface = extern struct {
 };
 
 test "gio.TlsFileDatabaseInterface" {
-    std.testing.refAllDecls(TlsFileDatabaseInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 80), @sizeOf(TlsFileDatabaseInterface));
 }

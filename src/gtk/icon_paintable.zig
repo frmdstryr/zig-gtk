@@ -135,5 +135,5 @@ pub const IconPaintable = extern struct {
 };
 
 test "gtk.IconPaintable" {
-    std.testing.refAllDecls(IconPaintable);
+    std.testing.refAllDecls(@This());
 }

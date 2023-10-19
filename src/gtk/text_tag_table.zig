@@ -136,5 +136,5 @@ pub const TextTagTable = extern struct {
 };
 
 test "gtk.TextTagTable" {
-    std.testing.refAllDecls(TextTagTable);
+    std.testing.refAllDecls(@This());
 }

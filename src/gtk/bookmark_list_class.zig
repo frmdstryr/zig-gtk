@@ -17,5 +17,6 @@ pub const BookmarkListClass = extern struct {
 };
 
 test "gtk.BookmarkListClass" {
-    std.testing.refAllDecls(BookmarkListClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(BookmarkListClass));
 }

@@ -42,5 +42,6 @@ pub const ValueArray = extern struct {
 };
 
 test "gobject.ValueArray" {
-    std.testing.refAllDecls(ValueArray);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(ValueArray));
 }

@@ -33,5 +33,5 @@ pub const DevicePad = extern struct {
 };
 
 test "gdk.DevicePad" {
-    std.testing.refAllDecls(DevicePad);
+    std.testing.refAllDecls(@This());
 }

@@ -8,7 +8,7 @@ pub const DebugKey = extern struct {
     const Self = @This();
 
     // Fields
-    key: [*c]const u8,
+    key: *[*c]const u8,
     value: u32,
 
     // Constructors
@@ -17,5 +17,6 @@ pub const DebugKey = extern struct {
 };
 
 test "glib.DebugKey" {
-    std.testing.refAllDecls(DebugKey);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(DebugKey));
 }

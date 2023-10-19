@@ -193,5 +193,5 @@ pub const EntryCompletion = extern struct {
 };
 
 test "gtk.EntryCompletion" {
-    std.testing.refAllDecls(EntryCompletion);
+    std.testing.refAllDecls(@This());
 }

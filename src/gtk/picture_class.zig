@@ -16,5 +16,6 @@ pub const PictureClass = extern struct {
 };
 
 test "gtk.PictureClass" {
-    std.testing.refAllDecls(PictureClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 408), @sizeOf(PictureClass));
 }

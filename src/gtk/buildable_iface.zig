@@ -27,5 +27,6 @@ pub const BuildableIface = extern struct {
 };
 
 test "gtk.BuildableIface" {
-    std.testing.refAllDecls(BuildableIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 96), @sizeOf(BuildableIface));
 }

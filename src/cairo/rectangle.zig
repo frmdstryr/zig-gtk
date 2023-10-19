@@ -19,5 +19,6 @@ pub const Rectangle = extern struct {
 };
 
 test "cairo.Rectangle" {
-    std.testing.refAllDecls(Rectangle);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(Rectangle));
 }

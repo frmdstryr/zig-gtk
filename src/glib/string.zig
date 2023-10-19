@@ -8,7 +8,7 @@ pub const String = extern struct {
     const Self = @This();
 
     // Fields
-    str: [*c]const u8,
+    str: *[*c]const u8,
     len: u64,
     allocated_len: u64,
 
@@ -111,5 +111,6 @@ pub const String = extern struct {
 };
 
 test "glib.String" {
-    std.testing.refAllDecls(String);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(String));
 }

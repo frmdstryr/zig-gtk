@@ -146,5 +146,5 @@ pub const GridLayoutChild = extern struct {
 };
 
 test "gtk.GridLayoutChild" {
-    std.testing.refAllDecls(GridLayoutChild);
+    std.testing.refAllDecls(@This());
 }

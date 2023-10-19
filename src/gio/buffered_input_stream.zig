@@ -226,5 +226,5 @@ pub const BufferedInputStream = extern struct {
 };
 
 test "gio.BufferedInputStream" {
-    std.testing.refAllDecls(BufferedInputStream);
+    std.testing.refAllDecls(@This());
 }

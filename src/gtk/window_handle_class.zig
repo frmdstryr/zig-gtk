@@ -16,5 +16,6 @@ pub const WindowHandleClass = extern struct {
 };
 
 test "gtk.WindowHandleClass" {
-    std.testing.refAllDecls(WindowHandleClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 408), @sizeOf(WindowHandleClass));
 }

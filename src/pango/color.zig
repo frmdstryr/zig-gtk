@@ -33,5 +33,6 @@ pub const Color = extern struct {
 };
 
 test "pango.Color" {
-    std.testing.refAllDecls(Color);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 6), @sizeOf(Color));
 }

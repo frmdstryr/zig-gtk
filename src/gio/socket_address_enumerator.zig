@@ -122,5 +122,5 @@ pub const SocketAddressEnumerator = extern struct {
 };
 
 test "gio.SocketAddressEnumerator" {
-    std.testing.refAllDecls(SocketAddressEnumerator);
+    std.testing.refAllDecls(@This());
 }

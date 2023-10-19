@@ -19,5 +19,6 @@ pub const ShortcutManagerInterface = extern struct {
 };
 
 test "gtk.ShortcutManagerInterface" {
-    std.testing.refAllDecls(ShortcutManagerInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(ShortcutManagerInterface));
 }

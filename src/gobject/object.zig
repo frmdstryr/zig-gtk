@@ -106,5 +106,5 @@ pub const Object = extern struct {
 };
 
 test "gobject.Object" {
-    std.testing.refAllDecls(Object);
+    std.testing.refAllDecls(@This());
 }

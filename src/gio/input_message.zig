@@ -14,7 +14,7 @@ pub const InputMessage = extern struct {
     bytes_received: u64,
     flags: i32,
     control_messages: [*c]*gio.SocketControlMessage,
-    num_control_messages: u32,
+    num_control_messages: *u32,
 
     // Constructors
 
@@ -22,5 +22,6 @@ pub const InputMessage = extern struct {
 };
 
 test "gio.InputMessage" {
-    std.testing.refAllDecls(InputMessage);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 56), @sizeOf(InputMessage));
 }

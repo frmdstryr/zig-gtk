@@ -18,5 +18,6 @@ pub const RequestedSize = extern struct {
 };
 
 test "gtk.RequestedSize" {
-    std.testing.refAllDecls(RequestedSize);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(RequestedSize));
 }

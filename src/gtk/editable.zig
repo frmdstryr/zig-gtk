@@ -90,5 +90,5 @@ pub const Editable = extern struct {
 };
 
 test "gtk.Editable" {
-    std.testing.refAllDecls(Editable);
+    std.testing.refAllDecls(@This());
 }

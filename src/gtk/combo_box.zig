@@ -692,5 +692,5 @@ pub const ComboBox = extern struct {
 };
 
 test "gtk.ComboBox" {
-    std.testing.refAllDecls(ComboBox);
+    std.testing.refAllDecls(@This());
 }

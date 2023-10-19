@@ -621,5 +621,5 @@ pub const DrawingArea = extern struct {
 };
 
 test "gtk.DrawingArea" {
-    std.testing.refAllDecls(DrawingArea);
+    std.testing.refAllDecls(@This());
 }

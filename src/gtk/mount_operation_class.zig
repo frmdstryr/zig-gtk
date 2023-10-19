@@ -21,5 +21,6 @@ pub const MountOperationClass = extern struct {
 };
 
 test "gtk.MountOperationClass" {
-    std.testing.refAllDecls(MountOperationClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 288), @sizeOf(MountOperationClass));
 }

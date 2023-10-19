@@ -15,5 +15,5 @@ pub const DropTargetClass = extern struct {
 };
 
 test "gtk.DropTargetClass" {
-    std.testing.refAllDecls(DropTargetClass);
+    std.testing.refAllDecls(@This());
 }

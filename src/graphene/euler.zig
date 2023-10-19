@@ -80,5 +80,6 @@ pub const Euler = extern struct {
 };
 
 test "graphene.Euler" {
-    std.testing.refAllDecls(Euler);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 20), @sizeOf(Euler));
 }

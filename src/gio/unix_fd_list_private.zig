@@ -15,5 +15,5 @@ pub const UnixFDListPrivate = extern struct {
 };
 
 test "gio.UnixFDListPrivate" {
-    std.testing.refAllDecls(UnixFDListPrivate);
+    std.testing.refAllDecls(@This());
 }

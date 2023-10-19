@@ -15,5 +15,5 @@ pub const MemoryInputStreamPrivate = extern struct {
 };
 
 test "gio.MemoryInputStreamPrivate" {
-    std.testing.refAllDecls(MemoryInputStreamPrivate);
+    std.testing.refAllDecls(@This());
 }

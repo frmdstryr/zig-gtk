@@ -138,5 +138,5 @@ pub const TlsInteraction = extern struct {
 };
 
 test "gio.TlsInteraction" {
-    std.testing.refAllDecls(TlsInteraction);
+    std.testing.refAllDecls(@This());
 }

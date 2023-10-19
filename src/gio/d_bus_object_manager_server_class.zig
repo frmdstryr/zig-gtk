@@ -18,5 +18,6 @@ pub const DBusObjectManagerServerClass = extern struct {
 };
 
 test "gio.DBusObjectManagerServerClass" {
-    std.testing.refAllDecls(DBusObjectManagerServerClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 200), @sizeOf(DBusObjectManagerServerClass));
 }

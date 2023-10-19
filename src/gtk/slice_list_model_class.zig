@@ -17,5 +17,6 @@ pub const SliceListModelClass = extern struct {
 };
 
 test "gtk.SliceListModelClass" {
-    std.testing.refAllDecls(SliceListModelClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(SliceListModelClass));
 }

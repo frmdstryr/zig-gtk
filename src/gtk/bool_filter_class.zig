@@ -16,5 +16,6 @@ pub const BoolFilterClass = extern struct {
 };
 
 test "gtk.BoolFilterClass" {
-    std.testing.refAllDecls(BoolFilterClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 216), @sizeOf(BoolFilterClass));
 }

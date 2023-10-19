@@ -20,5 +20,6 @@ pub const ListModelInterface = extern struct {
 };
 
 test "gio.ListModelInterface" {
-    std.testing.refAllDecls(ListModelInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(ListModelInterface));
 }

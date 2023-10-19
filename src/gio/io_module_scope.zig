@@ -21,5 +21,5 @@ pub const IOModuleScope = extern struct {
 };
 
 test "gio.IOModuleScope" {
-    std.testing.refAllDecls(IOModuleScope);
+    std.testing.refAllDecls(@This());
 }

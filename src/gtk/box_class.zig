@@ -17,5 +17,6 @@ pub const BoxClass = extern struct {
 };
 
 test "gtk.BoxClass" {
-    std.testing.refAllDecls(BoxClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 472), @sizeOf(BoxClass));
 }

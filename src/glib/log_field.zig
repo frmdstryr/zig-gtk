@@ -8,7 +8,7 @@ pub const LogField = extern struct {
     const Self = @This();
 
     // Fields
-    key: [*c]const u8,
+    key: *[*c]const u8,
     value: ?*anyopaque,
     length: i64,
 
@@ -18,5 +18,6 @@ pub const LogField = extern struct {
 };
 
 test "glib.LogField" {
-    std.testing.refAllDecls(LogField);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(LogField));
 }

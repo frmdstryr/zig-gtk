@@ -124,5 +124,5 @@ pub const FilenameCompleter = extern struct {
 };
 
 test "gio.FilenameCompleter" {
-    std.testing.refAllDecls(FilenameCompleter);
+    std.testing.refAllDecls(@This());
 }

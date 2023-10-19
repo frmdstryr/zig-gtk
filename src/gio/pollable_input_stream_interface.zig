@@ -22,5 +22,6 @@ pub const PollableInputStreamInterface = extern struct {
 };
 
 test "gio.PollableInputStreamInterface" {
-    std.testing.refAllDecls(PollableInputStreamInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 48), @sizeOf(PollableInputStreamInterface));
 }

@@ -31,5 +31,6 @@ pub const LogAttr = extern struct {
 };
 
 test "pango.LogAttr" {
-    std.testing.refAllDecls(LogAttr);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 64), @sizeOf(LogAttr));
 }

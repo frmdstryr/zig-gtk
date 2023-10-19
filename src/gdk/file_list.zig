@@ -19,5 +19,5 @@ pub const FileList = extern struct {
 };
 
 test "gdk.FileList" {
-    std.testing.refAllDecls(FileList);
+    std.testing.refAllDecls(@This());
 }

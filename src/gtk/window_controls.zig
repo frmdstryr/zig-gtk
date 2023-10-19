@@ -620,5 +620,5 @@ pub const WindowControls = extern struct {
 };
 
 test "gtk.WindowControls" {
-    std.testing.refAllDecls(WindowControls);
+    std.testing.refAllDecls(@This());
 }

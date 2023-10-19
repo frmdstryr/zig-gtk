@@ -194,5 +194,5 @@ pub const MountOperation = extern struct {
 };
 
 test "gtk.MountOperation" {
-    std.testing.refAllDecls(MountOperation);
+    std.testing.refAllDecls(@This());
 }

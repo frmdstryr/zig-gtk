@@ -62,5 +62,5 @@ pub const ConicGradientNode = extern struct {
 };
 
 test "gsk.ConicGradientNode" {
-    std.testing.refAllDecls(ConicGradientNode);
+    std.testing.refAllDecls(@This());
 }

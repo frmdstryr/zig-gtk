@@ -27,5 +27,5 @@ pub const StrvBuilder = extern struct {
 };
 
 test "glib.StrvBuilder" {
-    std.testing.refAllDecls(StrvBuilder);
+    std.testing.refAllDecls(@This());
 }

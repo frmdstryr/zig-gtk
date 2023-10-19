@@ -199,5 +199,5 @@ pub const ConverterInputStream = extern struct {
 };
 
 test "gio.ConverterInputStream" {
-    std.testing.refAllDecls(ConverterInputStream);
+    std.testing.refAllDecls(@This());
 }

@@ -59,5 +59,5 @@ pub const GLShaderNode = extern struct {
 };
 
 test "gsk.GLShaderNode" {
-    std.testing.refAllDecls(GLShaderNode);
+    std.testing.refAllDecls(@This());
 }

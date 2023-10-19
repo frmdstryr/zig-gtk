@@ -47,5 +47,6 @@ pub const CellAreaClass = extern struct {
 };
 
 test "gtk.CellAreaClass" {
-    std.testing.refAllDecls(CellAreaClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 352), @sizeOf(CellAreaClass));
 }

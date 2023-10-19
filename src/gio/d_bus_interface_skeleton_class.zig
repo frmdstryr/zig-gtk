@@ -25,5 +25,6 @@ pub const DBusInterfaceSkeletonClass = extern struct {
 };
 
 test "gio.DBusInterfaceSkeletonClass" {
-    std.testing.refAllDecls(DBusInterfaceSkeletonClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 304), @sizeOf(DBusInterfaceSkeletonClass));
 }

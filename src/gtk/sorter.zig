@@ -122,5 +122,5 @@ pub const Sorter = extern struct {
 };
 
 test "gtk.Sorter" {
-    std.testing.refAllDecls(Sorter);
+    std.testing.refAllDecls(@This());
 }

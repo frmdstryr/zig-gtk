@@ -133,5 +133,5 @@ pub const SignalAction = extern struct {
 };
 
 test "gtk.SignalAction" {
-    std.testing.refAllDecls(SignalAction);
+    std.testing.refAllDecls(@This());
 }

@@ -20,5 +20,6 @@ pub const ComboBoxClass = extern struct {
 };
 
 test "gtk.ComboBoxClass" {
-    std.testing.refAllDecls(ComboBoxClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 488), @sizeOf(ComboBoxClass));
 }

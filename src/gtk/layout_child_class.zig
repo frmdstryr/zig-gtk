@@ -17,5 +17,6 @@ pub const LayoutChildClass = extern struct {
 };
 
 test "gtk.LayoutChildClass" {
-    std.testing.refAllDecls(LayoutChildClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(LayoutChildClass));
 }

@@ -17,5 +17,6 @@ pub const TreeListModelClass = extern struct {
 };
 
 test "gtk.TreeListModelClass" {
-    std.testing.refAllDecls(TreeListModelClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(TreeListModelClass));
 }

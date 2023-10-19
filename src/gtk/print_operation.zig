@@ -210,5 +210,5 @@ pub const PrintOperation = extern struct {
 };
 
 test "gtk.PrintOperation" {
-    std.testing.refAllDecls(PrintOperation);
+    std.testing.refAllDecls(@This());
 }

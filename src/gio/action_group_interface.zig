@@ -32,5 +32,6 @@ pub const ActionGroupInterface = extern struct {
 };
 
 test "gio.ActionGroupInterface" {
-    std.testing.refAllDecls(ActionGroupInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 128), @sizeOf(ActionGroupInterface));
 }

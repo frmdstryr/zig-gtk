@@ -15,5 +15,5 @@ pub const ApplicationCommandLinePrivate = extern struct {
 };
 
 test "gio.ApplicationCommandLinePrivate" {
-    std.testing.refAllDecls(ApplicationCommandLinePrivate);
+    std.testing.refAllDecls(@This());
 }

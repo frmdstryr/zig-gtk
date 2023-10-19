@@ -15,5 +15,5 @@ pub const EventControllerClass = extern struct {
 };
 
 test "gtk.EventControllerClass" {
-    std.testing.refAllDecls(EventControllerClass);
+    std.testing.refAllDecls(@This());
 }

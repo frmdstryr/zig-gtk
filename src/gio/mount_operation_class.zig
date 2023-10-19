@@ -32,5 +32,6 @@ pub const MountOperationClass = extern struct {
 };
 
 test "gio.MountOperationClass" {
-    std.testing.refAllDecls(MountOperationClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 256), @sizeOf(MountOperationClass));
 }

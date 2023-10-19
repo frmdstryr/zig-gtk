@@ -824,5 +824,5 @@ pub const PageSetupUnixDialog = extern struct {
 };
 
 test "gtk.PageSetupUnixDialog" {
-    std.testing.refAllDecls(PageSetupUnixDialog);
+    std.testing.refAllDecls(@This());
 }

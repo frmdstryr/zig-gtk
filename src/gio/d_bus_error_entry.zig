@@ -9,7 +9,7 @@ pub const DBusErrorEntry = extern struct {
 
     // Fields
     error_code: i32,
-    dbus_error_name: [*c]const u8,
+    dbus_error_name: *[*c]const u8,
 
     // Constructors
 
@@ -17,5 +17,6 @@ pub const DBusErrorEntry = extern struct {
 };
 
 test "gio.DBusErrorEntry" {
-    std.testing.refAllDecls(DBusErrorEntry);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(DBusErrorEntry));
 }

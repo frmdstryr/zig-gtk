@@ -21,5 +21,6 @@ pub const FilenameCompleterClass = extern struct {
 };
 
 test "gio.FilenameCompleterClass" {
-    std.testing.refAllDecls(FilenameCompleterClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 168), @sizeOf(FilenameCompleterClass));
 }

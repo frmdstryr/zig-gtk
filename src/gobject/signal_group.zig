@@ -132,5 +132,5 @@ pub const SignalGroup = extern struct {
 };
 
 test "gobject.SignalGroup" {
-    std.testing.refAllDecls(SignalGroup);
+    std.testing.refAllDecls(@This());
 }

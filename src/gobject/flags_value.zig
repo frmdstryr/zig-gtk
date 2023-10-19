@@ -9,8 +9,8 @@ pub const FlagsValue = extern struct {
 
     // Fields
     value: u32,
-    value_name: [*c]const u8,
-    value_nick: [*c]const u8,
+    value_name: *[*c]const u8,
+    value_nick: *[*c]const u8,
 
     // Constructors
 
@@ -18,5 +18,6 @@ pub const FlagsValue = extern struct {
 };
 
 test "gobject.FlagsValue" {
-    std.testing.refAllDecls(FlagsValue);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(FlagsValue));
 }

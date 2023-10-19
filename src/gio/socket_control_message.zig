@@ -126,5 +126,5 @@ pub const SocketControlMessage = extern struct {
 };
 
 test "gio.SocketControlMessage" {
-    std.testing.refAllDecls(SocketControlMessage);
+    std.testing.refAllDecls(@This());
 }

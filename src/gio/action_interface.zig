@@ -26,5 +26,6 @@ pub const ActionInterface = extern struct {
 };
 
 test "gio.ActionInterface" {
-    std.testing.refAllDecls(ActionInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 80), @sizeOf(ActionInterface));
 }

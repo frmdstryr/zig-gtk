@@ -27,5 +27,6 @@ pub const SocketControlMessageClass = extern struct {
 };
 
 test "gio.SocketControlMessageClass" {
-    std.testing.refAllDecls(SocketControlMessageClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 216), @sizeOf(SocketControlMessageClass));
 }

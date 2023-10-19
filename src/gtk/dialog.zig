@@ -809,5 +809,5 @@ pub const Dialog = extern struct {
 };
 
 test "gtk.Dialog" {
-    std.testing.refAllDecls(Dialog);
+    std.testing.refAllDecls(@This());
 }

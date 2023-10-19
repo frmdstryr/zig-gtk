@@ -660,5 +660,5 @@ pub const Picture = extern struct {
 };
 
 test "gtk.Picture" {
-    std.testing.refAllDecls(Picture);
+    std.testing.refAllDecls(@This());
 }

@@ -186,5 +186,5 @@ pub const TreeStore = extern struct {
 };
 
 test "gtk.TreeStore" {
-    std.testing.refAllDecls(TreeStore);
+    std.testing.refAllDecls(@This());
 }

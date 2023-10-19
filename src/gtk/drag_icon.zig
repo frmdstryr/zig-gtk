@@ -617,5 +617,5 @@ pub const DragIcon = extern struct {
 };
 
 test "gtk.DragIcon" {
-    std.testing.refAllDecls(DragIcon);
+    std.testing.refAllDecls(@This());
 }

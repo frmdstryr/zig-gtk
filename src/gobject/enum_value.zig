@@ -9,8 +9,8 @@ pub const EnumValue = extern struct {
 
     // Fields
     value: i32,
-    value_name: [*c]const u8,
-    value_nick: [*c]const u8,
+    value_name: *[*c]const u8,
+    value_nick: *[*c]const u8,
 
     // Constructors
 
@@ -18,5 +18,6 @@ pub const EnumValue = extern struct {
 };
 
 test "gobject.EnumValue" {
-    std.testing.refAllDecls(EnumValue);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(EnumValue));
 }

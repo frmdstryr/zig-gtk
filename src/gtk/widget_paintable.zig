@@ -128,5 +128,5 @@ pub const WidgetPaintable = extern struct {
 };
 
 test "gtk.WidgetPaintable" {
-    std.testing.refAllDecls(WidgetPaintable);
+    std.testing.refAllDecls(@This());
 }

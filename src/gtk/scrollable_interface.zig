@@ -18,5 +18,6 @@ pub const ScrollableInterface = extern struct {
 };
 
 test "gtk.ScrollableInterface" {
-    std.testing.refAllDecls(ScrollableInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(ScrollableInterface));
 }

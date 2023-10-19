@@ -205,5 +205,5 @@ pub const CellRendererSpinner = extern struct {
 };
 
 test "gtk.CellRendererSpinner" {
-    std.testing.refAllDecls(CellRendererSpinner);
+    std.testing.refAllDecls(@This());
 }

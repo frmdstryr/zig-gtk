@@ -641,5 +641,5 @@ pub const Calendar = extern struct {
 };
 
 test "gtk.Calendar" {
-    std.testing.refAllDecls(Calendar);
+    std.testing.refAllDecls(@This());
 }

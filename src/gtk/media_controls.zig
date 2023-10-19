@@ -611,5 +611,5 @@ pub const MediaControls = extern struct {
 };
 
 test "gtk.MediaControls" {
-    std.testing.refAllDecls(MediaControls);
+    std.testing.refAllDecls(@This());
 }

@@ -35,5 +35,6 @@ pub const FileAttributeInfoList = extern struct {
 };
 
 test "gio.FileAttributeInfoList" {
-    std.testing.refAllDecls(FileAttributeInfoList);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(FileAttributeInfoList));
 }

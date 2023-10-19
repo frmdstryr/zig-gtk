@@ -118,5 +118,5 @@ pub const SignalListItemFactory = extern struct {
 };
 
 test "gtk.SignalListItemFactory" {
-    std.testing.refAllDecls(SignalListItemFactory);
+    std.testing.refAllDecls(@This());
 }

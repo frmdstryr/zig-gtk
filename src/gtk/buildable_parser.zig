@@ -21,5 +21,6 @@ pub const BuildableParser = extern struct {
 };
 
 test "gtk.BuildableParser" {
-    std.testing.refAllDecls(BuildableParser);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 64), @sizeOf(BuildableParser));
 }

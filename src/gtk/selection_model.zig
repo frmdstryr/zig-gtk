@@ -54,5 +54,5 @@ pub const SelectionModel = extern struct {
 };
 
 test "gtk.SelectionModel" {
-    std.testing.refAllDecls(SelectionModel);
+    std.testing.refAllDecls(@This());
 }

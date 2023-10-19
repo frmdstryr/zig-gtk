@@ -15,5 +15,5 @@ pub const SnapshotClass = extern struct {
 };
 
 test "gtk.SnapshotClass" {
-    std.testing.refAllDecls(SnapshotClass);
+    std.testing.refAllDecls(@This());
 }

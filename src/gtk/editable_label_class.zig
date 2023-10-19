@@ -16,5 +16,6 @@ pub const EditableLabelClass = extern struct {
 };
 
 test "gtk.EditableLabelClass" {
-    std.testing.refAllDecls(EditableLabelClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 408), @sizeOf(EditableLabelClass));
 }

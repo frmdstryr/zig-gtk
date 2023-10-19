@@ -31,5 +31,6 @@ pub const Rectangle = extern struct {
 };
 
 test "gdk.Rectangle" {
-    std.testing.refAllDecls(Rectangle);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(Rectangle));
 }

@@ -165,5 +165,5 @@ pub const SocketService = extern struct {
 };
 
 test "gio.SocketService" {
-    std.testing.refAllDecls(SocketService);
+    std.testing.refAllDecls(@This());
 }

@@ -15,5 +15,5 @@ pub const TypeCValue = extern struct {
 };
 
 test "gobject.TypeCValue" {
-    std.testing.refAllDecls(TypeCValue);
+    std.testing.refAllDecls(@This());
 }

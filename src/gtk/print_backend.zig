@@ -15,5 +15,5 @@ pub const PrintBackend = extern struct {
 };
 
 test "gtk.PrintBackend" {
-    std.testing.refAllDecls(PrintBackend);
+    std.testing.refAllDecls(@This());
 }

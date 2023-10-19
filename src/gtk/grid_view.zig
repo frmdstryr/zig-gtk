@@ -653,5 +653,5 @@ pub const GridView = extern struct {
 };
 
 test "gtk.GridView" {
-    std.testing.refAllDecls(GridView);
+    std.testing.refAllDecls(@This());
 }

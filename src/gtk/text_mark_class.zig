@@ -18,5 +18,6 @@ pub const TextMarkClass = extern struct {
 };
 
 test "gtk.TextMarkClass" {
-    std.testing.refAllDecls(TextMarkClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 200), @sizeOf(TextMarkClass));
 }

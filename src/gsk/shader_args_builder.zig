@@ -50,5 +50,5 @@ pub const ShaderArgsBuilder = extern struct {
 };
 
 test "gsk.ShaderArgsBuilder" {
-    std.testing.refAllDecls(ShaderArgsBuilder);
+    std.testing.refAllDecls(@This());
 }

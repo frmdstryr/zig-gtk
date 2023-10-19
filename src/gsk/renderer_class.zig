@@ -15,5 +15,5 @@ pub const RendererClass = extern struct {
 };
 
 test "gsk.RendererClass" {
-    std.testing.refAllDecls(RendererClass);
+    std.testing.refAllDecls(@This());
 }

@@ -142,5 +142,5 @@ pub const CairoRenderer = extern struct {
 };
 
 test "gsk.CairoRenderer" {
-    std.testing.refAllDecls(CairoRenderer);
+    std.testing.refAllDecls(@This());
 }

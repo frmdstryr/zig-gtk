@@ -16,5 +16,6 @@ pub const DropDownClass = extern struct {
 };
 
 test "gtk.DropDownClass" {
-    std.testing.refAllDecls(DropDownClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 408), @sizeOf(DropDownClass));
 }

@@ -132,5 +132,5 @@ pub const NativeVolumeMonitor = extern struct {
 };
 
 test "gio.NativeVolumeMonitor" {
-    std.testing.refAllDecls(NativeVolumeMonitor);
+    std.testing.refAllDecls(@This());
 }

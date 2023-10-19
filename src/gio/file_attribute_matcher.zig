@@ -42,5 +42,5 @@ pub const FileAttributeMatcher = extern struct {
 };
 
 test "gio.FileAttributeMatcher" {
-    std.testing.refAllDecls(FileAttributeMatcher);
+    std.testing.refAllDecls(@This());
 }

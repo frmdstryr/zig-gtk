@@ -18,5 +18,6 @@ pub const DrawingAreaClass = extern struct {
 };
 
 test "gtk.DrawingAreaClass" {
-    std.testing.refAllDecls(DrawingAreaClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 480), @sizeOf(DrawingAreaClass));
 }

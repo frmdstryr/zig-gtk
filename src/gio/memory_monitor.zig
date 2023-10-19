@@ -21,5 +21,5 @@ pub const MemoryMonitor = extern struct {
 };
 
 test "gio.MemoryMonitor" {
-    std.testing.refAllDecls(MemoryMonitor);
+    std.testing.refAllDecls(@This());
 }

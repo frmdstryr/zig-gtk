@@ -30,5 +30,5 @@ pub const LoadableIcon = extern struct {
 };
 
 test "gio.LoadableIcon" {
-    std.testing.refAllDecls(LoadableIcon);
+    std.testing.refAllDecls(@This());
 }

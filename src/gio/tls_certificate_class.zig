@@ -19,5 +19,6 @@ pub const TlsCertificateClass = extern struct {
 };
 
 test "gio.TlsCertificateClass" {
-    std.testing.refAllDecls(TlsCertificateClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 208), @sizeOf(TlsCertificateClass));
 }

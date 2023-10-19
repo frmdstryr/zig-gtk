@@ -10,7 +10,7 @@ pub const GlyphString = extern struct {
     // Fields
     num_glyphs: i32,
     glyphs: [*c]pango.GlyphInfo,
-    log_clusters: i32,
+    log_clusters: *i32,
     space: i32,
 
     // Constructors
@@ -52,5 +52,6 @@ pub const GlyphString = extern struct {
 };
 
 test "pango.GlyphString" {
-    std.testing.refAllDecls(GlyphString);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(GlyphString));
 }

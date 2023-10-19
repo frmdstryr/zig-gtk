@@ -141,5 +141,5 @@ pub const DBusObjectManagerServer = extern struct {
 };
 
 test "gio.DBusObjectManagerServer" {
-    std.testing.refAllDecls(DBusObjectManagerServer);
+    std.testing.refAllDecls(@This());
 }

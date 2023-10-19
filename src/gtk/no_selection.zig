@@ -131,5 +131,5 @@ pub const NoSelection = extern struct {
 };
 
 test "gtk.NoSelection" {
-    std.testing.refAllDecls(NoSelection);
+    std.testing.refAllDecls(@This());
 }

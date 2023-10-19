@@ -125,5 +125,5 @@ pub const PixbufAnimationIter = extern struct {
 };
 
 test "gdkpixbuf.PixbufAnimationIter" {
-    std.testing.refAllDecls(PixbufAnimationIter);
+    std.testing.refAllDecls(@This());
 }

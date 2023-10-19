@@ -20,5 +20,6 @@ pub const CssLocation = extern struct {
 };
 
 test "gtk.CssLocation" {
-    std.testing.refAllDecls(CssLocation);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(CssLocation));
 }

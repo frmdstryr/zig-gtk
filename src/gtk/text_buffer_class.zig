@@ -37,5 +37,6 @@ pub const TextBufferClass = extern struct {
 };
 
 test "gtk.TextBufferClass" {
-    std.testing.refAllDecls(TextBufferClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 288), @sizeOf(TextBufferClass));
 }

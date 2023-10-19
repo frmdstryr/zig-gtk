@@ -19,5 +19,6 @@ pub const InetAddressClass = extern struct {
 };
 
 test "gio.InetAddressClass" {
-    std.testing.refAllDecls(InetAddressClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 152), @sizeOf(InetAddressClass));
 }

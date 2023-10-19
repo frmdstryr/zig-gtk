@@ -9,8 +9,8 @@ pub const PixbufModule = extern struct {
     const Self = @This();
 
     // Fields
-    module_name: [*c]const u8,
-    module_path: [*c]const u8,
+    module_name: *[*c]const u8,
+    module_path: *[*c]const u8,
     module: *gmodule.Module,
     info: *gdkpixbuf.PixbufFormat,
     load: *const fn (f: ?*anyopaque) callconv(.C) *gdkpixbuf.Pixbuf,
@@ -33,5 +33,6 @@ pub const PixbufModule = extern struct {
 };
 
 test "gdkpixbuf.PixbufModule" {
-    std.testing.refAllDecls(PixbufModule);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(PixbufModule));
 }

@@ -28,5 +28,5 @@ pub const ExpressionWatch = extern struct {
 };
 
 test "gtk.ExpressionWatch" {
-    std.testing.refAllDecls(ExpressionWatch);
+    std.testing.refAllDecls(@This());
 }

@@ -104,5 +104,5 @@ pub const KeyEvent = extern struct {
 };
 
 test "gdk.KeyEvent" {
-    std.testing.refAllDecls(KeyEvent);
+    std.testing.refAllDecls(@This());
 }

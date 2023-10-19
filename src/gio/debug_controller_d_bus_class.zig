@@ -19,5 +19,6 @@ pub const DebugControllerDBusClass = extern struct {
 };
 
 test "gio.DebugControllerDBusClass" {
-    std.testing.refAllDecls(DebugControllerDBusClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 240), @sizeOf(DebugControllerDBusClass));
 }

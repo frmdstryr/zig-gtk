@@ -131,5 +131,5 @@ pub const CustomFilter = extern struct {
 };
 
 test "gtk.CustomFilter" {
-    std.testing.refAllDecls(CustomFilter);
+    std.testing.refAllDecls(@This());
 }

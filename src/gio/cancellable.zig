@@ -153,5 +153,5 @@ pub const Cancellable = extern struct {
 };
 
 test "gio.Cancellable" {
-    std.testing.refAllDecls(Cancellable);
+    std.testing.refAllDecls(@This());
 }

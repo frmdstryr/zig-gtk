@@ -122,5 +122,5 @@ pub const Filter = extern struct {
 };
 
 test "gtk.Filter" {
-    std.testing.refAllDecls(Filter);
+    std.testing.refAllDecls(@This());
 }

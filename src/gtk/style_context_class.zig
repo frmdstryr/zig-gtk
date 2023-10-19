@@ -22,5 +22,6 @@ pub const StyleContextClass = extern struct {
 };
 
 test "gtk.StyleContextClass" {
-    std.testing.refAllDecls(StyleContextClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 176), @sizeOf(StyleContextClass));
 }

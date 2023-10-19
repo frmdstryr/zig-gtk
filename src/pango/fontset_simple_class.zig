@@ -15,5 +15,5 @@ pub const FontsetSimpleClass = extern struct {
 };
 
 test "pango.FontsetSimpleClass" {
-    std.testing.refAllDecls(FontsetSimpleClass);
+    std.testing.refAllDecls(@This());
 }

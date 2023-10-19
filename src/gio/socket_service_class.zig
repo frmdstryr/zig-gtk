@@ -24,5 +24,6 @@ pub const SocketServiceClass = extern struct {
 };
 
 test "gio.SocketServiceClass" {
-    std.testing.refAllDecls(SocketServiceClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 248), @sizeOf(SocketServiceClass));
 }

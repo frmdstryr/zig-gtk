@@ -78,5 +78,5 @@ pub const AsyncQueue = extern struct {
 };
 
 test "glib.AsyncQueue" {
-    std.testing.refAllDecls(AsyncQueue);
+    std.testing.refAllDecls(@This());
 }

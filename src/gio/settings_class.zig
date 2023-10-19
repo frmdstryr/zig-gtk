@@ -22,5 +22,6 @@ pub const SettingsClass = extern struct {
 };
 
 test "gio.SettingsClass" {
-    std.testing.refAllDecls(SettingsClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 328), @sizeOf(SettingsClass));
 }

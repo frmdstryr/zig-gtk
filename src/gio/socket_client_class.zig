@@ -22,5 +22,6 @@ pub const SocketClientClass = extern struct {
 };
 
 test "gio.SocketClientClass" {
-    std.testing.refAllDecls(SocketClientClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 176), @sizeOf(SocketClientClass));
 }

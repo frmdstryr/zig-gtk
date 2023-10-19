@@ -20,5 +20,6 @@ pub const SocketConnectableIface = extern struct {
 };
 
 test "gio.SocketConnectableIface" {
-    std.testing.refAllDecls(SocketConnectableIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(SocketConnectableIface));
 }

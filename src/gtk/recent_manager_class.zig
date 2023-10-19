@@ -22,5 +22,6 @@ pub const RecentManagerClass = extern struct {
 };
 
 test "gtk.RecentManagerClass" {
-    std.testing.refAllDecls(RecentManagerClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 176), @sizeOf(RecentManagerClass));
 }

@@ -23,5 +23,6 @@ pub const AdjustmentClass = extern struct {
 };
 
 test "gtk.AdjustmentClass" {
-    std.testing.refAllDecls(AdjustmentClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 184), @sizeOf(AdjustmentClass));
 }

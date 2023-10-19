@@ -16,5 +16,6 @@ pub const TreeExpanderClass = extern struct {
 };
 
 test "gtk.TreeExpanderClass" {
-    std.testing.refAllDecls(TreeExpanderClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 408), @sizeOf(TreeExpanderClass));
 }

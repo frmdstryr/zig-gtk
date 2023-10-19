@@ -18,5 +18,6 @@ pub const MemoryMonitorInterface = extern struct {
 };
 
 test "gio.MemoryMonitorInterface" {
-    std.testing.refAllDecls(MemoryMonitorInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(MemoryMonitorInterface));
 }

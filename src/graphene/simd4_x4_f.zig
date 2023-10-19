@@ -19,5 +19,6 @@ pub const Simd4X4F = extern struct {
 };
 
 test "graphene.Simd4X4F" {
-    std.testing.refAllDecls(Simd4X4F);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 64), @sizeOf(Simd4X4F));
 }

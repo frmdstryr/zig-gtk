@@ -15,5 +15,5 @@ pub const Region = extern struct {
 };
 
 test "cairo.Region" {
-    std.testing.refAllDecls(Region);
+    std.testing.refAllDecls(@This());
 }

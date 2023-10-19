@@ -167,5 +167,5 @@ pub const EventControllerKey = extern struct {
 };
 
 test "gtk.EventControllerKey" {
-    std.testing.refAllDecls(EventControllerKey);
+    std.testing.refAllDecls(@This());
 }

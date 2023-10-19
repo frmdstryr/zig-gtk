@@ -111,5 +111,5 @@ pub const InitiallyUnowned = extern struct {
 };
 
 test "gobject.InitiallyUnowned" {
-    std.testing.refAllDecls(InitiallyUnowned);
+    std.testing.refAllDecls(@This());
 }

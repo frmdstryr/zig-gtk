@@ -22,5 +22,6 @@ pub const ParamSpecClass = extern struct {
 };
 
 test "gobject.ParamSpecClass" {
-    std.testing.refAllDecls(ParamSpecClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 80), @sizeOf(ParamSpecClass));
 }

@@ -33,5 +33,5 @@ pub const Checksum = extern struct {
 };
 
 test "glib.Checksum" {
-    std.testing.refAllDecls(Checksum);
+    std.testing.refAllDecls(@This());
 }

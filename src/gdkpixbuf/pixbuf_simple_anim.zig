@@ -156,5 +156,5 @@ pub const PixbufSimpleAnim = extern struct {
 };
 
 test "gdkpixbuf.PixbufSimpleAnim" {
-    std.testing.refAllDecls(PixbufSimpleAnim);
+    std.testing.refAllDecls(@This());
 }

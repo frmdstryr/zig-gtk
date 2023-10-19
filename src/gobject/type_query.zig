@@ -9,7 +9,7 @@ pub const TypeQuery = extern struct {
 
     // Fields
     type: usize,
-    type_name: [*c]const u8,
+    type_name: *[*c]const u8,
     class_size: u32,
     instance_size: u32,
 
@@ -19,5 +19,6 @@ pub const TypeQuery = extern struct {
 };
 
 test "gobject.TypeQuery" {
-    std.testing.refAllDecls(TypeQuery);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(TypeQuery));
 }

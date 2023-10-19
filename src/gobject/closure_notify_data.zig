@@ -17,5 +17,6 @@ pub const ClosureNotifyData = extern struct {
 };
 
 test "gobject.ClosureNotifyData" {
-    std.testing.refAllDecls(ClosureNotifyData);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(ClosureNotifyData));
 }

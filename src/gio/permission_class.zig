@@ -24,5 +24,6 @@ pub const PermissionClass = extern struct {
 };
 
 test "gio.PermissionClass" {
-    std.testing.refAllDecls(PermissionClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 312), @sizeOf(PermissionClass));
 }

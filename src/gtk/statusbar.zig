@@ -620,5 +620,5 @@ pub const Statusbar = extern struct {
 };
 
 test "gtk.Statusbar" {
-    std.testing.refAllDecls(Statusbar);
+    std.testing.refAllDecls(@This());
 }

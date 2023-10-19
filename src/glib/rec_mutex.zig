@@ -32,5 +32,6 @@ pub const RecMutex = extern struct {
 };
 
 test "glib.RecMutex" {
-    std.testing.refAllDecls(RecMutex);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(RecMutex));
 }

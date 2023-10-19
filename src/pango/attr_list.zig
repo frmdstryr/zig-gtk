@@ -58,5 +58,5 @@ pub const AttrList = extern struct {
 };
 
 test "pango.AttrList" {
-    std.testing.refAllDecls(AttrList);
+    std.testing.refAllDecls(@This());
 }

@@ -632,5 +632,5 @@ pub const SearchBar = extern struct {
 };
 
 test "gtk.SearchBar" {
-    std.testing.refAllDecls(SearchBar);
+    std.testing.refAllDecls(@This());
 }

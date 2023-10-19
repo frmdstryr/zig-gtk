@@ -140,5 +140,5 @@ pub const BookmarkList = extern struct {
 };
 
 test "gtk.BookmarkList" {
-    std.testing.refAllDecls(BookmarkList);
+    std.testing.refAllDecls(@This());
 }

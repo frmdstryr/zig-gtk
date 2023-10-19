@@ -193,5 +193,5 @@ pub const PageSetup = extern struct {
 };
 
 test "gtk.PageSetup" {
-    std.testing.refAllDecls(PageSetup);
+    std.testing.refAllDecls(@This());
 }

@@ -151,5 +151,5 @@ pub const Constraint = extern struct {
 };
 
 test "gtk.Constraint" {
-    std.testing.refAllDecls(Constraint);
+    std.testing.refAllDecls(@This());
 }

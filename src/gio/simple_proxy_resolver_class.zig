@@ -22,5 +22,6 @@ pub const SimpleProxyResolverClass = extern struct {
 };
 
 test "gio.SimpleProxyResolverClass" {
-    std.testing.refAllDecls(SimpleProxyResolverClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 176), @sizeOf(SimpleProxyResolverClass));
 }

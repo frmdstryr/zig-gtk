@@ -135,5 +135,5 @@ pub const NetworkAddress = extern struct {
 };
 
 test "gio.NetworkAddress" {
-    std.testing.refAllDecls(NetworkAddress);
+    std.testing.refAllDecls(@This());
 }

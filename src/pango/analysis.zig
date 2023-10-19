@@ -24,5 +24,6 @@ pub const Analysis = extern struct {
 };
 
 test "pango.Analysis" {
-    std.testing.refAllDecls(Analysis);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 48), @sizeOf(Analysis));
 }

@@ -16,5 +16,6 @@ pub const FixedLayoutClass = extern struct {
 };
 
 test "gtk.FixedLayoutClass" {
-    std.testing.refAllDecls(FixedLayoutClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 320), @sizeOf(FixedLayoutClass));
 }

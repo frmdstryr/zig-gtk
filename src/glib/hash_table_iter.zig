@@ -36,5 +36,6 @@ pub const HashTableIter = extern struct {
 };
 
 test "glib.HashTableIter" {
-    std.testing.refAllDecls(HashTableIter);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(HashTableIter));
 }

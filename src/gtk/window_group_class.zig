@@ -21,5 +21,6 @@ pub const WindowGroupClass = extern struct {
 };
 
 test "gtk.WindowGroupClass" {
-    std.testing.refAllDecls(WindowGroupClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 168), @sizeOf(WindowGroupClass));
 }

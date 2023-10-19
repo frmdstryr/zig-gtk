@@ -659,5 +659,5 @@ pub const Paned = extern struct {
 };
 
 test "gtk.Paned" {
-    std.testing.refAllDecls(Paned);
+    std.testing.refAllDecls(@This());
 }

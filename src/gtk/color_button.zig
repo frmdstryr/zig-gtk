@@ -626,5 +626,5 @@ pub const ColorButton = extern struct {
 };
 
 test "gtk.ColorButton" {
-    std.testing.refAllDecls(ColorButton);
+    std.testing.refAllDecls(@This());
 }

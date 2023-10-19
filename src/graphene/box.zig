@@ -89,5 +89,6 @@ pub const Box = extern struct {
 };
 
 test "graphene.Box" {
-    std.testing.refAllDecls(Box);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(Box));
 }

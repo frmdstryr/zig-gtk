@@ -29,5 +29,6 @@ pub const PrintOperationClass = extern struct {
 };
 
 test "gtk.PrintOperationClass" {
-    std.testing.refAllDecls(PrintOperationClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 288), @sizeOf(PrintOperationClass));
 }

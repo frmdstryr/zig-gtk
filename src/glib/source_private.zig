@@ -15,5 +15,5 @@ pub const SourcePrivate = extern struct {
 };
 
 test "glib.SourcePrivate" {
-    std.testing.refAllDecls(SourcePrivate);
+    std.testing.refAllDecls(@This());
 }

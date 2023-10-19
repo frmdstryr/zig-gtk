@@ -191,5 +191,5 @@ pub const Display = extern struct {
 };
 
 test "gdk.Display" {
-    std.testing.refAllDecls(Display);
+    std.testing.refAllDecls(@This());
 }

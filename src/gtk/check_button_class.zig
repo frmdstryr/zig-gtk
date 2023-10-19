@@ -19,5 +19,6 @@ pub const CheckButtonClass = extern struct {
 };
 
 test "gtk.CheckButtonClass" {
-    std.testing.refAllDecls(CheckButtonClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 480), @sizeOf(CheckButtonClass));
 }

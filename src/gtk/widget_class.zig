@@ -99,5 +99,6 @@ pub const WidgetClass = extern struct {
 };
 
 test "gtk.WidgetClass" {
-    std.testing.refAllDecls(WidgetClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 408), @sizeOf(WidgetClass));
 }

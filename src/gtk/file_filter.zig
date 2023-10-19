@@ -161,5 +161,5 @@ pub const FileFilter = extern struct {
 };
 
 test "gtk.FileFilter" {
-    std.testing.refAllDecls(FileFilter);
+    std.testing.refAllDecls(@This());
 }

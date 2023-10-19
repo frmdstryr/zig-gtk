@@ -37,5 +37,5 @@ pub const DatagramBased = extern struct {
 };
 
 test "gio.DatagramBased" {
-    std.testing.refAllDecls(DatagramBased);
+    std.testing.refAllDecls(@This());
 }

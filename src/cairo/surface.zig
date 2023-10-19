@@ -15,5 +15,5 @@ pub const Surface = extern struct {
 };
 
 test "cairo.Surface" {
-    std.testing.refAllDecls(Surface);
+    std.testing.refAllDecls(@This());
 }

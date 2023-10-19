@@ -184,5 +184,5 @@ pub const FilterInputStream = extern struct {
 };
 
 test "gio.FilterInputStream" {
-    std.testing.refAllDecls(FilterInputStream);
+    std.testing.refAllDecls(@This());
 }

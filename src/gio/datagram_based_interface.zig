@@ -23,5 +23,6 @@ pub const DatagramBasedInterface = extern struct {
 };
 
 test "gio.DatagramBasedInterface" {
-    std.testing.refAllDecls(DatagramBasedInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 56), @sizeOf(DatagramBasedInterface));
 }

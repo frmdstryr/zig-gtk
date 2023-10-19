@@ -207,5 +207,5 @@ pub const MediaStream = extern struct {
 };
 
 test "gtk.MediaStream" {
-    std.testing.refAllDecls(MediaStream);
+    std.testing.refAllDecls(@This());
 }

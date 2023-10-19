@@ -39,5 +39,5 @@ pub const RenderNode = extern struct {
 };
 
 test "gsk.RenderNode" {
-    std.testing.refAllDecls(RenderNode);
+    std.testing.refAllDecls(@This());
 }

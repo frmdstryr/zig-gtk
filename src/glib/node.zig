@@ -50,5 +50,6 @@ pub const Node = extern struct {
 };
 
 test "glib.Node" {
-    std.testing.refAllDecls(Node);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(Node));
 }

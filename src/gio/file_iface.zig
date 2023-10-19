@@ -120,5 +120,6 @@ pub const FileIface = extern struct {
 };
 
 test "gio.FileIface" {
-    std.testing.refAllDecls(FileIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 840), @sizeOf(FileIface));
 }

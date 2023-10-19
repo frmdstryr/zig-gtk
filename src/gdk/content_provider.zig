@@ -141,5 +141,5 @@ pub const ContentProvider = extern struct {
 };
 
 test "gdk.ContentProvider" {
-    std.testing.refAllDecls(ContentProvider);
+    std.testing.refAllDecls(@This());
 }

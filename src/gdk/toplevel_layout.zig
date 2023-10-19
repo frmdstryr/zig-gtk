@@ -51,5 +51,5 @@ pub const ToplevelLayout = extern struct {
 };
 
 test "gdk.ToplevelLayout" {
-    std.testing.refAllDecls(ToplevelLayout);
+    std.testing.refAllDecls(@This());
 }

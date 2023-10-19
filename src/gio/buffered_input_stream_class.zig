@@ -25,5 +25,6 @@ pub const BufferedInputStreamClass = extern struct {
 };
 
 test "gio.BufferedInputStreamClass" {
-    std.testing.refAllDecls(BufferedInputStreamClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 336), @sizeOf(BufferedInputStreamClass));
 }

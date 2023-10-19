@@ -124,5 +124,5 @@ pub const ZlibDecompressor = extern struct {
 };
 
 test "gio.ZlibDecompressor" {
-    std.testing.refAllDecls(ZlibDecompressor);
+    std.testing.refAllDecls(@This());
 }

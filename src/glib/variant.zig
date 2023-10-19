@@ -231,5 +231,5 @@ pub const Variant = extern struct {
 };
 
 test "glib.Variant" {
-    std.testing.refAllDecls(Variant);
+    std.testing.refAllDecls(@This());
 }

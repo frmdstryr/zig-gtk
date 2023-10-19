@@ -18,5 +18,6 @@ pub const ListBoxRowClass = extern struct {
 };
 
 test "gtk.ListBoxRowClass" {
-    std.testing.refAllDecls(ListBoxRowClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 480), @sizeOf(ListBoxRowClass));
 }

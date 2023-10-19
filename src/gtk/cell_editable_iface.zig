@@ -21,5 +21,6 @@ pub const CellEditableIface = extern struct {
 };
 
 test "gtk.CellEditableIface" {
-    std.testing.refAllDecls(CellEditableIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(CellEditableIface));
 }

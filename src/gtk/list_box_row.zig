@@ -644,5 +644,5 @@ pub const ListBoxRow = extern struct {
 };
 
 test "gtk.ListBoxRow" {
-    std.testing.refAllDecls(ListBoxRow);
+    std.testing.refAllDecls(@This());
 }

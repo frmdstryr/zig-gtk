@@ -17,5 +17,6 @@ pub const FixedClass = extern struct {
 };
 
 test "gtk.FixedClass" {
-    std.testing.refAllDecls(FixedClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 472), @sizeOf(FixedClass));
 }

@@ -131,5 +131,5 @@ pub const MultiSelection = extern struct {
 };
 
 test "gtk.MultiSelection" {
-    std.testing.refAllDecls(MultiSelection);
+    std.testing.refAllDecls(@This());
 }

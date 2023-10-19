@@ -17,5 +17,6 @@ pub const DebugControllerInterface = extern struct {
 };
 
 test "gio.DebugControllerInterface" {
-    std.testing.refAllDecls(DebugControllerInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(DebugControllerInterface));
 }

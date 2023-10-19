@@ -135,5 +135,5 @@ pub const Tooltip = extern struct {
 };
 
 test "gtk.Tooltip" {
-    std.testing.refAllDecls(Tooltip);
+    std.testing.refAllDecls(@This());
 }

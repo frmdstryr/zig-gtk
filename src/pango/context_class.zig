@@ -15,5 +15,5 @@ pub const ContextClass = extern struct {
 };
 
 test "pango.ContextClass" {
-    std.testing.refAllDecls(ContextClass);
+    std.testing.refAllDecls(@This());
 }

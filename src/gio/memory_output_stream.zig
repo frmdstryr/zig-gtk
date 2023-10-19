@@ -225,5 +225,5 @@ pub const MemoryOutputStream = extern struct {
 };
 
 test "gio.MemoryOutputStream" {
-    std.testing.refAllDecls(MemoryOutputStream);
+    std.testing.refAllDecls(@This());
 }

@@ -162,5 +162,5 @@ pub const IconTheme = extern struct {
 };
 
 test "gtk.IconTheme" {
-    std.testing.refAllDecls(IconTheme);
+    std.testing.refAllDecls(@This());
 }

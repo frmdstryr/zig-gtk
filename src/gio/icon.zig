@@ -31,5 +31,5 @@ pub const Icon = extern struct {
 };
 
 test "gio.Icon" {
-    std.testing.refAllDecls(Icon);
+    std.testing.refAllDecls(@This());
 }

@@ -21,5 +21,6 @@ pub const ConverterOutputStreamClass = extern struct {
 };
 
 test "gio.ConverterOutputStreamClass" {
-    std.testing.refAllDecls(ConverterOutputStreamClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 360), @sizeOf(ConverterOutputStreamClass));
 }

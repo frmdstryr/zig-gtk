@@ -131,5 +131,5 @@ pub const Seat = extern struct {
 };
 
 test "gdk.Seat" {
-    std.testing.refAllDecls(Seat);
+    std.testing.refAllDecls(@This());
 }

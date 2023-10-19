@@ -13,7 +13,7 @@ pub const TypeModule = extern struct {
     use_count: u32,
     type_infos: ?*anyopaque,
     interface_infos: ?*anyopaque,
-    name: [*c]const u8,
+    name: *[*c]const u8,
     g_type_instance: *gobject.TypeInstance,
     ref_count: u32,
     qdata: *glib.Data,
@@ -143,5 +143,5 @@ pub const TypeModule = extern struct {
 };
 
 test "gobject.TypeModule" {
-    std.testing.refAllDecls(TypeModule);
+    std.testing.refAllDecls(@This());
 }

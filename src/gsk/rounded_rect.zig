@@ -48,5 +48,6 @@ pub const RoundedRect = extern struct {
 };
 
 test "gsk.RoundedRect" {
-    std.testing.refAllDecls(RoundedRect);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 48), @sizeOf(RoundedRect));
 }

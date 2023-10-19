@@ -15,5 +15,5 @@ pub const TlsDatabasePrivate = extern struct {
 };
 
 test "gio.TlsDatabasePrivate" {
-    std.testing.refAllDecls(TlsDatabasePrivate);
+    std.testing.refAllDecls(@This());
 }

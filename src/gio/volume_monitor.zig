@@ -129,5 +129,5 @@ pub const VolumeMonitor = extern struct {
 };
 
 test "gio.VolumeMonitor" {
-    std.testing.refAllDecls(VolumeMonitor);
+    std.testing.refAllDecls(@This());
 }

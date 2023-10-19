@@ -18,5 +18,6 @@ pub const UnixCredentialsMessageClass = extern struct {
 };
 
 test "gio.UnixCredentialsMessageClass" {
-    std.testing.refAllDecls(UnixCredentialsMessageClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 232), @sizeOf(UnixCredentialsMessageClass));
 }

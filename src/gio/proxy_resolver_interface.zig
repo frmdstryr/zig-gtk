@@ -21,5 +21,6 @@ pub const ProxyResolverInterface = extern struct {
 };
 
 test "gio.ProxyResolverInterface" {
-    std.testing.refAllDecls(ProxyResolverInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 48), @sizeOf(ProxyResolverInterface));
 }

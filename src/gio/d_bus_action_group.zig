@@ -121,5 +121,5 @@ pub const DBusActionGroup = extern struct {
 };
 
 test "gio.DBusActionGroup" {
-    std.testing.refAllDecls(DBusActionGroup);
+    std.testing.refAllDecls(@This());
 }

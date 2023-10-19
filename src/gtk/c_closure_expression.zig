@@ -45,5 +45,5 @@ pub const CClosureExpression = extern struct {
 };
 
 test "gtk.CClosureExpression" {
-    std.testing.refAllDecls(CClosureExpression);
+    std.testing.refAllDecls(@This());
 }

@@ -15,5 +15,5 @@ pub const UnixSocketAddressPrivate = extern struct {
 };
 
 test "gio.UnixSocketAddressPrivate" {
-    std.testing.refAllDecls(UnixSocketAddressPrivate);
+    std.testing.refAllDecls(@This());
 }

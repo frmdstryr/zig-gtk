@@ -304,5 +304,6 @@ pub const TextIter = extern struct {
 };
 
 test "gtk.TextIter" {
-    std.testing.refAllDecls(TextIter);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 80), @sizeOf(TextIter));
 }

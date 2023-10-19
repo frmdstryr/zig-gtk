@@ -9,7 +9,7 @@ pub const AttrString = extern struct {
 
     // Fields
     attr: *pango.Attribute,
-    value: [*c]const u8,
+    value: *[*c]const u8,
 
     // Constructors
 
@@ -17,5 +17,6 @@ pub const AttrString = extern struct {
 };
 
 test "pango.AttrString" {
-    std.testing.refAllDecls(AttrString);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(AttrString));
 }

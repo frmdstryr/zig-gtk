@@ -15,5 +15,5 @@ pub const Data = extern struct {
 };
 
 test "glib.Data" {
-    std.testing.refAllDecls(Data);
+    std.testing.refAllDecls(@This());
 }

@@ -9,7 +9,7 @@ pub const DBusMethodInfo = extern struct {
 
     // Fields
     ref_count: i32,
-    name: [*c]const u8,
+    name: *[*c]const u8,
     in_args: [*c]*gio.DBusArgInfo,
     out_args: [*c]*gio.DBusArgInfo,
     annotations: [*c]*gio.DBusAnnotationInfo,
@@ -26,5 +26,6 @@ pub const DBusMethodInfo = extern struct {
 };
 
 test "gio.DBusMethodInfo" {
-    std.testing.refAllDecls(DBusMethodInfo);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(DBusMethodInfo));
 }

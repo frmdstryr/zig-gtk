@@ -17,5 +17,6 @@ pub const DesktopAppInfoClass = extern struct {
 };
 
 test "gio.DesktopAppInfoClass" {
-    std.testing.refAllDecls(DesktopAppInfoClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(DesktopAppInfoClass));
 }

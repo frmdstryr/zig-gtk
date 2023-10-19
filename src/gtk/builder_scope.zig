@@ -21,5 +21,5 @@ pub const BuilderScope = extern struct {
 };
 
 test "gtk.BuilderScope" {
-    std.testing.refAllDecls(BuilderScope);
+    std.testing.refAllDecls(@This());
 }

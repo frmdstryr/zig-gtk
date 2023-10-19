@@ -18,5 +18,6 @@ pub const List = extern struct {
 };
 
 test "glib.List" {
-    std.testing.refAllDecls(List);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(List));
 }

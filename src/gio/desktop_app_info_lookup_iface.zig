@@ -18,5 +18,6 @@ pub const DesktopAppInfoLookupIface = extern struct {
 };
 
 test "gio.DesktopAppInfoLookupIface" {
-    std.testing.refAllDecls(DesktopAppInfoLookupIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(DesktopAppInfoLookupIface));
 }

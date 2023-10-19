@@ -53,5 +53,5 @@ pub const ClipNode = extern struct {
 };
 
 test "gsk.ClipNode" {
-    std.testing.refAllDecls(ClipNode);
+    std.testing.refAllDecls(@This());
 }

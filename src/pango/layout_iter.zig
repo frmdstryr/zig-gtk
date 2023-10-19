@@ -78,5 +78,5 @@ pub const LayoutIter = extern struct {
 };
 
 test "pango.LayoutIter" {
-    std.testing.refAllDecls(LayoutIter);
+    std.testing.refAllDecls(@This());
 }

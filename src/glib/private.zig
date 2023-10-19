@@ -27,5 +27,6 @@ pub const Private = extern struct {
 };
 
 test "glib.Private" {
-    std.testing.refAllDecls(Private);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(Private));
 }

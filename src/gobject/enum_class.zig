@@ -20,5 +20,6 @@ pub const EnumClass = extern struct {
 };
 
 test "gobject.EnumClass" {
-    std.testing.refAllDecls(EnumClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(EnumClass));
 }

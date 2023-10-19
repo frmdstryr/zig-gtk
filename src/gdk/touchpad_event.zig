@@ -95,5 +95,5 @@ pub const TouchpadEvent = extern struct {
 };
 
 test "gdk.TouchpadEvent" {
-    std.testing.refAllDecls(TouchpadEvent);
+    std.testing.refAllDecls(@This());
 }

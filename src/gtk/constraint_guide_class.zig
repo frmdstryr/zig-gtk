@@ -17,5 +17,6 @@ pub const ConstraintGuideClass = extern struct {
 };
 
 test "gtk.ConstraintGuideClass" {
-    std.testing.refAllDecls(ConstraintGuideClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(ConstraintGuideClass));
 }

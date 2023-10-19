@@ -21,5 +21,6 @@ pub const TextChildAnchorClass = extern struct {
 };
 
 test "gtk.TextChildAnchorClass" {
-    std.testing.refAllDecls(TextChildAnchorClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 168), @sizeOf(TextChildAnchorClass));
 }

@@ -97,5 +97,5 @@ pub const FileChooser = extern struct {
 };
 
 test "gtk.FileChooser" {
-    std.testing.refAllDecls(FileChooser);
+    std.testing.refAllDecls(@This());
 }

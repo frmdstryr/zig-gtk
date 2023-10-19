@@ -15,5 +15,5 @@ pub const DBusObjectProxyPrivate = extern struct {
 };
 
 test "gio.DBusObjectProxyPrivate" {
-    std.testing.refAllDecls(DBusObjectProxyPrivate);
+    std.testing.refAllDecls(@This());
 }

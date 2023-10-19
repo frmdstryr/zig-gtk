@@ -195,5 +195,5 @@ pub const DBusProxy = extern struct {
 };
 
 test "gio.DBusProxy" {
-    std.testing.refAllDecls(DBusProxy);
+    std.testing.refAllDecls(@This());
 }

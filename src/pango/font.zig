@@ -147,5 +147,5 @@ pub const Font = extern struct {
 };
 
 test "pango.Font" {
-    std.testing.refAllDecls(Font);
+    std.testing.refAllDecls(@This());
 }

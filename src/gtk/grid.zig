@@ -677,5 +677,5 @@ pub const Grid = extern struct {
 };
 
 test "gtk.Grid" {
-    std.testing.refAllDecls(Grid);
+    std.testing.refAllDecls(@This());
 }

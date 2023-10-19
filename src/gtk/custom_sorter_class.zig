@@ -16,5 +16,6 @@ pub const CustomSorterClass = extern struct {
 };
 
 test "gtk.CustomSorterClass" {
-    std.testing.refAllDecls(CustomSorterClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 216), @sizeOf(CustomSorterClass));
 }

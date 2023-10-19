@@ -46,5 +46,6 @@ pub const Frustum = extern struct {
 };
 
 test "graphene.Frustum" {
-    std.testing.refAllDecls(Frustum);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 120), @sizeOf(Frustum));
 }

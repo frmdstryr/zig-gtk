@@ -18,5 +18,6 @@ pub const SourceCallbackFuncs = extern struct {
 };
 
 test "glib.SourceCallbackFuncs" {
-    std.testing.refAllDecls(SourceCallbackFuncs);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(SourceCallbackFuncs));
 }

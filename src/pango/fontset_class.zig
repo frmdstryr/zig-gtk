@@ -25,5 +25,6 @@ pub const FontsetClass = extern struct {
 };
 
 test "pango.FontsetClass" {
-    std.testing.refAllDecls(FontsetClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 200), @sizeOf(FontsetClass));
 }

@@ -143,5 +143,5 @@ pub const NativeDialog = extern struct {
 };
 
 test "gtk.NativeDialog" {
-    std.testing.refAllDecls(NativeDialog);
+    std.testing.refAllDecls(@This());
 }

@@ -15,5 +15,5 @@ pub const TextureClass = extern struct {
 };
 
 test "gdk.TextureClass" {
-    std.testing.refAllDecls(TextureClass);
+    std.testing.refAllDecls(@This());
 }

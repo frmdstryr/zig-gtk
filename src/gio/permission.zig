@@ -144,5 +144,5 @@ pub const Permission = extern struct {
 };
 
 test "gio.Permission" {
-    std.testing.refAllDecls(Permission);
+    std.testing.refAllDecls(@This());
 }

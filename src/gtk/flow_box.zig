@@ -710,5 +710,5 @@ pub const FlowBox = extern struct {
 };
 
 test "gtk.FlowBox" {
-    std.testing.refAllDecls(FlowBox);
+    std.testing.refAllDecls(@This());
 }

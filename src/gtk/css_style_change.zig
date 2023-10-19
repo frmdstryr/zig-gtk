@@ -15,5 +15,5 @@ pub const CssStyleChange = extern struct {
 };
 
 test "gtk.CssStyleChange" {
-    std.testing.refAllDecls(CssStyleChange);
+    std.testing.refAllDecls(@This());
 }

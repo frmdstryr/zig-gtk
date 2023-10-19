@@ -15,5 +15,5 @@ pub const ButtonPrivate = extern struct {
 };
 
 test "gtk.ButtonPrivate" {
-    std.testing.refAllDecls(ButtonPrivate);
+    std.testing.refAllDecls(@This());
 }

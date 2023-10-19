@@ -27,5 +27,5 @@ pub const DebugController = extern struct {
 };
 
 test "gio.DebugController" {
-    std.testing.refAllDecls(DebugController);
+    std.testing.refAllDecls(@This());
 }

@@ -26,5 +26,6 @@ pub const Hook = extern struct {
 };
 
 test "glib.Hook" {
-    std.testing.refAllDecls(Hook);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 64), @sizeOf(Hook));
 }

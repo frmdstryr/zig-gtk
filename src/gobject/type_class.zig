@@ -28,5 +28,6 @@ pub const TypeClass = extern struct {
 };
 
 test "gobject.TypeClass" {
-    std.testing.refAllDecls(TypeClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 8), @sizeOf(TypeClass));
 }

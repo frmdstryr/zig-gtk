@@ -39,5 +39,5 @@ pub const SequenceIter = extern struct {
 };
 
 test "glib.SequenceIter" {
-    std.testing.refAllDecls(SequenceIter);
+    std.testing.refAllDecls(@This());
 }

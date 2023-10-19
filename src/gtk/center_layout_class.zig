@@ -16,5 +16,6 @@ pub const CenterLayoutClass = extern struct {
 };
 
 test "gtk.CenterLayoutClass" {
-    std.testing.refAllDecls(CenterLayoutClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 320), @sizeOf(CenterLayoutClass));
 }

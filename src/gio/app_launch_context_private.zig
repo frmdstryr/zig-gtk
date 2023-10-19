@@ -15,5 +15,5 @@ pub const AppLaunchContextPrivate = extern struct {
 };
 
 test "gio.AppLaunchContextPrivate" {
-    std.testing.refAllDecls(AppLaunchContextPrivate);
+    std.testing.refAllDecls(@This());
 }

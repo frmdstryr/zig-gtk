@@ -17,5 +17,6 @@ pub const AttrColor = extern struct {
 };
 
 test "pango.AttrColor" {
-    std.testing.refAllDecls(AttrColor);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(AttrColor));
 }

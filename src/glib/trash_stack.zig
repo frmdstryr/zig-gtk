@@ -16,5 +16,6 @@ pub const TrashStack = extern struct {
 };
 
 test "glib.TrashStack" {
-    std.testing.refAllDecls(TrashStack);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 8), @sizeOf(TrashStack));
 }

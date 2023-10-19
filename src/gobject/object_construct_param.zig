@@ -17,5 +17,6 @@ pub const ObjectConstructParam = extern struct {
 };
 
 test "gobject.ObjectConstructParam" {
-    std.testing.refAllDecls(ObjectConstructParam);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(ObjectConstructParam));
 }

@@ -153,5 +153,5 @@ pub const TlsDatabase = extern struct {
 };
 
 test "gio.TlsDatabase" {
-    std.testing.refAllDecls(TlsDatabase);
+    std.testing.refAllDecls(@This());
 }

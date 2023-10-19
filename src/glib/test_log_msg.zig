@@ -10,7 +10,7 @@ pub const TestLogMsg = extern struct {
     // Fields
     log_type: *glib.TestLogType,
     n_strings: u32,
-    strings: [*c]const u8,
+    strings: *[*c]const u8,
     n_nums: u32,
     nums: ?*anyopaque,
 
@@ -23,5 +23,6 @@ pub const TestLogMsg = extern struct {
 };
 
 test "glib.TestLogMsg" {
-    std.testing.refAllDecls(TestLogMsg);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(TestLogMsg));
 }

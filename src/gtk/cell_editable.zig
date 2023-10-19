@@ -31,5 +31,5 @@ pub const CellEditable = extern struct {
 };
 
 test "gtk.CellEditable" {
-    std.testing.refAllDecls(CellEditable);
+    std.testing.refAllDecls(@This());
 }

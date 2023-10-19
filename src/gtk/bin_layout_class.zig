@@ -16,5 +16,6 @@ pub const BinLayoutClass = extern struct {
 };
 
 test "gtk.BinLayoutClass" {
-    std.testing.refAllDecls(BinLayoutClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 320), @sizeOf(BinLayoutClass));
 }

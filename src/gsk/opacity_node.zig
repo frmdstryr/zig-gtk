@@ -53,5 +53,5 @@ pub const OpacityNode = extern struct {
 };
 
 test "gsk.OpacityNode" {
-    std.testing.refAllDecls(OpacityNode);
+    std.testing.refAllDecls(@This());
 }

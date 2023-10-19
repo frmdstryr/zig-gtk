@@ -33,5 +33,5 @@ pub const ProxyResolver = extern struct {
 };
 
 test "gio.ProxyResolver" {
-    std.testing.refAllDecls(ProxyResolver);
+    std.testing.refAllDecls(@This());
 }

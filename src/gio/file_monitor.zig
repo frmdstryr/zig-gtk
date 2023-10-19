@@ -126,5 +126,5 @@ pub const FileMonitor = extern struct {
 };
 
 test "gio.FileMonitor" {
-    std.testing.refAllDecls(FileMonitor);
+    std.testing.refAllDecls(@This());
 }

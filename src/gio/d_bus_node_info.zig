@@ -10,7 +10,7 @@ pub const DBusNodeInfo = extern struct {
 
     // Fields
     ref_count: i32,
-    path: [*c]const u8,
+    path: *[*c]const u8,
     interfaces: [*c]*gio.DBusInterfaceInfo,
     nodes: [*c]*gio.DBusNodeInfo,
     annotations: [*c]*gio.DBusAnnotationInfo,
@@ -36,5 +36,6 @@ pub const DBusNodeInfo = extern struct {
 };
 
 test "gio.DBusNodeInfo" {
-    std.testing.refAllDecls(DBusNodeInfo);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(DBusNodeInfo));
 }

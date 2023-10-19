@@ -20,5 +20,6 @@ pub const Shadow = extern struct {
 };
 
 test "gsk.Shadow" {
-    std.testing.refAllDecls(Shadow);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 28), @sizeOf(Shadow));
 }

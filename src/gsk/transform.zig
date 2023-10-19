@@ -92,5 +92,5 @@ pub const Transform = extern struct {
 };
 
 test "gsk.Transform" {
-    std.testing.refAllDecls(Transform);
+    std.testing.refAllDecls(@This());
 }

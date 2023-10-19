@@ -16,5 +16,6 @@ pub const FileChooserNativeClass = extern struct {
 };
 
 test "gtk.FileChooserNativeClass" {
-    std.testing.refAllDecls(FileChooserNativeClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 192), @sizeOf(FileChooserNativeClass));
 }

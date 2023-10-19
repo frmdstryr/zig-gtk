@@ -650,5 +650,5 @@ pub const ProgressBar = extern struct {
 };
 
 test "gtk.ProgressBar" {
-    std.testing.refAllDecls(ProgressBar);
+    std.testing.refAllDecls(@This());
 }

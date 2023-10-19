@@ -18,5 +18,6 @@ pub const ListStoreClass = extern struct {
 };
 
 test "gtk.ListStoreClass" {
-    std.testing.refAllDecls(ListStoreClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 200), @sizeOf(ListStoreClass));
 }

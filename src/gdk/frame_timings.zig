@@ -39,5 +39,5 @@ pub const FrameTimings = extern struct {
 };
 
 test "gdk.FrameTimings" {
-    std.testing.refAllDecls(FrameTimings);
+    std.testing.refAllDecls(@This());
 }

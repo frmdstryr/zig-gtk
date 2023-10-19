@@ -13,12 +13,12 @@ pub const ParamSpecEnum = extern struct {
     enum_class: *gobject.EnumClass,
     default_value: i32,
     g_type_instance: *gobject.TypeInstance,
-    name: [*c]const u8,
+    name: *[*c]const u8,
     flags: *gobject.ParamFlags,
     value_type: usize,
     owner_type: usize,
-    _nick: [*c]const u8,
-    _blurb: [*c]const u8,
+    _nick: *[*c]const u8,
+    _blurb: *[*c]const u8,
     qdata: *glib.Data,
     ref_count: u32,
     param_id: u32,
@@ -64,5 +64,5 @@ pub const ParamSpecEnum = extern struct {
 };
 
 test "gobject.ParamSpecEnum" {
-    std.testing.refAllDecls(ParamSpecEnum);
+    std.testing.refAllDecls(@This());
 }

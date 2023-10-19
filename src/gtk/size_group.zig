@@ -138,5 +138,5 @@ pub const SizeGroup = extern struct {
 };
 
 test "gtk.SizeGroup" {
-    std.testing.refAllDecls(SizeGroup);
+    std.testing.refAllDecls(@This());
 }

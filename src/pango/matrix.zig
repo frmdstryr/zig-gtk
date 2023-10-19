@@ -60,5 +60,6 @@ pub const Matrix = extern struct {
 };
 
 test "pango.Matrix" {
-    std.testing.refAllDecls(Matrix);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 48), @sizeOf(Matrix));
 }

@@ -15,5 +15,5 @@ pub const NativeInterface = extern struct {
 };
 
 test "gtk.NativeInterface" {
-    std.testing.refAllDecls(NativeInterface);
+    std.testing.refAllDecls(@This());
 }

@@ -18,5 +18,6 @@ pub const ScaleClass = extern struct {
 };
 
 test "gtk.ScaleClass" {
-    std.testing.refAllDecls(ScaleClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 584), @sizeOf(ScaleClass));
 }

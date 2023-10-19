@@ -54,5 +54,5 @@ pub const PropertyExpression = extern struct {
 };
 
 test "gtk.PropertyExpression" {
-    std.testing.refAllDecls(PropertyExpression);
+    std.testing.refAllDecls(@This());
 }

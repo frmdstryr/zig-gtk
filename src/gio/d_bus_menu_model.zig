@@ -138,5 +138,5 @@ pub const DBusMenuModel = extern struct {
 };
 
 test "gio.DBusMenuModel" {
-    std.testing.refAllDecls(DBusMenuModel);
+    std.testing.refAllDecls(@This());
 }

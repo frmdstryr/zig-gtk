@@ -803,5 +803,5 @@ pub const ApplicationWindow = extern struct {
 };
 
 test "gtk.ApplicationWindow" {
-    std.testing.refAllDecls(ApplicationWindow);
+    std.testing.refAllDecls(@This());
 }

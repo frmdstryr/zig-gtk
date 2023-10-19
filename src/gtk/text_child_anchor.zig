@@ -126,5 +126,5 @@ pub const TextChildAnchor = extern struct {
 };
 
 test "gtk.TextChildAnchor" {
-    std.testing.refAllDecls(TextChildAnchor);
+    std.testing.refAllDecls(@This());
 }

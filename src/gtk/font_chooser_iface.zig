@@ -26,5 +26,6 @@ pub const FontChooserIface = extern struct {
 };
 
 test "gtk.FontChooserIface" {
-    std.testing.refAllDecls(FontChooserIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 152), @sizeOf(FontChooserIface));
 }

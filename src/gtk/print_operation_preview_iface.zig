@@ -30,5 +30,6 @@ pub const PrintOperationPreviewIface = extern struct {
 };
 
 test "gtk.PrintOperationPreviewIface" {
-    std.testing.refAllDecls(PrintOperationPreviewIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 120), @sizeOf(PrintOperationPreviewIface));
 }

@@ -31,5 +31,6 @@ pub const RendererClass = extern struct {
 };
 
 test "pango.RendererClass" {
-    std.testing.refAllDecls(RendererClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 248), @sizeOf(RendererClass));
 }

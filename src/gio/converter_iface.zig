@@ -19,5 +19,6 @@ pub const ConverterIface = extern struct {
 };
 
 test "gio.ConverterIface" {
-    std.testing.refAllDecls(ConverterIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(ConverterIface));
 }

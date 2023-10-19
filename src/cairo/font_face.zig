@@ -15,5 +15,5 @@ pub const FontFace = extern struct {
 };
 
 test "cairo.FontFace" {
-    std.testing.refAllDecls(FontFace);
+    std.testing.refAllDecls(@This());
 }

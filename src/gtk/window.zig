@@ -779,5 +779,5 @@ pub const Window = extern struct {
 };
 
 test "gtk.Window" {
-    std.testing.refAllDecls(Window);
+    std.testing.refAllDecls(@This());
 }

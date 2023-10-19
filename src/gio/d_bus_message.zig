@@ -250,5 +250,5 @@ pub const DBusMessage = extern struct {
 };
 
 test "gio.DBusMessage" {
-    std.testing.refAllDecls(DBusMessage);
+    std.testing.refAllDecls(@This());
 }

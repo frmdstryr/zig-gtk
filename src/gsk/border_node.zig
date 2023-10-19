@@ -57,5 +57,5 @@ pub const BorderNode = extern struct {
 };
 
 test "gsk.BorderNode" {
-    std.testing.refAllDecls(BorderNode);
+    std.testing.refAllDecls(@This());
 }

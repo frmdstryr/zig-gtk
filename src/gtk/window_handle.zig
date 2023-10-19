@@ -611,5 +611,5 @@ pub const WindowHandle = extern struct {
 };
 
 test "gtk.WindowHandle" {
-    std.testing.refAllDecls(WindowHandle);
+    std.testing.refAllDecls(@This());
 }

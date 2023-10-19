@@ -137,5 +137,5 @@ pub const OverlayLayout = extern struct {
 };
 
 test "gtk.OverlayLayout" {
-    std.testing.refAllDecls(OverlayLayout);
+    std.testing.refAllDecls(@This());
 }

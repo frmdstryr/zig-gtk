@@ -137,5 +137,5 @@ pub const CairoContext = extern struct {
 };
 
 test "gdk.CairoContext" {
-    std.testing.refAllDecls(CairoContext);
+    std.testing.refAllDecls(@This());
 }

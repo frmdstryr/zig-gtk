@@ -8,7 +8,7 @@ pub const Parameter = extern struct {
     const Self = @This();
 
     // Fields
-    name: [*c]const u8,
+    name: *[*c]const u8,
     value: *gobject.Value,
 
     // Constructors
@@ -17,5 +17,6 @@ pub const Parameter = extern struct {
 };
 
 test "gobject.Parameter" {
-    std.testing.refAllDecls(Parameter);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(Parameter));
 }

@@ -15,5 +15,5 @@ pub const DragSourceClass = extern struct {
 };
 
 test "gtk.DragSourceClass" {
-    std.testing.refAllDecls(DragSourceClass);
+    std.testing.refAllDecls(@This());
 }

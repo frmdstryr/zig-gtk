@@ -15,5 +15,5 @@ pub const ProxyAddressPrivate = extern struct {
 };
 
 test "gio.ProxyAddressPrivate" {
-    std.testing.refAllDecls(ProxyAddressPrivate);
+    std.testing.refAllDecls(@This());
 }

@@ -15,5 +15,5 @@ pub const SettingsBackendPrivate = extern struct {
 };
 
 test "gio.SettingsBackendPrivate" {
-    std.testing.refAllDecls(SettingsBackendPrivate);
+    std.testing.refAllDecls(@This());
 }

@@ -11,8 +11,8 @@ pub const PadActionEntry = extern struct {
     type: *gtk.PadActionType,
     index: i32,
     mode: i32,
-    label: [*c]const u8,
-    action_name: [*c]const u8,
+    label: *[*c]const u8,
+    action_name: *[*c]const u8,
 
     // Constructors
 
@@ -20,5 +20,6 @@ pub const PadActionEntry = extern struct {
 };
 
 test "gtk.PadActionEntry" {
-    std.testing.refAllDecls(PadActionEntry);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(PadActionEntry));
 }

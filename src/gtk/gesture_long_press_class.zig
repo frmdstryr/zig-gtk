@@ -15,5 +15,5 @@ pub const GestureLongPressClass = extern struct {
 };
 
 test "gtk.GestureLongPressClass" {
-    std.testing.refAllDecls(GestureLongPressClass);
+    std.testing.refAllDecls(@This());
 }

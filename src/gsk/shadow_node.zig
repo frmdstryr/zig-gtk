@@ -56,5 +56,5 @@ pub const ShadowNode = extern struct {
 };
 
 test "gsk.ShadowNode" {
-    std.testing.refAllDecls(ShadowNode);
+    std.testing.refAllDecls(@This());
 }

@@ -653,5 +653,5 @@ pub const GLArea = extern struct {
 };
 
 test "gtk.GLArea" {
-    std.testing.refAllDecls(GLArea);
+    std.testing.refAllDecls(@This());
 }

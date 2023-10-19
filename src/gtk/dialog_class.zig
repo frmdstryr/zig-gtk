@@ -19,5 +19,6 @@ pub const DialogClass = extern struct {
 };
 
 test "gtk.DialogClass" {
-    std.testing.refAllDecls(DialogClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 592), @sizeOf(DialogClass));
 }

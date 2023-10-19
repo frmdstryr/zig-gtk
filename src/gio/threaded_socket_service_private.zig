@@ -15,5 +15,5 @@ pub const ThreadedSocketServicePrivate = extern struct {
 };
 
 test "gio.ThreadedSocketServicePrivate" {
-    std.testing.refAllDecls(ThreadedSocketServicePrivate);
+    std.testing.refAllDecls(@This());
 }

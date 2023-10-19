@@ -9,7 +9,7 @@ pub const GlyphItemIter = extern struct {
 
     // Fields
     glyph_item: *pango.GlyphItem,
-    text: [*c]const u8,
+    text: *[*c]const u8,
     start_glyph: i32,
     start_index: i32,
     start_char: i32,
@@ -41,5 +41,6 @@ pub const GlyphItemIter = extern struct {
 };
 
 test "pango.GlyphItemIter" {
-    std.testing.refAllDecls(GlyphItemIter);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(GlyphItemIter));
 }

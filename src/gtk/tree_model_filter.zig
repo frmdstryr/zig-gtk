@@ -153,5 +153,5 @@ pub const TreeModelFilter = extern struct {
 };
 
 test "gtk.TreeModelFilter" {
-    std.testing.refAllDecls(TreeModelFilter);
+    std.testing.refAllDecls(@This());
 }

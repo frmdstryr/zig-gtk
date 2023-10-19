@@ -84,5 +84,5 @@ pub const MainContext = extern struct {
 };
 
 test "glib.MainContext" {
-    std.testing.refAllDecls(MainContext);
+    std.testing.refAllDecls(@This());
 }

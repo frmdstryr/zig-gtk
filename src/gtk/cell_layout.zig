@@ -49,5 +49,5 @@ pub const CellLayout = extern struct {
 };
 
 test "gtk.CellLayout" {
-    std.testing.refAllDecls(CellLayout);
+    std.testing.refAllDecls(@This());
 }

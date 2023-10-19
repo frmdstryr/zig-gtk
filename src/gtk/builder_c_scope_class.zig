@@ -17,5 +17,6 @@ pub const BuilderCScopeClass = extern struct {
 };
 
 test "gtk.BuilderCScopeClass" {
-    std.testing.refAllDecls(BuilderCScopeClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(BuilderCScopeClass));
 }

@@ -246,5 +246,5 @@ pub const Settings = extern struct {
 };
 
 test "gio.Settings" {
-    std.testing.refAllDecls(Settings);
+    std.testing.refAllDecls(@This());
 }

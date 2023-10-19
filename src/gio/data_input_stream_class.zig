@@ -21,5 +21,6 @@ pub const DataInputStreamClass = extern struct {
 };
 
 test "gio.DataInputStreamClass" {
-    std.testing.refAllDecls(DataInputStreamClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 376), @sizeOf(DataInputStreamClass));
 }

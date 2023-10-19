@@ -866,5 +866,5 @@ pub const TreeView = extern struct {
 };
 
 test "gtk.TreeView" {
-    std.testing.refAllDecls(TreeView);
+    std.testing.refAllDecls(@This());
 }

@@ -80,5 +80,5 @@ pub const DeleteEvent = extern struct {
 };
 
 test "gdk.DeleteEvent" {
-    std.testing.refAllDecls(DeleteEvent);
+    std.testing.refAllDecls(@This());
 }

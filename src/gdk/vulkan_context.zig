@@ -141,5 +141,5 @@ pub const VulkanContext = extern struct {
 };
 
 test "gdk.VulkanContext" {
-    std.testing.refAllDecls(VulkanContext);
+    std.testing.refAllDecls(@This());
 }

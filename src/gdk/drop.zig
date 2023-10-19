@@ -149,5 +149,5 @@ pub const Drop = extern struct {
 };
 
 test "gdk.Drop" {
-    std.testing.refAllDecls(Drop);
+    std.testing.refAllDecls(@This());
 }

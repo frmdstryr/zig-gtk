@@ -168,5 +168,5 @@ pub const InetAddress = extern struct {
 };
 
 test "gio.InetAddress" {
-    std.testing.refAllDecls(InetAddress);
+    std.testing.refAllDecls(@This());
 }

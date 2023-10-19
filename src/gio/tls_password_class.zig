@@ -21,5 +21,6 @@ pub const TlsPasswordClass = extern struct {
 };
 
 test "gio.TlsPasswordClass" {
-    std.testing.refAllDecls(TlsPasswordClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 192), @sizeOf(TlsPasswordClass));
 }

@@ -24,5 +24,5 @@ pub const TestSuite = extern struct {
 };
 
 test "glib.TestSuite" {
-    std.testing.refAllDecls(TestSuite);
+    std.testing.refAllDecls(@This());
 }

@@ -15,5 +15,5 @@ pub const TlsConnectionPrivate = extern struct {
 };
 
 test "gio.TlsConnectionPrivate" {
-    std.testing.refAllDecls(TlsConnectionPrivate);
+    std.testing.refAllDecls(@This());
 }

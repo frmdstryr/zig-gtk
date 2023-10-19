@@ -15,5 +15,5 @@ pub const CredentialsClass = extern struct {
 };
 
 test "gio.CredentialsClass" {
-    std.testing.refAllDecls(CredentialsClass);
+    std.testing.refAllDecls(@This());
 }

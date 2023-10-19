@@ -15,5 +15,5 @@ pub const PrintOperationPrivate = extern struct {
 };
 
 test "gtk.PrintOperationPrivate" {
-    std.testing.refAllDecls(PrintOperationPrivate);
+    std.testing.refAllDecls(@This());
 }

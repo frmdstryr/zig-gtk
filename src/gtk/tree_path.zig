@@ -69,5 +69,5 @@ pub const TreePath = extern struct {
 };
 
 test "gtk.TreePath" {
-    std.testing.refAllDecls(TreePath);
+    std.testing.refAllDecls(@This());
 }

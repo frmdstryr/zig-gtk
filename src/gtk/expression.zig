@@ -37,5 +37,5 @@ pub const Expression = extern struct {
 };
 
 test "gtk.Expression" {
-    std.testing.refAllDecls(Expression);
+    std.testing.refAllDecls(@This());
 }

@@ -623,5 +623,5 @@ pub const PasswordEntry = extern struct {
 };
 
 test "gtk.PasswordEntry" {
-    std.testing.refAllDecls(PasswordEntry);
+    std.testing.refAllDecls(@This());
 }

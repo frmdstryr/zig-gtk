@@ -274,5 +274,5 @@ pub const Application = extern struct {
 };
 
 test "gtk.Application" {
-    std.testing.refAllDecls(Application);
+    std.testing.refAllDecls(@This());
 }

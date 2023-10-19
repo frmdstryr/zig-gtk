@@ -749,5 +749,5 @@ pub const Label = extern struct {
 };
 
 test "gtk.Label" {
-    std.testing.refAllDecls(Label);
+    std.testing.refAllDecls(@This());
 }

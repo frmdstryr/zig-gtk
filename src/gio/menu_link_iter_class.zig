@@ -18,5 +18,6 @@ pub const MenuLinkIterClass = extern struct {
 };
 
 test "gio.MenuLinkIterClass" {
-    std.testing.refAllDecls(MenuLinkIterClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 144), @sizeOf(MenuLinkIterClass));
 }

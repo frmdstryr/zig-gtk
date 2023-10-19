@@ -8,7 +8,7 @@ pub const StaticResource = extern struct {
     const Self = @This();
 
     // Fields
-    data: u8,
+    data: *u8,
     data_len: u64,
     resource: *gio.Resource,
     next: *gio.StaticResource,
@@ -29,5 +29,6 @@ pub const StaticResource = extern struct {
 };
 
 test "gio.StaticResource" {
-    std.testing.refAllDecls(StaticResource);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(StaticResource));
 }

@@ -15,5 +15,5 @@ pub const ConstraintTargetInterface = extern struct {
 };
 
 test "gtk.ConstraintTargetInterface" {
-    std.testing.refAllDecls(ConstraintTargetInterface);
+    std.testing.refAllDecls(@This());
 }

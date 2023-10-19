@@ -127,5 +127,5 @@ pub const BytesIcon = extern struct {
 };
 
 test "gio.BytesIcon" {
-    std.testing.refAllDecls(BytesIcon);
+    std.testing.refAllDecls(@This());
 }

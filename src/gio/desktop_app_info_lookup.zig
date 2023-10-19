@@ -24,5 +24,5 @@ pub const DesktopAppInfoLookup = extern struct {
 };
 
 test "gio.DesktopAppInfoLookup" {
-    std.testing.refAllDecls(DesktopAppInfoLookup);
+    std.testing.refAllDecls(@This());
 }

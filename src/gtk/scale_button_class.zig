@@ -18,5 +18,6 @@ pub const ScaleButtonClass = extern struct {
 };
 
 test "gtk.ScaleButtonClass" {
-    std.testing.refAllDecls(ScaleButtonClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 480), @sizeOf(ScaleButtonClass));
 }

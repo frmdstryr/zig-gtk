@@ -16,5 +16,6 @@ pub const MultiSorterClass = extern struct {
 };
 
 test "gtk.MultiSorterClass" {
-    std.testing.refAllDecls(MultiSorterClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 216), @sizeOf(MultiSorterClass));
 }

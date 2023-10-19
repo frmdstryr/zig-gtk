@@ -24,5 +24,6 @@ pub const TlsInteractionClass = extern struct {
 };
 
 test "gio.TlsInteractionClass" {
-    std.testing.refAllDecls(TlsInteractionClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 352), @sizeOf(TlsInteractionClass));
 }

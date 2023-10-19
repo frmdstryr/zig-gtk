@@ -28,5 +28,5 @@ pub const IOExtensionPoint = extern struct {
 };
 
 test "gio.IOExtensionPoint" {
-    std.testing.refAllDecls(IOExtensionPoint);
+    std.testing.refAllDecls(@This());
 }

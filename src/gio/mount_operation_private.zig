@@ -15,5 +15,5 @@ pub const MountOperationPrivate = extern struct {
 };
 
 test "gio.MountOperationPrivate" {
-    std.testing.refAllDecls(MountOperationPrivate);
+    std.testing.refAllDecls(@This());
 }

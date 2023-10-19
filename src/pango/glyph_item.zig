@@ -39,5 +39,6 @@ pub const GlyphItem = extern struct {
 };
 
 test "pango.GlyphItem" {
-    std.testing.refAllDecls(GlyphItem);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(GlyphItem));
 }

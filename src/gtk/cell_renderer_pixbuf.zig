@@ -205,5 +205,5 @@ pub const CellRendererPixbuf = extern struct {
 };
 
 test "gtk.CellRendererPixbuf" {
-    std.testing.refAllDecls(CellRendererPixbuf);
+    std.testing.refAllDecls(@This());
 }

@@ -23,5 +23,6 @@ pub const DBusObjectIface = extern struct {
 };
 
 test "gio.DBusObjectIface" {
-    std.testing.refAllDecls(DBusObjectIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 56), @sizeOf(DBusObjectIface));
 }

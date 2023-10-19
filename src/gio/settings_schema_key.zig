@@ -43,5 +43,5 @@ pub const SettingsSchemaKey = extern struct {
 };
 
 test "gio.SettingsSchemaKey" {
-    std.testing.refAllDecls(SettingsSchemaKey);
+    std.testing.refAllDecls(@This());
 }

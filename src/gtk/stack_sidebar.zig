@@ -611,5 +611,5 @@ pub const StackSidebar = extern struct {
 };
 
 test "gtk.StackSidebar" {
-    std.testing.refAllDecls(StackSidebar);
+    std.testing.refAllDecls(@This());
 }

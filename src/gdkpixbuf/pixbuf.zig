@@ -269,5 +269,5 @@ pub const Pixbuf = extern struct {
 };
 
 test "gdkpixbuf.Pixbuf" {
-    std.testing.refAllDecls(Pixbuf);
+    std.testing.refAllDecls(@This());
 }

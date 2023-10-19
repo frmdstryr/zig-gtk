@@ -135,5 +135,5 @@ pub const TextMark = extern struct {
 };
 
 test "gtk.TextMark" {
-    std.testing.refAllDecls(TextMark);
+    std.testing.refAllDecls(@This());
 }

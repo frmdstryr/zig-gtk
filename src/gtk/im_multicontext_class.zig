@@ -20,5 +20,6 @@ pub const IMMulticontextClass = extern struct {
 };
 
 test "gtk.IMMulticontextClass" {
-    std.testing.refAllDecls(IMMulticontextClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 352), @sizeOf(IMMulticontextClass));
 }

@@ -26,5 +26,6 @@ pub const MenuModelClass = extern struct {
 };
 
 test "gio.MenuModelClass" {
-    std.testing.refAllDecls(MenuModelClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 200), @sizeOf(MenuModelClass));
 }

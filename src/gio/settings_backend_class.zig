@@ -29,5 +29,6 @@ pub const SettingsBackendClass = extern struct {
 };
 
 test "gio.SettingsBackendClass" {
-    std.testing.refAllDecls(SettingsBackendClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 400), @sizeOf(SettingsBackendClass));
 }

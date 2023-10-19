@@ -167,5 +167,5 @@ pub const ColumnViewColumn = extern struct {
 };
 
 test "gtk.ColumnViewColumn" {
-    std.testing.refAllDecls(ColumnViewColumn);
+    std.testing.refAllDecls(@This());
 }

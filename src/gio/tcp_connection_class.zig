@@ -16,5 +16,6 @@ pub const TcpConnectionClass = extern struct {
 };
 
 test "gio.TcpConnectionClass" {
-    std.testing.refAllDecls(TcpConnectionClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 304), @sizeOf(TcpConnectionClass));
 }

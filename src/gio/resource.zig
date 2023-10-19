@@ -43,5 +43,5 @@ pub const Resource = extern struct {
 };
 
 test "gio.Resource" {
-    std.testing.refAllDecls(Resource);
+    std.testing.refAllDecls(@This());
 }

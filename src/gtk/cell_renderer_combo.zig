@@ -212,5 +212,5 @@ pub const CellRendererCombo = extern struct {
 };
 
 test "gtk.CellRendererCombo" {
-    std.testing.refAllDecls(CellRendererCombo);
+    std.testing.refAllDecls(@This());
 }

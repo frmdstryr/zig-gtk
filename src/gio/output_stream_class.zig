@@ -37,5 +37,6 @@ pub const OutputStreamClass = extern struct {
 };
 
 test "gio.OutputStreamClass" {
-    std.testing.refAllDecls(OutputStreamClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 296), @sizeOf(OutputStreamClass));
 }

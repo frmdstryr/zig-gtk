@@ -19,5 +19,6 @@ pub const DBusSubtreeVTable = extern struct {
 };
 
 test "gio.DBusSubtreeVTable" {
-    std.testing.refAllDecls(DBusSubtreeVTable);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 88), @sizeOf(DBusSubtreeVTable));
 }

@@ -22,5 +22,6 @@ pub const UnixFDListClass = extern struct {
 };
 
 test "gio.UnixFDListClass" {
-    std.testing.refAllDecls(UnixFDListClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 176), @sizeOf(UnixFDListClass));
 }

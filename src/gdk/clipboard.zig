@@ -161,5 +161,5 @@ pub const Clipboard = extern struct {
 };
 
 test "gdk.Clipboard" {
-    std.testing.refAllDecls(Clipboard);
+    std.testing.refAllDecls(@This());
 }

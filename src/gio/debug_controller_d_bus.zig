@@ -128,5 +128,5 @@ pub const DebugControllerDBus = extern struct {
 };
 
 test "gio.DebugControllerDBus" {
-    std.testing.refAllDecls(DebugControllerDBus);
+    std.testing.refAllDecls(@This());
 }

@@ -15,5 +15,5 @@ pub const MenuLinkIterPrivate = extern struct {
 };
 
 test "gio.MenuLinkIterPrivate" {
-    std.testing.refAllDecls(MenuLinkIterPrivate);
+    std.testing.refAllDecls(@This());
 }

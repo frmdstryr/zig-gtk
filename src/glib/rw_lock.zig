@@ -41,5 +41,6 @@ pub const RWLock = extern struct {
 };
 
 test "glib.RWLock" {
-    std.testing.refAllDecls(RWLock);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(RWLock));
 }

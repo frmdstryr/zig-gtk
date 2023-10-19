@@ -815,5 +815,5 @@ pub const FileChooserDialog = extern struct {
 };
 
 test "gtk.FileChooserDialog" {
-    std.testing.refAllDecls(FileChooserDialog);
+    std.testing.refAllDecls(@This());
 }

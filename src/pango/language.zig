@@ -30,5 +30,5 @@ pub const Language = extern struct {
 };
 
 test "pango.Language" {
-    std.testing.refAllDecls(Language);
+    std.testing.refAllDecls(@This());
 }

@@ -161,5 +161,5 @@ pub const BoxLayout = extern struct {
 };
 
 test "gtk.BoxLayout" {
-    std.testing.refAllDecls(BoxLayout);
+    std.testing.refAllDecls(@This());
 }

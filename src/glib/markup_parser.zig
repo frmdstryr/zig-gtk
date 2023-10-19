@@ -20,5 +20,6 @@ pub const MarkupParser = extern struct {
 };
 
 test "glib.MarkupParser" {
-    std.testing.refAllDecls(MarkupParser);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(MarkupParser));
 }

@@ -650,5 +650,5 @@ pub const Button = extern struct {
 };
 
 test "gtk.Button" {
-    std.testing.refAllDecls(Button);
+    std.testing.refAllDecls(@This());
 }

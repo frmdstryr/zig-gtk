@@ -15,5 +15,5 @@ pub const AlternativeTriggerClass = extern struct {
 };
 
 test "gtk.AlternativeTriggerClass" {
-    std.testing.refAllDecls(AlternativeTriggerClass);
+    std.testing.refAllDecls(@This());
 }

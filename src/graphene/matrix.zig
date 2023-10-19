@@ -217,5 +217,6 @@ pub const Matrix = extern struct {
 };
 
 test "graphene.Matrix" {
-    std.testing.refAllDecls(Matrix);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 64), @sizeOf(Matrix));
 }

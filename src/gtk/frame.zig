@@ -629,5 +629,5 @@ pub const Frame = extern struct {
 };
 
 test "gtk.Frame" {
-    std.testing.refAllDecls(Frame);
+    std.testing.refAllDecls(@This());
 }

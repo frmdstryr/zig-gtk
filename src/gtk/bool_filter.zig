@@ -140,5 +140,5 @@ pub const BoolFilter = extern struct {
 };
 
 test "gtk.BoolFilter" {
-    std.testing.refAllDecls(BoolFilter);
+    std.testing.refAllDecls(@This());
 }

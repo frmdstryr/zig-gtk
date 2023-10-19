@@ -24,5 +24,5 @@ pub const Dir = extern struct {
 };
 
 test "glib.Dir" {
-    std.testing.refAllDecls(Dir);
+    std.testing.refAllDecls(@This());
 }

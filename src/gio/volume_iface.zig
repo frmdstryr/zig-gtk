@@ -38,5 +38,6 @@ pub const VolumeIface = extern struct {
 };
 
 test "gio.VolumeIface" {
-    std.testing.refAllDecls(VolumeIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 184), @sizeOf(VolumeIface));
 }

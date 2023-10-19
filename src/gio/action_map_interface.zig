@@ -20,5 +20,6 @@ pub const ActionMapInterface = extern struct {
 };
 
 test "gio.ActionMapInterface" {
-    std.testing.refAllDecls(ActionMapInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 40), @sizeOf(ActionMapInterface));
 }

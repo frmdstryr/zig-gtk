@@ -17,5 +17,6 @@ pub const GLShaderClass = extern struct {
 };
 
 test "gsk.GLShaderClass" {
-    std.testing.refAllDecls(GLShaderClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(GLShaderClass));
 }

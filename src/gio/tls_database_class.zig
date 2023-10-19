@@ -32,5 +32,6 @@ pub const TlsDatabaseClass = extern struct {
 };
 
 test "gio.TlsDatabaseClass" {
-    std.testing.refAllDecls(TlsDatabaseClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 368), @sizeOf(TlsDatabaseClass));
 }

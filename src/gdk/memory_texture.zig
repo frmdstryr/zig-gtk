@@ -168,5 +168,5 @@ pub const MemoryTexture = extern struct {
 };
 
 test "gdk.MemoryTexture" {
-    std.testing.refAllDecls(MemoryTexture);
+    std.testing.refAllDecls(@This());
 }

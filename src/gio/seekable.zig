@@ -37,5 +37,5 @@ pub const Seekable = extern struct {
 };
 
 test "gio.Seekable" {
-    std.testing.refAllDecls(Seekable);
+    std.testing.refAllDecls(@This());
 }

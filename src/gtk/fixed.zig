@@ -623,5 +623,5 @@ pub const Fixed = extern struct {
 };
 
 test "gtk.Fixed" {
-    std.testing.refAllDecls(Fixed);
+    std.testing.refAllDecls(@This());
 }

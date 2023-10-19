@@ -19,5 +19,6 @@ pub const AttrClass = extern struct {
 };
 
 test "pango.AttrClass" {
-    std.testing.refAllDecls(AttrClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(AttrClass));
 }

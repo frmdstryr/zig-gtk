@@ -17,5 +17,6 @@ pub const EmblemedIconClass = extern struct {
 };
 
 test "gio.EmblemedIconClass" {
-    std.testing.refAllDecls(EmblemedIconClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(EmblemedIconClass));
 }

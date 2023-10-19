@@ -8,15 +8,15 @@ pub const PixbufFormat = extern struct {
     const Self = @This();
 
     // Fields
-    name: [*c]const u8,
+    name: *[*c]const u8,
     signature: *gdkpixbuf.PixbufModulePattern,
-    domain: [*c]const u8,
-    description: [*c]const u8,
+    domain: *[*c]const u8,
+    description: *[*c]const u8,
     mime_types: [*c][*c]const u8,
     extensions: [*c][*c]const u8,
     flags: u32,
     disabled: bool,
-    license: [*c]const u8,
+    license: *[*c]const u8,
 
     // Constructors
 
@@ -60,5 +60,6 @@ pub const PixbufFormat = extern struct {
 };
 
 test "gdkpixbuf.PixbufFormat" {
-    std.testing.refAllDecls(PixbufFormat);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 64), @sizeOf(PixbufFormat));
 }

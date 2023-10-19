@@ -37,5 +37,6 @@ pub const TreeModelIface = extern struct {
 };
 
 test "gtk.TreeModelIface" {
-    std.testing.refAllDecls(TreeModelIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 176), @sizeOf(TreeModelIface));
 }

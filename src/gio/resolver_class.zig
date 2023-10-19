@@ -34,5 +34,6 @@ pub const ResolverClass = extern struct {
 };
 
 test "gio.ResolverClass" {
-    std.testing.refAllDecls(ResolverClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 264), @sizeOf(ResolverClass));
 }

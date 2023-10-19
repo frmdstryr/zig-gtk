@@ -10,19 +10,19 @@ pub const ParamSpecString = extern struct {
 
     // Fields
     parent_instance: *gobject.ParamSpec,
-    default_value: [*c]const u8,
-    cset_first: [*c]const u8,
-    cset_nth: [*c]const u8,
+    default_value: *[*c]const u8,
+    cset_first: *[*c]const u8,
+    cset_nth: *[*c]const u8,
     substitutor: i8,
     null_fold_if_empty: u32,
     ensure_non_null: u32,
     g_type_instance: *gobject.TypeInstance,
-    name: [*c]const u8,
+    name: *[*c]const u8,
     flags: *gobject.ParamFlags,
     value_type: usize,
     owner_type: usize,
-    _nick: [*c]const u8,
-    _blurb: [*c]const u8,
+    _nick: *[*c]const u8,
+    _blurb: *[*c]const u8,
     qdata: *glib.Data,
     ref_count: u32,
     param_id: u32,
@@ -68,5 +68,5 @@ pub const ParamSpecString = extern struct {
 };
 
 test "gobject.ParamSpecString" {
-    std.testing.refAllDecls(ParamSpecString);
+    std.testing.refAllDecls(@This());
 }

@@ -57,5 +57,6 @@ pub const LayoutLine = extern struct {
 };
 
 test "pango.LayoutLine" {
-    std.testing.refAllDecls(LayoutLine);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(LayoutLine));
 }

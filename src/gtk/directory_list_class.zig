@@ -17,5 +17,6 @@ pub const DirectoryListClass = extern struct {
 };
 
 test "gtk.DirectoryListClass" {
-    std.testing.refAllDecls(DirectoryListClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(DirectoryListClass));
 }

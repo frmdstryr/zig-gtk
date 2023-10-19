@@ -56,5 +56,5 @@ pub const BlendNode = extern struct {
 };
 
 test "gsk.BlendNode" {
-    std.testing.refAllDecls(BlendNode);
+    std.testing.refAllDecls(@This());
 }

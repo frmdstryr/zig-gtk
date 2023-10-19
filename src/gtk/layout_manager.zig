@@ -131,5 +131,5 @@ pub const LayoutManager = extern struct {
 };
 
 test "gtk.LayoutManager" {
-    std.testing.refAllDecls(LayoutManager);
+    std.testing.refAllDecls(@This());
 }

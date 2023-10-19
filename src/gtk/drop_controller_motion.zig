@@ -164,5 +164,5 @@ pub const DropControllerMotion = extern struct {
 };
 
 test "gtk.DropControllerMotion" {
-    std.testing.refAllDecls(DropControllerMotion);
+    std.testing.refAllDecls(@This());
 }

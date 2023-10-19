@@ -23,5 +23,6 @@ pub const IconIface = extern struct {
 };
 
 test "gio.IconIface" {
-    std.testing.refAllDecls(IconIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 56), @sizeOf(IconIface));
 }

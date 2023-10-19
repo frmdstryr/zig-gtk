@@ -15,5 +15,5 @@ pub const GridViewClass = extern struct {
 };
 
 test "gtk.GridViewClass" {
-    std.testing.refAllDecls(GridViewClass);
+    std.testing.refAllDecls(@This());
 }

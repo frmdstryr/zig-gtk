@@ -626,5 +626,5 @@ pub const TreeExpander = extern struct {
 };
 
 test "gtk.TreeExpander" {
-    std.testing.refAllDecls(TreeExpander);
+    std.testing.refAllDecls(@This());
 }

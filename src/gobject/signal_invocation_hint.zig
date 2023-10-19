@@ -18,5 +18,6 @@ pub const SignalInvocationHint = extern struct {
 };
 
 test "gobject.SignalInvocationHint" {
-    std.testing.refAllDecls(SignalInvocationHint);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 12), @sizeOf(SignalInvocationHint));
 }

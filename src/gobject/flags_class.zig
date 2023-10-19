@@ -19,5 +19,6 @@ pub const FlagsClass = extern struct {
 };
 
 test "gobject.FlagsClass" {
-    std.testing.refAllDecls(FlagsClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(FlagsClass));
 }

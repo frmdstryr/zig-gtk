@@ -626,5 +626,5 @@ pub const ActionBar = extern struct {
 };
 
 test "gtk.ActionBar" {
-    std.testing.refAllDecls(ActionBar);
+    std.testing.refAllDecls(@This());
 }

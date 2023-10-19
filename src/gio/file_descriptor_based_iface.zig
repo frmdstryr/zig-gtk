@@ -18,5 +18,6 @@ pub const FileDescriptorBasedIface = extern struct {
 };
 
 test "gio.FileDescriptorBasedIface" {
-    std.testing.refAllDecls(FileDescriptorBasedIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(FileDescriptorBasedIface));
 }

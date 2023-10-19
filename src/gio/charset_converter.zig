@@ -133,5 +133,5 @@ pub const CharsetConverter = extern struct {
 };
 
 test "gio.CharsetConverter" {
-    std.testing.refAllDecls(CharsetConverter);
+    std.testing.refAllDecls(@This());
 }

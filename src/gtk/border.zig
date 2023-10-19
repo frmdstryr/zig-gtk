@@ -28,5 +28,6 @@ pub const Border = extern struct {
 };
 
 test "gtk.Border" {
-    std.testing.refAllDecls(Border);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 8), @sizeOf(Border));
 }

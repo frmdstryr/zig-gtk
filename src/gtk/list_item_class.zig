@@ -15,5 +15,5 @@ pub const ListItemClass = extern struct {
 };
 
 test "gtk.ListItemClass" {
-    std.testing.refAllDecls(ListItemClass);
+    std.testing.refAllDecls(@This());
 }

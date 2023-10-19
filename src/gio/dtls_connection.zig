@@ -102,5 +102,5 @@ pub const DtlsConnection = extern struct {
 };
 
 test "gio.DtlsConnection" {
-    std.testing.refAllDecls(DtlsConnection);
+    std.testing.refAllDecls(@This());
 }

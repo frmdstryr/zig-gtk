@@ -15,5 +15,5 @@ pub const UnixFDMessagePrivate = extern struct {
 };
 
 test "gio.UnixFDMessagePrivate" {
-    std.testing.refAllDecls(UnixFDMessagePrivate);
+    std.testing.refAllDecls(@This());
 }

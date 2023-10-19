@@ -17,5 +17,6 @@ pub const PtrArray = extern struct {
 };
 
 test "glib.PtrArray" {
-    std.testing.refAllDecls(PtrArray);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(PtrArray));
 }

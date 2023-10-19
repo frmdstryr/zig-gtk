@@ -134,5 +134,5 @@ pub const MapListModel = extern struct {
 };
 
 test "gtk.MapListModel" {
-    std.testing.refAllDecls(MapListModel);
+    std.testing.refAllDecls(@This());
 }

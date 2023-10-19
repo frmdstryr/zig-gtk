@@ -17,5 +17,6 @@ pub const NetworkServiceClass = extern struct {
 };
 
 test "gio.NetworkServiceClass" {
-    std.testing.refAllDecls(NetworkServiceClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(NetworkServiceClass));
 }

@@ -122,5 +122,5 @@ pub const ATContext = extern struct {
 };
 
 test "gtk.ATContext" {
-    std.testing.refAllDecls(ATContext);
+    std.testing.refAllDecls(@This());
 }

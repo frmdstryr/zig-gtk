@@ -21,5 +21,6 @@ pub const TestConfig = extern struct {
 };
 
 test "glib.TestConfig" {
-    std.testing.refAllDecls(TestConfig);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(TestConfig));
 }

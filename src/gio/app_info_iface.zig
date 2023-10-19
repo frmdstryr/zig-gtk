@@ -43,5 +43,6 @@ pub const AppInfoIface = extern struct {
 };
 
 test "gio.AppInfoIface" {
-    std.testing.refAllDecls(AppInfoIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 216), @sizeOf(AppInfoIface));
 }

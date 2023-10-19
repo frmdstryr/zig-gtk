@@ -16,5 +16,6 @@ pub const GridLayoutClass = extern struct {
 };
 
 test "gtk.GridLayoutClass" {
-    std.testing.refAllDecls(GridLayoutClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 320), @sizeOf(GridLayoutClass));
 }

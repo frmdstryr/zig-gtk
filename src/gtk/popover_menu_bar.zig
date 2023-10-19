@@ -617,5 +617,5 @@ pub const PopoverMenuBar = extern struct {
 };
 
 test "gtk.PopoverMenuBar" {
-    std.testing.refAllDecls(PopoverMenuBar);
+    std.testing.refAllDecls(@This());
 }

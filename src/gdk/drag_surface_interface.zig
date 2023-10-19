@@ -15,5 +15,5 @@ pub const DragSurfaceInterface = extern struct {
 };
 
 test "gdk.DragSurfaceInterface" {
-    std.testing.refAllDecls(DragSurfaceInterface);
+    std.testing.refAllDecls(@This());
 }

@@ -16,5 +16,6 @@ pub const CustomLayoutClass = extern struct {
 };
 
 test "gtk.CustomLayoutClass" {
-    std.testing.refAllDecls(CustomLayoutClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 320), @sizeOf(CustomLayoutClass));
 }

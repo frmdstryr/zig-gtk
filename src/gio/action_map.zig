@@ -33,5 +33,5 @@ pub const ActionMap = extern struct {
 };
 
 test "gio.ActionMap" {
-    std.testing.refAllDecls(ActionMap);
+    std.testing.refAllDecls(@This());
 }

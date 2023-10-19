@@ -31,5 +31,5 @@ pub const Root = extern struct {
 };
 
 test "gtk.Root" {
-    std.testing.refAllDecls(Root);
+    std.testing.refAllDecls(@This());
 }

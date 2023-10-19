@@ -130,5 +130,5 @@ pub const CallbackAction = extern struct {
 };
 
 test "gtk.CallbackAction" {
-    std.testing.refAllDecls(CallbackAction);
+    std.testing.refAllDecls(@This());
 }

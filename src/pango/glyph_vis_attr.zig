@@ -17,5 +17,6 @@ pub const GlyphVisAttr = extern struct {
 };
 
 test "pango.GlyphVisAttr" {
-    std.testing.refAllDecls(GlyphVisAttr);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 8), @sizeOf(GlyphVisAttr));
 }

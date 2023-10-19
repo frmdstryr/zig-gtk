@@ -16,5 +16,6 @@ pub const MediaControlsClass = extern struct {
 };
 
 test "gtk.MediaControlsClass" {
-    std.testing.refAllDecls(MediaControlsClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 408), @sizeOf(MediaControlsClass));
 }

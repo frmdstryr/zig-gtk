@@ -617,5 +617,5 @@ pub const SearchEntry = extern struct {
 };
 
 test "gtk.SearchEntry" {
-    std.testing.refAllDecls(SearchEntry);
+    std.testing.refAllDecls(@This());
 }

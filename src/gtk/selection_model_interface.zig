@@ -26,5 +26,6 @@ pub const SelectionModelInterface = extern struct {
 };
 
 test "gtk.SelectionModelInterface" {
-    std.testing.refAllDecls(SelectionModelInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 88), @sizeOf(SelectionModelInterface));
 }

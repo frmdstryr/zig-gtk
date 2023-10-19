@@ -27,5 +27,5 @@ pub const Converter = extern struct {
 };
 
 test "gio.Converter" {
-    std.testing.refAllDecls(Converter);
+    std.testing.refAllDecls(@This());
 }

@@ -17,5 +17,6 @@ pub const CClosure = extern struct {
 };
 
 test "gobject.CClosure" {
-    std.testing.refAllDecls(CClosure);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 72), @sizeOf(CClosure));
 }

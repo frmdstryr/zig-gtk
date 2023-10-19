@@ -27,5 +27,5 @@ pub const ToplevelSize = extern struct {
 };
 
 test "gdk.ToplevelSize" {
-    std.testing.refAllDecls(ToplevelSize);
+    std.testing.refAllDecls(@This());
 }

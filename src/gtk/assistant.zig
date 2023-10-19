@@ -851,5 +851,5 @@ pub const Assistant = extern struct {
 };
 
 test "gtk.Assistant" {
-    std.testing.refAllDecls(Assistant);
+    std.testing.refAllDecls(@This());
 }

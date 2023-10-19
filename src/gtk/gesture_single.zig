@@ -230,5 +230,5 @@ pub const GestureSingle = extern struct {
 };
 
 test "gtk.GestureSingle" {
-    std.testing.refAllDecls(GestureSingle);
+    std.testing.refAllDecls(@This());
 }

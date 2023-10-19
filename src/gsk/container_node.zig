@@ -53,5 +53,5 @@ pub const ContainerNode = extern struct {
 };
 
 test "gsk.ContainerNode" {
-    std.testing.refAllDecls(ContainerNode);
+    std.testing.refAllDecls(@This());
 }

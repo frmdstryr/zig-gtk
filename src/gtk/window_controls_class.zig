@@ -16,5 +16,6 @@ pub const WindowControlsClass = extern struct {
 };
 
 test "gtk.WindowControlsClass" {
-    std.testing.refAllDecls(WindowControlsClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 408), @sizeOf(WindowControlsClass));
 }

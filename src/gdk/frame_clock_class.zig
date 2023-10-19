@@ -15,5 +15,5 @@ pub const FrameClockClass = extern struct {
 };
 
 test "gdk.FrameClockClass" {
-    std.testing.refAllDecls(FrameClockClass);
+    std.testing.refAllDecls(@This());
 }

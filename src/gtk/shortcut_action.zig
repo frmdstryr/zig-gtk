@@ -124,5 +124,5 @@ pub const ShortcutAction = extern struct {
 };
 
 test "gtk.ShortcutAction" {
-    std.testing.refAllDecls(ShortcutAction);
+    std.testing.refAllDecls(@This());
 }

@@ -15,5 +15,5 @@ pub const WidgetClassPrivate = extern struct {
 };
 
 test "gtk.WidgetClassPrivate" {
-    std.testing.refAllDecls(WidgetClassPrivate);
+    std.testing.refAllDecls(@This());
 }

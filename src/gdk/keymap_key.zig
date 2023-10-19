@@ -18,5 +18,6 @@ pub const KeymapKey = extern struct {
 };
 
 test "gdk.KeymapKey" {
-    std.testing.refAllDecls(KeymapKey);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 12), @sizeOf(KeymapKey));
 }

@@ -22,5 +22,6 @@ pub const CellAreaContextClass = extern struct {
 };
 
 test "gtk.CellAreaContextClass" {
-    std.testing.refAllDecls(CellAreaContextClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 232), @sizeOf(CellAreaContextClass));
 }

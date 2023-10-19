@@ -54,5 +54,5 @@ pub const TimeZone = extern struct {
 };
 
 test "glib.TimeZone" {
-    std.testing.refAllDecls(TimeZone);
+    std.testing.refAllDecls(@This());
 }

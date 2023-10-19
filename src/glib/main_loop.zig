@@ -36,5 +36,5 @@ pub const MainLoop = extern struct {
 };
 
 test "glib.MainLoop" {
-    std.testing.refAllDecls(MainLoop);
+    std.testing.refAllDecls(@This());
 }

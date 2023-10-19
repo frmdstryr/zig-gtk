@@ -16,5 +16,6 @@ pub const DoubleIEEE754 = extern struct {
 };
 
 test "glib.DoubleIEEE754" {
-    std.testing.refAllDecls(DoubleIEEE754);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 8), @sizeOf(DoubleIEEE754));
 }

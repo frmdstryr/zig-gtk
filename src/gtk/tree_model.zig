@@ -96,5 +96,5 @@ pub const TreeModel = extern struct {
 };
 
 test "gtk.TreeModel" {
-    std.testing.refAllDecls(TreeModel);
+    std.testing.refAllDecls(@This());
 }

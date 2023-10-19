@@ -15,5 +15,5 @@ pub const WindowGroupPrivate = extern struct {
 };
 
 test "gtk.WindowGroupPrivate" {
-    std.testing.refAllDecls(WindowGroupPrivate);
+    std.testing.refAllDecls(@This());
 }

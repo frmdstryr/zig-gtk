@@ -23,5 +23,6 @@ pub const IOFuncs = extern struct {
 };
 
 test "glib.IOFuncs" {
-    std.testing.refAllDecls(IOFuncs);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 64), @sizeOf(IOFuncs));
 }

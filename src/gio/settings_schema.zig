@@ -39,5 +39,5 @@ pub const SettingsSchema = extern struct {
 };
 
 test "gio.SettingsSchema" {
-    std.testing.refAllDecls(SettingsSchema);
+    std.testing.refAllDecls(@This());
 }

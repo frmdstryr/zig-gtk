@@ -32,5 +32,6 @@ pub const Mutex = extern struct {
 };
 
 test "glib.Mutex" {
-    std.testing.refAllDecls(Mutex);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 8), @sizeOf(Mutex));
 }

@@ -247,5 +247,5 @@ pub const MediaFile = extern struct {
 };
 
 test "gtk.MediaFile" {
-    std.testing.refAllDecls(MediaFile);
+    std.testing.refAllDecls(@This());
 }

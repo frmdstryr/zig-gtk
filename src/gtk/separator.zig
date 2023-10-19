@@ -611,5 +611,5 @@ pub const Separator = extern struct {
 };
 
 test "gtk.Separator" {
-    std.testing.refAllDecls(Separator);
+    std.testing.refAllDecls(@This());
 }

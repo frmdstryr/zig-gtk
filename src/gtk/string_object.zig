@@ -118,5 +118,5 @@ pub const StringObject = extern struct {
 };
 
 test "gtk.StringObject" {
-    std.testing.refAllDecls(StringObject);
+    std.testing.refAllDecls(@This());
 }

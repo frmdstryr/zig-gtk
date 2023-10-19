@@ -27,5 +27,6 @@ pub const FilterClass = extern struct {
 };
 
 test "gtk.FilterClass" {
-    std.testing.refAllDecls(FilterClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 216), @sizeOf(FilterClass));
 }

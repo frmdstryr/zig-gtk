@@ -692,5 +692,5 @@ pub const SpinButton = extern struct {
 };
 
 test "gtk.SpinButton" {
-    std.testing.refAllDecls(SpinButton);
+    std.testing.refAllDecls(@This());
 }

@@ -32,5 +32,6 @@ pub const MediaStreamClass = extern struct {
 };
 
 test "gtk.MediaStreamClass" {
-    std.testing.refAllDecls(MediaStreamClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 248), @sizeOf(MediaStreamClass));
 }

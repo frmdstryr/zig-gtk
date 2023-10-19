@@ -319,5 +319,5 @@ pub const TextBuffer = extern struct {
 };
 
 test "gtk.TextBuffer" {
-    std.testing.refAllDecls(TextBuffer);
+    std.testing.refAllDecls(@This());
 }

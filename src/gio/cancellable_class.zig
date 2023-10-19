@@ -23,5 +23,6 @@ pub const CancellableClass = extern struct {
 };
 
 test "gio.CancellableClass" {
-    std.testing.refAllDecls(CancellableClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 184), @sizeOf(CancellableClass));
 }

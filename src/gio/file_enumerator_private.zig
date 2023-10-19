@@ -15,5 +15,5 @@ pub const FileEnumeratorPrivate = extern struct {
 };
 
 test "gio.FileEnumeratorPrivate" {
-    std.testing.refAllDecls(FileEnumeratorPrivate);
+    std.testing.refAllDecls(@This());
 }

@@ -185,5 +185,5 @@ pub const Builder = extern struct {
 };
 
 test "gtk.Builder" {
-    std.testing.refAllDecls(Builder);
+    std.testing.refAllDecls(@This());
 }

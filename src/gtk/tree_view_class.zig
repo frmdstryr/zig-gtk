@@ -32,5 +32,6 @@ pub const TreeViewClass = extern struct {
 };
 
 test "gtk.TreeViewClass" {
-    std.testing.refAllDecls(TreeViewClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 656), @sizeOf(TreeViewClass));
 }

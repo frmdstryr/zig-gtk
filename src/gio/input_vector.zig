@@ -17,5 +17,6 @@ pub const InputVector = extern struct {
 };
 
 test "gio.InputVector" {
-    std.testing.refAllDecls(InputVector);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(InputVector));
 }

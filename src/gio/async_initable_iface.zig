@@ -19,5 +19,6 @@ pub const AsyncInitableIface = extern struct {
 };
 
 test "gio.AsyncInitableIface" {
-    std.testing.refAllDecls(AsyncInitableIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(AsyncInitableIface));
 }

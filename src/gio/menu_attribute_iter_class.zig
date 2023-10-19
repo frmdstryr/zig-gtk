@@ -19,5 +19,6 @@ pub const MenuAttributeIterClass = extern struct {
 };
 
 test "gio.MenuAttributeIterClass" {
-    std.testing.refAllDecls(MenuAttributeIterClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 144), @sizeOf(MenuAttributeIterClass));
 }

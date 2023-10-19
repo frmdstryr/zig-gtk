@@ -133,5 +133,5 @@ pub const TestDBus = extern struct {
 };
 
 test "gio.TestDBus" {
-    std.testing.refAllDecls(TestDBus);
+    std.testing.refAllDecls(@This());
 }

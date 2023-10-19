@@ -31,5 +31,6 @@ pub const EntryBufferClass = extern struct {
 };
 
 test "gtk.EntryBufferClass" {
-    std.testing.refAllDecls(EntryBufferClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 248), @sizeOf(EntryBufferClass));
 }

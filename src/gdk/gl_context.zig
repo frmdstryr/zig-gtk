@@ -185,5 +185,5 @@ pub const GLContext = extern struct {
 };
 
 test "gdk.GLContext" {
-    std.testing.refAllDecls(GLContext);
+    std.testing.refAllDecls(@This());
 }

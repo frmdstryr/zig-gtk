@@ -19,5 +19,6 @@ pub const TreeDragDestIface = extern struct {
 };
 
 test "gtk.TreeDragDestIface" {
-    std.testing.refAllDecls(TreeDragDestIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 32), @sizeOf(TreeDragDestIface));
 }

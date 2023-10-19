@@ -135,5 +135,5 @@ pub const Binding = extern struct {
 };
 
 test "gobject.Binding" {
-    std.testing.refAllDecls(Binding);
+    std.testing.refAllDecls(@This());
 }

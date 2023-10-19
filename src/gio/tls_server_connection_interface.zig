@@ -17,5 +17,6 @@ pub const TlsServerConnectionInterface = extern struct {
 };
 
 test "gio.TlsServerConnectionInterface" {
-    std.testing.refAllDecls(TlsServerConnectionInterface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 16), @sizeOf(TlsServerConnectionInterface));
 }

@@ -30,5 +30,5 @@ pub const SocketConnectable = extern struct {
 };
 
 test "gio.SocketConnectable" {
-    std.testing.refAllDecls(SocketConnectable);
+    std.testing.refAllDecls(@This());
 }

@@ -31,5 +31,5 @@ pub const ParamSpecPool = extern struct {
 };
 
 test "gobject.ParamSpecPool" {
-    std.testing.refAllDecls(ParamSpecPool);
+    std.testing.refAllDecls(@This());
 }

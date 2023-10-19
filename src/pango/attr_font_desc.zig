@@ -17,5 +17,6 @@ pub const AttrFontDesc = extern struct {
 };
 
 test "pango.AttrFontDesc" {
-    std.testing.refAllDecls(AttrFontDesc);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 24), @sizeOf(AttrFontDesc));
 }

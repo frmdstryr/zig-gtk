@@ -15,5 +15,5 @@ pub const MnemonicActionClass = extern struct {
 };
 
 test "gtk.MnemonicActionClass" {
-    std.testing.refAllDecls(MnemonicActionClass);
+    std.testing.refAllDecls(@This());
 }

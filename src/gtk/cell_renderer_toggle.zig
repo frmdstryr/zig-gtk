@@ -223,5 +223,5 @@ pub const CellRendererToggle = extern struct {
 };
 
 test "gtk.CellRendererToggle" {
-    std.testing.refAllDecls(CellRendererToggle);
+    std.testing.refAllDecls(@This());
 }

@@ -153,5 +153,5 @@ pub const KeyFile = extern struct {
 };
 
 test "glib.KeyFile" {
-    std.testing.refAllDecls(KeyFile);
+    std.testing.refAllDecls(@This());
 }

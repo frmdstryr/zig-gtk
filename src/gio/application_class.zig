@@ -34,5 +34,6 @@ pub const ApplicationClass = extern struct {
 };
 
 test "gio.ApplicationClass" {
-    std.testing.refAllDecls(ApplicationClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 312), @sizeOf(ApplicationClass));
 }

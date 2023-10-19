@@ -24,5 +24,5 @@ pub const Buildable = extern struct {
 };
 
 test "gtk.Buildable" {
-    std.testing.refAllDecls(Buildable);
+    std.testing.refAllDecls(@This());
 }

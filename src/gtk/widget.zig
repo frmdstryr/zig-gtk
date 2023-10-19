@@ -617,5 +617,5 @@ pub const Widget = extern struct {
 };
 
 test "gtk.Widget" {
-    std.testing.refAllDecls(Widget);
+    std.testing.refAllDecls(@This());
 }

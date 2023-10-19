@@ -44,5 +44,6 @@ pub const MountIface = extern struct {
 };
 
 test "gio.MountIface" {
-    std.testing.refAllDecls(MountIface);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 232), @sizeOf(MountIface));
 }

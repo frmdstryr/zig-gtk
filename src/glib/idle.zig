@@ -19,7 +19,7 @@ pub const Idle = extern struct {
     poll_fds: ?*anyopaque,
     prev: *glib.Source,
     next: *glib.Source,
-    name: [*c]const u8,
+    name: *[*c]const u8,
     priv: *glib.SourcePrivate,
 
     // Constructors
@@ -123,5 +123,6 @@ pub const Idle = extern struct {
 };
 
 test "glib.Idle" {
-    std.testing.refAllDecls(Idle);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 96), @sizeOf(Idle));
 }

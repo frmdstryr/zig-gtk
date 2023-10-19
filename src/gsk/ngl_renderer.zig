@@ -142,5 +142,5 @@ pub const NglRenderer = extern struct {
 };
 
 test "gsk.NglRenderer" {
-    std.testing.refAllDecls(NglRenderer);
+    std.testing.refAllDecls(@This());
 }

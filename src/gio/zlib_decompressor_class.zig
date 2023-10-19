@@ -17,5 +17,6 @@ pub const ZlibDecompressorClass = extern struct {
 };
 
 test "gio.ZlibDecompressorClass" {
-    std.testing.refAllDecls(ZlibDecompressorClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(ZlibDecompressorClass));
 }

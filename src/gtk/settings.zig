@@ -121,5 +121,5 @@ pub const Settings = extern struct {
 };
 
 test "gtk.Settings" {
-    std.testing.refAllDecls(Settings);
+    std.testing.refAllDecls(@This());
 }

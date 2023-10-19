@@ -51,5 +51,5 @@ pub const ColorNode = extern struct {
 };
 
 test "gsk.ColorNode" {
-    std.testing.refAllDecls(ColorNode);
+    std.testing.refAllDecls(@This());
 }

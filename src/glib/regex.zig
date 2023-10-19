@@ -72,5 +72,5 @@ pub const Regex = extern struct {
 };
 
 test "glib.Regex" {
-    std.testing.refAllDecls(Regex);
+    std.testing.refAllDecls(@This());
 }

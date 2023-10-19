@@ -17,5 +17,6 @@ pub const SelectionFilterModelClass = extern struct {
 };
 
 test "gtk.SelectionFilterModelClass" {
-    std.testing.refAllDecls(SelectionFilterModelClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 136), @sizeOf(SelectionFilterModelClass));
 }

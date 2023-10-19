@@ -21,5 +21,6 @@ pub const PixbufLoaderClass = extern struct {
 };
 
 test "gdkpixbuf.PixbufLoaderClass" {
-    std.testing.refAllDecls(PixbufLoaderClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 168), @sizeOf(PixbufLoaderClass));
 }

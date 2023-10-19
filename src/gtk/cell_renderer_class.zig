@@ -30,5 +30,6 @@ pub const CellRendererClass = extern struct {
 };
 
 test "gtk.CellRendererClass" {
-    std.testing.refAllDecls(CellRendererClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 288), @sizeOf(CellRendererClass));
 }

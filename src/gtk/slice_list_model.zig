@@ -140,5 +140,5 @@ pub const SliceListModel = extern struct {
 };
 
 test "gtk.SliceListModel" {
-    std.testing.refAllDecls(SliceListModel);
+    std.testing.refAllDecls(@This());
 }

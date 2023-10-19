@@ -15,5 +15,5 @@ pub const TreeStorePrivate = extern struct {
 };
 
 test "gtk.TreeStorePrivate" {
-    std.testing.refAllDecls(TreeStorePrivate);
+    std.testing.refAllDecls(@This());
 }

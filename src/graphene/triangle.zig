@@ -66,5 +66,6 @@ pub const Triangle = extern struct {
 };
 
 test "graphene.Triangle" {
-    std.testing.refAllDecls(Triangle);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 48), @sizeOf(Triangle));
 }

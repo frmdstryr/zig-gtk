@@ -16,5 +16,6 @@ pub const ConstraintLayoutClass = extern struct {
 };
 
 test "gtk.ConstraintLayoutClass" {
-    std.testing.refAllDecls(ConstraintLayoutClass);
+    std.testing.refAllDecls(@This());
+    try std.testing.expectEqual(@as(usize, 320), @sizeOf(ConstraintLayoutClass));
 }
