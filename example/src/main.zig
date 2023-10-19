@@ -47,7 +47,7 @@ pub fn main() !u8 {
     var args = try std.process.argsAlloc(allocator);
     defer std.process.argsFree(allocator, args);
     var app = gtk.Application.new("zig.gtk.example", gio.ApplicationFlags.FlagsNone).?;
-    defer app.asObject().unref();
+    defer app.unref();
 
     _ = app.connectSignal("activate", &activate, null);
     return @intCast(app.run(@intCast(args.len), @ptrCast(args[0..])));
