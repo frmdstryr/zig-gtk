@@ -20,6 +20,11 @@ pub const IconIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_icon_iface_get_type();
+    }
 };
 
 test "gio.IconIface" {

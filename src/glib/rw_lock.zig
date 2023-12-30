@@ -38,6 +38,11 @@ pub const RWLock = extern struct {
     extern fn g_rw_lock_writer_unlock(self: *Self) void;
     pub const writerUnlock = g_rw_lock_writer_unlock;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_rw_lock_get_type();
+    }
 };
 
 test "glib.RWLock" {

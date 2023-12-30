@@ -18,6 +18,11 @@ pub const IOSchedulerJob = extern struct {
     extern fn g_io_scheduler_job_send_to_mainloop_async(self: *Self, func: *const fn (user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify: ?*const fn (data: ?*anyopaque) callconv(.C) void) void;
     pub const sendToMainloopAsync = g_io_scheduler_job_send_to_mainloop_async;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_io_scheduler_job_get_type();
+    }
 };
 
 test "gio.IOSchedulerJob" {

@@ -15,6 +15,11 @@ pub const LogField = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_log_field_get_type();
+    }
 };
 
 test "glib.LogField" {

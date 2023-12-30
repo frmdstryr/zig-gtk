@@ -34,6 +34,11 @@ pub const TreeRowReference = extern struct {
     extern fn gtk_tree_row_reference_valid(self: *Self) bool;
     pub const valid = gtk_tree_row_reference_valid;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_tree_row_reference_get_type();
+    }
 };
 
 test "gtk.TreeRowReference" {

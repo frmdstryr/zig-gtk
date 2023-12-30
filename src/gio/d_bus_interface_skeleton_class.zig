@@ -22,6 +22,11 @@ pub const DBusInterfaceSkeletonClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_d_bus_interface_skeleton_class_get_type();
+    }
 };
 
 test "gio.DBusInterfaceSkeletonClass" {

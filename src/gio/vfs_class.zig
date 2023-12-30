@@ -31,6 +31,11 @@ pub const VfsClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_vfs_class_get_type();
+    }
 };
 
 test "gio.VfsClass" {

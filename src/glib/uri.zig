@@ -54,6 +54,11 @@ pub const Uri = extern struct {
     extern fn g_uri_to_string_partial(self: *Self, flags: glib.UriHideFlags) [*c]const u8;
     pub const toStringPartial = g_uri_to_string_partial;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_uri_get_type();
+    }
 };
 
 test "glib.Uri" {

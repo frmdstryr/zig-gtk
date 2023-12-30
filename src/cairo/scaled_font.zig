@@ -12,6 +12,11 @@ pub const ScaledFont = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.cairo_scaled_font_get_type();
+    }
 };
 
 test "cairo.ScaledFont" {

@@ -36,6 +36,11 @@ pub const Sequence = extern struct {
     extern fn g_sequence_prepend(self: *Self, data: ?*anyopaque) ?*glib.SequenceIter;
     pub const prepend = g_sequence_prepend;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_sequence_get_type();
+    }
 };
 
 test "glib.Sequence" {

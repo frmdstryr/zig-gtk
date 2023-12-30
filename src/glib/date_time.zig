@@ -162,6 +162,11 @@ pub const DateTime = extern struct {
     extern fn g_date_time_unref(self: *Self) void;
     pub const unref = g_date_time_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_date_time_get_type();
+    }
 };
 
 test "glib.DateTime" {

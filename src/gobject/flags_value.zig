@@ -15,6 +15,11 @@ pub const FlagsValue = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_flags_value_get_type();
+    }
 };
 
 test "gobject.FlagsValue" {

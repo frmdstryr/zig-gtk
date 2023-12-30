@@ -36,6 +36,11 @@ pub const MappedFile = extern struct {
     extern fn g_mapped_file_unref(self: *Self) void;
     pub const unref = g_mapped_file_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_mapped_file_get_type();
+    }
 };
 
 test "glib.MappedFile" {

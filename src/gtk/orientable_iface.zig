@@ -14,6 +14,11 @@ pub const OrientableIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_orientable_iface_get_type();
+    }
 };
 
 test "gtk.OrientableIface" {

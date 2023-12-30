@@ -15,6 +15,11 @@ pub const InterfaceInfo = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_interface_info_get_type();
+    }
 };
 
 test "gobject.InterfaceInfo" {

@@ -12,6 +12,11 @@ pub const ContextClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_context_class_get_type();
+    }
 };
 
 test "pango.ContextClass" {

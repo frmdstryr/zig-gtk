@@ -12,6 +12,11 @@ pub const StatBuf = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_stat_buf_get_type();
+    }
 };
 
 test "glib.StatBuf" {

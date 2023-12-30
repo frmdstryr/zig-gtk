@@ -14,6 +14,11 @@ pub const TreeListModelClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_tree_list_model_class_get_type();
+    }
 };
 
 test "gtk.TreeListModelClass" {

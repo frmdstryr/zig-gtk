@@ -17,6 +17,11 @@ pub const ApplicationClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_application_class_get_type();
+    }
 };
 
 test "gtk.ApplicationClass" {

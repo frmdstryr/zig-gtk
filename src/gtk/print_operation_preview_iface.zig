@@ -27,6 +27,11 @@ pub const PrintOperationPreviewIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_print_operation_preview_iface_get_type();
+    }
 };
 
 test "gtk.PrintOperationPreviewIface" {

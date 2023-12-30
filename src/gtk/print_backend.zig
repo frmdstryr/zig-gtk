@@ -12,6 +12,11 @@ pub const PrintBackend = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_print_backend_get_type();
+    }
 };
 
 test "gtk.PrintBackend" {

@@ -12,6 +12,11 @@ pub const SocketControlMessagePrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_socket_control_message_private_get_type();
+    }
 };
 
 test "gio.SocketControlMessagePrivate" {

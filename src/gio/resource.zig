@@ -40,6 +40,11 @@ pub const Resource = extern struct {
     extern fn g_resource_unref(self: *Self) void;
     pub const unref = g_resource_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_resource_get_type();
+    }
 };
 
 test "gio.Resource" {

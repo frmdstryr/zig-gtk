@@ -12,6 +12,11 @@ pub const DataOutputStreamPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_data_output_stream_private_get_type();
+    }
 };
 
 test "gio.DataOutputStreamPrivate" {

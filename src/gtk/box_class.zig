@@ -14,6 +14,11 @@ pub const BoxClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_box_class_get_type();
+    }
 };
 
 test "gtk.BoxClass" {

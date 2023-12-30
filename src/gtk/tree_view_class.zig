@@ -29,6 +29,11 @@ pub const TreeViewClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_tree_view_class_get_type();
+    }
 };
 
 test "gtk.TreeViewClass" {

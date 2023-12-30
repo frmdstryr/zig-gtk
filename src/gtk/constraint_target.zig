@@ -18,6 +18,11 @@ pub const ConstraintTarget = extern struct {
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_constraint_target_get_type();
+    }
 };
 
 test "gtk.ConstraintTarget" {

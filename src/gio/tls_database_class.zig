@@ -29,6 +29,11 @@ pub const TlsDatabaseClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_tls_database_class_get_type();
+    }
 };
 
 test "gio.TlsDatabaseClass" {

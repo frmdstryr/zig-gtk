@@ -24,6 +24,11 @@ pub const TreeDragDest = extern struct {
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_tree_drag_dest_get_type();
+    }
 };
 
 test "gtk.TreeDragDest" {

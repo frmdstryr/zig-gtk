@@ -12,6 +12,11 @@ pub const TlsPasswordPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_tls_password_private_get_type();
+    }
 };
 
 test "gio.TlsPasswordPrivate" {

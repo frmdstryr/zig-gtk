@@ -41,6 +41,11 @@ pub const MountIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_mount_iface_get_type();
+    }
 };
 
 test "gio.MountIface" {

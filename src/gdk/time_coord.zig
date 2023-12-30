@@ -15,6 +15,11 @@ pub const TimeCoord = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_time_coord_get_type();
+    }
 };
 
 test "gdk.TimeCoord" {

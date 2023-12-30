@@ -21,6 +21,11 @@ pub const TlsInteractionClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_tls_interaction_class_get_type();
+    }
 };
 
 test "gio.TlsInteractionClass" {

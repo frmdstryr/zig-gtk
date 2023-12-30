@@ -18,6 +18,11 @@ pub const OutputMessage = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_output_message_get_type();
+    }
 };
 
 test "gio.OutputMessage" {

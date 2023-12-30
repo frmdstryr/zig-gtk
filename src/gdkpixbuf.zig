@@ -1,5 +1,6 @@
 // This file is auto generated do not edit
 const std = @import("std");
+pub const c = @import("gdkpixbuf/c.zig");
 pub usingnamespace @import("gdkpixbuf/enums.zig");
 pub usingnamespace @import("gdkpixbuf/flags.zig");
 pub usingnamespace @import("gdkpixbuf/constants.zig");

@@ -23,6 +23,11 @@ pub const SelectionModelInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_selection_model_interface_get_type();
+    }
 };
 
 test "gtk.SelectionModelInterface" {

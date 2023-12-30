@@ -1,5 +1,6 @@
 // This file is auto generated do not edit
 const std = @import("std");
+pub const c = @import("gsk/c.zig");
 pub usingnamespace @import("gsk/enums.zig");
 
 pub const BlendNode = @import("gsk/blend_node.zig").BlendNode;

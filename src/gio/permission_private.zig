@@ -12,6 +12,11 @@ pub const PermissionPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_permission_private_get_type();
+    }
 };
 
 test "gio.PermissionPrivate" {

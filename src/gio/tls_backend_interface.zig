@@ -23,6 +23,11 @@ pub const TlsBackendInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_tls_backend_interface_get_type();
+    }
 };
 
 test "gio.TlsBackendInterface" {

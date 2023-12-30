@@ -16,6 +16,11 @@ pub const DebugControllerDBusClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_debug_controller_d_bus_class_get_type();
+    }
 };
 
 test "gio.DebugControllerDBusClass" {

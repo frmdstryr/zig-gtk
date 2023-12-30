@@ -15,6 +15,11 @@ pub const DBusObjectManagerServerClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_d_bus_object_manager_server_class_get_type();
+    }
 };
 
 test "gio.DBusObjectManagerServerClass" {

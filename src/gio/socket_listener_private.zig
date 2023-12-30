@@ -12,6 +12,11 @@ pub const SocketListenerPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_socket_listener_private_get_type();
+    }
 };
 
 test "gio.SocketListenerPrivate" {

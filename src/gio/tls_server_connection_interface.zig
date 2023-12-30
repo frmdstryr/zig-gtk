@@ -14,6 +14,11 @@ pub const TlsServerConnectionInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_tls_server_connection_interface_get_type();
+    }
 };
 
 test "gio.TlsServerConnectionInterface" {

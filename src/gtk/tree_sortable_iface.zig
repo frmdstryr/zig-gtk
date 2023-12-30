@@ -20,6 +20,11 @@ pub const TreeSortableIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_tree_sortable_iface_get_type();
+    }
 };
 
 test "gtk.TreeSortableIface" {

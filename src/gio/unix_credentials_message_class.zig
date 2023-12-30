@@ -15,6 +15,11 @@ pub const UnixCredentialsMessageClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_unix_credentials_message_class_get_type();
+    }
 };
 
 test "gio.UnixCredentialsMessageClass" {

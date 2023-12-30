@@ -12,6 +12,11 @@ pub const NativeInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_native_interface_get_type();
+    }
 };
 
 test "gtk.NativeInterface" {

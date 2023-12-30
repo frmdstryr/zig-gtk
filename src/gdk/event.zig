@@ -72,6 +72,11 @@ pub const Event = extern struct {
     extern fn gdk_event_unref(self: *Self) void;
     pub const unref = gdk_event_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_event_get_type();
+    }
 };
 
 test "gdk.Event" {

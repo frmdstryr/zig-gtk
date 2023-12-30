@@ -81,6 +81,11 @@ pub const Scanner = extern struct {
     extern fn g_scanner_unexp_token(self: *Self, expected_token: glib.TokenType, identifier_spec: [*c]const u8, symbol_spec: [*c]const u8, symbol_name: [*c]const u8, message: [*c]const u8, is_error: i32) void;
     pub const unexpToken = g_scanner_unexp_token;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_scanner_get_type();
+    }
 };
 
 test "glib.Scanner" {

@@ -51,6 +51,11 @@ pub const TimeZone = extern struct {
     extern fn g_time_zone_unref(self: *Self) void;
     pub const unref = g_time_zone_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_time_zone_get_type();
+    }
 };
 
 test "glib.TimeZone" {

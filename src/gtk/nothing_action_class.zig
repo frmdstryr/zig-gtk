@@ -12,6 +12,11 @@ pub const NothingActionClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_nothing_action_class_get_type();
+    }
 };
 
 test "gtk.NothingActionClass" {

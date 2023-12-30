@@ -13,6 +13,11 @@ pub const DropDownClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_drop_down_class_get_type();
+    }
 };
 
 test "gtk.DropDownClass" {

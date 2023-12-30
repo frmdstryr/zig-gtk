@@ -12,6 +12,11 @@ pub const GLTextureClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_gl_texture_class_get_type();
+    }
 };
 
 test "gdk.GLTextureClass" {

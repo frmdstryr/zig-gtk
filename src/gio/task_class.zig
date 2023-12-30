@@ -12,6 +12,11 @@ pub const TaskClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_task_class_get_type();
+    }
 };
 
 test "gio.TaskClass" {

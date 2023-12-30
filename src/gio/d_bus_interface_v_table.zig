@@ -17,6 +17,11 @@ pub const DBusInterfaceVTable = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_d_bus_interface_v_table_get_type();
+    }
 };
 
 test "gio.DBusInterfaceVTable" {

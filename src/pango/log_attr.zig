@@ -28,6 +28,11 @@ pub const LogAttr = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_log_attr_get_type();
+    }
 };
 
 test "pango.LogAttr" {

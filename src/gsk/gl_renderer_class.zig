@@ -12,6 +12,11 @@ pub const GLRendererClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gsk_gl_renderer_class_get_type();
+    }
 };
 
 test "gsk.GLRendererClass" {

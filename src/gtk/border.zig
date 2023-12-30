@@ -25,6 +25,11 @@ pub const Border = extern struct {
     extern fn gtk_border_free(self: *Self) void;
     pub const free = gtk_border_free;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_border_get_type();
+    }
 };
 
 test "gtk.Border" {

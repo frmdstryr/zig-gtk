@@ -1,5 +1,6 @@
 // This file is auto generated do not edit
 const std = @import("std");
+pub const c = @import("gobject/c.zig");
 pub usingnamespace @import("gobject/enums.zig");
 pub usingnamespace @import("gobject/flags.zig");
 pub usingnamespace @import("gobject/constants.zig");
@@ -85,6 +86,129 @@ pub const Value = @import("gobject/value.zig").Value;
 pub const ValueArray = @import("gobject/value_array.zig").ValueArray;
 pub const Warning = @import("gobject/warning.zig").Warning;
 pub const WeakRef = @import("gobject/weak_ref.zig").WeakRef;
+
+
+pub fn registerType(comptime T: type, comptime type_name: [:0]const u8) type {
+    const CustomTypeClass = struct {
+        parent_class: ObjectClass,
+    };
+
+    return struct {
+        const Self = @This();
+        pub var _gtype_allocator: ?std.mem.Allocator = null;
+        pub var _gtype_info: TypeInfo = undefined;
+        pub var _gtype: usize = 0;
+        parent: Object,
+        data: T,
+
+        fn _g_type_base_init(g_class: *TypeClass) callconv(.C) void {
+            _ = g_class;
+        }
+
+        fn _g_type_base_finalize(g_class: *TypeClass) callconv(.C) void {
+            _ = g_class;
+        }
+
+        fn _g_type_class_init(g_class: *TypeClass, class_data: ?*anyopaque) callconv(.C) void {
+            const obj_class: *CustomTypeClass = @ptrCast(g_class);
+            _ = obj_class;
+            _ = class_data;
+        }
+
+        fn _g_type_class_finalize(g_class: *TypeClass, class_data: ?*anyopaque) callconv(.C) void {
+            _ = g_class;
+            _ = class_data;
+        }
+
+        fn _g_type_instance_init(instance: *TypeInstance, g_class: *TypeClass) callconv(.C) void {
+            const self: *Self = @ptrCast(instance);
+            self.data = undefined;
+            _ = g_class;
+        }
+
+        fn _g_type_value_init(instance: *Value) callconv(.C) void {
+            _ = instance;
+        }
+
+        fn _g_type_value_free(instance: *Value) callconv(.C) void {
+            _ = instance;
+        }
+
+        fn _g_type_value_copy(src_value: *Value, dest_value: *Value) callconv(.C) void {
+            _ = src_value;
+            _ = dest_value;
+        }
+
+        fn _g_type_value_peek_pointer(value: *Value) callconv(.C) ?*anyopaque {
+            _ = value;
+            return null;
+        }
+
+        fn _g_type_collect_value(value: *Value, n_collect_values: u32, collect_values: *TypeCValue, collect_flags: u32) callconv(.C) [*c]const u8 {
+            _ = value;
+            _ = n_collect_values;
+            _ = collect_values;
+            _ = collect_flags;
+            return null;
+        }
+
+        fn _g_type_lcopy_value(value: *Value, n_collect_values: u32, collect_values: *TypeCValue, collect_flags: u32) callconv(.C) [*c]const u8 {
+            _ = value;
+            _ = n_collect_values;
+            var object_p = collect_values[0].v_pointer;
+            if (object_p == null) {
+                return _gtype_allocator.?.dupeZ(u8, "object location passed s null") catch {
+                    std.log.warn("Copy invalid");
+                    return null;
+                };
+            }
+            _ = collect_flags;
+            return null;
+        }
+
+        pub inline fn new() ?*Self {
+            return @ptrCast(c.g_type_create_instance(gType()));
+        }
+
+        pub inline fn deinit(self: *Self) void {
+            c.g_type_free_instance(self);
+        }
+
+        pub inline fn asObject(self: *Self) *Object {
+            return @ptrCast(self);
+        }
+
+        pub fn gType() usize {
+            if (_gtype == 0) {
+                _gtype_info = .{
+                    .class_size = @sizeOf(CustomTypeClass),
+                    .base_init = null,
+                    .base_finalize = null,
+                    .class_init = &_g_type_class_init,
+                    .class_finalize = null,
+                    .class_data = null,
+                    .instance_size = @sizeOf(Self),
+                    .n_preallocs = 0,
+                    .instance_init = &_g_type_instance_init,
+                    .value_table = null,
+//                     .value_table = .{
+//                         .value_init = &_g_type_value_init,
+//                         .value_free = &_g_type_value_free,
+//                         .value_copy = &_g_type_value_copy,
+//                         .value_peek_ptr = &_g_type_value_peek_pointer,
+//                         .collect_format = "p",
+//                         .collect_value = &_g_type_collect_value,
+//                         .lcopy_format = "p",
+//                         .lcopy_value = &_g_type_lcopy_value,
+//                     },
+                };
+                _gtype = c.g_type_register_static(Object.gType(), type_name, @ptrCast(&_gtype_info), 0);
+            }
+            return _gtype;
+        }
+    };
+}
+
 
 test "gobject" {
     std.testing.refAllDecls(@This());

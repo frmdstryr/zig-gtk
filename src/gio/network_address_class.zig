@@ -14,6 +14,11 @@ pub const NetworkAddressClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_network_address_class_get_type();
+    }
 };
 
 test "gio.NetworkAddressClass" {

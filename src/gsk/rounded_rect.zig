@@ -45,6 +45,11 @@ pub const RoundedRect = extern struct {
     extern fn gsk_rounded_rect_shrink(self: *Self, top: f32, right: f32, bottom: f32, left: f32) ?*gsk.RoundedRect;
     pub const shrink = gsk_rounded_rect_shrink;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gsk_rounded_rect_get_type();
+    }
 };
 
 test "gsk.RoundedRect" {

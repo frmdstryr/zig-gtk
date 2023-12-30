@@ -56,6 +56,11 @@ pub const Plane = extern struct {
     extern fn graphene_plane_transform(self: *Self, matrix: *graphene.Matrix, normal_matrix: ?*graphene.Matrix, res: *graphene.Plane) void;
     pub const transform = graphene_plane_transform;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.graphene_plane_get_type();
+    }
 };
 
 test "graphene.Plane" {

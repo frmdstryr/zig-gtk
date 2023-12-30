@@ -19,6 +19,11 @@ pub const RecentData = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_recent_data_get_type();
+    }
 };
 
 test "gtk.RecentData" {

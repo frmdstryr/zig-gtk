@@ -29,6 +29,11 @@ pub const ActionGroupInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_action_group_interface_get_type();
+    }
 };
 
 test "gio.ActionGroupInterface" {

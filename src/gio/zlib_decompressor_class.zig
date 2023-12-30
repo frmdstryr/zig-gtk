@@ -14,6 +14,11 @@ pub const ZlibDecompressorClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_zlib_decompressor_class_get_type();
+    }
 };
 
 test "gio.ZlibDecompressorClass" {

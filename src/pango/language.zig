@@ -27,6 +27,11 @@ pub const Language = extern struct {
     extern fn pango_language_to_string(self: *Self) [*c]const u8;
     pub const toString = pango_language_to_string;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_language_get_type();
+    }
 };
 
 test "pango.Language" {

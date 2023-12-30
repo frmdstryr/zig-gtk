@@ -12,6 +12,11 @@ pub const ConverterInputStreamPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_converter_input_stream_private_get_type();
+    }
 };
 
 test "gio.ConverterInputStreamPrivate" {

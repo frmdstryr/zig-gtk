@@ -86,6 +86,11 @@ pub const Box = extern struct {
     extern fn graphene_box_union(self: *Self, b: *graphene.Box, res: *graphene.Box) void;
     pub const union_ = graphene_box_union;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.graphene_box_get_type();
+    }
 };
 
 test "graphene.Box" {

@@ -18,6 +18,11 @@ pub const ConverterOutputStreamClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_converter_output_stream_class_get_type();
+    }
 };
 
 test "gio.ConverterOutputStreamClass" {

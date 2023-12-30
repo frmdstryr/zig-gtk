@@ -16,6 +16,11 @@ pub const ShortcutManagerInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_shortcut_manager_interface_get_type();
+    }
 };
 
 test "gtk.ShortcutManagerInterface" {

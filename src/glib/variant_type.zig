@@ -90,6 +90,11 @@ pub const VariantType = extern struct {
     extern fn g_variant_type_value(self: *Self) ?*glib.VariantType;
     pub const value = g_variant_type_value;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_variant_type_get_type();
+    }
 };
 
 test "glib.VariantType" {

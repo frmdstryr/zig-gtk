@@ -53,6 +53,11 @@ pub const Sphere = extern struct {
     extern fn graphene_sphere_translate(self: *Self, point: *graphene.Point3D, res: *graphene.Sphere) void;
     pub const translate = graphene_sphere_translate;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.graphene_sphere_get_type();
+    }
 };
 
 test "graphene.Sphere" {

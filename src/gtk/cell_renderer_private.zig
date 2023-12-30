@@ -12,6 +12,11 @@ pub const CellRendererPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_cell_renderer_private_get_type();
+    }
 };
 
 test "gtk.CellRendererPrivate" {

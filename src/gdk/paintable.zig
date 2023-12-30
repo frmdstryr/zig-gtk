@@ -45,6 +45,11 @@ pub const Paintable = extern struct {
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_paintable_get_type();
+    }
 };
 
 test "gdk.Paintable" {

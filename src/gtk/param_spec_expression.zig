@@ -60,6 +60,11 @@ pub const ParamSpecExpression = extern struct {
     pub inline fn asParamSpec(self: *Self) *gobject.ParamSpec {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_param_spec_expression_get_type();
+    }
 };
 
 test "gtk.ParamSpecExpression" {

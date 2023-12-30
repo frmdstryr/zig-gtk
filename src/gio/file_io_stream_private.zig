@@ -12,6 +12,11 @@ pub const FileIOStreamPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_file_io_stream_private_get_type();
+    }
 };
 
 test "gio.FileIOStreamPrivate" {

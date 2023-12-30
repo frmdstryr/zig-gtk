@@ -12,6 +12,11 @@ pub const HashTable = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_hash_table_get_type();
+    }
 };
 
 test "glib.HashTable" {

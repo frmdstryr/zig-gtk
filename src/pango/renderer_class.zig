@@ -28,6 +28,11 @@ pub const RendererClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_renderer_class_get_type();
+    }
 };
 
 test "pango.RendererClass" {

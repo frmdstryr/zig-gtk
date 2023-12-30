@@ -55,6 +55,11 @@ pub const FontMetrics = extern struct {
     extern fn pango_font_metrics_unref(self: *Self) void;
     pub const unref = pango_font_metrics_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_font_metrics_get_type();
+    }
 };
 
 test "pango.FontMetrics" {

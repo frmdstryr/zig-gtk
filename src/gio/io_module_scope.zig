@@ -18,6 +18,11 @@ pub const IOModuleScope = extern struct {
     extern fn g_io_module_scope_free(self: *Self) void;
     pub const free = g_io_module_scope_free;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_io_module_scope_get_type();
+    }
 };
 
 test "gio.IOModuleScope" {

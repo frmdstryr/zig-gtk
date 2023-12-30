@@ -301,6 +301,11 @@ pub const TextIter = extern struct {
     extern fn gtk_text_iter_toggles_tag(self: *Self, tag: ?*gtk.TextTag) bool;
     pub const togglesTag = gtk_text_iter_toggles_tag;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_text_iter_get_type();
+    }
 };
 
 test "gtk.TextIter" {

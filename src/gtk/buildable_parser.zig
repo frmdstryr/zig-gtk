@@ -18,6 +18,11 @@ pub const BuildableParser = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_buildable_parser_get_type();
+    }
 };
 
 test "gtk.BuildableParser" {

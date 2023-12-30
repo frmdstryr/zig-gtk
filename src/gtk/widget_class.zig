@@ -96,6 +96,11 @@ pub const WidgetClass = extern struct {
     extern fn gtk_widget_class_set_template_scope(self: *Self, scope: *gtk.BuilderScope) void;
     pub const setTemplateScope = gtk_widget_class_set_template_scope;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_widget_class_get_type();
+    }
 };
 
 test "gtk.WidgetClass" {

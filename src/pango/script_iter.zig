@@ -24,6 +24,11 @@ pub const ScriptIter = extern struct {
     extern fn pango_script_iter_next(self: *Self) bool;
     pub const next = pango_script_iter_next;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_script_iter_get_type();
+    }
 };
 
 test "pango.ScriptIter" {

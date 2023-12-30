@@ -21,6 +21,11 @@ pub const TestSuite = extern struct {
     extern fn g_test_suite_free(self: *Self) void;
     pub const free = g_test_suite_free;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_test_suite_get_type();
+    }
 };
 
 test "glib.TestSuite" {

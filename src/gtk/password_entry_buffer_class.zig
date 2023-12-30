@@ -13,6 +13,11 @@ pub const PasswordEntryBufferClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_password_entry_buffer_class_get_type();
+    }
 };
 
 test "gtk.PasswordEntryBufferClass" {

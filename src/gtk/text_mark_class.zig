@@ -15,6 +15,11 @@ pub const TextMarkClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_text_mark_class_get_type();
+    }
 };
 
 test "gtk.TextMarkClass" {

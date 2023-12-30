@@ -12,6 +12,11 @@ pub const GestureLongPressClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_gesture_long_press_class_get_type();
+    }
 };
 
 test "gtk.GestureLongPressClass" {

@@ -15,6 +15,11 @@ pub const KeymapKey = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_keymap_key_get_type();
+    }
 };
 
 test "gdk.KeymapKey" {

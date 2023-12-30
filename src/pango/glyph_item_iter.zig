@@ -38,6 +38,11 @@ pub const GlyphItemIter = extern struct {
     extern fn pango_glyph_item_iter_prev_cluster(self: *Self) bool;
     pub const prevCluster = pango_glyph_item_iter_prev_cluster;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_glyph_item_iter_get_type();
+    }
 };
 
 test "pango.GlyphItemIter" {

@@ -12,6 +12,11 @@ pub const FrameClockPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_frame_clock_private_get_type();
+    }
 };
 
 test "gdk.FrameClockPrivate" {

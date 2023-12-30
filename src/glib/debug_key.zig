@@ -14,6 +14,11 @@ pub const DebugKey = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_debug_key_get_type();
+    }
 };
 
 test "glib.DebugKey" {

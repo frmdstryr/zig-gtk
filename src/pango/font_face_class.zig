@@ -21,6 +21,11 @@ pub const FontFaceClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_font_face_class_get_type();
+    }
 };
 
 test "pango.FontFaceClass" {

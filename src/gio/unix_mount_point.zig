@@ -54,6 +54,11 @@ pub const UnixMountPoint = extern struct {
     extern fn g_unix_mount_point_is_user_mountable(self: *Self) bool;
     pub const isUserMountable = g_unix_mount_point_is_user_mountable;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_unix_mount_point_get_type();
+    }
 };
 
 test "gio.UnixMountPoint" {

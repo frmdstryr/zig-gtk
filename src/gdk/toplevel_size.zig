@@ -24,6 +24,11 @@ pub const ToplevelSize = extern struct {
     extern fn gdk_toplevel_size_set_size(self: *Self, width: i32, height: i32) void;
     pub const setSize = gdk_toplevel_size_set_size;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_toplevel_size_get_type();
+    }
 };
 
 test "gdk.ToplevelSize" {

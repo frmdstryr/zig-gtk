@@ -12,6 +12,11 @@ pub const ShortcutsSectionClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_shortcuts_section_class_get_type();
+    }
 };
 
 test "gtk.ShortcutsSectionClass" {

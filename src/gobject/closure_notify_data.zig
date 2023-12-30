@@ -14,6 +14,11 @@ pub const ClosureNotifyData = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_closure_notify_data_get_type();
+    }
 };
 
 test "gobject.ClosureNotifyData" {

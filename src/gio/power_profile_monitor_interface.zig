@@ -14,6 +14,11 @@ pub const PowerProfileMonitorInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_power_profile_monitor_interface_get_type();
+    }
 };
 
 test "gio.PowerProfileMonitorInterface" {

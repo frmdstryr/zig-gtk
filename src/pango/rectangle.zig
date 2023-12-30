@@ -16,6 +16,11 @@ pub const Rectangle = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_rectangle_get_type();
+    }
 };
 
 test "pango.Rectangle" {

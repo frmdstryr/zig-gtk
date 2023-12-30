@@ -27,6 +27,11 @@ pub const StringChunk = extern struct {
     extern fn g_string_chunk_insert_len(self: *Self, string: [*c]const u8, len: i64) [*c]const u8;
     pub const insertLen = g_string_chunk_insert_len;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_string_chunk_get_type();
+    }
 };
 
 test "glib.StringChunk" {

@@ -12,6 +12,11 @@ pub const DBusObjectManagerServerPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_d_bus_object_manager_server_private_get_type();
+    }
 };
 
 test "gio.DBusObjectManagerServerPrivate" {

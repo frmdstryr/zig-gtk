@@ -14,6 +14,11 @@ pub const InputVector = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_input_vector_get_type();
+    }
 };
 
 test "gio.InputVector" {

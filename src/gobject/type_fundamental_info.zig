@@ -13,6 +13,11 @@ pub const TypeFundamentalInfo = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_type_fundamental_info_get_type();
+    }
 };
 
 test "gobject.TypeFundamentalInfo" {

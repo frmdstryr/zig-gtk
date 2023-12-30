@@ -1,5 +1,6 @@
 // This file is auto generated do not edit
 const std = @import("std");
+pub const c = @import("cairo/c.zig");
 pub usingnamespace @import("cairo/enums.zig");
 
 pub const Context = @import("cairo/context.zig").Context;

@@ -12,6 +12,11 @@ pub const ActivateActionClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_activate_action_class_get_type();
+    }
 };
 
 test "gtk.ActivateActionClass" {

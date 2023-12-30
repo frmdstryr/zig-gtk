@@ -46,6 +46,11 @@ pub const Closure = extern struct {
     extern fn g_closure_unref(self: *Self) void;
     pub const unref = g_closure_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_closure_get_type();
+    }
 };
 
 test "gobject.Closure" {

@@ -24,6 +24,11 @@ pub const CellLayoutIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_cell_layout_iface_get_type();
+    }
 };
 
 test "gtk.CellLayoutIface" {

@@ -72,6 +72,11 @@ pub const Tree = extern struct {
     extern fn g_tree_upper_bound(self: *Self, key: ?*anyopaque) ?*glib.TreeNode;
     pub const upperBound = g_tree_upper_bound;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_tree_get_type();
+    }
 };
 
 test "glib.Tree" {

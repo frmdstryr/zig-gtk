@@ -13,6 +13,11 @@ pub const UnixSocketAddressClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_unix_socket_address_class_get_type();
+    }
 };
 
 test "gio.UnixSocketAddressClass" {

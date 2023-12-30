@@ -21,6 +21,11 @@ pub const Dir = extern struct {
     extern fn g_dir_rewind(self: *Self) void;
     pub const rewind = g_dir_rewind;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_dir_get_type();
+    }
 };
 
 test "glib.Dir" {

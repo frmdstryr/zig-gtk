@@ -63,6 +63,11 @@ pub const Triangle = extern struct {
     extern fn graphene_triangle_init_from_vec3(self: *Self, a: ?*graphene.Vec3, b: ?*graphene.Vec3, c: ?*graphene.Vec3) ?*graphene.Triangle;
     pub const initFromVec3 = graphene_triangle_init_from_vec3;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.graphene_triangle_get_type();
+    }
 };
 
 test "graphene.Triangle" {

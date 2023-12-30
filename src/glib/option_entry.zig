@@ -19,6 +19,11 @@ pub const OptionEntry = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_option_entry_get_type();
+    }
 };
 
 test "glib.OptionEntry" {

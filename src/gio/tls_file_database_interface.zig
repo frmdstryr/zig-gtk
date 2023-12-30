@@ -15,6 +15,11 @@ pub const TlsFileDatabaseInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_tls_file_database_interface_get_type();
+    }
 };
 
 test "gio.TlsFileDatabaseInterface" {

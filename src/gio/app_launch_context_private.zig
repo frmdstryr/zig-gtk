@@ -12,6 +12,11 @@ pub const AppLaunchContextPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_app_launch_context_private_get_type();
+    }
 };
 
 test "gio.AppLaunchContextPrivate" {

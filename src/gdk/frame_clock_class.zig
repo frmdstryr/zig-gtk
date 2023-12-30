@@ -12,6 +12,11 @@ pub const FrameClockClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_frame_clock_class_get_type();
+    }
 };
 
 test "gdk.FrameClockClass" {

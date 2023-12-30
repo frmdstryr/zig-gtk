@@ -12,6 +12,11 @@ pub const MountOperationPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_mount_operation_private_get_type();
+    }
 };
 
 test "gio.MountOperationPrivate" {

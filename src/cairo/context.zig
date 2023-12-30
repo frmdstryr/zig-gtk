@@ -12,6 +12,11 @@ pub const Context = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.cairo_context_get_type();
+    }
 };
 
 test "cairo.Context" {

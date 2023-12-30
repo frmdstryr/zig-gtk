@@ -20,6 +20,11 @@ pub const CancellableClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_cancellable_class_get_type();
+    }
 };
 
 test "gio.CancellableClass" {

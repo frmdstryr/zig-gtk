@@ -14,6 +14,11 @@ pub const PtrArray = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_ptr_array_get_type();
+    }
 };
 
 test "glib.PtrArray" {

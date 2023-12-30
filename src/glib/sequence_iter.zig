@@ -36,6 +36,11 @@ pub const SequenceIter = extern struct {
     extern fn g_sequence_iter_prev(self: *Self) ?*glib.SequenceIter;
     pub const prev = g_sequence_iter_prev;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_sequence_iter_get_type();
+    }
 };
 
 test "glib.SequenceIter" {

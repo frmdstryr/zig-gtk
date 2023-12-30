@@ -15,6 +15,11 @@ pub const PollFD = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_poll_fd_get_type();
+    }
 };
 
 test "glib.PollFD" {

@@ -17,6 +17,11 @@ pub const ParseLocation = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gsk_parse_location_get_type();
+    }
 };
 
 test "gsk.ParseLocation" {

@@ -14,6 +14,11 @@ pub const ZlibCompressorClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_zlib_compressor_class_get_type();
+    }
 };
 
 test "gio.ZlibCompressorClass" {

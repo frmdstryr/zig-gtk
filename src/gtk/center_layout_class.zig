@@ -13,6 +13,11 @@ pub const CenterLayoutClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_center_layout_class_get_type();
+    }
 };
 
 test "gtk.CenterLayoutClass" {

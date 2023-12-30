@@ -12,6 +12,11 @@ pub const PixbufSimpleAnimClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdkpixbuf_pixbuf_simple_anim_class_get_type();
+    }
 };
 
 test "gdkpixbuf.PixbufSimpleAnimClass" {

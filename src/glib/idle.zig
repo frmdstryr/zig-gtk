@@ -120,6 +120,11 @@ pub const Idle = extern struct {
     pub inline fn asSource(self: *Self) *glib.Source {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_idle_get_type();
+    }
 };
 
 test "glib.Idle" {

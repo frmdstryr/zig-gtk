@@ -26,6 +26,11 @@ pub const StaticResource = extern struct {
     extern fn g_static_resource_init(self: *Self) void;
     pub const init = g_static_resource_init;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_static_resource_get_type();
+    }
 };
 
 test "gio.StaticResource" {

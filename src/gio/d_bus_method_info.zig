@@ -23,6 +23,11 @@ pub const DBusMethodInfo = extern struct {
     extern fn g_dbus_method_info_unref(self: *Self) void;
     pub const unref = g_dbus_method_info_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_d_bus_method_info_get_type();
+    }
 };
 
 test "gio.DBusMethodInfo" {

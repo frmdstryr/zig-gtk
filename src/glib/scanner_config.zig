@@ -39,6 +39,11 @@ pub const ScannerConfig = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_scanner_config_get_type();
+    }
 };
 
 test "glib.ScannerConfig" {

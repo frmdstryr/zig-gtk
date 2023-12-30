@@ -12,6 +12,11 @@ pub const ToplevelInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_toplevel_interface_get_type();
+    }
 };
 
 test "gdk.ToplevelInterface" {

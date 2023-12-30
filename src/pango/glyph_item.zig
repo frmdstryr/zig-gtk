@@ -36,6 +36,11 @@ pub const GlyphItem = extern struct {
     extern fn pango_glyph_item_split(self: *Self, text: [*c]const u8, split_index: i32) ?*pango.GlyphItem;
     pub const split = pango_glyph_item_split;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_glyph_item_get_type();
+    }
 };
 
 test "pango.GlyphItem" {

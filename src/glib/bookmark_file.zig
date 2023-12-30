@@ -150,6 +150,11 @@ pub const BookmarkFile = extern struct {
     extern fn g_bookmark_file_to_file(self: *Self, filename: [*c]const u8) bool;
     pub const toFile = g_bookmark_file_to_file;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_bookmark_file_get_type();
+    }
 };
 
 test "glib.BookmarkFile" {

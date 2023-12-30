@@ -25,6 +25,11 @@ pub const TypeClass = extern struct {
     extern fn g_type_class_unref(self: *Self) void;
     pub const unref = g_type_class_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_type_class_get_type();
+    }
 };
 
 test "gobject.TypeClass" {

@@ -12,6 +12,11 @@ pub const UnixMountMonitorClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_unix_mount_monitor_class_get_type();
+    }
 };
 
 test "gio.UnixMountMonitorClass" {

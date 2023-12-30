@@ -125,6 +125,15 @@ SIGNAL_METHODS = """
         return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
     }
 
+    pub inline fn connectSignalTyped(
+        self: *Self,
+        signal: [:0]const u8,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: T) callconv(.C) void,
+    ) u64 {
+        return c.g_signal_connect_data(self, signal, @ptrCast(callback), null, null, @as(c.GConnectFlags, 0));
+    }
+
     pub inline fn connectSignalSwapped(
         self: *Self,
         signal: [:0]const u8,
@@ -144,6 +153,8 @@ WIDGET_METHODS = """    // Utility methods
         self.setMarginEnd(margin.end);
     }
 """
+
+
 
 # List of methods to redefine
 METHOD_OVERRIDES: dict[type, dict[str, list[str]]] = {
@@ -165,13 +176,139 @@ EXTRA_METHODS: dict[type, list[str]] = {}
 # Lines added to the top of each api file
 EXTRA_API_IMPORTS: dict[str, list[str]] = {}
 
+
+REGISTER_TYPE = """
+pub fn registerType(comptime T: type, comptime type_name: [:0]const u8) type {
+    const CustomTypeClass = struct {
+        parent_class: ObjectClass,
+    };
+
+    return struct {
+        const Self = @This();
+        pub var _gtype_allocator: ?std.mem.Allocator = null;
+        pub var _gtype_info: TypeInfo = undefined;
+        pub var _gtype: usize = 0;
+        parent: Object,
+        data: T,
+
+        fn _g_type_base_init(g_class: *TypeClass) callconv(.C) void {
+            _ = g_class;
+        }
+
+        fn _g_type_base_finalize(g_class: *TypeClass) callconv(.C) void {
+            _ = g_class;
+        }
+
+        fn _g_type_class_init(g_class: *TypeClass, class_data: ?*anyopaque) callconv(.C) void {
+            const obj_class: *CustomTypeClass = @ptrCast(g_class);
+            _ = obj_class;
+            _ = class_data;
+        }
+
+        fn _g_type_class_finalize(g_class: *TypeClass, class_data: ?*anyopaque) callconv(.C) void {
+            _ = g_class;
+            _ = class_data;
+        }
+
+        fn _g_type_instance_init(instance: *TypeInstance, g_class: *TypeClass) callconv(.C) void {
+            const self: *Self = @ptrCast(instance);
+            self.data = T{};
+            _ = g_class;
+        }
+
+        fn _g_type_value_init(instance: *Value) callconv(.C) void {
+            _ = instance;
+        }
+
+        fn _g_type_value_free(instance: *Value) callconv(.C) void {
+            _ = instance;
+        }
+
+        fn _g_type_value_copy(src_value: *Value, dest_value: *Value) callconv(.C) void {
+            _ = src_value;
+            _ = dest_value;
+        }
+
+        fn _g_type_value_peek_pointer(value: *Value) callconv(.C) ?*anyopaque {
+            _ = value;
+            return null;
+        }
+
+        fn _g_type_collect_value(value: *Value, n_collect_values: u32, collect_values: *TypeCValue, collect_flags: u32) callconv(.C) [*c]const u8 {
+            _ = value;
+            _ = n_collect_values;
+            _ = collect_values;
+            _ = collect_flags;
+            return null;
+        }
+
+        fn _g_type_lcopy_value(value: *Value, n_collect_values: u32, collect_values: *TypeCValue, collect_flags: u32) callconv(.C) [*c]const u8 {
+            _ = value;
+            _ = n_collect_values;
+            var object_p = collect_values[0].v_pointer;
+            if (object_p == null) {
+                return _gtype_allocator.?.dupeZ(u8, "object location passed s null") catch {
+                    std.log.warn("Copy invalid");
+                    return null;
+                };
+            }
+            _ = collect_flags;
+            return null;
+        }
+
+        pub inline fn new() ?*Self {
+            return @ptrCast(c.g_type_create_instance(gType()));
+        }
+
+        pub inline fn deinit(self: *Self) void {
+            c.g_type_free_instance(self);
+        }
+
+        pub inline fn asObject(self: *Self) *Object {
+            return @ptrCast(self);
+        }
+
+        pub fn gType() usize {
+            if (_gtype == 0) {
+                _gtype_info = .{
+                    .class_size = @sizeOf(CustomTypeClass),
+                    .base_init = null,
+                    .base_finalize = null,
+                    .class_init = &_g_type_class_init,
+                    .class_finalize = null,
+                    .class_data = null,
+                    .instance_size = @sizeOf(Self),
+                    .n_preallocs = 0,
+                    .instance_init = &_g_type_instance_init,
+                    .value_table = null,
+//                     .value_table = .{
+//                         .value_init = &_g_type_value_init,
+//                         .value_free = &_g_type_value_free,
+//                         .value_copy = &_g_type_value_copy,
+//                         .value_peek_ptr = &_g_type_value_peek_pointer,
+//                         .collect_format = "p",
+//                         .collect_value = &_g_type_collect_value,
+//                         .lcopy_format = "p",
+//                         .lcopy_value = &_g_type_lcopy_value,
+//                     },
+                };
+                _gtype = c.g_type_register_static(Object.gType(), type_name, @ptrCast(&_gtype_info), 0);
+            }
+            return _gtype;
+        }
+    };
+}
+"""
+
 EXTRA_API_DEFS: dict[str, list[str]] = {
     "Gtk": [
         "",
         "extern fn gtk_init() void;",
         "pub const init = gtk_init;",
     ],
+    "GObject": REGISTER_TYPE.split("\n"),
 }
+
 
 
 def generate_enums(enums: list) -> list[str]:
@@ -472,6 +609,12 @@ def generate_class(ns: str, Cls: type):
                         field_type = field_type.replace(
                             "*harfbuzz.font_t", "*anyopaque"
                         )
+
+                    # Hack for typeinfo
+                    if Cls is GObject.TypeInfo:
+                        if field_type.startswith("*const") or field_name == "value_table":
+                            field_type = f"?{field_type}"
+
                     out.append("    %s: %s," % (field_name, field_type))
 
     if hasattr(Cls, "connect"):
@@ -592,7 +735,18 @@ def generate_class(ns: str, Cls: type):
             out.append("        return @ptrCast(self);")
             out.append("    }")
 
-    # Imporst needed
+    if gtype := info.get_g_type():
+        out.append("")
+        out.append("    // GType")
+        out.append("    pub inline fn gType() usize {")
+        if Cls is GObject.Object:
+            out.append('        return c.G_TYPE_OBJECT;')
+        else:
+            out.append('        return c.%s_%s_get_type();' % (ns.lower(), snake_case(Cls.__name__)))
+        out.append("    }")
+
+
+    # Imports needed
     for imp in sorted(list(imports)):
         mod = imp.lower()
         comment = "// " if mod in EXCLUDED_IMPORTS else ""
@@ -694,6 +848,7 @@ def main():
         data = modules[ns]
         api = HEADER_LINES + [
             'const std = @import("std");',
+            f'pub const c = @import("{k}/c.zig");',
         ]
         # Extra defines
         if extra := EXTRA_API_IMPORTS.get(ns):

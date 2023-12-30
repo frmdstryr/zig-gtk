@@ -49,6 +49,11 @@ pub const GlyphString = extern struct {
     extern fn pango_glyph_string_x_to_index(self: *Self, text: [*c]const u8, length: i32, analysis: *pango.Analysis, x_pos: i32, index_: i32, trailing: i32) void;
     pub const xToIndex = pango_glyph_string_x_to_index;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_glyph_string_get_type();
+    }
 };
 
 test "pango.GlyphString" {

@@ -81,6 +81,11 @@ pub const MainContext = extern struct {
     extern fn g_main_context_wakeup(self: *Self) void;
     pub const wakeup = g_main_context_wakeup;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_main_context_get_type();
+    }
 };
 
 test "glib.MainContext" {

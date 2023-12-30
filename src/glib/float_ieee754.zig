@@ -13,6 +13,11 @@ pub const FloatIEEE754 = extern union {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_float_ieee754_get_type();
+    }
 };
 
 test "glib.FloatIEEE754" {

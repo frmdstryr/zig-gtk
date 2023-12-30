@@ -1,5 +1,6 @@
 // This file is auto generated do not edit
 const std = @import("std");
+pub const c = @import("gdk/c.zig");
 pub usingnamespace @import("gdk/enums.zig");
 pub usingnamespace @import("gdk/flags.zig");
 pub usingnamespace @import("gdk/constants.zig");

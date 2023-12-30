@@ -12,6 +12,11 @@ pub const CssProviderPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_css_provider_private_get_type();
+    }
 };
 
 test "gtk.CssProviderPrivate" {

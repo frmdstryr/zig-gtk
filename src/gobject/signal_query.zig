@@ -19,6 +19,11 @@ pub const SignalQuery = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_signal_query_get_type();
+    }
 };
 
 test "gobject.SignalQuery" {

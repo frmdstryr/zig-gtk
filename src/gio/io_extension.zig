@@ -21,6 +21,11 @@ pub const IOExtension = extern struct {
     extern fn g_io_extension_get_type(self: *Self) usize;
     pub const getType = g_io_extension_get_type;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_io_extension_get_type();
+    }
 };
 
 test "gio.IOExtension" {

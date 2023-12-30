@@ -14,6 +14,11 @@ pub const OutputVector = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_output_vector_get_type();
+    }
 };
 
 test "gio.OutputVector" {

@@ -12,6 +12,11 @@ pub const EventSequence = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_event_sequence_get_type();
+    }
 };
 
 test "gdk.EventSequence" {

@@ -47,6 +47,11 @@ pub const ShaderArgsBuilder = extern struct {
     extern fn gsk_shader_args_builder_unref(self: *Self) void;
     pub const unref = gsk_shader_args_builder_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gsk_shader_args_builder_get_type();
+    }
 };
 
 test "gsk.ShaderArgsBuilder" {

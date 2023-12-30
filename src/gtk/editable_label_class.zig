@@ -13,6 +13,11 @@ pub const EditableLabelClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_editable_label_class_get_type();
+    }
 };
 
 test "gtk.EditableLabelClass" {

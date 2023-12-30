@@ -35,6 +35,11 @@ pub const AttrIterator = extern struct {
     extern fn pango_attr_iterator_range(self: *Self, start: i32, end: i32) void;
     pub const range = pango_attr_iterator_range;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_attr_iterator_get_type();
+    }
 };
 
 test "pango.AttrIterator" {

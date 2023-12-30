@@ -15,6 +15,11 @@ pub const SignalInvocationHint = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_signal_invocation_hint_get_type();
+    }
 };
 
 test "gobject.SignalInvocationHint" {

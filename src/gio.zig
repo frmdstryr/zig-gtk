@@ -1,5 +1,6 @@
 // This file is auto generated do not edit
 const std = @import("std");
+pub const c = @import("gio/c.zig");
 pub usingnamespace @import("gio/enums.zig");
 pub usingnamespace @import("gio/flags.zig");
 pub usingnamespace @import("gio/constants.zig");

@@ -12,6 +12,11 @@ pub const WidgetClassPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_widget_class_private_get_type();
+    }
 };
 
 test "gtk.WidgetClassPrivate" {

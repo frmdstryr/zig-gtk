@@ -33,6 +33,11 @@ pub const DBusNodeInfo = extern struct {
     extern fn g_dbus_node_info_unref(self: *Self) void;
     pub const unref = g_dbus_node_info_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_d_bus_node_info_get_type();
+    }
 };
 
 test "gio.DBusNodeInfo" {

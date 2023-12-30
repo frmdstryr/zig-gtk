@@ -12,6 +12,11 @@ pub const CallbackActionClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_callback_action_class_get_type();
+    }
 };
 
 test "gtk.CallbackActionClass" {

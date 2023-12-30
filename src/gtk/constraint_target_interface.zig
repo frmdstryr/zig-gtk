@@ -12,6 +12,11 @@ pub const ConstraintTargetInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_constraint_target_interface_get_type();
+    }
 };
 
 test "gtk.ConstraintTargetInterface" {

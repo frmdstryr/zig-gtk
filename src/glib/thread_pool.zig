@@ -36,6 +36,11 @@ pub const ThreadPool = extern struct {
     extern fn g_thread_pool_unprocessed(self: *Self) u32;
     pub const unprocessed = g_thread_pool_unprocessed;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_thread_pool_get_type();
+    }
 };
 
 test "glib.ThreadPool" {

@@ -12,6 +12,11 @@ pub const IOStreamAdapter = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_io_stream_adapter_get_type();
+    }
 };
 
 test "gio.IOStreamAdapter" {

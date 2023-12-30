@@ -12,6 +12,11 @@ pub const TreeModelSortPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_tree_model_sort_private_get_type();
+    }
 };
 
 test "gtk.TreeModelSortPrivate" {

@@ -24,6 +24,11 @@ pub const Private = extern struct {
     extern fn g_private_set(self: *Self, value: ?*anyopaque) void;
     pub const set = g_private_set;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_private_get_type();
+    }
 };
 
 test "glib.Private" {

@@ -48,6 +48,11 @@ pub const ToplevelLayout = extern struct {
     extern fn gdk_toplevel_layout_unref(self: *Self) void;
     pub const unref = gdk_toplevel_layout_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_toplevel_layout_get_type();
+    }
 };
 
 test "gdk.ToplevelLayout" {

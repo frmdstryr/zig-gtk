@@ -45,6 +45,11 @@ pub const ObjectExpression = extern struct {
     pub inline fn asExpression(self: *Self) *gtk.Expression {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_object_expression_get_type();
+    }
 };
 
 test "gtk.ObjectExpression" {

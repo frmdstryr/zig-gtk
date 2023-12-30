@@ -28,6 +28,11 @@ pub const FileEnumeratorClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_file_enumerator_class_get_type();
+    }
 };
 
 test "gio.FileEnumeratorClass" {

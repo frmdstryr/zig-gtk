@@ -15,6 +15,11 @@ pub const ScaleButtonClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_scale_button_class_get_type();
+    }
 };
 
 test "gtk.ScaleButtonClass" {

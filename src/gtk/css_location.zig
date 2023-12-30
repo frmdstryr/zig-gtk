@@ -17,6 +17,11 @@ pub const CssLocation = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_css_location_get_type();
+    }
 };
 
 test "gtk.CssLocation" {

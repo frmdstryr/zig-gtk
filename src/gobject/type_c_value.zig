@@ -12,6 +12,11 @@ pub const TypeCValue = extern union {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_type_c_value_get_type();
+    }
 };
 
 test "gobject.TypeCValue" {

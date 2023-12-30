@@ -15,6 +15,11 @@ pub const ListBoxRowClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_list_box_row_class_get_type();
+    }
 };
 
 test "gtk.ListBoxRowClass" {

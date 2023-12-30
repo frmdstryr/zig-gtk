@@ -21,6 +21,11 @@ pub const Analysis = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_analysis_get_type();
+    }
 };
 
 test "pango.Analysis" {

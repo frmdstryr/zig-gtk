@@ -16,6 +16,11 @@ pub const Simd4F = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.graphene_simd4_f_get_type();
+    }
 };
 
 test "graphene.Simd4F" {

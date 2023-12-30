@@ -30,6 +30,11 @@ pub const ProxyResolver = extern struct {
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_proxy_resolver_get_type();
+    }
 };
 
 test "gio.ProxyResolver" {

@@ -228,6 +228,15 @@ pub const CellAreaBox = extern struct {
         return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
     }
 
+    pub inline fn connectSignalTyped(
+        self: *Self,
+        signal: [:0]const u8,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: T) callconv(.C) void,
+    ) u64 {
+        return c.g_signal_connect_data(self, signal, @ptrCast(callback), null, null, @as(c.GConnectFlags, 0));
+    }
+
     pub inline fn connectSignalSwapped(
         self: *Self,
         signal: [:0]const u8,
@@ -260,6 +269,11 @@ pub const CellAreaBox = extern struct {
     }
     pub inline fn asOrientable(self: *Self) *gtk.Orientable {
         return @ptrCast(self);
+    }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_cell_area_box_get_type();
     }
 };
 

@@ -29,6 +29,11 @@ pub const Mutex = extern union {
     extern fn g_mutex_unlock(self: *Self) void;
     pub const unlock = g_mutex_unlock;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_mutex_get_type();
+    }
 };
 
 test "glib.Mutex" {

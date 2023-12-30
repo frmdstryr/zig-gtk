@@ -44,6 +44,11 @@ pub const RepeatingRadialGradientNode = extern struct {
     pub inline fn asRenderNode(self: *Self) *gsk.RenderNode {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gsk_repeating_radial_gradient_node_get_type();
+    }
 };
 
 test "gsk.RepeatingRadialGradientNode" {

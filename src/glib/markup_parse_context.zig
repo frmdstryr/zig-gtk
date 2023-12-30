@@ -45,6 +45,11 @@ pub const MarkupParseContext = extern struct {
     extern fn g_markup_parse_context_unref(self: *Self) void;
     pub const unref = g_markup_parse_context_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_markup_parse_context_get_type();
+    }
 };
 
 test "glib.MarkupParseContext" {

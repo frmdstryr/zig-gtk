@@ -54,6 +54,11 @@ pub const Attribute = extern struct {
     extern fn pango_attribute_init(self: *Self, klass: *pango.AttrClass) void;
     pub const init = pango_attribute_init;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_attribute_get_type();
+    }
 };
 
 test "pango.Attribute" {

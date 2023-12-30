@@ -18,6 +18,11 @@ pub const StyleProvider = extern struct {
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_style_provider_get_type();
+    }
 };
 
 test "gtk.StyleProvider" {

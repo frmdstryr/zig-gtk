@@ -12,6 +12,11 @@ pub const ApplicationCommandLinePrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_application_command_line_private_get_type();
+    }
 };
 
 test "gio.ApplicationCommandLinePrivate" {

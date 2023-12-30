@@ -12,6 +12,11 @@ pub const GestureSwipeClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_gesture_swipe_class_get_type();
+    }
 };
 
 test "gtk.GestureSwipeClass" {

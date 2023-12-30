@@ -214,6 +214,11 @@ pub const Matrix = extern struct {
     extern fn graphene_matrix_untransform_point(self: *Self, p: *graphene.Point, bounds: *graphene.Rect, res: *graphene.Point) bool;
     pub const untransformPoint = graphene_matrix_untransform_point;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.graphene_matrix_get_type();
+    }
 };
 
 test "graphene.Matrix" {

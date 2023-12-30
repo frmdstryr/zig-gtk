@@ -53,6 +53,11 @@ pub const ParamSpec = extern struct {
     extern fn g_param_spec_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
     pub const stealQdata = g_param_spec_steal_qdata;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_param_spec_get_type();
+    }
 };
 
 test "gobject.ParamSpec" {

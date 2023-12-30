@@ -31,6 +31,11 @@ pub const ApplicationClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_application_class_get_type();
+    }
 };
 
 test "gio.ApplicationClass" {

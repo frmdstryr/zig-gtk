@@ -14,6 +14,11 @@ pub const InetAddressMaskClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_inet_address_mask_class_get_type();
+    }
 };
 
 test "gio.InetAddressMaskClass" {

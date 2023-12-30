@@ -13,6 +13,11 @@ pub const OverlayLayoutChildClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_overlay_layout_child_class_get_type();
+    }
 };
 
 test "gtk.OverlayLayoutChildClass" {

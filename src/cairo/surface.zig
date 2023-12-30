@@ -12,6 +12,11 @@ pub const Surface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.cairo_surface_get_type();
+    }
 };
 
 test "cairo.Surface" {

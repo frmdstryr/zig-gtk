@@ -15,6 +15,11 @@ pub const ScrollableInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_scrollable_interface_get_type();
+    }
 };
 
 test "gtk.ScrollableInterface" {

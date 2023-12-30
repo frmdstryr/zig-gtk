@@ -17,6 +17,11 @@ pub const Shadow = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gsk_shadow_get_type();
+    }
 };
 
 test "gsk.Shadow" {

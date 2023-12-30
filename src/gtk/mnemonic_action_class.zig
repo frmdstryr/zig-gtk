@@ -12,6 +12,11 @@ pub const MnemonicActionClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_mnemonic_action_class_get_type();
+    }
 };
 
 test "gtk.MnemonicActionClass" {

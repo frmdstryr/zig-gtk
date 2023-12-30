@@ -12,6 +12,11 @@ pub const BufferedOutputStreamPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_buffered_output_stream_private_get_type();
+    }
 };
 
 test "gio.BufferedOutputStreamPrivate" {

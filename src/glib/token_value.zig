@@ -24,6 +24,11 @@ pub const TokenValue = extern union {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_token_value_get_type();
+    }
 };
 
 test "glib.TokenValue" {

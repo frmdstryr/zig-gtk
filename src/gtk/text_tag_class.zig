@@ -15,6 +15,11 @@ pub const TextTagClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_text_tag_class_get_type();
+    }
 };
 
 test "gtk.TextTagClass" {

@@ -12,6 +12,11 @@ pub const DevicePadInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_device_pad_interface_get_type();
+    }
 };
 
 test "gdk.DevicePadInterface" {

@@ -18,6 +18,11 @@ pub const MemVTable = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_mem_v_table_get_type();
+    }
 };
 
 test "glib.MemVTable" {

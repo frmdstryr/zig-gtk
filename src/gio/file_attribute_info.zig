@@ -15,6 +15,11 @@ pub const FileAttributeInfo = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_file_attribute_info_get_type();
+    }
 };
 
 test "gio.FileAttributeInfo" {

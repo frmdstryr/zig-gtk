@@ -13,6 +13,11 @@ pub const StringSorterClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_string_sorter_class_get_type();
+    }
 };
 
 test "gtk.StringSorterClass" {

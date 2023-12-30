@@ -20,6 +20,11 @@ pub const TestLogMsg = extern struct {
     extern fn g_test_log_msg_free(self: *Self) void;
     pub const free = g_test_log_msg_free;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_test_log_msg_get_type();
+    }
 };
 
 test "glib.TestLogMsg" {

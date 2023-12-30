@@ -45,6 +45,11 @@ pub const ConstantExpression = extern struct {
     pub inline fn asExpression(self: *Self) *gtk.Expression {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_constant_expression_get_type();
+    }
 };
 
 test "gtk.ConstantExpression" {

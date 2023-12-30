@@ -121,6 +121,11 @@ pub const Source = extern struct {
     pub inline fn asSource(self: *Self) *glib.Source {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_source_get_type();
+    }
 };
 
 test "gobject.Source" {

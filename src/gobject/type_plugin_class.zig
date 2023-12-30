@@ -17,6 +17,11 @@ pub const TypePluginClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_type_plugin_class_get_type();
+    }
 };
 
 test "gobject.TypePluginClass" {

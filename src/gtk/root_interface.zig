@@ -12,6 +12,11 @@ pub const RootInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_root_interface_get_type();
+    }
 };
 
 test "gtk.RootInterface" {

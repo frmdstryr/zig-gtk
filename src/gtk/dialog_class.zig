@@ -16,6 +16,11 @@ pub const DialogClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_dialog_class_get_type();
+    }
 };
 
 test "gtk.DialogClass" {

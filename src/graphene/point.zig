@@ -44,6 +44,11 @@ pub const Point = extern struct {
     extern fn graphene_point_to_vec2(self: *Self, v: *graphene.Vec2) void;
     pub const toVec2 = graphene_point_to_vec2;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.graphene_point_get_type();
+    }
 };
 
 test "graphene.Point" {

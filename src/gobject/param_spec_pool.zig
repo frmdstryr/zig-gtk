@@ -28,6 +28,11 @@ pub const ParamSpecPool = extern struct {
     extern fn g_param_spec_pool_remove(self: *Self, pspec: *gobject.ParamSpec) void;
     pub const remove = g_param_spec_pool_remove;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_param_spec_pool_get_type();
+    }
 };
 
 test "gobject.ParamSpecPool" {

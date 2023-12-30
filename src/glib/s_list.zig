@@ -14,6 +14,11 @@ pub const SList = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_s_list_get_type();
+    }
 };
 
 test "glib.SList" {

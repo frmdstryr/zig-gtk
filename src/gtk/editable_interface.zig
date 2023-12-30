@@ -23,6 +23,11 @@ pub const EditableInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_editable_interface_get_type();
+    }
 };
 
 test "gtk.EditableInterface" {

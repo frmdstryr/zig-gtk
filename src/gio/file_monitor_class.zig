@@ -21,6 +21,11 @@ pub const FileMonitorClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_file_monitor_class_get_type();
+    }
 };
 
 test "gio.FileMonitorClass" {

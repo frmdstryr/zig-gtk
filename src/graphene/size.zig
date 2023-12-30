@@ -35,6 +35,11 @@ pub const Size = extern struct {
     extern fn graphene_size_scale(self: *Self, factor: f32, res: *graphene.Size) void;
     pub const scale = graphene_size_scale;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.graphene_size_get_type();
+    }
 };
 
 test "graphene.Size" {

@@ -39,6 +39,11 @@ pub const Popup = extern struct {
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_popup_get_type();
+    }
 };
 
 test "gdk.Popup" {

@@ -24,6 +24,11 @@ pub const TreeNode = extern struct {
     extern fn g_tree_node_value(self: *Self) ?*anyopaque;
     pub const value = g_tree_node_value;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_tree_node_get_type();
+    }
 };
 
 test "glib.TreeNode" {

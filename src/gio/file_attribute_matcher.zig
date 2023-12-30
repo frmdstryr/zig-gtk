@@ -39,6 +39,11 @@ pub const FileAttributeMatcher = extern struct {
     extern fn g_file_attribute_matcher_unref(self: *Self) void;
     pub const unref = g_file_attribute_matcher_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_file_attribute_matcher_get_type();
+    }
 };
 
 test "gio.FileAttributeMatcher" {

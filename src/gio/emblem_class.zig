@@ -12,6 +12,11 @@ pub const EmblemClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_emblem_class_get_type();
+    }
 };
 
 test "gio.EmblemClass" {

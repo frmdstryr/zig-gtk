@@ -12,6 +12,11 @@ pub const DragSurfaceInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_drag_surface_interface_get_type();
+    }
 };
 
 test "gdk.DragSurfaceInterface" {

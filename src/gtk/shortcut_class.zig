@@ -14,6 +14,11 @@ pub const ShortcutClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_shortcut_class_get_type();
+    }
 };
 
 test "gtk.ShortcutClass" {

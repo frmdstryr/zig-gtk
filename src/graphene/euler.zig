@@ -77,6 +77,11 @@ pub const Euler = extern struct {
     extern fn graphene_euler_to_vec3(self: *Self, res: *graphene.Vec3) void;
     pub const toVec3 = graphene_euler_to_vec3;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.graphene_euler_get_type();
+    }
 };
 
 test "graphene.Euler" {

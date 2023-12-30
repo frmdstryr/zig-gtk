@@ -17,6 +17,11 @@ pub const TypeInterface = extern struct {
     extern fn g_type_interface_peek_parent(self: *Self) ?*gobject.TypeInterface;
     pub const peekParent = g_type_interface_peek_parent;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_type_interface_get_type();
+    }
 };
 
 test "gobject.TypeInterface" {

@@ -12,6 +12,11 @@ pub const EventControllerScrollClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_event_controller_scroll_class_get_type();
+    }
 };
 
 test "gtk.EventControllerScrollClass" {

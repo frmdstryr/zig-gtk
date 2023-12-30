@@ -12,6 +12,11 @@ pub const SnapshotClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_snapshot_class_get_type();
+    }
 };
 
 test "gdk.SnapshotClass" {

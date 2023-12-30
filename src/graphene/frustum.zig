@@ -43,6 +43,11 @@ pub const Frustum = extern struct {
     extern fn graphene_frustum_intersects_sphere(self: *Self, sphere: *graphene.Sphere) bool;
     pub const intersectsSphere = graphene_frustum_intersects_sphere;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.graphene_frustum_get_type();
+    }
 };
 
 test "graphene.Frustum" {

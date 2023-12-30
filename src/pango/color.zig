@@ -30,6 +30,11 @@ pub const Color = extern struct {
     extern fn pango_color_to_string(self: *Self) [*c]const u8;
     pub const toString = pango_color_to_string;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_color_get_type();
+    }
 };
 
 test "pango.Color" {

@@ -75,6 +75,11 @@ pub const LayoutIter = extern struct {
     extern fn pango_layout_iter_next_run(self: *Self) bool;
     pub const nextRun = pango_layout_iter_next_run;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_layout_iter_get_type();
+    }
 };
 
 test "pango.LayoutIter" {

@@ -14,6 +14,11 @@ pub const BookmarkListClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_bookmark_list_class_get_type();
+    }
 };
 
 test "gtk.BookmarkListClass" {

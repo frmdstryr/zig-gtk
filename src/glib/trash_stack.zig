@@ -13,6 +13,11 @@ pub const TrashStack = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_trash_stack_get_type();
+    }
 };
 
 test "glib.TrashStack" {

@@ -33,6 +33,11 @@ pub const HashTableIter = extern struct {
     extern fn g_hash_table_iter_steal(self: *Self) void;
     pub const steal = g_hash_table_iter_steal;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_hash_table_iter_get_type();
+    }
 };
 
 test "glib.HashTableIter" {

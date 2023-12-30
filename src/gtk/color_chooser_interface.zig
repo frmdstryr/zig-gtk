@@ -20,6 +20,11 @@ pub const ColorChooserInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_color_chooser_interface_get_type();
+    }
 };
 
 test "gtk.ColorChooserInterface" {

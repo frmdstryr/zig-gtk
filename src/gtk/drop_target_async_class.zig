@@ -12,6 +12,11 @@ pub const DropTargetAsyncClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_drop_target_async_class_get_type();
+    }
 };
 
 test "gtk.DropTargetAsyncClass" {

@@ -12,6 +12,11 @@ pub const FileMonitorPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_file_monitor_private_get_type();
+    }
 };
 
 test "gio.FileMonitorPrivate" {

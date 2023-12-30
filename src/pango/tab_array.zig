@@ -54,6 +54,11 @@ pub const TabArray = extern struct {
     extern fn pango_tab_array_to_string(self: *Self) [*c]const u8;
     pub const toString = pango_tab_array_to_string;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_tab_array_get_type();
+    }
 };
 
 test "pango.TabArray" {

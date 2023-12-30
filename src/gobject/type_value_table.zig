@@ -20,6 +20,11 @@ pub const TypeValueTable = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_type_value_table_get_type();
+    }
 };
 
 test "gobject.TypeValueTable" {

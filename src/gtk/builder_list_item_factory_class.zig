@@ -12,6 +12,11 @@ pub const BuilderListItemFactoryClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_builder_list_item_factory_class_get_type();
+    }
 };
 
 test "gtk.BuilderListItemFactoryClass" {

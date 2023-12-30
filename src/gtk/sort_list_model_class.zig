@@ -14,6 +14,11 @@ pub const SortListModelClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_sort_list_model_class_get_type();
+    }
 };
 
 test "gtk.SortListModelClass" {

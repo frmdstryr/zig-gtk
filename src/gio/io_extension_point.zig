@@ -25,6 +25,11 @@ pub const IOExtensionPoint = extern struct {
     extern fn g_io_extension_point_set_required_type(self: *Self, type: usize) void;
     pub const setRequiredType = g_io_extension_point_set_required_type;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_io_extension_point_get_type();
+    }
 };
 
 test "gio.IOExtensionPoint" {

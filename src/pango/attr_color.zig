@@ -14,6 +14,11 @@ pub const AttrColor = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_attr_color_get_type();
+    }
 };
 
 test "pango.AttrColor" {

@@ -12,6 +12,11 @@ pub const UnixFDMessagePrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_unix_fd_message_private_get_type();
+    }
 };
 
 test "gio.UnixFDMessagePrivate" {

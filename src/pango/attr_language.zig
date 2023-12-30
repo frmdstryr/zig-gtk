@@ -14,6 +14,11 @@ pub const AttrLanguage = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_attr_language_get_type();
+    }
 };
 
 test "pango.AttrLanguage" {

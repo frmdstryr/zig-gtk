@@ -20,6 +20,11 @@ pub const TestLogBuffer = extern struct {
     extern fn g_test_log_buffer_push(self: *Self, n_bytes: u32, bytes: u8) void;
     pub const push = g_test_log_buffer_push;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_test_log_buffer_get_type();
+    }
 };
 
 test "glib.TestLogBuffer" {

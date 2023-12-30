@@ -12,6 +12,11 @@ pub const AnyFilterClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_any_filter_class_get_type();
+    }
 };
 
 test "gtk.AnyFilterClass" {

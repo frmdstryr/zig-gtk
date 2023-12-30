@@ -29,6 +29,11 @@ pub const MountOperationClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_mount_operation_class_get_type();
+    }
 };
 
 test "gio.MountOperationClass" {

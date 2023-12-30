@@ -75,6 +75,11 @@ pub const Queue = extern struct {
     extern fn g_queue_reverse(self: *Self) void;
     pub const reverse = g_queue_reverse;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_queue_get_type();
+    }
 };
 
 test "glib.Queue" {

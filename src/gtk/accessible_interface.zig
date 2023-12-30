@@ -12,6 +12,11 @@ pub const AccessibleInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_accessible_interface_get_type();
+    }
 };
 
 test "gtk.AccessibleInterface" {

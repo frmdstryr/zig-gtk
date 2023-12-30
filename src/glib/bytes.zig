@@ -51,6 +51,11 @@ pub const Bytes = extern struct {
     extern fn g_bytes_unref_to_data(self: *Self, size: u64) [*c]u8;
     pub const unrefToData = g_bytes_unref_to_data;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_bytes_get_type();
+    }
 };
 
 test "glib.Bytes" {

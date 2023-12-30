@@ -12,6 +12,11 @@ pub const GestureStylusClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_gesture_stylus_class_get_type();
+    }
 };
 
 test "gtk.GestureStylusClass" {

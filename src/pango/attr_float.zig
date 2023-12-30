@@ -14,6 +14,11 @@ pub const AttrFloat = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_attr_float_get_type();
+    }
 };
 
 test "pango.AttrFloat" {

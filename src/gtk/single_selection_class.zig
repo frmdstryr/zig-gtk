@@ -14,6 +14,11 @@ pub const SingleSelectionClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_single_selection_class_get_type();
+    }
 };
 
 test "gtk.SingleSelectionClass" {

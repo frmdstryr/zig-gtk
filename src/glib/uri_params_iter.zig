@@ -22,6 +22,11 @@ pub const UriParamsIter = extern struct {
     extern fn g_uri_params_iter_next(self: *Self, attribute: [*c]const u8, value: [*c]const u8) bool;
     pub const next = g_uri_params_iter_next;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_uri_params_iter_get_type();
+    }
 };
 
 test "glib.UriParamsIter" {

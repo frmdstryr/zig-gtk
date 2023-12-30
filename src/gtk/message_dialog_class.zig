@@ -12,6 +12,11 @@ pub const MessageDialogClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_message_dialog_class_get_type();
+    }
 };
 
 test "gtk.MessageDialogClass" {

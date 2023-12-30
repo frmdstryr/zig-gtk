@@ -62,6 +62,11 @@ pub const ParamSpecInt64 = extern struct {
     pub inline fn asParamSpec(self: *Self) *gobject.ParamSpec {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_param_spec_int64_get_type();
+    }
 };
 
 test "gobject.ParamSpecInt64" {

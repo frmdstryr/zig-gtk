@@ -12,6 +12,11 @@ pub const MenuModelPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_menu_model_private_get_type();
+    }
 };
 
 test "gio.MenuModelPrivate" {

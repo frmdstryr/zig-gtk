@@ -34,6 +34,11 @@ pub const Expression = extern struct {
     extern fn gtk_expression_watch(self: *Self, this_: ?*gobject.Object, notify: *const fn (user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque, user_destroy: *const fn (data: ?*anyopaque) callconv(.C) void) ?*gtk.ExpressionWatch;
     pub const watch = gtk_expression_watch;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_expression_get_type();
+    }
 };
 
 test "gtk.Expression" {

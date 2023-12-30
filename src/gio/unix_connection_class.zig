@@ -13,6 +13,11 @@ pub const UnixConnectionClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_unix_connection_class_get_type();
+    }
 };
 
 test "gio.UnixConnectionClass" {

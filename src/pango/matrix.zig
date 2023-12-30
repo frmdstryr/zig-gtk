@@ -57,6 +57,11 @@ pub const Matrix = extern struct {
     extern fn pango_matrix_translate(self: *Self, tx: f64, ty: f64) void;
     pub const translate = pango_matrix_translate;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_matrix_get_type();
+    }
 };
 
 test "pango.Matrix" {

@@ -14,6 +14,11 @@ pub const CharsetConverterClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_charset_converter_class_get_type();
+    }
 };
 
 test "gio.CharsetConverterClass" {

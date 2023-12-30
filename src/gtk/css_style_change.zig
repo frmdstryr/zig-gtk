@@ -12,6 +12,11 @@ pub const CssStyleChange = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_css_style_change_get_type();
+    }
 };
 
 test "gtk.CssStyleChange" {

@@ -23,6 +23,11 @@ pub const FontChooserIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_font_chooser_iface_get_type();
+    }
 };
 
 test "gtk.FontChooserIface" {

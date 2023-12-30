@@ -21,6 +21,11 @@ pub const FileDescriptorBased = extern struct {
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_file_descriptor_based_get_type();
+    }
 };
 
 test "gio.FileDescriptorBased" {

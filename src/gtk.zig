@@ -1,5 +1,6 @@
 // This file is auto generated do not edit
 const std = @import("std");
+pub const c = @import("gtk/c.zig");
 pub usingnamespace @import("gtk/enums.zig");
 pub usingnamespace @import("gtk/flags.zig");
 pub usingnamespace @import("gtk/constants.zig");

@@ -17,6 +17,11 @@ pub const RemoteActionGroupInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_remote_action_group_interface_get_type();
+    }
 };
 
 test "gio.RemoteActionGroupInterface" {

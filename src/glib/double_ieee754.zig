@@ -13,6 +13,11 @@ pub const DoubleIEEE754 = extern union {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_double_ieee754_get_type();
+    }
 };
 
 test "glib.DoubleIEEE754" {

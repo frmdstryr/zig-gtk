@@ -31,6 +31,11 @@ pub const HookList = extern struct {
     extern fn g_hook_list_invoke_check(self: *Self, may_recurse: bool) void;
     pub const invokeCheck = g_hook_list_invoke_check;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_hook_list_get_type();
+    }
 };
 
 test "glib.HookList" {

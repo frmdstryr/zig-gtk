@@ -12,6 +12,11 @@ pub const LayoutClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_layout_class_get_type();
+    }
 };
 
 test "pango.LayoutClass" {

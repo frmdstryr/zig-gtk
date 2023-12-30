@@ -12,6 +12,11 @@ pub const Device = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.cairo_device_get_type();
+    }
 };
 
 test "cairo.Device" {

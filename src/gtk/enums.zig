@@ -165,7 +165,7 @@ pub const AccessibleTristate = enum(c_int) {
 };
 
 pub const Align = enum(c_int) {
-    Baseline = c.GTK_ALIGN_BASELINE,
+    Baseline = c.GTK_ALIGN_BASELINE_FILL,
     Center = c.GTK_ALIGN_CENTER,
     End = c.GTK_ALIGN_END,
     Fill = c.GTK_ALIGN_FILL,

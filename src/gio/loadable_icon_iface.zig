@@ -17,6 +17,11 @@ pub const LoadableIconIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_loadable_icon_iface_get_type();
+    }
 };
 
 test "gio.LoadableIconIface" {

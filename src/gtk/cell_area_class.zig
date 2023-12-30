@@ -44,6 +44,11 @@ pub const CellAreaClass = extern struct {
     extern fn gtk_cell_area_class_list_cell_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
     pub const listCellProperties = gtk_cell_area_class_list_cell_properties;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_cell_area_class_get_type();
+    }
 };
 
 test "gtk.CellAreaClass" {

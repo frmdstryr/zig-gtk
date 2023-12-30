@@ -12,6 +12,11 @@ pub const Matrix = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.cairo_matrix_get_type();
+    }
 };
 
 test "cairo.Matrix" {

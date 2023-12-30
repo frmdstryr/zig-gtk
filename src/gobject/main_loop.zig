@@ -39,6 +39,11 @@ pub const MainLoop = extern struct {
     pub inline fn asMainLoop(self: *Self) *glib.MainLoop {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_main_loop_get_type();
+    }
 };
 
 test "gobject.MainLoop" {

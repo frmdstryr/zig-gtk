@@ -32,6 +32,11 @@ pub const Cond = extern struct {
     extern fn g_cond_wait_until(self: *Self, mutex: *glib.Mutex, end_time: i64) bool;
     pub const waitUntil = g_cond_wait_until;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_cond_get_type();
+    }
 };
 
 test "glib.Cond" {

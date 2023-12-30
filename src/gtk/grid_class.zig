@@ -14,6 +14,11 @@ pub const GridClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_grid_class_get_type();
+    }
 };
 
 test "gtk.GridClass" {

@@ -21,6 +21,11 @@ pub const DesktopAppInfoLookup = extern struct {
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_desktop_app_info_lookup_get_type();
+    }
 };
 
 test "gio.DesktopAppInfoLookup" {

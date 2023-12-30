@@ -15,6 +15,11 @@ pub const MenuLinkIterClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_menu_link_iter_class_get_type();
+    }
 };
 
 test "gio.MenuLinkIterClass" {

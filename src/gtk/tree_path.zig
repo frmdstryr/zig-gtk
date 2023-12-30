@@ -66,6 +66,11 @@ pub const TreePath = extern struct {
     extern fn gtk_tree_path_up(self: *Self) bool;
     pub const up = gtk_tree_path_up;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_tree_path_get_type();
+    }
 };
 
 test "gtk.TreePath" {

@@ -16,6 +16,11 @@ pub const DBusObjectSkeletonClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_d_bus_object_skeleton_class_get_type();
+    }
 };
 
 test "gio.DBusObjectSkeletonClass" {

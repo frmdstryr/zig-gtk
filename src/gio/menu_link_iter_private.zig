@@ -12,6 +12,11 @@ pub const MenuLinkIterPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_menu_link_iter_private_get_type();
+    }
 };
 
 test "gio.MenuLinkIterPrivate" {

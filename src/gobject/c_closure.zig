@@ -14,6 +14,11 @@ pub const CClosure = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_c_closure_get_type();
+    }
 };
 
 test "gobject.CClosure" {

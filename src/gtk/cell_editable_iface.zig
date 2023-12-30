@@ -18,6 +18,11 @@ pub const CellEditableIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_cell_editable_iface_get_type();
+    }
 };
 
 test "gtk.CellEditableIface" {

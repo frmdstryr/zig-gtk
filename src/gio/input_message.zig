@@ -19,6 +19,11 @@ pub const InputMessage = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_input_message_get_type();
+    }
 };
 
 test "gio.InputMessage" {

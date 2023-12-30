@@ -33,6 +33,11 @@ pub const Timer = extern struct {
     extern fn g_timer_stop(self: *Self) void;
     pub const stop = g_timer_stop;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_timer_get_type();
+    }
 };
 
 test "glib.Timer" {

@@ -1,5 +1,6 @@
 // This file is auto generated do not edit
 const std = @import("std");
+pub const c = @import("graphene/c.zig");
 pub usingnamespace @import("graphene/enums.zig");
 pub usingnamespace @import("graphene/constants.zig");
 

@@ -15,6 +15,11 @@ pub const GlyphGeometry = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_glyph_geometry_get_type();
+    }
 };
 
 test "pango.GlyphGeometry" {

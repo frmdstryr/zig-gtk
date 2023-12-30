@@ -12,6 +12,11 @@ pub const FontOptions = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.cairo_font_options_get_type();
+    }
 };
 
 test "cairo.FontOptions" {

@@ -20,6 +20,11 @@ pub const ProxyAddressEnumeratorClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_proxy_address_enumerator_class_get_type();
+    }
 };
 
 test "gio.ProxyAddressEnumeratorClass" {

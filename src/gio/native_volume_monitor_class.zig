@@ -14,6 +14,11 @@ pub const NativeVolumeMonitorClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_native_volume_monitor_class_get_type();
+    }
 };
 
 test "gio.NativeVolumeMonitorClass" {

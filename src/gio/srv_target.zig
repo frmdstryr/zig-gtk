@@ -33,6 +33,11 @@ pub const SrvTarget = extern struct {
     extern fn g_srv_target_get_weight(self: *Self) u16;
     pub const getWeight = g_srv_target_get_weight;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_srv_target_get_type();
+    }
 };
 
 test "gio.SrvTarget" {

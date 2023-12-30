@@ -33,6 +33,11 @@ pub const VariantBuilder = extern struct {
     extern fn g_variant_builder_unref(self: *Self) void;
     pub const unref = g_variant_builder_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_variant_builder_get_type();
+    }
 };
 
 test "glib.VariantBuilder" {

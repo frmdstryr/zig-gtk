@@ -86,6 +86,11 @@ pub const PadEvent = extern struct {
     pub inline fn asEvent(self: *Self) *gdk.Event {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_pad_event_get_type();
+    }
 };
 
 test "gdk.PadEvent" {

@@ -12,6 +12,11 @@ pub const SimpleProxyResolverPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_simple_proxy_resolver_private_get_type();
+    }
 };
 
 test "gio.SimpleProxyResolverPrivate" {

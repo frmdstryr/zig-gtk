@@ -20,6 +20,11 @@ pub const ThreadedSocketServiceClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_threaded_socket_service_class_get_type();
+    }
 };
 
 test "gio.ThreadedSocketServiceClass" {

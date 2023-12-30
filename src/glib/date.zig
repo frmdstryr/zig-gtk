@@ -132,6 +132,11 @@ pub const Date = extern struct {
     extern fn g_date_valid(self: *Self) bool;
     pub const valid = g_date_valid;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_date_get_type();
+    }
 };
 
 test "glib.Date" {

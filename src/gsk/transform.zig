@@ -89,6 +89,11 @@ pub const Transform = extern struct {
     extern fn gsk_transform_unref(self: *Self) void;
     pub const unref = gsk_transform_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gsk_transform_get_type();
+    }
 };
 
 test "gsk.Transform" {

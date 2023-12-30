@@ -33,6 +33,11 @@ pub const ContentFormatsBuilder = extern struct {
     extern fn gdk_content_formats_builder_unref(self: *Self) void;
     pub const unref = gdk_content_formats_builder_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_content_formats_builder_get_type();
+    }
 };
 
 test "gdk.ContentFormatsBuilder" {

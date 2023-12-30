@@ -17,6 +17,11 @@ pub const AsyncResultIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_async_result_iface_get_type();
+    }
 };
 
 test "gio.AsyncResultIface" {

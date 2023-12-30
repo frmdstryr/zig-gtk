@@ -14,6 +14,11 @@ pub const ObjectConstructParam = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_object_construct_param_get_type();
+    }
 };
 
 test "gobject.ObjectConstructParam" {

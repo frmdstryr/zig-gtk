@@ -50,6 +50,11 @@ pub const RoundedClipNode = extern struct {
     pub inline fn asRenderNode(self: *Self) *gsk.RenderNode {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gsk_rounded_clip_node_get_type();
+    }
 };
 
 test "gsk.RoundedClipNode" {

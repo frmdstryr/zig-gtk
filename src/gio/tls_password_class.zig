@@ -18,6 +18,11 @@ pub const TlsPasswordClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_tls_password_class_get_type();
+    }
 };
 
 test "gio.TlsPasswordClass" {

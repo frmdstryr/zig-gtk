@@ -39,6 +39,11 @@ pub const ValueArray = extern struct {
     extern fn g_value_array_sort_with_data(self: *Self, compare_func: *const fn (a: ?*anyopaque, b: ?*anyopaque, user_data: ?*anyopaque) callconv(.C) i32, user_data: ?*anyopaque) ?*gobject.ValueArray;
     pub const sort = g_value_array_sort_with_data;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_value_array_get_type();
+    }
 };
 
 test "gobject.ValueArray" {

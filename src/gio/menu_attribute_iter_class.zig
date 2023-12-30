@@ -16,6 +16,11 @@ pub const MenuAttributeIterClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_menu_attribute_iter_class_get_type();
+    }
 };
 
 test "gio.MenuAttributeIterClass" {

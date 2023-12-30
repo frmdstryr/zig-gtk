@@ -30,6 +30,11 @@ pub const ListModel = extern struct {
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_list_model_get_type();
+    }
 };
 
 test "gio.ListModel" {

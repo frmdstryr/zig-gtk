@@ -12,6 +12,11 @@ pub const NetworkAddressPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_network_address_private_get_type();
+    }
 };
 
 test "gio.NetworkAddressPrivate" {

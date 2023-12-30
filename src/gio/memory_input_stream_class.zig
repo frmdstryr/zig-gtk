@@ -18,6 +18,11 @@ pub const MemoryInputStreamClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_memory_input_stream_class_get_type();
+    }
 };
 
 test "gio.MemoryInputStreamClass" {

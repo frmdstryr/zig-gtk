@@ -12,6 +12,11 @@ pub const UnixMountEntry = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_unix_mount_entry_get_type();
+    }
 };
 
 test "gio.UnixMountEntry" {

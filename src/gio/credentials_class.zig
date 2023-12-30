@@ -12,6 +12,11 @@ pub const CredentialsClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_credentials_class_get_type();
+    }
 };
 
 test "gio.CredentialsClass" {

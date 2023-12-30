@@ -12,6 +12,11 @@ pub const SimpleAsyncResultClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_simple_async_result_class_get_type();
+    }
 };
 
 test "gio.SimpleAsyncResultClass" {

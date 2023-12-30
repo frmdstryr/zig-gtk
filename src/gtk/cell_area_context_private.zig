@@ -12,6 +12,11 @@ pub const CellAreaContextPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_cell_area_context_private_get_type();
+    }
 };
 
 test "gtk.CellAreaContextPrivate" {

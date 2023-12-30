@@ -36,6 +36,11 @@ pub const RenderNode = extern struct {
     extern fn gsk_render_node_write_to_file(self: *Self, filename: [*c]const u8) bool;
     pub const writeToFile = gsk_render_node_write_to_file;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gsk_render_node_get_type();
+    }
 };
 
 test "gsk.RenderNode" {

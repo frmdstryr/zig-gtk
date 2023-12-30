@@ -21,6 +21,11 @@ pub const PollFD = extern struct {
     pub inline fn asPollFD(self: *Self) *glib.PollFD {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_poll_fd_get_type();
+    }
 };
 
 test "gobject.PollFD" {

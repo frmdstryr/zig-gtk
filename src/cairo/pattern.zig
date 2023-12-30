@@ -12,6 +12,11 @@ pub const Pattern = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.cairo_pattern_get_type();
+    }
 };
 
 test "cairo.Pattern" {

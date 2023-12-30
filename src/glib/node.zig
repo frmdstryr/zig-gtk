@@ -47,6 +47,11 @@ pub const Node = extern struct {
     extern fn g_node_unlink(self: *Self) void;
     pub const unlink = g_node_unlink;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_node_get_type();
+    }
 };
 
 test "glib.Node" {

@@ -36,6 +36,11 @@ pub const FrameTimings = extern struct {
     extern fn gdk_frame_timings_unref(self: *Self) void;
     pub const unref = gdk_frame_timings_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_frame_timings_get_type();
+    }
 };
 
 test "gdk.FrameTimings" {

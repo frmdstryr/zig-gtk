@@ -15,6 +15,11 @@ pub const ColorStop = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gsk_color_stop_get_type();
+    }
 };
 
 test "gsk.ColorStop" {

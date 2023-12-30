@@ -28,6 +28,11 @@ pub const EntryBufferClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_entry_buffer_class_get_type();
+    }
 };
 
 test "gtk.EntryBufferClass" {

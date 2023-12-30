@@ -12,6 +12,11 @@ pub const TlsInteractionPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_tls_interaction_private_get_type();
+    }
 };
 
 test "gio.TlsInteractionPrivate" {

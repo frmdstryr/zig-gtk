@@ -16,6 +16,11 @@ pub const SymbolicPaintableInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_symbolic_paintable_interface_get_type();
+    }
 };
 
 test "gtk.SymbolicPaintableInterface" {

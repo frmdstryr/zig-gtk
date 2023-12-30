@@ -68,6 +68,11 @@ pub const Ray = extern struct {
     extern fn graphene_ray_intersects_triangle(self: *Self, t: *graphene.Triangle) bool;
     pub const intersectsTriangle = graphene_ray_intersects_triangle;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.graphene_ray_get_type();
+    }
 };
 
 test "graphene.Ray" {

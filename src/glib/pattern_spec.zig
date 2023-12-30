@@ -30,6 +30,11 @@ pub const PatternSpec = extern struct {
     extern fn g_pattern_spec_match_string(self: *Self, string: [*c]const u8) bool;
     pub const matchString = g_pattern_spec_match_string;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_pattern_spec_get_type();
+    }
 };
 
 test "glib.PatternSpec" {

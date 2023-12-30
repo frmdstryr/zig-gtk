@@ -23,6 +23,11 @@ pub const Hook = extern struct {
     extern fn g_hook_compare_ids(self: *Self, sibling: *glib.Hook) i32;
     pub const compareIds = g_hook_compare_ids;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_hook_get_type();
+    }
 };
 
 test "glib.Hook" {

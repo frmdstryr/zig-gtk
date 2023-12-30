@@ -115,6 +115,11 @@ pub const Source = extern struct {
     extern fn g_source_unref(self: *Self) void;
     pub const unref = g_source_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_source_get_type();
+    }
 };
 
 test "glib.Source" {

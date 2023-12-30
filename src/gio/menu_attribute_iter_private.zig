@@ -12,6 +12,11 @@ pub const MenuAttributeIterPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_menu_attribute_iter_private_get_type();
+    }
 };
 
 test "gio.MenuAttributeIterPrivate" {

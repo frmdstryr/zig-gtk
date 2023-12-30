@@ -14,6 +14,11 @@ pub const AttrInt = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_attr_int_get_type();
+    }
 };
 
 test "pango.AttrInt" {

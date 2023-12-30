@@ -20,6 +20,11 @@ pub const DatagramBasedInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_datagram_based_interface_get_type();
+    }
 };
 
 test "gio.DatagramBasedInterface" {

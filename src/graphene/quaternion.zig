@@ -88,6 +88,11 @@ pub const Quaternion = extern struct {
     extern fn graphene_quaternion_to_vec4(self: *Self, res: *graphene.Vec4) void;
     pub const toVec4 = graphene_quaternion_to_vec4;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.graphene_quaternion_get_type();
+    }
 };
 
 test "graphene.Quaternion" {

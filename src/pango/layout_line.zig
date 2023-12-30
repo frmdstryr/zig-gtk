@@ -54,6 +54,11 @@ pub const LayoutLine = extern struct {
     extern fn pango_layout_line_x_to_index(self: *Self, x_pos: i32, index_: i32, trailing: i32) bool;
     pub const xToIndex = pango_layout_line_x_to_index;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_layout_line_get_type();
+    }
 };
 
 test "pango.LayoutLine" {

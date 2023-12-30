@@ -14,6 +14,11 @@ pub const DtlsServerConnectionInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_dtls_server_connection_interface_get_type();
+    }
 };
 
 test "gio.DtlsServerConnectionInterface" {

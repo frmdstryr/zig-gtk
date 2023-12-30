@@ -17,6 +17,11 @@ pub const ListModelInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_list_model_interface_get_type();
+    }
 };
 
 test "gio.ListModelInterface" {

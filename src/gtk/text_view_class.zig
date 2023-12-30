@@ -27,6 +27,11 @@ pub const TextViewClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_text_view_class_get_type();
+    }
 };
 
 test "gtk.TextViewClass" {

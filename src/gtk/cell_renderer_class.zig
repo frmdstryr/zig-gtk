@@ -27,6 +27,11 @@ pub const CellRendererClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_cell_renderer_class_get_type();
+    }
 };
 
 test "gtk.CellRendererClass" {

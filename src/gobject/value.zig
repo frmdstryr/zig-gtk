@@ -201,6 +201,11 @@ pub const Value = extern struct {
     extern fn g_value_unset(self: *Self) void;
     pub const unset = g_value_unset;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_value_get_type();
+    }
 };
 
 test "gobject.Value" {

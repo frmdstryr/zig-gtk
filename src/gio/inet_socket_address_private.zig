@@ -12,6 +12,11 @@ pub const InetSocketAddressPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_inet_socket_address_private_get_type();
+    }
 };
 
 test "gio.InetSocketAddressPrivate" {

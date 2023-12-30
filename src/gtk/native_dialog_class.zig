@@ -21,6 +21,11 @@ pub const NativeDialogClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_native_dialog_class_get_type();
+    }
 };
 
 test "gtk.NativeDialogClass" {

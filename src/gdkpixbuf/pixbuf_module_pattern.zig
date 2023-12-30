@@ -15,6 +15,11 @@ pub const PixbufModulePattern = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdkpixbuf_pixbuf_module_pattern_get_type();
+    }
 };
 
 test "gdkpixbuf.PixbufModulePattern" {

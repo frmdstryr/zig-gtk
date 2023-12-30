@@ -27,6 +27,11 @@ pub const DBusInterface = extern struct {
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_d_bus_interface_get_type();
+    }
 };
 
 test "gio.DBusInterface" {

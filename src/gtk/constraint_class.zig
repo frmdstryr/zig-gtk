@@ -14,6 +14,11 @@ pub const ConstraintClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_constraint_class_get_type();
+    }
 };
 
 test "gtk.ConstraintClass" {

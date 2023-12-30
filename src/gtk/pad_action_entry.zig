@@ -17,6 +17,11 @@ pub const PadActionEntry = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_pad_action_entry_get_type();
+    }
 };
 
 test "gtk.PadActionEntry" {

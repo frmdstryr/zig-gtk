@@ -22,6 +22,11 @@ pub const FontMapClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_font_map_class_get_type();
+    }
 };
 
 test "pango.FontMapClass" {

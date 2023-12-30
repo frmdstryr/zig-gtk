@@ -12,6 +12,11 @@ pub const ListBaseClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_list_base_class_get_type();
+    }
 };
 
 test "gtk.ListBaseClass" {

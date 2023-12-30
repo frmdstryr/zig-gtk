@@ -24,6 +24,11 @@ pub const FilterClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_filter_class_get_type();
+    }
 };
 
 test "gtk.FilterClass" {

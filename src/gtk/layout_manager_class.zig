@@ -22,6 +22,11 @@ pub const LayoutManagerClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_layout_manager_class_get_type();
+    }
 };
 
 test "gtk.LayoutManagerClass" {

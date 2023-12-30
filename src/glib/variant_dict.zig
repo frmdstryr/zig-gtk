@@ -39,6 +39,11 @@ pub const VariantDict = extern struct {
     extern fn g_variant_dict_unref(self: *Self) void;
     pub const unref = g_variant_dict_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_variant_dict_get_type();
+    }
 };
 
 test "glib.VariantDict" {

@@ -22,6 +22,11 @@ pub const BufferedInputStreamClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_buffered_input_stream_class_get_type();
+    }
 };
 
 test "gio.BufferedInputStreamClass" {

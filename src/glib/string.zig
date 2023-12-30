@@ -108,6 +108,11 @@ pub const String = extern struct {
     extern fn g_string_up(self: *Self) ?*glib.String;
     pub const up = g_string_up;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_string_get_type();
+    }
 };
 
 test "glib.String" {

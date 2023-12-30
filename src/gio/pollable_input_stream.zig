@@ -31,6 +31,11 @@ pub const PollableInputStream = extern struct {
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_pollable_input_stream_get_type();
+    }
 };
 
 test "gio.PollableInputStream" {

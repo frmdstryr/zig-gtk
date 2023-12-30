@@ -29,6 +29,11 @@ pub const IOStreamClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_io_stream_class_get_type();
+    }
 };
 
 test "gio.IOStreamClass" {

@@ -14,6 +14,11 @@ pub const StringListClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_string_list_class_get_type();
+    }
 };
 
 test "gtk.StringListClass" {

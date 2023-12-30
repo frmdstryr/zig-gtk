@@ -25,6 +25,11 @@ pub const ExpressionWatch = extern struct {
     extern fn gtk_expression_watch_unwatch(self: *Self) void;
     pub const unwatch = gtk_expression_watch_unwatch;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_expression_watch_get_type();
+    }
 };
 
 test "gtk.ExpressionWatch" {

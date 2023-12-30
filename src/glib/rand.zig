@@ -33,6 +33,11 @@ pub const Rand = extern struct {
     extern fn g_rand_set_seed_array(self: *Self, seed: u32, seed_length: u32) void;
     pub const setSeedArray = g_rand_set_seed_array;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_rand_get_type();
+    }
 };
 
 test "glib.Rand" {

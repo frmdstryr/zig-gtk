@@ -12,6 +12,11 @@ pub const RecentManagerPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_recent_manager_private_get_type();
+    }
 };
 
 test "gtk.RecentManagerPrivate" {

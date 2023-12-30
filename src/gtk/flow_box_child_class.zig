@@ -15,6 +15,11 @@ pub const FlowBoxChildClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_flow_box_child_class_get_type();
+    }
 };
 
 test "gtk.FlowBoxChildClass" {

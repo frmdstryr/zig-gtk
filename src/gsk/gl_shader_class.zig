@@ -14,6 +14,11 @@ pub const GLShaderClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gsk_gl_shader_class_get_type();
+    }
 };
 
 test "gsk.GLShaderClass" {

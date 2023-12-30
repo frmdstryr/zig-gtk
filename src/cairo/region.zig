@@ -12,6 +12,11 @@ pub const Region = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.cairo_region_get_type();
+    }
 };
 
 test "cairo.Region" {

@@ -16,6 +16,11 @@ pub const TypeQuery = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_type_query_get_type();
+    }
 };
 
 test "gobject.TypeQuery" {

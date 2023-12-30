@@ -40,6 +40,11 @@ pub const AppInfoIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_app_info_iface_get_type();
+    }
 };
 
 test "gio.AppInfoIface" {

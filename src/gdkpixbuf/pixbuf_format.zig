@@ -57,6 +57,11 @@ pub const PixbufFormat = extern struct {
     extern fn gdk_pixbuf_format_set_disabled(self: *Self, disabled: bool) void;
     pub const setDisabled = gdk_pixbuf_format_set_disabled;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdkpixbuf_pixbuf_format_get_type();
+    }
 };
 
 test "gdkpixbuf.PixbufFormat" {

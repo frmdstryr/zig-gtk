@@ -1,5 +1,6 @@
 // This file is auto generated do not edit
 const std = @import("std");
+pub const c = @import("glib/c.zig");
 pub usingnamespace @import("glib/enums.zig");
 pub usingnamespace @import("glib/flags.zig");
 pub usingnamespace @import("glib/constants.zig");

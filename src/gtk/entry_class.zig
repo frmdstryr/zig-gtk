@@ -15,6 +15,11 @@ pub const EntryClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_entry_class_get_type();
+    }
 };
 
 test "gtk.EntryClass" {

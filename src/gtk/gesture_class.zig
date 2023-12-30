@@ -12,6 +12,11 @@ pub const GestureClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_gesture_class_get_type();
+    }
 };
 
 test "gtk.GestureClass" {

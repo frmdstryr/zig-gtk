@@ -12,6 +12,11 @@ pub const RendererPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_renderer_private_get_type();
+    }
 };
 
 test "pango.RendererPrivate" {

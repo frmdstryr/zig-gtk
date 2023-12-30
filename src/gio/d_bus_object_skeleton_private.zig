@@ -12,6 +12,11 @@ pub const DBusObjectSkeletonPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_d_bus_object_skeleton_private_get_type();
+    }
 };
 
 test "gio.DBusObjectSkeletonPrivate" {

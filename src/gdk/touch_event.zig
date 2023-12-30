@@ -80,6 +80,11 @@ pub const TouchEvent = extern struct {
     pub inline fn asEvent(self: *Self) *gdk.Event {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_touch_event_get_type();
+    }
 };
 
 test "gdk.TouchEvent" {

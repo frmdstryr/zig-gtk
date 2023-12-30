@@ -20,6 +20,11 @@ pub const IOFuncs = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_io_funcs_get_type();
+    }
 };
 
 test "glib.IOFuncs" {

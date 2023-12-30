@@ -15,6 +15,11 @@ pub const InitableIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_initable_iface_get_type();
+    }
 };
 
 test "gio.InitableIface" {

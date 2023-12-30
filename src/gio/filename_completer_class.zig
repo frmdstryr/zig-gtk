@@ -18,6 +18,11 @@ pub const FilenameCompleterClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_filename_completer_class_get_type();
+    }
 };
 
 test "gio.FilenameCompleterClass" {

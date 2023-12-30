@@ -15,6 +15,11 @@ pub const TestCase = extern struct {
     extern fn g_test_case_free(self: *Self) void;
     pub const free = g_test_case_free;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_test_case_get_type();
+    }
 };
 
 test "glib.TestCase" {

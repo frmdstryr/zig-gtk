@@ -18,6 +18,11 @@ pub const AttrShape = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_attr_shape_get_type();
+    }
 };
 
 test "pango.AttrShape" {

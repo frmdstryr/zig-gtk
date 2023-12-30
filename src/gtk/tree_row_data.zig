@@ -12,6 +12,11 @@ pub const TreeRowData = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_tree_row_data_get_type();
+    }
 };
 
 test "gtk.TreeRowData" {

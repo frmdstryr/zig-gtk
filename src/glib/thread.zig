@@ -27,6 +27,11 @@ pub const Thread = extern struct {
     extern fn g_thread_unref(self: *Self) void;
     pub const unref = g_thread_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_thread_get_type();
+    }
 };
 
 test "glib.Thread" {

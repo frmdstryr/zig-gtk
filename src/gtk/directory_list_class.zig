@@ -14,6 +14,11 @@ pub const DirectoryListClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_directory_list_class_get_type();
+    }
 };
 
 test "gtk.DirectoryListClass" {

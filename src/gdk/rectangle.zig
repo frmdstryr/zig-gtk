@@ -28,6 +28,11 @@ pub const Rectangle = extern struct {
     extern fn gdk_rectangle_union(self: *Self, src2: *gdk.Rectangle, dest: *gdk.Rectangle) void;
     pub const union_ = gdk_rectangle_union;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_rectangle_get_type();
+    }
 };
 
 test "gdk.Rectangle" {

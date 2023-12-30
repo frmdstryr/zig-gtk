@@ -12,6 +12,11 @@ pub const SourcePrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_source_private_get_type();
+    }
 };
 
 test "glib.SourcePrivate" {

@@ -14,6 +14,11 @@ pub const GlyphVisAttr = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_glyph_vis_attr_get_type();
+    }
 };
 
 test "pango.GlyphVisAttr" {

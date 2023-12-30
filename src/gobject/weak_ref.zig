@@ -12,6 +12,11 @@ pub const WeakRef = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_weak_ref_get_type();
+    }
 };
 
 test "gobject.WeakRef" {

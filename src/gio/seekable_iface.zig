@@ -20,6 +20,11 @@ pub const SeekableIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_seekable_iface_get_type();
+    }
 };
 
 test "gio.SeekableIface" {

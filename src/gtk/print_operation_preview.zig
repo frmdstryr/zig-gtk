@@ -27,6 +27,11 @@ pub const PrintOperationPreview = extern struct {
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_print_operation_preview_get_type();
+    }
 };
 
 test "gtk.PrintOperationPreview" {

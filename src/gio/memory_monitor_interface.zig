@@ -15,6 +15,11 @@ pub const MemoryMonitorInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_memory_monitor_interface_get_type();
+    }
 };
 
 test "gio.MemoryMonitorInterface" {

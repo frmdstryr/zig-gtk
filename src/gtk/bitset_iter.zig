@@ -25,6 +25,11 @@ pub const BitsetIter = extern struct {
     extern fn gtk_bitset_iter_previous(self: *Self, value: u32) bool;
     pub const previous = gtk_bitset_iter_previous;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_bitset_iter_get_type();
+    }
 };
 
 test "gtk.BitsetIter" {

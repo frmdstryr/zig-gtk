@@ -12,6 +12,11 @@ pub const SettingsPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_settings_private_get_type();
+    }
 };
 
 test "gio.SettingsPrivate" {

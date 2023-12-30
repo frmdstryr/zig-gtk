@@ -40,6 +40,11 @@ pub const SettingsSchemaKey = extern struct {
     extern fn g_settings_schema_key_unref(self: *Self) void;
     pub const unref = g_settings_schema_key_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_settings_schema_key_get_type();
+    }
 };
 
 test "gio.SettingsSchemaKey" {

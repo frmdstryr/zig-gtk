@@ -24,6 +24,11 @@ pub const InitiallyUnownedClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_initially_unowned_class_get_type();
+    }
 };
 
 test "gobject.InitiallyUnownedClass" {

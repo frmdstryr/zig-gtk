@@ -12,6 +12,11 @@ pub const SocketServicePrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_socket_service_private_get_type();
+    }
 };
 
 test "gio.SocketServicePrivate" {

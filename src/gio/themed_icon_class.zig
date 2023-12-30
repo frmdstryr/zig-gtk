@@ -12,6 +12,11 @@ pub const ThemedIconClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_themed_icon_class_get_type();
+    }
 };
 
 test "gio.ThemedIconClass" {

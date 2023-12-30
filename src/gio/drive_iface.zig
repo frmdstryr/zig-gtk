@@ -47,6 +47,11 @@ pub const DriveIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_drive_iface_get_type();
+    }
 };
 
 test "gio.DriveIface" {

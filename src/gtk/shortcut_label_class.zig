@@ -12,6 +12,11 @@ pub const ShortcutLabelClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_shortcut_label_class_get_type();
+    }
 };
 
 test "gtk.ShortcutLabelClass" {

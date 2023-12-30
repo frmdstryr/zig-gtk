@@ -12,6 +12,11 @@ pub const SurfaceClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_surface_class_get_type();
+    }
 };
 
 test "gdk.SurfaceClass" {

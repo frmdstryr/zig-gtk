@@ -12,6 +12,11 @@ pub const TcpWrapperConnectionPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_tcp_wrapper_connection_private_get_type();
+    }
 };
 
 test "gio.TcpWrapperConnectionPrivate" {

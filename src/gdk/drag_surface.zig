@@ -21,6 +21,11 @@ pub const DragSurface = extern struct {
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_drag_surface_get_type();
+    }
 };
 
 test "gdk.DragSurface" {

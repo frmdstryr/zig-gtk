@@ -13,6 +13,11 @@ pub const TcpConnectionClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_tcp_connection_class_get_type();
+    }
 };
 
 test "gio.TcpConnectionClass" {

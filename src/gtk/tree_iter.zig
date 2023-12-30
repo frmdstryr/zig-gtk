@@ -22,6 +22,11 @@ pub const TreeIter = extern struct {
     extern fn gtk_tree_iter_free(self: *Self) void;
     pub const free = gtk_tree_iter_free;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_tree_iter_get_type();
+    }
 };
 
 test "gtk.TreeIter" {

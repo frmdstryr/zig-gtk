@@ -23,6 +23,11 @@ pub const DBusObjectManagerIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_d_bus_object_manager_iface_get_type();
+    }
 };
 
 test "gio.DBusObjectManagerIface" {

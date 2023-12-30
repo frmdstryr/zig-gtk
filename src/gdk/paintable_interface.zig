@@ -20,6 +20,11 @@ pub const PaintableInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_paintable_interface_get_type();
+    }
 };
 
 test "gdk.PaintableInterface" {

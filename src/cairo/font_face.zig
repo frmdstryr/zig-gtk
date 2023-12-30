@@ -12,6 +12,11 @@ pub const FontFace = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.cairo_font_face_get_type();
+    }
 };
 
 test "cairo.FontFace" {

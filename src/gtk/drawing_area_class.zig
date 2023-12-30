@@ -15,6 +15,11 @@ pub const DrawingAreaClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_drawing_area_class_get_type();
+    }
 };
 
 test "gtk.DrawingAreaClass" {

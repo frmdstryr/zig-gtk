@@ -15,6 +15,11 @@ pub const GlyphInfo = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_glyph_info_get_type();
+    }
 };
 
 test "pango.GlyphInfo" {

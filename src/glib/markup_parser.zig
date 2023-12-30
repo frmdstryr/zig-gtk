@@ -17,6 +17,11 @@ pub const MarkupParser = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_markup_parser_get_type();
+    }
 };
 
 test "glib.MarkupParser" {

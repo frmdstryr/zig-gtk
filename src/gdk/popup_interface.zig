@@ -12,6 +12,11 @@ pub const PopupInterface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_popup_interface_get_type();
+    }
 };
 
 test "gdk.PopupInterface" {

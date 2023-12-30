@@ -69,6 +69,11 @@ pub const Regex = extern struct {
     extern fn g_regex_unref(self: *Self) void;
     pub const unref = g_regex_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_regex_get_type();
+    }
 };
 
 test "glib.Regex" {

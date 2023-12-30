@@ -41,6 +41,11 @@ pub const CssSection = extern struct {
     extern fn gtk_css_section_unref(self: *Self) void;
     pub const unref = gtk_css_section_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_css_section_get_type();
+    }
 };
 
 test "gtk.CssSection" {

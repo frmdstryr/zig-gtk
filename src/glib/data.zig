@@ -12,6 +12,11 @@ pub const Data = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_data_get_type();
+    }
 };
 
 test "glib.Data" {

@@ -14,6 +14,11 @@ pub const ByteArray = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_byte_array_get_type();
+    }
 };
 
 test "glib.ByteArray" {

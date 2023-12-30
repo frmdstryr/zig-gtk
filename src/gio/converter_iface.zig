@@ -16,6 +16,11 @@ pub const ConverterIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_converter_iface_get_type();
+    }
 };
 
 test "gio.ConverterIface" {

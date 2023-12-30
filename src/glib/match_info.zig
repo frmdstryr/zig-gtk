@@ -57,6 +57,11 @@ pub const MatchInfo = extern struct {
     extern fn g_match_info_unref(self: *Self) void;
     pub const unref = g_match_info_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_match_info_get_type();
+    }
 };
 
 test "glib.MatchInfo" {

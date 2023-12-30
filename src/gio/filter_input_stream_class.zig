@@ -16,6 +16,11 @@ pub const FilterInputStreamClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_filter_input_stream_class_get_type();
+    }
 };
 
 test "gio.FilterInputStreamClass" {

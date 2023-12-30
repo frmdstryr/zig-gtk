@@ -12,6 +12,11 @@ pub const CairoRendererClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gsk_cairo_renderer_class_get_type();
+    }
 };
 
 test "gsk.CairoRendererClass" {

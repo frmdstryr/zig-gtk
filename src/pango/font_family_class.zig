@@ -20,6 +20,11 @@ pub const FontFamilyClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_font_family_class_get_type();
+    }
 };
 
 test "pango.FontFamilyClass" {

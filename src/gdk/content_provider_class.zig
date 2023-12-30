@@ -24,6 +24,11 @@ pub const ContentProviderClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_content_provider_class_get_type();
+    }
 };
 
 test "gdk.ContentProviderClass" {

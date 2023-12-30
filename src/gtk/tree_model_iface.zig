@@ -34,6 +34,11 @@ pub const TreeModelIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_tree_model_iface_get_type();
+    }
 };
 
 test "gtk.TreeModelIface" {

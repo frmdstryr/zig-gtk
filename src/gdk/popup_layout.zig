@@ -63,6 +63,11 @@ pub const PopupLayout = extern struct {
     extern fn gdk_popup_layout_unref(self: *Self) void;
     pub const unref = gdk_popup_layout_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_popup_layout_get_type();
+    }
 };
 
 test "gdk.PopupLayout" {

@@ -31,6 +31,11 @@ pub const Item = extern struct {
     extern fn pango_item_split(self: *Self, split_index: i32, split_offset: i32) ?*pango.Item;
     pub const split = pango_item_split;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_item_get_type();
+    }
 };
 
 test "pango.Item" {

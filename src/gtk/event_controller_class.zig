@@ -12,6 +12,11 @@ pub const EventControllerClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_event_controller_class_get_type();
+    }
 };
 
 test "gtk.EventControllerClass" {

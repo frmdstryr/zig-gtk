@@ -15,6 +15,11 @@ pub const UnixFDMessageClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_unix_fd_message_class_get_type();
+    }
 };
 
 test "gio.UnixFDMessageClass" {

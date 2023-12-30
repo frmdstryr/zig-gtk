@@ -12,6 +12,11 @@ pub const SimpleActionGroupPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_simple_action_group_private_get_type();
+    }
 };
 
 test "gio.SimpleActionGroupPrivate" {

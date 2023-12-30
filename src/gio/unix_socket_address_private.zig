@@ -12,6 +12,11 @@ pub const UnixSocketAddressPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_unix_socket_address_private_get_type();
+    }
 };
 
 test "gio.UnixSocketAddressPrivate" {

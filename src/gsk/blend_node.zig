@@ -53,6 +53,11 @@ pub const BlendNode = extern struct {
     pub inline fn asRenderNode(self: *Self) *gsk.RenderNode {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gsk_blend_node_get_type();
+    }
 };
 
 test "gsk.BlendNode" {

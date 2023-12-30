@@ -1,5 +1,6 @@
 // This file is auto generated do not edit
 const std = @import("std");
+pub const c = @import("pango/c.zig");
 pub usingnamespace @import("pango/enums.zig");
 pub usingnamespace @import("pango/flags.zig");
 pub usingnamespace @import("pango/constants.zig");

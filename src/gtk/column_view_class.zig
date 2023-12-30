@@ -12,6 +12,11 @@ pub const ColumnViewClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_column_view_class_get_type();
+    }
 };
 
 test "gtk.ColumnViewClass" {

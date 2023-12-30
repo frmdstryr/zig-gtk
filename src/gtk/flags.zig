@@ -45,7 +45,7 @@ pub const DebugFlags = packed struct {
     pub const SizeRequest: @This() = @bitCast(c.GTK_DEBUG_SIZE_REQUEST);
     pub const Snapshot: @This() = @bitCast(c.GTK_DEBUG_SNAPSHOT);
     pub const Text: @This() = @bitCast(c.GTK_DEBUG_TEXT);
-    pub const Touchscreen: @This() = @bitCast(c.GTK_DEBUG_TOUCHSCREEN);
+    pub const Touchscreen: @This() = @bitCast(c.None);
     pub const Tree: @This() = @bitCast(c.GTK_DEBUG_TREE);
 };
 

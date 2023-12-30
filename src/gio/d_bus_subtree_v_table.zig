@@ -16,6 +16,11 @@ pub const DBusSubtreeVTable = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_d_bus_subtree_v_table_get_type();
+    }
 };
 
 test "gio.DBusSubtreeVTable" {

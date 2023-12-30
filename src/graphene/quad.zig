@@ -37,6 +37,11 @@ pub const Quad = extern struct {
     extern fn graphene_quad_init_from_rect(self: *Self, r: *graphene.Rect) ?*graphene.Quad;
     pub const initFromRect = graphene_quad_init_from_rect;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.graphene_quad_get_type();
+    }
 };
 
 test "graphene.Quad" {

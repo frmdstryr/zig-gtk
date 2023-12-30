@@ -99,6 +99,11 @@ pub const Bitset = extern struct {
     extern fn gtk_bitset_unref(self: *Self) void;
     pub const unref = gtk_bitset_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_bitset_get_type();
+    }
 };
 
 test "gtk.Bitset" {

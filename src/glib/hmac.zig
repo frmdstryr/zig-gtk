@@ -24,6 +24,11 @@ pub const Hmac = extern struct {
     extern fn g_hmac_update(self: *Self, data: [*c]u8, length: i64) void;
     pub const update = g_hmac_update;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_hmac_get_type();
+    }
 };
 
 test "glib.Hmac" {

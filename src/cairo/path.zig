@@ -12,6 +12,11 @@ pub const Path = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.cairo_path_get_type();
+    }
 };
 
 test "cairo.Path" {

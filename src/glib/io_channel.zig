@@ -131,6 +131,11 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_write_unichar(self: *Self, thechar: u32) glib.IOStatus;
     pub const writeUnichar = g_io_channel_write_unichar;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_io_channel_get_type();
+    }
 };
 
 test "glib.IOChannel" {

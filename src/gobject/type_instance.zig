@@ -16,6 +16,11 @@ pub const TypeInstance = extern struct {
     extern fn g_type_instance_get_private(self: *Self, private_type: usize) ?*anyopaque;
     pub const getPrivate = g_type_instance_get_private;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_type_instance_get_type();
+    }
 };
 
 test "gobject.TypeInstance" {

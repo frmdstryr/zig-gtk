@@ -43,6 +43,11 @@ pub const DBusInterfaceInfo = extern struct {
     extern fn g_dbus_interface_info_unref(self: *Self) void;
     pub const unref = g_dbus_interface_info_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_d_bus_interface_info_get_type();
+    }
 };
 
 test "gio.DBusInterfaceInfo" {

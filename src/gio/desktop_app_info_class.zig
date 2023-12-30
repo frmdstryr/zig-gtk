@@ -14,6 +14,11 @@ pub const DesktopAppInfoClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_desktop_app_info_class_get_type();
+    }
 };
 
 test "gio.DesktopAppInfoClass" {

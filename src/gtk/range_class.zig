@@ -19,6 +19,11 @@ pub const RangeClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_range_class_get_type();
+    }
 };
 
 test "gtk.RangeClass" {

@@ -87,6 +87,11 @@ pub const MainContext = extern struct {
     pub inline fn asMainContext(self: *Self) *glib.MainContext {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_main_context_get_type();
+    }
 };
 
 test "gobject.MainContext" {

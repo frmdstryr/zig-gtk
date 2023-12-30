@@ -27,6 +27,11 @@ pub const BuildableParseContext = extern struct {
     extern fn gtk_buildable_parse_context_push(self: *Self, parser: *gtk.BuildableParser, user_data: ?*anyopaque) void;
     pub const push = gtk_buildable_parse_context_push;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_buildable_parse_context_get_type();
+    }
 };
 
 test "gtk.BuildableParseContext" {

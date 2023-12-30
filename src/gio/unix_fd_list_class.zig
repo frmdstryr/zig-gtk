@@ -19,6 +19,11 @@ pub const UnixFDListClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_unix_fd_list_class_get_type();
+    }
 };
 
 test "gio.UnixFDListClass" {

@@ -63,6 +63,11 @@ pub const ParamSpecFloat = extern struct {
     pub inline fn asParamSpec(self: *Self) *gobject.ParamSpec {
         return @ptrCast(self);
     }
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gobject_param_spec_float_get_type();
+    }
 };
 
 test "gobject.ParamSpecFloat" {

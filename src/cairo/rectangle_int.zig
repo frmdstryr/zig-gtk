@@ -16,6 +16,11 @@ pub const RectangleInt = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.cairo_rectangle_int_get_type();
+    }
 };
 
 test "cairo.RectangleInt" {

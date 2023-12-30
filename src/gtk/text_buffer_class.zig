@@ -34,6 +34,11 @@ pub const TextBufferClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_text_buffer_class_get_type();
+    }
 };
 
 test "gtk.TextBufferClass" {

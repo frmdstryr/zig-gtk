@@ -14,6 +14,11 @@ pub const AttrFontDesc = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.pango_attr_font_desc_get_type();
+    }
 };
 
 test "pango.AttrFontDesc" {

@@ -75,6 +75,11 @@ pub const AsyncQueue = extern struct {
     extern fn g_async_queue_unref_and_unlock(self: *Self) void;
     pub const unrefAndUnlock = g_async_queue_unref_and_unlock;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_async_queue_get_type();
+    }
 };
 
 test "glib.AsyncQueue" {

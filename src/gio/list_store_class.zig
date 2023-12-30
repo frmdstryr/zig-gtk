@@ -14,6 +14,11 @@ pub const ListStoreClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_list_store_class_get_type();
+    }
 };
 
 test "gio.ListStoreClass" {

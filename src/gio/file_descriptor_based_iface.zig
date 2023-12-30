@@ -15,6 +15,11 @@ pub const FileDescriptorBasedIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_file_descriptor_based_iface_get_type();
+    }
 };
 
 test "gio.FileDescriptorBasedIface" {

@@ -15,6 +15,11 @@ pub const SourceCallbackFuncs = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_source_callback_funcs_get_type();
+    }
 };
 
 test "glib.SourceCallbackFuncs" {

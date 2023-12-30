@@ -29,6 +29,11 @@ pub const RecMutex = extern struct {
     extern fn g_rec_mutex_unlock(self: *Self) void;
     pub const unlock = g_rec_mutex_unlock;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_rec_mutex_get_type();
+    }
 };
 
 test "glib.RecMutex" {

@@ -17,6 +17,11 @@ pub const ComboBoxClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_combo_box_class_get_type();
+    }
 };
 
 test "gtk.ComboBoxClass" {

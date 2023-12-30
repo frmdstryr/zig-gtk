@@ -33,6 +33,11 @@ pub const MainLoop = extern struct {
     extern fn g_main_loop_unref(self: *Self) void;
     pub const unref = g_main_loop_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_main_loop_get_type();
+    }
 };
 
 test "glib.MainLoop" {

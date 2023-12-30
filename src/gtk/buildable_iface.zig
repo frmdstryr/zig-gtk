@@ -24,6 +24,11 @@ pub const BuildableIface = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_buildable_iface_get_type();
+    }
 };
 
 test "gtk.BuildableIface" {

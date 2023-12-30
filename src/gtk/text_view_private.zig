@@ -12,6 +12,11 @@ pub const TextViewPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_text_view_private_get_type();
+    }
 };
 
 test "gtk.TextViewPrivate" {

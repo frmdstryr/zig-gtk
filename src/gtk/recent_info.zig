@@ -86,6 +86,11 @@ pub const RecentInfo = extern struct {
     extern fn gtk_recent_info_unref(self: *Self) void;
     pub const unref = gtk_recent_info_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gtk_recent_info_get_type();
+    }
 };
 
 test "gtk.RecentInfo" {

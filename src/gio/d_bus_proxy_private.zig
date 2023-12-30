@@ -12,6 +12,11 @@ pub const DBusProxyPrivate = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_d_bus_proxy_private_get_type();
+    }
 };
 
 test "gio.DBusProxyPrivate" {

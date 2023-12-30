@@ -24,6 +24,11 @@ pub const StrvBuilder = extern struct {
     extern fn g_strv_builder_unref(self: *Self) void;
     pub const unref = g_strv_builder_unref;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.glib_strv_builder_get_type();
+    }
 };
 
 test "glib.StrvBuilder" {

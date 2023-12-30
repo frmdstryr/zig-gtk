@@ -16,6 +16,11 @@ pub const FileList = extern struct {
     // extern fn gdk_file_list_get_files(self: *Self) None;
     // pub const getFiles = gdk_file_list_get_files;
 
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gdk_file_list_get_type();
+    }
 };
 
 test "gdk.FileList" {

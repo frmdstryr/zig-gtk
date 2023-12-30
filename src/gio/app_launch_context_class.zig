@@ -23,6 +23,11 @@ pub const AppLaunchContextClass = extern struct {
     // Constructors
 
     // Methods
+
+    // GType
+    pub inline fn gType() usize {
+        return c.gio_app_launch_context_class_get_type();
+    }
 };
 
 test "gio.AppLaunchContextClass" {
