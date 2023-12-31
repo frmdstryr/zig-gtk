@@ -116,22 +116,39 @@ ZIG_KEYWORDS = {
 
 SIGNAL_METHODS = """
     // Signals
+
+    // Connect to a signal with no arguments and optional user data
     pub inline fn connectSignal(
         self: *Self,
         signal: [:0]const u8,
-        callback: *const fn (self: *Self, data: ?*anyopaque) callconv(.C) void,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
         data: anytype
     ) u64 {
         return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
     }
 
-    pub inline fn connectSignalTyped(
+    // Connect to a signal with a typed argument and optional user data
+    pub inline fn connectSignalWithArg(
+        self: *Self,
+        signal: [:0]const u8,
+        comptime ArgType: type,
+        comptime UserDataType: type,
+        callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+    }
+
+    // Connect to a signal with a no arguments and optional user data
+    pub inline fn connectSignalAfter(
         self: *Self,
         signal: [:0]const u8,
         comptime T: type,
-        callback: *const fn (self: *Self, data: T) callconv(.C) void,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype
     ) u64 {
-        return c.g_signal_connect_data(self, signal, @ptrCast(callback), null, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
     }
 
     pub inline fn connectSignalSwapped(
@@ -212,7 +229,7 @@ pub fn registerType(comptime T: type, comptime type_name: [:0]const u8) type {
 
         fn _g_type_instance_init(instance: *TypeInstance, g_class: *TypeClass) callconv(.C) void {
             const self: *Self = @ptrCast(instance);
-            self.data = T{};
+            self.data = undefined;
             _ = g_class;
         }
 
