@@ -120,45 +120,45 @@ SIGNAL_METHODS = """
     // Connect to a signal with no arguments and optional user data
     pub inline fn connectSignal(
         self: *Self,
-        signal: [:0]const u8,
+        signal: Signals,
         comptime T: type,
         callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
         data: anytype
     ) u64 {
-        return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
     }
 
     // Connect to a signal with a typed argument and optional user data
     pub inline fn connectSignalWithArg(
         self: *Self,
-        signal: [:0]const u8,
+        signal: Signals,
         comptime ArgType: type,
         comptime UserDataType: type,
         callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
         data: anytype,
     ) u64 {
-        return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
     }
 
     // Connect to a signal with a no arguments and optional user data
     pub inline fn connectSignalAfter(
         self: *Self,
-        signal: [:0]const u8,
+        signal: Signals,
         comptime T: type,
         callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
         data: anytype
     ) u64 {
-        return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
     }
 
     pub inline fn connectSignalSwapped(
         self: *Self,
-        signal: [:0]const u8,
+        signal: Signals,
         comptime T: type,
         callback: *const fn (data: *T) callconv(.C) void,
         data: anytype
     ) u64 {
-        return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
 """
 
@@ -188,7 +188,8 @@ METHOD_OVERRIDES: dict[type, dict[str, list[str]]] = {
 }
 
 # List of methods to add
-EXTRA_METHODS: dict[type, list[str]] = {}
+EXTRA_METHODS: dict[type, list[str]] = {
+}
 
 # Lines added to the top of each api file
 EXTRA_API_IMPORTS: dict[str, list[str]] = {}
@@ -743,21 +744,51 @@ def generate_class(ns: str, Cls: type):
     if extra_methods := EXTRA_METHODS.get(Cls):
         out.extend(extra_methods)
 
-    if has_connect:
+    signals = []
+    for obj_info in mro:
+        if hasattr(obj_info, "get_signals"):
+            signals.extend(obj_info.get_signals())
+    if signals:
+        out.append("")
+        out.append("    // Signals")
+        out.append("    pub const Signals = enum(u8) {")
+        for i, signal in enumerate(signals):
+            name = signal.get_name().replace("-", "_")
+            out.append(f"        {name} = {i},")
+        out.append("    };")
+        out.append("")
+        out.append("    pub const SignalNames = [_][:0]const u8{")
+        for i, signal in enumerate(signals):
+            name = signal.get_name()
+            out.append(f"      \"{name}\",")
+        out.append("    };")
+
+
+    if signals:
         out.append(SIGNAL_METHODS)
 
     this_cls = f"{ns.lower()}.{Cls.__name__}"
     if this_cls in bases:
         bases.remove(this_cls)
+    has_as_object = False
     if bases:
         out.append("")
         out.append("    // Bases")
         for name in sorted(list(bases)):
             mod, base = name.split(".")
             imports.add(mod.lower())
+            if base == "Object":
+                has_as_object = True
             out.append("    pub inline fn as%s(self: *Self) *%s {" % (base, name))
             out.append("        return @ptrCast(self);")
             out.append("    }")
+
+    if is_interface and not has_as_object:
+        # TODO: Is this correct ??
+        out.append("")
+        out.append("    pub inline fn asObject(self: *Self) *gobject.Object {")
+        out.append("        return @ptrCast(self);")
+        out.append("    }")
 
     if gtype := info.get_g_type():
         out.append("")

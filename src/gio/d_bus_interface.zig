@@ -28,6 +28,10 @@ pub const DBusInterface = extern struct {
         return @ptrCast(self);
     }
 
+    pub inline fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
+
     // GType
     pub inline fn gType() usize {
         return c.gio_d_bus_interface_get_type();

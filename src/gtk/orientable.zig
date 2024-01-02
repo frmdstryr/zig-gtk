@@ -25,6 +25,10 @@ pub const Orientable = extern struct {
         return @ptrCast(self);
     }
 
+    pub inline fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
+
     // GType
     pub inline fn gType() usize {
         return c.gtk_orientable_get_type();

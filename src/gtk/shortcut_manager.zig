@@ -19,6 +19,10 @@ pub const ShortcutManager = extern struct {
         return @ptrCast(self);
     }
 
+    pub inline fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
+
     // GType
     pub inline fn gType() usize {
         return c.gtk_shortcut_manager_get_type();

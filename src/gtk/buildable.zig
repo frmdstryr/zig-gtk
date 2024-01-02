@@ -22,6 +22,10 @@ pub const Buildable = extern struct {
         return @ptrCast(self);
     }
 
+    pub inline fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
+
     // GType
     pub inline fn gType() usize {
         return c.gtk_buildable_get_type();

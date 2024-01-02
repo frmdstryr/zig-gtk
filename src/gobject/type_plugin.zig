@@ -30,6 +30,10 @@ pub const TypePlugin = extern struct {
         return @ptrCast(self);
     }
 
+    pub inline fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
+
     // GType
     pub inline fn gType() usize {
         return c.gobject_type_plugin_get_type();

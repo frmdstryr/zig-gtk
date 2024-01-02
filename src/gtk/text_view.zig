@@ -812,49 +812,114 @@ pub const TextView = extern struct {
 
 
     // Signals
+    pub const Signals = enum(u8) {
+        backspace = 0,
+        copy_clipboard = 1,
+        cut_clipboard = 2,
+        delete_from_cursor = 3,
+        extend_selection = 4,
+        insert_at_cursor = 5,
+        insert_emoji = 6,
+        move_cursor = 7,
+        move_viewport = 8,
+        paste_clipboard = 9,
+        preedit_changed = 10,
+        select_all = 11,
+        set_anchor = 12,
+        toggle_cursor_visible = 13,
+        toggle_overwrite = 14,
+        destroy = 15,
+        direction_changed = 16,
+        hide = 17,
+        keynav_failed = 18,
+        map = 19,
+        mnemonic_activate = 20,
+        move_focus = 21,
+        query_tooltip = 22,
+        realize = 23,
+        show = 24,
+        state_flags_changed = 25,
+        unmap = 26,
+        unrealize = 27,
+        notify = 28,
+    };
+
+    pub const SignalNames = [_][:0]const u8{
+      "backspace",
+      "copy-clipboard",
+      "cut-clipboard",
+      "delete-from-cursor",
+      "extend-selection",
+      "insert-at-cursor",
+      "insert-emoji",
+      "move-cursor",
+      "move-viewport",
+      "paste-clipboard",
+      "preedit-changed",
+      "select-all",
+      "set-anchor",
+      "toggle-cursor-visible",
+      "toggle-overwrite",
+      "destroy",
+      "direction-changed",
+      "hide",
+      "keynav-failed",
+      "map",
+      "mnemonic-activate",
+      "move-focus",
+      "query-tooltip",
+      "realize",
+      "show",
+      "state-flags-changed",
+      "unmap",
+      "unrealize",
+      "notify",
+    };
+
+    // Signals
 
     // Connect to a signal with no arguments and optional user data
     pub inline fn connectSignal(
         self: *Self,
-        signal: [:0]const u8,
+        signal: Signals,
         comptime T: type,
         callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
         data: anytype
     ) u64 {
-        return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
     }
 
     // Connect to a signal with a typed argument and optional user data
     pub inline fn connectSignalWithArg(
         self: *Self,
-        signal: [:0]const u8,
+        signal: Signals,
         comptime ArgType: type,
         comptime UserDataType: type,
         callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
         data: anytype,
     ) u64 {
-        return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
     }
 
     // Connect to a signal with a no arguments and optional user data
     pub inline fn connectSignalAfter(
         self: *Self,
-        signal: [:0]const u8,
+        signal: Signals,
         comptime T: type,
         callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
         data: anytype
     ) u64 {
-        return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
     }
 
     pub inline fn connectSignalSwapped(
         self: *Self,
-        signal: [:0]const u8,
+        signal: Signals,
         comptime T: type,
         callback: *const fn (data: *T) callconv(.C) void,
         data: anytype
     ) u64 {
-        return c.g_signal_connect_data(self, signal, @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
 
 

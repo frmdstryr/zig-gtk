@@ -89,8 +89,74 @@ pub const TreeModel = extern struct {
     pub const unrefNode = gtk_tree_model_unref_node;
 
 
+    // Signals
+    pub const Signals = enum(u8) {
+        row_changed = 0,
+        row_deleted = 1,
+        row_has_child_toggled = 2,
+        row_inserted = 3,
+    };
+
+    pub const SignalNames = [_][:0]const u8{
+      "row-changed",
+      "row-deleted",
+      "row-has-child-toggled",
+      "row-inserted",
+    };
+
+    // Signals
+
+    // Connect to a signal with no arguments and optional user data
+    pub inline fn connectSignal(
+        self: *Self,
+        signal: Signals,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype
+    ) u64 {
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+    }
+
+    // Connect to a signal with a typed argument and optional user data
+    pub inline fn connectSignalWithArg(
+        self: *Self,
+        signal: Signals,
+        comptime ArgType: type,
+        comptime UserDataType: type,
+        callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+    }
+
+    // Connect to a signal with a no arguments and optional user data
+    pub inline fn connectSignalAfter(
+        self: *Self,
+        signal: Signals,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype
+    ) u64 {
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
+    }
+
+    pub inline fn connectSignalSwapped(
+        self: *Self,
+        signal: Signals,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: anytype
+    ) u64 {
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
+    }
+
+
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+
+    pub inline fn asObject(self: *Self) *gobject.Object {
         return @ptrCast(self);
     }
 

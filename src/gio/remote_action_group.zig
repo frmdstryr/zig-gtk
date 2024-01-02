@@ -26,6 +26,10 @@ pub const RemoteActionGroup = extern struct {
         return @ptrCast(self);
     }
 
+    pub inline fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
+
     // GType
     pub inline fn gType() usize {
         return c.gio_remote_action_group_get_type();

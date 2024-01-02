@@ -23,6 +23,10 @@ pub const SymbolicPaintable = extern struct {
         return @ptrCast(self);
     }
 
+    pub inline fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
+
     // GType
     pub inline fn gType() usize {
         return c.gtk_symbolic_paintable_get_type();

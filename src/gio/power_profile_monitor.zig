@@ -25,6 +25,10 @@ pub const PowerProfileMonitor = extern struct {
         return @ptrCast(self);
     }
 
+    pub inline fn asObject(self: *Self) *gobject.Object {
+        return @ptrCast(self);
+    }
+
     // GType
     pub inline fn gType() usize {
         return c.gio_power_profile_monitor_get_type();
