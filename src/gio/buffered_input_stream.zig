@@ -104,19 +104,19 @@ pub const BufferedInputStream = extern struct {
     extern fn g_buffered_input_stream_peek(self: *Self, buffer: [*c]u8, offset: u64, count: u64) u64;
     pub const peek = g_buffered_input_stream_peek;
 
-    extern fn g_buffered_input_stream_peek_buffer(self: *Self, count: u64) [*c]u8;
+    extern fn g_buffered_input_stream_peek_buffer(self: *Self, count: *u64) [*c]u8;
     pub const peekBuffer = g_buffered_input_stream_peek_buffer;
 
     extern fn g_input_stream_read(self: *Self, buffer: [*c]u8, count: u64, cancellable: ?*gio.Cancellable) i64;
     pub const read = g_input_stream_read;
 
-    extern fn g_input_stream_read_all(self: *Self, buffer: [*c]u8, count: u64, bytes_read: u64, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_input_stream_read_all(self: *Self, buffer: [*c]u8, count: u64, bytes_read: *u64, cancellable: ?*gio.Cancellable) bool;
     pub const readAll = g_input_stream_read_all;
 
     extern fn g_input_stream_read_all_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const readAllAsync = g_input_stream_read_all_async;
 
-    extern fn g_input_stream_read_all_finish(self: *Self, result: *gio.AsyncResult, bytes_read: u64) bool;
+    extern fn g_input_stream_read_all_finish(self: *Self, result: *gio.AsyncResult, bytes_read: *u64) bool;
     pub const readAllFinish = g_input_stream_read_all_finish;
 
     extern fn g_input_stream_read_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
@@ -194,7 +194,7 @@ pub const BufferedInputStream = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

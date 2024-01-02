@@ -287,7 +287,7 @@ pub const ToggleButton = extern struct {
     extern fn gtk_widget_get_size(self: *Self, orientation: gtk.Orientation) i32;
     pub const getSize = gtk_widget_get_size;
 
-    extern fn gtk_widget_get_size_request(self: *Self, width: i32, height: i32) void;
+    extern fn gtk_widget_get_size_request(self: *Self, width: *i32, height: *i32) void;
     pub const getSizeRequest = gtk_widget_get_size_request;
 
     extern fn gtk_widget_get_state_flags(self: *Self) gtk.StateFlags;
@@ -386,7 +386,7 @@ pub const ToggleButton = extern struct {
     extern fn gtk_widget_map(self: *Self) void;
     pub const map = gtk_widget_map;
 
-    extern fn gtk_widget_measure(self: *Self, orientation: gtk.Orientation, for_size: i32, minimum: i32, natural: i32, minimum_baseline: i32, natural_baseline: i32) void;
+    extern fn gtk_widget_measure(self: *Self, orientation: gtk.Orientation, for_size: i32, minimum: *i32, natural: *i32, minimum_baseline: *i32, natural_baseline: *i32) void;
     pub const measure = gtk_widget_measure;
 
     extern fn gtk_widget_mnemonic_activate(self: *Self, group_cycling: bool) bool;
@@ -596,7 +596,7 @@ pub const ToggleButton = extern struct {
     extern fn gtk_toggle_button_toggled(self: *Self) void;
     pub const toggled = gtk_toggle_button_toggled;
 
-    extern fn gtk_widget_translate_coordinates(self: *Self, dest_widget: *gtk.Widget, src_x: f64, src_y: f64, dest_x: f64, dest_y: f64) bool;
+    extern fn gtk_widget_translate_coordinates(self: *Self, dest_widget: *gtk.Widget, src_x: f64, src_y: f64, dest_x: *f64, dest_y: *f64) bool;
     pub const translateCoordinates = gtk_widget_translate_coordinates;
 
     extern fn gtk_widget_trigger_tooltip_query(self: *Self) void;
@@ -635,7 +635,7 @@ pub const ToggleButton = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
     // Utility methods

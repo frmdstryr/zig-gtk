@@ -38,16 +38,16 @@ pub const ConstraintGuide = extern struct {
     extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
     pub const getData = g_object_get_data;
 
-    extern fn gtk_constraint_guide_get_max_size(self: *Self, width: i32, height: i32) void;
+    extern fn gtk_constraint_guide_get_max_size(self: *Self, width: *i32, height: *i32) void;
     pub const getMaxSize = gtk_constraint_guide_get_max_size;
 
-    extern fn gtk_constraint_guide_get_min_size(self: *Self, width: i32, height: i32) void;
+    extern fn gtk_constraint_guide_get_min_size(self: *Self, width: *i32, height: *i32) void;
     pub const getMinSize = gtk_constraint_guide_get_min_size;
 
     extern fn gtk_constraint_guide_get_name(self: *Self) [*c]const u8;
     pub const getName = gtk_constraint_guide_get_name;
 
-    extern fn gtk_constraint_guide_get_nat_size(self: *Self, width: i32, height: i32) void;
+    extern fn gtk_constraint_guide_get_nat_size(self: *Self, width: *i32, height: *i32) void;
     pub const getNatSize = gtk_constraint_guide_get_nat_size;
 
     extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
@@ -125,7 +125,7 @@ pub const ConstraintGuide = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

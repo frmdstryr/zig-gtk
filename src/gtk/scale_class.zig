@@ -9,7 +9,7 @@ pub const ScaleClass = extern struct {
 
     // Fields
     parent_class: gtk.RangeClass,
-    get_layout_offsets: *const fn (scale: *gtk.Scale, x: i32, y: i32) callconv(.C) void,
+    get_layout_offsets: *const fn (scale: *gtk.Scale, x: *i32, y: *i32) callconv(.C) void,
     padding: [8]?*anyopaque,
 
     // Constructors

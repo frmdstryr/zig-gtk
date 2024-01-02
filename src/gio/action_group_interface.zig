@@ -24,7 +24,7 @@ pub const ActionGroupInterface = extern struct {
     action_removed: *const fn (action_group: *gio.ActionGroup, action_name: [*c]const u8) callconv(.C) void,
     action_enabled_changed: *const fn (action_group: *gio.ActionGroup, action_name: [*c]const u8, enabled: bool) callconv(.C) void,
     action_state_changed: *const fn (action_group: *gio.ActionGroup, action_name: [*c]const u8, state: *glib.Variant) callconv(.C) void,
-    query_action: *const fn (action_group: *gio.ActionGroup, action_name: [*c]const u8, enabled: bool, parameter_type: *glib.VariantType, state_type: *glib.VariantType, state_hint: *glib.Variant, state: *glib.Variant) callconv(.C) bool,
+    query_action: *const fn (action_group: *gio.ActionGroup, action_name: [*c]const u8, enabled: *bool, parameter_type: *glib.VariantType, state_type: *glib.VariantType, state_hint: *glib.Variant, state: *glib.Variant) callconv(.C) bool,
 
     // Constructors
 

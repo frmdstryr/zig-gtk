@@ -34,7 +34,7 @@ pub const MediaStream = extern struct {
     extern fn g_object_freeze_notify(self: *Self) void;
     pub const freezeNotify = g_object_freeze_notify;
 
-    extern fn gtk_media_stream_gerror(self: *Self, error_: *glib.Error) void;
+    extern fn gtk_media_stream_gerror(self: *Self, error_: **glib.Error) void;
     pub const gerror = gtk_media_stream_gerror;
 
     extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
@@ -181,7 +181,7 @@ pub const MediaStream = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

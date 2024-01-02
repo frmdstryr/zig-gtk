@@ -12,8 +12,8 @@ pub const CellAreaContextClass = extern struct {
     parent_class: gobject.ObjectClass,
     allocate: *const fn (context: *gtk.CellAreaContext, width: i32, height: i32) callconv(.C) void,
     reset: *const fn (context: *gtk.CellAreaContext) callconv(.C) void,
-    get_preferred_height_for_width: *const fn (context: *gtk.CellAreaContext, width: i32, minimum_height: i32, natural_height: i32) callconv(.C) void,
-    get_preferred_width_for_height: *const fn (context: *gtk.CellAreaContext, height: i32, minimum_width: i32, natural_width: i32) callconv(.C) void,
+    get_preferred_height_for_width: *const fn (context: *gtk.CellAreaContext, width: i32, minimum_height: *i32, natural_height: *i32) callconv(.C) void,
+    get_preferred_width_for_height: *const fn (context: *gtk.CellAreaContext, height: i32, minimum_width: *i32, natural_width: *i32) callconv(.C) void,
     padding: [8]?*anyopaque,
 
     // Constructors

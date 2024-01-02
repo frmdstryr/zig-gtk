@@ -25,10 +25,10 @@ pub const ContentFormats = extern struct {
     extern fn gdk_content_formats_contain_mime_type(self: *Self, mime_type: [*c]const u8) bool;
     pub const containMimeType = gdk_content_formats_contain_mime_type;
 
-    extern fn gdk_content_formats_get_gtypes(self: *Self, n_gtypes: u64) [*c]usize;
+    extern fn gdk_content_formats_get_gtypes(self: *Self, n_gtypes: *u64) [*c]usize;
     pub const getGtypes = gdk_content_formats_get_gtypes;
 
-    extern fn gdk_content_formats_get_mime_types(self: *Self, n_mime_types: u64) [*c][*c]const u8;
+    extern fn gdk_content_formats_get_mime_types(self: *Self, n_mime_types: *u64) [*c][*c]const u8;
     pub const getMimeTypes = gdk_content_formats_get_mime_types;
 
     extern fn gdk_content_formats_match(self: *Self, second: *gdk.ContentFormats) bool;

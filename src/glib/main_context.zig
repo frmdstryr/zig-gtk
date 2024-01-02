@@ -54,13 +54,13 @@ pub const MainContext = extern struct {
     extern fn g_main_context_pop_thread_default(self: *Self) void;
     pub const popThreadDefault = g_main_context_pop_thread_default;
 
-    extern fn g_main_context_prepare(self: *Self, priority: i32) bool;
+    extern fn g_main_context_prepare(self: *Self, priority: *i32) bool;
     pub const prepare = g_main_context_prepare;
 
     extern fn g_main_context_push_thread_default(self: *Self) void;
     pub const pushThreadDefault = g_main_context_push_thread_default;
 
-    extern fn g_main_context_query(self: *Self, max_priority: i32, timeout_: i32, fds: [*c]glib.PollFD, n_fds: i32) i32;
+    extern fn g_main_context_query(self: *Self, max_priority: i32, timeout_: *i32, fds: [*c]glib.PollFD, n_fds: i32) i32;
     pub const query = g_main_context_query;
 
     extern fn g_main_context_ref(self: *Self) ?*glib.MainContext;

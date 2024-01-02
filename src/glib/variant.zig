@@ -99,19 +99,19 @@ pub const Variant = extern struct {
     extern fn g_variant_compare(self: *Self, two: *glib.Variant) i32;
     pub const compare = g_variant_compare;
 
-    extern fn g_variant_dup_bytestring(self: *Self, length: u64) [*c]u8;
+    extern fn g_variant_dup_bytestring(self: *Self, length: *u64) [*c]u8;
     pub const dupBytestring = g_variant_dup_bytestring;
 
-    extern fn g_variant_dup_bytestring_array(self: *Self, length: u64) [*c][*c]const u8;
+    extern fn g_variant_dup_bytestring_array(self: *Self, length: *u64) [*c][*c]const u8;
     pub const dupBytestringArray = g_variant_dup_bytestring_array;
 
-    extern fn g_variant_dup_objv(self: *Self, length: u64) [*c][*c]const u8;
+    extern fn g_variant_dup_objv(self: *Self, length: *u64) [*c][*c]const u8;
     pub const dupObjv = g_variant_dup_objv;
 
-    extern fn g_variant_dup_string(self: *Self, length: u64) [*c]const u8;
+    extern fn g_variant_dup_string(self: *Self, length: *u64) [*c]const u8;
     pub const dupString = g_variant_dup_string;
 
-    extern fn g_variant_dup_strv(self: *Self, length: u64) [*c][*c]const u8;
+    extern fn g_variant_dup_strv(self: *Self, length: *u64) [*c][*c]const u8;
     pub const dupStrv = g_variant_dup_strv;
 
     extern fn g_variant_equal(self: *Self, two: *glib.Variant) bool;
@@ -126,7 +126,7 @@ pub const Variant = extern struct {
     extern fn g_variant_get_bytestring(self: *Self) [*c]u8;
     pub const getBytestring = g_variant_get_bytestring;
 
-    extern fn g_variant_get_bytestring_array(self: *Self, length: u64) [*c][*c]const u8;
+    extern fn g_variant_get_bytestring_array(self: *Self, length: *u64) [*c][*c]const u8;
     pub const getBytestringArray = g_variant_get_bytestring_array;
 
     extern fn g_variant_get_child_value(self: *Self, index_: u64) ?*glib.Variant;
@@ -159,16 +159,16 @@ pub const Variant = extern struct {
     extern fn g_variant_get_normal_form(self: *Self) ?*glib.Variant;
     pub const getNormalForm = g_variant_get_normal_form;
 
-    extern fn g_variant_get_objv(self: *Self, length: u64) [*c][*c]const u8;
+    extern fn g_variant_get_objv(self: *Self, length: *u64) [*c][*c]const u8;
     pub const getObjv = g_variant_get_objv;
 
     extern fn g_variant_get_size(self: *Self) u64;
     pub const getSize = g_variant_get_size;
 
-    extern fn g_variant_get_string(self: *Self, length: u64) [*c]const u8;
+    extern fn g_variant_get_string(self: *Self, length: *u64) [*c]const u8;
     pub const getString = g_variant_get_string;
 
-    extern fn g_variant_get_strv(self: *Self, length: u64) [*c][*c]const u8;
+    extern fn g_variant_get_strv(self: *Self, length: *u64) [*c][*c]const u8;
     pub const getStrv = g_variant_get_strv;
 
     extern fn g_variant_get_type(self: *Self) ?*glib.VariantType;

@@ -12,19 +12,19 @@ pub const TouchEvent = extern struct {
     // Constructors
 
     // Methods
-    extern fn gdk_events_get_angle(self: *Self, event2: *gdk.Event, angle: f64) bool;
+    extern fn gdk_events_get_angle(self: *Self, event2: *gdk.Event, angle: *f64) bool;
     pub const getAngle = gdk_events_get_angle;
 
-    extern fn gdk_events_get_center(self: *Self, event2: *gdk.Event, x: f64, y: f64) bool;
+    extern fn gdk_events_get_center(self: *Self, event2: *gdk.Event, x: *f64, y: *f64) bool;
     pub const getCenter = gdk_events_get_center;
 
-    extern fn gdk_events_get_distance(self: *Self, event2: *gdk.Event, distance: f64) bool;
+    extern fn gdk_events_get_distance(self: *Self, event2: *gdk.Event, distance: *f64) bool;
     pub const getDistance = gdk_events_get_distance;
 
-    extern fn gdk_event_get_axes(self: *Self, axes: [*c]f64, n_axes: u32) bool;
+    extern fn gdk_event_get_axes(self: *Self, axes: [*c]f64, n_axes: *u32) bool;
     pub const getAxes = gdk_event_get_axes;
 
-    extern fn gdk_event_get_axis(self: *Self, axis_use: gdk.AxisUse, value: f64) bool;
+    extern fn gdk_event_get_axis(self: *Self, axis_use: gdk.AxisUse, value: *f64) bool;
     pub const getAxis = gdk_event_get_axis;
 
     extern fn gdk_event_get_device(self: *Self) ?*gdk.Device;
@@ -45,7 +45,7 @@ pub const TouchEvent = extern struct {
     extern fn gdk_event_get_event_type(self: *Self) gdk.EventType;
     pub const getEventType = gdk_event_get_event_type;
 
-    extern fn gdk_event_get_history(self: *Self, out_n_coords: u32) [*c]gdk.TimeCoord;
+    extern fn gdk_event_get_history(self: *Self, out_n_coords: *u32) [*c]gdk.TimeCoord;
     pub const getHistory = gdk_event_get_history;
 
     extern fn gdk_event_get_modifier_state(self: *Self) gdk.ModifierType;
@@ -54,7 +54,7 @@ pub const TouchEvent = extern struct {
     extern fn gdk_event_get_pointer_emulated(self: *Self) bool;
     pub const getPointerEmulated = gdk_event_get_pointer_emulated;
 
-    extern fn gdk_event_get_position(self: *Self, x: f64, y: f64) bool;
+    extern fn gdk_event_get_position(self: *Self, x: *f64, y: *f64) bool;
     pub const getPosition = gdk_event_get_position;
 
     extern fn gdk_event_get_seat(self: *Self) ?*gdk.Seat;

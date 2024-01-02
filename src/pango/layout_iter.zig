@@ -48,7 +48,7 @@ pub const LayoutIter = extern struct {
     extern fn pango_layout_iter_get_line_readonly(self: *Self) ?*pango.LayoutLine;
     pub const getLineReadonly = pango_layout_iter_get_line_readonly;
 
-    extern fn pango_layout_iter_get_line_yrange(self: *Self, y0_: i32, y1_: i32) void;
+    extern fn pango_layout_iter_get_line_yrange(self: *Self, y0_: *i32, y1_: *i32) void;
     pub const getLineYrange = pango_layout_iter_get_line_yrange;
 
     extern fn pango_layout_iter_get_run(self: *Self) ?*pango.GlyphItem;

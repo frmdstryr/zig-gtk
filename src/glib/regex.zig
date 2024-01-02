@@ -69,7 +69,7 @@ pub const Regex = extern struct {
     extern fn g_regex_unref(self: *Self) void;
     pub const unref = g_regex_unref;
 
-    extern fn g_regex_check_replacement(replacement: [*c]const u8, has_references: bool) bool;
+    extern fn g_regex_check_replacement(replacement: [*c]const u8, has_references: *bool) bool;
     pub const checkReplacement = g_regex_check_replacement;
 
     extern fn g_regex_error_quark() u32;

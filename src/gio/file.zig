@@ -143,25 +143,25 @@ pub const File = extern struct {
     extern fn g_file_is_native(self: *Self) bool;
     pub const isNative = g_file_is_native;
 
-    extern fn g_file_load_bytes(self: *Self, cancellable: ?*gio.Cancellable, etag_out: [*c]const u8) ?*glib.Bytes;
+    extern fn g_file_load_bytes(self: *Self, cancellable: ?*gio.Cancellable, etag_out: *[*c]const u8) ?*glib.Bytes;
     pub const loadBytes = g_file_load_bytes;
 
     extern fn g_file_load_bytes_async(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const loadBytesAsync = g_file_load_bytes_async;
 
-    extern fn g_file_load_bytes_finish(self: *Self, result: *gio.AsyncResult, etag_out: [*c]const u8) ?*glib.Bytes;
+    extern fn g_file_load_bytes_finish(self: *Self, result: *gio.AsyncResult, etag_out: *[*c]const u8) ?*glib.Bytes;
     pub const loadBytesFinish = g_file_load_bytes_finish;
 
-    extern fn g_file_load_contents(self: *Self, cancellable: ?*gio.Cancellable, contents: [*c]u8, length: u64, etag_out: [*c]const u8) bool;
+    extern fn g_file_load_contents(self: *Self, cancellable: ?*gio.Cancellable, contents: [*c]u8, length: *u64, etag_out: *[*c]const u8) bool;
     pub const loadContents = g_file_load_contents;
 
     extern fn g_file_load_contents_async(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const loadContentsAsync = g_file_load_contents_async;
 
-    extern fn g_file_load_contents_finish(self: *Self, res: *gio.AsyncResult, contents: [*c]u8, length: u64, etag_out: [*c]const u8) bool;
+    extern fn g_file_load_contents_finish(self: *Self, res: *gio.AsyncResult, contents: [*c]u8, length: *u64, etag_out: *[*c]const u8) bool;
     pub const loadContentsFinish = g_file_load_contents_finish;
 
-    extern fn g_file_load_partial_contents_finish(self: *Self, res: *gio.AsyncResult, contents: [*c]u8, length: u64, etag_out: [*c]const u8) bool;
+    extern fn g_file_load_partial_contents_finish(self: *Self, res: *gio.AsyncResult, contents: [*c]u8, length: *u64, etag_out: *[*c]const u8) bool;
     pub const loadPartialContentsFinish = g_file_load_partial_contents_finish;
 
     extern fn g_file_make_directory(self: *Self, cancellable: ?*gio.Cancellable) bool;
@@ -179,7 +179,7 @@ pub const File = extern struct {
     extern fn g_file_make_symbolic_link(self: *Self, symlink_value: [*c]const u8, cancellable: ?*gio.Cancellable) bool;
     pub const makeSymbolicLink = g_file_make_symbolic_link;
 
-    extern fn g_file_measure_disk_usage_finish(self: *Self, result: *gio.AsyncResult, disk_usage: u64, num_dirs: u64, num_files: u64) bool;
+    extern fn g_file_measure_disk_usage_finish(self: *Self, result: *gio.AsyncResult, disk_usage: *u64, num_dirs: *u64, num_files: *u64) bool;
     pub const measureDiskUsageFinish = g_file_measure_disk_usage_finish;
 
     extern fn g_file_monitor(self: *Self, flags: gio.FileMonitorFlags, cancellable: ?*gio.Cancellable) ?*gio.FileMonitor;
@@ -284,7 +284,7 @@ pub const File = extern struct {
     extern fn g_file_replace_async(self: *Self, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const replaceAsync = g_file_replace_async;
 
-    extern fn g_file_replace_contents(self: *Self, contents: [*c]u8, length: u64, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, new_etag: [*c]const u8, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_file_replace_contents(self: *Self, contents: [*c]u8, length: u64, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, new_etag: *[*c]const u8, cancellable: ?*gio.Cancellable) bool;
     pub const replaceContents = g_file_replace_contents;
 
     extern fn g_file_replace_contents_async(self: *Self, contents: [*c]u8, length: u64, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
@@ -293,7 +293,7 @@ pub const File = extern struct {
     extern fn g_file_replace_contents_bytes_async(self: *Self, contents: *glib.Bytes, etag: [*c]const u8, make_backup: bool, flags: gio.FileCreateFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const replaceContentsBytesAsync = g_file_replace_contents_bytes_async;
 
-    extern fn g_file_replace_contents_finish(self: *Self, res: *gio.AsyncResult, new_etag: [*c]const u8) bool;
+    extern fn g_file_replace_contents_finish(self: *Self, res: *gio.AsyncResult, new_etag: *[*c]const u8) bool;
     pub const replaceContentsFinish = g_file_replace_contents_finish;
 
     extern fn g_file_replace_finish(self: *Self, res: *gio.AsyncResult) ?*gio.FileOutputStream;

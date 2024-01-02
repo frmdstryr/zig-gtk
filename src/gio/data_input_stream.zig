@@ -110,19 +110,19 @@ pub const DataInputStream = extern struct {
     extern fn g_buffered_input_stream_peek(self: *Self, buffer: [*c]u8, offset: u64, count: u64) u64;
     pub const peek = g_buffered_input_stream_peek;
 
-    extern fn g_buffered_input_stream_peek_buffer(self: *Self, count: u64) [*c]u8;
+    extern fn g_buffered_input_stream_peek_buffer(self: *Self, count: *u64) [*c]u8;
     pub const peekBuffer = g_buffered_input_stream_peek_buffer;
 
     extern fn g_input_stream_read(self: *Self, buffer: [*c]u8, count: u64, cancellable: ?*gio.Cancellable) i64;
     pub const read = g_input_stream_read;
 
-    extern fn g_input_stream_read_all(self: *Self, buffer: [*c]u8, count: u64, bytes_read: u64, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_input_stream_read_all(self: *Self, buffer: [*c]u8, count: u64, bytes_read: *u64, cancellable: ?*gio.Cancellable) bool;
     pub const readAll = g_input_stream_read_all;
 
     extern fn g_input_stream_read_all_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const readAllAsync = g_input_stream_read_all_async;
 
-    extern fn g_input_stream_read_all_finish(self: *Self, result: *gio.AsyncResult, bytes_read: u64) bool;
+    extern fn g_input_stream_read_all_finish(self: *Self, result: *gio.AsyncResult, bytes_read: *u64) bool;
     pub const readAllFinish = g_input_stream_read_all_finish;
 
     extern fn g_input_stream_read_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
@@ -152,19 +152,19 @@ pub const DataInputStream = extern struct {
     extern fn g_data_input_stream_read_int64(self: *Self, cancellable: ?*gio.Cancellable) i64;
     pub const readInt64 = g_data_input_stream_read_int64;
 
-    extern fn g_data_input_stream_read_line(self: *Self, length: u64, cancellable: ?*gio.Cancellable) [*c]u8;
+    extern fn g_data_input_stream_read_line(self: *Self, length: *u64, cancellable: ?*gio.Cancellable) [*c]u8;
     pub const readLine = g_data_input_stream_read_line;
 
     extern fn g_data_input_stream_read_line_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const readLineAsync = g_data_input_stream_read_line_async;
 
-    extern fn g_data_input_stream_read_line_finish(self: *Self, result: *gio.AsyncResult, length: u64) [*c]u8;
+    extern fn g_data_input_stream_read_line_finish(self: *Self, result: *gio.AsyncResult, length: *u64) [*c]u8;
     pub const readLineFinish = g_data_input_stream_read_line_finish;
 
-    extern fn g_data_input_stream_read_line_finish_utf8(self: *Self, result: *gio.AsyncResult, length: u64) [*c]const u8;
+    extern fn g_data_input_stream_read_line_finish_utf8(self: *Self, result: *gio.AsyncResult, length: *u64) [*c]const u8;
     pub const readLineFinishUtf8 = g_data_input_stream_read_line_finish_utf8;
 
-    extern fn g_data_input_stream_read_line_utf8(self: *Self, length: u64, cancellable: ?*gio.Cancellable) [*c]const u8;
+    extern fn g_data_input_stream_read_line_utf8(self: *Self, length: *u64, cancellable: ?*gio.Cancellable) [*c]const u8;
     pub const readLineUtf8 = g_data_input_stream_read_line_utf8;
 
     extern fn g_data_input_stream_read_uint16(self: *Self, cancellable: ?*gio.Cancellable) u16;
@@ -176,22 +176,22 @@ pub const DataInputStream = extern struct {
     extern fn g_data_input_stream_read_uint64(self: *Self, cancellable: ?*gio.Cancellable) u64;
     pub const readUint64 = g_data_input_stream_read_uint64;
 
-    extern fn g_data_input_stream_read_until(self: *Self, stop_chars: [*c]const u8, length: u64, cancellable: ?*gio.Cancellable) [*c]const u8;
+    extern fn g_data_input_stream_read_until(self: *Self, stop_chars: [*c]const u8, length: *u64, cancellable: ?*gio.Cancellable) [*c]const u8;
     pub const readUntil = g_data_input_stream_read_until;
 
     extern fn g_data_input_stream_read_until_async(self: *Self, stop_chars: [*c]const u8, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const readUntilAsync = g_data_input_stream_read_until_async;
 
-    extern fn g_data_input_stream_read_until_finish(self: *Self, result: *gio.AsyncResult, length: u64) [*c]const u8;
+    extern fn g_data_input_stream_read_until_finish(self: *Self, result: *gio.AsyncResult, length: *u64) [*c]const u8;
     pub const readUntilFinish = g_data_input_stream_read_until_finish;
 
-    extern fn g_data_input_stream_read_upto(self: *Self, stop_chars: [*c]const u8, stop_chars_len: i64, length: u64, cancellable: ?*gio.Cancellable) [*c]const u8;
+    extern fn g_data_input_stream_read_upto(self: *Self, stop_chars: [*c]const u8, stop_chars_len: i64, length: *u64, cancellable: ?*gio.Cancellable) [*c]const u8;
     pub const readUpto = g_data_input_stream_read_upto;
 
     extern fn g_data_input_stream_read_upto_async(self: *Self, stop_chars: [*c]const u8, stop_chars_len: i64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const readUptoAsync = g_data_input_stream_read_upto_async;
 
-    extern fn g_data_input_stream_read_upto_finish(self: *Self, result: *gio.AsyncResult, length: u64) [*c]const u8;
+    extern fn g_data_input_stream_read_upto_finish(self: *Self, result: *gio.AsyncResult, length: *u64) [*c]const u8;
     pub const readUptoFinish = g_data_input_stream_read_upto_finish;
 
     extern fn g_object_ref(self: *Self) ?*gobject.Object;
@@ -257,7 +257,7 @@ pub const DataInputStream = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

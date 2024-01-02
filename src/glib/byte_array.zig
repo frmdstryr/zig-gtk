@@ -26,7 +26,7 @@ pub const ByteArray = extern struct {
     extern fn g_byte_array_new_take(data: [*c]u8, len: u64) [*c]u8;
     pub const newTake = g_byte_array_new_take;
 
-    extern fn g_byte_array_steal(array: [*c]u8, len: u64) u8;
+    extern fn g_byte_array_steal(array: [*c]u8, len: *u64) u8;
     pub const steal = g_byte_array_steal;
 
     extern fn g_byte_array_unref(array: [*c]u8) void;

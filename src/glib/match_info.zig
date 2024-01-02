@@ -24,10 +24,10 @@ pub const MatchInfo = extern struct {
     extern fn g_match_info_fetch_named(self: *Self, name: [*c]const u8) [*c]const u8;
     pub const fetchNamed = g_match_info_fetch_named;
 
-    extern fn g_match_info_fetch_named_pos(self: *Self, name: [*c]const u8, start_pos: i32, end_pos: i32) bool;
+    extern fn g_match_info_fetch_named_pos(self: *Self, name: [*c]const u8, start_pos: *i32, end_pos: *i32) bool;
     pub const fetchNamedPos = g_match_info_fetch_named_pos;
 
-    extern fn g_match_info_fetch_pos(self: *Self, match_num: i32, start_pos: i32, end_pos: i32) bool;
+    extern fn g_match_info_fetch_pos(self: *Self, match_num: i32, start_pos: *i32, end_pos: *i32) bool;
     pub const fetchPos = g_match_info_fetch_pos;
 
     extern fn g_match_info_free(self: *Self) void;

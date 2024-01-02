@@ -196,7 +196,7 @@ pub const SpinButton = extern struct {
     extern fn gtk_widget_get_hexpand_set(self: *Self) bool;
     pub const getHexpandSet = gtk_widget_get_hexpand_set;
 
-    extern fn gtk_spin_button_get_increments(self: *Self, step: f64, page: f64) void;
+    extern fn gtk_spin_button_get_increments(self: *Self, step: *f64, page: *f64) void;
     pub const getIncrements = gtk_spin_button_get_increments;
 
     extern fn gtk_widget_get_last_child(self: *Self) ?*gtk.Widget;
@@ -259,7 +259,7 @@ pub const SpinButton = extern struct {
     extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
     pub const getQdata = g_object_get_qdata;
 
-    extern fn gtk_spin_button_get_range(self: *Self, min: f64, max: f64) void;
+    extern fn gtk_spin_button_get_range(self: *Self, min: *f64, max: *f64) void;
     pub const getRange = gtk_spin_button_get_range;
 
     extern fn gtk_widget_get_realized(self: *Self) bool;
@@ -286,7 +286,7 @@ pub const SpinButton = extern struct {
     extern fn gtk_widget_get_size(self: *Self, orientation: gtk.Orientation) i32;
     pub const getSize = gtk_widget_get_size;
 
-    extern fn gtk_widget_get_size_request(self: *Self, width: i32, height: i32) void;
+    extern fn gtk_widget_get_size_request(self: *Self, width: *i32, height: *i32) void;
     pub const getSizeRequest = gtk_widget_get_size_request;
 
     extern fn gtk_spin_button_get_snap_to_ticks(self: *Self) bool;
@@ -397,7 +397,7 @@ pub const SpinButton = extern struct {
     extern fn gtk_widget_map(self: *Self) void;
     pub const map = gtk_widget_map;
 
-    extern fn gtk_widget_measure(self: *Self, orientation: gtk.Orientation, for_size: i32, minimum: i32, natural: i32, minimum_baseline: i32, natural_baseline: i32) void;
+    extern fn gtk_widget_measure(self: *Self, orientation: gtk.Orientation, for_size: i32, minimum: *i32, natural: *i32, minimum_baseline: *i32, natural_baseline: *i32) void;
     pub const measure = gtk_widget_measure;
 
     extern fn gtk_widget_mnemonic_activate(self: *Self, group_cycling: bool) bool;
@@ -616,7 +616,7 @@ pub const SpinButton = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn gtk_widget_translate_coordinates(self: *Self, dest_widget: *gtk.Widget, src_x: f64, src_y: f64, dest_x: f64, dest_y: f64) bool;
+    extern fn gtk_widget_translate_coordinates(self: *Self, dest_widget: *gtk.Widget, src_x: f64, src_y: f64, dest_x: *f64, dest_y: *f64) bool;
     pub const translateCoordinates = gtk_widget_translate_coordinates;
 
     extern fn gtk_widget_trigger_tooltip_query(self: *Self) void;
@@ -658,7 +658,7 @@ pub const SpinButton = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
     // Utility methods

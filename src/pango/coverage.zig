@@ -92,7 +92,7 @@ pub const Coverage = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn pango_coverage_to_bytes(self: *Self, bytes: [*c]u8, n_bytes: i32) void;
+    extern fn pango_coverage_to_bytes(self: *Self, bytes: [*c]u8, n_bytes: *i32) void;
     pub const toBytes = pango_coverage_to_bytes;
 
     extern fn pango_coverage_unref(self: *Self) void;
@@ -113,7 +113,7 @@ pub const Coverage = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

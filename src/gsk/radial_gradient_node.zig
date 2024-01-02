@@ -27,7 +27,7 @@ pub const RadialGradientNode = extern struct {
     extern fn gsk_radial_gradient_node_get_center(self: *Self) ?*graphene.Point;
     pub const getCenter = gsk_radial_gradient_node_get_center;
 
-    extern fn gsk_radial_gradient_node_get_color_stops(self: *Self, n_stops: u64) [*c]gsk.ColorStop;
+    extern fn gsk_radial_gradient_node_get_color_stops(self: *Self, n_stops: *u64) [*c]gsk.ColorStop;
     pub const getColorStops = gsk_radial_gradient_node_get_color_stops;
 
     extern fn gsk_radial_gradient_node_get_end(self: *Self) f32;

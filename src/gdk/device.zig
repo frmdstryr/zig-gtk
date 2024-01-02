@@ -81,7 +81,7 @@ pub const Device = extern struct {
     extern fn gdk_device_get_source(self: *Self) gdk.InputSource;
     pub const getSource = gdk_device_get_source;
 
-    extern fn gdk_device_get_surface_at_position(self: *Self, win_x: f64, win_y: f64) ?*gdk.Surface;
+    extern fn gdk_device_get_surface_at_position(self: *Self, win_x: *f64, win_y: *f64) ?*gdk.Surface;
     pub const getSurfaceAtPosition = gdk_device_get_surface_at_position;
 
     extern fn gdk_device_get_timestamp(self: *Self) u32;
@@ -144,7 +144,7 @@ pub const Device = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

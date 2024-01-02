@@ -449,6 +449,8 @@ def func_arg_type(func, arg, imports: set[str]) -> Optional[str]:
         r = TYPE_MAP[t]
         if "." in r:
             imports.add(r.split(".")[0].strip("?*"))
+        if arg.get_ownership_transfer() == 2:
+            return f"*{r}" # Return value ?
         return r
     if t == "interface" and (it := interface_type_to_string(atype, imports)):
         if arg.is_caller_allocates() and not it.startswith("*"):

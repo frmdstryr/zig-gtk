@@ -26,10 +26,10 @@ pub const RecentInfo = extern struct {
     extern fn gtk_recent_info_get_age(self: *Self) i32;
     pub const getAge = gtk_recent_info_get_age;
 
-    extern fn gtk_recent_info_get_application_info(self: *Self, app_name: [*c]const u8, app_exec: [*c]const u8, count: u32, stamp: *glib.DateTime) bool;
+    extern fn gtk_recent_info_get_application_info(self: *Self, app_name: [*c]const u8, app_exec: [*c]const u8, count: *u32, stamp: *glib.DateTime) bool;
     pub const getApplicationInfo = gtk_recent_info_get_application_info;
 
-    extern fn gtk_recent_info_get_applications(self: *Self, length: u64) [*c][*c]const u8;
+    extern fn gtk_recent_info_get_applications(self: *Self, length: *u64) [*c][*c]const u8;
     pub const getApplications = gtk_recent_info_get_applications;
 
     extern fn gtk_recent_info_get_description(self: *Self) [*c]const u8;
@@ -41,7 +41,7 @@ pub const RecentInfo = extern struct {
     extern fn gtk_recent_info_get_gicon(self: *Self) ?*gio.Icon;
     pub const getGicon = gtk_recent_info_get_gicon;
 
-    extern fn gtk_recent_info_get_groups(self: *Self, length: u64) [*c][*c]const u8;
+    extern fn gtk_recent_info_get_groups(self: *Self, length: *u64) [*c][*c]const u8;
     pub const getGroups = gtk_recent_info_get_groups;
 
     extern fn gtk_recent_info_get_mime_type(self: *Self) [*c]const u8;

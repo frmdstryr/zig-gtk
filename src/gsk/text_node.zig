@@ -32,7 +32,7 @@ pub const TextNode = extern struct {
     extern fn gsk_text_node_get_font(self: *Self) ?*pango.Font;
     pub const getFont = gsk_text_node_get_font;
 
-    extern fn gsk_text_node_get_glyphs(self: *Self, n_glyphs: u32) [*c]pango.GlyphInfo;
+    extern fn gsk_text_node_get_glyphs(self: *Self, n_glyphs: *u32) [*c]pango.GlyphInfo;
     pub const getGlyphs = gsk_text_node_get_glyphs;
 
     extern fn gsk_render_node_get_node_type(self: *Self) gsk.RenderNodeType;

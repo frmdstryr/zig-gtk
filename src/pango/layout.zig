@@ -115,16 +115,16 @@ pub const Layout = extern struct {
     // extern fn pango_layout_get_lines_readonly(self: *Self) None;
     // pub const getLinesReadonly = pango_layout_get_lines_readonly;
 
-    extern fn pango_layout_get_log_attrs(self: *Self, attrs: [*c]pango.LogAttr, n_attrs: i32) void;
+    extern fn pango_layout_get_log_attrs(self: *Self, attrs: [*c]pango.LogAttr, n_attrs: *i32) void;
     pub const getLogAttrs = pango_layout_get_log_attrs;
 
-    extern fn pango_layout_get_log_attrs_readonly(self: *Self, n_attrs: i32) [*c]pango.LogAttr;
+    extern fn pango_layout_get_log_attrs_readonly(self: *Self, n_attrs: *i32) [*c]pango.LogAttr;
     pub const getLogAttrsReadonly = pango_layout_get_log_attrs_readonly;
 
     extern fn pango_layout_get_pixel_extents(self: *Self, ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) void;
     pub const getPixelExtents = pango_layout_get_pixel_extents;
 
-    extern fn pango_layout_get_pixel_size(self: *Self, width: i32, height: i32) void;
+    extern fn pango_layout_get_pixel_size(self: *Self, width: *i32, height: *i32) void;
     pub const getPixelSize = pango_layout_get_pixel_size;
 
     extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
@@ -139,7 +139,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_get_single_paragraph_mode(self: *Self) bool;
     pub const getSingleParagraphMode = pango_layout_get_single_paragraph_mode;
 
-    extern fn pango_layout_get_size(self: *Self, width: i32, height: i32) void;
+    extern fn pango_layout_get_size(self: *Self, width: *i32, height: *i32) void;
     pub const getSize = pango_layout_get_size;
 
     extern fn pango_layout_get_spacing(self: *Self) i32;
@@ -163,7 +163,7 @@ pub const Layout = extern struct {
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn pango_layout_index_to_line_x(self: *Self, index_: i32, trailing: bool, line: i32, x_pos: i32) void;
+    extern fn pango_layout_index_to_line_x(self: *Self, index_: i32, trailing: bool, line: *i32, x_pos: *i32) void;
     pub const indexToLineX = pango_layout_index_to_line_x;
 
     extern fn pango_layout_index_to_pos(self: *Self, index_: i32, pos: *pango.Rectangle) void;
@@ -178,7 +178,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_is_wrapped(self: *Self) bool;
     pub const isWrapped = pango_layout_is_wrapped;
 
-    extern fn pango_layout_move_cursor_visually(self: *Self, strong: bool, old_index: i32, old_trailing: i32, direction: i32, new_index: i32, new_trailing: i32) void;
+    extern fn pango_layout_move_cursor_visually(self: *Self, strong: bool, old_index: i32, old_trailing: i32, direction: i32, new_index: *i32, new_trailing: *i32) void;
     pub const moveCursorVisually = pango_layout_move_cursor_visually;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -277,7 +277,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_write_to_file(self: *Self, flags: pango.LayoutSerializeFlags, filename: [*c]const u8) bool;
     pub const writeToFile = pango_layout_write_to_file;
 
-    extern fn pango_layout_xy_to_index(self: *Self, x: i32, y: i32, index_: i32, trailing: i32) bool;
+    extern fn pango_layout_xy_to_index(self: *Self, x: i32, y: i32, index_: *i32, trailing: *i32) bool;
     pub const xyToIndex = pango_layout_xy_to_index;
 
     extern fn pango_layout_deserialize(context: *pango.Context, bytes: *glib.Bytes, flags: pango.LayoutDeserializeFlags) ?*pango.Layout;
@@ -292,7 +292,7 @@ pub const Layout = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

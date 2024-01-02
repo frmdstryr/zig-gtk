@@ -30,7 +30,7 @@ pub const TabArray = extern struct {
     extern fn pango_tab_array_get_size(self: *Self) i32;
     pub const getSize = pango_tab_array_get_size;
 
-    extern fn pango_tab_array_get_tab(self: *Self, tab_index: i32, alignment: pango.TabAlign, location: i32) void;
+    extern fn pango_tab_array_get_tab(self: *Self, tab_index: i32, alignment: pango.TabAlign, location: *i32) void;
     pub const getTab = pango_tab_array_get_tab;
 
     extern fn pango_tab_array_get_tabs(self: *Self, alignments: *pango.TabAlign, locations: [*c]i32) void;

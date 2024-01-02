@@ -78,7 +78,7 @@ pub const Drop = extern struct {
     extern fn gdk_drop_read_async(self: *Self, mime_types: [*c][*c]const u8, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const readAsync = gdk_drop_read_async;
 
-    extern fn gdk_drop_read_finish(self: *Self, result: *gio.AsyncResult, out_mime_type: [*c]const u8) ?*gio.InputStream;
+    extern fn gdk_drop_read_finish(self: *Self, result: *gio.AsyncResult, out_mime_type: *[*c]const u8) ?*gio.InputStream;
     pub const readFinish = gdk_drop_read_finish;
 
     extern fn gdk_drop_read_value_async(self: *Self, type: usize, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
@@ -129,7 +129,7 @@ pub const Drop = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

@@ -62,7 +62,7 @@ pub const FrameClock = extern struct {
     extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
     pub const getQdata = g_object_get_qdata;
 
-    extern fn gdk_frame_clock_get_refresh_info(self: *Self, base_time: i64, refresh_interval_return: i64, presentation_time_return: i64) void;
+    extern fn gdk_frame_clock_get_refresh_info(self: *Self, base_time: i64, refresh_interval_return: *i64, presentation_time_return: *i64) void;
     pub const getRefreshInfo = gdk_frame_clock_get_refresh_info;
 
     extern fn gdk_frame_clock_get_timings(self: *Self, frame_counter: i64) ?*gdk.FrameTimings;
@@ -122,7 +122,7 @@ pub const FrameClock = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

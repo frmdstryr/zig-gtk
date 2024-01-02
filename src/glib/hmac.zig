@@ -12,7 +12,7 @@ pub const Hmac = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_hmac_get_digest(self: *Self, buffer: [*c]u8, digest_len: u64) void;
+    extern fn g_hmac_get_digest(self: *Self, buffer: [*c]u8, digest_len: *u64) void;
     pub const getDigest = g_hmac_get_digest;
 
     extern fn g_hmac_get_string(self: *Self) [*c]const u8;

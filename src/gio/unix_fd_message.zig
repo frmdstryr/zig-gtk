@@ -97,7 +97,7 @@ pub const UnixFDMessage = extern struct {
     extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
     pub const stealData = g_object_steal_data;
 
-    extern fn g_unix_fd_message_steal_fds(self: *Self, length: i32) [*c]i32;
+    extern fn g_unix_fd_message_steal_fds(self: *Self, length: *i32) [*c]i32;
     pub const stealFds = g_unix_fd_message_steal_fds;
 
     extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
@@ -124,7 +124,7 @@ pub const UnixFDMessage = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

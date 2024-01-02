@@ -90,7 +90,7 @@ pub const StringList = extern struct {
     extern fn g_object_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
     pub const stealQdata = g_object_steal_qdata;
 
-    extern fn gtk_string_list_take(self: *Self, string: [*c]const u8) void;
+    extern fn gtk_string_list_take(self: *Self, string: *[*c]const u8) void;
     pub const take = gtk_string_list_take;
 
     extern fn g_object_thaw_notify(self: *Self) void;
@@ -111,7 +111,7 @@ pub const StringList = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

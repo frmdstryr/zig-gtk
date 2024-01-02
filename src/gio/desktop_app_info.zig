@@ -86,7 +86,7 @@ pub const DesktopAppInfo = extern struct {
     extern fn g_desktop_app_info_get_string(self: *Self, key: [*c]const u8) [*c]const u8;
     pub const getString = g_desktop_app_info_get_string;
 
-    extern fn g_desktop_app_info_get_string_list(self: *Self, key: [*c]const u8, length: u64) [*c][*c]const u8;
+    extern fn g_desktop_app_info_get_string_list(self: *Self, key: [*c]const u8, length: *u64) [*c][*c]const u8;
     pub const getStringList = g_desktop_app_info_get_string_list;
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
@@ -165,7 +165,7 @@ pub const DesktopAppInfo = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

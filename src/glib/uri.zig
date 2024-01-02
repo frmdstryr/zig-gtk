@@ -96,13 +96,13 @@ pub const Uri = extern struct {
     extern fn g_uri_resolve_relative(base_uri_string: [*c]const u8, uri_ref: [*c]const u8, flags: glib.UriFlags) [*c]const u8;
     pub const resolveRelative = g_uri_resolve_relative;
 
-    extern fn g_uri_split(uri_ref: [*c]const u8, flags: glib.UriFlags, scheme: [*c]const u8, userinfo: [*c]const u8, host: [*c]const u8, port: i32, path: [*c]const u8, query: [*c]const u8, fragment: [*c]const u8) bool;
+    extern fn g_uri_split(uri_ref: [*c]const u8, flags: glib.UriFlags, scheme: *[*c]const u8, userinfo: *[*c]const u8, host: *[*c]const u8, port: *i32, path: *[*c]const u8, query: *[*c]const u8, fragment: *[*c]const u8) bool;
     pub const split = g_uri_split;
 
-    extern fn g_uri_split_network(uri_string: [*c]const u8, flags: glib.UriFlags, scheme: [*c]const u8, host: [*c]const u8, port: i32) bool;
+    extern fn g_uri_split_network(uri_string: [*c]const u8, flags: glib.UriFlags, scheme: *[*c]const u8, host: *[*c]const u8, port: *i32) bool;
     pub const splitNetwork = g_uri_split_network;
 
-    extern fn g_uri_split_with_user(uri_ref: [*c]const u8, flags: glib.UriFlags, scheme: [*c]const u8, user: [*c]const u8, password: [*c]const u8, auth_params: [*c]const u8, host: [*c]const u8, port: i32, path: [*c]const u8, query: [*c]const u8, fragment: [*c]const u8) bool;
+    extern fn g_uri_split_with_user(uri_ref: [*c]const u8, flags: glib.UriFlags, scheme: *[*c]const u8, user: *[*c]const u8, password: *[*c]const u8, auth_params: *[*c]const u8, host: *[*c]const u8, port: *i32, path: *[*c]const u8, query: *[*c]const u8, fragment: *[*c]const u8) bool;
     pub const splitWithUser = g_uri_split_with_user;
 
     extern fn g_uri_unescape_bytes(escaped_string: [*c]const u8, length: i64, illegal_characters: [*c]const u8) ?*glib.Bytes;

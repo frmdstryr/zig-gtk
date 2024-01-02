@@ -15,7 +15,7 @@ pub const PollableOutputStreamInterface = extern struct {
     is_writable: *const fn (stream: *gio.PollableOutputStream) callconv(.C) bool,
     create_source: *const fn (stream: *gio.PollableOutputStream, cancellable: ?*gio.Cancellable) callconv(.C) *glib.Source,
     write_nonblocking: *const fn (stream: *gio.PollableOutputStream, buffer: [*c]u8, count: u64) callconv(.C) i64,
-    writev_nonblocking: *const fn (stream: *gio.PollableOutputStream, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: u64) callconv(.C) gio.PollableReturn,
+    writev_nonblocking: *const fn (stream: *gio.PollableOutputStream, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: *u64) callconv(.C) gio.PollableReturn,
 
     // Constructors
 

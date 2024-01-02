@@ -13,7 +13,7 @@ pub const Paintable = extern struct {
     // Constructors
 
     // Methods
-    extern fn gdk_paintable_compute_concrete_size(self: *Self, specified_width: f64, specified_height: f64, default_width: f64, default_height: f64, concrete_width: f64, concrete_height: f64) void;
+    extern fn gdk_paintable_compute_concrete_size(self: *Self, specified_width: f64, specified_height: f64, default_width: f64, default_height: f64, concrete_width: *f64, concrete_height: *f64) void;
     pub const computeConcreteSize = gdk_paintable_compute_concrete_size;
 
     extern fn gdk_paintable_get_current_image(self: *Self) ?*gdk.Paintable;

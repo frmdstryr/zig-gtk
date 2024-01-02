@@ -166,7 +166,7 @@ pub const Matrix = extern struct {
     extern fn graphene_matrix_skew_yz(self: *Self, factor: f32) void;
     pub const skewYz = graphene_matrix_skew_yz;
 
-    extern fn graphene_matrix_to_2d(self: *Self, xx: f64, yx: f64, xy: f64, yy: f64, x_0: f64, y_0: f64) bool;
+    extern fn graphene_matrix_to_2d(self: *Self, xx: *f64, yx: *f64, xy: *f64, yy: *f64, x_0: *f64, y_0: *f64) bool;
     pub const to2D = graphene_matrix_to_2d;
 
     extern fn graphene_matrix_to_float(self: *Self, v: [16]f32) void;

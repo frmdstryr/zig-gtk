@@ -18,7 +18,7 @@ pub const BuildableParseContext = extern struct {
     extern fn gtk_buildable_parse_context_get_element_stack(self: *Self) [*c][*c]const u8;
     pub const getElementStack = gtk_buildable_parse_context_get_element_stack;
 
-    extern fn gtk_buildable_parse_context_get_position(self: *Self, line_number: i32, char_number: i32) void;
+    extern fn gtk_buildable_parse_context_get_position(self: *Self, line_number: *i32, char_number: *i32) void;
     pub const getPosition = gtk_buildable_parse_context_get_position;
 
     extern fn gtk_buildable_parse_context_pop(self: *Self) ?*anyopaque;

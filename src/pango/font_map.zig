@@ -60,7 +60,7 @@ pub const FontMap = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn pango_font_map_list_families(self: *Self, families: [*c]*pango.FontFamily, n_families: i32) void;
+    extern fn pango_font_map_list_families(self: *Self, families: [*c]*pango.FontFamily, n_families: *i32) void;
     pub const listFamilies = pango_font_map_list_families;
 
     extern fn pango_font_map_load_font(self: *Self, context: *pango.Context, desc: *pango.FontDescription) ?*pango.Font;
@@ -114,7 +114,7 @@ pub const FontMap = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

@@ -66,7 +66,7 @@ pub const Surface = extern struct {
     extern fn gdk_surface_get_device_cursor(self: *Self, device: *gdk.Device) ?*gdk.Cursor;
     pub const getDeviceCursor = gdk_surface_get_device_cursor;
 
-    extern fn gdk_surface_get_device_position(self: *Self, device: *gdk.Device, x: f64, y: f64, mask: gdk.ModifierType) bool;
+    extern fn gdk_surface_get_device_position(self: *Self, device: *gdk.Device, x: *f64, y: *f64, mask: gdk.ModifierType) bool;
     pub const getDevicePosition = gdk_surface_get_device_position;
 
     extern fn gdk_surface_get_display(self: *Self) ?*gdk.Display;
@@ -153,7 +153,7 @@ pub const Surface = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn gdk_surface_translate_coordinates(self: *Self, to: *gdk.Surface, x: f64, y: f64) bool;
+    extern fn gdk_surface_translate_coordinates(self: *Self, to: *gdk.Surface, x: *f64, y: *f64) bool;
     pub const translateCoordinates = gdk_surface_translate_coordinates;
 
     extern fn g_object_unref(self: *Self) void;
@@ -171,7 +171,7 @@ pub const Surface = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

@@ -158,13 +158,13 @@ pub const BufferedOutputStream = extern struct {
     extern fn g_output_stream_write(self: *Self, buffer: [*c]u8, count: u64, cancellable: ?*gio.Cancellable) i64;
     pub const write = g_output_stream_write;
 
-    extern fn g_output_stream_write_all(self: *Self, buffer: [*c]u8, count: u64, bytes_written: u64, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_output_stream_write_all(self: *Self, buffer: [*c]u8, count: u64, bytes_written: *u64, cancellable: ?*gio.Cancellable) bool;
     pub const writeAll = g_output_stream_write_all;
 
     extern fn g_output_stream_write_all_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const writeAllAsync = g_output_stream_write_all_async;
 
-    extern fn g_output_stream_write_all_finish(self: *Self, result: *gio.AsyncResult, bytes_written: u64) bool;
+    extern fn g_output_stream_write_all_finish(self: *Self, result: *gio.AsyncResult, bytes_written: *u64) bool;
     pub const writeAllFinish = g_output_stream_write_all_finish;
 
     extern fn g_output_stream_write_async(self: *Self, buffer: [*c]u8, count: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
@@ -182,22 +182,22 @@ pub const BufferedOutputStream = extern struct {
     extern fn g_output_stream_write_finish(self: *Self, result: *gio.AsyncResult) i64;
     pub const writeFinish = g_output_stream_write_finish;
 
-    extern fn g_output_stream_writev(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: u64, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_output_stream_writev(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: *u64, cancellable: ?*gio.Cancellable) bool;
     pub const writev = g_output_stream_writev;
 
-    extern fn g_output_stream_writev_all(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: u64, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_output_stream_writev_all(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: *u64, cancellable: ?*gio.Cancellable) bool;
     pub const writevAll = g_output_stream_writev_all;
 
     extern fn g_output_stream_writev_all_async(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const writevAllAsync = g_output_stream_writev_all_async;
 
-    extern fn g_output_stream_writev_all_finish(self: *Self, result: *gio.AsyncResult, bytes_written: u64) bool;
+    extern fn g_output_stream_writev_all_finish(self: *Self, result: *gio.AsyncResult, bytes_written: *u64) bool;
     pub const writevAllFinish = g_output_stream_writev_all_finish;
 
     extern fn g_output_stream_writev_async(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const writevAsync = g_output_stream_writev_async;
 
-    extern fn g_output_stream_writev_finish(self: *Self, result: *gio.AsyncResult, bytes_written: u64) bool;
+    extern fn g_output_stream_writev_finish(self: *Self, result: *gio.AsyncResult, bytes_written: *u64) bool;
     pub const writevFinish = g_output_stream_writev_finish;
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
@@ -209,7 +209,7 @@ pub const BufferedOutputStream = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

@@ -53,13 +53,13 @@ pub const Transform = extern struct {
     extern fn gsk_transform_skew(self: *Self, skew_x: f32, skew_y: f32) ?*gsk.Transform;
     pub const skew = gsk_transform_skew;
 
-    extern fn gsk_transform_to_2d(self: *Self, out_xx: f32, out_yx: f32, out_xy: f32, out_yy: f32, out_dx: f32, out_dy: f32) void;
+    extern fn gsk_transform_to_2d(self: *Self, out_xx: *f32, out_yx: *f32, out_xy: *f32, out_yy: *f32, out_dx: *f32, out_dy: *f32) void;
     pub const to2D = gsk_transform_to_2d;
 
-    extern fn gsk_transform_to_2d_components(self: *Self, out_skew_x: f32, out_skew_y: f32, out_scale_x: f32, out_scale_y: f32, out_angle: f32, out_dx: f32, out_dy: f32) void;
+    extern fn gsk_transform_to_2d_components(self: *Self, out_skew_x: *f32, out_skew_y: *f32, out_scale_x: *f32, out_scale_y: *f32, out_angle: *f32, out_dx: *f32, out_dy: *f32) void;
     pub const to2DComponents = gsk_transform_to_2d_components;
 
-    extern fn gsk_transform_to_affine(self: *Self, out_scale_x: f32, out_scale_y: f32, out_dx: f32, out_dy: f32) void;
+    extern fn gsk_transform_to_affine(self: *Self, out_scale_x: *f32, out_scale_y: *f32, out_dx: *f32, out_dy: *f32) void;
     pub const toAffine = gsk_transform_to_affine;
 
     extern fn gsk_transform_to_matrix(self: *Self, out_matrix: *graphene.Matrix) void;
@@ -68,7 +68,7 @@ pub const Transform = extern struct {
     extern fn gsk_transform_to_string(self: *Self) [*c]const u8;
     pub const toString = gsk_transform_to_string;
 
-    extern fn gsk_transform_to_translate(self: *Self, out_dx: f32, out_dy: f32) void;
+    extern fn gsk_transform_to_translate(self: *Self, out_dx: *f32, out_dy: *f32) void;
     pub const toTranslate = gsk_transform_to_translate;
 
     extern fn gsk_transform_transform(self: *Self, other: ?*gsk.Transform) ?*gsk.Transform;

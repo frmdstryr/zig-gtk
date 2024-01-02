@@ -24,7 +24,7 @@ pub const MarkupParseContext = extern struct {
     extern fn g_markup_parse_context_get_element(self: *Self) [*c]const u8;
     pub const getElement = g_markup_parse_context_get_element;
 
-    extern fn g_markup_parse_context_get_position(self: *Self, line_number: i32, char_number: i32) void;
+    extern fn g_markup_parse_context_get_position(self: *Self, line_number: *i32, char_number: *i32) void;
     pub const getPosition = g_markup_parse_context_get_position;
 
     extern fn g_markup_parse_context_get_user_data(self: *Self) ?*anyopaque;

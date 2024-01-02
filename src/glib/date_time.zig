@@ -132,7 +132,7 @@ pub const DateTime = extern struct {
     extern fn g_date_time_get_year(self: *Self) i32;
     pub const getYear = g_date_time_get_year;
 
-    extern fn g_date_time_get_ymd(self: *Self, year: i32, month: i32, day: i32) void;
+    extern fn g_date_time_get_ymd(self: *Self, year: *i32, month: *i32, day: *i32) void;
     pub const getYmd = g_date_time_get_ymd;
 
     extern fn g_date_time_hash(self: *Self) u32;

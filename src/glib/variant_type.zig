@@ -99,7 +99,7 @@ pub const VariantType = extern struct {
     extern fn g_variant_type_string_is_valid(type_string: [*c]const u8) bool;
     pub const stringIsValid = g_variant_type_string_is_valid;
 
-    extern fn g_variant_type_string_scan(string: [*c]const u8, limit: [*c]const u8, endptr: [*c]const u8) bool;
+    extern fn g_variant_type_string_scan(string: [*c]const u8, limit: [*c]const u8, endptr: *[*c]const u8) bool;
     pub const stringScan = g_variant_type_string_scan;
 
 

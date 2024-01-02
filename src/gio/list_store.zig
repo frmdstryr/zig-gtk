@@ -32,10 +32,10 @@ pub const ListStore = extern struct {
     extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
     pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn g_list_store_find(self: *Self, item: *gobject.Object, position: u32) bool;
+    extern fn g_list_store_find(self: *Self, item: *gobject.Object, position: *u32) bool;
     pub const find = g_list_store_find;
 
-    extern fn g_list_store_find_with_equal_func(self: *Self, item: *gobject.Object, equal_func: *const fn (a: ?*anyopaque, b: ?*anyopaque) callconv(.C) bool, position: u32) bool;
+    extern fn g_list_store_find_with_equal_func(self: *Self, item: *gobject.Object, equal_func: *const fn (a: ?*anyopaque, b: ?*anyopaque) callconv(.C) bool, position: *u32) bool;
     pub const findWithEqualFunc = g_list_store_find_with_equal_func;
 
     extern fn g_object_force_floating(self: *Self) void;
@@ -122,7 +122,7 @@ pub const ListStore = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

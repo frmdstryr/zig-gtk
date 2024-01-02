@@ -158,16 +158,16 @@ pub const DBusConnection = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn g_dbus_connection_send_message(self: *Self, message: *gio.DBusMessage, flags: gio.DBusSendMessageFlags, out_serial: u32) bool;
+    extern fn g_dbus_connection_send_message(self: *Self, message: *gio.DBusMessage, flags: gio.DBusSendMessageFlags, out_serial: *u32) bool;
     pub const sendMessage = g_dbus_connection_send_message;
 
-    extern fn g_dbus_connection_send_message_with_reply(self: *Self, message: *gio.DBusMessage, flags: gio.DBusSendMessageFlags, timeout_msec: i32, out_serial: u32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
+    extern fn g_dbus_connection_send_message_with_reply(self: *Self, message: *gio.DBusMessage, flags: gio.DBusSendMessageFlags, timeout_msec: i32, out_serial: *u32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const sendMessageWithReply = g_dbus_connection_send_message_with_reply;
 
     extern fn g_dbus_connection_send_message_with_reply_finish(self: *Self, res: *gio.AsyncResult) ?*gio.DBusMessage;
     pub const sendMessageWithReplyFinish = g_dbus_connection_send_message_with_reply_finish;
 
-    extern fn g_dbus_connection_send_message_with_reply_sync(self: *Self, message: *gio.DBusMessage, flags: gio.DBusSendMessageFlags, timeout_msec: i32, out_serial: u32, cancellable: ?*gio.Cancellable) ?*gio.DBusMessage;
+    extern fn g_dbus_connection_send_message_with_reply_sync(self: *Self, message: *gio.DBusMessage, flags: gio.DBusSendMessageFlags, timeout_msec: i32, out_serial: *u32, cancellable: ?*gio.Cancellable) ?*gio.DBusMessage;
     pub const sendMessageWithReplySync = g_dbus_connection_send_message_with_reply_sync;
 
     extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
@@ -230,7 +230,7 @@ pub const DBusConnection = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

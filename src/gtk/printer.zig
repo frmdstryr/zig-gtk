@@ -59,10 +59,10 @@ pub const Printer = extern struct {
     extern fn gtk_printer_get_description(self: *Self) [*c]const u8;
     pub const getDescription = gtk_printer_get_description;
 
-    extern fn gtk_printer_get_hard_margins(self: *Self, top: f64, bottom: f64, left: f64, right: f64) bool;
+    extern fn gtk_printer_get_hard_margins(self: *Self, top: *f64, bottom: *f64, left: *f64, right: *f64) bool;
     pub const getHardMargins = gtk_printer_get_hard_margins;
 
-    extern fn gtk_printer_get_hard_margins_for_paper_size(self: *Self, paper_size: *gtk.PaperSize, top: f64, bottom: f64, left: f64, right: f64) bool;
+    extern fn gtk_printer_get_hard_margins_for_paper_size(self: *Self, paper_size: *gtk.PaperSize, top: *f64, bottom: *f64, left: *f64, right: *f64) bool;
     pub const getHardMarginsForPaperSize = gtk_printer_get_hard_margins_for_paper_size;
 
     extern fn gtk_printer_get_icon_name(self: *Self) [*c]const u8;
@@ -161,7 +161,7 @@ pub const Printer = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

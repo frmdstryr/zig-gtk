@@ -45,13 +45,13 @@ pub const CellRendererCombo = extern struct {
     extern fn gtk_cell_renderer_get_aligned_area(self: *Self, widget: *gtk.Widget, flags: gtk.CellRendererState, cell_area: *gdk.Rectangle, aligned_area: *gdk.Rectangle) void;
     pub const getAlignedArea = gtk_cell_renderer_get_aligned_area;
 
-    extern fn gtk_cell_renderer_get_alignment(self: *Self, xalign: f32, yalign: f32) void;
+    extern fn gtk_cell_renderer_get_alignment(self: *Self, xalign: *f32, yalign: *f32) void;
     pub const getAlignment = gtk_cell_renderer_get_alignment;
 
     extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
     pub const getData = g_object_get_data;
 
-    extern fn gtk_cell_renderer_get_fixed_size(self: *Self, width: i32, height: i32) void;
+    extern fn gtk_cell_renderer_get_fixed_size(self: *Self, width: *i32, height: *i32) void;
     pub const getFixedSize = gtk_cell_renderer_get_fixed_size;
 
     extern fn gtk_cell_renderer_get_is_expanded(self: *Self) bool;
@@ -60,22 +60,22 @@ pub const CellRendererCombo = extern struct {
     extern fn gtk_cell_renderer_get_is_expander(self: *Self) bool;
     pub const getIsExpander = gtk_cell_renderer_get_is_expander;
 
-    extern fn gtk_cell_renderer_get_padding(self: *Self, xpad: i32, ypad: i32) void;
+    extern fn gtk_cell_renderer_get_padding(self: *Self, xpad: *i32, ypad: *i32) void;
     pub const getPadding = gtk_cell_renderer_get_padding;
 
-    extern fn gtk_cell_renderer_get_preferred_height(self: *Self, widget: *gtk.Widget, minimum_size: i32, natural_size: i32) void;
+    extern fn gtk_cell_renderer_get_preferred_height(self: *Self, widget: *gtk.Widget, minimum_size: *i32, natural_size: *i32) void;
     pub const getPreferredHeight = gtk_cell_renderer_get_preferred_height;
 
-    extern fn gtk_cell_renderer_get_preferred_height_for_width(self: *Self, widget: *gtk.Widget, width: i32, minimum_height: i32, natural_height: i32) void;
+    extern fn gtk_cell_renderer_get_preferred_height_for_width(self: *Self, widget: *gtk.Widget, width: i32, minimum_height: *i32, natural_height: *i32) void;
     pub const getPreferredHeightForWidth = gtk_cell_renderer_get_preferred_height_for_width;
 
     extern fn gtk_cell_renderer_get_preferred_size(self: *Self, widget: *gtk.Widget, minimum_size: *gtk.Requisition, natural_size: *gtk.Requisition) void;
     pub const getPreferredSize = gtk_cell_renderer_get_preferred_size;
 
-    extern fn gtk_cell_renderer_get_preferred_width(self: *Self, widget: *gtk.Widget, minimum_size: i32, natural_size: i32) void;
+    extern fn gtk_cell_renderer_get_preferred_width(self: *Self, widget: *gtk.Widget, minimum_size: *i32, natural_size: *i32) void;
     pub const getPreferredWidth = gtk_cell_renderer_get_preferred_width;
 
-    extern fn gtk_cell_renderer_get_preferred_width_for_height(self: *Self, widget: *gtk.Widget, height: i32, minimum_width: i32, natural_width: i32) void;
+    extern fn gtk_cell_renderer_get_preferred_width_for_height(self: *Self, widget: *gtk.Widget, height: i32, minimum_width: *i32, natural_width: *i32) void;
     pub const getPreferredWidthForHeight = gtk_cell_renderer_get_preferred_width_for_height;
 
     extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
@@ -183,7 +183,7 @@ pub const CellRendererCombo = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

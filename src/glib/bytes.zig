@@ -24,7 +24,7 @@ pub const Bytes = extern struct {
     extern fn g_bytes_equal(self: *Self, bytes2: *glib.Bytes) bool;
     pub const equal = g_bytes_equal;
 
-    extern fn g_bytes_get_data(self: *Self, size: u64) [*c]u8;
+    extern fn g_bytes_get_data(self: *Self, size: *u64) [*c]u8;
     pub const getData = g_bytes_get_data;
 
     extern fn g_bytes_get_region(self: *Self, element_size: u64, offset: u64, n_elements: u64) ?*anyopaque;
@@ -48,7 +48,7 @@ pub const Bytes = extern struct {
     extern fn g_bytes_unref_to_array(self: *Self) [*c]u8;
     pub const unrefToArray = g_bytes_unref_to_array;
 
-    extern fn g_bytes_unref_to_data(self: *Self, size: u64) [*c]u8;
+    extern fn g_bytes_unref_to_data(self: *Self, size: *u64) [*c]u8;
     pub const unrefToData = g_bytes_unref_to_data;
 
 

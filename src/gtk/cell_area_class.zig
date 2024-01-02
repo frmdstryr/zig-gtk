@@ -21,10 +21,10 @@ pub const CellAreaClass = extern struct {
     create_context: *const fn (area: *gtk.CellArea) callconv(.C) *gtk.CellAreaContext,
     copy_context: *const fn (area: *gtk.CellArea, context: *gtk.CellAreaContext) callconv(.C) *gtk.CellAreaContext,
     get_request_mode: *const fn (area: *gtk.CellArea) callconv(.C) gtk.SizeRequestMode,
-    get_preferred_width: *const fn (area: *gtk.CellArea, context: *gtk.CellAreaContext, widget: *gtk.Widget, minimum_width: i32, natural_width: i32) callconv(.C) void,
-    get_preferred_height_for_width: *const fn (area: *gtk.CellArea, context: *gtk.CellAreaContext, widget: *gtk.Widget, width: i32, minimum_height: i32, natural_height: i32) callconv(.C) void,
-    get_preferred_height: *const fn (area: *gtk.CellArea, context: *gtk.CellAreaContext, widget: *gtk.Widget, minimum_height: i32, natural_height: i32) callconv(.C) void,
-    get_preferred_width_for_height: *const fn (area: *gtk.CellArea, context: *gtk.CellAreaContext, widget: *gtk.Widget, height: i32, minimum_width: i32, natural_width: i32) callconv(.C) void,
+    get_preferred_width: *const fn (area: *gtk.CellArea, context: *gtk.CellAreaContext, widget: *gtk.Widget, minimum_width: *i32, natural_width: *i32) callconv(.C) void,
+    get_preferred_height_for_width: *const fn (area: *gtk.CellArea, context: *gtk.CellAreaContext, widget: *gtk.Widget, width: i32, minimum_height: *i32, natural_height: *i32) callconv(.C) void,
+    get_preferred_height: *const fn (area: *gtk.CellArea, context: *gtk.CellAreaContext, widget: *gtk.Widget, minimum_height: *i32, natural_height: *i32) callconv(.C) void,
+    get_preferred_width_for_height: *const fn (area: *gtk.CellArea, context: *gtk.CellAreaContext, widget: *gtk.Widget, height: i32, minimum_width: *i32, natural_width: *i32) callconv(.C) void,
     set_cell_property: *const fn (area: *gtk.CellArea, renderer: *gtk.CellRenderer, property_id: u32, value: *gobject.Value, pspec: *gobject.ParamSpec) callconv(.C) void,
     get_cell_property: *const fn (area: *gtk.CellArea, renderer: *gtk.CellRenderer, property_id: u32, value: *gobject.Value, pspec: *gobject.ParamSpec) callconv(.C) void,
     focus: *const fn (area: *gtk.CellArea, direction: gtk.DirectionType) callconv(.C) bool,
@@ -41,7 +41,7 @@ pub const CellAreaClass = extern struct {
     extern fn gtk_cell_area_class_install_cell_property(self: *Self, property_id: u32, pspec: *gobject.ParamSpec) void;
     pub const installCellProperty = gtk_cell_area_class_install_cell_property;
 
-    extern fn gtk_cell_area_class_list_cell_properties(self: *Self, n_properties: u32) [*c]*gobject.ParamSpec;
+    extern fn gtk_cell_area_class_list_cell_properties(self: *Self, n_properties: *u32) [*c]*gobject.ParamSpec;
     pub const listCellProperties = gtk_cell_area_class_list_cell_properties;
 
 

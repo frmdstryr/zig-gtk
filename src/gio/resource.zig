@@ -25,7 +25,7 @@ pub const Resource = extern struct {
     extern fn g_resource_enumerate_children(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags) [*c][*c]const u8;
     pub const enumerateChildren = g_resource_enumerate_children;
 
-    extern fn g_resource_get_info(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, size: u64, flags: u32) bool;
+    extern fn g_resource_get_info(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, size: *u64, flags: *u32) bool;
     pub const getInfo = g_resource_get_info;
 
     extern fn g_resource_lookup_data(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags) ?*glib.Bytes;

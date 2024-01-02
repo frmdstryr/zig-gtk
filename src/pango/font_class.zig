@@ -18,7 +18,7 @@ pub const FontClass = extern struct {
     get_font_map: *const fn (font: ?*pango.Font) callconv(.C) *pango.FontMap,
     describe_absolute: *const fn (font: *pango.Font) callconv(.C) *pango.FontDescription,
     // Warning [*c]harfbuzz.feature_t replaced 
-    get_features: *const fn (font: *pango.Font, features: ?*anyopaque, len: u32, num_features: u32) callconv(.C) void,
+    get_features: *const fn (font: *pango.Font, features: ?*anyopaque, len: *u32, num_features: *u32) callconv(.C) void,
     // Warning *harfbuzz.font_t replaced 
     create_hb_font: *const fn (font: *pango.Font) callconv(.C) *anyopaque,
 

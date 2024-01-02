@@ -21,7 +21,7 @@ pub const Native = extern struct {
     extern fn gtk_native_get_surface(self: *Self) ?*gdk.Surface;
     pub const getSurface = gtk_native_get_surface;
 
-    extern fn gtk_native_get_surface_transform(self: *Self, x: f64, y: f64) void;
+    extern fn gtk_native_get_surface_transform(self: *Self, x: *f64, y: *f64) void;
     pub const getSurfaceTransform = gtk_native_get_surface_transform;
 
     extern fn gtk_native_realize(self: *Self) void;

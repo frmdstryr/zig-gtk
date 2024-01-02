@@ -19,7 +19,7 @@ pub const UriParamsIter = extern struct {
     extern fn g_uri_params_iter_init(self: *Self, params: [*c]const u8, length: i64, separators: [*c]const u8, flags: glib.UriParamsFlags) void;
     pub const init = g_uri_params_iter_init;
 
-    extern fn g_uri_params_iter_next(self: *Self, attribute: [*c]const u8, value: [*c]const u8) bool;
+    extern fn g_uri_params_iter_next(self: *Self, attribute: *[*c]const u8, value: *[*c]const u8) bool;
     pub const next = g_uri_params_iter_next;
 
 

@@ -52,7 +52,7 @@ pub const TextChildAnchor = extern struct {
     extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
     pub const getQdata = g_object_get_qdata;
 
-    extern fn gtk_text_child_anchor_get_widgets(self: *Self, out_len: u32) [*c]*gtk.Widget;
+    extern fn gtk_text_child_anchor_get_widgets(self: *Self, out_len: *u32) [*c]*gtk.Widget;
     pub const getWidgets = gtk_text_child_anchor_get_widgets;
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
@@ -106,7 +106,7 @@ pub const TextChildAnchor = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

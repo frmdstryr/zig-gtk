@@ -17,7 +17,7 @@ pub const Point = extern struct {
 
 
     // Methods
-    extern fn graphene_point_distance(self: *Self, b: *graphene.Point, d_x: f32, d_y: f32) f32;
+    extern fn graphene_point_distance(self: *Self, b: *graphene.Point, d_x: *f32, d_y: *f32) f32;
     pub const distance = graphene_point_distance;
 
     extern fn graphene_point_equal(self: *Self, b: *graphene.Point) bool;

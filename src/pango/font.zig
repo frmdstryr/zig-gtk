@@ -49,7 +49,7 @@ pub const Font = extern struct {
     pub const getFace = pango_font_get_face;
 
     // Binding disabled (import needed excluded)
-    // extern fn pango_font_get_features(self: *Self, features: [*c]harfbuzz.feature_t, len: u32, num_features: u32) void;
+    // extern fn pango_font_get_features(self: *Self, features: [*c]harfbuzz.feature_t, len: *u32, num_features: *u32) void;
     // pub const getFeatures = pango_font_get_features;
 
     extern fn pango_font_get_font_map(self: *Self) ?*pango.FontMap;
@@ -133,7 +133,7 @@ pub const Font = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

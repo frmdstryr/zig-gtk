@@ -21,13 +21,13 @@ pub const ToplevelLayout = extern struct {
     extern fn gdk_toplevel_layout_equal(self: *Self, other: *gdk.ToplevelLayout) bool;
     pub const equal = gdk_toplevel_layout_equal;
 
-    extern fn gdk_toplevel_layout_get_fullscreen(self: *Self, fullscreen: bool) bool;
+    extern fn gdk_toplevel_layout_get_fullscreen(self: *Self, fullscreen: *bool) bool;
     pub const getFullscreen = gdk_toplevel_layout_get_fullscreen;
 
     extern fn gdk_toplevel_layout_get_fullscreen_monitor(self: *Self) ?*gdk.Monitor;
     pub const getFullscreenMonitor = gdk_toplevel_layout_get_fullscreen_monitor;
 
-    extern fn gdk_toplevel_layout_get_maximized(self: *Self, maximized: bool) bool;
+    extern fn gdk_toplevel_layout_get_maximized(self: *Self, maximized: *bool) bool;
     pub const getMaximized = gdk_toplevel_layout_get_maximized;
 
     extern fn gdk_toplevel_layout_get_resizable(self: *Self) bool;

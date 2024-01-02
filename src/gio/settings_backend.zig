@@ -103,7 +103,7 @@ pub const SettingsBackend = extern struct {
     extern fn g_settings_backend_writable_changed(self: *Self, key: [*c]const u8) void;
     pub const writableChanged = g_settings_backend_writable_changed;
 
-    extern fn g_settings_backend_flatten_tree(tree: *glib.Tree, path: [*c]const u8, keys: [*c][*c]const u8, values: [*c]*glib.Variant) void;
+    extern fn g_settings_backend_flatten_tree(tree: *glib.Tree, path: *[*c]const u8, keys: [*c][*c]const u8, values: [*c]*glib.Variant) void;
     pub const flattenTree = g_settings_backend_flatten_tree;
 
     extern fn g_settings_backend_get_default() ?*gio.SettingsBackend;
@@ -118,7 +118,7 @@ pub const SettingsBackend = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

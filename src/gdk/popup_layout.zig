@@ -27,13 +27,13 @@ pub const PopupLayout = extern struct {
     extern fn gdk_popup_layout_get_anchor_rect(self: *Self) ?*gdk.Rectangle;
     pub const getAnchorRect = gdk_popup_layout_get_anchor_rect;
 
-    extern fn gdk_popup_layout_get_offset(self: *Self, dx: i32, dy: i32) void;
+    extern fn gdk_popup_layout_get_offset(self: *Self, dx: *i32, dy: *i32) void;
     pub const getOffset = gdk_popup_layout_get_offset;
 
     extern fn gdk_popup_layout_get_rect_anchor(self: *Self) gdk.Gravity;
     pub const getRectAnchor = gdk_popup_layout_get_rect_anchor;
 
-    extern fn gdk_popup_layout_get_shadow_width(self: *Self, left: i32, right: i32, top: i32, bottom: i32) void;
+    extern fn gdk_popup_layout_get_shadow_width(self: *Self, left: *i32, right: *i32, top: *i32, bottom: *i32) void;
     pub const getShadowWidth = gdk_popup_layout_get_shadow_width;
 
     extern fn gdk_popup_layout_get_surface_anchor(self: *Self) gdk.Gravity;

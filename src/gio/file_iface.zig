@@ -112,7 +112,7 @@ pub const FileIface = extern struct {
     poll_mountable_finish: *const fn (file: *gio.File, result: *gio.AsyncResult) callconv(.C) bool,
     measure_disk_usage: ?*anyopaque,
     measure_disk_usage_async: ?*anyopaque,
-    measure_disk_usage_finish: *const fn (file: *gio.File, result: *gio.AsyncResult, disk_usage: u64, num_dirs: u64, num_files: u64) callconv(.C) bool,
+    measure_disk_usage_finish: *const fn (file: *gio.File, result: *gio.AsyncResult, disk_usage: *u64, num_dirs: *u64, num_files: *u64) callconv(.C) bool,
 
     // Constructors
 

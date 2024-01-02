@@ -43,7 +43,7 @@ pub const Editable = extern struct {
     extern fn gtk_editable_get_position(self: *Self) i32;
     pub const getPosition = gtk_editable_get_position;
 
-    extern fn gtk_editable_get_selection_bounds(self: *Self, start_pos: i32, end_pos: i32) bool;
+    extern fn gtk_editable_get_selection_bounds(self: *Self, start_pos: *i32, end_pos: *i32) bool;
     pub const getSelectionBounds = gtk_editable_get_selection_bounds;
 
     extern fn gtk_editable_get_text(self: *Self) [*c]const u8;
@@ -55,7 +55,7 @@ pub const Editable = extern struct {
     extern fn gtk_editable_init_delegate(self: *Self) void;
     pub const initDelegate = gtk_editable_init_delegate;
 
-    extern fn gtk_editable_insert_text(self: *Self, text: [*c]const u8, length: i32, position: i32) void;
+    extern fn gtk_editable_insert_text(self: *Self, text: [*c]const u8, length: i32, position: *i32) void;
     pub const insertText = gtk_editable_insert_text;
 
     extern fn gtk_editable_select_region(self: *Self, start_pos: i32, end_pos: i32) void;

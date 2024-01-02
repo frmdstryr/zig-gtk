@@ -13,7 +13,7 @@ pub const DebugNode = extern struct {
     // Fields
 
     // Constructors
-    extern fn gsk_debug_node_new(child: *gsk.RenderNode, message: [*c]const u8) ?*Self;
+    extern fn gsk_debug_node_new(child: *gsk.RenderNode, message: *[*c]const u8) ?*Self;
     pub const new = gsk_debug_node_new;
 
 

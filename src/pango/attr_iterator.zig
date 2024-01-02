@@ -32,7 +32,7 @@ pub const AttrIterator = extern struct {
     extern fn pango_attr_iterator_next(self: *Self) bool;
     pub const next = pango_attr_iterator_next;
 
-    extern fn pango_attr_iterator_range(self: *Self, start: i32, end: i32) void;
+    extern fn pango_attr_iterator_range(self: *Self, start: *i32, end: *i32) void;
     pub const range = pango_attr_iterator_range;
 
 

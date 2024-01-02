@@ -39,7 +39,7 @@ pub const GesturePan = extern struct {
     extern fn gtk_gesture_get_bounding_box(self: *Self, rect: *gdk.Rectangle) bool;
     pub const getBoundingBox = gtk_gesture_get_bounding_box;
 
-    extern fn gtk_gesture_get_bounding_box_center(self: *Self, x: f64, y: f64) bool;
+    extern fn gtk_gesture_get_bounding_box_center(self: *Self, x: *f64, y: *f64) bool;
     pub const getBoundingBoxCenter = gtk_gesture_get_bounding_box_center;
 
     extern fn gtk_gesture_single_get_button(self: *Self) u32;
@@ -84,13 +84,13 @@ pub const GesturePan = extern struct {
     extern fn gtk_event_controller_get_name(self: *Self) [*c]const u8;
     pub const getName = gtk_event_controller_get_name;
 
-    extern fn gtk_gesture_drag_get_offset(self: *Self, x: f64, y: f64) bool;
+    extern fn gtk_gesture_drag_get_offset(self: *Self, x: *f64, y: *f64) bool;
     pub const getOffset = gtk_gesture_drag_get_offset;
 
     extern fn gtk_gesture_pan_get_orientation(self: *Self) gtk.Orientation;
     pub const getOrientation = gtk_gesture_pan_get_orientation;
 
-    extern fn gtk_gesture_get_point(self: *Self, sequence: ?*gdk.EventSequence, x: f64, y: f64) bool;
+    extern fn gtk_gesture_get_point(self: *Self, sequence: ?*gdk.EventSequence, x: *f64, y: *f64) bool;
     pub const getPoint = gtk_gesture_get_point;
 
     extern fn gtk_event_controller_get_propagation_limit(self: *Self) gtk.PropagationLimit;
@@ -111,7 +111,7 @@ pub const GesturePan = extern struct {
     extern fn gtk_gesture_get_sequences(self: *Self) ?*glib.List;
     pub const getSequences = gtk_gesture_get_sequences;
 
-    extern fn gtk_gesture_drag_get_start_point(self: *Self, x: f64, y: f64) bool;
+    extern fn gtk_gesture_drag_get_start_point(self: *Self, x: *f64, y: *f64) bool;
     pub const getStartPoint = gtk_gesture_drag_get_start_point;
 
     extern fn gtk_gesture_single_get_touch_only(self: *Self) bool;
@@ -219,7 +219,7 @@ pub const GesturePan = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

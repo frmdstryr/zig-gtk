@@ -15,7 +15,7 @@ pub const Language = extern struct {
     extern fn pango_language_get_sample_string(self: *Self) [*c]const u8;
     pub const getSampleString = pango_language_get_sample_string;
 
-    extern fn pango_language_get_scripts(self: *Self, num_scripts: i32) [*c]pango.Script;
+    extern fn pango_language_get_scripts(self: *Self, num_scripts: *i32) [*c]pango.Script;
     pub const getScripts = pango_language_get_scripts;
 
     extern fn pango_language_includes_script(self: *Self, script: pango.Script) bool;

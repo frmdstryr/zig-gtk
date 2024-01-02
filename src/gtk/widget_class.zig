@@ -23,7 +23,7 @@ pub const WidgetClass = extern struct {
     state_flags_changed: *const fn (widget: *gtk.Widget, previous_state_flags: gtk.StateFlags) callconv(.C) void,
     direction_changed: *const fn (widget: *gtk.Widget, previous_direction: gtk.TextDirection) callconv(.C) void,
     get_request_mode: *const fn (widget: *gtk.Widget) callconv(.C) gtk.SizeRequestMode,
-    measure: *const fn (widget: *gtk.Widget, orientation: gtk.Orientation, for_size: i32, minimum: i32, natural: i32, minimum_baseline: i32, natural_baseline: i32) callconv(.C) void,
+    measure: *const fn (widget: *gtk.Widget, orientation: gtk.Orientation, for_size: i32, minimum: *i32, natural: *i32, minimum_baseline: *i32, natural_baseline: *i32) callconv(.C) void,
     mnemonic_activate: *const fn (widget: *gtk.Widget, group_cycling: bool) callconv(.C) bool,
     grab_focus: *const fn (widget: *gtk.Widget) callconv(.C) bool,
     focus: *const fn (widget: *gtk.Widget, direction: gtk.DirectionType) callconv(.C) bool,

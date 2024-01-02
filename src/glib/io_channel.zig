@@ -71,19 +71,19 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_read(self: *Self, buf: [*c]const u8, count: u64, bytes_read: u64) glib.IOError;
     pub const read = g_io_channel_read;
 
-    extern fn g_io_channel_read_chars(self: *Self, buf: [*c]u8, count: u64, bytes_read: u64) glib.IOStatus;
+    extern fn g_io_channel_read_chars(self: *Self, buf: [*c]u8, count: u64, bytes_read: *u64) glib.IOStatus;
     pub const readChars = g_io_channel_read_chars;
 
-    extern fn g_io_channel_read_line(self: *Self, str_return: [*c]const u8, length: u64, terminator_pos: u64) glib.IOStatus;
+    extern fn g_io_channel_read_line(self: *Self, str_return: *[*c]const u8, length: *u64, terminator_pos: *u64) glib.IOStatus;
     pub const readLine = g_io_channel_read_line;
 
     extern fn g_io_channel_read_line_string(self: *Self, buffer: *glib.String, terminator_pos: u64) glib.IOStatus;
     pub const readLineString = g_io_channel_read_line_string;
 
-    extern fn g_io_channel_read_to_end(self: *Self, str_return: [*c]u8, length: u64) glib.IOStatus;
+    extern fn g_io_channel_read_to_end(self: *Self, str_return: [*c]u8, length: *u64) glib.IOStatus;
     pub const readToEnd = g_io_channel_read_to_end;
 
-    extern fn g_io_channel_read_unichar(self: *Self, thechar: u32) glib.IOStatus;
+    extern fn g_io_channel_read_unichar(self: *Self, thechar: *u32) glib.IOStatus;
     pub const readUnichar = g_io_channel_read_unichar;
 
     extern fn g_io_channel_ref(self: *Self) ?*glib.IOChannel;
@@ -125,7 +125,7 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_write(self: *Self, buf: [*c]const u8, count: u64, bytes_written: u64) glib.IOError;
     pub const write = g_io_channel_write;
 
-    extern fn g_io_channel_write_chars(self: *Self, buf: [*c]u8, count: i64, bytes_written: u64) glib.IOStatus;
+    extern fn g_io_channel_write_chars(self: *Self, buf: [*c]u8, count: i64, bytes_written: *u64) glib.IOStatus;
     pub const writeChars = g_io_channel_write_chars;
 
     extern fn g_io_channel_write_unichar(self: *Self, thechar: u32) glib.IOStatus;

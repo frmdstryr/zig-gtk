@@ -110,7 +110,7 @@ pub const Task = extern struct {
     extern fn g_task_return_boolean(self: *Self, result: bool) void;
     pub const returnBoolean = g_task_return_boolean;
 
-    extern fn g_task_return_error(self: *Self, error_: *glib.Error) void;
+    extern fn g_task_return_error(self: *Self, error_: **glib.Error) void;
     pub const returnError = g_task_return_error;
 
     extern fn g_task_return_error_if_cancelled(self: *Self) bool;
@@ -176,7 +176,7 @@ pub const Task = extern struct {
     extern fn g_task_is_valid(result: *gio.AsyncResult, source_object: ?*gobject.Object) bool;
     pub const isValid = g_task_is_valid;
 
-    extern fn g_task_report_error(source_object: ?*gobject.Object, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, callback_data: ?*anyopaque, source_tag: ?*anyopaque, error_: *glib.Error) void;
+    extern fn g_task_report_error(source_object: ?*gobject.Object, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, callback_data: ?*anyopaque, source_tag: ?*anyopaque, error_: **glib.Error) void;
     pub const reportError = g_task_report_error;
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
@@ -188,7 +188,7 @@ pub const Task = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

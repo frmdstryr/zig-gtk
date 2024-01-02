@@ -107,7 +107,7 @@ pub const PrintSettings = extern struct {
     extern fn gtk_print_settings_get_output_bin(self: *Self) [*c]const u8;
     pub const getOutputBin = gtk_print_settings_get_output_bin;
 
-    extern fn gtk_print_settings_get_page_ranges(self: *Self, num_ranges: i32) [*c]gtk.PageRange;
+    extern fn gtk_print_settings_get_page_ranges(self: *Self, num_ranges: *i32) [*c]gtk.PageRange;
     pub const getPageRanges = gtk_print_settings_get_page_ranges;
 
     extern fn gtk_print_settings_get_page_set(self: *Self) gtk.PageSet;
@@ -320,7 +320,7 @@ pub const PrintSettings = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

@@ -73,16 +73,16 @@ pub const Quaternion = extern struct {
     extern fn graphene_quaternion_slerp(self: *Self, b: *graphene.Quaternion, factor: f32, res: *graphene.Quaternion) void;
     pub const slerp = graphene_quaternion_slerp;
 
-    extern fn graphene_quaternion_to_angle_vec3(self: *Self, angle: f32, axis: *graphene.Vec3) void;
+    extern fn graphene_quaternion_to_angle_vec3(self: *Self, angle: *f32, axis: *graphene.Vec3) void;
     pub const toAngleVec3 = graphene_quaternion_to_angle_vec3;
 
-    extern fn graphene_quaternion_to_angles(self: *Self, deg_x: f32, deg_y: f32, deg_z: f32) void;
+    extern fn graphene_quaternion_to_angles(self: *Self, deg_x: *f32, deg_y: *f32, deg_z: *f32) void;
     pub const toAngles = graphene_quaternion_to_angles;
 
     extern fn graphene_quaternion_to_matrix(self: *Self, m: *graphene.Matrix) void;
     pub const toMatrix = graphene_quaternion_to_matrix;
 
-    extern fn graphene_quaternion_to_radians(self: *Self, rad_x: f32, rad_y: f32, rad_z: f32) void;
+    extern fn graphene_quaternion_to_radians(self: *Self, rad_x: *f32, rad_y: *f32, rad_z: *f32) void;
     pub const toRadians = graphene_quaternion_to_radians;
 
     extern fn graphene_quaternion_to_vec4(self: *Self, res: *graphene.Vec4) void;

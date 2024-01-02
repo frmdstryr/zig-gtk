@@ -60,7 +60,7 @@ pub const FontFace = extern struct {
     extern fn pango_font_face_is_synthesized(self: *Self) bool;
     pub const isSynthesized = pango_font_face_is_synthesized;
 
-    extern fn pango_font_face_list_sizes(self: *Self, sizes: [*c]i32, n_sizes: i32) void;
+    extern fn pango_font_face_list_sizes(self: *Self, sizes: [*c]i32, n_sizes: *i32) void;
     pub const listSizes = pango_font_face_list_sizes;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -108,7 +108,7 @@ pub const FontFace = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

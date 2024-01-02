@@ -63,7 +63,7 @@ pub const DropTarget = extern struct {
     extern fn gtk_drop_target_get_formats(self: *Self) ?*gdk.ContentFormats;
     pub const getFormats = gtk_drop_target_get_formats;
 
-    extern fn gtk_drop_target_get_gtypes(self: *Self, n_types: u64) [*c]usize;
+    extern fn gtk_drop_target_get_gtypes(self: *Self, n_types: *u64) [*c]usize;
     pub const getGtypes = gtk_drop_target_get_gtypes;
 
     extern fn gtk_event_controller_get_name(self: *Self) [*c]const u8;
@@ -165,7 +165,7 @@ pub const DropTarget = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

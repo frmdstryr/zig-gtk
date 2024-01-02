@@ -54,7 +54,7 @@ pub const UnixMountPoint = extern struct {
     extern fn g_unix_mount_point_is_user_mountable(self: *Self) bool;
     pub const isUserMountable = g_unix_mount_point_is_user_mountable;
 
-    extern fn g_unix_mount_point_at(mount_path: [*c]const u8, time_read: u64) ?*gio.UnixMountPoint;
+    extern fn g_unix_mount_point_at(mount_path: [*c]const u8, time_read: *u64) ?*gio.UnixMountPoint;
     pub const at = g_unix_mount_point_at;
 
 

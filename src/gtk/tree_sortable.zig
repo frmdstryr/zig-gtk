@@ -13,7 +13,7 @@ pub const TreeSortable = extern struct {
     // Constructors
 
     // Methods
-    extern fn gtk_tree_sortable_get_sort_column_id(self: *Self, sort_column_id: i32, order: gtk.SortType) bool;
+    extern fn gtk_tree_sortable_get_sort_column_id(self: *Self, sort_column_id: *i32, order: gtk.SortType) bool;
     pub const getSortColumnId = gtk_tree_sortable_get_sort_column_id;
 
     extern fn gtk_tree_sortable_has_default_sort_func(self: *Self) bool;

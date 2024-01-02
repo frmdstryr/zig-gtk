@@ -27,22 +27,22 @@ pub const BookmarkFile = extern struct {
     extern fn g_bookmark_file_get_added_date_time(self: *Self, uri: [*c]const u8) ?*glib.DateTime;
     pub const getAddedDateTime = g_bookmark_file_get_added_date_time;
 
-    extern fn g_bookmark_file_get_app_info(self: *Self, uri: [*c]const u8, name: [*c]const u8, exec: [*c]const u8, count: u32, stamp: i64) bool;
+    extern fn g_bookmark_file_get_app_info(self: *Self, uri: [*c]const u8, name: [*c]const u8, exec: *[*c]const u8, count: *u32, stamp: *i64) bool;
     pub const getAppInfo = g_bookmark_file_get_app_info;
 
-    extern fn g_bookmark_file_get_application_info(self: *Self, uri: [*c]const u8, name: [*c]const u8, exec: [*c]const u8, count: u32, stamp: *glib.DateTime) bool;
+    extern fn g_bookmark_file_get_application_info(self: *Self, uri: [*c]const u8, name: [*c]const u8, exec: *[*c]const u8, count: *u32, stamp: *glib.DateTime) bool;
     pub const getApplicationInfo = g_bookmark_file_get_application_info;
 
-    extern fn g_bookmark_file_get_applications(self: *Self, uri: [*c]const u8, length: u64) [*c][*c]const u8;
+    extern fn g_bookmark_file_get_applications(self: *Self, uri: [*c]const u8, length: *u64) [*c][*c]const u8;
     pub const getApplications = g_bookmark_file_get_applications;
 
     extern fn g_bookmark_file_get_description(self: *Self, uri: [*c]const u8) [*c]const u8;
     pub const getDescription = g_bookmark_file_get_description;
 
-    extern fn g_bookmark_file_get_groups(self: *Self, uri: [*c]const u8, length: u64) [*c][*c]const u8;
+    extern fn g_bookmark_file_get_groups(self: *Self, uri: [*c]const u8, length: *u64) [*c][*c]const u8;
     pub const getGroups = g_bookmark_file_get_groups;
 
-    extern fn g_bookmark_file_get_icon(self: *Self, uri: [*c]const u8, href: [*c]const u8, mime_type: [*c]const u8) bool;
+    extern fn g_bookmark_file_get_icon(self: *Self, uri: [*c]const u8, href: *[*c]const u8, mime_type: *[*c]const u8) bool;
     pub const getIcon = g_bookmark_file_get_icon;
 
     extern fn g_bookmark_file_get_is_private(self: *Self, uri: [*c]const u8) bool;
@@ -63,7 +63,7 @@ pub const BookmarkFile = extern struct {
     extern fn g_bookmark_file_get_title(self: *Self, uri: [*c]const u8) [*c]const u8;
     pub const getTitle = g_bookmark_file_get_title;
 
-    extern fn g_bookmark_file_get_uris(self: *Self, length: u64) [*c][*c]const u8;
+    extern fn g_bookmark_file_get_uris(self: *Self, length: *u64) [*c][*c]const u8;
     pub const getUris = g_bookmark_file_get_uris;
 
     extern fn g_bookmark_file_get_visited(self: *Self, uri: [*c]const u8) i64;
@@ -84,7 +84,7 @@ pub const BookmarkFile = extern struct {
     extern fn g_bookmark_file_load_from_data(self: *Self, data: [*c]u8, length: u64) bool;
     pub const loadFromData = g_bookmark_file_load_from_data;
 
-    extern fn g_bookmark_file_load_from_data_dirs(self: *Self, file: [*c]const u8, full_path: [*c]const u8) bool;
+    extern fn g_bookmark_file_load_from_data_dirs(self: *Self, file: [*c]const u8, full_path: *[*c]const u8) bool;
     pub const loadFromDataDirs = g_bookmark_file_load_from_data_dirs;
 
     extern fn g_bookmark_file_load_from_file(self: *Self, filename: [*c]const u8) bool;
@@ -144,7 +144,7 @@ pub const BookmarkFile = extern struct {
     extern fn g_bookmark_file_set_visited_date_time(self: *Self, uri: [*c]const u8, visited: *glib.DateTime) void;
     pub const setVisitedDateTime = g_bookmark_file_set_visited_date_time;
 
-    extern fn g_bookmark_file_to_data(self: *Self, length: u64) [*c]u8;
+    extern fn g_bookmark_file_to_data(self: *Self, length: *u64) [*c]u8;
     pub const toData = g_bookmark_file_to_data;
 
     extern fn g_bookmark_file_to_file(self: *Self, filename: [*c]const u8) bool;

@@ -109,16 +109,16 @@ pub const CellArea = extern struct {
     extern fn gtk_cell_area_get_focus_siblings(self: *Self, renderer: *gtk.CellRenderer) ?*glib.List;
     pub const getFocusSiblings = gtk_cell_area_get_focus_siblings;
 
-    extern fn gtk_cell_area_get_preferred_height(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, minimum_height: i32, natural_height: i32) void;
+    extern fn gtk_cell_area_get_preferred_height(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, minimum_height: *i32, natural_height: *i32) void;
     pub const getPreferredHeight = gtk_cell_area_get_preferred_height;
 
-    extern fn gtk_cell_area_get_preferred_height_for_width(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, width: i32, minimum_height: i32, natural_height: i32) void;
+    extern fn gtk_cell_area_get_preferred_height_for_width(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, width: i32, minimum_height: *i32, natural_height: *i32) void;
     pub const getPreferredHeightForWidth = gtk_cell_area_get_preferred_height_for_width;
 
-    extern fn gtk_cell_area_get_preferred_width(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, minimum_width: i32, natural_width: i32) void;
+    extern fn gtk_cell_area_get_preferred_width(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, minimum_width: *i32, natural_width: *i32) void;
     pub const getPreferredWidth = gtk_cell_area_get_preferred_width;
 
-    extern fn gtk_cell_area_get_preferred_width_for_height(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, height: i32, minimum_width: i32, natural_width: i32) void;
+    extern fn gtk_cell_area_get_preferred_width_for_height(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, height: i32, minimum_width: *i32, natural_width: *i32) void;
     pub const getPreferredWidthForHeight = gtk_cell_area_get_preferred_width_for_height;
 
     extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
@@ -166,7 +166,7 @@ pub const CellArea = extern struct {
     extern fn gtk_cell_area_remove_focus_sibling(self: *Self, renderer: *gtk.CellRenderer, sibling: *gtk.CellRenderer) void;
     pub const removeFocusSibling = gtk_cell_area_remove_focus_sibling;
 
-    extern fn gtk_cell_area_request_renderer(self: *Self, renderer: *gtk.CellRenderer, orientation: gtk.Orientation, widget: *gtk.Widget, for_size: i32, minimum_size: i32, natural_size: i32) void;
+    extern fn gtk_cell_area_request_renderer(self: *Self, renderer: *gtk.CellRenderer, orientation: gtk.Orientation, widget: *gtk.Widget, for_size: i32, minimum_size: *i32, natural_size: *i32) void;
     pub const requestRenderer = gtk_cell_area_request_renderer;
 
     extern fn g_object_run_dispose(self: *Self) void;
@@ -211,7 +211,7 @@ pub const CellArea = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

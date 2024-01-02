@@ -186,10 +186,10 @@ pub const Pixbuf = extern struct {
     extern fn gdk_pixbuf_saturate_and_pixelate(self: *Self, dest: *gdkpixbuf.Pixbuf, saturation: f32, pixelate: bool) void;
     pub const saturateAndPixelate = gdk_pixbuf_saturate_and_pixelate;
 
-    extern fn gdk_pixbuf_save_to_bufferv(self: *Self, buffer: [*c]u8, buffer_size: u64, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8) bool;
+    extern fn gdk_pixbuf_save_to_bufferv(self: *Self, buffer: [*c]u8, buffer_size: *u64, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8) bool;
     pub const saveToBufferv = gdk_pixbuf_save_to_bufferv;
 
-    extern fn gdk_pixbuf_save_to_callbackv(self: *Self, save_func: *const fn (buf: [*c]u8, count: u64, error_: *glib.Error, data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8) bool;
+    extern fn gdk_pixbuf_save_to_callbackv(self: *Self, save_func: *const fn (buf: [*c]u8, count: u64, error_: **glib.Error, data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8) bool;
     pub const saveToCallbackv = gdk_pixbuf_save_to_callbackv;
 
     extern fn gdk_pixbuf_save_to_streamv(self: *Self, stream: *gio.OutputStream, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, cancellable: ?*gio.Cancellable) bool;
@@ -234,13 +234,13 @@ pub const Pixbuf = extern struct {
     extern fn gdk_pixbuf_calculate_rowstride(colorspace: gdkpixbuf.Colorspace, has_alpha: bool, bits_per_sample: i32, width: i32, height: i32) i32;
     pub const calculateRowstride = gdk_pixbuf_calculate_rowstride;
 
-    extern fn gdk_pixbuf_get_file_info(filename: [*c]const u8, width: i32, height: i32) ?*gdkpixbuf.PixbufFormat;
+    extern fn gdk_pixbuf_get_file_info(filename: [*c]const u8, width: *i32, height: *i32) ?*gdkpixbuf.PixbufFormat;
     pub const getFileInfo = gdk_pixbuf_get_file_info;
 
     extern fn gdk_pixbuf_get_file_info_async(filename: [*c]const u8, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const getFileInfoAsync = gdk_pixbuf_get_file_info_async;
 
-    extern fn gdk_pixbuf_get_file_info_finish(async_result: *gio.AsyncResult, width: i32, height: i32) ?*gdkpixbuf.PixbufFormat;
+    extern fn gdk_pixbuf_get_file_info_finish(async_result: *gio.AsyncResult, width: *i32, height: *i32) ?*gdkpixbuf.PixbufFormat;
     pub const getFileInfoFinish = gdk_pixbuf_get_file_info_finish;
 
     // Binding disabled (unknown arg/return type)
@@ -268,7 +268,7 @@ pub const Pixbuf = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

@@ -66,7 +66,7 @@ pub const GLContext = extern struct {
     extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
     pub const getQdata = g_object_get_qdata;
 
-    extern fn gdk_gl_context_get_required_version(self: *Self, major: i32, minor: i32) void;
+    extern fn gdk_gl_context_get_required_version(self: *Self, major: *i32, minor: *i32) void;
     pub const getRequiredVersion = gdk_gl_context_get_required_version;
 
     extern fn gdk_gl_context_get_shared_context(self: *Self) ?*gdk.GLContext;
@@ -78,7 +78,7 @@ pub const GLContext = extern struct {
     extern fn gdk_gl_context_get_use_es(self: *Self) bool;
     pub const getUseEs = gdk_gl_context_get_use_es;
 
-    extern fn gdk_gl_context_get_version(self: *Self, major: i32, minor: i32) void;
+    extern fn gdk_gl_context_get_version(self: *Self, major: *i32, minor: *i32) void;
     pub const getVersion = gdk_gl_context_get_version;
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
@@ -168,7 +168,7 @@ pub const GLContext = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

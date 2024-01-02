@@ -38,13 +38,13 @@ pub const Subprocess = extern struct {
     extern fn g_subprocess_communicate_finish(self: *Self, result: *gio.AsyncResult, stdout_buf: ?*glib.Bytes, stderr_buf: ?*glib.Bytes) bool;
     pub const communicateFinish = g_subprocess_communicate_finish;
 
-    extern fn g_subprocess_communicate_utf8(self: *Self, stdin_buf: [*c]const u8, cancellable: ?*gio.Cancellable, stdout_buf: [*c]const u8, stderr_buf: [*c]const u8) bool;
+    extern fn g_subprocess_communicate_utf8(self: *Self, stdin_buf: [*c]const u8, cancellable: ?*gio.Cancellable, stdout_buf: *[*c]const u8, stderr_buf: *[*c]const u8) bool;
     pub const communicateUtf8 = g_subprocess_communicate_utf8;
 
     extern fn g_subprocess_communicate_utf8_async(self: *Self, stdin_buf: [*c]const u8, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const communicateUtf8Async = g_subprocess_communicate_utf8_async;
 
-    extern fn g_subprocess_communicate_utf8_finish(self: *Self, result: *gio.AsyncResult, stdout_buf: [*c]const u8, stderr_buf: [*c]const u8) bool;
+    extern fn g_subprocess_communicate_utf8_finish(self: *Self, result: *gio.AsyncResult, stdout_buf: *[*c]const u8, stderr_buf: *[*c]const u8) bool;
     pub const communicateUtf8Finish = g_subprocess_communicate_utf8_finish;
 
     extern fn g_subprocess_force_exit(self: *Self) void;
@@ -167,7 +167,7 @@ pub const Subprocess = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

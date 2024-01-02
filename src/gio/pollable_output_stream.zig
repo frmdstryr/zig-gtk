@@ -26,7 +26,7 @@ pub const PollableOutputStream = extern struct {
     extern fn g_pollable_output_stream_write_nonblocking(self: *Self, buffer: [*c]u8, count: u64, cancellable: ?*gio.Cancellable) i64;
     pub const writeNonblocking = g_pollable_output_stream_write_nonblocking;
 
-    extern fn g_pollable_output_stream_writev_nonblocking(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: u64, cancellable: ?*gio.Cancellable) gio.PollableReturn;
+    extern fn g_pollable_output_stream_writev_nonblocking(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: *u64, cancellable: ?*gio.Cancellable) gio.PollableReturn;
     pub const writevNonblocking = g_pollable_output_stream_writev_nonblocking;
 
 

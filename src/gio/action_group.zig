@@ -53,7 +53,7 @@ pub const ActionGroup = extern struct {
     extern fn g_action_group_list_actions(self: *Self) [*c][*c]const u8;
     pub const listActions = g_action_group_list_actions;
 
-    extern fn g_action_group_query_action(self: *Self, action_name: [*c]const u8, enabled: bool, parameter_type: *glib.VariantType, state_type: *glib.VariantType, state_hint: *glib.Variant, state: *glib.Variant) bool;
+    extern fn g_action_group_query_action(self: *Self, action_name: [*c]const u8, enabled: *bool, parameter_type: *glib.VariantType, state_type: *glib.VariantType, state_hint: *glib.Variant, state: *glib.Variant) bool;
     pub const queryAction = g_action_group_query_action;
 
 

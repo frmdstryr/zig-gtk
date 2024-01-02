@@ -13,7 +13,7 @@ pub const Converter = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_converter_convert(self: *Self, inbuf: [*c]u8, inbuf_size: u64, outbuf: [*c]u8, outbuf_size: u64, flags: gio.ConverterFlags, bytes_read: u64, bytes_written: u64) gio.ConverterResult;
+    extern fn g_converter_convert(self: *Self, inbuf: [*c]u8, inbuf_size: u64, outbuf: [*c]u8, outbuf_size: u64, flags: gio.ConverterFlags, bytes_read: *u64, bytes_written: *u64) gio.ConverterResult;
     pub const convert = g_converter_convert;
 
     extern fn g_converter_reset(self: *Self) void;

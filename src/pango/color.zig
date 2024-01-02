@@ -24,7 +24,7 @@ pub const Color = extern struct {
     extern fn pango_color_parse(self: *Self, spec: [*c]const u8) bool;
     pub const parse = pango_color_parse;
 
-    extern fn pango_color_parse_with_alpha(self: *Self, alpha: u16, spec: [*c]const u8) bool;
+    extern fn pango_color_parse_with_alpha(self: *Self, alpha: *u16, spec: [*c]const u8) bool;
     pub const parseWithAlpha = pango_color_parse_with_alpha;
 
     extern fn pango_color_to_string(self: *Self) [*c]const u8;

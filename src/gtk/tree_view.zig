@@ -97,22 +97,22 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_contains(self: *Self, x: f64, y: f64) bool;
     pub const contains = gtk_widget_contains;
 
-    extern fn gtk_tree_view_convert_bin_window_to_tree_coords(self: *Self, bx: i32, by: i32, tx: i32, ty: i32) void;
+    extern fn gtk_tree_view_convert_bin_window_to_tree_coords(self: *Self, bx: i32, by: i32, tx: *i32, ty: *i32) void;
     pub const convertBinWindowToTreeCoords = gtk_tree_view_convert_bin_window_to_tree_coords;
 
-    extern fn gtk_tree_view_convert_bin_window_to_widget_coords(self: *Self, bx: i32, by: i32, wx: i32, wy: i32) void;
+    extern fn gtk_tree_view_convert_bin_window_to_widget_coords(self: *Self, bx: i32, by: i32, wx: *i32, wy: *i32) void;
     pub const convertBinWindowToWidgetCoords = gtk_tree_view_convert_bin_window_to_widget_coords;
 
-    extern fn gtk_tree_view_convert_tree_to_bin_window_coords(self: *Self, tx: i32, ty: i32, bx: i32, by: i32) void;
+    extern fn gtk_tree_view_convert_tree_to_bin_window_coords(self: *Self, tx: i32, ty: i32, bx: *i32, by: *i32) void;
     pub const convertTreeToBinWindowCoords = gtk_tree_view_convert_tree_to_bin_window_coords;
 
-    extern fn gtk_tree_view_convert_tree_to_widget_coords(self: *Self, tx: i32, ty: i32, wx: i32, wy: i32) void;
+    extern fn gtk_tree_view_convert_tree_to_widget_coords(self: *Self, tx: i32, ty: i32, wx: *i32, wy: *i32) void;
     pub const convertTreeToWidgetCoords = gtk_tree_view_convert_tree_to_widget_coords;
 
-    extern fn gtk_tree_view_convert_widget_to_bin_window_coords(self: *Self, wx: i32, wy: i32, bx: i32, by: i32) void;
+    extern fn gtk_tree_view_convert_widget_to_bin_window_coords(self: *Self, wx: i32, wy: i32, bx: *i32, by: *i32) void;
     pub const convertWidgetToBinWindowCoords = gtk_tree_view_convert_widget_to_bin_window_coords;
 
-    extern fn gtk_tree_view_convert_widget_to_tree_coords(self: *Self, wx: i32, wy: i32, tx: i32, ty: i32) void;
+    extern fn gtk_tree_view_convert_widget_to_tree_coords(self: *Self, wx: i32, wy: i32, tx: *i32, ty: *i32) void;
     pub const convertWidgetToTreeCoords = gtk_tree_view_convert_widget_to_tree_coords;
 
     extern fn gtk_widget_create_pango_context(self: *Self) ?*pango.Context;
@@ -331,7 +331,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_get_parent(self: *Self) ?*gtk.Widget;
     pub const getParent = gtk_widget_get_parent;
 
-    extern fn gtk_tree_view_get_path_at_pos(self: *Self, x: i32, y: i32, path: ?*gtk.TreePath, column: ?*gtk.TreeViewColumn, cell_x: i32, cell_y: i32) bool;
+    extern fn gtk_tree_view_get_path_at_pos(self: *Self, x: i32, y: i32, path: ?*gtk.TreePath, column: ?*gtk.TreeViewColumn, cell_x: *i32, cell_y: *i32) bool;
     pub const getPathAtPos = gtk_tree_view_get_path_at_pos;
 
     extern fn gtk_widget_get_preferred_size(self: *Self, minimum_size: *gtk.Requisition, natural_size: *gtk.Requisition) void;
@@ -391,7 +391,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_get_size(self: *Self, orientation: gtk.Orientation) i32;
     pub const getSize = gtk_widget_get_size;
 
-    extern fn gtk_widget_get_size_request(self: *Self, width: i32, height: i32) void;
+    extern fn gtk_widget_get_size_request(self: *Self, width: *i32, height: *i32) void;
     pub const getSizeRequest = gtk_widget_get_size_request;
 
     extern fn gtk_widget_get_state_flags(self: *Self) gtk.StateFlags;
@@ -481,7 +481,7 @@ pub const TreeView = extern struct {
     extern fn gtk_widget_is_ancestor(self: *Self, ancestor: *gtk.Widget) bool;
     pub const isAncestor = gtk_widget_is_ancestor;
 
-    extern fn gtk_tree_view_is_blank_at_pos(self: *Self, x: i32, y: i32, path: ?*gtk.TreePath, column: ?*gtk.TreeViewColumn, cell_x: i32, cell_y: i32) bool;
+    extern fn gtk_tree_view_is_blank_at_pos(self: *Self, x: i32, y: i32, path: ?*gtk.TreePath, column: ?*gtk.TreeViewColumn, cell_x: *i32, cell_y: *i32) bool;
     pub const isBlankAtPos = gtk_tree_view_is_blank_at_pos;
 
     extern fn gtk_widget_is_drawable(self: *Self) bool;
@@ -514,7 +514,7 @@ pub const TreeView = extern struct {
     extern fn gtk_tree_view_map_expanded_rows(self: *Self, func: *const fn (tree_view: *gtk.TreeView, path: *gtk.TreePath, user_data: ?*anyopaque) callconv(.C) void, data: ?*anyopaque) void;
     pub const mapExpandedRows = gtk_tree_view_map_expanded_rows;
 
-    extern fn gtk_widget_measure(self: *Self, orientation: gtk.Orientation, for_size: i32, minimum: i32, natural: i32, minimum_baseline: i32, natural_baseline: i32) void;
+    extern fn gtk_widget_measure(self: *Self, orientation: gtk.Orientation, for_size: i32, minimum: *i32, natural: *i32, minimum_baseline: *i32, natural_baseline: *i32) void;
     pub const measure = gtk_widget_measure;
 
     extern fn gtk_widget_mnemonic_activate(self: *Self, group_cycling: bool) bool;
@@ -793,7 +793,7 @@ pub const TreeView = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn gtk_widget_translate_coordinates(self: *Self, dest_widget: *gtk.Widget, src_x: f64, src_y: f64, dest_x: f64, dest_y: f64) bool;
+    extern fn gtk_widget_translate_coordinates(self: *Self, dest_widget: *gtk.Widget, src_x: f64, src_y: f64, dest_x: *f64, dest_y: *f64) bool;
     pub const translateCoordinates = gtk_widget_translate_coordinates;
 
     extern fn gtk_widget_trigger_tooltip_query(self: *Self) void;
@@ -838,7 +838,7 @@ pub const TreeView = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
     // Utility methods

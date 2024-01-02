@@ -10,7 +10,7 @@ pub const FontFamilyClass = extern struct {
 
     // Fields
     parent_class: gobject.ObjectClass,
-    list_faces: *const fn (family: *pango.FontFamily, faces: [*c]*pango.FontFace, n_faces: i32) callconv(.C) void,
+    list_faces: *const fn (family: *pango.FontFamily, faces: [*c]*pango.FontFace, n_faces: *i32) callconv(.C) void,
     get_name: *const fn (family: *pango.FontFamily) callconv(.C) [*c]const u8,
     is_monospace: *const fn (family: *pango.FontFamily) callconv(.C) bool,
     is_variable: *const fn (family: *pango.FontFamily) callconv(.C) bool,

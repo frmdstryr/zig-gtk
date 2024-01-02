@@ -12,7 +12,7 @@ pub const ToplevelSize = extern struct {
     // Constructors
 
     // Methods
-    extern fn gdk_toplevel_size_get_bounds(self: *Self, bounds_width: i32, bounds_height: i32) void;
+    extern fn gdk_toplevel_size_get_bounds(self: *Self, bounds_width: *i32, bounds_height: *i32) void;
     pub const getBounds = gdk_toplevel_size_get_bounds;
 
     extern fn gdk_toplevel_size_set_min_size(self: *Self, min_width: i32, min_height: i32) void;

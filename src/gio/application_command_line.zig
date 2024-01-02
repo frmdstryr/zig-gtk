@@ -37,7 +37,7 @@ pub const ApplicationCommandLine = extern struct {
     extern fn g_object_freeze_notify(self: *Self) void;
     pub const freezeNotify = g_object_freeze_notify;
 
-    extern fn g_application_command_line_get_arguments(self: *Self, argc: i32) [*c][*c]const u8;
+    extern fn g_application_command_line_get_arguments(self: *Self, argc: *i32) [*c][*c]const u8;
     pub const getArguments = g_application_command_line_get_arguments;
 
     extern fn g_application_command_line_get_cwd(self: *Self) [*c]const u8;
@@ -127,7 +127,7 @@ pub const ApplicationCommandLine = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

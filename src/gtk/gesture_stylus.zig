@@ -39,16 +39,16 @@ pub const GestureStylus = extern struct {
     extern fn gtk_gesture_stylus_get_axes(self: *Self, axes: [*c]gdk.AxisUse, values: [*c]f64) bool;
     pub const getAxes = gtk_gesture_stylus_get_axes;
 
-    extern fn gtk_gesture_stylus_get_axis(self: *Self, axis: gdk.AxisUse, value: f64) bool;
+    extern fn gtk_gesture_stylus_get_axis(self: *Self, axis: gdk.AxisUse, value: *f64) bool;
     pub const getAxis = gtk_gesture_stylus_get_axis;
 
-    extern fn gtk_gesture_stylus_get_backlog(self: *Self, backlog: [*c]gdk.TimeCoord, n_elems: u32) bool;
+    extern fn gtk_gesture_stylus_get_backlog(self: *Self, backlog: [*c]gdk.TimeCoord, n_elems: *u32) bool;
     pub const getBacklog = gtk_gesture_stylus_get_backlog;
 
     extern fn gtk_gesture_get_bounding_box(self: *Self, rect: *gdk.Rectangle) bool;
     pub const getBoundingBox = gtk_gesture_get_bounding_box;
 
-    extern fn gtk_gesture_get_bounding_box_center(self: *Self, x: f64, y: f64) bool;
+    extern fn gtk_gesture_get_bounding_box_center(self: *Self, x: *f64, y: *f64) bool;
     pub const getBoundingBoxCenter = gtk_gesture_get_bounding_box_center;
 
     extern fn gtk_gesture_single_get_button(self: *Self) u32;
@@ -96,7 +96,7 @@ pub const GestureStylus = extern struct {
     extern fn gtk_event_controller_get_name(self: *Self) [*c]const u8;
     pub const getName = gtk_event_controller_get_name;
 
-    extern fn gtk_gesture_get_point(self: *Self, sequence: ?*gdk.EventSequence, x: f64, y: f64) bool;
+    extern fn gtk_gesture_get_point(self: *Self, sequence: ?*gdk.EventSequence, x: *f64, y: *f64) bool;
     pub const getPoint = gtk_gesture_get_point;
 
     extern fn gtk_event_controller_get_propagation_limit(self: *Self) gtk.PropagationLimit;
@@ -219,7 +219,7 @@ pub const GestureStylus = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

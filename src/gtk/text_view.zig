@@ -79,7 +79,7 @@ pub const TextView = extern struct {
     extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
     pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn gtk_text_view_buffer_to_window_coords(self: *Self, win: gtk.TextWindowType, buffer_x: i32, buffer_y: i32, window_x: i32, window_y: i32) void;
+    extern fn gtk_text_view_buffer_to_window_coords(self: *Self, win: gtk.TextWindowType, buffer_x: i32, buffer_y: i32, window_x: *i32, window_y: *i32) void;
     pub const bufferToWindowCoords = gtk_text_view_buffer_to_window_coords;
 
     extern fn gtk_widget_child_focus(self: *Self, direction: gtk.DirectionType) bool;
@@ -241,7 +241,7 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_get_iter_at_location(self: *Self, iter: *gtk.TextIter, x: i32, y: i32) bool;
     pub const getIterAtLocation = gtk_text_view_get_iter_at_location;
 
-    extern fn gtk_text_view_get_iter_at_position(self: *Self, iter: *gtk.TextIter, trailing: i32, x: i32, y: i32) bool;
+    extern fn gtk_text_view_get_iter_at_position(self: *Self, iter: *gtk.TextIter, trailing: *i32, x: i32, y: i32) bool;
     pub const getIterAtPosition = gtk_text_view_get_iter_at_position;
 
     extern fn gtk_text_view_get_iter_location(self: *Self, iter: *gtk.TextIter, location: *gdk.Rectangle) void;
@@ -259,10 +259,10 @@ pub const TextView = extern struct {
     extern fn gtk_text_view_get_left_margin(self: *Self) i32;
     pub const getLeftMargin = gtk_text_view_get_left_margin;
 
-    extern fn gtk_text_view_get_line_at_y(self: *Self, target_iter: *gtk.TextIter, y: i32, line_top: i32) void;
+    extern fn gtk_text_view_get_line_at_y(self: *Self, target_iter: *gtk.TextIter, y: i32, line_top: *i32) void;
     pub const getLineAtY = gtk_text_view_get_line_at_y;
 
-    extern fn gtk_text_view_get_line_yrange(self: *Self, iter: *gtk.TextIter, y: i32, height: i32) void;
+    extern fn gtk_text_view_get_line_yrange(self: *Self, iter: *gtk.TextIter, y: *i32, height: *i32) void;
     pub const getLineYrange = gtk_text_view_get_line_yrange;
 
     extern fn gtk_text_view_get_ltr_context(self: *Self) ?*pango.Context;
@@ -364,7 +364,7 @@ pub const TextView = extern struct {
     extern fn gtk_widget_get_size(self: *Self, orientation: gtk.Orientation) i32;
     pub const getSize = gtk_widget_get_size;
 
-    extern fn gtk_widget_get_size_request(self: *Self, width: i32, height: i32) void;
+    extern fn gtk_widget_get_size_request(self: *Self, width: *i32, height: *i32) void;
     pub const getSizeRequest = gtk_widget_get_size_request;
 
     extern fn gtk_widget_get_state_flags(self: *Self) gtk.StateFlags;
@@ -475,7 +475,7 @@ pub const TextView = extern struct {
     extern fn gtk_widget_map(self: *Self) void;
     pub const map = gtk_widget_map;
 
-    extern fn gtk_widget_measure(self: *Self, orientation: gtk.Orientation, for_size: i32, minimum: i32, natural: i32, minimum_baseline: i32, natural_baseline: i32) void;
+    extern fn gtk_widget_measure(self: *Self, orientation: gtk.Orientation, for_size: i32, minimum: *i32, natural: *i32, minimum_baseline: *i32, natural_baseline: *i32) void;
     pub const measure = gtk_widget_measure;
 
     extern fn gtk_widget_mnemonic_activate(self: *Self, group_cycling: bool) bool;
@@ -757,7 +757,7 @@ pub const TextView = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn gtk_widget_translate_coordinates(self: *Self, dest_widget: *gtk.Widget, src_x: f64, src_y: f64, dest_x: f64, dest_y: f64) bool;
+    extern fn gtk_widget_translate_coordinates(self: *Self, dest_widget: *gtk.Widget, src_x: f64, src_y: f64, dest_x: *f64, dest_y: *f64) bool;
     pub const translateCoordinates = gtk_widget_translate_coordinates;
 
     extern fn gtk_widget_trigger_tooltip_query(self: *Self) void;
@@ -781,7 +781,7 @@ pub const TextView = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
-    extern fn gtk_text_view_window_to_buffer_coords(self: *Self, win: gtk.TextWindowType, window_x: i32, window_y: i32, buffer_x: i32, buffer_y: i32) void;
+    extern fn gtk_text_view_window_to_buffer_coords(self: *Self, win: gtk.TextWindowType, window_x: i32, window_y: i32, buffer_x: *i32, buffer_y: *i32) void;
     pub const windowToBufferCoords = gtk_text_view_window_to_buffer_coords;
 
     extern fn gtk_widget_get_default_direction() gtk.TextDirection;
@@ -799,7 +799,7 @@ pub const TextView = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
     // Utility methods

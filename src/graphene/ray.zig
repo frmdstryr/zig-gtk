@@ -50,13 +50,13 @@ pub const Ray = extern struct {
     extern fn graphene_ray_init_from_vec3(self: *Self, origin: ?*graphene.Vec3, direction: ?*graphene.Vec3) ?*graphene.Ray;
     pub const initFromVec3 = graphene_ray_init_from_vec3;
 
-    extern fn graphene_ray_intersect_box(self: *Self, b: *graphene.Box, t_out: f32) graphene.RayIntersectionKind;
+    extern fn graphene_ray_intersect_box(self: *Self, b: *graphene.Box, t_out: *f32) graphene.RayIntersectionKind;
     pub const intersectBox = graphene_ray_intersect_box;
 
-    extern fn graphene_ray_intersect_sphere(self: *Self, s: *graphene.Sphere, t_out: f32) graphene.RayIntersectionKind;
+    extern fn graphene_ray_intersect_sphere(self: *Self, s: *graphene.Sphere, t_out: *f32) graphene.RayIntersectionKind;
     pub const intersectSphere = graphene_ray_intersect_sphere;
 
-    extern fn graphene_ray_intersect_triangle(self: *Self, t: *graphene.Triangle, t_out: f32) graphene.RayIntersectionKind;
+    extern fn graphene_ray_intersect_triangle(self: *Self, t: *graphene.Triangle, t_out: *f32) graphene.RayIntersectionKind;
     pub const intersectTriangle = graphene_ray_intersect_triangle;
 
     extern fn graphene_ray_intersects_box(self: *Self, b: *graphene.Box) bool;

@@ -42,7 +42,7 @@ pub const TreePath = extern struct {
     extern fn gtk_tree_path_get_depth(self: *Self) i32;
     pub const getDepth = gtk_tree_path_get_depth;
 
-    extern fn gtk_tree_path_get_indices_with_depth(self: *Self, depth: i32) [*c]i32;
+    extern fn gtk_tree_path_get_indices_with_depth(self: *Self, depth: *i32) [*c]i32;
     pub const getIndices = gtk_tree_path_get_indices_with_depth;
 
     extern fn gtk_tree_path_is_ancestor(self: *Self, descendant: *gtk.TreePath) bool;

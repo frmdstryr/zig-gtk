@@ -29,7 +29,7 @@ pub const TypeInterface = extern struct {
     extern fn g_type_interface_peek(instance_class: *gobject.TypeClass, iface_type: usize) ?*gobject.TypeInterface;
     pub const peek = g_type_interface_peek;
 
-    extern fn g_type_interface_prerequisites(interface_type: usize, n_prerequisites: u32) [*c]usize;
+    extern fn g_type_interface_prerequisites(interface_type: usize, n_prerequisites: *u32) [*c]usize;
     pub const prerequisites = g_type_interface_prerequisites;
 
 

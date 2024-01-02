@@ -36,7 +36,7 @@ pub const CellAreaContext = extern struct {
     extern fn g_object_freeze_notify(self: *Self) void;
     pub const freezeNotify = g_object_freeze_notify;
 
-    extern fn gtk_cell_area_context_get_allocation(self: *Self, width: i32, height: i32) void;
+    extern fn gtk_cell_area_context_get_allocation(self: *Self, width: *i32, height: *i32) void;
     pub const getAllocation = gtk_cell_area_context_get_allocation;
 
     extern fn gtk_cell_area_context_get_area(self: *Self) ?*gtk.CellArea;
@@ -45,16 +45,16 @@ pub const CellAreaContext = extern struct {
     extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
     pub const getData = g_object_get_data;
 
-    extern fn gtk_cell_area_context_get_preferred_height(self: *Self, minimum_height: i32, natural_height: i32) void;
+    extern fn gtk_cell_area_context_get_preferred_height(self: *Self, minimum_height: *i32, natural_height: *i32) void;
     pub const getPreferredHeight = gtk_cell_area_context_get_preferred_height;
 
-    extern fn gtk_cell_area_context_get_preferred_height_for_width(self: *Self, width: i32, minimum_height: i32, natural_height: i32) void;
+    extern fn gtk_cell_area_context_get_preferred_height_for_width(self: *Self, width: i32, minimum_height: *i32, natural_height: *i32) void;
     pub const getPreferredHeightForWidth = gtk_cell_area_context_get_preferred_height_for_width;
 
-    extern fn gtk_cell_area_context_get_preferred_width(self: *Self, minimum_width: i32, natural_width: i32) void;
+    extern fn gtk_cell_area_context_get_preferred_width(self: *Self, minimum_width: *i32, natural_width: *i32) void;
     pub const getPreferredWidth = gtk_cell_area_context_get_preferred_width;
 
-    extern fn gtk_cell_area_context_get_preferred_width_for_height(self: *Self, height: i32, minimum_width: i32, natural_width: i32) void;
+    extern fn gtk_cell_area_context_get_preferred_width_for_height(self: *Self, height: i32, minimum_width: *i32, natural_width: *i32) void;
     pub const getPreferredWidthForHeight = gtk_cell_area_context_get_preferred_width_for_height;
 
     extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
@@ -123,7 +123,7 @@ pub const CellAreaContext = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

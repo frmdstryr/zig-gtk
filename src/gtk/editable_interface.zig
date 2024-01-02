@@ -10,13 +10,13 @@ pub const EditableInterface = extern struct {
 
     // Fields
     base_iface: gobject.TypeInterface,
-    insert_text: *const fn (editable: *gtk.Editable, text: [*c]const u8, length: i32, position: i32) callconv(.C) void,
+    insert_text: *const fn (editable: *gtk.Editable, text: [*c]const u8, length: i32, position: *i32) callconv(.C) void,
     delete_text: *const fn (editable: *gtk.Editable, start_pos: i32, end_pos: i32) callconv(.C) void,
     changed: *const fn (editable: *gtk.Editable) callconv(.C) void,
     get_text: *const fn (editable: *gtk.Editable) callconv(.C) [*c]const u8,
-    do_insert_text: *const fn (editable: *gtk.Editable, text: [*c]const u8, length: i32, position: i32) callconv(.C) void,
+    do_insert_text: *const fn (editable: *gtk.Editable, text: [*c]const u8, length: i32, position: *i32) callconv(.C) void,
     do_delete_text: *const fn (editable: *gtk.Editable, start_pos: i32, end_pos: i32) callconv(.C) void,
-    get_selection_bounds: *const fn (editable: *gtk.Editable, start_pos: i32, end_pos: i32) callconv(.C) bool,
+    get_selection_bounds: *const fn (editable: *gtk.Editable, start_pos: *i32, end_pos: *i32) callconv(.C) bool,
     set_selection_bounds: *const fn (editable: *gtk.Editable, start_pos: i32, end_pos: i32) callconv(.C) void,
     get_delegate: *const fn (editable: *gtk.Editable) callconv(.C) *gtk.Editable,
 

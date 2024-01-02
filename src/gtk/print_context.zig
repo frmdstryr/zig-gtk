@@ -52,7 +52,7 @@ pub const PrintContext = extern struct {
     extern fn gtk_print_context_get_dpi_y(self: *Self) f64;
     pub const getDpiY = gtk_print_context_get_dpi_y;
 
-    extern fn gtk_print_context_get_hard_margins(self: *Self, top: f64, bottom: f64, left: f64, right: f64) bool;
+    extern fn gtk_print_context_get_hard_margins(self: *Self, top: *f64, bottom: *f64, left: *f64, right: *f64) bool;
     pub const getHardMargins = gtk_print_context_get_hard_margins;
 
     extern fn gtk_print_context_get_height(self: *Self) f64;
@@ -127,7 +127,7 @@ pub const PrintContext = extern struct {
     extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
     pub const interfaceInstallProperty = g_object_interface_install_property;
 
-    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: *u32) [*c]*gobject.ParamSpec;
     pub const interfaceListProperties = g_object_interface_list_properties;
 
 

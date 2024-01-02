@@ -16,7 +16,7 @@ pub const ParamSpecPool = extern struct {
     extern fn g_param_spec_pool_insert(self: *Self, pspec: *gobject.ParamSpec, owner_type: usize) void;
     pub const insert = g_param_spec_pool_insert;
 
-    extern fn g_param_spec_pool_list(self: *Self, owner_type: usize, n_pspecs_p: u32) [*c]*gobject.ParamSpec;
+    extern fn g_param_spec_pool_list(self: *Self, owner_type: usize, n_pspecs_p: *u32) [*c]*gobject.ParamSpec;
     pub const list = g_param_spec_pool_list;
 
     extern fn g_param_spec_pool_list_owned(self: *Self, owner_type: usize) ?*glib.List;
