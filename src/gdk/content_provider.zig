@@ -112,6 +112,18 @@ pub const ContentProvider = extern struct {
     extern fn gdk_content_provider_write_mime_type_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const writeMimeTypeFinish = gdk_content_provider_write_mime_type_finish;
 
+    extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
+    pub const compatControl = g_object_compat_control;
+
+    extern fn g_object_interface_find_property(g_iface: *gobject.TypeInterface, property_name: [*c]const u8) ?*gobject.ParamSpec;
+    pub const interfaceFindProperty = g_object_interface_find_property;
+
+    extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
+    pub const interfaceInstallProperty = g_object_interface_install_property;
+
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    pub const interfaceListProperties = g_object_interface_list_properties;
+
 
     // Signals
 

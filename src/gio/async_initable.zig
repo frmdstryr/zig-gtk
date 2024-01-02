@@ -22,6 +22,9 @@ pub const AsyncInitable = extern struct {
     extern fn g_async_initable_new_finish(self: *Self, res: *gio.AsyncResult) ?*gobject.Object;
     pub const newFinish = g_async_initable_new_finish;
 
+    extern fn g_async_initable_newv_async(object_type: usize, n_parameters: u32, parameters: *gobject.Parameter, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
+    pub const newvAsync = g_async_initable_newv_async;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

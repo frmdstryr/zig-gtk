@@ -14,6 +14,9 @@ pub const AttrFontFeatures = extern struct {
     // Constructors
 
     // Methods
+    extern fn pango_attr_font_features_new(features: [*c]const u8) ?*pango.Attribute;
+    pub const new = pango_attr_font_features_new;
+
 
     // GType
     pub inline fn gType() usize {

@@ -150,6 +150,9 @@ pub const KeyFile = extern struct {
     extern fn g_key_file_unref(self: *Self) void;
     pub const unref = g_key_file_unref;
 
+    extern fn g_key_file_error_quark() u32;
+    pub const errorQuark = g_key_file_error_quark;
+
 
     // GType
     pub inline fn gType() usize {

@@ -36,6 +36,33 @@ pub const Sequence = extern struct {
     extern fn g_sequence_prepend(self: *Self, data: ?*anyopaque) ?*glib.SequenceIter;
     pub const prepend = g_sequence_prepend;
 
+    extern fn g_sequence_get(iter: *glib.SequenceIter) ?*anyopaque;
+    pub const get = g_sequence_get;
+
+    extern fn g_sequence_insert_before(iter: *glib.SequenceIter, data: ?*anyopaque) ?*glib.SequenceIter;
+    pub const insertBefore = g_sequence_insert_before;
+
+    extern fn g_sequence_move(src: *glib.SequenceIter, dest: *glib.SequenceIter) void;
+    pub const move = g_sequence_move;
+
+    extern fn g_sequence_move_range(dest: *glib.SequenceIter, begin: *glib.SequenceIter, end: *glib.SequenceIter) void;
+    pub const moveRange = g_sequence_move_range;
+
+    extern fn g_sequence_range_get_midpoint(begin: *glib.SequenceIter, end: *glib.SequenceIter) ?*glib.SequenceIter;
+    pub const rangeGetMidpoint = g_sequence_range_get_midpoint;
+
+    extern fn g_sequence_remove(iter: *glib.SequenceIter) void;
+    pub const remove = g_sequence_remove;
+
+    extern fn g_sequence_remove_range(begin: *glib.SequenceIter, end: *glib.SequenceIter) void;
+    pub const removeRange = g_sequence_remove_range;
+
+    extern fn g_sequence_set(iter: *glib.SequenceIter, data: ?*anyopaque) void;
+    pub const set = g_sequence_set;
+
+    extern fn g_sequence_swap(a: *glib.SequenceIter, b: *glib.SequenceIter) void;
+    pub const swap = g_sequence_swap;
+
 
     // GType
     pub inline fn gType() usize {

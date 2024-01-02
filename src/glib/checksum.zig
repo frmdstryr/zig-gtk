@@ -30,6 +30,9 @@ pub const Checksum = extern struct {
     extern fn g_checksum_update(self: *Self, data: [*c]u8, length: i64) void;
     pub const update = g_checksum_update;
 
+    extern fn g_checksum_type_get_length(checksum_type: glib.ChecksumType) i64;
+    pub const typeGetLength = g_checksum_type_get_length;
+
 
     // GType
     pub inline fn gType() usize {

@@ -69,6 +69,24 @@ pub const Regex = extern struct {
     extern fn g_regex_unref(self: *Self) void;
     pub const unref = g_regex_unref;
 
+    extern fn g_regex_check_replacement(replacement: [*c]const u8, has_references: bool) bool;
+    pub const checkReplacement = g_regex_check_replacement;
+
+    extern fn g_regex_error_quark() u32;
+    pub const errorQuark = g_regex_error_quark;
+
+    extern fn g_regex_escape_nul(string: [*c]const u8, length: i32) [*c]const u8;
+    pub const escapeNul = g_regex_escape_nul;
+
+    extern fn g_regex_escape_string(string: [*c][*c]const u8, length: i32) [*c]const u8;
+    pub const escapeString = g_regex_escape_string;
+
+    extern fn g_regex_match_simple(pattern: [*c]const u8, string: [*c]const u8, compile_options: glib.RegexCompileFlags, match_options: glib.RegexMatchFlags) bool;
+    pub const matchSimple = g_regex_match_simple;
+
+    extern fn g_regex_split_simple(pattern: [*c]const u8, string: [*c]const u8, compile_options: glib.RegexCompileFlags, match_options: glib.RegexMatchFlags) [*c][*c]const u8;
+    pub const splitSimple = g_regex_split_simple;
+
 
     // GType
     pub inline fn gType() usize {

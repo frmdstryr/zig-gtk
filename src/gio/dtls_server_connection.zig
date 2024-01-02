@@ -13,6 +13,9 @@ pub const DtlsServerConnection = extern struct {
     // Constructors
 
     // Methods
+    extern fn g_dtls_server_connection_new(base_socket: *gio.DatagramBased, certificate: ?*gio.TlsCertificate) ?*gio.DtlsServerConnection;
+    pub const new = g_dtls_server_connection_new;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

@@ -82,6 +82,15 @@ pub const Editable = extern struct {
     extern fn gtk_editable_set_width_chars(self: *Self, n_chars: i32) void;
     pub const setWidthChars = gtk_editable_set_width_chars;
 
+    extern fn gtk_editable_delegate_get_property(object: *gobject.Object, prop_id: u32, value: *gobject.Value, pspec: *gobject.ParamSpec) bool;
+    pub const delegateGetProperty = gtk_editable_delegate_get_property;
+
+    extern fn gtk_editable_delegate_set_property(object: *gobject.Object, prop_id: u32, value: *gobject.Value, pspec: *gobject.ParamSpec) bool;
+    pub const delegateSetProperty = gtk_editable_delegate_set_property;
+
+    extern fn gtk_editable_install_properties(object_class: *gobject.ObjectClass, first_prop: u32) u32;
+    pub const installProperties = gtk_editable_install_properties;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

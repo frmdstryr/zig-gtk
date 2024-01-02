@@ -111,6 +111,9 @@ pub const FontDescription = extern struct {
     extern fn pango_font_description_unset_fields(self: *Self, to_unset: pango.FontMask) void;
     pub const unsetFields = pango_font_description_unset_fields;
 
+    extern fn pango_font_description_from_string(str: [*c]const u8) ?*pango.FontDescription;
+    pub const fromString = pango_font_description_from_string;
+
 
     // GType
     pub inline fn gType() usize {

@@ -142,6 +142,24 @@ pub const StyleContext = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
+    extern fn gtk_style_context_add_provider_for_display(display: *gdk.Display, provider: *gtk.StyleProvider, priority: u32) void;
+    pub const addProviderForDisplay = gtk_style_context_add_provider_for_display;
+
+    extern fn gtk_style_context_remove_provider_for_display(display: *gdk.Display, provider: *gtk.StyleProvider) void;
+    pub const removeProviderForDisplay = gtk_style_context_remove_provider_for_display;
+
+    extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
+    pub const compatControl = g_object_compat_control;
+
+    extern fn g_object_interface_find_property(g_iface: *gobject.TypeInterface, property_name: [*c]const u8) ?*gobject.ParamSpec;
+    pub const interfaceFindProperty = g_object_interface_find_property;
+
+    extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
+    pub const interfaceInstallProperty = g_object_interface_install_property;
+
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    pub const interfaceListProperties = g_object_interface_list_properties;
+
 
     // Signals
 

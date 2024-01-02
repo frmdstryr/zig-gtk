@@ -89,6 +89,9 @@ pub const Transform = extern struct {
     extern fn gsk_transform_unref(self: *Self) void;
     pub const unref = gsk_transform_unref;
 
+    extern fn gsk_transform_parse(string: [*c]const u8, out_transform: *gsk.Transform) bool;
+    pub const parse = gsk_transform_parse;
+
 
     // GType
     pub inline fn gType() usize {

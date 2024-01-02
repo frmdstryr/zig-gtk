@@ -20,6 +20,9 @@ pub const TimeVal = extern struct {
     extern fn g_time_val_to_iso8601(self: *Self) [*c]const u8;
     pub const toIso8601 = g_time_val_to_iso8601;
 
+    extern fn g_time_val_from_iso8601(iso_date: [*c]const u8, time_: *glib.TimeVal) bool;
+    pub const fromIso8601 = g_time_val_from_iso8601;
+
 
     // GType
     pub inline fn gType() usize {

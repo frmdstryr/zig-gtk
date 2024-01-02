@@ -21,6 +21,9 @@ pub const Dir = extern struct {
     extern fn g_dir_rewind(self: *Self) void;
     pub const rewind = g_dir_rewind;
 
+    extern fn g_dir_make_tmp(tmpl: [*c]const u8) [*c]const u8;
+    pub const makeTmp = g_dir_make_tmp;
+
 
     // GType
     pub inline fn gType() usize {

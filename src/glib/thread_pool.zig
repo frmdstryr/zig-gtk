@@ -36,6 +36,24 @@ pub const ThreadPool = extern struct {
     extern fn g_thread_pool_unprocessed(self: *Self) u32;
     pub const unprocessed = g_thread_pool_unprocessed;
 
+    extern fn g_thread_pool_get_max_idle_time() u32;
+    pub const getMaxIdleTime = g_thread_pool_get_max_idle_time;
+
+    extern fn g_thread_pool_get_max_unused_threads() i32;
+    pub const getMaxUnusedThreads = g_thread_pool_get_max_unused_threads;
+
+    extern fn g_thread_pool_get_num_unused_threads() u32;
+    pub const getNumUnusedThreads = g_thread_pool_get_num_unused_threads;
+
+    extern fn g_thread_pool_set_max_idle_time(interval: u32) void;
+    pub const setMaxIdleTime = g_thread_pool_set_max_idle_time;
+
+    extern fn g_thread_pool_set_max_unused_threads(max_threads: i32) void;
+    pub const setMaxUnusedThreads = g_thread_pool_set_max_unused_threads;
+
+    extern fn g_thread_pool_stop_unused_threads() void;
+    pub const stopUnusedThreads = g_thread_pool_stop_unused_threads;
+
 
     // GType
     pub inline fn gType() usize {

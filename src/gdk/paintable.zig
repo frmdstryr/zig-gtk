@@ -40,6 +40,9 @@ pub const Paintable = extern struct {
     extern fn gdk_paintable_snapshot(self: *Self, snapshot: *gdk.Snapshot, width: f64, height: f64) void;
     pub const snapshot = gdk_paintable_snapshot;
 
+    extern fn gdk_paintable_new_empty(intrinsic_width: i32, intrinsic_height: i32) ?*gdk.Paintable;
+    pub const newEmpty = gdk_paintable_new_empty;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

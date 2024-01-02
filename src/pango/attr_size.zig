@@ -15,6 +15,12 @@ pub const AttrSize = extern struct {
     // Constructors
 
     // Methods
+    extern fn pango_attr_size_new(size: i32) ?*pango.Attribute;
+    pub const new = pango_attr_size_new;
+
+    extern fn pango_attr_size_new_absolute(size: i32) ?*pango.Attribute;
+    pub const newAbsolute = pango_attr_size_new_absolute;
+
 
     // GType
     pub inline fn gType() usize {

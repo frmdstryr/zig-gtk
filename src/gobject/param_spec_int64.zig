@@ -57,6 +57,9 @@ pub const ParamSpecInt64 = extern struct {
     extern fn g_param_spec_steal_qdata(self: *Self, quark: u32) ?*anyopaque;
     pub const stealQdata = g_param_spec_steal_qdata;
 
+    extern fn g_param_spec_is_valid_name(name: [*c]const u8) bool;
+    pub const isValidName = g_param_spec_is_valid_name;
+
 
     // Bases
     pub inline fn asParamSpec(self: *Self) *gobject.ParamSpec {

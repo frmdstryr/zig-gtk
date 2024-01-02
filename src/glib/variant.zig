@@ -228,6 +228,24 @@ pub const Variant = extern struct {
     extern fn g_variant_unref(self: *Self) void;
     pub const unref = g_variant_unref;
 
+    extern fn g_variant_is_object_path(string: [*c]const u8) bool;
+    pub const isObjectPath = g_variant_is_object_path;
+
+    extern fn g_variant_is_signature(string: [*c]const u8) bool;
+    pub const isSignature = g_variant_is_signature;
+
+    extern fn g_variant_parse(type: ?*glib.VariantType, text: [*c]const u8, limit: [*c]const u8, endptr: [*c]const u8) ?*glib.Variant;
+    pub const parse = g_variant_parse;
+
+    extern fn g_variant_parse_error_print_context(error_: *glib.Error, source_str: [*c]const u8) [*c]const u8;
+    pub const parseErrorPrintContext = g_variant_parse_error_print_context;
+
+    extern fn g_variant_parse_error_quark() u32;
+    pub const parseErrorQuark = g_variant_parse_error_quark;
+
+    extern fn g_variant_parser_get_error_quark() u32;
+    pub const parserGetErrorQuark = g_variant_parser_get_error_quark;
+
 
     // GType
     pub inline fn gType() usize {

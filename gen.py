@@ -562,6 +562,7 @@ def generate_class(ns: str, Cls: type):
     info = getattr(Cls, "__info__", None)
 
     is_struct = str(info).startswith("StructInfo")
+    is_interface = str(info).startswith("InterfaceInfo")
     is_union = str(info).startswith("gi.UnionInfo")
 
     if is_union:
@@ -593,6 +594,7 @@ def generate_class(ns: str, Cls: type):
     imports = {ns.lower()}
     constructors = []
     methods = []
+    functions = []
     has_connect = False
 
     mro = all_parents(info)
@@ -648,6 +650,8 @@ def generate_class(ns: str, Cls: type):
                         constructors.append(f)
                     elif f.is_method():
                         methods.append(f)
+                    else:
+                        functions.append(f)
                     # Else what is it??
 
     out.append("")
@@ -678,7 +682,7 @@ def generate_class(ns: str, Cls: type):
     used = set()
     method_overrides = METHOD_OVERRIDES.get(Cls, {})
     methods.sort(key=lambda f: f.get_name())
-    for f in methods:
+    for f in methods + functions:
         name = clean_zig_name(camel_case(f.get_name()))
 
         # HACK: A way to override...
@@ -691,7 +695,10 @@ def generate_class(ns: str, Cls: type):
         rtype = func_return_type(f, imports)
         if rtype and rtype.startswith("*"):
             rtype = "?" + rtype  # Make optional
-        args = ["self: *Self"]
+        args = []
+        if f.is_method():
+            args.append("self: *Self")
+
         if rtype is None:
             comment = "// "
         for arg in f.get_arguments():

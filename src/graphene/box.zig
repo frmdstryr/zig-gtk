@@ -86,6 +86,24 @@ pub const Box = extern struct {
     extern fn graphene_box_union(self: *Self, b: *graphene.Box, res: *graphene.Box) void;
     pub const union_ = graphene_box_union;
 
+    extern fn graphene_box_empty() ?*graphene.Box;
+    pub const empty = graphene_box_empty;
+
+    extern fn graphene_box_infinite() ?*graphene.Box;
+    pub const infinite = graphene_box_infinite;
+
+    extern fn graphene_box_minus_one() ?*graphene.Box;
+    pub const minusOne = graphene_box_minus_one;
+
+    extern fn graphene_box_one() ?*graphene.Box;
+    pub const one = graphene_box_one;
+
+    extern fn graphene_box_one_minus_one() ?*graphene.Box;
+    pub const oneMinusOne = graphene_box_one_minus_one;
+
+    extern fn graphene_box_zero() ?*graphene.Box;
+    pub const zero = graphene_box_zero;
+
 
     // GType
     pub inline fn gType() usize {

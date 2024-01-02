@@ -13,6 +13,9 @@ pub const TlsServerConnection = extern struct {
     // Constructors
 
     // Methods
+    extern fn g_tls_server_connection_new(base_io_stream: *gio.IOStream, certificate: ?*gio.TlsCertificate) ?*gio.TlsServerConnection;
+    pub const new = g_tls_server_connection_new;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

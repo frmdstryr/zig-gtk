@@ -386,6 +386,24 @@ pub const File = extern struct {
     extern fn g_file_unmount_mountable_with_operation_finish(self: *Self, result: *gio.AsyncResult) bool;
     pub const unmountMountableWithOperationFinish = g_file_unmount_mountable_with_operation_finish;
 
+    extern fn g_file_new_for_commandline_arg(arg: [*c]const u8) ?*gio.File;
+    pub const newForCommandlineArg = g_file_new_for_commandline_arg;
+
+    extern fn g_file_new_for_commandline_arg_and_cwd(arg: [*c]const u8, cwd: [*c]const u8) ?*gio.File;
+    pub const newForCommandlineArgAndCwd = g_file_new_for_commandline_arg_and_cwd;
+
+    extern fn g_file_new_for_path(path: [*c]const u8) ?*gio.File;
+    pub const newForPath = g_file_new_for_path;
+
+    extern fn g_file_new_for_uri(uri: [*c]const u8) ?*gio.File;
+    pub const newForUri = g_file_new_for_uri;
+
+    extern fn g_file_new_tmp(tmpl: [*c]const u8, iostream: *gio.FileIOStream) ?*gio.File;
+    pub const newTmp = g_file_new_tmp;
+
+    extern fn g_file_parse_name(parse_name: [*c]const u8) ?*gio.File;
+    pub const parseName = g_file_parse_name;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

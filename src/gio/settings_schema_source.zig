@@ -27,6 +27,9 @@ pub const SettingsSchemaSource = extern struct {
     extern fn g_settings_schema_source_unref(self: *Self) void;
     pub const unref = g_settings_schema_source_unref;
 
+    extern fn g_settings_schema_source_get_default() ?*gio.SettingsSchemaSource;
+    pub const getDefault = g_settings_schema_source_get_default;
+
 
     // GType
     pub inline fn gType() usize {

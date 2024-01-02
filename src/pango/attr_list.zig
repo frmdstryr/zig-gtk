@@ -55,6 +55,9 @@ pub const AttrList = extern struct {
     extern fn pango_attr_list_update(self: *Self, pos: i32, remove: i32, add: i32) void;
     pub const update = pango_attr_list_update;
 
+    extern fn pango_attr_list_from_string(text: [*c]const u8) ?*pango.AttrList;
+    pub const fromString = pango_attr_list_from_string;
+
 
     // GType
     pub inline fn gType() usize {

@@ -97,6 +97,24 @@ pub const Vec4 = extern struct {
     extern fn graphene_vec4_to_float(self: *Self, dest: [4]f32) void;
     pub const toFloat = graphene_vec4_to_float;
 
+    extern fn graphene_vec4_one() ?*graphene.Vec4;
+    pub const one = graphene_vec4_one;
+
+    extern fn graphene_vec4_w_axis() ?*graphene.Vec4;
+    pub const wAxis = graphene_vec4_w_axis;
+
+    extern fn graphene_vec4_x_axis() ?*graphene.Vec4;
+    pub const xAxis = graphene_vec4_x_axis;
+
+    extern fn graphene_vec4_y_axis() ?*graphene.Vec4;
+    pub const yAxis = graphene_vec4_y_axis;
+
+    extern fn graphene_vec4_z_axis() ?*graphene.Vec4;
+    pub const zAxis = graphene_vec4_z_axis;
+
+    extern fn graphene_vec4_zero() ?*graphene.Vec4;
+    pub const zero = graphene_vec4_zero;
+
 
     // GType
     pub inline fn gType() usize {

@@ -38,6 +38,15 @@ pub const Action = extern struct {
     extern fn g_action_get_state_type(self: *Self) ?*glib.VariantType;
     pub const getStateType = g_action_get_state_type;
 
+    extern fn g_action_name_is_valid(action_name: [*c]const u8) bool;
+    pub const nameIsValid = g_action_name_is_valid;
+
+    extern fn g_action_parse_detailed_name(detailed_name: [*c]const u8, action_name: [*c]const u8, target_value: *glib.Variant) bool;
+    pub const parseDetailedName = g_action_parse_detailed_name;
+
+    extern fn g_action_print_detailed_name(action_name: [*c]const u8, target_value: ?*glib.Variant) [*c]const u8;
+    pub const printDetailedName = g_action_print_detailed_name;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

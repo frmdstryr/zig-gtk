@@ -13,6 +13,18 @@ pub const TrashStack = extern struct {
     // Constructors
 
     // Methods
+    extern fn g_trash_stack_height(stack_p: *glib.TrashStack) u32;
+    pub const height = g_trash_stack_height;
+
+    extern fn g_trash_stack_peek(stack_p: *glib.TrashStack) ?*anyopaque;
+    pub const peek = g_trash_stack_peek;
+
+    extern fn g_trash_stack_pop(stack_p: *glib.TrashStack) ?*anyopaque;
+    pub const pop = g_trash_stack_pop;
+
+    extern fn g_trash_stack_push(stack_p: *glib.TrashStack, data_p: ?*anyopaque) void;
+    pub const push = g_trash_stack_push;
+
 
     // GType
     pub inline fn gType() usize {

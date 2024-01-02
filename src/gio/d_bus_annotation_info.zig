@@ -22,6 +22,9 @@ pub const DBusAnnotationInfo = extern struct {
     extern fn g_dbus_annotation_info_unref(self: *Self) void;
     pub const unref = g_dbus_annotation_info_unref;
 
+    extern fn g_dbus_annotation_info_lookup(annotations: [*c]*gio.DBusAnnotationInfo, name: [*c]const u8) [*c]const u8;
+    pub const lookup = g_dbus_annotation_info_lookup;
+
 
     // GType
     pub inline fn gType() usize {

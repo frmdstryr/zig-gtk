@@ -23,6 +23,15 @@ pub const Icon = extern struct {
     extern fn g_icon_to_string(self: *Self) [*c]const u8;
     pub const toString = g_icon_to_string;
 
+    extern fn g_icon_deserialize(value: *glib.Variant) ?*gio.Icon;
+    pub const deserialize = g_icon_deserialize;
+
+    extern fn g_icon_hash(icon: ?*anyopaque) u32;
+    pub const hash = g_icon_hash;
+
+    extern fn g_icon_new_for_string(str: [*c]const u8) ?*gio.Icon;
+    pub const newForString = g_icon_new_for_string;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

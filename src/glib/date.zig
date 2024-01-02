@@ -132,6 +132,39 @@ pub const Date = extern struct {
     extern fn g_date_valid(self: *Self) bool;
     pub const valid = g_date_valid;
 
+    extern fn g_date_get_days_in_month(month: glib.DateMonth, year: u16) u8;
+    pub const getDaysInMonth = g_date_get_days_in_month;
+
+    extern fn g_date_get_monday_weeks_in_year(year: u16) u8;
+    pub const getMondayWeeksInYear = g_date_get_monday_weeks_in_year;
+
+    extern fn g_date_get_sunday_weeks_in_year(year: u16) u8;
+    pub const getSundayWeeksInYear = g_date_get_sunday_weeks_in_year;
+
+    extern fn g_date_is_leap_year(year: u16) bool;
+    pub const isLeapYear = g_date_is_leap_year;
+
+    extern fn g_date_strftime(s: [*c]const u8, slen: u64, format: [*c]const u8, date: *glib.Date) u64;
+    pub const strftime = g_date_strftime;
+
+    extern fn g_date_valid_day(day: u8) bool;
+    pub const validDay = g_date_valid_day;
+
+    extern fn g_date_valid_dmy(day: u8, month: glib.DateMonth, year: u16) bool;
+    pub const validDmy = g_date_valid_dmy;
+
+    extern fn g_date_valid_julian(julian_date: u32) bool;
+    pub const validJulian = g_date_valid_julian;
+
+    extern fn g_date_valid_month(month: glib.DateMonth) bool;
+    pub const validMonth = g_date_valid_month;
+
+    extern fn g_date_valid_weekday(weekday: glib.DateWeekday) bool;
+    pub const validWeekday = g_date_valid_weekday;
+
+    extern fn g_date_valid_year(year: u16) bool;
+    pub const validYear = g_date_valid_year;
+
 
     // GType
     pub inline fn gType() usize {

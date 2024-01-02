@@ -115,6 +115,18 @@ pub const PixbufLoader = extern struct {
     extern fn gdk_pixbuf_loader_write_bytes(self: *Self, buffer: *glib.Bytes) bool;
     pub const writeBytes = gdk_pixbuf_loader_write_bytes;
 
+    extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
+    pub const compatControl = g_object_compat_control;
+
+    extern fn g_object_interface_find_property(g_iface: *gobject.TypeInterface, property_name: [*c]const u8) ?*gobject.ParamSpec;
+    pub const interfaceFindProperty = g_object_interface_find_property;
+
+    extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
+    pub const interfaceInstallProperty = g_object_interface_install_property;
+
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    pub const interfaceListProperties = g_object_interface_list_properties;
+
 
     // Signals
 

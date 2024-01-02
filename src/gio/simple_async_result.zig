@@ -119,6 +119,21 @@ pub const SimpleAsyncResult = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
+    extern fn g_simple_async_result_is_valid(result: *gio.AsyncResult, source: ?*gobject.Object, source_tag: ?*anyopaque) bool;
+    pub const isValid = g_simple_async_result_is_valid;
+
+    extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
+    pub const compatControl = g_object_compat_control;
+
+    extern fn g_object_interface_find_property(g_iface: *gobject.TypeInterface, property_name: [*c]const u8) ?*gobject.ParamSpec;
+    pub const interfaceFindProperty = g_object_interface_find_property;
+
+    extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
+    pub const interfaceInstallProperty = g_object_interface_install_property;
+
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    pub const interfaceListProperties = g_object_interface_list_properties;
+
 
     // Signals
 

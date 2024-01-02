@@ -115,6 +115,18 @@ pub const Source = extern struct {
     extern fn g_source_unref(self: *Self) void;
     pub const unref = g_source_unref;
 
+    extern fn g_source_remove(tag: u32) bool;
+    pub const remove = g_source_remove;
+
+    extern fn g_source_remove_by_funcs_user_data(funcs: *glib.SourceFuncs, user_data: ?*anyopaque) bool;
+    pub const removeByFuncsUserData = g_source_remove_by_funcs_user_data;
+
+    extern fn g_source_remove_by_user_data(user_data: ?*anyopaque) bool;
+    pub const removeByUserData = g_source_remove_by_user_data;
+
+    extern fn g_source_set_name_by_id(tag: u32, name: [*c]const u8) void;
+    pub const setNameById = g_source_set_name_by_id;
+
 
     // GType
     pub inline fn gType() usize {

@@ -82,6 +82,12 @@ pub const PaperSize = extern struct {
     extern fn gtk_paper_size_to_key_file(self: *Self, key_file: *glib.KeyFile, group_name: [*c]const u8) void;
     pub const toKeyFile = gtk_paper_size_to_key_file;
 
+    extern fn gtk_paper_size_get_default() [*c]const u8;
+    pub const getDefault = gtk_paper_size_get_default;
+
+    extern fn gtk_paper_size_get_paper_sizes(include_custom: bool) ?*glib.List;
+    pub const getPaperSizes = gtk_paper_size_get_paper_sizes;
+
 
     // GType
     pub inline fn gType() usize {

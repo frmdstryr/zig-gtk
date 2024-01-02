@@ -13,6 +13,9 @@ pub const TlsFileDatabase = extern struct {
     // Constructors
 
     // Methods
+    extern fn g_tls_file_database_new(anchors: [*c]const u8) ?*gio.TlsFileDatabase;
+    pub const new = g_tls_file_database_new;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

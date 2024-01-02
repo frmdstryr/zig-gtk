@@ -131,6 +131,12 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_write_unichar(self: *Self, thechar: u32) glib.IOStatus;
     pub const writeUnichar = g_io_channel_write_unichar;
 
+    extern fn g_io_channel_error_from_errno(en: i32) glib.IOChannelError;
+    pub const errorFromErrno = g_io_channel_error_from_errno;
+
+    extern fn g_io_channel_error_quark() u32;
+    pub const errorQuark = g_io_channel_error_quark;
+
 
     // GType
     pub inline fn gType() usize {

@@ -16,6 +16,9 @@ pub const Initable = extern struct {
     extern fn g_initable_init(self: *Self, cancellable: ?*gio.Cancellable) bool;
     pub const init = g_initable_init;
 
+    extern fn g_initable_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter, cancellable: ?*gio.Cancellable) ?*gobject.Object;
+    pub const newv = g_initable_newv;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

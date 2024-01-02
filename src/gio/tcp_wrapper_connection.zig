@@ -148,6 +148,27 @@ pub const TcpWrapperConnection = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
+    extern fn g_socket_connection_factory_lookup_type(family: gio.SocketFamily, type: gio.SocketType, protocol_id: i32) usize;
+    pub const factoryLookupType = g_socket_connection_factory_lookup_type;
+
+    extern fn g_socket_connection_factory_register_type(g_type: usize, family: gio.SocketFamily, type: gio.SocketType, protocol: i32) void;
+    pub const factoryRegisterType = g_socket_connection_factory_register_type;
+
+    extern fn g_io_stream_splice_finish(result: *gio.AsyncResult) bool;
+    pub const spliceFinish = g_io_stream_splice_finish;
+
+    extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
+    pub const compatControl = g_object_compat_control;
+
+    extern fn g_object_interface_find_property(g_iface: *gobject.TypeInterface, property_name: [*c]const u8) ?*gobject.ParamSpec;
+    pub const interfaceFindProperty = g_object_interface_find_property;
+
+    extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
+    pub const interfaceInstallProperty = g_object_interface_install_property;
+
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    pub const interfaceListProperties = g_object_interface_list_properties;
+
 
     // Signals
 

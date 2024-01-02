@@ -107,6 +107,12 @@ pub const Rect = extern struct {
     extern fn graphene_rect_union(self: *Self, b: *graphene.Rect, res: *graphene.Rect) void;
     pub const union_ = graphene_rect_union;
 
+    extern fn graphene_rect_alloc() ?*graphene.Rect;
+    pub const alloc = graphene_rect_alloc;
+
+    extern fn graphene_rect_zero() ?*graphene.Rect;
+    pub const zero = graphene_rect_zero;
+
 
     // GType
     pub inline fn gType() usize {

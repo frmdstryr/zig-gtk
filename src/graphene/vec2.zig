@@ -79,6 +79,18 @@ pub const Vec2 = extern struct {
     extern fn graphene_vec2_to_float(self: *Self, dest: [2]f32) void;
     pub const toFloat = graphene_vec2_to_float;
 
+    extern fn graphene_vec2_one() ?*graphene.Vec2;
+    pub const one = graphene_vec2_one;
+
+    extern fn graphene_vec2_x_axis() ?*graphene.Vec2;
+    pub const xAxis = graphene_vec2_x_axis;
+
+    extern fn graphene_vec2_y_axis() ?*graphene.Vec2;
+    pub const yAxis = graphene_vec2_y_axis;
+
+    extern fn graphene_vec2_zero() ?*graphene.Vec2;
+    pub const zero = graphene_vec2_zero;
+
 
     // GType
     pub inline fn gType() usize {

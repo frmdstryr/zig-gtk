@@ -100,6 +100,21 @@ pub const Vec3 = extern struct {
     extern fn graphene_vec3_to_float(self: *Self, dest: [3]f32) void;
     pub const toFloat = graphene_vec3_to_float;
 
+    extern fn graphene_vec3_one() ?*graphene.Vec3;
+    pub const one = graphene_vec3_one;
+
+    extern fn graphene_vec3_x_axis() ?*graphene.Vec3;
+    pub const xAxis = graphene_vec3_x_axis;
+
+    extern fn graphene_vec3_y_axis() ?*graphene.Vec3;
+    pub const yAxis = graphene_vec3_y_axis;
+
+    extern fn graphene_vec3_z_axis() ?*graphene.Vec3;
+    pub const zAxis = graphene_vec3_z_axis;
+
+    extern fn graphene_vec3_zero() ?*graphene.Vec3;
+    pub const zero = graphene_vec3_zero;
+
 
     // GType
     pub inline fn gType() usize {

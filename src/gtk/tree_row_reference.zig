@@ -34,6 +34,12 @@ pub const TreeRowReference = extern struct {
     extern fn gtk_tree_row_reference_valid(self: *Self) bool;
     pub const valid = gtk_tree_row_reference_valid;
 
+    extern fn gtk_tree_row_reference_deleted(proxy: *gobject.Object, path: *gtk.TreePath) void;
+    pub const deleted = gtk_tree_row_reference_deleted;
+
+    extern fn gtk_tree_row_reference_inserted(proxy: *gobject.Object, path: *gtk.TreePath) void;
+    pub const inserted = gtk_tree_row_reference_inserted;
+
 
     // GType
     pub inline fn gType() usize {

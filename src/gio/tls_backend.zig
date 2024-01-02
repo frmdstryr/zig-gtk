@@ -43,6 +43,9 @@ pub const TlsBackend = extern struct {
     extern fn g_tls_backend_supports_tls(self: *Self) bool;
     pub const supportsTls = g_tls_backend_supports_tls;
 
+    extern fn g_tls_backend_get_default() ?*gio.TlsBackend;
+    pub const getDefault = g_tls_backend_get_default;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

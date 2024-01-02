@@ -25,6 +25,9 @@ pub const ProxyResolver = extern struct {
     extern fn g_proxy_resolver_lookup_finish(self: *Self, result: *gio.AsyncResult) [*c][*c]const u8;
     pub const lookupFinish = g_proxy_resolver_lookup_finish;
 
+    extern fn g_proxy_resolver_get_default() ?*gio.ProxyResolver;
+    pub const getDefault = g_proxy_resolver_get_default;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

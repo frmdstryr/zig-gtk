@@ -89,6 +89,39 @@ pub const AppInfo = extern struct {
     extern fn g_app_info_supports_uris(self: *Self) bool;
     pub const supportsUris = g_app_info_supports_uris;
 
+    extern fn g_app_info_create_from_commandline(commandline: [*c]const u8, application_name: [*c]const u8, flags: gio.AppInfoCreateFlags) ?*gio.AppInfo;
+    pub const createFromCommandline = g_app_info_create_from_commandline;
+
+    extern fn g_app_info_get_all() ?*glib.List;
+    pub const getAll = g_app_info_get_all;
+
+    extern fn g_app_info_get_all_for_type(content_type: [*c]const u8) ?*glib.List;
+    pub const getAllForType = g_app_info_get_all_for_type;
+
+    extern fn g_app_info_get_default_for_type(content_type: [*c]const u8, must_support_uris: bool) ?*gio.AppInfo;
+    pub const getDefaultForType = g_app_info_get_default_for_type;
+
+    extern fn g_app_info_get_default_for_uri_scheme(uri_scheme: [*c]const u8) ?*gio.AppInfo;
+    pub const getDefaultForUriScheme = g_app_info_get_default_for_uri_scheme;
+
+    extern fn g_app_info_get_fallback_for_type(content_type: [*c]const u8) ?*glib.List;
+    pub const getFallbackForType = g_app_info_get_fallback_for_type;
+
+    extern fn g_app_info_get_recommended_for_type(content_type: [*c]const u8) ?*glib.List;
+    pub const getRecommendedForType = g_app_info_get_recommended_for_type;
+
+    extern fn g_app_info_launch_default_for_uri(uri: [*c]const u8, context: ?*gio.AppLaunchContext) bool;
+    pub const launchDefaultForUri = g_app_info_launch_default_for_uri;
+
+    extern fn g_app_info_launch_default_for_uri_async(uri: [*c]const u8, context: ?*gio.AppLaunchContext, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
+    pub const launchDefaultForUriAsync = g_app_info_launch_default_for_uri_async;
+
+    extern fn g_app_info_launch_default_for_uri_finish(result: *gio.AsyncResult) bool;
+    pub const launchDefaultForUriFinish = g_app_info_launch_default_for_uri_finish;
+
+    extern fn g_app_info_reset_type_associations(content_type: [*c]const u8) void;
+    pub const resetTypeAssociations = g_app_info_reset_type_associations;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

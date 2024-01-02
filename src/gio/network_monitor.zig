@@ -31,6 +31,9 @@ pub const NetworkMonitor = extern struct {
     extern fn g_network_monitor_get_network_metered(self: *Self) bool;
     pub const getNetworkMetered = g_network_monitor_get_network_metered;
 
+    extern fn g_network_monitor_get_default() ?*gio.NetworkMonitor;
+    pub const getDefault = g_network_monitor_get_default;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

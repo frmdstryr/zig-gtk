@@ -571,6 +571,33 @@ pub const DragIcon = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
+    extern fn gtk_drag_icon_create_widget_for_value(value: *gobject.Value) ?*gtk.Widget;
+    pub const createWidgetForValue = gtk_drag_icon_create_widget_for_value;
+
+    extern fn gtk_drag_icon_get_for_drag(drag: *gdk.Drag) ?*gtk.Widget;
+    pub const getForDrag = gtk_drag_icon_get_for_drag;
+
+    extern fn gtk_drag_icon_set_from_paintable(drag: *gdk.Drag, paintable: *gdk.Paintable, hot_x: i32, hot_y: i32) void;
+    pub const setFromPaintable = gtk_drag_icon_set_from_paintable;
+
+    extern fn gtk_widget_get_default_direction() gtk.TextDirection;
+    pub const getDefaultDirection = gtk_widget_get_default_direction;
+
+    extern fn gtk_widget_set_default_direction(dir: gtk.TextDirection) void;
+    pub const setDefaultDirection = gtk_widget_set_default_direction;
+
+    extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
+    pub const compatControl = g_object_compat_control;
+
+    extern fn g_object_interface_find_property(g_iface: *gobject.TypeInterface, property_name: [*c]const u8) ?*gobject.ParamSpec;
+    pub const interfaceFindProperty = g_object_interface_find_property;
+
+    extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
+    pub const interfaceInstallProperty = g_object_interface_install_property;
+
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    pub const interfaceListProperties = g_object_interface_list_properties;
+
     // Utility methods
     pub inline fn setMargins(self: *Self, margin: struct{top: c_int = 0, bottom: c_int = 0, start: c_int = 0, end: c_int = 0}) void {
         self.setMarginTop(margin.top);

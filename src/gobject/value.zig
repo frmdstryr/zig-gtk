@@ -201,6 +201,12 @@ pub const Value = extern struct {
     extern fn g_value_unset(self: *Self) void;
     pub const unset = g_value_unset;
 
+    extern fn g_value_type_compatible(src_type: usize, dest_type: usize) bool;
+    pub const typeCompatible = g_value_type_compatible;
+
+    extern fn g_value_type_transformable(src_type: usize, dest_type: usize) bool;
+    pub const typeTransformable = g_value_type_transformable;
+
 
     // GType
     pub inline fn gType() usize {

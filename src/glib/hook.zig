@@ -23,6 +23,24 @@ pub const Hook = extern struct {
     extern fn g_hook_compare_ids(self: *Self, sibling: *glib.Hook) i32;
     pub const compareIds = g_hook_compare_ids;
 
+    extern fn g_hook_destroy(hook_list: *glib.HookList, hook_id: u64) bool;
+    pub const destroy = g_hook_destroy;
+
+    extern fn g_hook_destroy_link(hook_list: *glib.HookList, hook: *glib.Hook) void;
+    pub const destroyLink = g_hook_destroy_link;
+
+    extern fn g_hook_free(hook_list: *glib.HookList, hook: *glib.Hook) void;
+    pub const free = g_hook_free;
+
+    extern fn g_hook_insert_before(hook_list: *glib.HookList, sibling: ?*glib.Hook, hook: *glib.Hook) void;
+    pub const insertBefore = g_hook_insert_before;
+
+    extern fn g_hook_prepend(hook_list: *glib.HookList, hook: *glib.Hook) void;
+    pub const prepend = g_hook_prepend;
+
+    extern fn g_hook_unref(hook_list: *glib.HookList, hook: *glib.Hook) void;
+    pub const unref = g_hook_unref;
+
 
     // GType
     pub inline fn gType() usize {

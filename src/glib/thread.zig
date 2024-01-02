@@ -27,6 +27,18 @@ pub const Thread = extern struct {
     extern fn g_thread_unref(self: *Self) void;
     pub const unref = g_thread_unref;
 
+    extern fn g_thread_error_quark() u32;
+    pub const errorQuark = g_thread_error_quark;
+
+    extern fn g_thread_exit(retval: ?*anyopaque) void;
+    pub const exit = g_thread_exit;
+
+    extern fn g_thread_self() ?*glib.Thread;
+    pub const self = g_thread_self;
+
+    extern fn g_thread_yield() void;
+    pub const yield = g_thread_yield;
+
 
     // GType
     pub inline fn gType() usize {

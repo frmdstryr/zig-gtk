@@ -16,6 +16,9 @@ pub const PowerProfileMonitor = extern struct {
     extern fn g_power_profile_monitor_get_power_saver_enabled(self: *Self) bool;
     pub const getPowerSaverEnabled = g_power_profile_monitor_get_power_saver_enabled;
 
+    extern fn g_power_profile_monitor_dup_default() ?*gio.PowerProfileMonitor;
+    pub const dupDefault = g_power_profile_monitor_dup_default;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

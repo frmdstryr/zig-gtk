@@ -82,6 +82,15 @@ pub const MainContext = extern struct {
     extern fn g_main_context_wakeup(self: *Self) void;
     pub const wakeup = g_main_context_wakeup;
 
+    extern fn g_main_context_default() ?*glib.MainContext;
+    pub const default = g_main_context_default;
+
+    extern fn g_main_context_get_thread_default() ?*glib.MainContext;
+    pub const getThreadDefault = g_main_context_get_thread_default;
+
+    extern fn g_main_context_ref_thread_default() ?*glib.MainContext;
+    pub const refThreadDefault = g_main_context_ref_thread_default;
+
 
     // Bases
     pub inline fn asMainContext(self: *Self) *glib.MainContext {

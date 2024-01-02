@@ -27,6 +27,15 @@ pub const Language = extern struct {
     extern fn pango_language_to_string(self: *Self) [*c]const u8;
     pub const toString = pango_language_to_string;
 
+    extern fn pango_language_from_string(language: [*c]const u8) ?*pango.Language;
+    pub const fromString = pango_language_from_string;
+
+    extern fn pango_language_get_default() ?*pango.Language;
+    pub const getDefault = pango_language_get_default;
+
+    extern fn pango_language_get_preferred() ?*pango.Language;
+    pub const getPreferred = pango_language_get_preferred;
+
 
     // GType
     pub inline fn gType() usize {

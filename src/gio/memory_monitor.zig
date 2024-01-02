@@ -13,6 +13,9 @@ pub const MemoryMonitor = extern struct {
     // Constructors
 
     // Methods
+    extern fn g_memory_monitor_dup_default() ?*gio.MemoryMonitor;
+    pub const dupDefault = g_memory_monitor_dup_default;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

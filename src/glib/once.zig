@@ -14,6 +14,12 @@ pub const Once = extern struct {
     // Constructors
 
     // Methods
+    extern fn g_once_init_enter(location: ?*anyopaque) bool;
+    pub const initEnter = g_once_init_enter;
+
+    extern fn g_once_init_leave(location: ?*anyopaque, result: u64) void;
+    pub const initLeave = g_once_init_leave;
+
 
     // GType
     pub inline fn gType() usize {

@@ -25,6 +25,9 @@ pub const Proxy = extern struct {
     extern fn g_proxy_supports_hostname(self: *Self) bool;
     pub const supportsHostname = g_proxy_supports_hostname;
 
+    extern fn g_proxy_get_default_for_protocol(protocol: [*c]const u8) ?*gio.Proxy;
+    pub const getDefaultForProtocol = g_proxy_get_default_for_protocol;
+
 
     // Signals
 

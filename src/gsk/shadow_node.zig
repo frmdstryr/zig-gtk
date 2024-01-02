@@ -48,6 +48,9 @@ pub const ShadowNode = extern struct {
     extern fn gsk_render_node_write_to_file(self: *Self, filename: [*c]const u8) bool;
     pub const writeToFile = gsk_render_node_write_to_file;
 
+    extern fn gsk_render_node_deserialize(bytes: *glib.Bytes, error_func: ?*const fn (start: *gsk.ParseLocation, end: *gsk.ParseLocation, error_: *glib.Error, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) ?*gsk.RenderNode;
+    pub const deserialize = gsk_render_node_deserialize;
+
 
     // Bases
     pub inline fn asRenderNode(self: *Self) *gsk.RenderNode {

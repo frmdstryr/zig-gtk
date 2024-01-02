@@ -231,6 +231,46 @@ pub const Pixbuf = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
+    extern fn gdk_pixbuf_calculate_rowstride(colorspace: gdkpixbuf.Colorspace, has_alpha: bool, bits_per_sample: i32, width: i32, height: i32) i32;
+    pub const calculateRowstride = gdk_pixbuf_calculate_rowstride;
+
+    extern fn gdk_pixbuf_get_file_info(filename: [*c]const u8, width: i32, height: i32) ?*gdkpixbuf.PixbufFormat;
+    pub const getFileInfo = gdk_pixbuf_get_file_info;
+
+    extern fn gdk_pixbuf_get_file_info_async(filename: [*c]const u8, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
+    pub const getFileInfoAsync = gdk_pixbuf_get_file_info_async;
+
+    extern fn gdk_pixbuf_get_file_info_finish(async_result: *gio.AsyncResult, width: i32, height: i32) ?*gdkpixbuf.PixbufFormat;
+    pub const getFileInfoFinish = gdk_pixbuf_get_file_info_finish;
+
+    // Binding disabled (unknown arg/return type)
+    // extern fn gdk_pixbuf_get_formats() None;
+    // pub const getFormats = gdk_pixbuf_get_formats;
+
+    extern fn gdk_pixbuf_init_modules(path: [*c]const u8) bool;
+    pub const initModules = gdk_pixbuf_init_modules;
+
+    extern fn gdk_pixbuf_new_from_stream_async(stream: *gio.InputStream, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
+    pub const newFromStreamAsync = gdk_pixbuf_new_from_stream_async;
+
+    extern fn gdk_pixbuf_new_from_stream_at_scale_async(stream: *gio.InputStream, width: i32, height: i32, preserve_aspect_ratio: bool, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
+    pub const newFromStreamAtScaleAsync = gdk_pixbuf_new_from_stream_at_scale_async;
+
+    extern fn gdk_pixbuf_save_to_stream_finish(async_result: *gio.AsyncResult) bool;
+    pub const saveToStreamFinish = gdk_pixbuf_save_to_stream_finish;
+
+    extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
+    pub const compatControl = g_object_compat_control;
+
+    extern fn g_object_interface_find_property(g_iface: *gobject.TypeInterface, property_name: [*c]const u8) ?*gobject.ParamSpec;
+    pub const interfaceFindProperty = g_object_interface_find_property;
+
+    extern fn g_object_interface_install_property(g_iface: *gobject.TypeInterface, pspec: *gobject.ParamSpec) void;
+    pub const interfaceInstallProperty = g_object_interface_install_property;
+
+    extern fn g_object_interface_list_properties(g_iface: *gobject.TypeInterface, n_properties_p: u32) [*c]*gobject.ParamSpec;
+    pub const interfaceListProperties = g_object_interface_list_properties;
+
 
     // Signals
 

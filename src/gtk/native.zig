@@ -30,6 +30,9 @@ pub const Native = extern struct {
     extern fn gtk_native_unrealize(self: *Self) void;
     pub const unrealize = gtk_native_unrealize;
 
+    extern fn gtk_native_get_for_surface(surface: *gdk.Surface) ?*gtk.Native;
+    pub const getForSurface = gtk_native_get_for_surface;
+
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {

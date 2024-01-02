@@ -90,6 +90,18 @@ pub const VariantType = extern struct {
     extern fn g_variant_type_value(self: *Self) ?*glib.VariantType;
     pub const value = g_variant_type_value;
 
+    extern fn g_variant_type_checked_(arg0: [*c]const u8) ?*glib.VariantType;
+    pub const checked = g_variant_type_checked_;
+
+    extern fn g_variant_type_string_get_depth_(type_string: [*c]const u8) u64;
+    pub const stringGetDepth = g_variant_type_string_get_depth_;
+
+    extern fn g_variant_type_string_is_valid(type_string: [*c]const u8) bool;
+    pub const stringIsValid = g_variant_type_string_is_valid;
+
+    extern fn g_variant_type_string_scan(string: [*c]const u8, limit: [*c]const u8, endptr: [*c]const u8) bool;
+    pub const stringScan = g_variant_type_string_scan;
+
 
     // GType
     pub inline fn gType() usize {

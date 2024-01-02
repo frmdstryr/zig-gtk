@@ -63,6 +63,9 @@ pub const Point3D = extern struct {
     extern fn graphene_point3d_to_vec3(self: *Self, v: *graphene.Vec3) void;
     pub const toVec3 = graphene_point3d_to_vec3;
 
+    extern fn graphene_point3d_zero() ?*graphene.Point3D;
+    pub const zero = graphene_point3d_zero;
+
 
     // GType
     pub inline fn gType() usize {

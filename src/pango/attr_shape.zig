@@ -18,6 +18,12 @@ pub const AttrShape = extern struct {
     // Constructors
 
     // Methods
+    extern fn pango_attr_shape_new(ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle) ?*pango.Attribute;
+    pub const new = pango_attr_shape_new;
+
+    extern fn pango_attr_shape_new_with_data(ink_rect: *pango.Rectangle, logical_rect: *pango.Rectangle, data: ?*anyopaque, copy_func: ?*const fn (user_data: ?*anyopaque) callconv(.C) ?*anyopaque, destroy_func: ?*const fn (data: ?*anyopaque) callconv(.C) void) ?*pango.Attribute;
+    pub const newWithData = pango_attr_shape_new_with_data;
+
 
     // GType
     pub inline fn gType() usize {
