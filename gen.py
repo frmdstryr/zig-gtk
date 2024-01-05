@@ -66,6 +66,10 @@ EXCLUDED_CONSTANTS = {
     },
 }
 
+EXCLUDED_ENUMS = {
+    "GTK_ALIGN_BASELINE_FILL"
+}
+
 # Half of them start with G_ other start with GLIB_
 GLIB_CONSTANTS = (
     "MAJOR_VERSION",
@@ -135,6 +139,16 @@ SIGNAL_METHODS = """
         comptime ArgType: type,
         comptime UserDataType: type,
         callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+    }
+
+    // Connect to a signal with no type validation
+    pub inline fn connectSignalAnytype(
+        self: *Self,
+        signal: Signals,
+        callback: anytype,
         data: anytype,
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
@@ -343,7 +357,7 @@ def generate_enums(enums: list) -> list[str]:
             if attr and attr.isupper() and not attr[0].isdigit():
                 label = attr.title().replace("_", "")
                 comment = ""
-                if v.value_name in used:
+                if v.value_name in used or v.value_name in EXCLUDED_ENUMS:
                     comment = "// "
                 used.add(v.value_name)
                 out.append("    %s%s = c.%s," % (comment, label, v.value_name))

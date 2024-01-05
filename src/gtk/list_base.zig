@@ -652,6 +652,16 @@ pub const ListBase = extern struct {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
     }
 
+    // Connect to a signal with no type validation
+    pub inline fn connectSignalAnytype(
+        self: *Self,
+        signal: Signals,
+        callback: anytype,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+    }
+
     // Connect to a signal with a no arguments and optional user data
     pub inline fn connectSignalAfter(
         self: *Self,
