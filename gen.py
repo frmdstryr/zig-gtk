@@ -843,6 +843,16 @@ def generate_class(ns: str, Cls: type):
     return out
 
 
+def is_constant(module: type, v: any, attr: str):
+    if not isinstance(v, (int, str)):
+        return False
+    if attr.isupper():
+        return True
+    if module is Gdk and attr.startswith("KEY_"):
+        return True
+    return False
+
+
 def resolve_namespace(name: str, module: type) -> dict:
     # Find all enums in the given module (eg Gtk)
     enums = []
@@ -857,7 +867,7 @@ def resolve_namespace(name: str, module: type) -> dict:
 
         try:
             v = getattr(module, attr)
-            if attr.isupper() and isinstance(v, (int, str)):
+            if is_constant(module, v, attr):
                 constants.append(attr)
             elif issubclass(v, GObject.GEnum):
                 enums.append(v)
