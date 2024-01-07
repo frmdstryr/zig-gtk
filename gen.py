@@ -292,7 +292,7 @@ pub fn registerType(comptime T: type, comptime type_name: [:0]const u8) type {
         fn _g_type_lcopy_value(value: *Value, n_collect_values: u32, collect_values: *TypeCValue, collect_flags: u32) callconv(.C) [*c]const u8 {
             _ = value;
             _ = n_collect_values;
-            var object_p = collect_values[0].v_pointer;
+            const object_p = collect_values[0].v_pointer;
             if (object_p == null) {
                 return _gtype_allocator.?.dupeZ(u8, "object location passed s null") catch {
                     std.log.warn("Copy invalid");
