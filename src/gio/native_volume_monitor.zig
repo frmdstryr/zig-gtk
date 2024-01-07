@@ -137,19 +137,19 @@ pub const NativeVolumeMonitor = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "drive-changed",
-      "drive-connected",
-      "drive-disconnected",
-      "drive-eject-button",
-      "drive-stop-button",
-      "mount-added",
-      "mount-changed",
-      "mount-pre-unmount",
-      "mount-removed",
-      "volume-added",
-      "volume-changed",
-      "volume-removed",
-      "notify",
+        "drive-changed",
+        "drive-connected",
+        "drive-disconnected",
+        "drive-eject-button",
+        "drive-stop-button",
+        "mount-added",
+        "mount-changed",
+        "mount-pre-unmount",
+        "mount-removed",
+        "volume-added",
+        "volume-changed",
+        "volume-removed",
+        "notify",
     };
 
     // Signals

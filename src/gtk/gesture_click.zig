@@ -226,16 +226,16 @@ pub const GestureClick = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "pressed",
-      "released",
-      "stopped",
-      "unpaired-release",
-      "begin",
-      "cancel",
-      "end",
-      "sequence-state-changed",
-      "update",
-      "notify",
+        "pressed",
+        "released",
+        "stopped",
+        "unpaired-release",
+        "begin",
+        "cancel",
+        "end",
+        "sequence-state-changed",
+        "update",
+        "notify",
     };
 
     // Signals
@@ -293,6 +293,42 @@ pub const GestureClick = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        button = 0,
+        exclusive = 1,
+        touch_only = 2,
+        n_points = 3,
+        name = 4,
+        propagation_limit = 5,
+        propagation_phase = 6,
+        widget = 7,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::button",
+        "notify::exclusive",
+        "notify::touch-only",
+        "notify::n-points",
+        "notify::name",
+        "notify::propagation-limit",
+        "notify::propagation-phase",
+        "notify::widget",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

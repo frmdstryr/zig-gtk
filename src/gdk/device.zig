@@ -156,9 +156,9 @@ pub const Device = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "changed",
-      "tool-changed",
-      "notify",
+        "changed",
+        "tool-changed",
+        "notify",
     };
 
     // Signals
@@ -216,6 +216,58 @@ pub const Device = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        caps_lock_state = 0,
+        direction = 1,
+        display = 2,
+        has_bidi_layouts = 3,
+        has_cursor = 4,
+        modifier_state = 5,
+        n_axes = 6,
+        name = 7,
+        num_lock_state = 8,
+        num_touches = 9,
+        product_id = 10,
+        scroll_lock_state = 11,
+        seat = 12,
+        source = 13,
+        tool = 14,
+        vendor_id = 15,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::caps-lock-state",
+        "notify::direction",
+        "notify::display",
+        "notify::has-bidi-layouts",
+        "notify::has-cursor",
+        "notify::modifier-state",
+        "notify::n-axes",
+        "notify::name",
+        "notify::num-lock-state",
+        "notify::num-touches",
+        "notify::product-id",
+        "notify::scroll-lock-state",
+        "notify::seat",
+        "notify::source",
+        "notify::tool",
+        "notify::vendor-id",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

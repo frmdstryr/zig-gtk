@@ -136,8 +136,8 @@ pub const Monitor = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "invalidate",
-      "notify",
+        "invalidate",
+        "notify",
     };
 
     // Signals
@@ -195,6 +195,48 @@ pub const Monitor = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        connector = 0,
+        display = 1,
+        geometry = 2,
+        height_mm = 3,
+        manufacturer = 4,
+        model = 5,
+        refresh_rate = 6,
+        scale_factor = 7,
+        subpixel_layout = 8,
+        valid = 9,
+        width_mm = 10,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::connector",
+        "notify::display",
+        "notify::geometry",
+        "notify::height-mm",
+        "notify::manufacturer",
+        "notify::model",
+        "notify::refresh-rate",
+        "notify::scale-factor",
+        "notify::subpixel-layout",
+        "notify::valid",
+        "notify::width-mm",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

@@ -174,8 +174,8 @@ pub const Menu = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "items-changed",
-      "notify",
+        "items-changed",
+        "notify",
     };
 
     // Signals

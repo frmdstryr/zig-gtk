@@ -147,8 +147,8 @@ pub const Cancellable = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "cancelled",
-      "notify",
+        "cancelled",
+        "notify",
     };
 
     // Signals

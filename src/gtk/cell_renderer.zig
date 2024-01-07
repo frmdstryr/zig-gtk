@@ -188,9 +188,9 @@ pub const CellRenderer = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "editing-canceled",
-      "editing-started",
-      "notify",
+        "editing-canceled",
+        "editing-started",
+        "notify",
     };
 
     // Signals
@@ -248,6 +248,56 @@ pub const CellRenderer = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        cell_background = 0,
+        cell_background_rgba = 1,
+        cell_background_set = 2,
+        editing = 3,
+        height = 4,
+        is_expanded = 5,
+        is_expander = 6,
+        mode = 7,
+        sensitive = 8,
+        visible = 9,
+        width = 10,
+        xalign = 11,
+        xpad = 12,
+        yalign = 13,
+        ypad = 14,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::cell-background",
+        "notify::cell-background-rgba",
+        "notify::cell-background-set",
+        "notify::editing",
+        "notify::height",
+        "notify::is-expanded",
+        "notify::is-expander",
+        "notify::mode",
+        "notify::sensitive",
+        "notify::visible",
+        "notify::width",
+        "notify::xalign",
+        "notify::xpad",
+        "notify::yalign",
+        "notify::ypad",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

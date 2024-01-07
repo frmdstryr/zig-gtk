@@ -228,7 +228,7 @@ pub const MediaFile = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "notify",
+        "notify",
     };
 
     // Signals
@@ -286,6 +286,56 @@ pub const MediaFile = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        file = 0,
+        input_stream = 1,
+        duration = 2,
+        ended = 3,
+        error = 4,
+        has_audio = 5,
+        has_video = 6,
+        loop = 7,
+        muted = 8,
+        playing = 9,
+        prepared = 10,
+        seekable = 11,
+        seeking = 12,
+        timestamp = 13,
+        volume = 14,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::file",
+        "notify::input-stream",
+        "notify::duration",
+        "notify::ended",
+        "notify::error",
+        "notify::has-audio",
+        "notify::has-video",
+        "notify::loop",
+        "notify::muted",
+        "notify::playing",
+        "notify::prepared",
+        "notify::seekable",
+        "notify::seeking",
+        "notify::timestamp",
+        "notify::volume",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

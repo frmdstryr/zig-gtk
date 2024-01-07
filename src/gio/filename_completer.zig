@@ -115,8 +115,8 @@ pub const FilenameCompleter = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "got-completion-data",
-      "notify",
+        "got-completion-data",
+        "notify",
     };
 
     // Signals

@@ -130,7 +130,7 @@ pub const TreeListRow = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "notify",
+        "notify",
     };
 
     // Signals
@@ -188,6 +188,36 @@ pub const TreeListRow = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        children = 0,
+        depth = 1,
+        expandable = 2,
+        expanded = 3,
+        item = 4,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::children",
+        "notify::depth",
+        "notify::expandable",
+        "notify::expanded",
+        "notify::item",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

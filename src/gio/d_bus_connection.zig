@@ -241,8 +241,8 @@ pub const DBusConnection = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "closed",
-      "notify",
+        "closed",
+        "notify",
     };
 
     // Signals
@@ -300,6 +300,44 @@ pub const DBusConnection = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        address = 0,
+        authentication_observer = 1,
+        capabilities = 2,
+        closed = 3,
+        exit_on_close = 4,
+        flags = 5,
+        guid = 6,
+        stream = 7,
+        unique_name = 8,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::address",
+        "notify::authentication-observer",
+        "notify::capabilities",
+        "notify::closed",
+        "notify::exit-on-close",
+        "notify::flags",
+        "notify::guid",
+        "notify::stream",
+        "notify::unique-name",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

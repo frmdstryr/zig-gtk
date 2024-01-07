@@ -113,8 +113,8 @@ pub const Sorter = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "changed",
-      "notify",
+        "changed",
+        "notify",
     };
 
     // Signals

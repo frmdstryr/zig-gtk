@@ -30,6 +30,30 @@ pub const Actionable = extern struct {
     pub const setDetailedActionName = gtk_actionable_set_detailed_action_name;
 
 
+    // Properties
+    pub const Properties = enum(u8) {
+        action_name = 0,
+        action_target = 1,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::action-name",
+        "notify::action-target",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
+
+
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);

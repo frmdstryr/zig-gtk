@@ -23,7 +23,7 @@ pub const MemoryMonitor = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "low-memory-warning",
+        "low-memory-warning",
     };
 
     // Signals

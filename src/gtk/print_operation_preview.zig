@@ -30,8 +30,8 @@ pub const PrintOperationPreview = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "got-page-size",
-      "ready",
+        "got-page-size",
+        "ready",
     };
 
     // Signals

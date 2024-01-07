@@ -141,7 +141,7 @@ pub const StackPage = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "notify",
+        "notify",
     };
 
     // Signals
@@ -199,6 +199,40 @@ pub const StackPage = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        child = 0,
+        icon_name = 1,
+        name = 2,
+        needs_attention = 3,
+        title = 4,
+        use_underline = 5,
+        visible = 6,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::child",
+        "notify::icon-name",
+        "notify::name",
+        "notify::needs-attention",
+        "notify::title",
+        "notify::use-underline",
+        "notify::visible",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

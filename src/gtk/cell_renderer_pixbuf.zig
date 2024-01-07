@@ -191,9 +191,9 @@ pub const CellRendererPixbuf = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "editing-canceled",
-      "editing-started",
-      "notify",
+        "editing-canceled",
+        "editing-started",
+        "notify",
     };
 
     // Signals
@@ -251,6 +251,70 @@ pub const CellRendererPixbuf = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        gicon = 0,
+        icon_name = 1,
+        icon_size = 2,
+        pixbuf = 3,
+        pixbuf_expander_closed = 4,
+        pixbuf_expander_open = 5,
+        texture = 6,
+        cell_background = 7,
+        cell_background_rgba = 8,
+        cell_background_set = 9,
+        editing = 10,
+        height = 11,
+        is_expanded = 12,
+        is_expander = 13,
+        mode = 14,
+        sensitive = 15,
+        visible = 16,
+        width = 17,
+        xalign = 18,
+        xpad = 19,
+        yalign = 20,
+        ypad = 21,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::gicon",
+        "notify::icon-name",
+        "notify::icon-size",
+        "notify::pixbuf",
+        "notify::pixbuf-expander-closed",
+        "notify::pixbuf-expander-open",
+        "notify::texture",
+        "notify::cell-background",
+        "notify::cell-background-rgba",
+        "notify::cell-background-set",
+        "notify::editing",
+        "notify::height",
+        "notify::is-expanded",
+        "notify::is-expander",
+        "notify::mode",
+        "notify::sensitive",
+        "notify::visible",
+        "notify::width",
+        "notify::xalign",
+        "notify::xpad",
+        "notify::yalign",
+        "notify::ypad",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

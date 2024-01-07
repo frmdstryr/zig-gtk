@@ -178,11 +178,11 @@ pub const EntryCompletion = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "cursor-on-match",
-      "insert-prefix",
-      "match-selected",
-      "no-matches",
-      "notify",
+        "cursor-on-match",
+        "insert-prefix",
+        "match-selected",
+        "no-matches",
+        "notify",
     };
 
     // Signals
@@ -240,6 +240,44 @@ pub const EntryCompletion = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        cell_area = 0,
+        inline_completion = 1,
+        inline_selection = 2,
+        minimum_key_length = 3,
+        model = 4,
+        popup_completion = 5,
+        popup_set_width = 6,
+        popup_single_match = 7,
+        text_column = 8,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::cell-area",
+        "notify::inline-completion",
+        "notify::inline-selection",
+        "notify::minimum-key-length",
+        "notify::model",
+        "notify::popup-completion",
+        "notify::popup-set-width",
+        "notify::popup-single-match",
+        "notify::text-column",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

@@ -156,8 +156,8 @@ pub const Resolver = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "reload",
-      "notify",
+        "reload",
+        "notify",
     };
 
     // Signals

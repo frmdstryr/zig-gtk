@@ -113,9 +113,9 @@ pub const DBusAuthObserver = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "allow-mechanism",
-      "authorize-authenticated-peer",
-      "notify",
+        "allow-mechanism",
+        "authorize-authenticated-peer",
+        "notify",
     };
 
     // Signals

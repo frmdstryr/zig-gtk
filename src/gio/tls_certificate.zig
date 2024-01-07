@@ -152,7 +152,7 @@ pub const TlsCertificate = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "notify",
+        "notify",
     };
 
     // Signals
@@ -210,6 +210,56 @@ pub const TlsCertificate = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        certificate = 0,
+        certificate_pem = 1,
+        dns_names = 2,
+        ip_addresses = 3,
+        issuer = 4,
+        issuer_name = 5,
+        not_valid_after = 6,
+        not_valid_before = 7,
+        password = 8,
+        pkcs11_uri = 9,
+        pkcs12_data = 10,
+        private_key = 11,
+        private_key_pem = 12,
+        private_key_pkcs11_uri = 13,
+        subject_name = 14,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::certificate",
+        "notify::certificate-pem",
+        "notify::dns-names",
+        "notify::ip-addresses",
+        "notify::issuer",
+        "notify::issuer-name",
+        "notify::not-valid-after",
+        "notify::not-valid-before",
+        "notify::password",
+        "notify::pkcs11-uri",
+        "notify::pkcs12-data",
+        "notify::private-key",
+        "notify::private-key-pem",
+        "notify::private-key-pkcs11-uri",
+        "notify::subject-name",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

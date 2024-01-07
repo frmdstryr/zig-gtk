@@ -201,8 +201,8 @@ pub const SocketClient = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "event",
-      "notify",
+        "event",
+        "notify",
     };
 
     // Signals
@@ -260,6 +260,44 @@ pub const SocketClient = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        enable_proxy = 0,
+        family = 1,
+        local_address = 2,
+        protocol = 3,
+        proxy_resolver = 4,
+        timeout = 5,
+        tls = 6,
+        tls_validation_flags = 7,
+        type = 8,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::enable-proxy",
+        "notify::family",
+        "notify::local-address",
+        "notify::protocol",
+        "notify::proxy-resolver",
+        "notify::timeout",
+        "notify::tls",
+        "notify::tls-validation-flags",
+        "notify::type",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

@@ -78,8 +78,8 @@ pub const Volume = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "changed",
-      "removed",
+        "changed",
+        "removed",
     };
 
     // Signals

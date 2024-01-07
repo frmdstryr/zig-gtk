@@ -275,7 +275,7 @@ pub const Socket = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "notify",
+        "notify",
     };
 
     // Signals
@@ -333,6 +333,54 @@ pub const Socket = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        blocking = 0,
+        broadcast = 1,
+        family = 2,
+        fd = 3,
+        keepalive = 4,
+        listen_backlog = 5,
+        local_address = 6,
+        multicast_loopback = 7,
+        multicast_ttl = 8,
+        protocol = 9,
+        remote_address = 10,
+        timeout = 11,
+        ttl = 12,
+        type = 13,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::blocking",
+        "notify::broadcast",
+        "notify::family",
+        "notify::fd",
+        "notify::keepalive",
+        "notify::listen-backlog",
+        "notify::local-address",
+        "notify::multicast-loopback",
+        "notify::multicast-ttl",
+        "notify::protocol",
+        "notify::remote-address",
+        "notify::timeout",
+        "notify::ttl",
+        "notify::type",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

@@ -205,18 +205,18 @@ pub const PrintOperation = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "begin-print",
-      "create-custom-widget",
-      "custom-widget-apply",
-      "done",
-      "draw-page",
-      "end-print",
-      "paginate",
-      "preview",
-      "request-page-setup",
-      "status-changed",
-      "update-custom-widget",
-      "notify",
+        "begin-print",
+        "create-custom-widget",
+        "custom-widget-apply",
+        "done",
+        "draw-page",
+        "end-print",
+        "paginate",
+        "preview",
+        "request-page-setup",
+        "status-changed",
+        "update-custom-widget",
+        "notify",
     };
 
     // Signals
@@ -274,6 +274,62 @@ pub const PrintOperation = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        allow_async = 0,
+        current_page = 1,
+        custom_tab_label = 2,
+        default_page_setup = 3,
+        embed_page_setup = 4,
+        export_filename = 5,
+        has_selection = 6,
+        job_name = 7,
+        n_pages = 8,
+        n_pages_to_print = 9,
+        print_settings = 10,
+        show_progress = 11,
+        status = 12,
+        status_string = 13,
+        support_selection = 14,
+        track_print_status = 15,
+        unit = 16,
+        use_full_page = 17,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::allow-async",
+        "notify::current-page",
+        "notify::custom-tab-label",
+        "notify::default-page-setup",
+        "notify::embed-page-setup",
+        "notify::export-filename",
+        "notify::has-selection",
+        "notify::job-name",
+        "notify::n-pages",
+        "notify::n-pages-to-print",
+        "notify::print-settings",
+        "notify::show-progress",
+        "notify::status",
+        "notify::status-string",
+        "notify::support-selection",
+        "notify::track-print-status",
+        "notify::unit",
+        "notify::use-full-page",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

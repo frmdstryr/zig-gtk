@@ -154,10 +154,10 @@ pub const DropControllerMotion = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "enter",
-      "leave",
-      "motion",
-      "notify",
+        "enter",
+        "leave",
+        "motion",
+        "notify",
     };
 
     // Signals
@@ -215,6 +215,40 @@ pub const DropControllerMotion = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        contains_pointer = 0,
+        drop = 1,
+        is_pointer = 2,
+        name = 3,
+        propagation_limit = 4,
+        propagation_phase = 5,
+        widget = 6,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::contains-pointer",
+        "notify::drop",
+        "notify::is-pointer",
+        "notify::name",
+        "notify::propagation-limit",
+        "notify::propagation-phase",
+        "notify::widget",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

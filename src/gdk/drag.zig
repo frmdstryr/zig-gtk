@@ -138,10 +138,10 @@ pub const Drag = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "cancel",
-      "dnd-finished",
-      "drop-performed",
-      "notify",
+        "cancel",
+        "dnd-finished",
+        "drop-performed",
+        "notify",
     };
 
     // Signals
@@ -199,6 +199,40 @@ pub const Drag = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        actions = 0,
+        content = 1,
+        device = 2,
+        display = 3,
+        formats = 4,
+        selected_action = 5,
+        surface = 6,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::actions",
+        "notify::content",
+        "notify::device",
+        "notify::display",
+        "notify::formats",
+        "notify::selected-action",
+        "notify::surface",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

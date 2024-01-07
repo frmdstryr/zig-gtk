@@ -38,7 +38,7 @@ pub const TreeSortable = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "sort-column-changed",
+        "sort-column-changed",
     };
 
     // Signals

@@ -98,10 +98,10 @@ pub const TreeModel = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "row-changed",
-      "row-deleted",
-      "row-has-child-toggled",
-      "row-inserted",
+        "row-changed",
+        "row-deleted",
+        "row-has-child-toggled",
+        "row-inserted",
     };
 
     // Signals

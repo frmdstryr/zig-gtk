@@ -181,9 +181,9 @@ pub const DBusProxy = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "g-properties-changed",
-      "g-signal",
-      "notify",
+        "g-properties-changed",
+        "g-signal",
+        "notify",
     };
 
     // Signals
@@ -241,6 +241,44 @@ pub const DBusProxy = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        g_bus_type = 0,
+        g_connection = 1,
+        g_default_timeout = 2,
+        g_flags = 3,
+        g_interface_info = 4,
+        g_interface_name = 5,
+        g_name = 6,
+        g_name_owner = 7,
+        g_object_path = 8,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::g-bus-type",
+        "notify::g-connection",
+        "notify::g-default-timeout",
+        "notify::g-flags",
+        "notify::g-interface-info",
+        "notify::g-interface-name",
+        "notify::g-name",
+        "notify::g-name-owner",
+        "notify::g-object-path",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

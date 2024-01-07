@@ -210,10 +210,10 @@ pub const CellRendererToggle = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "toggled",
-      "editing-canceled",
-      "editing-started",
-      "notify",
+        "toggled",
+        "editing-canceled",
+        "editing-started",
+        "notify",
     };
 
     // Signals
@@ -271,6 +271,64 @@ pub const CellRendererToggle = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        activatable = 0,
+        active = 1,
+        inconsistent = 2,
+        radio = 3,
+        cell_background = 4,
+        cell_background_rgba = 5,
+        cell_background_set = 6,
+        editing = 7,
+        height = 8,
+        is_expanded = 9,
+        is_expander = 10,
+        mode = 11,
+        sensitive = 12,
+        visible = 13,
+        width = 14,
+        xalign = 15,
+        xpad = 16,
+        yalign = 17,
+        ypad = 18,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::activatable",
+        "notify::active",
+        "notify::inconsistent",
+        "notify::radio",
+        "notify::cell-background",
+        "notify::cell-background-rgba",
+        "notify::cell-background-set",
+        "notify::editing",
+        "notify::height",
+        "notify::is-expanded",
+        "notify::is-expander",
+        "notify::mode",
+        "notify::sensitive",
+        "notify::visible",
+        "notify::width",
+        "notify::xalign",
+        "notify::xpad",
+        "notify::yalign",
+        "notify::ypad",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

@@ -176,7 +176,7 @@ pub const TcpWrapperConnection = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "notify",
+        "notify",
     };
 
     // Signals
@@ -234,6 +234,38 @@ pub const TcpWrapperConnection = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        base_io_stream = 0,
+        graceful_disconnect = 1,
+        socket = 2,
+        closed = 3,
+        input_stream = 4,
+        output_stream = 5,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::base-io-stream",
+        "notify::graceful-disconnect",
+        "notify::socket",
+        "notify::closed",
+        "notify::input-stream",
+        "notify::output-stream",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

@@ -108,10 +108,10 @@ pub const Drive = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "changed",
-      "disconnected",
-      "eject-button",
-      "stop-button",
+        "changed",
+        "disconnected",
+        "eject-button",
+        "stop-button",
     };
 
     // Signals

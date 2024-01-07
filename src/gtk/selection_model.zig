@@ -53,7 +53,7 @@ pub const SelectionModel = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "selection-changed",
+        "selection-changed",
     };
 
     // Signals

@@ -103,9 +103,9 @@ pub const Mount = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "changed",
-      "pre-unmount",
-      "unmounted",
+        "changed",
+        "pre-unmount",
+        "unmounted",
     };
 
     // Signals

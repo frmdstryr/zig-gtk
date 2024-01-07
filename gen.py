@@ -176,6 +176,21 @@ SIGNAL_METHODS = """
     }
 """
 
+
+PROPERTY_METHODS = """
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
+"""
+
 WIDGET_METHODS = """    // Utility methods
     pub inline fn setMargins(self: *Self, margin: struct{top: c_int = 0, bottom: c_int = 0, start: c_int = 0, end: c_int = 0}) void {
         self.setMarginTop(margin.top);
@@ -768,10 +783,13 @@ def generate_class(ns: str, Cls: type):
     if extra_methods := EXTRA_METHODS.get(Cls):
         out.extend(extra_methods)
 
+    properties = []
     signals = []
     for obj_info in mro:
         if hasattr(obj_info, "get_signals"):
             signals.extend(obj_info.get_signals())
+        if hasattr(obj_info, "get_properties"):
+            properties.extend(obj_info.get_properties())
     if signals:
         out.append("")
         out.append("    // Signals")
@@ -784,12 +802,29 @@ def generate_class(ns: str, Cls: type):
         out.append("    pub const SignalNames = [_][:0]const u8{")
         for i, signal in enumerate(signals):
             name = signal.get_name()
-            out.append(f"      \"{name}\",")
+            out.append(f"        \"{name}\",")
         out.append("    };")
 
 
     if signals:
         out.append(SIGNAL_METHODS)
+
+    if properties:
+        out.append("")
+        out.append("    // Properties")
+        out.append("    pub const Properties = enum(u8) {")
+        for i, prop in enumerate(properties):
+            name = prop .get_name().replace("-", "_")
+            out.append(f"        {name} = {i},")
+        out.append("    };")
+        out.append("")
+        out.append("    pub const PropertyNames = [_][:0]const u8{")
+        for i, prop in enumerate(properties):
+            name = prop.get_name()
+            out.append(f"        \"notify::{name}\",")
+        out.append("    };")
+    if properties:
+        out.append(PROPERTY_METHODS)
 
     this_cls = f"{ns.lower()}.{Cls.__name__}"
     if this_cls in bases:

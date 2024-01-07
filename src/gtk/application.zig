@@ -268,17 +268,17 @@ pub const Application = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "query-end",
-      "window-added",
-      "window-removed",
-      "activate",
-      "command-line",
-      "handle-local-options",
-      "name-lost",
-      "open",
-      "shutdown",
-      "startup",
-      "notify",
+        "query-end",
+        "window-added",
+        "window-removed",
+        "activate",
+        "command-line",
+        "handle-local-options",
+        "name-lost",
+        "open",
+        "shutdown",
+        "startup",
+        "notify",
     };
 
     // Signals
@@ -336,6 +336,50 @@ pub const Application = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        active_window = 0,
+        menubar = 1,
+        register_session = 2,
+        screensaver_active = 3,
+        action_group = 4,
+        application_id = 5,
+        flags = 6,
+        inactivity_timeout = 7,
+        is_busy = 8,
+        is_registered = 9,
+        is_remote = 10,
+        resource_base_path = 11,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::active-window",
+        "notify::menubar",
+        "notify::register-session",
+        "notify::screensaver-active",
+        "notify::action-group",
+        "notify::application-id",
+        "notify::flags",
+        "notify::inactivity-timeout",
+        "notify::is-busy",
+        "notify::is-registered",
+        "notify::is-remote",
+        "notify::resource-base-path",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

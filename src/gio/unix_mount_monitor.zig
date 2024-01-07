@@ -113,9 +113,9 @@ pub const UnixMountMonitor = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "mountpoints-changed",
-      "mounts-changed",
-      "notify",
+        "mountpoints-changed",
+        "mounts-changed",
+        "notify",
     };
 
     // Signals

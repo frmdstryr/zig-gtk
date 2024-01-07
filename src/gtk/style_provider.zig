@@ -20,7 +20,7 @@ pub const StyleProvider = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "gtk-private-changed",
+        "gtk-private-changed",
     };
 
     // Signals

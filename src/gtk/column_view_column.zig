@@ -157,7 +157,7 @@ pub const ColumnViewColumn = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "notify",
+        "notify",
     };
 
     // Signals
@@ -215,6 +215,44 @@ pub const ColumnViewColumn = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        column_view = 0,
+        expand = 1,
+        factory = 2,
+        fixed_width = 3,
+        header_menu = 4,
+        resizable = 5,
+        sorter = 6,
+        title = 7,
+        visible = 8,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::column-view",
+        "notify::expand",
+        "notify::factory",
+        "notify::fixed-width",
+        "notify::header-menu",
+        "notify::resizable",
+        "notify::sorter",
+        "notify::title",
+        "notify::visible",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

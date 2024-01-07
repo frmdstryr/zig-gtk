@@ -683,20 +683,20 @@ pub const Stack = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "destroy",
-      "direction-changed",
-      "hide",
-      "keynav-failed",
-      "map",
-      "mnemonic-activate",
-      "move-focus",
-      "query-tooltip",
-      "realize",
-      "show",
-      "state-flags-changed",
-      "unmap",
-      "unrealize",
-      "notify",
+        "destroy",
+        "direction-changed",
+        "hide",
+        "keynav-failed",
+        "map",
+        "mnemonic-activate",
+        "move-focus",
+        "query-tooltip",
+        "realize",
+        "show",
+        "state-flags-changed",
+        "unmap",
+        "unrealize",
+        "notify",
     };
 
     // Signals
@@ -754,6 +754,112 @@ pub const Stack = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        hhomogeneous = 0,
+        interpolate_size = 1,
+        pages = 2,
+        transition_duration = 3,
+        transition_running = 4,
+        transition_type = 5,
+        vhomogeneous = 6,
+        visible_child = 7,
+        visible_child_name = 8,
+        can_focus = 9,
+        can_target = 10,
+        css_classes = 11,
+        css_name = 12,
+        cursor = 13,
+        focus_on_click = 14,
+        focusable = 15,
+        halign = 16,
+        has_default = 17,
+        has_focus = 18,
+        has_tooltip = 19,
+        height_request = 20,
+        hexpand = 21,
+        hexpand_set = 22,
+        layout_manager = 23,
+        margin_bottom = 24,
+        margin_end = 25,
+        margin_start = 26,
+        margin_top = 27,
+        name = 28,
+        opacity = 29,
+        overflow = 30,
+        parent = 31,
+        receives_default = 32,
+        root = 33,
+        scale_factor = 34,
+        sensitive = 35,
+        tooltip_markup = 36,
+        tooltip_text = 37,
+        valign = 38,
+        vexpand = 39,
+        vexpand_set = 40,
+        visible = 41,
+        width_request = 42,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::hhomogeneous",
+        "notify::interpolate-size",
+        "notify::pages",
+        "notify::transition-duration",
+        "notify::transition-running",
+        "notify::transition-type",
+        "notify::vhomogeneous",
+        "notify::visible-child",
+        "notify::visible-child-name",
+        "notify::can-focus",
+        "notify::can-target",
+        "notify::css-classes",
+        "notify::css-name",
+        "notify::cursor",
+        "notify::focus-on-click",
+        "notify::focusable",
+        "notify::halign",
+        "notify::has-default",
+        "notify::has-focus",
+        "notify::has-tooltip",
+        "notify::height-request",
+        "notify::hexpand",
+        "notify::hexpand-set",
+        "notify::layout-manager",
+        "notify::margin-bottom",
+        "notify::margin-end",
+        "notify::margin-start",
+        "notify::margin-top",
+        "notify::name",
+        "notify::opacity",
+        "notify::overflow",
+        "notify::parent",
+        "notify::receives-default",
+        "notify::root",
+        "notify::scale-factor",
+        "notify::sensitive",
+        "notify::tooltip-markup",
+        "notify::tooltip-text",
+        "notify::valign",
+        "notify::vexpand",
+        "notify::vexpand-set",
+        "notify::visible",
+        "notify::width-request",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

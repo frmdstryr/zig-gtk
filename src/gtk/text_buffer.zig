@@ -324,22 +324,22 @@ pub const TextBuffer = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "apply-tag",
-      "begin-user-action",
-      "changed",
-      "delete-range",
-      "end-user-action",
-      "insert-child-anchor",
-      "insert-paintable",
-      "insert-text",
-      "mark-deleted",
-      "mark-set",
-      "modified-changed",
-      "paste-done",
-      "redo",
-      "remove-tag",
-      "undo",
-      "notify",
+        "apply-tag",
+        "begin-user-action",
+        "changed",
+        "delete-range",
+        "end-user-action",
+        "insert-child-anchor",
+        "insert-paintable",
+        "insert-text",
+        "mark-deleted",
+        "mark-set",
+        "modified-changed",
+        "paste-done",
+        "redo",
+        "remove-tag",
+        "undo",
+        "notify",
     };
 
     // Signals
@@ -397,6 +397,40 @@ pub const TextBuffer = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        can_redo = 0,
+        can_undo = 1,
+        cursor_position = 2,
+        enable_undo = 3,
+        has_selection = 4,
+        tag_table = 5,
+        text = 6,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::can-redo",
+        "notify::can-undo",
+        "notify::cursor-position",
+        "notify::enable-undo",
+        "notify::has-selection",
+        "notify::tag-table",
+        "notify::text",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

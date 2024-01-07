@@ -51,8 +51,8 @@ pub const Paintable = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "invalidate-contents",
-      "invalidate-size",
+        "invalidate-contents",
+        "invalidate-size",
     };
 
     // Signals

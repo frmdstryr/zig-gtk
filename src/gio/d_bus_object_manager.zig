@@ -36,10 +36,10 @@ pub const DBusObjectManager = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "interface-added",
-      "interface-removed",
-      "object-added",
-      "object-removed",
+        "interface-added",
+        "interface-removed",
+        "object-added",
+        "object-removed",
     };
 
     // Signals

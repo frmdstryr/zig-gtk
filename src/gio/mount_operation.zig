@@ -170,13 +170,13 @@ pub const MountOperation = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "aborted",
-      "ask-password",
-      "ask-question",
-      "reply",
-      "show-processes",
-      "show-unmount-progress",
-      "notify",
+        "aborted",
+        "ask-password",
+        "ask-question",
+        "reply",
+        "show-processes",
+        "show-unmount-progress",
+        "notify",
     };
 
     // Signals
@@ -234,6 +234,44 @@ pub const MountOperation = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        anonymous = 0,
+        choice = 1,
+        domain = 2,
+        is_tcrypt_hidden_volume = 3,
+        is_tcrypt_system_volume = 4,
+        password = 5,
+        password_save = 6,
+        pim = 7,
+        username = 8,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::anonymous",
+        "notify::choice",
+        "notify::domain",
+        "notify::is-tcrypt-hidden-volume",
+        "notify::is-tcrypt-system-volume",
+        "notify::password",
+        "notify::password-save",
+        "notify::pim",
+        "notify::username",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

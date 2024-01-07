@@ -101,7 +101,7 @@ pub const DtlsConnection = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "accept-certificate",
+        "accept-certificate",
     };
 
     // Signals
@@ -159,6 +159,50 @@ pub const DtlsConnection = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        advertised_protocols = 0,
+        base_socket = 1,
+        certificate = 2,
+        ciphersuite_name = 3,
+        database = 4,
+        interaction = 5,
+        negotiated_protocol = 6,
+        peer_certificate = 7,
+        peer_certificate_errors = 8,
+        protocol_version = 9,
+        rehandshake_mode = 10,
+        require_close_notify = 11,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::advertised-protocols",
+        "notify::base-socket",
+        "notify::certificate",
+        "notify::ciphersuite-name",
+        "notify::database",
+        "notify::interaction",
+        "notify::negotiated-protocol",
+        "notify::peer-certificate",
+        "notify::peer-certificate-errors",
+        "notify::protocol-version",
+        "notify::rehandshake-mode",
+        "notify::require-close-notify",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

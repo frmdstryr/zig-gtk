@@ -109,11 +109,11 @@ pub const SignalListItemFactory = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "bind",
-      "setup",
-      "teardown",
-      "unbind",
-      "notify",
+        "bind",
+        "setup",
+        "teardown",
+        "unbind",
+        "notify",
     };
 
     // Signals

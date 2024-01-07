@@ -66,10 +66,10 @@ pub const ActionGroup = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "action-added",
-      "action-enabled-changed",
-      "action-removed",
-      "action-state-changed",
+        "action-added",
+        "action-enabled-changed",
+        "action-removed",
+        "action-state-changed",
     };
 
     // Signals

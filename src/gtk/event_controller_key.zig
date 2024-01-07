@@ -158,11 +158,11 @@ pub const EventControllerKey = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "im-update",
-      "key-pressed",
-      "key-released",
-      "modifiers",
-      "notify",
+        "im-update",
+        "key-pressed",
+        "key-released",
+        "modifiers",
+        "notify",
     };
 
     // Signals
@@ -220,6 +220,34 @@ pub const EventControllerKey = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        name = 0,
+        propagation_limit = 1,
+        propagation_phase = 2,
+        widget = 3,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::name",
+        "notify::propagation-limit",
+        "notify::propagation-phase",
+        "notify::widget",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

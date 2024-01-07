@@ -641,20 +641,20 @@ pub const SearchBar = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "destroy",
-      "direction-changed",
-      "hide",
-      "keynav-failed",
-      "map",
-      "mnemonic-activate",
-      "move-focus",
-      "query-tooltip",
-      "realize",
-      "show",
-      "state-flags-changed",
-      "unmap",
-      "unrealize",
-      "notify",
+        "destroy",
+        "direction-changed",
+        "hide",
+        "keynav-failed",
+        "map",
+        "mnemonic-activate",
+        "move-focus",
+        "query-tooltip",
+        "realize",
+        "show",
+        "state-flags-changed",
+        "unmap",
+        "unrealize",
+        "notify",
     };
 
     // Signals
@@ -712,6 +712,102 @@ pub const SearchBar = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        child = 0,
+        key_capture_widget = 1,
+        search_mode_enabled = 2,
+        show_close_button = 3,
+        can_focus = 4,
+        can_target = 5,
+        css_classes = 6,
+        css_name = 7,
+        cursor = 8,
+        focus_on_click = 9,
+        focusable = 10,
+        halign = 11,
+        has_default = 12,
+        has_focus = 13,
+        has_tooltip = 14,
+        height_request = 15,
+        hexpand = 16,
+        hexpand_set = 17,
+        layout_manager = 18,
+        margin_bottom = 19,
+        margin_end = 20,
+        margin_start = 21,
+        margin_top = 22,
+        name = 23,
+        opacity = 24,
+        overflow = 25,
+        parent = 26,
+        receives_default = 27,
+        root = 28,
+        scale_factor = 29,
+        sensitive = 30,
+        tooltip_markup = 31,
+        tooltip_text = 32,
+        valign = 33,
+        vexpand = 34,
+        vexpand_set = 35,
+        visible = 36,
+        width_request = 37,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::child",
+        "notify::key-capture-widget",
+        "notify::search-mode-enabled",
+        "notify::show-close-button",
+        "notify::can-focus",
+        "notify::can-target",
+        "notify::css-classes",
+        "notify::css-name",
+        "notify::cursor",
+        "notify::focus-on-click",
+        "notify::focusable",
+        "notify::halign",
+        "notify::has-default",
+        "notify::has-focus",
+        "notify::has-tooltip",
+        "notify::height-request",
+        "notify::hexpand",
+        "notify::hexpand-set",
+        "notify::layout-manager",
+        "notify::margin-bottom",
+        "notify::margin-end",
+        "notify::margin-start",
+        "notify::margin-top",
+        "notify::name",
+        "notify::opacity",
+        "notify::overflow",
+        "notify::parent",
+        "notify::receives-default",
+        "notify::root",
+        "notify::scale-factor",
+        "notify::sensitive",
+        "notify::tooltip-markup",
+        "notify::tooltip-text",
+        "notify::valign",
+        "notify::vexpand",
+        "notify::vexpand-set",
+        "notify::visible",
+        "notify::width-request",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

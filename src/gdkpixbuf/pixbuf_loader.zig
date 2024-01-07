@@ -138,11 +138,11 @@ pub const PixbufLoader = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "area-prepared",
-      "area-updated",
-      "closed",
-      "size-prepared",
-      "notify",
+        "area-prepared",
+        "area-updated",
+        "closed",
+        "size-prepared",
+        "notify",
     };
 
     // Signals

@@ -278,7 +278,7 @@ pub const Pixbuf = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "notify",
+        "notify",
     };
 
     // Signals
@@ -336,6 +336,44 @@ pub const Pixbuf = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        bits_per_sample = 0,
+        colorspace = 1,
+        has_alpha = 2,
+        height = 3,
+        n_channels = 4,
+        pixel_bytes = 5,
+        pixels = 6,
+        rowstride = 7,
+        width = 8,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::bits-per-sample",
+        "notify::colorspace",
+        "notify::has-alpha",
+        "notify::height",
+        "notify::n-channels",
+        "notify::pixel-bytes",
+        "notify::pixels",
+        "notify::rowstride",
+        "notify::width",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

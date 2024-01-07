@@ -626,20 +626,20 @@ pub const ShortcutLabel = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "destroy",
-      "direction-changed",
-      "hide",
-      "keynav-failed",
-      "map",
-      "mnemonic-activate",
-      "move-focus",
-      "query-tooltip",
-      "realize",
-      "show",
-      "state-flags-changed",
-      "unmap",
-      "unrealize",
-      "notify",
+        "destroy",
+        "direction-changed",
+        "hide",
+        "keynav-failed",
+        "map",
+        "mnemonic-activate",
+        "move-focus",
+        "query-tooltip",
+        "realize",
+        "show",
+        "state-flags-changed",
+        "unmap",
+        "unrealize",
+        "notify",
     };
 
     // Signals
@@ -697,6 +697,98 @@ pub const ShortcutLabel = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        accelerator = 0,
+        disabled_text = 1,
+        can_focus = 2,
+        can_target = 3,
+        css_classes = 4,
+        css_name = 5,
+        cursor = 6,
+        focus_on_click = 7,
+        focusable = 8,
+        halign = 9,
+        has_default = 10,
+        has_focus = 11,
+        has_tooltip = 12,
+        height_request = 13,
+        hexpand = 14,
+        hexpand_set = 15,
+        layout_manager = 16,
+        margin_bottom = 17,
+        margin_end = 18,
+        margin_start = 19,
+        margin_top = 20,
+        name = 21,
+        opacity = 22,
+        overflow = 23,
+        parent = 24,
+        receives_default = 25,
+        root = 26,
+        scale_factor = 27,
+        sensitive = 28,
+        tooltip_markup = 29,
+        tooltip_text = 30,
+        valign = 31,
+        vexpand = 32,
+        vexpand_set = 33,
+        visible = 34,
+        width_request = 35,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::accelerator",
+        "notify::disabled-text",
+        "notify::can-focus",
+        "notify::can-target",
+        "notify::css-classes",
+        "notify::css-name",
+        "notify::cursor",
+        "notify::focus-on-click",
+        "notify::focusable",
+        "notify::halign",
+        "notify::has-default",
+        "notify::has-focus",
+        "notify::has-tooltip",
+        "notify::height-request",
+        "notify::hexpand",
+        "notify::hexpand-set",
+        "notify::layout-manager",
+        "notify::margin-bottom",
+        "notify::margin-end",
+        "notify::margin-start",
+        "notify::margin-top",
+        "notify::name",
+        "notify::opacity",
+        "notify::overflow",
+        "notify::parent",
+        "notify::receives-default",
+        "notify::root",
+        "notify::scale-factor",
+        "notify::sensitive",
+        "notify::tooltip-markup",
+        "notify::tooltip-text",
+        "notify::valign",
+        "notify::vexpand",
+        "notify::vexpand-set",
+        "notify::visible",
+        "notify::width-request",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

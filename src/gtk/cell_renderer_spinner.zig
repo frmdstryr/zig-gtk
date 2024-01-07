@@ -191,9 +191,9 @@ pub const CellRendererSpinner = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "editing-canceled",
-      "editing-started",
-      "notify",
+        "editing-canceled",
+        "editing-started",
+        "notify",
     };
 
     // Signals
@@ -251,6 +251,62 @@ pub const CellRendererSpinner = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        active = 0,
+        pulse = 1,
+        size = 2,
+        cell_background = 3,
+        cell_background_rgba = 4,
+        cell_background_set = 5,
+        editing = 6,
+        height = 7,
+        is_expanded = 8,
+        is_expander = 9,
+        mode = 10,
+        sensitive = 11,
+        visible = 12,
+        width = 13,
+        xalign = 14,
+        xpad = 15,
+        yalign = 16,
+        ypad = 17,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::active",
+        "notify::pulse",
+        "notify::size",
+        "notify::cell-background",
+        "notify::cell-background-rgba",
+        "notify::cell-background-set",
+        "notify::editing",
+        "notify::height",
+        "notify::is-expanded",
+        "notify::is-expander",
+        "notify::mode",
+        "notify::sensitive",
+        "notify::visible",
+        "notify::width",
+        "notify::xalign",
+        "notify::xpad",
+        "notify::yalign",
+        "notify::ypad",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

@@ -191,7 +191,7 @@ pub const OutputStream = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "notify",
+        "notify",
     };
 
     // Signals

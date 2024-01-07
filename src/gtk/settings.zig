@@ -112,7 +112,7 @@ pub const Settings = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "notify",
+        "notify",
     };
 
     // Signals
@@ -170,6 +170,126 @@ pub const Settings = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        gtk_alternative_button_order = 0,
+        gtk_alternative_sort_arrows = 1,
+        gtk_application_prefer_dark_theme = 2,
+        gtk_cursor_aspect_ratio = 3,
+        gtk_cursor_blink = 4,
+        gtk_cursor_blink_time = 5,
+        gtk_cursor_blink_timeout = 6,
+        gtk_cursor_theme_name = 7,
+        gtk_cursor_theme_size = 8,
+        gtk_decoration_layout = 9,
+        gtk_dialogs_use_header = 10,
+        gtk_dnd_drag_threshold = 11,
+        gtk_double_click_distance = 12,
+        gtk_double_click_time = 13,
+        gtk_enable_accels = 14,
+        gtk_enable_animations = 15,
+        gtk_enable_event_sounds = 16,
+        gtk_enable_input_feedback_sounds = 17,
+        gtk_enable_primary_paste = 18,
+        gtk_entry_password_hint_timeout = 19,
+        gtk_entry_select_on_focus = 20,
+        gtk_error_bell = 21,
+        gtk_font_name = 22,
+        gtk_fontconfig_timestamp = 23,
+        gtk_hint_font_metrics = 24,
+        gtk_icon_theme_name = 25,
+        gtk_im_module = 26,
+        gtk_keynav_use_caret = 27,
+        gtk_label_select_on_focus = 28,
+        gtk_long_press_time = 29,
+        gtk_overlay_scrolling = 30,
+        gtk_primary_button_warps_slider = 31,
+        gtk_print_backends = 32,
+        gtk_print_preview_command = 33,
+        gtk_recent_files_enabled = 34,
+        gtk_recent_files_max_age = 35,
+        gtk_shell_shows_app_menu = 36,
+        gtk_shell_shows_desktop = 37,
+        gtk_shell_shows_menubar = 38,
+        gtk_sound_theme_name = 39,
+        gtk_split_cursor = 40,
+        gtk_theme_name = 41,
+        gtk_titlebar_double_click = 42,
+        gtk_titlebar_middle_click = 43,
+        gtk_titlebar_right_click = 44,
+        gtk_xft_antialias = 45,
+        gtk_xft_dpi = 46,
+        gtk_xft_hinting = 47,
+        gtk_xft_hintstyle = 48,
+        gtk_xft_rgba = 49,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::gtk-alternative-button-order",
+        "notify::gtk-alternative-sort-arrows",
+        "notify::gtk-application-prefer-dark-theme",
+        "notify::gtk-cursor-aspect-ratio",
+        "notify::gtk-cursor-blink",
+        "notify::gtk-cursor-blink-time",
+        "notify::gtk-cursor-blink-timeout",
+        "notify::gtk-cursor-theme-name",
+        "notify::gtk-cursor-theme-size",
+        "notify::gtk-decoration-layout",
+        "notify::gtk-dialogs-use-header",
+        "notify::gtk-dnd-drag-threshold",
+        "notify::gtk-double-click-distance",
+        "notify::gtk-double-click-time",
+        "notify::gtk-enable-accels",
+        "notify::gtk-enable-animations",
+        "notify::gtk-enable-event-sounds",
+        "notify::gtk-enable-input-feedback-sounds",
+        "notify::gtk-enable-primary-paste",
+        "notify::gtk-entry-password-hint-timeout",
+        "notify::gtk-entry-select-on-focus",
+        "notify::gtk-error-bell",
+        "notify::gtk-font-name",
+        "notify::gtk-fontconfig-timestamp",
+        "notify::gtk-hint-font-metrics",
+        "notify::gtk-icon-theme-name",
+        "notify::gtk-im-module",
+        "notify::gtk-keynav-use-caret",
+        "notify::gtk-label-select-on-focus",
+        "notify::gtk-long-press-time",
+        "notify::gtk-overlay-scrolling",
+        "notify::gtk-primary-button-warps-slider",
+        "notify::gtk-print-backends",
+        "notify::gtk-print-preview-command",
+        "notify::gtk-recent-files-enabled",
+        "notify::gtk-recent-files-max-age",
+        "notify::gtk-shell-shows-app-menu",
+        "notify::gtk-shell-shows-desktop",
+        "notify::gtk-shell-shows-menubar",
+        "notify::gtk-sound-theme-name",
+        "notify::gtk-split-cursor",
+        "notify::gtk-theme-name",
+        "notify::gtk-titlebar-double-click",
+        "notify::gtk-titlebar-middle-click",
+        "notify::gtk-titlebar-right-click",
+        "notify::gtk-xft-antialias",
+        "notify::gtk-xft-dpi",
+        "notify::gtk-xft-hinting",
+        "notify::gtk-xft-hintstyle",
+        "notify::gtk-xft-rgba",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

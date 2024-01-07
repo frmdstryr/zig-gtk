@@ -186,12 +186,12 @@ pub const Surface = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "enter-monitor",
-      "event",
-      "layout",
-      "leave-monitor",
-      "render",
-      "notify",
+        "enter-monitor",
+        "event",
+        "layout",
+        "leave-monitor",
+        "render",
+        "notify",
     };
 
     // Signals
@@ -249,6 +249,40 @@ pub const Surface = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        cursor = 0,
+        display = 1,
+        frame_clock = 2,
+        height = 3,
+        mapped = 4,
+        scale_factor = 5,
+        width = 6,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::cursor",
+        "notify::display",
+        "notify::frame-clock",
+        "notify::height",
+        "notify::mapped",
+        "notify::scale-factor",
+        "notify::width",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

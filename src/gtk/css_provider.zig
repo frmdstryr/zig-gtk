@@ -126,8 +126,8 @@ pub const CssProvider = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "parsing-error",
-      "notify",
+        "parsing-error",
+        "notify",
     };
 
     // Signals

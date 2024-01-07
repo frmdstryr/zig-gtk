@@ -256,8 +256,8 @@ pub const TreeViewColumn = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "clicked",
-      "notify",
+        "clicked",
+        "notify",
     };
 
     // Signals
@@ -315,6 +315,64 @@ pub const TreeViewColumn = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        alignment = 0,
+        cell_area = 1,
+        clickable = 2,
+        expand = 3,
+        fixed_width = 4,
+        max_width = 5,
+        min_width = 6,
+        reorderable = 7,
+        resizable = 8,
+        sizing = 9,
+        sort_column_id = 10,
+        sort_indicator = 11,
+        sort_order = 12,
+        spacing = 13,
+        title = 14,
+        visible = 15,
+        widget = 16,
+        width = 17,
+        x_offset = 18,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::alignment",
+        "notify::cell-area",
+        "notify::clickable",
+        "notify::expand",
+        "notify::fixed-width",
+        "notify::max-width",
+        "notify::min-width",
+        "notify::reorderable",
+        "notify::resizable",
+        "notify::sizing",
+        "notify::sort-column-id",
+        "notify::sort-indicator",
+        "notify::sort-order",
+        "notify::spacing",
+        "notify::title",
+        "notify::visible",
+        "notify::widget",
+        "notify::width",
+        "notify::x-offset",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

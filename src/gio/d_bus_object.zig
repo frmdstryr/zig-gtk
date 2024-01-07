@@ -31,8 +31,8 @@ pub const DBusObject = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "interface-added",
-      "interface-removed",
+        "interface-added",
+        "interface-removed",
     };
 
     // Signals

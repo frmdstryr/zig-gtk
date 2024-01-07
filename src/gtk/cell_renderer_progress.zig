@@ -191,9 +191,9 @@ pub const CellRendererProgress = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "editing-canceled",
-      "editing-started",
-      "notify",
+        "editing-canceled",
+        "editing-started",
+        "notify",
     };
 
     // Signals
@@ -251,6 +251,68 @@ pub const CellRendererProgress = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        inverted = 0,
+        pulse = 1,
+        text = 2,
+        text_xalign = 3,
+        text_yalign = 4,
+        value = 5,
+        cell_background = 6,
+        cell_background_rgba = 7,
+        cell_background_set = 8,
+        editing = 9,
+        height = 10,
+        is_expanded = 11,
+        is_expander = 12,
+        mode = 13,
+        sensitive = 14,
+        visible = 15,
+        width = 16,
+        xalign = 17,
+        xpad = 18,
+        yalign = 19,
+        ypad = 20,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::inverted",
+        "notify::pulse",
+        "notify::text",
+        "notify::text-xalign",
+        "notify::text-yalign",
+        "notify::value",
+        "notify::cell-background",
+        "notify::cell-background-rgba",
+        "notify::cell-background-set",
+        "notify::editing",
+        "notify::height",
+        "notify::is-expanded",
+        "notify::is-expander",
+        "notify::mode",
+        "notify::sensitive",
+        "notify::visible",
+        "notify::width",
+        "notify::xalign",
+        "notify::xpad",
+        "notify::yalign",
+        "notify::ypad",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

@@ -128,10 +128,10 @@ pub const AppLaunchContext = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "launch-failed",
-      "launch-started",
-      "launched",
-      "notify",
+        "launch-failed",
+        "launch-started",
+        "launched",
+        "notify",
     };
 
     // Signals

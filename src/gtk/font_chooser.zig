@@ -78,7 +78,7 @@ pub const FontChooser = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "font-activated",
+        "font-activated",
     };
 
     // Signals
@@ -136,6 +136,40 @@ pub const FontChooser = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        font = 0,
+        font_desc = 1,
+        font_features = 2,
+        language = 3,
+        level = 4,
+        preview_text = 5,
+        show_preview_entry = 6,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::font",
+        "notify::font-desc",
+        "notify::font-features",
+        "notify::language",
+        "notify::level",
+        "notify::preview-text",
+        "notify::show-preview-entry",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

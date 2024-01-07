@@ -155,7 +155,7 @@ pub const ProxyAddress = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "notify",
+        "notify",
     };
 
     // Signals
@@ -213,6 +213,50 @@ pub const ProxyAddress = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        destination_hostname = 0,
+        destination_port = 1,
+        destination_protocol = 2,
+        password = 3,
+        protocol = 4,
+        uri = 5,
+        username = 6,
+        address = 7,
+        flowinfo = 8,
+        port = 9,
+        scope_id = 10,
+        family = 11,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::destination-hostname",
+        "notify::destination-port",
+        "notify::destination-protocol",
+        "notify::password",
+        "notify::protocol",
+        "notify::uri",
+        "notify::username",
+        "notify::address",
+        "notify::flowinfo",
+        "notify::port",
+        "notify::scope-id",
+        "notify::family",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+    }
+
 
 
     // Bases

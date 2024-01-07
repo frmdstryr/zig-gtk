@@ -139,14 +139,14 @@ pub const FrameClock = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "after-paint",
-      "before-paint",
-      "flush-events",
-      "layout",
-      "paint",
-      "resume-events",
-      "update",
-      "notify",
+        "after-paint",
+        "before-paint",
+        "flush-events",
+        "layout",
+        "paint",
+        "resume-events",
+        "update",
+        "notify",
     };
 
     // Signals

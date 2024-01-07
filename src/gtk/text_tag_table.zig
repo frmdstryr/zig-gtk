@@ -123,10 +123,10 @@ pub const TextTagTable = extern struct {
     };
 
     pub const SignalNames = [_][:0]const u8{
-      "tag-added",
-      "tag-changed",
-      "tag-removed",
-      "notify",
+        "tag-added",
+        "tag-changed",
+        "tag-removed",
+        "notify",
     };
 
     // Signals
