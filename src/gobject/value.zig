@@ -9,8 +9,8 @@ pub const Value = extern struct {
     const Self = @This();
 
     // Fields
-    g_type: usize,
-    data: [2]?*anyopaque,
+    g_type: usize = 0,
+    data: [2]?*anyopaque = [2]?*anyopaque{null, null},
 
     // Constructors
 

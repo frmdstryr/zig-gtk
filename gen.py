@@ -628,6 +628,7 @@ def generate_class(ns: str, Cls: type):
                     field_type = "*gobject.Error"
                 field_name = clean_zig_name(field.get_name())
                 if field_name not in field_names:
+                    default_value = ""
                     field_names.add(field_name)
                     if field_type is None:
                         field_type = "?*anyopaque"  # FIXME
@@ -650,8 +651,15 @@ def generate_class(ns: str, Cls: type):
                     if Cls is GObject.TypeInfo:
                         if field_type.startswith("*const") or field_name == "value_table":
                             field_type = f"?{field_type}"
+                    # Hack for GObject.Value
+                    if Cls is GObject.Value:
+                        if field_name == "g_type":
+                            default_value = " = 0"
+                        if field_name == "data":
+                            default_value = " = [2]?*anyopaque{null, null}"
 
-                    out.append("    %s: %s," % (field_name, field_type))
+
+                    out.append("    %s: %s%s," % (field_name, field_type, default_value))
 
     if hasattr(Cls, "connect"):
         has_connect = True
