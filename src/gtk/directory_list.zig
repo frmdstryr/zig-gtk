@@ -199,7 +199,7 @@ pub const DirectoryList = extern struct {
     // Properties
     pub const Properties = enum(u8) {
         attributes = 0,
-        error = 1,
+        err = 1,
         file = 2,
         io_priority = 3,
         loading = 4,

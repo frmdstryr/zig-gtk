@@ -815,6 +815,8 @@ def generate_class(ns: str, Cls: type):
         out.append("    pub const Properties = enum(u8) {")
         for i, prop in enumerate(properties):
             name = prop .get_name().replace("-", "_")
+            if name == "error":
+                name = "err"
             out.append(f"        {name} = {i},")
         out.append("    };")
         out.append("")
