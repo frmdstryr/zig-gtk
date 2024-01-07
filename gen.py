@@ -844,7 +844,7 @@ def generate_class(ns: str, Cls: type):
 
 
 def is_constant(module: type, v: any, attr: str):
-    if not isinstance(v, (int, str)):
+    if not isinstance(v, (int, str, GObject.GType)):
         return False
     if attr.isupper():
         return True
