@@ -220,7 +220,7 @@ pub const ApplicationCommandLine = extern struct {
         callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
         data: anytype,
     ) u64 {
-        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONECT_AFTER));
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
     }
 
 
