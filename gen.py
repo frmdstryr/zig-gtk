@@ -849,7 +849,7 @@ def generate_class(ns: str, Cls: type):
         # TODO: Is this correct ??
         out.append("")
         out.append("    pub inline fn asObject(self: *Self) *gobject.Object {")
-        out.append("        return @ptrCast(self);")
+        out.append("        return @ptrCast(@alignCast(self));")
         out.append("    }")
 
     if gtype := info.get_g_type():

@@ -45,7 +45,7 @@ pub const DtlsServerConnection = extern struct {
     }
 
     pub inline fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
+        return @ptrCast(@alignCast(self));
     }
 
     // GType
