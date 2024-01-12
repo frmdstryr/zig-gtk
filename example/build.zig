@@ -41,56 +41,58 @@ pub fn build(b: *std.Build) void {
     });
 
     const glib = b.createModule(.{
-        .source_file = .{ .path = "deps/zig-gtk/src/glib.zig" },
+        .root_source_file = .{ .path = "deps/zig-gtk/src/glib.zig" },
     });
     const gobject = b.createModule(.{
-        .source_file = .{ .path = "deps/zig-gtk/src/gobject.zig" },
-        .dependencies = &.{
+        .root_source_file = .{ .path = "deps/zig-gtk/src/gobject.zig" },
+        .imports = &.{
             .{ .name = "glib", .module = glib },
         },
     });
     const gio = b.createModule(.{
-        .source_file = .{ .path = "deps/zig-gtk/src/gio.zig" },
-        .dependencies = &.{
+        .root_source_file = .{ .path = "deps/zig-gtk/src/gio.zig" },
+        .imports = &.{
             .{ .name = "glib", .module = glib },
             .{ .name = "gobject", .module = gobject },
         },
     });
     const gtk = b.createModule(.{
-        .source_file = .{ .path = "deps/zig-gtk/src/gtk.zig" },
-        .dependencies = &.{
+        .root_source_file = .{ .path = "deps/zig-gtk/src/gtk.zig" },
+        .imports = &.{
             .{ .name = "glib", .module = glib },
             .{ .name = "gio", .module = gio },
             .{ .name = "gobject", .module = gobject },
         },
     });
 
-    const scanner = Scanner.create(b, .{});
-    const wayland = b.createModule(.{ .source_file = scanner.result });
+    const scanner = Scanner.create(b, .{.target=target});
+    const wayland = b.createModule(.{ .root_source_file = scanner.result });
     const gdk = b.createModule(.{
-        .source_file = .{ .path = "deps/zig-gtk/src/gdk.zig" },
-        .dependencies = &.{
+        .root_source_file = .{ .path = "deps/zig-gtk/src/gdk.zig" },
+        .imports = &.{
             .{ .name = "glib", .module = glib },
             .{ .name = "wayland", .module = wayland },
         },
     });
 
     const gdkpixbuf = b.createModule(.{
-        .source_file = .{ .path = "deps/zig-gtk/src/gdkpixbuf.zig" },
-        .dependencies = &.{
+        .root_source_file = .{ .path = "deps/zig-gtk/src/gdkpixbuf.zig" },
+        .imports = &.{
             .{ .name = "glib", .module = glib },
         },
     });
 
-    exe.addModule("glib", glib);
-    exe.addModule("gtk", gtk);
-    exe.addModule("gdk", gdk);
-    exe.addModule("gio", gio);
-    exe.addModule("gobject", gobject);
-    exe.addModule("gdkpixbuf", gdkpixbuf);
+    exe.root_module.addImport("glib", glib);
+    exe.root_module.addImport("gtk", gtk);
+    exe.root_module.addImport("gdk", gdk);
+    exe.root_module.addImport("gio", gio);
+    exe.root_module.addImport("gobject", gobject);
+    exe.root_module.addImport("gdkpixbuf", gdkpixbuf);
 
     for (include_paths) |p| {
-        exe.addIncludePath(.{.path=p});
+        inline for (.{glib, gtk, gdk, gio, gobject, gdkpixbuf, exe}) |mod| {
+            mod.addIncludePath(.{.path=p});
+        }
     }
     exe.linkLibC();
     exe.linkSystemLibrary("gtk-4");
