@@ -252,7 +252,7 @@ pub const PrintOperation = extern struct {
     pub inline fn connectDone(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, result: *gtk.PrintOperationResult, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, result: gtk.PrintOperationResult, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -262,7 +262,7 @@ pub const PrintOperation = extern struct {
     pub inline fn connectDoneSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, result: *gtk.PrintOperationResult) callconv(.C) void,
+        callback: *const fn (data: *T, result: gtk.PrintOperationResult) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

@@ -692,7 +692,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectEdgeOvershot(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pos: *gtk.PositionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pos: gtk.PositionType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -702,7 +702,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectEdgeOvershotSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pos: *gtk.PositionType) callconv(.C) void,
+        callback: *const fn (data: *T, pos: gtk.PositionType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -712,7 +712,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectEdgeReached(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pos: *gtk.PositionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pos: gtk.PositionType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -722,7 +722,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectEdgeReachedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pos: *gtk.PositionType) callconv(.C) void,
+        callback: *const fn (data: *T, pos: gtk.PositionType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -732,7 +732,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectMoveFocusOut(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, direction_type: *gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, direction_type: gtk.DirectionType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -742,7 +742,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectMoveFocusOutSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, direction_type: *gtk.DirectionType) callconv(.C) void,
+        callback: *const fn (data: *T, direction_type: gtk.DirectionType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -752,7 +752,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectScrollChild(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, scroll: *gtk.ScrollType, horizontal: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, scroll: gtk.ScrollType, horizontal: bool, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -762,7 +762,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectScrollChildSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, scroll: *gtk.ScrollType, horizontal: bool) callconv(.C) void,
+        callback: *const fn (data: *T, scroll: gtk.ScrollType, horizontal: bool) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -792,7 +792,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectDirectionChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, previous_direction: *gtk.TextDirection, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, previous_direction: gtk.TextDirection, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -802,7 +802,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectDirectionChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, previous_direction: *gtk.TextDirection) callconv(.C) void,
+        callback: *const fn (data: *T, previous_direction: gtk.TextDirection) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -832,7 +832,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectKeynavFailed(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, direction: *gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -842,7 +842,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectKeynavFailedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, direction: *gtk.DirectionType) callconv(.C) void,
+        callback: *const fn (data: *T, direction: gtk.DirectionType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -892,7 +892,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectMoveFocus(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, direction: *gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -902,7 +902,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectMoveFocusSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, direction: *gtk.DirectionType) callconv(.C) void,
+        callback: *const fn (data: *T, direction: gtk.DirectionType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -972,7 +972,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectStateFlagsChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, flags: *gtk.StateFlags, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, flags: gtk.StateFlags, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -982,7 +982,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectStateFlagsChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, flags: *gtk.StateFlags) callconv(.C) void,
+        callback: *const fn (data: *T, flags: gtk.StateFlags) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

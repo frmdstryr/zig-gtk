@@ -172,7 +172,7 @@ pub const EventControllerKey = extern struct {
     pub inline fn connectKeyPressed(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, keyval: u32, keycode: u32, state: *gdk.ModifierType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, keyval: u32, keycode: u32, state: gdk.ModifierType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -182,7 +182,7 @@ pub const EventControllerKey = extern struct {
     pub inline fn connectKeyPressedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, keyval: u32, keycode: u32, state: *gdk.ModifierType) callconv(.C) void,
+        callback: *const fn (data: *T, keyval: u32, keycode: u32, state: gdk.ModifierType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -192,7 +192,7 @@ pub const EventControllerKey = extern struct {
     pub inline fn connectKeyReleased(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, keyval: u32, keycode: u32, state: *gdk.ModifierType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, keyval: u32, keycode: u32, state: gdk.ModifierType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -202,7 +202,7 @@ pub const EventControllerKey = extern struct {
     pub inline fn connectKeyReleasedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, keyval: u32, keycode: u32, state: *gdk.ModifierType) callconv(.C) void,
+        callback: *const fn (data: *T, keyval: u32, keycode: u32, state: gdk.ModifierType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -212,7 +212,7 @@ pub const EventControllerKey = extern struct {
     pub inline fn connectModifiers(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, keyval: *gdk.ModifierType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, keyval: gdk.ModifierType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -222,7 +222,7 @@ pub const EventControllerKey = extern struct {
     pub inline fn connectModifiersSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, keyval: *gdk.ModifierType) callconv(.C) void,
+        callback: *const fn (data: *T, keyval: gdk.ModifierType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

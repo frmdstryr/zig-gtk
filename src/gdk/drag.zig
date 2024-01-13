@@ -133,7 +133,7 @@ pub const Drag = extern struct {
     pub inline fn connectCancel(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, reason: *gdk.DragCancelReason, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, reason: gdk.DragCancelReason, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -143,7 +143,7 @@ pub const Drag = extern struct {
     pub inline fn connectCancelSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, reason: *gdk.DragCancelReason) callconv(.C) void,
+        callback: *const fn (data: *T, reason: gdk.DragCancelReason) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

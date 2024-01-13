@@ -256,7 +256,7 @@ pub const DragSource = extern struct {
     pub inline fn connectDragCancel(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, drag: *gdk.Drag, reason: *gdk.DragCancelReason, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, drag: *gdk.Drag, reason: gdk.DragCancelReason, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -266,7 +266,7 @@ pub const DragSource = extern struct {
     pub inline fn connectDragCancelSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, drag: *gdk.Drag, reason: *gdk.DragCancelReason) callconv(.C) void,
+        callback: *const fn (data: *T, drag: *gdk.Drag, reason: gdk.DragCancelReason) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -376,7 +376,7 @@ pub const DragSource = extern struct {
     pub inline fn connectSequenceStateChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, sequence: *gdk.EventSequence, state: *gtk.EventSequenceState, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, sequence: *gdk.EventSequence, state: gtk.EventSequenceState, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -386,7 +386,7 @@ pub const DragSource = extern struct {
     pub inline fn connectSequenceStateChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, sequence: *gdk.EventSequence, state: *gtk.EventSequenceState) callconv(.C) void,
+        callback: *const fn (data: *T, sequence: *gdk.EventSequence, state: gtk.EventSequenceState) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

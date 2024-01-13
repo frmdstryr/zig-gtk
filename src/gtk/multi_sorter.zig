@@ -120,7 +120,7 @@ pub const MultiSorter = extern struct {
     pub inline fn connectChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, change: *gtk.SorterChange, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, change: gtk.SorterChange, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -130,7 +130,7 @@ pub const MultiSorter = extern struct {
     pub inline fn connectChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, change: *gtk.SorterChange) callconv(.C) void,
+        callback: *const fn (data: *T, change: gtk.SorterChange) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

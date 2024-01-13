@@ -682,7 +682,7 @@ pub const Range = extern struct {
     pub inline fn connectChangeValue(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, scroll: *gtk.ScrollType, value: f64, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, scroll: gtk.ScrollType, value: f64, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -692,7 +692,7 @@ pub const Range = extern struct {
     pub inline fn connectChangeValueSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, scroll: *gtk.ScrollType, value: f64) callconv(.C) void,
+        callback: *const fn (data: *T, scroll: gtk.ScrollType, value: f64) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -702,7 +702,7 @@ pub const Range = extern struct {
     pub inline fn connectMoveSlider(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, step: *gtk.ScrollType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, step: gtk.ScrollType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -712,7 +712,7 @@ pub const Range = extern struct {
     pub inline fn connectMoveSliderSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, step: *gtk.ScrollType) callconv(.C) void,
+        callback: *const fn (data: *T, step: gtk.ScrollType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -762,7 +762,7 @@ pub const Range = extern struct {
     pub inline fn connectDirectionChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, previous_direction: *gtk.TextDirection, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, previous_direction: gtk.TextDirection, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -772,7 +772,7 @@ pub const Range = extern struct {
     pub inline fn connectDirectionChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, previous_direction: *gtk.TextDirection) callconv(.C) void,
+        callback: *const fn (data: *T, previous_direction: gtk.TextDirection) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -802,7 +802,7 @@ pub const Range = extern struct {
     pub inline fn connectKeynavFailed(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, direction: *gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -812,7 +812,7 @@ pub const Range = extern struct {
     pub inline fn connectKeynavFailedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, direction: *gtk.DirectionType) callconv(.C) void,
+        callback: *const fn (data: *T, direction: gtk.DirectionType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -862,7 +862,7 @@ pub const Range = extern struct {
     pub inline fn connectMoveFocus(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, direction: *gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -872,7 +872,7 @@ pub const Range = extern struct {
     pub inline fn connectMoveFocusSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, direction: *gtk.DirectionType) callconv(.C) void,
+        callback: *const fn (data: *T, direction: gtk.DirectionType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -942,7 +942,7 @@ pub const Range = extern struct {
     pub inline fn connectStateFlagsChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, flags: *gtk.StateFlags, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, flags: gtk.StateFlags, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -952,7 +952,7 @@ pub const Range = extern struct {
     pub inline fn connectStateFlagsChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, flags: *gtk.StateFlags) callconv(.C) void,
+        callback: *const fn (data: *T, flags: gtk.StateFlags) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

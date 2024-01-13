@@ -441,8 +441,11 @@ def func_arg_type(func, arg, imports: set[str]) -> Optional[str]:
             it = f"*{it}"  # Arg is modification?
         if it.startswith("*") and arg.may_be_null():
             return f"?{it}"
-        # Hack??
+        # Hack, why does is_pointer not work ??
         if not it.startswith("*") and str(func).startswith("gi.SignalInfo"):
+            i = str(atype.get_interface())
+            if i.startswith("gi.EnumInfo") or i.startswith("gi.FlagInfo"):
+                return it
             return f"*{it}"
         return it
     if t == "array" and (at := array_type_to_string(atype, imports)):

@@ -730,7 +730,7 @@ pub const LinkButton = extern struct {
     pub inline fn connectDirectionChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, previous_direction: *gtk.TextDirection, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, previous_direction: gtk.TextDirection, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -740,7 +740,7 @@ pub const LinkButton = extern struct {
     pub inline fn connectDirectionChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, previous_direction: *gtk.TextDirection) callconv(.C) void,
+        callback: *const fn (data: *T, previous_direction: gtk.TextDirection) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -770,7 +770,7 @@ pub const LinkButton = extern struct {
     pub inline fn connectKeynavFailed(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, direction: *gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -780,7 +780,7 @@ pub const LinkButton = extern struct {
     pub inline fn connectKeynavFailedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, direction: *gtk.DirectionType) callconv(.C) void,
+        callback: *const fn (data: *T, direction: gtk.DirectionType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -830,7 +830,7 @@ pub const LinkButton = extern struct {
     pub inline fn connectMoveFocus(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, direction: *gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -840,7 +840,7 @@ pub const LinkButton = extern struct {
     pub inline fn connectMoveFocusSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, direction: *gtk.DirectionType) callconv(.C) void,
+        callback: *const fn (data: *T, direction: gtk.DirectionType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -910,7 +910,7 @@ pub const LinkButton = extern struct {
     pub inline fn connectStateFlagsChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, flags: *gtk.StateFlags, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, flags: gtk.StateFlags, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -920,7 +920,7 @@ pub const LinkButton = extern struct {
     pub inline fn connectStateFlagsChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, flags: *gtk.StateFlags) callconv(.C) void,
+        callback: *const fn (data: *T, flags: gtk.StateFlags) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
