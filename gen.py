@@ -310,7 +310,6 @@ EXTRA_API_DEFS: dict[str, list[str]] = {
         "pub const init = gtk_init;",
     ],
     "GObject": GOBJECT_EXTRA.split("\n"),
-
 }
 
 
@@ -763,51 +762,39 @@ def generate_class(ns: str, Cls: type):
                 t = func_arg_type(signal, arg, imports)
                 signal_args.append(f"{name}: {t}")
             args = ["self: *Self"] + signal_args + ["data: ?*T"]
-            fn_name = camel_case("connect-"+signal.get_name(), "-")
+            fn_name = camel_case("connect-" + signal.get_name(), "-")
             out.append("    pub inline fn %s(" % fn_name)
             out.append("        self: *Self,")
             out.append("        comptime T: type,")
-            out.append("        callback: %s," % f"*const fn ({', '.join(args)}) callconv(.C) void")
+            out.append(
+                "        callback: %s,"
+                % f"*const fn ({', '.join(args)}) callconv(.C) void"
+            )
             out.append("        data: ?*T,")
             out.append("        flags: gobject.ConnectFlags")
             out.append("    ) u64 {")
-            out.append(f"        return c.g_signal_connect_data(self, \"{signal.get_name()}\", @ptrCast(callback), data, null, @intFromEnum(flags));")
+            out.append(
+                f'        return c.g_signal_connect_data(self, "{signal.get_name()}", @ptrCast(callback), data, null, @intFromEnum(flags));'
+            )
             out.append("    }")
             out.append("")
 
-            swapped_args =  ["data: *T"] + signal_args
+            swapped_args = ["data: *T"] + signal_args
             out.append("    pub inline fn %sSwapped(" % fn_name)
             out.append("        self: *Self,")
             out.append("        comptime T: type,")
-            out.append("        callback: %s," % f"*const fn ({', '.join(swapped_args)}) callconv(.C) void")
+            out.append(
+                "        callback: %s,"
+                % f"*const fn ({', '.join(swapped_args)}) callconv(.C) void"
+            )
             out.append("        data: *T,")
             out.append("        flags: gobject.ConnectFlags")
             out.append("    ) u64 {")
-            out.append(f"        return c.g_signal_connect_data(self, \"{signal.get_name()}\", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);")
+            out.append(
+                f'        return c.g_signal_connect_data(self, "{signal.get_name()}", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);'
+            )
             out.append("    }")
             out.append("")
-
-
-        # out.append("    pub const Signals = enum(u8) {")
-        # for i, signal in enumerate(signals):
-        #     name = signal.get_name().replace("-", "_")
-        #     if sig_args := signal.get_arguments():
-        #         args = []
-        #         for arg in sig_args:
-        #             t = func_arg_type(None, arg, set())
-        #             args.append(f"{arg.get_name()}: {t}")
-        #         out.append(f"        // Args ({', '.join(args)})")
-        #     out.append(f"        {name} = {i},")
-        # out.append("    };")
-        # out.append("")
-        # out.append("    pub const SignalNames = [_][:0]const u8{")
-        # for i, signal in enumerate(signals):
-        #     name = signal.get_name()
-        #     out.append(f'        "{name}",')
-        # out.append("    };")
-
-    #if signals:
-    #    out.append(SIGNAL_METHODS)
 
     if properties:
         out.append("")
@@ -921,7 +908,7 @@ def resolve_namespace(name: str, module: type) -> dict:
                 enums.append(v)
             elif issubclass(v, GObject.GFlags):
                 if v is GObject.ConnectFlags:
-                    continue # Hack: use an enum
+                    continue  # Hack: use an enum
                 flags.append(v)
             elif issubclass(
                 v,

@@ -28,8 +28,8 @@ view.setHexpand(true);
 view.setVexpand(true);
 
 if (gtk.SignalListItemFactory.new()) |f| {
-    _ = f.connectSignalWithArg(.setup, *gtk.ListItem, App, &PlacementWindow.onColSetupActive, app);
-    _ = f.connectSignalWithArg(.bind, *gtk.ListItem, App, &PlacementWindow.onColBindActive, app);
+    _ = f.connectSetup(App, &PlacementWindow.onColSetupActive, app);
+    _ = f.connectBind(App, &PlacementWindow.onColBindActive, app);
     view.appendColumn(
         gtk.ColumnViewColumn.new("Active", f.asListItemFactory()).?
     );
