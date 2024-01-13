@@ -170,78 +170,124 @@ pub const DropTarget = extern struct {
 
 
     // Signals
-    pub const Signals = enum(u8) {
-        accept = 0,
-        drop = 1,
-        enter = 2,
-        leave = 3,
-        motion = 4,
-        notify = 5,
-    };
-
-    pub const SignalNames = [_][:0]const u8{
-        "accept",
-        "drop",
-        "enter",
-        "leave",
-        "motion",
-        "notify",
-    };
-
-    // Signals
-
-    // Connect to a signal with no arguments and optional user data
-    pub inline fn connectSignal(
+    pub inline fn connectAccept(
         self: *Self,
-        signal: Signals,
+        comptime T: type,
+        callback: *const fn (self: *Self, drop: gdk.Drop, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "accept", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectAcceptSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, drop: gdk.Drop) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "accept", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectDrop(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, value: gobject.Value, x: f64, y: f64, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "drop", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectDropSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, value: gobject.Value, x: f64, y: f64) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "drop", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectEnter(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, x: f64, y: f64, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "enter", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectEnterSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, x: f64, y: f64) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "enter", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectLeave(
+        self: *Self,
         comptime T: type,
         callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
+        data: ?*T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, "leave", @ptrCast(callback), data, null, @intFromEnum(flags));
     }
 
-    // Connect to a signal with a typed argument and optional user data
-    pub inline fn connectSignalWithArg(
+    pub inline fn connectLeaveSwapped(
         self: *Self,
-        signal: Signals,
-        comptime ArgType: type,
-        comptime UserDataType: type,
-        callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with no type validation
-    pub inline fn connectSignalAnytype(
-        self: *Self,
-        signal: Signals,
-        callback: anytype,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with a no arguments and optional user data
-    pub inline fn connectSignalAfter(
-        self: *Self,
-        signal: Signals,
-        comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
-    }
-
-    pub inline fn connectSignalSwapped(
-        self: *Self,
-        signal: Signals,
         comptime T: type,
         callback: *const fn (data: *T) callconv(.C) void,
-        data: anytype
+        data: *T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
+        return c.g_signal_connect_data(self, "leave", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectMotion(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, x: f64, y: f64, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "motion", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectMotionSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, x: f64, y: f64) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "motion", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectNotify(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectNotifySwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
 
 

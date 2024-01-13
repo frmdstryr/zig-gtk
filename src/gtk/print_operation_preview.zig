@@ -24,70 +24,44 @@ pub const PrintOperationPreview = extern struct {
 
 
     // Signals
-    pub const Signals = enum(u8) {
-        got_page_size = 0,
-        ready = 1,
-    };
-
-    pub const SignalNames = [_][:0]const u8{
-        "got-page-size",
-        "ready",
-    };
-
-    // Signals
-
-    // Connect to a signal with no arguments and optional user data
-    pub inline fn connectSignal(
+    pub inline fn connectGotPageSize(
         self: *Self,
-        signal: Signals,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
+        callback: *const fn (self: *Self, context: gtk.PrintContext, page_setup: gtk.PageSetup, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, "got-page-size", @ptrCast(callback), data, null, @intFromEnum(flags));
     }
 
-    // Connect to a signal with a typed argument and optional user data
-    pub inline fn connectSignalWithArg(
+    pub inline fn connectGotPageSizeSwapped(
         self: *Self,
-        signal: Signals,
-        comptime ArgType: type,
-        comptime UserDataType: type,
-        callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with no type validation
-    pub inline fn connectSignalAnytype(
-        self: *Self,
-        signal: Signals,
-        callback: anytype,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with a no arguments and optional user data
-    pub inline fn connectSignalAfter(
-        self: *Self,
-        signal: Signals,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
+        callback: *const fn (data: *T, context: gtk.PrintContext, page_setup: gtk.PageSetup) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
+        return c.g_signal_connect_data(self, "got-page-size", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
 
-    pub inline fn connectSignalSwapped(
+    pub inline fn connectReady(
         self: *Self,
-        signal: Signals,
         comptime T: type,
-        callback: *const fn (data: *T) callconv(.C) void,
-        data: anytype
+        callback: *const fn (self: *Self, context: gtk.PrintContext, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
+        return c.g_signal_connect_data(self, "ready", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectReadySwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, context: gtk.PrintContext) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "ready", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
 
 

@@ -851,124 +851,584 @@ pub const TreeView = extern struct {
 
 
     // Signals
-    pub const Signals = enum(u8) {
-        columns_changed = 0,
-        cursor_changed = 1,
-        expand_collapse_cursor_row = 2,
-        move_cursor = 3,
-        row_activated = 4,
-        row_collapsed = 5,
-        row_expanded = 6,
-        select_all = 7,
-        select_cursor_parent = 8,
-        select_cursor_row = 9,
-        start_interactive_search = 10,
-        test_collapse_row = 11,
-        test_expand_row = 12,
-        toggle_cursor_row = 13,
-        unselect_all = 14,
-        destroy = 15,
-        direction_changed = 16,
-        hide = 17,
-        keynav_failed = 18,
-        map = 19,
-        mnemonic_activate = 20,
-        move_focus = 21,
-        query_tooltip = 22,
-        realize = 23,
-        show = 24,
-        state_flags_changed = 25,
-        unmap = 26,
-        unrealize = 27,
-        notify = 28,
-    };
-
-    pub const SignalNames = [_][:0]const u8{
-        "columns-changed",
-        "cursor-changed",
-        "expand-collapse-cursor-row",
-        "move-cursor",
-        "row-activated",
-        "row-collapsed",
-        "row-expanded",
-        "select-all",
-        "select-cursor-parent",
-        "select-cursor-row",
-        "start-interactive-search",
-        "test-collapse-row",
-        "test-expand-row",
-        "toggle-cursor-row",
-        "unselect-all",
-        "destroy",
-        "direction-changed",
-        "hide",
-        "keynav-failed",
-        "map",
-        "mnemonic-activate",
-        "move-focus",
-        "query-tooltip",
-        "realize",
-        "show",
-        "state-flags-changed",
-        "unmap",
-        "unrealize",
-        "notify",
-    };
-
-    // Signals
-
-    // Connect to a signal with no arguments and optional user data
-    pub inline fn connectSignal(
+    pub inline fn connectColumnsChanged(
         self: *Self,
-        signal: Signals,
         comptime T: type,
         callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
+        data: ?*T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, "columns-changed", @ptrCast(callback), data, null, @intFromEnum(flags));
     }
 
-    // Connect to a signal with a typed argument and optional user data
-    pub inline fn connectSignalWithArg(
+    pub inline fn connectColumnsChangedSwapped(
         self: *Self,
-        signal: Signals,
-        comptime ArgType: type,
-        comptime UserDataType: type,
-        callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with no type validation
-    pub inline fn connectSignalAnytype(
-        self: *Self,
-        signal: Signals,
-        callback: anytype,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with a no arguments and optional user data
-    pub inline fn connectSignalAfter(
-        self: *Self,
-        signal: Signals,
-        comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
-    }
-
-    pub inline fn connectSignalSwapped(
-        self: *Self,
-        signal: Signals,
         comptime T: type,
         callback: *const fn (data: *T) callconv(.C) void,
-        data: anytype
+        data: *T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
+        return c.g_signal_connect_data(self, "columns-changed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectCursorChanged(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "cursor-changed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectCursorChangedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "cursor-changed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectExpandCollapseCursorRow(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, object: bool, p0: bool, p1: bool, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "expand-collapse-cursor-row", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectExpandCollapseCursorRowSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, object: bool, p0: bool, p1: bool) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "expand-collapse-cursor-row", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectMoveCursor(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, step: gtk.MovementStep, direction: i32, extend: bool, modify: bool, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "move-cursor", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectMoveCursorSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, step: gtk.MovementStep, direction: i32, extend: bool, modify: bool) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "move-cursor", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectRowActivated(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, path: gtk.TreePath, column: gtk.TreeViewColumn, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "row-activated", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectRowActivatedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, path: gtk.TreePath, column: gtk.TreeViewColumn) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "row-activated", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectRowCollapsed(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, iter: gtk.TreeIter, path: gtk.TreePath, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "row-collapsed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectRowCollapsedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, iter: gtk.TreeIter, path: gtk.TreePath) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "row-collapsed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectRowExpanded(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, iter: gtk.TreeIter, path: gtk.TreePath, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "row-expanded", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectRowExpandedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, iter: gtk.TreeIter, path: gtk.TreePath) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "row-expanded", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectSelectAll(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "select-all", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectSelectAllSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "select-all", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectSelectCursorParent(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "select-cursor-parent", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectSelectCursorParentSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "select-cursor-parent", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectSelectCursorRow(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, object: bool, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "select-cursor-row", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectSelectCursorRowSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, object: bool) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "select-cursor-row", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectStartInteractiveSearch(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "start-interactive-search", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectStartInteractiveSearchSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "start-interactive-search", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectTestCollapseRow(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, iter: gtk.TreeIter, path: gtk.TreePath, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "test-collapse-row", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectTestCollapseRowSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, iter: gtk.TreeIter, path: gtk.TreePath) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "test-collapse-row", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectTestExpandRow(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, iter: gtk.TreeIter, path: gtk.TreePath, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "test-expand-row", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectTestExpandRowSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, iter: gtk.TreeIter, path: gtk.TreePath) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "test-expand-row", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectToggleCursorRow(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "toggle-cursor-row", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectToggleCursorRowSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "toggle-cursor-row", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectUnselectAll(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "unselect-all", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectUnselectAllSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "unselect-all", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectDestroy(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "destroy", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectDestroySwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "destroy", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectDirectionChanged(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, previous_direction: gtk.TextDirection, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "direction-changed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectDirectionChangedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, previous_direction: gtk.TextDirection) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "direction-changed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectHide(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "hide", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectHideSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "hide", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectKeynavFailed(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "keynav-failed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectKeynavFailedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, direction: gtk.DirectionType) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "keynav-failed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectMap(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "map", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectMapSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "map", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectMnemonicActivate(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, group_cycling: bool, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mnemonic-activate", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectMnemonicActivateSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, group_cycling: bool) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mnemonic-activate", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectMoveFocus(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "move-focus", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectMoveFocusSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, direction: gtk.DirectionType) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "move-focus", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectQueryTooltip(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, x: i32, y: i32, keyboard_mode: bool, tooltip: gtk.Tooltip, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "query-tooltip", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectQueryTooltipSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, x: i32, y: i32, keyboard_mode: bool, tooltip: gtk.Tooltip) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "query-tooltip", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectRealize(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "realize", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectRealizeSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "realize", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectShow(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "show", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectShowSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "show", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectStateFlagsChanged(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, flags: gtk.StateFlags, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "state-flags-changed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectStateFlagsChangedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, flags: gtk.StateFlags) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "state-flags-changed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectUnmap(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "unmap", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectUnmapSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "unmap", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectUnrealize(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "unrealize", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectUnrealizeSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "unrealize", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectNotify(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectNotifySwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
 
 

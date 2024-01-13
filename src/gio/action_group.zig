@@ -58,74 +58,84 @@ pub const ActionGroup = extern struct {
 
 
     // Signals
-    pub const Signals = enum(u8) {
-        action_added = 0,
-        action_enabled_changed = 1,
-        action_removed = 2,
-        action_state_changed = 3,
-    };
-
-    pub const SignalNames = [_][:0]const u8{
-        "action-added",
-        "action-enabled-changed",
-        "action-removed",
-        "action-state-changed",
-    };
-
-    // Signals
-
-    // Connect to a signal with no arguments and optional user data
-    pub inline fn connectSignal(
+    pub inline fn connectActionAdded(
         self: *Self,
-        signal: Signals,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
+        callback: *const fn (self: *Self, action_name: [*c]const u8, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, "action-added", @ptrCast(callback), data, null, @intFromEnum(flags));
     }
 
-    // Connect to a signal with a typed argument and optional user data
-    pub inline fn connectSignalWithArg(
+    pub inline fn connectActionAddedSwapped(
         self: *Self,
-        signal: Signals,
-        comptime ArgType: type,
-        comptime UserDataType: type,
-        callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with no type validation
-    pub inline fn connectSignalAnytype(
-        self: *Self,
-        signal: Signals,
-        callback: anytype,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with a no arguments and optional user data
-    pub inline fn connectSignalAfter(
-        self: *Self,
-        signal: Signals,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
+        callback: *const fn (data: *T, action_name: [*c]const u8) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
+        return c.g_signal_connect_data(self, "action-added", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
 
-    pub inline fn connectSignalSwapped(
+    pub inline fn connectActionEnabledChanged(
         self: *Self,
-        signal: Signals,
         comptime T: type,
-        callback: *const fn (data: *T) callconv(.C) void,
-        data: anytype
+        callback: *const fn (self: *Self, action_name: [*c]const u8, enabled: bool, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
+        return c.g_signal_connect_data(self, "action-enabled-changed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectActionEnabledChangedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, action_name: [*c]const u8, enabled: bool) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "action-enabled-changed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectActionRemoved(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, action_name: [*c]const u8, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "action-removed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectActionRemovedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, action_name: [*c]const u8) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "action-removed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectActionStateChanged(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, action_name: [*c]const u8, value: glib.Variant, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "action-state-changed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectActionStateChangedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, action_name: [*c]const u8, value: glib.Variant) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "action-state-changed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
 
 

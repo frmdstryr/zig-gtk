@@ -116,76 +116,104 @@ pub const Seat = extern struct {
 
 
     // Signals
-    pub const Signals = enum(u8) {
-        device_added = 0,
-        device_removed = 1,
-        tool_added = 2,
-        tool_removed = 3,
-        notify = 4,
-    };
-
-    pub const SignalNames = [_][:0]const u8{
-        "device-added",
-        "device-removed",
-        "tool-added",
-        "tool-removed",
-        "notify",
-    };
-
-    // Signals
-
-    // Connect to a signal with no arguments and optional user data
-    pub inline fn connectSignal(
+    pub inline fn connectDeviceAdded(
         self: *Self,
-        signal: Signals,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
+        callback: *const fn (self: *Self, device: gdk.Device, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, "device-added", @ptrCast(callback), data, null, @intFromEnum(flags));
     }
 
-    // Connect to a signal with a typed argument and optional user data
-    pub inline fn connectSignalWithArg(
+    pub inline fn connectDeviceAddedSwapped(
         self: *Self,
-        signal: Signals,
-        comptime ArgType: type,
-        comptime UserDataType: type,
-        callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with no type validation
-    pub inline fn connectSignalAnytype(
-        self: *Self,
-        signal: Signals,
-        callback: anytype,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with a no arguments and optional user data
-    pub inline fn connectSignalAfter(
-        self: *Self,
-        signal: Signals,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
+        callback: *const fn (data: *T, device: gdk.Device) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
+        return c.g_signal_connect_data(self, "device-added", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
 
-    pub inline fn connectSignalSwapped(
+    pub inline fn connectDeviceRemoved(
         self: *Self,
-        signal: Signals,
         comptime T: type,
-        callback: *const fn (data: *T) callconv(.C) void,
-        data: anytype
+        callback: *const fn (self: *Self, device: gdk.Device, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
+        return c.g_signal_connect_data(self, "device-removed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectDeviceRemovedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, device: gdk.Device) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "device-removed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectToolAdded(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, tool: gdk.DeviceTool, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "tool-added", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectToolAddedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, tool: gdk.DeviceTool) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "tool-added", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectToolRemoved(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, tool: gdk.DeviceTool, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "tool-removed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectToolRemovedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, tool: gdk.DeviceTool) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "tool-removed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectNotify(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectNotifySwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
 
 

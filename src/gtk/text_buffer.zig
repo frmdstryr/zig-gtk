@@ -304,98 +304,324 @@ pub const TextBuffer = extern struct {
 
 
     // Signals
-    pub const Signals = enum(u8) {
-        apply_tag = 0,
-        begin_user_action = 1,
-        changed = 2,
-        delete_range = 3,
-        end_user_action = 4,
-        insert_child_anchor = 5,
-        insert_paintable = 6,
-        insert_text = 7,
-        mark_deleted = 8,
-        mark_set = 9,
-        modified_changed = 10,
-        paste_done = 11,
-        redo = 12,
-        remove_tag = 13,
-        undo = 14,
-        notify = 15,
-    };
-
-    pub const SignalNames = [_][:0]const u8{
-        "apply-tag",
-        "begin-user-action",
-        "changed",
-        "delete-range",
-        "end-user-action",
-        "insert-child-anchor",
-        "insert-paintable",
-        "insert-text",
-        "mark-deleted",
-        "mark-set",
-        "modified-changed",
-        "paste-done",
-        "redo",
-        "remove-tag",
-        "undo",
-        "notify",
-    };
-
-    // Signals
-
-    // Connect to a signal with no arguments and optional user data
-    pub inline fn connectSignal(
+    pub inline fn connectApplyTag(
         self: *Self,
-        signal: Signals,
+        comptime T: type,
+        callback: *const fn (self: *Self, tag: gtk.TextTag, start: gtk.TextIter, end: gtk.TextIter, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "apply-tag", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectApplyTagSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, tag: gtk.TextTag, start: gtk.TextIter, end: gtk.TextIter) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "apply-tag", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectBeginUserAction(
+        self: *Self,
         comptime T: type,
         callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
+        data: ?*T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, "begin-user-action", @ptrCast(callback), data, null, @intFromEnum(flags));
     }
 
-    // Connect to a signal with a typed argument and optional user data
-    pub inline fn connectSignalWithArg(
+    pub inline fn connectBeginUserActionSwapped(
         self: *Self,
-        signal: Signals,
-        comptime ArgType: type,
-        comptime UserDataType: type,
-        callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with no type validation
-    pub inline fn connectSignalAnytype(
-        self: *Self,
-        signal: Signals,
-        callback: anytype,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with a no arguments and optional user data
-    pub inline fn connectSignalAfter(
-        self: *Self,
-        signal: Signals,
-        comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
-    }
-
-    pub inline fn connectSignalSwapped(
-        self: *Self,
-        signal: Signals,
         comptime T: type,
         callback: *const fn (data: *T) callconv(.C) void,
-        data: anytype
+        data: *T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
+        return c.g_signal_connect_data(self, "begin-user-action", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectChanged(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "changed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectChangedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "changed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectDeleteRange(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, start: gtk.TextIter, end: gtk.TextIter, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "delete-range", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectDeleteRangeSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, start: gtk.TextIter, end: gtk.TextIter) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "delete-range", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectEndUserAction(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "end-user-action", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectEndUserActionSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "end-user-action", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectInsertChildAnchor(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, location: gtk.TextIter, anchor: gtk.TextChildAnchor, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "insert-child-anchor", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectInsertChildAnchorSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, location: gtk.TextIter, anchor: gtk.TextChildAnchor) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "insert-child-anchor", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectInsertPaintable(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, location: gtk.TextIter, paintable: gdk.Paintable, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "insert-paintable", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectInsertPaintableSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, location: gtk.TextIter, paintable: gdk.Paintable) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "insert-paintable", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectInsertText(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, location: gtk.TextIter, text: [*c]const u8, len: i32, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "insert-text", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectInsertTextSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, location: gtk.TextIter, text: [*c]const u8, len: i32) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "insert-text", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectMarkDeleted(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, mark: gtk.TextMark, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mark-deleted", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectMarkDeletedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, mark: gtk.TextMark) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mark-deleted", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectMarkSet(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, location: gtk.TextIter, mark: gtk.TextMark, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mark-set", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectMarkSetSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, location: gtk.TextIter, mark: gtk.TextMark) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mark-set", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectModifiedChanged(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "modified-changed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectModifiedChangedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "modified-changed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectPasteDone(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, clipboard: gdk.Clipboard, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "paste-done", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectPasteDoneSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, clipboard: gdk.Clipboard) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "paste-done", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectRedo(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "redo", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectRedoSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "redo", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectRemoveTag(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, tag: gtk.TextTag, start: gtk.TextIter, end: gtk.TextIter, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "remove-tag", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectRemoveTagSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, tag: gtk.TextTag, start: gtk.TextIter, end: gtk.TextIter) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "remove-tag", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectUndo(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "undo", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectUndoSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "undo", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectNotify(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectNotifySwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
 
 

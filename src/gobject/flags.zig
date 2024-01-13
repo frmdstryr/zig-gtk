@@ -10,12 +10,6 @@ pub const BindingFlags = packed struct {
     pub const SyncCreate: @This() = @bitCast(c.G_BINDING_SYNC_CREATE);
 };
 
-pub const ConnectFlags = packed struct {
-    value: c_int,
-    pub const After: @This() = @bitCast(c.G_CONNECT_AFTER);
-    pub const Swapped: @This() = @bitCast(c.G_CONNECT_SWAPPED);
-};
-
 pub const GFlags = packed struct {
     value: c_int,
 };

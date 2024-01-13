@@ -68,6 +68,7 @@ EXCLUDED_CONSTANTS = {
 
 EXCLUDED_ENUMS = {"GTK_ALIGN_BASELINE_FILL"}
 
+
 # Half of them start with G_ other start with GLIB_
 GLIB_CONSTANTS = (
     "MAJOR_VERSION",
@@ -114,65 +115,6 @@ ZIG_KEYWORDS = {
     "continue",
     "export",
 }
-
-
-SIGNAL_METHODS = """
-    // Signals
-
-    // Connect to a signal with no arguments and optional user data
-    pub inline fn connectSignal(
-        self: *Self,
-        signal: Signals,
-        comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with a typed argument and optional user data
-    pub inline fn connectSignalWithArg(
-        self: *Self,
-        signal: Signals,
-        comptime ArgType: type,
-        comptime UserDataType: type,
-        callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with no type validation
-    pub inline fn connectSignalAnytype(
-        self: *Self,
-        signal: Signals,
-        callback: anytype,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with a no arguments and optional user data
-    pub inline fn connectSignalAfter(
-        self: *Self,
-        signal: Signals,
-        comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
-    }
-
-    pub inline fn connectSignalSwapped(
-        self: *Self,
-        signal: Signals,
-        comptime T: type,
-        callback: *const fn (data: *T) callconv(.C) void,
-        data: anytype
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
-    }
-"""
 
 
 PROPERTY_METHODS = """
@@ -231,7 +173,14 @@ EXTRA_METHODS: dict[type, list[str]] = {}
 EXTRA_API_IMPORTS: dict[str, list[str]] = {}
 
 
-REGISTER_TYPE = """
+GOBJECT_EXTRA = """
+
+// Converted from flag to make it easier to use
+pub const ConnectFlags = enum(c_int) {
+    Default = 0,
+    After = c.G_CONNECT_AFTER,
+};
+
 pub fn registerType(comptime T: type, comptime type_name: [:0]const u8) type {
     const CustomTypeClass = struct {
         parent_class: ObjectClass,
@@ -360,7 +309,8 @@ EXTRA_API_DEFS: dict[str, list[str]] = {
         "extern fn gtk_init() void;",
         "pub const init = gtk_init;",
     ],
-    "GObject": REGISTER_TYPE.split("\n"),
+    "GObject": GOBJECT_EXTRA.split("\n"),
+
 }
 
 
@@ -435,10 +385,10 @@ def generate_constants(ns: str, constants: list) -> list[str]:
     return out
 
 
-def camel_case(name: str) -> str:
+def camel_case(name: str, sep="_") -> str:
     first, *rest = [
         v
-        for it in name.strip().split("_")
+        for it in name.strip().split(sep)
         if (v := it.strip())  # Name may start with _ or have __
     ]
     return first.lower() + "".join([it.title() for it in rest])
@@ -806,20 +756,58 @@ def generate_class(ns: str, Cls: type):
     if signals:
         out.append("")
         out.append("    // Signals")
-        out.append("    pub const Signals = enum(u8) {")
         for i, signal in enumerate(signals):
-            name = signal.get_name().replace("-", "_")
-            out.append(f"        {name} = {i},")
-        out.append("    };")
-        out.append("")
-        out.append("    pub const SignalNames = [_][:0]const u8{")
-        for i, signal in enumerate(signals):
-            name = signal.get_name()
-            out.append(f'        "{name}",')
-        out.append("    };")
+            signal_args = []
+            for arg in signal.get_arguments():
+                name = clean_zig_name(arg.get_name())
+                t = func_arg_type(signal, arg, imports)
+                signal_args.append(f"{name}: {t}")
+            args = ["self: *Self"] + signal_args + ["data: ?*T"]
+            fn_name = camel_case("connect-"+signal.get_name(), "-")
+            out.append("    pub inline fn %s(" % fn_name)
+            out.append("        self: *Self,")
+            out.append("        comptime T: type,")
+            out.append("        callback: %s," % f"*const fn ({', '.join(args)}) callconv(.C) void")
+            out.append("        data: ?*T,")
+            out.append("        flags: gobject.ConnectFlags")
+            out.append("    ) u64 {")
+            out.append(f"        return c.g_signal_connect_data(self, \"{signal.get_name()}\", @ptrCast(callback), data, null, @intFromEnum(flags));")
+            out.append("    }")
+            out.append("")
 
-    if signals:
-        out.append(SIGNAL_METHODS)
+            swapped_args =  ["data: *T"] + signal_args
+            out.append("    pub inline fn %sSwapped(" % fn_name)
+            out.append("        self: *Self,")
+            out.append("        comptime T: type,")
+            out.append("        callback: %s," % f"*const fn ({', '.join(swapped_args)}) callconv(.C) void")
+            out.append("        data: *T,")
+            out.append("        flags: gobject.ConnectFlags")
+            out.append("    ) u64 {")
+            out.append(f"        return c.g_signal_connect_data(self, \"{signal.get_name()}\", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);")
+            out.append("    }")
+            out.append("")
+
+
+        # out.append("    pub const Signals = enum(u8) {")
+        # for i, signal in enumerate(signals):
+        #     name = signal.get_name().replace("-", "_")
+        #     if sig_args := signal.get_arguments():
+        #         args = []
+        #         for arg in sig_args:
+        #             t = func_arg_type(None, arg, set())
+        #             args.append(f"{arg.get_name()}: {t}")
+        #         out.append(f"        // Args ({', '.join(args)})")
+        #     out.append(f"        {name} = {i},")
+        # out.append("    };")
+        # out.append("")
+        # out.append("    pub const SignalNames = [_][:0]const u8{")
+        # for i, signal in enumerate(signals):
+        #     name = signal.get_name()
+        #     out.append(f'        "{name}",')
+        # out.append("    };")
+
+    #if signals:
+    #    out.append(SIGNAL_METHODS)
 
     if properties:
         out.append("")
@@ -932,6 +920,8 @@ def resolve_namespace(name: str, module: type) -> dict:
             elif issubclass(v, GObject.GEnum):
                 enums.append(v)
             elif issubclass(v, GObject.GFlags):
+                if v is GObject.ConnectFlags:
+                    continue # Hack: use an enum
                 flags.append(v)
             elif issubclass(
                 v,

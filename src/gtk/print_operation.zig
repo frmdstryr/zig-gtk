@@ -189,90 +189,244 @@ pub const PrintOperation = extern struct {
 
 
     // Signals
-    pub const Signals = enum(u8) {
-        begin_print = 0,
-        create_custom_widget = 1,
-        custom_widget_apply = 2,
-        done = 3,
-        draw_page = 4,
-        end_print = 5,
-        paginate = 6,
-        preview = 7,
-        request_page_setup = 8,
-        status_changed = 9,
-        update_custom_widget = 10,
-        notify = 11,
-    };
-
-    pub const SignalNames = [_][:0]const u8{
-        "begin-print",
-        "create-custom-widget",
-        "custom-widget-apply",
-        "done",
-        "draw-page",
-        "end-print",
-        "paginate",
-        "preview",
-        "request-page-setup",
-        "status-changed",
-        "update-custom-widget",
-        "notify",
-    };
-
-    // Signals
-
-    // Connect to a signal with no arguments and optional user data
-    pub inline fn connectSignal(
+    pub inline fn connectBeginPrint(
         self: *Self,
-        signal: Signals,
+        comptime T: type,
+        callback: *const fn (self: *Self, context: gtk.PrintContext, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "begin-print", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectBeginPrintSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, context: gtk.PrintContext) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "begin-print", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectCreateCustomWidget(
+        self: *Self,
         comptime T: type,
         callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
+        data: ?*T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, "create-custom-widget", @ptrCast(callback), data, null, @intFromEnum(flags));
     }
 
-    // Connect to a signal with a typed argument and optional user data
-    pub inline fn connectSignalWithArg(
+    pub inline fn connectCreateCustomWidgetSwapped(
         self: *Self,
-        signal: Signals,
-        comptime ArgType: type,
-        comptime UserDataType: type,
-        callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with no type validation
-    pub inline fn connectSignalAnytype(
-        self: *Self,
-        signal: Signals,
-        callback: anytype,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with a no arguments and optional user data
-    pub inline fn connectSignalAfter(
-        self: *Self,
-        signal: Signals,
-        comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
-    }
-
-    pub inline fn connectSignalSwapped(
-        self: *Self,
-        signal: Signals,
         comptime T: type,
         callback: *const fn (data: *T) callconv(.C) void,
-        data: anytype
+        data: *T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
+        return c.g_signal_connect_data(self, "create-custom-widget", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectCustomWidgetApply(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, widget: gtk.Widget, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "custom-widget-apply", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectCustomWidgetApplySwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, widget: gtk.Widget) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "custom-widget-apply", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectDone(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, result: gtk.PrintOperationResult, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "done", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectDoneSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, result: gtk.PrintOperationResult) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "done", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectDrawPage(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, context: gtk.PrintContext, page_nr: i32, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "draw-page", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectDrawPageSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, context: gtk.PrintContext, page_nr: i32) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "draw-page", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectEndPrint(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, context: gtk.PrintContext, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "end-print", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectEndPrintSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, context: gtk.PrintContext) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "end-print", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectPaginate(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, context: gtk.PrintContext, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "paginate", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectPaginateSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, context: gtk.PrintContext) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "paginate", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectPreview(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, preview: gtk.PrintOperationPreview, context: gtk.PrintContext, parent: gtk.Window, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "preview", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectPreviewSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, preview: gtk.PrintOperationPreview, context: gtk.PrintContext, parent: gtk.Window) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "preview", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectRequestPageSetup(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, context: gtk.PrintContext, page_nr: i32, setup: gtk.PageSetup, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "request-page-setup", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectRequestPageSetupSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, context: gtk.PrintContext, page_nr: i32, setup: gtk.PageSetup) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "request-page-setup", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectStatusChanged(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "status-changed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectStatusChangedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "status-changed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectUpdateCustomWidget(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, widget: gtk.Widget, setup: gtk.PageSetup, settings: gtk.PrintSettings, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "update-custom-widget", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectUpdateCustomWidgetSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, widget: gtk.Widget, setup: gtk.PageSetup, settings: gtk.PrintSettings) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "update-custom-widget", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectNotify(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectNotifySwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
 
 

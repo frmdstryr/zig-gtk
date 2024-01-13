@@ -159,80 +159,144 @@ pub const MountOperation = extern struct {
 
 
     // Signals
-    pub const Signals = enum(u8) {
-        aborted = 0,
-        ask_password = 1,
-        ask_question = 2,
-        reply = 3,
-        show_processes = 4,
-        show_unmount_progress = 5,
-        notify = 6,
-    };
-
-    pub const SignalNames = [_][:0]const u8{
-        "aborted",
-        "ask-password",
-        "ask-question",
-        "reply",
-        "show-processes",
-        "show-unmount-progress",
-        "notify",
-    };
-
-    // Signals
-
-    // Connect to a signal with no arguments and optional user data
-    pub inline fn connectSignal(
+    pub inline fn connectAborted(
         self: *Self,
-        signal: Signals,
         comptime T: type,
         callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
+        data: ?*T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, "aborted", @ptrCast(callback), data, null, @intFromEnum(flags));
     }
 
-    // Connect to a signal with a typed argument and optional user data
-    pub inline fn connectSignalWithArg(
+    pub inline fn connectAbortedSwapped(
         self: *Self,
-        signal: Signals,
-        comptime ArgType: type,
-        comptime UserDataType: type,
-        callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with no type validation
-    pub inline fn connectSignalAnytype(
-        self: *Self,
-        signal: Signals,
-        callback: anytype,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with a no arguments and optional user data
-    pub inline fn connectSignalAfter(
-        self: *Self,
-        signal: Signals,
-        comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
-    }
-
-    pub inline fn connectSignalSwapped(
-        self: *Self,
-        signal: Signals,
         comptime T: type,
         callback: *const fn (data: *T) callconv(.C) void,
-        data: anytype
+        data: *T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
+        return c.g_signal_connect_data(self, "aborted", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectAskPassword(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, message: [*c]const u8, default_user: [*c]const u8, default_domain: [*c]const u8, flags: gio.AskPasswordFlags, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "ask-password", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectAskPasswordSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, message: [*c]const u8, default_user: [*c]const u8, default_domain: [*c]const u8, flags: gio.AskPasswordFlags) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "ask-password", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectAskQuestion(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, message: [*c]const u8, choices: [*c][*c]const u8, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "ask-question", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectAskQuestionSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, message: [*c]const u8, choices: [*c][*c]const u8) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "ask-question", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectReply(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, result: gio.MountOperationResult, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "reply", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectReplySwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, result: gio.MountOperationResult) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "reply", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectShowProcesses(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, message: [*c]const u8, processes: [*c]i32, choices: [*c][*c]const u8, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "show-processes", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectShowProcessesSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, message: [*c]const u8, processes: [*c]i32, choices: [*c][*c]const u8) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "show-processes", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectShowUnmountProgress(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, message: [*c]const u8, time_left: i64, bytes_left: i64, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "show-unmount-progress", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectShowUnmountProgressSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, message: [*c]const u8, time_left: i64, bytes_left: i64) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "show-unmount-progress", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectNotify(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectNotifySwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
 
 

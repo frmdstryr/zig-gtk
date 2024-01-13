@@ -120,92 +120,264 @@ pub const NativeVolumeMonitor = extern struct {
 
 
     // Signals
-    pub const Signals = enum(u8) {
-        drive_changed = 0,
-        drive_connected = 1,
-        drive_disconnected = 2,
-        drive_eject_button = 3,
-        drive_stop_button = 4,
-        mount_added = 5,
-        mount_changed = 6,
-        mount_pre_unmount = 7,
-        mount_removed = 8,
-        volume_added = 9,
-        volume_changed = 10,
-        volume_removed = 11,
-        notify = 12,
-    };
-
-    pub const SignalNames = [_][:0]const u8{
-        "drive-changed",
-        "drive-connected",
-        "drive-disconnected",
-        "drive-eject-button",
-        "drive-stop-button",
-        "mount-added",
-        "mount-changed",
-        "mount-pre-unmount",
-        "mount-removed",
-        "volume-added",
-        "volume-changed",
-        "volume-removed",
-        "notify",
-    };
-
-    // Signals
-
-    // Connect to a signal with no arguments and optional user data
-    pub inline fn connectSignal(
+    pub inline fn connectDriveChanged(
         self: *Self,
-        signal: Signals,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
+        callback: *const fn (self: *Self, drive: gio.Drive, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
+        return c.g_signal_connect_data(self, "drive-changed", @ptrCast(callback), data, null, @intFromEnum(flags));
     }
 
-    // Connect to a signal with a typed argument and optional user data
-    pub inline fn connectSignalWithArg(
+    pub inline fn connectDriveChangedSwapped(
         self: *Self,
-        signal: Signals,
-        comptime ArgType: type,
-        comptime UserDataType: type,
-        callback: *const fn (self: *Self, value: ArgType, data: ?*UserDataType) callconv(.C) void,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with no type validation
-    pub inline fn connectSignalAnytype(
-        self: *Self,
-        signal: Signals,
-        callback: anytype,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, 0));
-    }
-
-    // Connect to a signal with a no arguments and optional user data
-    pub inline fn connectSignalAfter(
-        self: *Self,
-        signal: Signals,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
-        data: anytype
+        callback: *const fn (data: *T, drive: gio.Drive) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
+        return c.g_signal_connect_data(self, "drive-changed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
 
-    pub inline fn connectSignalSwapped(
+    pub inline fn connectDriveConnected(
         self: *Self,
-        signal: Signals,
         comptime T: type,
-        callback: *const fn (data: *T) callconv(.C) void,
-        data: anytype
+        callback: *const fn (self: *Self, drive: gio.Drive, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
     ) u64 {
-        return c.g_signal_connect_data(self, SignalNames[@intFromEnum(signal)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_SWAPPED));
+        return c.g_signal_connect_data(self, "drive-connected", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectDriveConnectedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, drive: gio.Drive) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "drive-connected", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectDriveDisconnected(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, drive: gio.Drive, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "drive-disconnected", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectDriveDisconnectedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, drive: gio.Drive) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "drive-disconnected", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectDriveEjectButton(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, drive: gio.Drive, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "drive-eject-button", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectDriveEjectButtonSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, drive: gio.Drive) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "drive-eject-button", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectDriveStopButton(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, drive: gio.Drive, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "drive-stop-button", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectDriveStopButtonSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, drive: gio.Drive) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "drive-stop-button", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectMountAdded(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, mount: gio.Mount, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mount-added", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectMountAddedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, mount: gio.Mount) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mount-added", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectMountChanged(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, mount: gio.Mount, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mount-changed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectMountChangedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, mount: gio.Mount) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mount-changed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectMountPreUnmount(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, mount: gio.Mount, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mount-pre-unmount", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectMountPreUnmountSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, mount: gio.Mount) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mount-pre-unmount", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectMountRemoved(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, mount: gio.Mount, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mount-removed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectMountRemovedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, mount: gio.Mount) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "mount-removed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectVolumeAdded(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, volume: gio.Volume, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "volume-added", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectVolumeAddedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, volume: gio.Volume) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "volume-added", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectVolumeChanged(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, volume: gio.Volume, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "volume-changed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectVolumeChangedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, volume: gio.Volume) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "volume-changed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectVolumeRemoved(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, volume: gio.Volume, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "volume-removed", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectVolumeRemovedSwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, volume: gio.Volume) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "volume-removed", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
+    }
+
+    pub inline fn connectNotify(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        data: ?*T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @intFromEnum(flags));
+    }
+
+    pub inline fn connectNotifySwapped(
+        self: *Self,
+        comptime T: type,
+        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        data: *T,
+        flags: gobject.ConnectFlags
+    ) u64 {
+        return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
 
 
