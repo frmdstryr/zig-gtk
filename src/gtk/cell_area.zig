@@ -219,7 +219,7 @@ pub const CellArea = extern struct {
     pub inline fn connectAddEditable(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, renderer: gtk.CellRenderer, editable: gtk.CellEditable, cell_area: gdk.Rectangle, path: [*c]const u8, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, renderer: *gtk.CellRenderer, editable: *gtk.CellEditable, cell_area: *gdk.Rectangle, path: [*c]const u8, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -229,7 +229,7 @@ pub const CellArea = extern struct {
     pub inline fn connectAddEditableSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, renderer: gtk.CellRenderer, editable: gtk.CellEditable, cell_area: gdk.Rectangle, path: [*c]const u8) callconv(.C) void,
+        callback: *const fn (data: *T, renderer: *gtk.CellRenderer, editable: *gtk.CellEditable, cell_area: *gdk.Rectangle, path: [*c]const u8) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -239,7 +239,7 @@ pub const CellArea = extern struct {
     pub inline fn connectApplyAttributes(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, model: gtk.TreeModel, iter: gtk.TreeIter, is_expander: bool, is_expanded: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, model: *gtk.TreeModel, iter: *gtk.TreeIter, is_expander: bool, is_expanded: bool, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -249,7 +249,7 @@ pub const CellArea = extern struct {
     pub inline fn connectApplyAttributesSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, model: gtk.TreeModel, iter: gtk.TreeIter, is_expander: bool, is_expanded: bool) callconv(.C) void,
+        callback: *const fn (data: *T, model: *gtk.TreeModel, iter: *gtk.TreeIter, is_expander: bool, is_expanded: bool) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -259,7 +259,7 @@ pub const CellArea = extern struct {
     pub inline fn connectFocusChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, renderer: gtk.CellRenderer, path: [*c]const u8, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, renderer: *gtk.CellRenderer, path: [*c]const u8, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -269,7 +269,7 @@ pub const CellArea = extern struct {
     pub inline fn connectFocusChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, renderer: gtk.CellRenderer, path: [*c]const u8) callconv(.C) void,
+        callback: *const fn (data: *T, renderer: *gtk.CellRenderer, path: [*c]const u8) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -279,7 +279,7 @@ pub const CellArea = extern struct {
     pub inline fn connectRemoveEditable(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, renderer: gtk.CellRenderer, editable: gtk.CellEditable, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, renderer: *gtk.CellRenderer, editable: *gtk.CellEditable, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -289,7 +289,7 @@ pub const CellArea = extern struct {
     pub inline fn connectRemoveEditableSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, renderer: gtk.CellRenderer, editable: gtk.CellEditable) callconv(.C) void,
+        callback: *const fn (data: *T, renderer: *gtk.CellRenderer, editable: *gtk.CellEditable) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -299,7 +299,7 @@ pub const CellArea = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -309,7 +309,7 @@ pub const CellArea = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

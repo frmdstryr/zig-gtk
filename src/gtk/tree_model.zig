@@ -93,7 +93,7 @@ pub const TreeModel = extern struct {
     pub inline fn connectRowChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, path: gtk.TreePath, iter: gtk.TreeIter, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, path: *gtk.TreePath, iter: *gtk.TreeIter, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -103,7 +103,7 @@ pub const TreeModel = extern struct {
     pub inline fn connectRowChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, path: gtk.TreePath, iter: gtk.TreeIter) callconv(.C) void,
+        callback: *const fn (data: *T, path: *gtk.TreePath, iter: *gtk.TreeIter) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -113,7 +113,7 @@ pub const TreeModel = extern struct {
     pub inline fn connectRowDeleted(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, path: gtk.TreePath, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, path: *gtk.TreePath, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -123,7 +123,7 @@ pub const TreeModel = extern struct {
     pub inline fn connectRowDeletedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, path: gtk.TreePath) callconv(.C) void,
+        callback: *const fn (data: *T, path: *gtk.TreePath) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -133,7 +133,7 @@ pub const TreeModel = extern struct {
     pub inline fn connectRowHasChildToggled(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, path: gtk.TreePath, iter: gtk.TreeIter, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, path: *gtk.TreePath, iter: *gtk.TreeIter, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -143,7 +143,7 @@ pub const TreeModel = extern struct {
     pub inline fn connectRowHasChildToggledSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, path: gtk.TreePath, iter: gtk.TreeIter) callconv(.C) void,
+        callback: *const fn (data: *T, path: *gtk.TreePath, iter: *gtk.TreeIter) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -153,7 +153,7 @@ pub const TreeModel = extern struct {
     pub inline fn connectRowInserted(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, path: gtk.TreePath, iter: gtk.TreeIter, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, path: *gtk.TreePath, iter: *gtk.TreeIter, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -163,7 +163,7 @@ pub const TreeModel = extern struct {
     pub inline fn connectRowInsertedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, path: gtk.TreePath, iter: gtk.TreeIter) callconv(.C) void,
+        callback: *const fn (data: *T, path: *gtk.TreePath, iter: *gtk.TreeIter) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

@@ -307,7 +307,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectApplyTag(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, tag: gtk.TextTag, start: gtk.TextIter, end: gtk.TextIter, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, tag: *gtk.TextTag, start: *gtk.TextIter, end: *gtk.TextIter, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -317,7 +317,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectApplyTagSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, tag: gtk.TextTag, start: gtk.TextIter, end: gtk.TextIter) callconv(.C) void,
+        callback: *const fn (data: *T, tag: *gtk.TextTag, start: *gtk.TextIter, end: *gtk.TextIter) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -367,7 +367,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectDeleteRange(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, start: gtk.TextIter, end: gtk.TextIter, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, start: *gtk.TextIter, end: *gtk.TextIter, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -377,7 +377,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectDeleteRangeSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, start: gtk.TextIter, end: gtk.TextIter) callconv(.C) void,
+        callback: *const fn (data: *T, start: *gtk.TextIter, end: *gtk.TextIter) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -407,7 +407,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectInsertChildAnchor(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, location: gtk.TextIter, anchor: gtk.TextChildAnchor, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, location: *gtk.TextIter, anchor: *gtk.TextChildAnchor, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -417,7 +417,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectInsertChildAnchorSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, location: gtk.TextIter, anchor: gtk.TextChildAnchor) callconv(.C) void,
+        callback: *const fn (data: *T, location: *gtk.TextIter, anchor: *gtk.TextChildAnchor) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -427,7 +427,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectInsertPaintable(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, location: gtk.TextIter, paintable: gdk.Paintable, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, location: *gtk.TextIter, paintable: *gdk.Paintable, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -437,7 +437,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectInsertPaintableSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, location: gtk.TextIter, paintable: gdk.Paintable) callconv(.C) void,
+        callback: *const fn (data: *T, location: *gtk.TextIter, paintable: *gdk.Paintable) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -447,7 +447,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectInsertText(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, location: gtk.TextIter, text: [*c]const u8, len: i32, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, location: *gtk.TextIter, text: [*c]const u8, len: i32, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -457,7 +457,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectInsertTextSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, location: gtk.TextIter, text: [*c]const u8, len: i32) callconv(.C) void,
+        callback: *const fn (data: *T, location: *gtk.TextIter, text: [*c]const u8, len: i32) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -467,7 +467,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectMarkDeleted(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, mark: gtk.TextMark, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, mark: *gtk.TextMark, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -477,7 +477,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectMarkDeletedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, mark: gtk.TextMark) callconv(.C) void,
+        callback: *const fn (data: *T, mark: *gtk.TextMark) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -487,7 +487,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectMarkSet(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, location: gtk.TextIter, mark: gtk.TextMark, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, location: *gtk.TextIter, mark: *gtk.TextMark, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -497,7 +497,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectMarkSetSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, location: gtk.TextIter, mark: gtk.TextMark) callconv(.C) void,
+        callback: *const fn (data: *T, location: *gtk.TextIter, mark: *gtk.TextMark) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -527,7 +527,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectPasteDone(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, clipboard: gdk.Clipboard, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, clipboard: *gdk.Clipboard, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -537,7 +537,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectPasteDoneSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, clipboard: gdk.Clipboard) callconv(.C) void,
+        callback: *const fn (data: *T, clipboard: *gdk.Clipboard) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -567,7 +567,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectRemoveTag(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, tag: gtk.TextTag, start: gtk.TextIter, end: gtk.TextIter, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, tag: *gtk.TextTag, start: *gtk.TextIter, end: *gtk.TextIter, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -577,7 +577,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectRemoveTagSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, tag: gtk.TextTag, start: gtk.TextIter, end: gtk.TextIter) callconv(.C) void,
+        callback: *const fn (data: *T, tag: *gtk.TextTag, start: *gtk.TextIter, end: *gtk.TextIter) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -607,7 +607,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -617,7 +617,7 @@ pub const TextBuffer = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

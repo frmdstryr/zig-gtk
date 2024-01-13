@@ -275,7 +275,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectUnpairedRelease(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, x: f64, y: f64, button: u32, sequence: gdk.EventSequence, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, x: f64, y: f64, button: u32, sequence: *gdk.EventSequence, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -285,7 +285,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectUnpairedReleaseSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, x: f64, y: f64, button: u32, sequence: gdk.EventSequence) callconv(.C) void,
+        callback: *const fn (data: *T, x: f64, y: f64, button: u32, sequence: *gdk.EventSequence) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -295,7 +295,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectBegin(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, sequence: gdk.EventSequence, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, sequence: *gdk.EventSequence, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -305,7 +305,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectBeginSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, sequence: gdk.EventSequence) callconv(.C) void,
+        callback: *const fn (data: *T, sequence: *gdk.EventSequence) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -315,7 +315,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectCancel(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, sequence: gdk.EventSequence, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, sequence: *gdk.EventSequence, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -325,7 +325,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectCancelSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, sequence: gdk.EventSequence) callconv(.C) void,
+        callback: *const fn (data: *T, sequence: *gdk.EventSequence) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -335,7 +335,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectEnd(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, sequence: gdk.EventSequence, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, sequence: *gdk.EventSequence, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -345,7 +345,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectEndSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, sequence: gdk.EventSequence) callconv(.C) void,
+        callback: *const fn (data: *T, sequence: *gdk.EventSequence) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -355,7 +355,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectSequenceStateChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, sequence: gdk.EventSequence, state: gtk.EventSequenceState, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, sequence: *gdk.EventSequence, state: *gtk.EventSequenceState, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -365,7 +365,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectSequenceStateChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, sequence: gdk.EventSequence, state: gtk.EventSequenceState) callconv(.C) void,
+        callback: *const fn (data: *T, sequence: *gdk.EventSequence, state: *gtk.EventSequenceState) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -375,7 +375,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectUpdate(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, sequence: gdk.EventSequence, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, sequence: *gdk.EventSequence, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -385,7 +385,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectUpdateSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, sequence: gdk.EventSequence) callconv(.C) void,
+        callback: *const fn (data: *T, sequence: *gdk.EventSequence) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -395,7 +395,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -405,7 +405,7 @@ pub const GestureClick = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

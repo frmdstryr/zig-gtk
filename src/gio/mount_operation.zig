@@ -182,7 +182,7 @@ pub const MountOperation = extern struct {
     pub inline fn connectAskPassword(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, message: [*c]const u8, default_user: [*c]const u8, default_domain: [*c]const u8, flags: gio.AskPasswordFlags, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, message: [*c]const u8, default_user: [*c]const u8, default_domain: [*c]const u8, flags: *gio.AskPasswordFlags, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -192,7 +192,7 @@ pub const MountOperation = extern struct {
     pub inline fn connectAskPasswordSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, message: [*c]const u8, default_user: [*c]const u8, default_domain: [*c]const u8, flags: gio.AskPasswordFlags) callconv(.C) void,
+        callback: *const fn (data: *T, message: [*c]const u8, default_user: [*c]const u8, default_domain: [*c]const u8, flags: *gio.AskPasswordFlags) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -222,7 +222,7 @@ pub const MountOperation = extern struct {
     pub inline fn connectReply(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, result: gio.MountOperationResult, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, result: *gio.MountOperationResult, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -232,7 +232,7 @@ pub const MountOperation = extern struct {
     pub inline fn connectReplySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, result: gio.MountOperationResult) callconv(.C) void,
+        callback: *const fn (data: *T, result: *gio.MountOperationResult) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -282,7 +282,7 @@ pub const MountOperation = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -292,7 +292,7 @@ pub const MountOperation = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

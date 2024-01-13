@@ -119,7 +119,7 @@ pub const Seat = extern struct {
     pub inline fn connectDeviceAdded(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, device: gdk.Device, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, device: *gdk.Device, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -129,7 +129,7 @@ pub const Seat = extern struct {
     pub inline fn connectDeviceAddedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, device: gdk.Device) callconv(.C) void,
+        callback: *const fn (data: *T, device: *gdk.Device) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -139,7 +139,7 @@ pub const Seat = extern struct {
     pub inline fn connectDeviceRemoved(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, device: gdk.Device, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, device: *gdk.Device, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -149,7 +149,7 @@ pub const Seat = extern struct {
     pub inline fn connectDeviceRemovedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, device: gdk.Device) callconv(.C) void,
+        callback: *const fn (data: *T, device: *gdk.Device) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -159,7 +159,7 @@ pub const Seat = extern struct {
     pub inline fn connectToolAdded(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, tool: gdk.DeviceTool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, tool: *gdk.DeviceTool, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -169,7 +169,7 @@ pub const Seat = extern struct {
     pub inline fn connectToolAddedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, tool: gdk.DeviceTool) callconv(.C) void,
+        callback: *const fn (data: *T, tool: *gdk.DeviceTool) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -179,7 +179,7 @@ pub const Seat = extern struct {
     pub inline fn connectToolRemoved(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, tool: gdk.DeviceTool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, tool: *gdk.DeviceTool, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -189,7 +189,7 @@ pub const Seat = extern struct {
     pub inline fn connectToolRemovedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, tool: gdk.DeviceTool) callconv(.C) void,
+        callback: *const fn (data: *T, tool: *gdk.DeviceTool) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -199,7 +199,7 @@ pub const Seat = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -209,7 +209,7 @@ pub const Seat = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

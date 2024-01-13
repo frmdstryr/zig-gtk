@@ -116,7 +116,7 @@ pub const DisplayManager = extern struct {
     pub inline fn connectDisplayOpened(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, display: gdk.Display, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, display: *gdk.Display, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -126,7 +126,7 @@ pub const DisplayManager = extern struct {
     pub inline fn connectDisplayOpenedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, display: gdk.Display) callconv(.C) void,
+        callback: *const fn (data: *T, display: *gdk.Display) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -136,7 +136,7 @@ pub const DisplayManager = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -146,7 +146,7 @@ pub const DisplayManager = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

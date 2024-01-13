@@ -123,7 +123,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectDriveChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, drive: gio.Drive, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, drive: *gio.Drive, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -133,7 +133,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectDriveChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, drive: gio.Drive) callconv(.C) void,
+        callback: *const fn (data: *T, drive: *gio.Drive) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -143,7 +143,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectDriveConnected(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, drive: gio.Drive, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, drive: *gio.Drive, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -153,7 +153,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectDriveConnectedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, drive: gio.Drive) callconv(.C) void,
+        callback: *const fn (data: *T, drive: *gio.Drive) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -163,7 +163,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectDriveDisconnected(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, drive: gio.Drive, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, drive: *gio.Drive, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -173,7 +173,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectDriveDisconnectedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, drive: gio.Drive) callconv(.C) void,
+        callback: *const fn (data: *T, drive: *gio.Drive) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -183,7 +183,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectDriveEjectButton(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, drive: gio.Drive, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, drive: *gio.Drive, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -193,7 +193,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectDriveEjectButtonSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, drive: gio.Drive) callconv(.C) void,
+        callback: *const fn (data: *T, drive: *gio.Drive) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -203,7 +203,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectDriveStopButton(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, drive: gio.Drive, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, drive: *gio.Drive, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -213,7 +213,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectDriveStopButtonSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, drive: gio.Drive) callconv(.C) void,
+        callback: *const fn (data: *T, drive: *gio.Drive) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -223,7 +223,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectMountAdded(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, mount: gio.Mount, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, mount: *gio.Mount, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -233,7 +233,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectMountAddedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, mount: gio.Mount) callconv(.C) void,
+        callback: *const fn (data: *T, mount: *gio.Mount) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -243,7 +243,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectMountChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, mount: gio.Mount, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, mount: *gio.Mount, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -253,7 +253,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectMountChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, mount: gio.Mount) callconv(.C) void,
+        callback: *const fn (data: *T, mount: *gio.Mount) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -263,7 +263,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectMountPreUnmount(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, mount: gio.Mount, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, mount: *gio.Mount, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -273,7 +273,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectMountPreUnmountSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, mount: gio.Mount) callconv(.C) void,
+        callback: *const fn (data: *T, mount: *gio.Mount) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -283,7 +283,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectMountRemoved(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, mount: gio.Mount, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, mount: *gio.Mount, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -293,7 +293,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectMountRemovedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, mount: gio.Mount) callconv(.C) void,
+        callback: *const fn (data: *T, mount: *gio.Mount) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -303,7 +303,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectVolumeAdded(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, volume: gio.Volume, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, volume: *gio.Volume, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -313,7 +313,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectVolumeAddedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, volume: gio.Volume) callconv(.C) void,
+        callback: *const fn (data: *T, volume: *gio.Volume) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -323,7 +323,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectVolumeChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, volume: gio.Volume, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, volume: *gio.Volume, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -333,7 +333,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectVolumeChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, volume: gio.Volume) callconv(.C) void,
+        callback: *const fn (data: *T, volume: *gio.Volume) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -343,7 +343,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectVolumeRemoved(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, volume: gio.Volume, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, volume: *gio.Volume, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -353,7 +353,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectVolumeRemovedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, volume: gio.Volume) callconv(.C) void,
+        callback: *const fn (data: *T, volume: *gio.Volume) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -363,7 +363,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -373,7 +373,7 @@ pub const NativeVolumeMonitor = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

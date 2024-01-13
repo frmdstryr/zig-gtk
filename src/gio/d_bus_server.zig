@@ -121,7 +121,7 @@ pub const DBusServer = extern struct {
     pub inline fn connectNewConnection(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, connection: gio.DBusConnection, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, connection: *gio.DBusConnection, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -131,7 +131,7 @@ pub const DBusServer = extern struct {
     pub inline fn connectNewConnectionSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, connection: gio.DBusConnection) callconv(.C) void,
+        callback: *const fn (data: *T, connection: *gio.DBusConnection) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -141,7 +141,7 @@ pub const DBusServer = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -151,7 +151,7 @@ pub const DBusServer = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

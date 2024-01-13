@@ -27,7 +27,7 @@ pub const PrintOperationPreview = extern struct {
     pub inline fn connectGotPageSize(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, context: gtk.PrintContext, page_setup: gtk.PageSetup, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, context: *gtk.PrintContext, page_setup: *gtk.PageSetup, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -37,7 +37,7 @@ pub const PrintOperationPreview = extern struct {
     pub inline fn connectGotPageSizeSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, context: gtk.PrintContext, page_setup: gtk.PageSetup) callconv(.C) void,
+        callback: *const fn (data: *T, context: *gtk.PrintContext, page_setup: *gtk.PageSetup) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -47,7 +47,7 @@ pub const PrintOperationPreview = extern struct {
     pub inline fn connectReady(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, context: gtk.PrintContext, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, context: *gtk.PrintContext, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -57,7 +57,7 @@ pub const PrintOperationPreview = extern struct {
     pub inline fn connectReadySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, context: gtk.PrintContext) callconv(.C) void,
+        callback: *const fn (data: *T, context: *gtk.PrintContext) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

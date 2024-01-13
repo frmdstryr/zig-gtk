@@ -441,6 +441,9 @@ def func_arg_type(func, arg, imports: set[str]) -> Optional[str]:
             it = f"*{it}"  # Arg is modification?
         if it.startswith("*") and arg.may_be_null():
             return f"?{it}"
+        # Hack??
+        if not it.startswith("*") and str(func).startswith("gi.SignalInfo"):
+            return f"*{it}"
         return it
     if t == "array" and (at := array_type_to_string(atype, imports)):
         return at

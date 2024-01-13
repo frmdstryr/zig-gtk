@@ -211,7 +211,7 @@ pub const CellRendererAccel = extern struct {
     pub inline fn connectAccelEdited(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, path_string: [*c]const u8, accel_key: u32, accel_mods: gdk.ModifierType, hardware_keycode: u32, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, path_string: [*c]const u8, accel_key: u32, accel_mods: *gdk.ModifierType, hardware_keycode: u32, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -221,7 +221,7 @@ pub const CellRendererAccel = extern struct {
     pub inline fn connectAccelEditedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, path_string: [*c]const u8, accel_key: u32, accel_mods: gdk.ModifierType, hardware_keycode: u32) callconv(.C) void,
+        callback: *const fn (data: *T, path_string: [*c]const u8, accel_key: u32, accel_mods: *gdk.ModifierType, hardware_keycode: u32) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -271,7 +271,7 @@ pub const CellRendererAccel = extern struct {
     pub inline fn connectEditingStarted(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, editable: gtk.CellEditable, path: [*c]const u8, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, editable: *gtk.CellEditable, path: [*c]const u8, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -281,7 +281,7 @@ pub const CellRendererAccel = extern struct {
     pub inline fn connectEditingStartedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, editable: gtk.CellEditable, path: [*c]const u8) callconv(.C) void,
+        callback: *const fn (data: *T, editable: *gtk.CellEditable, path: [*c]const u8) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -291,7 +291,7 @@ pub const CellRendererAccel = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -301,7 +301,7 @@ pub const CellRendererAccel = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

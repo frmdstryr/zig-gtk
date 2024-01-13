@@ -233,7 +233,7 @@ pub const Application = extern struct {
     pub inline fn connectCommandLine(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, command_line: gio.ApplicationCommandLine, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, command_line: *gio.ApplicationCommandLine, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -243,7 +243,7 @@ pub const Application = extern struct {
     pub inline fn connectCommandLineSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, command_line: gio.ApplicationCommandLine) callconv(.C) void,
+        callback: *const fn (data: *T, command_line: *gio.ApplicationCommandLine) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -253,7 +253,7 @@ pub const Application = extern struct {
     pub inline fn connectHandleLocalOptions(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, options: glib.VariantDict, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, options: *glib.VariantDict, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -263,7 +263,7 @@ pub const Application = extern struct {
     pub inline fn connectHandleLocalOptionsSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, options: glib.VariantDict) callconv(.C) void,
+        callback: *const fn (data: *T, options: *glib.VariantDict) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -353,7 +353,7 @@ pub const Application = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -363,7 +363,7 @@ pub const Application = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

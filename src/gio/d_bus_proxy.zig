@@ -177,7 +177,7 @@ pub const DBusProxy = extern struct {
     pub inline fn connectGPropertiesChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, changed_properties: glib.Variant, invalidated_properties: [*c][*c]const u8, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, changed_properties: *glib.Variant, invalidated_properties: [*c][*c]const u8, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -187,7 +187,7 @@ pub const DBusProxy = extern struct {
     pub inline fn connectGPropertiesChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, changed_properties: glib.Variant, invalidated_properties: [*c][*c]const u8) callconv(.C) void,
+        callback: *const fn (data: *T, changed_properties: *glib.Variant, invalidated_properties: [*c][*c]const u8) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -197,7 +197,7 @@ pub const DBusProxy = extern struct {
     pub inline fn connectGSignal(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, sender_name: [*c]const u8, signal_name: [*c]const u8, parameters: glib.Variant, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, sender_name: [*c]const u8, signal_name: [*c]const u8, parameters: *glib.Variant, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -207,7 +207,7 @@ pub const DBusProxy = extern struct {
     pub inline fn connectGSignalSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, sender_name: [*c]const u8, signal_name: [*c]const u8, parameters: glib.Variant) callconv(.C) void,
+        callback: *const fn (data: *T, sender_name: [*c]const u8, signal_name: [*c]const u8, parameters: *glib.Variant) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -217,7 +217,7 @@ pub const DBusProxy = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -227,7 +227,7 @@ pub const DBusProxy = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

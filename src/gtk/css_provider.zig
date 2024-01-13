@@ -123,7 +123,7 @@ pub const CssProvider = extern struct {
     pub inline fn connectParsingError(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, section: gtk.CssSection, error_: *glib.Error, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, section: *gtk.CssSection, error_: *glib.Error, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -133,7 +133,7 @@ pub const CssProvider = extern struct {
     pub inline fn connectParsingErrorSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, section: gtk.CssSection, error_: *glib.Error) callconv(.C) void,
+        callback: *const fn (data: *T, section: *gtk.CssSection, error_: *glib.Error) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -143,7 +143,7 @@ pub const CssProvider = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -153,7 +153,7 @@ pub const CssProvider = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

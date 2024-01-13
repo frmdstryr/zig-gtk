@@ -31,7 +31,7 @@ pub const DBusObjectManager = extern struct {
     pub inline fn connectInterfaceAdded(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, object: gio.DBusObject, interface: gio.DBusInterface, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, object: *gio.DBusObject, interface: *gio.DBusInterface, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -41,7 +41,7 @@ pub const DBusObjectManager = extern struct {
     pub inline fn connectInterfaceAddedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, object: gio.DBusObject, interface: gio.DBusInterface) callconv(.C) void,
+        callback: *const fn (data: *T, object: *gio.DBusObject, interface: *gio.DBusInterface) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -51,7 +51,7 @@ pub const DBusObjectManager = extern struct {
     pub inline fn connectInterfaceRemoved(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, object: gio.DBusObject, interface: gio.DBusInterface, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, object: *gio.DBusObject, interface: *gio.DBusInterface, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -61,7 +61,7 @@ pub const DBusObjectManager = extern struct {
     pub inline fn connectInterfaceRemovedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, object: gio.DBusObject, interface: gio.DBusInterface) callconv(.C) void,
+        callback: *const fn (data: *T, object: *gio.DBusObject, interface: *gio.DBusInterface) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -71,7 +71,7 @@ pub const DBusObjectManager = extern struct {
     pub inline fn connectObjectAdded(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, object: gio.DBusObject, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, object: *gio.DBusObject, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -81,7 +81,7 @@ pub const DBusObjectManager = extern struct {
     pub inline fn connectObjectAddedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, object: gio.DBusObject) callconv(.C) void,
+        callback: *const fn (data: *T, object: *gio.DBusObject) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -91,7 +91,7 @@ pub const DBusObjectManager = extern struct {
     pub inline fn connectObjectRemoved(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, object: gio.DBusObject, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, object: *gio.DBusObject, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -101,7 +101,7 @@ pub const DBusObjectManager = extern struct {
     pub inline fn connectObjectRemovedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, object: gio.DBusObject) callconv(.C) void,
+        callback: *const fn (data: *T, object: *gio.DBusObject) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

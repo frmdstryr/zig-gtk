@@ -115,7 +115,7 @@ pub const SimpleAction = extern struct {
     pub inline fn connectActivate(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, parameter: glib.Variant, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, parameter: *glib.Variant, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -125,7 +125,7 @@ pub const SimpleAction = extern struct {
     pub inline fn connectActivateSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, parameter: glib.Variant) callconv(.C) void,
+        callback: *const fn (data: *T, parameter: *glib.Variant) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -135,7 +135,7 @@ pub const SimpleAction = extern struct {
     pub inline fn connectChangeState(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, value: glib.Variant, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, value: *glib.Variant, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -145,7 +145,7 @@ pub const SimpleAction = extern struct {
     pub inline fn connectChangeStateSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, value: glib.Variant) callconv(.C) void,
+        callback: *const fn (data: *T, value: *glib.Variant) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -155,7 +155,7 @@ pub const SimpleAction = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -165,7 +165,7 @@ pub const SimpleAction = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

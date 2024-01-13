@@ -34,7 +34,7 @@ pub const ColorChooser = extern struct {
     pub inline fn connectColorActivated(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, color: gdk.RGBA, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, color: *gdk.RGBA, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -44,7 +44,7 @@ pub const ColorChooser = extern struct {
     pub inline fn connectColorActivatedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, color: gdk.RGBA) callconv(.C) void,
+        callback: *const fn (data: *T, color: *gdk.RGBA) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

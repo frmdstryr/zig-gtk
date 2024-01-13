@@ -118,7 +118,7 @@ pub const TextTagTable = extern struct {
     pub inline fn connectTagAdded(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, tag: gtk.TextTag, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, tag: *gtk.TextTag, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -128,7 +128,7 @@ pub const TextTagTable = extern struct {
     pub inline fn connectTagAddedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, tag: gtk.TextTag) callconv(.C) void,
+        callback: *const fn (data: *T, tag: *gtk.TextTag) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -138,7 +138,7 @@ pub const TextTagTable = extern struct {
     pub inline fn connectTagChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, tag: gtk.TextTag, size_changed: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, tag: *gtk.TextTag, size_changed: bool, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -148,7 +148,7 @@ pub const TextTagTable = extern struct {
     pub inline fn connectTagChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, tag: gtk.TextTag, size_changed: bool) callconv(.C) void,
+        callback: *const fn (data: *T, tag: *gtk.TextTag, size_changed: bool) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -158,7 +158,7 @@ pub const TextTagTable = extern struct {
     pub inline fn connectTagRemoved(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, tag: gtk.TextTag, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, tag: *gtk.TextTag, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -168,7 +168,7 @@ pub const TextTagTable = extern struct {
     pub inline fn connectTagRemovedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, tag: gtk.TextTag) callconv(.C) void,
+        callback: *const fn (data: *T, tag: *gtk.TextTag) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -178,7 +178,7 @@ pub const TextTagTable = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -188,7 +188,7 @@ pub const TextTagTable = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

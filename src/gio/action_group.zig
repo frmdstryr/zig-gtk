@@ -121,7 +121,7 @@ pub const ActionGroup = extern struct {
     pub inline fn connectActionStateChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, action_name: [*c]const u8, value: glib.Variant, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, action_name: [*c]const u8, value: *glib.Variant, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -131,7 +131,7 @@ pub const ActionGroup = extern struct {
     pub inline fn connectActionStateChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, action_name: [*c]const u8, value: glib.Variant) callconv(.C) void,
+        callback: *const fn (data: *T, action_name: [*c]const u8, value: *glib.Variant) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

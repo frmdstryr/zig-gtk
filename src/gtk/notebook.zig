@@ -751,7 +751,7 @@ pub const Notebook = extern struct {
     pub inline fn connectCreateWindow(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, page: gtk.Widget, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, page: *gtk.Widget, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -761,7 +761,7 @@ pub const Notebook = extern struct {
     pub inline fn connectCreateWindowSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, page: gtk.Widget) callconv(.C) void,
+        callback: *const fn (data: *T, page: *gtk.Widget) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -771,7 +771,7 @@ pub const Notebook = extern struct {
     pub inline fn connectFocusTab(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, object: gtk.NotebookTab, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, object: *gtk.NotebookTab, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -781,7 +781,7 @@ pub const Notebook = extern struct {
     pub inline fn connectFocusTabSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, object: gtk.NotebookTab) callconv(.C) void,
+        callback: *const fn (data: *T, object: *gtk.NotebookTab) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -791,7 +791,7 @@ pub const Notebook = extern struct {
     pub inline fn connectMoveFocusOut(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, object: gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, object: *gtk.DirectionType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -801,7 +801,7 @@ pub const Notebook = extern struct {
     pub inline fn connectMoveFocusOutSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, object: gtk.DirectionType) callconv(.C) void,
+        callback: *const fn (data: *T, object: *gtk.DirectionType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -811,7 +811,7 @@ pub const Notebook = extern struct {
     pub inline fn connectPageAdded(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, child: gtk.Widget, page_num: u32, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, child: *gtk.Widget, page_num: u32, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -821,7 +821,7 @@ pub const Notebook = extern struct {
     pub inline fn connectPageAddedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, child: gtk.Widget, page_num: u32) callconv(.C) void,
+        callback: *const fn (data: *T, child: *gtk.Widget, page_num: u32) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -831,7 +831,7 @@ pub const Notebook = extern struct {
     pub inline fn connectPageRemoved(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, child: gtk.Widget, page_num: u32, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, child: *gtk.Widget, page_num: u32, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -841,7 +841,7 @@ pub const Notebook = extern struct {
     pub inline fn connectPageRemovedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, child: gtk.Widget, page_num: u32) callconv(.C) void,
+        callback: *const fn (data: *T, child: *gtk.Widget, page_num: u32) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -851,7 +851,7 @@ pub const Notebook = extern struct {
     pub inline fn connectPageReordered(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, child: gtk.Widget, page_num: u32, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, child: *gtk.Widget, page_num: u32, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -861,7 +861,7 @@ pub const Notebook = extern struct {
     pub inline fn connectPageReorderedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, child: gtk.Widget, page_num: u32) callconv(.C) void,
+        callback: *const fn (data: *T, child: *gtk.Widget, page_num: u32) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -871,7 +871,7 @@ pub const Notebook = extern struct {
     pub inline fn connectReorderTab(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, object: gtk.DirectionType, p0: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, object: *gtk.DirectionType, p0: bool, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -881,7 +881,7 @@ pub const Notebook = extern struct {
     pub inline fn connectReorderTabSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, object: gtk.DirectionType, p0: bool) callconv(.C) void,
+        callback: *const fn (data: *T, object: *gtk.DirectionType, p0: bool) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -911,7 +911,7 @@ pub const Notebook = extern struct {
     pub inline fn connectSwitchPage(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, page: gtk.Widget, page_num: u32, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, page: *gtk.Widget, page_num: u32, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -921,7 +921,7 @@ pub const Notebook = extern struct {
     pub inline fn connectSwitchPageSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, page: gtk.Widget, page_num: u32) callconv(.C) void,
+        callback: *const fn (data: *T, page: *gtk.Widget, page_num: u32) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -951,7 +951,7 @@ pub const Notebook = extern struct {
     pub inline fn connectDirectionChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, previous_direction: gtk.TextDirection, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, previous_direction: *gtk.TextDirection, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -961,7 +961,7 @@ pub const Notebook = extern struct {
     pub inline fn connectDirectionChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, previous_direction: gtk.TextDirection) callconv(.C) void,
+        callback: *const fn (data: *T, previous_direction: *gtk.TextDirection) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -991,7 +991,7 @@ pub const Notebook = extern struct {
     pub inline fn connectKeynavFailed(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, direction: *gtk.DirectionType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1001,7 +1001,7 @@ pub const Notebook = extern struct {
     pub inline fn connectKeynavFailedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, direction: gtk.DirectionType) callconv(.C) void,
+        callback: *const fn (data: *T, direction: *gtk.DirectionType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1051,7 +1051,7 @@ pub const Notebook = extern struct {
     pub inline fn connectMoveFocus(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, direction: *gtk.DirectionType, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1061,7 +1061,7 @@ pub const Notebook = extern struct {
     pub inline fn connectMoveFocusSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, direction: gtk.DirectionType) callconv(.C) void,
+        callback: *const fn (data: *T, direction: *gtk.DirectionType) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1071,7 +1071,7 @@ pub const Notebook = extern struct {
     pub inline fn connectQueryTooltip(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, x: i32, y: i32, keyboard_mode: bool, tooltip: gtk.Tooltip, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, x: i32, y: i32, keyboard_mode: bool, tooltip: *gtk.Tooltip, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1081,7 +1081,7 @@ pub const Notebook = extern struct {
     pub inline fn connectQueryTooltipSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, x: i32, y: i32, keyboard_mode: bool, tooltip: gtk.Tooltip) callconv(.C) void,
+        callback: *const fn (data: *T, x: i32, y: i32, keyboard_mode: bool, tooltip: *gtk.Tooltip) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1131,7 +1131,7 @@ pub const Notebook = extern struct {
     pub inline fn connectStateFlagsChanged(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, flags: gtk.StateFlags, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, flags: *gtk.StateFlags, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1141,7 +1141,7 @@ pub const Notebook = extern struct {
     pub inline fn connectStateFlagsChangedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, flags: gtk.StateFlags) callconv(.C) void,
+        callback: *const fn (data: *T, flags: *gtk.StateFlags) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1191,7 +1191,7 @@ pub const Notebook = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1201,7 +1201,7 @@ pub const Notebook = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

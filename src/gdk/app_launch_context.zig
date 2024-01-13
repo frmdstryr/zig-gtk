@@ -156,7 +156,7 @@ pub const AppLaunchContext = extern struct {
     pub inline fn connectLaunchStarted(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, info: gio.AppInfo, platform_data: glib.Variant, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, info: *gio.AppInfo, platform_data: *glib.Variant, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -166,7 +166,7 @@ pub const AppLaunchContext = extern struct {
     pub inline fn connectLaunchStartedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, info: gio.AppInfo, platform_data: glib.Variant) callconv(.C) void,
+        callback: *const fn (data: *T, info: *gio.AppInfo, platform_data: *glib.Variant) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -176,7 +176,7 @@ pub const AppLaunchContext = extern struct {
     pub inline fn connectLaunched(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, info: gio.AppInfo, platform_data: glib.Variant, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, info: *gio.AppInfo, platform_data: *glib.Variant, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -186,7 +186,7 @@ pub const AppLaunchContext = extern struct {
     pub inline fn connectLaunchedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, info: gio.AppInfo, platform_data: glib.Variant) callconv(.C) void,
+        callback: *const fn (data: *T, info: *gio.AppInfo, platform_data: *glib.Variant) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -196,7 +196,7 @@ pub const AppLaunchContext = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -206,7 +206,7 @@ pub const AppLaunchContext = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

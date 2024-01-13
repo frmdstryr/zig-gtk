@@ -21,7 +21,7 @@ pub const MemoryMonitor = extern struct {
     pub inline fn connectLowMemoryWarning(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, level: gio.MemoryMonitorWarningLevel, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, level: *gio.MemoryMonitorWarningLevel, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -31,7 +31,7 @@ pub const MemoryMonitor = extern struct {
     pub inline fn connectLowMemoryWarningSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, level: gio.MemoryMonitorWarningLevel) callconv(.C) void,
+        callback: *const fn (data: *T, level: *gio.MemoryMonitorWarningLevel) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

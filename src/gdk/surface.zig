@@ -179,7 +179,7 @@ pub const Surface = extern struct {
     pub inline fn connectEnterMonitor(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, monitor: gdk.Monitor, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, monitor: *gdk.Monitor, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -189,7 +189,7 @@ pub const Surface = extern struct {
     pub inline fn connectEnterMonitorSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, monitor: gdk.Monitor) callconv(.C) void,
+        callback: *const fn (data: *T, monitor: *gdk.Monitor) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -239,7 +239,7 @@ pub const Surface = extern struct {
     pub inline fn connectLeaveMonitor(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, monitor: gdk.Monitor, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, monitor: *gdk.Monitor, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -249,7 +249,7 @@ pub const Surface = extern struct {
     pub inline fn connectLeaveMonitorSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, monitor: gdk.Monitor) callconv(.C) void,
+        callback: *const fn (data: *T, monitor: *gdk.Monitor) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -259,7 +259,7 @@ pub const Surface = extern struct {
     pub inline fn connectRender(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, region: cairo.Region, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, region: *cairo.Region, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -269,7 +269,7 @@ pub const Surface = extern struct {
     pub inline fn connectRenderSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, region: cairo.Region) callconv(.C) void,
+        callback: *const fn (data: *T, region: *cairo.Region) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -279,7 +279,7 @@ pub const Surface = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -289,7 +289,7 @@ pub const Surface = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

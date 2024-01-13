@@ -172,7 +172,7 @@ pub const EntryCompletion = extern struct {
     pub inline fn connectCursorOnMatch(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, model: gtk.TreeModel, iter: gtk.TreeIter, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, model: *gtk.TreeModel, iter: *gtk.TreeIter, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -182,7 +182,7 @@ pub const EntryCompletion = extern struct {
     pub inline fn connectCursorOnMatchSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, model: gtk.TreeModel, iter: gtk.TreeIter) callconv(.C) void,
+        callback: *const fn (data: *T, model: *gtk.TreeModel, iter: *gtk.TreeIter) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -212,7 +212,7 @@ pub const EntryCompletion = extern struct {
     pub inline fn connectMatchSelected(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, model: gtk.TreeModel, iter: gtk.TreeIter, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, model: *gtk.TreeModel, iter: *gtk.TreeIter, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -222,7 +222,7 @@ pub const EntryCompletion = extern struct {
     pub inline fn connectMatchSelectedSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, model: gtk.TreeModel, iter: gtk.TreeIter) callconv(.C) void,
+        callback: *const fn (data: *T, model: *gtk.TreeModel, iter: *gtk.TreeIter) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -252,7 +252,7 @@ pub const EntryCompletion = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -262,7 +262,7 @@ pub const EntryCompletion = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

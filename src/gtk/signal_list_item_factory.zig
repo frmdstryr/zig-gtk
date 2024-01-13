@@ -103,7 +103,7 @@ pub const SignalListItemFactory = extern struct {
     pub inline fn connectBind(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, listitem: gtk.ListItem, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, listitem: *gtk.ListItem, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -113,7 +113,7 @@ pub const SignalListItemFactory = extern struct {
     pub inline fn connectBindSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, listitem: gtk.ListItem) callconv(.C) void,
+        callback: *const fn (data: *T, listitem: *gtk.ListItem) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -123,7 +123,7 @@ pub const SignalListItemFactory = extern struct {
     pub inline fn connectSetup(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, listitem: gtk.ListItem, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, listitem: *gtk.ListItem, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -133,7 +133,7 @@ pub const SignalListItemFactory = extern struct {
     pub inline fn connectSetupSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, listitem: gtk.ListItem) callconv(.C) void,
+        callback: *const fn (data: *T, listitem: *gtk.ListItem) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -143,7 +143,7 @@ pub const SignalListItemFactory = extern struct {
     pub inline fn connectTeardown(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, listitem: gtk.ListItem, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, listitem: *gtk.ListItem, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -153,7 +153,7 @@ pub const SignalListItemFactory = extern struct {
     pub inline fn connectTeardownSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, listitem: gtk.ListItem) callconv(.C) void,
+        callback: *const fn (data: *T, listitem: *gtk.ListItem) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -163,7 +163,7 @@ pub const SignalListItemFactory = extern struct {
     pub inline fn connectUnbind(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, listitem: gtk.ListItem, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, listitem: *gtk.ListItem, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -173,7 +173,7 @@ pub const SignalListItemFactory = extern struct {
     pub inline fn connectUnbindSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, listitem: gtk.ListItem) callconv(.C) void,
+        callback: *const fn (data: *T, listitem: *gtk.ListItem) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -183,7 +183,7 @@ pub const SignalListItemFactory = extern struct {
     pub inline fn connectNotify(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, pspec: gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, pspec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -193,7 +193,7 @@ pub const SignalListItemFactory = extern struct {
     pub inline fn connectNotifySwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, pspec: gobject.ParamSpec) callconv(.C) void,
+        callback: *const fn (data: *T, pspec: *gobject.ParamSpec) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {
