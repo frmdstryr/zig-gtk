@@ -157,6 +157,9 @@ METHOD_OVERRIDES: dict[type, dict[str, list[str]]] = {
 
 FIELD_DEFAULTS: dict[type, dict[str, list[str]]] = {
     Gio.ActionEntry: {
+        "parameter_type": "null",
+        "state": "null",
+        "change_state": "null",
         "padding": "undefined",
     },
     GObject.Value: {
@@ -638,6 +641,9 @@ def generate_class(ns: str, Cls: type):
 
                     if default := field_default(Cls, field_type, field_name):
                         default_value = f" = {default}"
+                        # Make optional
+                        if default == "null" and field_type.startswith("*const fn"):
+                            field_type = f"?{field_type}"
                     else:
                         default_value = ""
                     out.append(
