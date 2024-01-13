@@ -66,9 +66,7 @@ EXCLUDED_CONSTANTS = {
     },
 }
 
-EXCLUDED_ENUMS = {
-    "GTK_ALIGN_BASELINE_FILL"
-}
+EXCLUDED_ENUMS = {"GTK_ALIGN_BASELINE_FILL"}
 
 # Half of them start with G_ other start with GLIB_
 GLIB_CONSTANTS = (
@@ -201,7 +199,6 @@ WIDGET_METHODS = """    // Utility methods
 """
 
 
-
 # List of methods to redefine
 METHOD_OVERRIDES: dict[type, dict[str, list[str]]] = {
     GdkPixbuf.Pixbuf: {
@@ -216,9 +213,19 @@ METHOD_OVERRIDES: dict[type, dict[str, list[str]]] = {
     }
 }
 
-# List of methods to add
-EXTRA_METHODS: dict[type, list[str]] = {
+FIELD_DEFAULTS: dict[type, dict[str, list[str]]] = {
+    Gio.ActionEntry: {
+        "padding": "undefined",
+    },
+    GObject.Value: {
+        "g_type": "0",
+        "data": "[2]?*anyopaque{null, null}",
+    },
 }
+
+
+# List of methods to add
+EXTRA_METHODS: dict[type, list[str]] = {}
 
 # Lines added to the top of each api file
 EXTRA_API_IMPORTS: dict[str, list[str]] = {}
@@ -357,7 +364,6 @@ EXTRA_API_DEFS: dict[str, list[str]] = {
 }
 
 
-
 def generate_enums(enums: list) -> list[str]:
     out = HEADER_LINES + [
         'const std = @import("std");',
@@ -479,7 +485,7 @@ def func_arg_type(func, arg, imports: set[str]) -> Optional[str]:
         if "." in r:
             imports.add(r.split(".")[0].strip("?*"))
         if arg.get_ownership_transfer() == 2:
-            return f"*{r}" # Return value ?
+            return f"*{r}"  # Return value ?
         return r
     if t == "interface" and (it := interface_type_to_string(atype, imports)):
         if arg.is_caller_allocates() and not it.startswith("*"):
@@ -536,7 +542,7 @@ def array_type_to_string(atype, imports) -> Optional[str]:
     pt = ptype.get_tag_as_string()
     array_type = None
     if pt == "void":
-        array_type = "?*anyopaque" # HACK for [*c]void
+        array_type = "?*anyopaque"  # HACK for [*c]void
     elif pt in TYPE_MAP:
         array_type = TYPE_MAP[pt]
     elif pt == "interface" and (array_type := interface_type_to_string(ptype, imports)):
@@ -589,6 +595,14 @@ def all_parents(info):
     return mro
 
 
+def field_default(Cls: type, field_type: str, field_name: str) -> Optional[str]:
+    default_value = None
+    if default_entries := FIELD_DEFAULTS.get(Cls):
+        if default_value := default_entries.get(field_name):
+            return default_value
+    return default_value
+
+
 def generate_class(ns: str, Cls: type):
     print(f"Generating class {Cls}")
     info = getattr(Cls, "__info__", None)
@@ -607,7 +621,6 @@ def generate_class(ns: str, Cls: type):
         summary += f" align({info.get_alignment()})"
     if hasattr(info, "get_size"):
         summary += f" size({info.get_size()})"
-
 
     out = HEADER_LINES + [
         f"// {summary}",
@@ -643,7 +656,6 @@ def generate_class(ns: str, Cls: type):
                     field_type = "*gobject.Error"
                 field_name = clean_zig_name(field.get_name())
                 if field_name not in field_names:
-                    default_value = ""
                     field_names.add(field_name)
                     if field_type is None:
                         field_type = "?*anyopaque"  # FIXME
@@ -661,20 +673,21 @@ def generate_class(ns: str, Cls: type):
                         field_type = field_type.replace(
                             "*harfbuzz.font_t", "*anyopaque"
                         )
-
                     # Hack for typeinfo
                     if Cls is GObject.TypeInfo:
-                        if field_type.startswith("*const") or field_name == "value_table":
+                        if (
+                            field_type.startswith("*const")
+                            or field_name == "value_table"
+                        ):
                             field_type = f"?{field_type}"
-                    # Hack for GObject.Value
-                    if Cls is GObject.Value:
-                        if field_name == "g_type":
-                            default_value = " = 0"
-                        if field_name == "data":
-                            default_value = " = [2]?*anyopaque{null, null}"
 
-
-                    out.append("    %s: %s%s," % (field_name, field_type, default_value))
+                    if default := field_default(Cls, field_type, field_name):
+                        default_value = f" = {default}"
+                    else:
+                        default_value = ""
+                    out.append(
+                        "    %s: %s%s," % (field_name, field_type, default_value)
+                    )
 
     if hasattr(Cls, "connect"):
         has_connect = True
@@ -802,9 +815,8 @@ def generate_class(ns: str, Cls: type):
         out.append("    pub const SignalNames = [_][:0]const u8{")
         for i, signal in enumerate(signals):
             name = signal.get_name()
-            out.append(f"        \"{name}\",")
+            out.append(f'        "{name}",')
         out.append("    };")
-
 
     if signals:
         out.append(SIGNAL_METHODS)
@@ -814,7 +826,7 @@ def generate_class(ns: str, Cls: type):
         out.append("    // Properties")
         out.append("    pub const Properties = enum(u8) {")
         for i, prop in enumerate(properties):
-            name = prop .get_name().replace("-", "_")
+            name = prop.get_name().replace("-", "_")
             if name == "error":
                 name = "err"
             out.append(f"        {name} = {i},")
@@ -823,7 +835,7 @@ def generate_class(ns: str, Cls: type):
         out.append("    pub const PropertyNames = [_][:0]const u8{")
         for i, prop in enumerate(properties):
             name = prop.get_name()
-            out.append(f"        \"notify::{name}\",")
+            out.append(f'        "notify::{name}",')
         out.append("    };")
     if properties:
         imports.add("gobject")
@@ -857,11 +869,13 @@ def generate_class(ns: str, Cls: type):
         out.append("    // GType")
         out.append("    pub inline fn gType() usize {")
         if Cls is GObject.Object:
-            out.append('        return c.G_TYPE_OBJECT;')
+            out.append("        return c.G_TYPE_OBJECT;")
         else:
-            out.append('        return c.%s_%s_get_type();' % (ns.lower(), snake_case(Cls.__name__)))
+            out.append(
+                "        return c.%s_%s_get_type();"
+                % (ns.lower(), snake_case(Cls.__name__))
+            )
         out.append("    }")
-
 
     # Imports needed
     for imp in sorted(list(imports)):

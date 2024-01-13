@@ -14,7 +14,7 @@ pub const ActionEntry = extern struct {
     parameter_type: [*c]const u8,
     state: [*c]const u8,
     change_state: *const fn (action: *gio.SimpleAction, value: *glib.Variant, user_data: ?*anyopaque) callconv(.C) void,
-    padding: [3]u64,
+    padding: [3]u64 = undefined,
 
     // Constructors
 
