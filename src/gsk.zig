@@ -24,6 +24,7 @@ pub const GLShaderClass = @import("gsk/gl_shader_class.zig").GLShaderClass;
 pub const GLShaderNode = @import("gsk/gl_shader_node.zig").GLShaderNode;
 pub const InsetShadowNode = @import("gsk/inset_shadow_node.zig").InsetShadowNode;
 pub const LinearGradientNode = @import("gsk/linear_gradient_node.zig").LinearGradientNode;
+pub const MaskNode = @import("gsk/mask_node.zig").MaskNode;
 pub const NglRenderer = @import("gsk/ngl_renderer.zig").NglRenderer;
 pub const OpacityNode = @import("gsk/opacity_node.zig").OpacityNode;
 pub const OutsetShadowNode = @import("gsk/outset_shadow_node.zig").OutsetShadowNode;
@@ -42,6 +43,7 @@ pub const Shadow = @import("gsk/shadow.zig").Shadow;
 pub const ShadowNode = @import("gsk/shadow_node.zig").ShadowNode;
 pub const TextNode = @import("gsk/text_node.zig").TextNode;
 pub const TextureNode = @import("gsk/texture_node.zig").TextureNode;
+pub const TextureScaleNode = @import("gsk/texture_scale_node.zig").TextureScaleNode;
 pub const Transform = @import("gsk/transform.zig").Transform;
 pub const TransformNode = @import("gsk/transform_node.zig").TransformNode;
 

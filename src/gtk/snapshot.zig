@@ -64,6 +64,9 @@ pub const Snapshot = extern struct {
     extern fn gtk_snapshot_append_repeating_radial_gradient(self: *Self, bounds: *graphene.Rect, center: *graphene.Point, hradius: f32, vradius: f32, start: f32, end: f32, stops: [*c]gsk.ColorStop, n_stops: u64) void;
     pub const appendRepeatingRadialGradient = gtk_snapshot_append_repeating_radial_gradient;
 
+    extern fn gtk_snapshot_append_scaled_texture(self: *Self, texture: *gdk.Texture, filter: gsk.ScalingFilter, bounds: *graphene.Rect) void;
+    pub const appendScaledTexture = gtk_snapshot_append_scaled_texture;
+
     extern fn gtk_snapshot_append_texture(self: *Self, texture: *gdk.Texture, bounds: *graphene.Rect) void;
     pub const appendTexture = gtk_snapshot_append_texture;
 
@@ -126,6 +129,9 @@ pub const Snapshot = extern struct {
 
     extern fn gtk_snapshot_push_gl_shader(self: *Self, shader: *gsk.GLShader, bounds: *graphene.Rect, take_args: *glib.Bytes) void;
     pub const pushGlShader = gtk_snapshot_push_gl_shader;
+
+    extern fn gtk_snapshot_push_mask(self: *Self, mask_mode: gsk.MaskMode) void;
+    pub const pushMask = gtk_snapshot_push_mask;
 
     extern fn gtk_snapshot_push_opacity(self: *Self, opacity: f64) void;
     pub const pushOpacity = gtk_snapshot_push_opacity;

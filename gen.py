@@ -1,6 +1,9 @@
 """
 Copyright 2023 Jairus Martin
 Released under MIT
+
+To change versions from a non-system gtk use:
+export GI_TYPELIB_PATH="path/to/custom/girepository"
 """
 import os
 import gi
@@ -1046,7 +1049,8 @@ def main():
 
     for t in UNKNOWN_TYPES:
         print(f"WARNING: No type for {t}")
-
+    if "GI_TYPELIB_PATH" not in os.environ:
+        print(f"WARNING: GI_TYPELIB_PATH not set, using default")
 
 if __name__ == "__main__":
     main()

@@ -91,6 +91,9 @@ pub const ShortcutsSection = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
+    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
+    pub const disposeTemplate = gtk_widget_dispose_template;
+
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -118,6 +121,12 @@ pub const ShortcutsSection = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
+    extern fn gtk_widget_get_baseline(self: *Self) i32;
+    pub const getBaseline = gtk_widget_get_baseline;
+
+    extern fn gtk_box_get_baseline_child(self: *Self) i32;
+    pub const getBaselineChild = gtk_box_get_baseline_child;
+
     extern fn gtk_box_get_baseline_position(self: *Self) gtk.BaselinePosition;
     pub const getBaselinePosition = gtk_box_get_baseline_position;
 
@@ -132,6 +141,9 @@ pub const ShortcutsSection = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
+
+    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
+    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -435,6 +447,9 @@ pub const ShortcutsSection = extern struct {
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
+
+    extern fn gtk_box_set_baseline_child(self: *Self, child: i32) void;
+    pub const setBaselineChild = gtk_box_set_baseline_child;
 
     extern fn gtk_box_set_baseline_position(self: *Self, position: gtk.BaselinePosition) void;
     pub const setBaselinePosition = gtk_box_set_baseline_position;
@@ -936,43 +951,44 @@ pub const ShortcutsSection = extern struct {
         section_name = 1,
         title = 2,
         view_name = 3,
-        baseline_position = 4,
-        homogeneous = 5,
-        spacing = 6,
-        can_focus = 7,
-        can_target = 8,
-        css_classes = 9,
-        css_name = 10,
-        cursor = 11,
-        focus_on_click = 12,
-        focusable = 13,
-        halign = 14,
-        has_default = 15,
-        has_focus = 16,
-        has_tooltip = 17,
-        height_request = 18,
-        hexpand = 19,
-        hexpand_set = 20,
-        layout_manager = 21,
-        margin_bottom = 22,
-        margin_end = 23,
-        margin_start = 24,
-        margin_top = 25,
-        name = 26,
-        opacity = 27,
-        overflow = 28,
-        parent = 29,
-        receives_default = 30,
-        root = 31,
-        scale_factor = 32,
-        sensitive = 33,
-        tooltip_markup = 34,
-        tooltip_text = 35,
-        valign = 36,
-        vexpand = 37,
-        vexpand_set = 38,
-        visible = 39,
-        width_request = 40,
+        baseline_child = 4,
+        baseline_position = 5,
+        homogeneous = 6,
+        spacing = 7,
+        can_focus = 8,
+        can_target = 9,
+        css_classes = 10,
+        css_name = 11,
+        cursor = 12,
+        focus_on_click = 13,
+        focusable = 14,
+        halign = 15,
+        has_default = 16,
+        has_focus = 17,
+        has_tooltip = 18,
+        height_request = 19,
+        hexpand = 20,
+        hexpand_set = 21,
+        layout_manager = 22,
+        margin_bottom = 23,
+        margin_end = 24,
+        margin_start = 25,
+        margin_top = 26,
+        name = 27,
+        opacity = 28,
+        overflow = 29,
+        parent = 30,
+        receives_default = 31,
+        root = 32,
+        scale_factor = 33,
+        sensitive = 34,
+        tooltip_markup = 35,
+        tooltip_text = 36,
+        valign = 37,
+        vexpand = 38,
+        vexpand_set = 39,
+        visible = 40,
+        width_request = 41,
     };
 
     pub const PropertyNames = [_][:0]const u8{
@@ -980,6 +996,7 @@ pub const ShortcutsSection = extern struct {
         "notify::section-name",
         "notify::title",
         "notify::view-name",
+        "notify::baseline-child",
         "notify::baseline-position",
         "notify::homogeneous",
         "notify::spacing",

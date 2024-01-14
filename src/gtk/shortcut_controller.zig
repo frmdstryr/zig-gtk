@@ -130,6 +130,9 @@ pub const ShortcutController = extern struct {
     extern fn gtk_shortcut_controller_set_scope(self: *Self, scope: gtk.ShortcutScope) void;
     pub const setScope = gtk_shortcut_controller_set_scope;
 
+    extern fn gtk_event_controller_set_static_name(self: *Self, name: [*c]const u8) void;
+    pub const setStaticName = gtk_event_controller_set_static_name;
+
     extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
     pub const stealData = g_object_steal_data;
 
@@ -182,18 +185,22 @@ pub const ShortcutController = extern struct {
 
     // Properties
     pub const Properties = enum(u8) {
-        mnemonic_modifiers = 0,
-        model = 1,
-        scope = 2,
-        name = 3,
-        propagation_limit = 4,
-        propagation_phase = 5,
-        widget = 6,
+        item_type = 0,
+        mnemonic_modifiers = 1,
+        model = 2,
+        n_items = 3,
+        scope = 4,
+        name = 5,
+        propagation_limit = 6,
+        propagation_phase = 7,
+        widget = 8,
     };
 
     pub const PropertyNames = [_][:0]const u8{
+        "notify::item-type",
         "notify::mnemonic-modifiers",
         "notify::model",
+        "notify::n-items",
         "notify::scope",
         "notify::name",
         "notify::propagation-limit",

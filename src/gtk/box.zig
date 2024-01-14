@@ -91,6 +91,9 @@ pub const Box = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
+    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
+    pub const disposeTemplate = gtk_widget_dispose_template;
+
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -118,6 +121,12 @@ pub const Box = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
+    extern fn gtk_widget_get_baseline(self: *Self) i32;
+    pub const getBaseline = gtk_widget_get_baseline;
+
+    extern fn gtk_box_get_baseline_child(self: *Self) i32;
+    pub const getBaselineChild = gtk_box_get_baseline_child;
+
     extern fn gtk_box_get_baseline_position(self: *Self) gtk.BaselinePosition;
     pub const getBaselinePosition = gtk_box_get_baseline_position;
 
@@ -132,6 +141,9 @@ pub const Box = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
+
+    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
+    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -435,6 +447,9 @@ pub const Box = extern struct {
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
+
+    extern fn gtk_box_set_baseline_child(self: *Self, child: i32) void;
+    pub const setBaselineChild = gtk_box_set_baseline_child;
 
     extern fn gtk_box_set_baseline_position(self: *Self, position: gtk.BaselinePosition) void;
     pub const setBaselinePosition = gtk_box_set_baseline_position;
@@ -912,46 +927,48 @@ pub const Box = extern struct {
 
     // Properties
     pub const Properties = enum(u8) {
-        baseline_position = 0,
-        homogeneous = 1,
-        spacing = 2,
-        can_focus = 3,
-        can_target = 4,
-        css_classes = 5,
-        css_name = 6,
-        cursor = 7,
-        focus_on_click = 8,
-        focusable = 9,
-        halign = 10,
-        has_default = 11,
-        has_focus = 12,
-        has_tooltip = 13,
-        height_request = 14,
-        hexpand = 15,
-        hexpand_set = 16,
-        layout_manager = 17,
-        margin_bottom = 18,
-        margin_end = 19,
-        margin_start = 20,
-        margin_top = 21,
-        name = 22,
-        opacity = 23,
-        overflow = 24,
-        parent = 25,
-        receives_default = 26,
-        root = 27,
-        scale_factor = 28,
-        sensitive = 29,
-        tooltip_markup = 30,
-        tooltip_text = 31,
-        valign = 32,
-        vexpand = 33,
-        vexpand_set = 34,
-        visible = 35,
-        width_request = 36,
+        baseline_child = 0,
+        baseline_position = 1,
+        homogeneous = 2,
+        spacing = 3,
+        can_focus = 4,
+        can_target = 5,
+        css_classes = 6,
+        css_name = 7,
+        cursor = 8,
+        focus_on_click = 9,
+        focusable = 10,
+        halign = 11,
+        has_default = 12,
+        has_focus = 13,
+        has_tooltip = 14,
+        height_request = 15,
+        hexpand = 16,
+        hexpand_set = 17,
+        layout_manager = 18,
+        margin_bottom = 19,
+        margin_end = 20,
+        margin_start = 21,
+        margin_top = 22,
+        name = 23,
+        opacity = 24,
+        overflow = 25,
+        parent = 26,
+        receives_default = 27,
+        root = 28,
+        scale_factor = 29,
+        sensitive = 30,
+        tooltip_markup = 31,
+        tooltip_text = 32,
+        valign = 33,
+        vexpand = 34,
+        vexpand_set = 35,
+        visible = 36,
+        width_request = 37,
     };
 
     pub const PropertyNames = [_][:0]const u8{
+        "notify::baseline-child",
         "notify::baseline-position",
         "notify::homogeneous",
         "notify::spacing",

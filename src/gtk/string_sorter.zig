@@ -42,6 +42,9 @@ pub const StringSorter = extern struct {
     extern fn g_object_freeze_notify(self: *Self) void;
     pub const freezeNotify = g_object_freeze_notify;
 
+    extern fn gtk_string_sorter_get_collation(self: *Self) gtk.Collation;
+    pub const getCollation = gtk_string_sorter_get_collation;
+
     extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
     pub const getData = g_object_get_data;
 
@@ -80,6 +83,9 @@ pub const StringSorter = extern struct {
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
+
+    extern fn gtk_string_sorter_set_collation(self: *Self, collation: gtk.Collation) void;
+    pub const setCollation = gtk_string_sorter_set_collation;
 
     extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
     pub const setData = g_object_set_data;
@@ -165,11 +171,13 @@ pub const StringSorter = extern struct {
 
     // Properties
     pub const Properties = enum(u8) {
-        expression = 0,
-        ignore_case = 1,
+        collation = 0,
+        expression = 1,
+        ignore_case = 2,
     };
 
     pub const PropertyNames = [_][:0]const u8{
+        "notify::collation",
         "notify::expression",
         "notify::ignore-case",
     };

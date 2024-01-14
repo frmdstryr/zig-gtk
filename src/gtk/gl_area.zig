@@ -91,6 +91,9 @@ pub const GLArea = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
+    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
+    pub const disposeTemplate = gtk_widget_dispose_template;
+
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -115,11 +118,20 @@ pub const GLArea = extern struct {
     extern fn gtk_widget_get_allocation(self: *Self, allocation: *gdk.Rectangle) void;
     pub const getAllocation = gtk_widget_get_allocation;
 
+    extern fn gtk_gl_area_get_allowed_apis(self: *Self) gdk.GLAPI;
+    pub const getAllowedApis = gtk_gl_area_get_allowed_apis;
+
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
+    extern fn gtk_gl_area_get_api(self: *Self) gdk.GLAPI;
+    pub const getApi = gtk_gl_area_get_api;
+
     extern fn gtk_gl_area_get_auto_render(self: *Self) bool;
     pub const getAutoRender = gtk_gl_area_get_auto_render;
+
+    extern fn gtk_widget_get_baseline(self: *Self) i32;
+    pub const getBaseline = gtk_widget_get_baseline;
 
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
@@ -132,6 +144,9 @@ pub const GLArea = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
+
+    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
+    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_gl_area_get_context(self: *Self) ?*gdk.GLContext;
     pub const getContext = gtk_gl_area_get_context;
@@ -441,6 +456,9 @@ pub const GLArea = extern struct {
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
+
+    extern fn gtk_gl_area_set_allowed_apis(self: *Self, apis: gdk.GLAPI) void;
+    pub const setAllowedApis = gtk_gl_area_set_allowed_apis;
 
     extern fn gtk_gl_area_set_auto_render(self: *Self, auto_render: bool) void;
     pub const setAutoRender = gtk_gl_area_set_auto_render;
@@ -987,48 +1005,52 @@ pub const GLArea = extern struct {
 
     // Properties
     pub const Properties = enum(u8) {
-        auto_render = 0,
-        context = 1,
-        has_depth_buffer = 2,
-        has_stencil_buffer = 3,
-        use_es = 4,
-        can_focus = 5,
-        can_target = 6,
-        css_classes = 7,
-        css_name = 8,
-        cursor = 9,
-        focus_on_click = 10,
-        focusable = 11,
-        halign = 12,
-        has_default = 13,
-        has_focus = 14,
-        has_tooltip = 15,
-        height_request = 16,
-        hexpand = 17,
-        hexpand_set = 18,
-        layout_manager = 19,
-        margin_bottom = 20,
-        margin_end = 21,
-        margin_start = 22,
-        margin_top = 23,
-        name = 24,
-        opacity = 25,
-        overflow = 26,
-        parent = 27,
-        receives_default = 28,
-        root = 29,
-        scale_factor = 30,
-        sensitive = 31,
-        tooltip_markup = 32,
-        tooltip_text = 33,
-        valign = 34,
-        vexpand = 35,
-        vexpand_set = 36,
-        visible = 37,
-        width_request = 38,
+        allowed_apis = 0,
+        api = 1,
+        auto_render = 2,
+        context = 3,
+        has_depth_buffer = 4,
+        has_stencil_buffer = 5,
+        use_es = 6,
+        can_focus = 7,
+        can_target = 8,
+        css_classes = 9,
+        css_name = 10,
+        cursor = 11,
+        focus_on_click = 12,
+        focusable = 13,
+        halign = 14,
+        has_default = 15,
+        has_focus = 16,
+        has_tooltip = 17,
+        height_request = 18,
+        hexpand = 19,
+        hexpand_set = 20,
+        layout_manager = 21,
+        margin_bottom = 22,
+        margin_end = 23,
+        margin_start = 24,
+        margin_top = 25,
+        name = 26,
+        opacity = 27,
+        overflow = 28,
+        parent = 29,
+        receives_default = 30,
+        root = 31,
+        scale_factor = 32,
+        sensitive = 33,
+        tooltip_markup = 34,
+        tooltip_text = 35,
+        valign = 36,
+        vexpand = 37,
+        vexpand_set = 38,
+        visible = 39,
+        width_request = 40,
     };
 
     pub const PropertyNames = [_][:0]const u8{
+        "notify::allowed-apis",
+        "notify::api",
         "notify::auto-render",
         "notify::context",
         "notify::has-depth-buffer",

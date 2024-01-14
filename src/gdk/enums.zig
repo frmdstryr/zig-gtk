@@ -129,13 +129,23 @@ pub const KeyMatch = enum(c_int) {
 };
 
 pub const MemoryFormat = enum(c_int) {
+    A16 = c.GDK_MEMORY_A16,
+    A16Float = c.GDK_MEMORY_A16_FLOAT,
+    A32Float = c.GDK_MEMORY_A32_FLOAT,
+    A8 = c.GDK_MEMORY_A8,
     A8B8G8R8 = c.GDK_MEMORY_A8B8G8R8,
     A8R8G8B8 = c.GDK_MEMORY_A8R8G8B8,
     A8R8G8B8Premultiplied = c.GDK_MEMORY_A8R8G8B8_PREMULTIPLIED,
     B8G8R8 = c.GDK_MEMORY_B8G8R8,
     B8G8R8A8 = c.GDK_MEMORY_B8G8R8A8,
     B8G8R8A8Premultiplied = c.GDK_MEMORY_B8G8R8A8_PREMULTIPLIED,
-    NFormats = c.GDK_MEMORY_G8A8_PREMULTIPLIED,
+    G16 = c.GDK_MEMORY_G16,
+    G16A16 = c.GDK_MEMORY_G16A16,
+    G16A16Premultiplied = c.GDK_MEMORY_G16A16_PREMULTIPLIED,
+    G8 = c.GDK_MEMORY_G8,
+    G8A8 = c.GDK_MEMORY_G8A8,
+    G8A8Premultiplied = c.GDK_MEMORY_G8A8_PREMULTIPLIED,
+    NFormats = c.GDK_MEMORY_N_FORMATS,
     R16G16B16 = c.GDK_MEMORY_R16G16B16,
     R16G16B16A16 = c.GDK_MEMORY_R16G16B16A16,
     R16G16B16A16Float = c.GDK_MEMORY_R16G16B16A16_FLOAT,
@@ -165,6 +175,11 @@ pub const ScrollDirection = enum(c_int) {
     Right = c.GDK_SCROLL_RIGHT,
     Smooth = c.GDK_SCROLL_SMOOTH,
     Up = c.GDK_SCROLL_UP,
+};
+
+pub const ScrollUnit = enum(c_int) {
+    Surface = c.GDK_SCROLL_UNIT_SURFACE,
+    Wheel = c.GDK_SCROLL_UNIT_WHEEL,
 };
 
 pub const SubpixelLayout = enum(c_int) {

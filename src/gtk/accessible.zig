@@ -13,8 +13,26 @@ pub const Accessible = extern struct {
     // Constructors
 
     // Methods
+    extern fn gtk_accessible_get_accessible_parent(self: *Self) ?*gtk.Accessible;
+    pub const getAccessibleParent = gtk_accessible_get_accessible_parent;
+
     extern fn gtk_accessible_get_accessible_role(self: *Self) gtk.AccessibleRole;
     pub const getAccessibleRole = gtk_accessible_get_accessible_role;
+
+    extern fn gtk_accessible_get_at_context(self: *Self) ?*gtk.ATContext;
+    pub const getAtContext = gtk_accessible_get_at_context;
+
+    extern fn gtk_accessible_get_bounds(self: *Self, x: *i32, y: *i32, width: *i32, height: *i32) bool;
+    pub const getBounds = gtk_accessible_get_bounds;
+
+    extern fn gtk_accessible_get_first_accessible_child(self: *Self) ?*gtk.Accessible;
+    pub const getFirstAccessibleChild = gtk_accessible_get_first_accessible_child;
+
+    extern fn gtk_accessible_get_next_accessible_sibling(self: *Self) ?*gtk.Accessible;
+    pub const getNextAccessibleSibling = gtk_accessible_get_next_accessible_sibling;
+
+    extern fn gtk_accessible_get_platform_state(self: *Self, state: gtk.AccessiblePlatformState) bool;
+    pub const getPlatformState = gtk_accessible_get_platform_state;
 
     extern fn gtk_accessible_reset_property(self: *Self, property: gtk.AccessibleProperty) void;
     pub const resetProperty = gtk_accessible_reset_property;
@@ -24,6 +42,12 @@ pub const Accessible = extern struct {
 
     extern fn gtk_accessible_reset_state(self: *Self, state: gtk.AccessibleState) void;
     pub const resetState = gtk_accessible_reset_state;
+
+    extern fn gtk_accessible_set_accessible_parent(self: *Self, parent: ?*gtk.Accessible, next_sibling: ?*gtk.Accessible) void;
+    pub const setAccessibleParent = gtk_accessible_set_accessible_parent;
+
+    extern fn gtk_accessible_update_next_accessible_sibling(self: *Self, new_sibling: ?*gtk.Accessible) void;
+    pub const updateNextAccessibleSibling = gtk_accessible_update_next_accessible_sibling;
 
     extern fn gtk_accessible_update_property_value(self: *Self, n_properties: i32, properties: [*c]gtk.AccessibleProperty, values: [*c]gobject.Value) void;
     pub const updateProperty = gtk_accessible_update_property_value;

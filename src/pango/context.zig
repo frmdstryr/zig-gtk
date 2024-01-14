@@ -119,16 +119,16 @@ pub const Context = extern struct {
     extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
     pub const setData = g_object_set_data;
 
-    extern fn pango_context_set_font_description(self: *Self, desc: *pango.FontDescription) void;
+    extern fn pango_context_set_font_description(self: *Self, desc: ?*pango.FontDescription) void;
     pub const setFontDescription = pango_context_set_font_description;
 
-    extern fn pango_context_set_font_map(self: *Self, font_map: *pango.FontMap) void;
+    extern fn pango_context_set_font_map(self: *Self, font_map: ?*pango.FontMap) void;
     pub const setFontMap = pango_context_set_font_map;
 
     extern fn pango_context_set_gravity_hint(self: *Self, hint: pango.GravityHint) void;
     pub const setGravityHint = pango_context_set_gravity_hint;
 
-    extern fn pango_context_set_language(self: *Self, language: *pango.Language) void;
+    extern fn pango_context_set_language(self: *Self, language: ?*pango.Language) void;
     pub const setLanguage = pango_context_set_language;
 
     extern fn pango_context_set_matrix(self: *Self, matrix: ?*pango.Matrix) void;

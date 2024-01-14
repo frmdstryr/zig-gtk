@@ -145,14 +145,18 @@ pub const BookmarkList = extern struct {
         attributes = 0,
         filename = 1,
         io_priority = 2,
-        loading = 3,
+        item_type = 3,
+        loading = 4,
+        n_items = 5,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::attributes",
         "notify::filename",
         "notify::io-priority",
+        "notify::item-type",
         "notify::loading",
+        "notify::n-items",
     };
 
     // Connect to a signal with no type validation

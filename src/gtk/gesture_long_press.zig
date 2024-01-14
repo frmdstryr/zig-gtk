@@ -183,6 +183,9 @@ pub const GestureLongPress = extern struct {
     extern fn gtk_gesture_set_state(self: *Self, state: gtk.EventSequenceState) bool;
     pub const setState = gtk_gesture_set_state;
 
+    extern fn gtk_event_controller_set_static_name(self: *Self, name: [*c]const u8) void;
+    pub const setStaticName = gtk_event_controller_set_static_name;
+
     extern fn gtk_gesture_single_set_touch_only(self: *Self, touch_only: bool) void;
     pub const setTouchOnly = gtk_gesture_single_set_touch_only;
 

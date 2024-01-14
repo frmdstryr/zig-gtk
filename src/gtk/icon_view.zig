@@ -97,6 +97,9 @@ pub const IconView = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
+    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
+    pub const disposeTemplate = gtk_widget_dispose_template;
+
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -133,6 +136,9 @@ pub const IconView = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
+    extern fn gtk_widget_get_baseline(self: *Self) i32;
+    pub const getBaseline = gtk_widget_get_baseline;
+
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -147,6 +153,9 @@ pub const IconView = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
+
+    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
+    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_icon_view_get_column_spacing(self: *Self) i32;
     pub const getColumnSpacing = gtk_icon_view_get_column_spacing;

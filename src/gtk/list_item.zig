@@ -32,6 +32,12 @@ pub const ListItem = extern struct {
     extern fn g_object_freeze_notify(self: *Self) void;
     pub const freezeNotify = g_object_freeze_notify;
 
+    extern fn gtk_list_item_get_accessible_description(self: *Self) [*c]const u8;
+    pub const getAccessibleDescription = gtk_list_item_get_accessible_description;
+
+    extern fn gtk_list_item_get_accessible_label(self: *Self) [*c]const u8;
+    pub const getAccessibleLabel = gtk_list_item_get_accessible_label;
+
     extern fn gtk_list_item_get_activatable(self: *Self) bool;
     pub const getActivatable = gtk_list_item_get_activatable;
 
@@ -40,6 +46,9 @@ pub const ListItem = extern struct {
 
     extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
     pub const getData = g_object_get_data;
+
+    extern fn gtk_list_item_get_focusable(self: *Self) bool;
+    pub const getFocusable = gtk_list_item_get_focusable;
 
     extern fn gtk_list_item_get_item(self: *Self) ?*gobject.Object;
     pub const getItem = gtk_list_item_get_item;
@@ -80,6 +89,12 @@ pub const ListItem = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
+    extern fn gtk_list_item_set_accessible_description(self: *Self, description: [*c]const u8) void;
+    pub const setAccessibleDescription = gtk_list_item_set_accessible_description;
+
+    extern fn gtk_list_item_set_accessible_label(self: *Self, label: [*c]const u8) void;
+    pub const setAccessibleLabel = gtk_list_item_set_accessible_label;
+
     extern fn gtk_list_item_set_activatable(self: *Self, activatable: bool) void;
     pub const setActivatable = gtk_list_item_set_activatable;
 
@@ -88,6 +103,9 @@ pub const ListItem = extern struct {
 
     extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
     pub const setData = g_object_set_data;
+
+    extern fn gtk_list_item_set_focusable(self: *Self, focusable: bool) void;
+    pub const setFocusable = gtk_list_item_set_focusable;
 
     extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
     pub const setProperty = g_object_set_property;
@@ -147,17 +165,23 @@ pub const ListItem = extern struct {
 
     // Properties
     pub const Properties = enum(u8) {
-        activatable = 0,
-        child = 1,
-        item = 2,
-        position = 3,
-        selectable = 4,
-        selected = 5,
+        accessible_description = 0,
+        accessible_label = 1,
+        activatable = 2,
+        child = 3,
+        focusable = 4,
+        item = 5,
+        position = 6,
+        selectable = 7,
+        selected = 8,
     };
 
     pub const PropertyNames = [_][:0]const u8{
+        "notify::accessible-description",
+        "notify::accessible-label",
         "notify::activatable",
         "notify::child",
+        "notify::focusable",
         "notify::item",
         "notify::position",
         "notify::selectable",

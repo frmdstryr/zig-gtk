@@ -33,7 +33,7 @@ pub const Language = extern struct {
     extern fn pango_language_get_default() ?*pango.Language;
     pub const getDefault = pango_language_get_default;
 
-    extern fn pango_language_get_preferred() ?*pango.Language;
+    extern fn pango_language_get_preferred() [*c]*pango.Language;
     pub const getPreferred = pango_language_get_preferred;
 
 

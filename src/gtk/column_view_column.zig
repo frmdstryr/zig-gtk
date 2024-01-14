@@ -54,6 +54,9 @@ pub const ColumnViewColumn = extern struct {
     extern fn gtk_column_view_column_get_header_menu(self: *Self) ?*gio.MenuModel;
     pub const getHeaderMenu = gtk_column_view_column_get_header_menu;
 
+    extern fn gtk_column_view_column_get_id(self: *Self) [*c]const u8;
+    pub const getId = gtk_column_view_column_get_id;
+
     extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
     pub const getProperty = g_object_get_property;
 
@@ -107,6 +110,9 @@ pub const ColumnViewColumn = extern struct {
 
     extern fn gtk_column_view_column_set_header_menu(self: *Self, menu: ?*gio.MenuModel) void;
     pub const setHeaderMenu = gtk_column_view_column_set_header_menu;
+
+    extern fn gtk_column_view_column_set_id(self: *Self, id: [*c]const u8) void;
+    pub const setId = gtk_column_view_column_set_id;
 
     extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
     pub const setProperty = g_object_set_property;
@@ -180,10 +186,11 @@ pub const ColumnViewColumn = extern struct {
         factory = 2,
         fixed_width = 3,
         header_menu = 4,
-        resizable = 5,
-        sorter = 6,
-        title = 7,
-        visible = 8,
+        id = 5,
+        resizable = 6,
+        sorter = 7,
+        title = 8,
+        visible = 9,
     };
 
     pub const PropertyNames = [_][:0]const u8{
@@ -192,6 +199,7 @@ pub const ColumnViewColumn = extern struct {
         "notify::factory",
         "notify::fixed-width",
         "notify::header-menu",
+        "notify::id",
         "notify::resizable",
         "notify::sorter",
         "notify::title",

@@ -88,6 +88,9 @@ pub const CenterBox = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
+    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
+    pub const disposeTemplate = gtk_widget_dispose_template;
+
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -115,6 +118,9 @@ pub const CenterBox = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
+    extern fn gtk_widget_get_baseline(self: *Self) i32;
+    pub const getBaseline = gtk_widget_get_baseline;
+
     extern fn gtk_center_box_get_baseline_position(self: *Self) gtk.BaselinePosition;
     pub const getBaselinePosition = gtk_center_box_get_baseline_position;
 
@@ -132,6 +138,9 @@ pub const CenterBox = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
+
+    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
+    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -267,6 +276,9 @@ pub const CenterBox = extern struct {
 
     extern fn gtk_widget_get_settings(self: *Self) ?*gtk.Settings;
     pub const getSettings = gtk_widget_get_settings;
+
+    extern fn gtk_center_box_get_shrink_center_last(self: *Self) bool;
+    pub const getShrinkCenterLast = gtk_center_box_get_shrink_center_last;
 
     extern fn gtk_widget_get_size(self: *Self, orientation: gtk.Orientation) i32;
     pub const getSize = gtk_widget_get_size;
@@ -519,6 +531,9 @@ pub const CenterBox = extern struct {
 
     extern fn gtk_widget_set_sensitive(self: *Self, sensitive: bool) void;
     pub const setSensitive = gtk_widget_set_sensitive;
+
+    extern fn gtk_center_box_set_shrink_center_last(self: *Self, shrink_center_last: bool) void;
+    pub const setShrinkCenterLast = gtk_center_box_set_shrink_center_last;
 
     extern fn gtk_widget_set_size_request(self: *Self, width: i32, height: i32) void;
     pub const setSizeRequest = gtk_widget_set_size_request;
@@ -904,44 +919,52 @@ pub const CenterBox = extern struct {
     // Properties
     pub const Properties = enum(u8) {
         baseline_position = 0,
-        can_focus = 1,
-        can_target = 2,
-        css_classes = 3,
-        css_name = 4,
-        cursor = 5,
-        focus_on_click = 6,
-        focusable = 7,
-        halign = 8,
-        has_default = 9,
-        has_focus = 10,
-        has_tooltip = 11,
-        height_request = 12,
-        hexpand = 13,
-        hexpand_set = 14,
-        layout_manager = 15,
-        margin_bottom = 16,
-        margin_end = 17,
-        margin_start = 18,
-        margin_top = 19,
-        name = 20,
-        opacity = 21,
-        overflow = 22,
-        parent = 23,
-        receives_default = 24,
-        root = 25,
-        scale_factor = 26,
-        sensitive = 27,
-        tooltip_markup = 28,
-        tooltip_text = 29,
-        valign = 30,
-        vexpand = 31,
-        vexpand_set = 32,
-        visible = 33,
-        width_request = 34,
+        center_widget = 1,
+        end_widget = 2,
+        shrink_center_last = 3,
+        start_widget = 4,
+        can_focus = 5,
+        can_target = 6,
+        css_classes = 7,
+        css_name = 8,
+        cursor = 9,
+        focus_on_click = 10,
+        focusable = 11,
+        halign = 12,
+        has_default = 13,
+        has_focus = 14,
+        has_tooltip = 15,
+        height_request = 16,
+        hexpand = 17,
+        hexpand_set = 18,
+        layout_manager = 19,
+        margin_bottom = 20,
+        margin_end = 21,
+        margin_start = 22,
+        margin_top = 23,
+        name = 24,
+        opacity = 25,
+        overflow = 26,
+        parent = 27,
+        receives_default = 28,
+        root = 29,
+        scale_factor = 30,
+        sensitive = 31,
+        tooltip_markup = 32,
+        tooltip_text = 33,
+        valign = 34,
+        vexpand = 35,
+        vexpand_set = 36,
+        visible = 37,
+        width_request = 38,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::baseline-position",
+        "notify::center-widget",
+        "notify::end-widget",
+        "notify::shrink-center-last",
+        "notify::start-widget",
         "notify::can-focus",
         "notify::can-target",
         "notify::css-classes",

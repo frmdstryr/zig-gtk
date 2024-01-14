@@ -66,6 +66,9 @@ pub const CenterLayout = extern struct {
     extern fn gtk_layout_manager_get_request_mode(self: *Self) gtk.SizeRequestMode;
     pub const getRequestMode = gtk_layout_manager_get_request_mode;
 
+    extern fn gtk_center_layout_get_shrink_center_last(self: *Self) bool;
+    pub const getShrinkCenterLast = gtk_center_layout_get_shrink_center_last;
+
     extern fn gtk_center_layout_get_start_widget(self: *Self) ?*gtk.Widget;
     pub const getStartWidget = gtk_center_layout_get_start_widget;
 
@@ -116,6 +119,9 @@ pub const CenterLayout = extern struct {
 
     extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
     pub const setProperty = g_object_set_property;
+
+    extern fn gtk_center_layout_set_shrink_center_last(self: *Self, shrink_center_last: bool) void;
+    pub const setShrinkCenterLast = gtk_center_layout_set_shrink_center_last;
 
     extern fn gtk_center_layout_set_start_widget(self: *Self, widget: ?*gtk.Widget) void;
     pub const setStartWidget = gtk_center_layout_set_start_widget;
@@ -168,6 +174,28 @@ pub const CenterLayout = extern struct {
     ) u64 {
         return c.g_signal_connect_data(self, "notify", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
     }
+
+
+    // Properties
+    pub const Properties = enum(u8) {
+        shrink_center_last = 0,
+    };
+
+    pub const PropertyNames = [_][:0]const u8{
+        "notify::shrink-center-last",
+    };
+
+    // Connect to a signal with no type validation
+    pub inline fn connectProperty(
+        self: *Self,
+        property: Properties,
+        comptime T: type,
+        callback: *const fn (self: *Self, spec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
+        data: anytype,
+    ) u64 {
+        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
+    }
+
 
 
     // Bases

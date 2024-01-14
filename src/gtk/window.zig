@@ -94,6 +94,9 @@ pub const Window = extern struct {
     extern fn gtk_window_destroy(self: *Self) void;
     pub const destroy = gtk_window_destroy;
 
+    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
+    pub const disposeTemplate = gtk_widget_dispose_template;
+
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -130,6 +133,9 @@ pub const Window = extern struct {
     extern fn gtk_window_get_application(self: *Self) ?*gtk.Application;
     pub const getApplication = gtk_window_get_application;
 
+    extern fn gtk_widget_get_baseline(self: *Self) i32;
+    pub const getBaseline = gtk_widget_get_baseline;
+
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -144,6 +150,9 @@ pub const Window = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
+
+    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
+    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -426,6 +435,9 @@ pub const Window = extern struct {
 
     extern fn gtk_widget_is_sensitive(self: *Self) bool;
     pub const isSensitive = gtk_widget_is_sensitive;
+
+    extern fn gtk_window_is_suspended(self: *Self) bool;
+    pub const isSuspended = gtk_window_is_suspended;
 
     extern fn gtk_widget_is_visible(self: *Self) bool;
     pub const isVisible = gtk_widget_is_visible;
@@ -1180,43 +1192,44 @@ pub const Window = extern struct {
         modal = 18,
         resizable = 19,
         startup_id = 20,
-        title = 21,
-        titlebar = 22,
-        transient_for = 23,
-        can_focus = 24,
-        can_target = 25,
-        css_classes = 26,
-        css_name = 27,
-        cursor = 28,
-        focus_on_click = 29,
-        focusable = 30,
-        halign = 31,
-        has_default = 32,
-        has_focus = 33,
-        has_tooltip = 34,
-        height_request = 35,
-        hexpand = 36,
-        hexpand_set = 37,
-        layout_manager = 38,
-        margin_bottom = 39,
-        margin_end = 40,
-        margin_start = 41,
-        margin_top = 42,
-        name = 43,
-        opacity = 44,
-        overflow = 45,
-        parent = 46,
-        receives_default = 47,
-        root = 48,
-        scale_factor = 49,
-        sensitive = 50,
-        tooltip_markup = 51,
-        tooltip_text = 52,
-        valign = 53,
-        vexpand = 54,
-        vexpand_set = 55,
-        visible = 56,
-        width_request = 57,
+        suspended = 21,
+        title = 22,
+        titlebar = 23,
+        transient_for = 24,
+        can_focus = 25,
+        can_target = 26,
+        css_classes = 27,
+        css_name = 28,
+        cursor = 29,
+        focus_on_click = 30,
+        focusable = 31,
+        halign = 32,
+        has_default = 33,
+        has_focus = 34,
+        has_tooltip = 35,
+        height_request = 36,
+        hexpand = 37,
+        hexpand_set = 38,
+        layout_manager = 39,
+        margin_bottom = 40,
+        margin_end = 41,
+        margin_start = 42,
+        margin_top = 43,
+        name = 44,
+        opacity = 45,
+        overflow = 46,
+        parent = 47,
+        receives_default = 48,
+        root = 49,
+        scale_factor = 50,
+        sensitive = 51,
+        tooltip_markup = 52,
+        tooltip_text = 53,
+        valign = 54,
+        vexpand = 55,
+        vexpand_set = 56,
+        visible = 57,
+        width_request = 58,
     };
 
     pub const PropertyNames = [_][:0]const u8{
@@ -1241,6 +1254,7 @@ pub const Window = extern struct {
         "notify::modal",
         "notify::resizable",
         "notify::startup-id",
+        "notify::suspended",
         "notify::title",
         "notify::titlebar",
         "notify::transient-for",

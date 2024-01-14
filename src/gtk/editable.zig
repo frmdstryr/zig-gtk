@@ -13,6 +13,9 @@ pub const Editable = extern struct {
     // Constructors
 
     // Methods
+    extern fn gtk_editable_delegate_get_accessible_platform_state(self: *Self, state: gtk.AccessiblePlatformState) bool;
+    pub const delegateGetAccessiblePlatformState = gtk_editable_delegate_get_accessible_platform_state;
+
     extern fn gtk_editable_delete_selection(self: *Self) void;
     pub const deleteSelection = gtk_editable_delete_selection;
 

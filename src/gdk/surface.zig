@@ -87,6 +87,9 @@ pub const Surface = extern struct {
     extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
     pub const getQdata = g_object_get_qdata;
 
+    extern fn gdk_surface_get_scale(self: *Self) f64;
+    pub const getScale = gdk_surface_get_scale;
+
     extern fn gdk_surface_get_scale_factor(self: *Self) i32;
     pub const getScaleFactor = gdk_surface_get_scale_factor;
 
@@ -304,8 +307,9 @@ pub const Surface = extern struct {
         frame_clock = 2,
         height = 3,
         mapped = 4,
-        scale_factor = 5,
-        width = 6,
+        scale = 5,
+        scale_factor = 6,
+        width = 7,
     };
 
     pub const PropertyNames = [_][:0]const u8{
@@ -314,6 +318,7 @@ pub const Surface = extern struct {
         "notify::frame-clock",
         "notify::height",
         "notify::mapped",
+        "notify::scale",
         "notify::scale-factor",
         "notify::width",
     };

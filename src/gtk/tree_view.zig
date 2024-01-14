@@ -124,6 +124,9 @@ pub const TreeView = extern struct {
     extern fn gtk_tree_view_create_row_drag_icon(self: *Self, path: *gtk.TreePath) ?*gdk.Paintable;
     pub const createRowDragIcon = gtk_tree_view_create_row_drag_icon;
 
+    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
+    pub const disposeTemplate = gtk_widget_dispose_template;
+
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -172,6 +175,9 @@ pub const TreeView = extern struct {
     extern fn gtk_tree_view_get_background_area(self: *Self, path: ?*gtk.TreePath, column: ?*gtk.TreeViewColumn, rect: *gdk.Rectangle) void;
     pub const getBackgroundArea = gtk_tree_view_get_background_area;
 
+    extern fn gtk_widget_get_baseline(self: *Self) i32;
+    pub const getBaseline = gtk_widget_get_baseline;
+
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -186,6 +192,9 @@ pub const TreeView = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
+
+    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
+    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_tree_view_get_column(self: *Self, n: i32) ?*gtk.TreeViewColumn;
     pub const getColumn = gtk_tree_view_get_column;

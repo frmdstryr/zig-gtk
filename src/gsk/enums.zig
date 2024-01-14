@@ -39,6 +39,13 @@ pub const GLUniformType = enum(c_int) {
     Vec4 = c.GSK_GL_UNIFORM_TYPE_VEC4,
 };
 
+pub const MaskMode = enum(c_int) {
+    Alpha = c.GSK_MASK_MODE_ALPHA,
+    InvertedAlpha = c.GSK_MASK_MODE_INVERTED_ALPHA,
+    InvertedLuminance = c.GSK_MASK_MODE_INVERTED_LUMINANCE,
+    Luminance = c.GSK_MASK_MODE_LUMINANCE,
+};
+
 pub const RenderNodeType = enum(c_int) {
     BlendNode = c.GSK_BLEND_NODE,
     BlurNode = c.GSK_BLUR_NODE,
@@ -54,6 +61,7 @@ pub const RenderNodeType = enum(c_int) {
     GlShaderNode = c.GSK_GL_SHADER_NODE,
     InsetShadowNode = c.GSK_INSET_SHADOW_NODE,
     LinearGradientNode = c.GSK_LINEAR_GRADIENT_NODE,
+    MaskNode = c.GSK_MASK_NODE,
     NotARenderNode = c.GSK_NOT_A_RENDER_NODE,
     OpacityNode = c.GSK_OPACITY_NODE,
     OutsetShadowNode = c.GSK_OUTSET_SHADOW_NODE,
@@ -64,6 +72,7 @@ pub const RenderNodeType = enum(c_int) {
     RoundedClipNode = c.GSK_ROUNDED_CLIP_NODE,
     ShadowNode = c.GSK_SHADOW_NODE,
     TextureNode = c.GSK_TEXTURE_NODE,
+    TextureScaleNode = c.GSK_TEXTURE_SCALE_NODE,
     TextNode = c.GSK_TEXT_NODE,
     TransformNode = c.GSK_TRANSFORM_NODE,
 };

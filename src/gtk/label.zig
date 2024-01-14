@@ -91,6 +91,9 @@ pub const Label = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
+    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
+    pub const disposeTemplate = gtk_widget_dispose_template;
+
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -121,6 +124,9 @@ pub const Label = extern struct {
     extern fn gtk_label_get_attributes(self: *Self) ?*pango.AttrList;
     pub const getAttributes = gtk_label_get_attributes;
 
+    extern fn gtk_widget_get_baseline(self: *Self) i32;
+    pub const getBaseline = gtk_widget_get_baseline;
+
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -132,6 +138,9 @@ pub const Label = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
+
+    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
+    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -321,6 +330,9 @@ pub const Label = extern struct {
 
     extern fn gtk_widget_get_style_context(self: *Self) ?*gtk.StyleContext;
     pub const getStyleContext = gtk_widget_get_style_context;
+
+    extern fn gtk_label_get_tabs(self: *Self) ?*pango.TabArray;
+    pub const getTabs = gtk_label_get_tabs;
 
     extern fn gtk_widget_get_template_child(self: *Self, widget_type: usize, name: [*c]const u8) ?*gobject.Object;
     pub const getTemplateChild = gtk_widget_get_template_child;
@@ -621,6 +633,9 @@ pub const Label = extern struct {
 
     extern fn gtk_widget_set_state_flags(self: *Self, flags: gtk.StateFlags, clear: bool) void;
     pub const setStateFlags = gtk_widget_set_state_flags;
+
+    extern fn gtk_label_set_tabs(self: *Self, tabs: ?*pango.TabArray) void;
+    pub const setTabs = gtk_label_set_tabs;
 
     extern fn gtk_label_set_text(self: *Self, str: [*c]const u8) void;
     pub const setText = gtk_label_set_text;
@@ -1115,47 +1130,48 @@ pub const Label = extern struct {
         natural_wrap_mode = 9,
         selectable = 10,
         single_line_mode = 11,
-        use_markup = 12,
-        use_underline = 13,
-        width_chars = 14,
-        wrap = 15,
-        wrap_mode = 16,
-        xalign = 17,
-        yalign = 18,
-        can_focus = 19,
-        can_target = 20,
-        css_classes = 21,
-        css_name = 22,
-        cursor = 23,
-        focus_on_click = 24,
-        focusable = 25,
-        halign = 26,
-        has_default = 27,
-        has_focus = 28,
-        has_tooltip = 29,
-        height_request = 30,
-        hexpand = 31,
-        hexpand_set = 32,
-        layout_manager = 33,
-        margin_bottom = 34,
-        margin_end = 35,
-        margin_start = 36,
-        margin_top = 37,
-        name = 38,
-        opacity = 39,
-        overflow = 40,
-        parent = 41,
-        receives_default = 42,
-        root = 43,
-        scale_factor = 44,
-        sensitive = 45,
-        tooltip_markup = 46,
-        tooltip_text = 47,
-        valign = 48,
-        vexpand = 49,
-        vexpand_set = 50,
-        visible = 51,
-        width_request = 52,
+        tabs = 12,
+        use_markup = 13,
+        use_underline = 14,
+        width_chars = 15,
+        wrap = 16,
+        wrap_mode = 17,
+        xalign = 18,
+        yalign = 19,
+        can_focus = 20,
+        can_target = 21,
+        css_classes = 22,
+        css_name = 23,
+        cursor = 24,
+        focus_on_click = 25,
+        focusable = 26,
+        halign = 27,
+        has_default = 28,
+        has_focus = 29,
+        has_tooltip = 30,
+        height_request = 31,
+        hexpand = 32,
+        hexpand_set = 33,
+        layout_manager = 34,
+        margin_bottom = 35,
+        margin_end = 36,
+        margin_start = 37,
+        margin_top = 38,
+        name = 39,
+        opacity = 40,
+        overflow = 41,
+        parent = 42,
+        receives_default = 43,
+        root = 44,
+        scale_factor = 45,
+        sensitive = 46,
+        tooltip_markup = 47,
+        tooltip_text = 48,
+        valign = 49,
+        vexpand = 50,
+        vexpand_set = 51,
+        visible = 52,
+        width_request = 53,
     };
 
     pub const PropertyNames = [_][:0]const u8{
@@ -1171,6 +1187,7 @@ pub const Label = extern struct {
         "notify::natural-wrap-mode",
         "notify::selectable",
         "notify::single-line-mode",
+        "notify::tabs",
         "notify::use-markup",
         "notify::use-underline",
         "notify::width-chars",

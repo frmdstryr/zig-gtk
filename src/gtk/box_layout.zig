@@ -39,6 +39,9 @@ pub const BoxLayout = extern struct {
     extern fn g_object_freeze_notify(self: *Self) void;
     pub const freezeNotify = g_object_freeze_notify;
 
+    extern fn gtk_box_layout_get_baseline_child(self: *Self) i32;
+    pub const getBaselineChild = gtk_box_layout_get_baseline_child;
+
     extern fn gtk_box_layout_get_baseline_position(self: *Self) gtk.BaselinePosition;
     pub const getBaselinePosition = gtk_box_layout_get_baseline_position;
 
@@ -92,6 +95,9 @@ pub const BoxLayout = extern struct {
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
+
+    extern fn gtk_box_layout_set_baseline_child(self: *Self, child: i32) void;
+    pub const setBaselineChild = gtk_box_layout_set_baseline_child;
 
     extern fn gtk_box_layout_set_baseline_position(self: *Self, position: gtk.BaselinePosition) void;
     pub const setBaselinePosition = gtk_box_layout_set_baseline_position;
@@ -160,12 +166,14 @@ pub const BoxLayout = extern struct {
 
     // Properties
     pub const Properties = enum(u8) {
-        baseline_position = 0,
-        homogeneous = 1,
-        spacing = 2,
+        baseline_child = 0,
+        baseline_position = 1,
+        homogeneous = 2,
+        spacing = 3,
     };
 
     pub const PropertyNames = [_][:0]const u8{
+        "notify::baseline-child",
         "notify::baseline-position",
         "notify::homogeneous",
         "notify::spacing",

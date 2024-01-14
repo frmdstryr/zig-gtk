@@ -97,6 +97,9 @@ pub const Button = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
+    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
+    pub const disposeTemplate = gtk_widget_dispose_template;
+
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -124,8 +127,14 @@ pub const Button = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
+    extern fn gtk_widget_get_baseline(self: *Self) i32;
+    pub const getBaseline = gtk_widget_get_baseline;
+
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
+
+    extern fn gtk_button_get_can_shrink(self: *Self) bool;
+    pub const getCanShrink = gtk_button_get_can_shrink;
 
     extern fn gtk_widget_get_can_target(self: *Self) bool;
     pub const getCanTarget = gtk_widget_get_can_target;
@@ -138,6 +147,9 @@ pub const Button = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
+
+    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
+    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -438,6 +450,9 @@ pub const Button = extern struct {
 
     extern fn gtk_widget_set_can_focus(self: *Self, can_focus: bool) void;
     pub const setCanFocus = gtk_widget_set_can_focus;
+
+    extern fn gtk_button_set_can_shrink(self: *Self, can_shrink: bool) void;
+    pub const setCanShrink = gtk_button_set_can_shrink;
 
     extern fn gtk_widget_set_can_target(self: *Self, can_target: bool) void;
     pub const setCanTarget = gtk_widget_set_can_target;
@@ -958,48 +973,50 @@ pub const Button = extern struct {
 
     // Properties
     pub const Properties = enum(u8) {
-        child = 0,
-        has_frame = 1,
-        icon_name = 2,
-        label = 3,
-        use_underline = 4,
-        can_focus = 5,
-        can_target = 6,
-        css_classes = 7,
-        css_name = 8,
-        cursor = 9,
-        focus_on_click = 10,
-        focusable = 11,
-        halign = 12,
-        has_default = 13,
-        has_focus = 14,
-        has_tooltip = 15,
-        height_request = 16,
-        hexpand = 17,
-        hexpand_set = 18,
-        layout_manager = 19,
-        margin_bottom = 20,
-        margin_end = 21,
-        margin_start = 22,
-        margin_top = 23,
-        name = 24,
-        opacity = 25,
-        overflow = 26,
-        parent = 27,
-        receives_default = 28,
-        root = 29,
-        scale_factor = 30,
-        sensitive = 31,
-        tooltip_markup = 32,
-        tooltip_text = 33,
-        valign = 34,
-        vexpand = 35,
-        vexpand_set = 36,
-        visible = 37,
-        width_request = 38,
+        can_shrink = 0,
+        child = 1,
+        has_frame = 2,
+        icon_name = 3,
+        label = 4,
+        use_underline = 5,
+        can_focus = 6,
+        can_target = 7,
+        css_classes = 8,
+        css_name = 9,
+        cursor = 10,
+        focus_on_click = 11,
+        focusable = 12,
+        halign = 13,
+        has_default = 14,
+        has_focus = 15,
+        has_tooltip = 16,
+        height_request = 17,
+        hexpand = 18,
+        hexpand_set = 19,
+        layout_manager = 20,
+        margin_bottom = 21,
+        margin_end = 22,
+        margin_start = 23,
+        margin_top = 24,
+        name = 25,
+        opacity = 26,
+        overflow = 27,
+        parent = 28,
+        receives_default = 29,
+        root = 30,
+        scale_factor = 31,
+        sensitive = 32,
+        tooltip_markup = 33,
+        tooltip_text = 34,
+        valign = 35,
+        vexpand = 36,
+        vexpand_set = 37,
+        visible = 38,
+        width_request = 39,
     };
 
     pub const PropertyNames = [_][:0]const u8{
+        "notify::can-shrink",
         "notify::child",
         "notify::has-frame",
         "notify::icon-name",

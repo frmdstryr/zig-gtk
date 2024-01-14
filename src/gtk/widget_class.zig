@@ -63,7 +63,7 @@ pub const WidgetClass = extern struct {
     extern fn gtk_widget_class_get_layout_manager_type(self: *Self) usize;
     pub const getLayoutManagerType = gtk_widget_class_get_layout_manager_type;
 
-    extern fn gtk_widget_class_install_action(self: *Self, action_name: [*c]const u8, parameter_type: [*c]const u8, activate: *const fn (widget: *gtk.Widget, action_name: [*c]const u8, parameter: *glib.Variant) callconv(.C) void) void;
+    extern fn gtk_widget_class_install_action(self: *Self, action_name: [*c]const u8, parameter_type: [*c]const u8, activate: *const fn (widget: *gtk.Widget, action_name: [*c]const u8, parameter: ?*glib.Variant) callconv(.C) void) void;
     pub const installAction = gtk_widget_class_install_action;
 
     extern fn gtk_widget_class_install_property_action(self: *Self, action_name: [*c]const u8, property_name: [*c]const u8) void;

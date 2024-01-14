@@ -89,6 +89,9 @@ pub const VolumeButton = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
+    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
+    pub const disposeTemplate = gtk_widget_dispose_template;
+
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -100,6 +103,9 @@ pub const VolumeButton = extern struct {
 
     extern fn g_object_freeze_notify(self: *Self) void;
     pub const freezeNotify = g_object_freeze_notify;
+
+    extern fn gtk_scale_button_get_active(self: *Self) bool;
+    pub const getActive = gtk_scale_button_get_active;
 
     extern fn gtk_scale_button_get_adjustment(self: *Self) ?*gtk.Adjustment;
     pub const getAdjustment = gtk_scale_button_get_adjustment;
@@ -119,6 +125,9 @@ pub const VolumeButton = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
+    extern fn gtk_widget_get_baseline(self: *Self) i32;
+    pub const getBaseline = gtk_widget_get_baseline;
+
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -130,6 +139,9 @@ pub const VolumeButton = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
+
+    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
+    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -965,47 +977,49 @@ pub const VolumeButton = extern struct {
     // Properties
     pub const Properties = enum(u8) {
         use_symbolic = 0,
-        adjustment = 1,
-        icons = 2,
-        value = 3,
-        can_focus = 4,
-        can_target = 5,
-        css_classes = 6,
-        css_name = 7,
-        cursor = 8,
-        focus_on_click = 9,
-        focusable = 10,
-        halign = 11,
-        has_default = 12,
-        has_focus = 13,
-        has_tooltip = 14,
-        height_request = 15,
-        hexpand = 16,
-        hexpand_set = 17,
-        layout_manager = 18,
-        margin_bottom = 19,
-        margin_end = 20,
-        margin_start = 21,
-        margin_top = 22,
-        name = 23,
-        opacity = 24,
-        overflow = 25,
-        parent = 26,
-        receives_default = 27,
-        root = 28,
-        scale_factor = 29,
-        sensitive = 30,
-        tooltip_markup = 31,
-        tooltip_text = 32,
-        valign = 33,
-        vexpand = 34,
-        vexpand_set = 35,
-        visible = 36,
-        width_request = 37,
+        active = 1,
+        adjustment = 2,
+        icons = 3,
+        value = 4,
+        can_focus = 5,
+        can_target = 6,
+        css_classes = 7,
+        css_name = 8,
+        cursor = 9,
+        focus_on_click = 10,
+        focusable = 11,
+        halign = 12,
+        has_default = 13,
+        has_focus = 14,
+        has_tooltip = 15,
+        height_request = 16,
+        hexpand = 17,
+        hexpand_set = 18,
+        layout_manager = 19,
+        margin_bottom = 20,
+        margin_end = 21,
+        margin_start = 22,
+        margin_top = 23,
+        name = 24,
+        opacity = 25,
+        overflow = 26,
+        parent = 27,
+        receives_default = 28,
+        root = 29,
+        scale_factor = 30,
+        sensitive = 31,
+        tooltip_markup = 32,
+        tooltip_text = 33,
+        valign = 34,
+        vexpand = 35,
+        vexpand_set = 36,
+        visible = 37,
+        width_request = 38,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::use-symbolic",
+        "notify::active",
         "notify::adjustment",
         "notify::icons",
         "notify::value",
@@ -1060,6 +1074,9 @@ pub const VolumeButton = extern struct {
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
+        return @ptrCast(self);
+    }
+    pub inline fn asAccessibleRange(self: *Self) *gtk.AccessibleRange {
         return @ptrCast(self);
     }
     pub inline fn asOrientable(self: *Self) *gtk.Orientable {

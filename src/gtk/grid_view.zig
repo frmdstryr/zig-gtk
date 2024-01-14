@@ -88,6 +88,9 @@ pub const GridView = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
+    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
+    pub const disposeTemplate = gtk_widget_dispose_template;
+
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -115,6 +118,9 @@ pub const GridView = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
+    extern fn gtk_widget_get_baseline(self: *Self) i32;
+    pub const getBaseline = gtk_widget_get_baseline;
+
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -126,6 +132,9 @@ pub const GridView = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
+
+    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
+    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -289,6 +298,9 @@ pub const GridView = extern struct {
     extern fn gtk_widget_get_style_context(self: *Self) ?*gtk.StyleContext;
     pub const getStyleContext = gtk_widget_get_style_context;
 
+    extern fn gtk_grid_view_get_tab_behavior(self: *Self) gtk.ListTabBehavior;
+    pub const getTabBehavior = gtk_grid_view_get_tab_behavior;
+
     extern fn gtk_widget_get_template_child(self: *Self, widget_type: usize, name: [*c]const u8) ?*gobject.Object;
     pub const getTemplateChild = gtk_widget_get_template_child;
 
@@ -430,6 +442,9 @@ pub const GridView = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
+    extern fn gtk_grid_view_scroll_to(self: *Self, pos: u32, flags: gtk.ListScrollFlags, scroll: ?*gtk.ScrollInfo) void;
+    pub const scrollTo = gtk_grid_view_scroll_to;
+
     extern fn gtk_widget_set_can_focus(self: *Self, can_focus: bool) void;
     pub const setCanFocus = gtk_widget_set_can_focus;
 
@@ -540,6 +555,9 @@ pub const GridView = extern struct {
 
     extern fn gtk_widget_set_state_flags(self: *Self, flags: gtk.StateFlags, clear: bool) void;
     pub const setStateFlags = gtk_widget_set_state_flags;
+
+    extern fn gtk_grid_view_set_tab_behavior(self: *Self, tab_behavior: gtk.ListTabBehavior) void;
+    pub const setTabBehavior = gtk_grid_view_set_tab_behavior;
 
     extern fn gtk_widget_set_tooltip_markup(self: *Self, markup: [*c]const u8) void;
     pub const setTooltipMarkup = gtk_widget_set_tooltip_markup;
@@ -941,41 +959,42 @@ pub const GridView = extern struct {
         min_columns = 3,
         model = 4,
         single_click_activate = 5,
-        orientation = 6,
-        can_focus = 7,
-        can_target = 8,
-        css_classes = 9,
-        css_name = 10,
-        cursor = 11,
-        focus_on_click = 12,
-        focusable = 13,
-        halign = 14,
-        has_default = 15,
-        has_focus = 16,
-        has_tooltip = 17,
-        height_request = 18,
-        hexpand = 19,
-        hexpand_set = 20,
-        layout_manager = 21,
-        margin_bottom = 22,
-        margin_end = 23,
-        margin_start = 24,
-        margin_top = 25,
-        name = 26,
-        opacity = 27,
-        overflow = 28,
-        parent = 29,
-        receives_default = 30,
-        root = 31,
-        scale_factor = 32,
-        sensitive = 33,
-        tooltip_markup = 34,
-        tooltip_text = 35,
-        valign = 36,
-        vexpand = 37,
-        vexpand_set = 38,
-        visible = 39,
-        width_request = 40,
+        tab_behavior = 6,
+        orientation = 7,
+        can_focus = 8,
+        can_target = 9,
+        css_classes = 10,
+        css_name = 11,
+        cursor = 12,
+        focus_on_click = 13,
+        focusable = 14,
+        halign = 15,
+        has_default = 16,
+        has_focus = 17,
+        has_tooltip = 18,
+        height_request = 19,
+        hexpand = 20,
+        hexpand_set = 21,
+        layout_manager = 22,
+        margin_bottom = 23,
+        margin_end = 24,
+        margin_start = 25,
+        margin_top = 26,
+        name = 27,
+        opacity = 28,
+        overflow = 29,
+        parent = 30,
+        receives_default = 31,
+        root = 32,
+        scale_factor = 33,
+        sensitive = 34,
+        tooltip_markup = 35,
+        tooltip_text = 36,
+        valign = 37,
+        vexpand = 38,
+        vexpand_set = 39,
+        visible = 40,
+        width_request = 41,
     };
 
     pub const PropertyNames = [_][:0]const u8{
@@ -985,6 +1004,7 @@ pub const GridView = extern struct {
         "notify::min-columns",
         "notify::model",
         "notify::single-click-activate",
+        "notify::tab-behavior",
         "notify::orientation",
         "notify::can-focus",
         "notify::can-target",

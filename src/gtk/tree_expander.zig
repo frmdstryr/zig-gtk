@@ -88,6 +88,9 @@ pub const TreeExpander = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
+    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
+    pub const disposeTemplate = gtk_widget_dispose_template;
+
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -115,6 +118,9 @@ pub const TreeExpander = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
+    extern fn gtk_widget_get_baseline(self: *Self) i32;
+    pub const getBaseline = gtk_widget_get_baseline;
+
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -129,6 +135,9 @@ pub const TreeExpander = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
+
+    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
+    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -183,6 +192,12 @@ pub const TreeExpander = extern struct {
 
     extern fn gtk_widget_get_hexpand_set(self: *Self) bool;
     pub const getHexpandSet = gtk_widget_get_hexpand_set;
+
+    extern fn gtk_tree_expander_get_hide_expander(self: *Self) bool;
+    pub const getHideExpander = gtk_tree_expander_get_hide_expander;
+
+    extern fn gtk_tree_expander_get_indent_for_depth(self: *Self) bool;
+    pub const getIndentForDepth = gtk_tree_expander_get_indent_for_depth;
 
     extern fn gtk_tree_expander_get_indent_for_icon(self: *Self) bool;
     pub const getIndentForIcon = gtk_tree_expander_get_indent_for_icon;
@@ -477,6 +492,12 @@ pub const TreeExpander = extern struct {
 
     extern fn gtk_widget_set_hexpand_set(self: *Self, set: bool) void;
     pub const setHexpandSet = gtk_widget_set_hexpand_set;
+
+    extern fn gtk_tree_expander_set_hide_expander(self: *Self, hide_expander: bool) void;
+    pub const setHideExpander = gtk_tree_expander_set_hide_expander;
+
+    extern fn gtk_tree_expander_set_indent_for_depth(self: *Self, indent_for_depth: bool) void;
+    pub const setIndentForDepth = gtk_tree_expander_set_indent_for_depth;
 
     extern fn gtk_tree_expander_set_indent_for_icon(self: *Self, indent_for_icon: bool) void;
     pub const setIndentForIcon = gtk_tree_expander_set_indent_for_icon;
@@ -901,47 +922,51 @@ pub const TreeExpander = extern struct {
     // Properties
     pub const Properties = enum(u8) {
         child = 0,
-        indent_for_icon = 1,
-        item = 2,
-        list_row = 3,
-        can_focus = 4,
-        can_target = 5,
-        css_classes = 6,
-        css_name = 7,
-        cursor = 8,
-        focus_on_click = 9,
-        focusable = 10,
-        halign = 11,
-        has_default = 12,
-        has_focus = 13,
-        has_tooltip = 14,
-        height_request = 15,
-        hexpand = 16,
-        hexpand_set = 17,
-        layout_manager = 18,
-        margin_bottom = 19,
-        margin_end = 20,
-        margin_start = 21,
-        margin_top = 22,
-        name = 23,
-        opacity = 24,
-        overflow = 25,
-        parent = 26,
-        receives_default = 27,
-        root = 28,
-        scale_factor = 29,
-        sensitive = 30,
-        tooltip_markup = 31,
-        tooltip_text = 32,
-        valign = 33,
-        vexpand = 34,
-        vexpand_set = 35,
-        visible = 36,
-        width_request = 37,
+        hide_expander = 1,
+        indent_for_depth = 2,
+        indent_for_icon = 3,
+        item = 4,
+        list_row = 5,
+        can_focus = 6,
+        can_target = 7,
+        css_classes = 8,
+        css_name = 9,
+        cursor = 10,
+        focus_on_click = 11,
+        focusable = 12,
+        halign = 13,
+        has_default = 14,
+        has_focus = 15,
+        has_tooltip = 16,
+        height_request = 17,
+        hexpand = 18,
+        hexpand_set = 19,
+        layout_manager = 20,
+        margin_bottom = 21,
+        margin_end = 22,
+        margin_start = 23,
+        margin_top = 24,
+        name = 25,
+        opacity = 26,
+        overflow = 27,
+        parent = 28,
+        receives_default = 29,
+        root = 30,
+        scale_factor = 31,
+        sensitive = 32,
+        tooltip_markup = 33,
+        tooltip_text = 34,
+        valign = 35,
+        vexpand = 36,
+        vexpand_set = 37,
+        visible = 38,
+        width_request = 39,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::child",
+        "notify::hide-expander",
+        "notify::indent-for-depth",
         "notify::indent-for-icon",
         "notify::item",
         "notify::list-row",

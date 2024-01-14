@@ -104,6 +104,9 @@ pub const Picture = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
+    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
+    pub const disposeTemplate = gtk_widget_dispose_template;
+
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -134,6 +137,9 @@ pub const Picture = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
+    extern fn gtk_widget_get_baseline(self: *Self) i32;
+    pub const getBaseline = gtk_widget_get_baseline;
+
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -148,6 +154,12 @@ pub const Picture = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
+
+    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
+    pub const getColor = gtk_widget_get_color;
+
+    extern fn gtk_picture_get_content_fit(self: *Self) gtk.ContentFit;
+    pub const getContentFit = gtk_picture_get_content_fit;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -457,6 +469,9 @@ pub const Picture = extern struct {
 
     extern fn gtk_widget_set_child_visible(self: *Self, child_visible: bool) void;
     pub const setChildVisible = gtk_widget_set_child_visible;
+
+    extern fn gtk_picture_set_content_fit(self: *Self, content_fit: gtk.ContentFit) void;
+    pub const setContentFit = gtk_picture_set_content_fit;
 
     extern fn gtk_widget_set_css_classes(self: *Self, classes: [*c][*c]const u8) void;
     pub const setCssClasses = gtk_widget_set_css_classes;
@@ -936,48 +951,50 @@ pub const Picture = extern struct {
     pub const Properties = enum(u8) {
         alternative_text = 0,
         can_shrink = 1,
-        file = 2,
-        keep_aspect_ratio = 3,
-        paintable = 4,
-        can_focus = 5,
-        can_target = 6,
-        css_classes = 7,
-        css_name = 8,
-        cursor = 9,
-        focus_on_click = 10,
-        focusable = 11,
-        halign = 12,
-        has_default = 13,
-        has_focus = 14,
-        has_tooltip = 15,
-        height_request = 16,
-        hexpand = 17,
-        hexpand_set = 18,
-        layout_manager = 19,
-        margin_bottom = 20,
-        margin_end = 21,
-        margin_start = 22,
-        margin_top = 23,
-        name = 24,
-        opacity = 25,
-        overflow = 26,
-        parent = 27,
-        receives_default = 28,
-        root = 29,
-        scale_factor = 30,
-        sensitive = 31,
-        tooltip_markup = 32,
-        tooltip_text = 33,
-        valign = 34,
-        vexpand = 35,
-        vexpand_set = 36,
-        visible = 37,
-        width_request = 38,
+        content_fit = 2,
+        file = 3,
+        keep_aspect_ratio = 4,
+        paintable = 5,
+        can_focus = 6,
+        can_target = 7,
+        css_classes = 8,
+        css_name = 9,
+        cursor = 10,
+        focus_on_click = 11,
+        focusable = 12,
+        halign = 13,
+        has_default = 14,
+        has_focus = 15,
+        has_tooltip = 16,
+        height_request = 17,
+        hexpand = 18,
+        hexpand_set = 19,
+        layout_manager = 20,
+        margin_bottom = 21,
+        margin_end = 22,
+        margin_start = 23,
+        margin_top = 24,
+        name = 25,
+        opacity = 26,
+        overflow = 27,
+        parent = 28,
+        receives_default = 29,
+        root = 30,
+        scale_factor = 31,
+        sensitive = 32,
+        tooltip_markup = 33,
+        tooltip_text = 34,
+        valign = 35,
+        vexpand = 36,
+        vexpand_set = 37,
+        visible = 38,
+        width_request = 39,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::alternative-text",
         "notify::can-shrink",
+        "notify::content-fit",
         "notify::file",
         "notify::keep-aspect-ratio",
         "notify::paintable",
