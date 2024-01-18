@@ -12,9 +12,6 @@ pub const TextMark = extern struct {
     // Fields
     parent_instance: gobject.Object,
     segment: ?*anyopaque,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_text_mark_new(name: [*c]const u8, left_gravity: bool) ?*Self;

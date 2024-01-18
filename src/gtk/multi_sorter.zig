@@ -12,9 +12,6 @@ pub const MultiSorter = extern struct {
 
     // Fields
     parent_instance: gobject.Object,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_multi_sorter_new() ?*Self;

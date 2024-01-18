@@ -12,9 +12,6 @@ pub const MemoryOutputStream = extern struct {
     // Fields
     parent_instance: gio.OutputStream,
     priv: *gio.MemoryOutputStreamPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_memory_output_stream_new_resizable() ?*Self;

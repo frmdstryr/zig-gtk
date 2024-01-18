@@ -13,9 +13,6 @@ pub const TextBuffer = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gtk.TextBufferPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_text_buffer_new(table: ?*gtk.TextTagTable) ?*Self;

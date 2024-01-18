@@ -11,9 +11,6 @@ pub const BoolFilter = extern struct {
 
     // Fields
     parent_instance: gobject.Object,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_bool_filter_new(expression: ?*gtk.Expression) ?*Self;

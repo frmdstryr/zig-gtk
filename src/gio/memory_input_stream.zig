@@ -12,9 +12,6 @@ pub const MemoryInputStream = extern struct {
     // Fields
     parent_instance: gio.InputStream,
     priv: *gio.MemoryInputStreamPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_memory_input_stream_new() ?*Self;

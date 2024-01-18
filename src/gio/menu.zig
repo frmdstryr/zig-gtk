@@ -12,9 +12,6 @@ pub const Menu = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.MenuModelPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_menu_new() ?*Self;

@@ -11,9 +11,6 @@ pub const CustomFilter = extern struct {
 
     // Fields
     parent_instance: gobject.Object,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_custom_filter_new(match_func: ?*const fn (item: *gobject.Object, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, user_destroy: *const fn (data: ?*anyopaque) callconv(.C) void) ?*Self;

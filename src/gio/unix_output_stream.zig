@@ -12,9 +12,6 @@ pub const UnixOutputStream = extern struct {
     // Fields
     parent_instance: gio.OutputStream,
     priv: *gio.UnixOutputStreamPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_unix_output_stream_new(fd: i32, close_fd: bool) ?*Self;

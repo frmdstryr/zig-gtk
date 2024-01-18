@@ -11,9 +11,6 @@ pub const SocketAddress = extern struct {
 
     // Fields
     parent_instance: gobject.Object,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_socket_address_new_from_native(native: ?*anyopaque, len: u64) ?*Self;

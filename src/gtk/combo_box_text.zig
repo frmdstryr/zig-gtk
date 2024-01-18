@@ -18,9 +18,6 @@ pub const ComboBoxText = extern struct {
     // Fields
     parent_instance: gtk.Widget,
     priv: *gtk.WidgetPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_combo_box_text_new() ?*Self;

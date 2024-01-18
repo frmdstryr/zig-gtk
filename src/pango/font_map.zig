@@ -11,9 +11,6 @@ pub const FontMap = extern struct {
 
     // Fields
     parent_instance: gobject.Object,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;

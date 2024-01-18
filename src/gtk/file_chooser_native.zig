@@ -11,9 +11,6 @@ pub const FileChooserNative = extern struct {
 
     // Fields
     parent_instance: gobject.Object,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_file_chooser_native_new(title: [*c]const u8, parent: ?*gtk.Window, action: gtk.FileChooserAction, accept_label: [*c]const u8, cancel_label: [*c]const u8) ?*Self;

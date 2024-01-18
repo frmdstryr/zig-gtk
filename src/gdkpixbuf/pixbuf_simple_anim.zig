@@ -12,9 +12,6 @@ pub const PixbufSimpleAnim = extern struct {
 
     // Fields
     parent_instance: gobject.Object,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gdk_pixbuf_simple_anim_new(width: i32, height: i32, rate: f32) ?*Self;

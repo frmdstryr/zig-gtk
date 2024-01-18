@@ -12,9 +12,6 @@ pub const SimpleIOStream = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.IOStreamPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_simple_io_stream_new(input_stream: *gio.InputStream, output_stream: *gio.OutputStream) ?*Self;

@@ -12,9 +12,6 @@ pub const TcpWrapperConnection = extern struct {
     // Fields
     parent_instance: gio.TcpConnection,
     priv: *gio.TcpWrapperConnectionPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_tcp_wrapper_connection_new(base_io_stream: *gio.IOStream, socket: *gio.Socket) ?*Self;

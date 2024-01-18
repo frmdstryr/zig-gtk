@@ -18,9 +18,6 @@ pub const AppChooserDialog = extern struct {
     // Fields
     parent_instance: gtk.Window,
     priv: *gtk.WidgetPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_app_chooser_dialog_new(parent: ?*gtk.Window, flags: gtk.DialogFlags, file: *gio.File) ?*Self;

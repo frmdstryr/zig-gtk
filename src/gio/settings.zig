@@ -12,9 +12,6 @@ pub const Settings = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.SettingsPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_settings_new(schema_id: [*c]const u8) ?*Self;

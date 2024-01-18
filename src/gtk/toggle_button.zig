@@ -19,9 +19,6 @@ pub const ToggleButton = extern struct {
     button: gtk.Button,
     parent_instance: gtk.Widget,
     priv: *gtk.WidgetPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_toggle_button_new() ?*Self;

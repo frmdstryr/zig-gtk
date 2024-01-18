@@ -14,9 +14,6 @@ pub const TypeModule = extern struct {
     type_infos: ?*anyopaque,
     interface_infos: ?*anyopaque,
     name: [*c]const u8,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;

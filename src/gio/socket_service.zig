@@ -12,9 +12,6 @@ pub const SocketService = extern struct {
     // Fields
     parent_instance: gio.SocketListener,
     priv: *gio.SocketServicePrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_socket_service_new() ?*Self;

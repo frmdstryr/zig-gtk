@@ -12,9 +12,6 @@ pub const NetworkService = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.NetworkServicePrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_network_service_new(service: [*c]const u8, protocol: [*c]const u8, domain: [*c]const u8) ?*Self;

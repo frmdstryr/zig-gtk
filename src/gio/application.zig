@@ -12,9 +12,6 @@ pub const Application = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.ApplicationPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_application_new(application_id: [*c]const u8, flags: gio.ApplicationFlags) ?*Self;

@@ -12,9 +12,6 @@ pub const DBusObjectManagerServer = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.DBusObjectManagerServerPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_dbus_object_manager_server_new(object_path: [*c]const u8) ?*Self;

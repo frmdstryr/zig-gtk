@@ -12,9 +12,6 @@ pub const EmblemedIcon = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.EmblemedIconPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_emblemed_icon_new(icon: *gio.Icon, emblem: ?*gio.Emblem) ?*Self;

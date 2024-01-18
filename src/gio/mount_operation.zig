@@ -12,9 +12,6 @@ pub const MountOperation = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.MountOperationPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_mount_operation_new() ?*Self;

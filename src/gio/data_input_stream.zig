@@ -13,9 +13,6 @@ pub const DataInputStream = extern struct {
     parent_instance: gio.BufferedInputStream,
     priv: *gio.DataInputStreamPrivate,
     base_stream: *gio.InputStream,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_data_input_stream_new(base_stream: *gio.InputStream) ?*Self;

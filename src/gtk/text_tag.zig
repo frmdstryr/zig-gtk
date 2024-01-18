@@ -12,9 +12,6 @@ pub const TextTag = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gtk.TextTagPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_text_tag_new(name: [*c]const u8) ?*Self;

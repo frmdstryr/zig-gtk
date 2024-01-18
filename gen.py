@@ -567,6 +567,28 @@ def field_default(Cls: type, field_type: str, field_name: str) -> Optional[str]:
     return default_value
 
 
+def should_skip_field(
+    ns: str,
+    Cls: type,
+    field_name: str,
+    field_type: str,
+    all_field_names: set[str]
+) -> bool:
+    if "parent_instance" in all_field_names:
+        if field_name in ("g_type_instance", "ref_count", "qdata"):
+            mro = Cls.mro()
+            if GObject.InitiallyUnowned in mro or GObject.Object in mro:
+                return True
+        elif field_name == "priv":
+            mod = globals()[ns]
+            if hasattr(mod, f"{Cls.__name__}Private"):
+                return False
+            # TODO: How to tell if others are valid
+            #return True
+
+    return False
+
+
 def generate_class(ns: str, Cls: type):
     print(f"Generating class {Cls}")
     info = getattr(Cls, "__info__", None)
@@ -613,6 +635,13 @@ def generate_class(ns: str, Cls: type):
     out.append("    // Fields")
     field_names = set()
 
+    all_field_names = set()
+    for obj_info in mro:
+        if hasattr(obj_info, "get_fields"):
+            for field in obj_info.get_fields():
+                field_name = clean_zig_name(field.get_name())
+                all_field_names.add(field_name)
+
     for obj_info in mro:
         if hasattr(obj_info, "get_fields"):
             for field in obj_info.get_fields():
@@ -620,6 +649,9 @@ def generate_class(ns: str, Cls: type):
                 if field_type in ("*glib.error", "*gtk.error"):
                     field_type = "*gobject.Error"
                 field_name = clean_zig_name(field.get_name())
+                # Hack for InitiallyUnowned subclasses
+                if should_skip_field(ns, Cls, field_name, field_type, all_field_names):
+                    continue # Skip
                 if field_name not in field_names:
                     field_names.add(field_name)
                     if field_type is None:
@@ -645,10 +677,6 @@ def generate_class(ns: str, Cls: type):
                             or field_name == "value_table"
                         ):
                             field_type = f"?{field_type}"
-                    # Hack for InitiallyUnowned subclasses
-                    if "gobject.InitiallyUnowned" in bases and Cls is not GObject.InitiallyUnowned:
-                        if field_name in ("g_type_instance", "ref_count", "qdata"):
-                            continue # Skip
 
                     if default := field_default(Cls, field_type, field_name):
                         default_value = f" = {default}"
@@ -761,6 +789,7 @@ def generate_class(ns: str, Cls: type):
         out.append("")
 
     # Add helper methods
+
     if "gtk.Widget" in bases:
         out.append(WIDGET_METHODS)
 

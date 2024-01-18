@@ -18,9 +18,6 @@ pub const EditableLabel = extern struct {
     // Fields
     parent_instance: gobject.InitiallyUnowned,
     priv: *gtk.WidgetPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_editable_label_new(str: [*c]const u8) ?*Self;

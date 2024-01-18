@@ -15,9 +15,6 @@ pub const IMMulticontext = extern struct {
     object: gtk.IMContext,
     priv: *gtk.IMMulticontextPrivate,
     parent_instance: gobject.Object,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_im_multicontext_new() ?*Self;

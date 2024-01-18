@@ -13,9 +13,6 @@ pub const DataOutputStream = extern struct {
     parent_instance: gio.FilterOutputStream,
     priv: *gio.DataOutputStreamPrivate,
     base_stream: *gio.OutputStream,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_data_output_stream_new(base_stream: *gio.OutputStream) ?*Self;

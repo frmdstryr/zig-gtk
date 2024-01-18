@@ -13,9 +13,6 @@ pub const BufferedOutputStream = extern struct {
     parent_instance: gio.FilterOutputStream,
     priv: *gio.BufferedOutputStreamPrivate,
     base_stream: *gio.OutputStream,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_buffered_output_stream_new(base_stream: *gio.OutputStream) ?*Self;

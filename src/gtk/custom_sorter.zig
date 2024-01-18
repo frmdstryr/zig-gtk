@@ -11,9 +11,6 @@ pub const CustomSorter = extern struct {
 
     // Fields
     parent_instance: gobject.Object,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_custom_sorter_new(sort_func: ?*const fn (a: ?*anyopaque, b: ?*anyopaque, user_data: ?*anyopaque) callconv(.C) i32, user_data: ?*anyopaque, user_destroy: ?*const fn (data: ?*anyopaque) callconv(.C) void) ?*Self;

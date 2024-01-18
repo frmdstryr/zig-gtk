@@ -11,9 +11,6 @@ pub const CustomLayout = extern struct {
 
     // Fields
     parent_instance: gobject.Object,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_custom_layout_new(request_mode: ?*const fn (widget: *gtk.Widget) callconv(.C) gtk.SizeRequestMode, measure: *const fn (widget: *gtk.Widget, orientation: gtk.Orientation, for_size: i32, minimum: *i32, natural: *i32, minimum_baseline: *i32, natural_baseline: *i32) callconv(.C) void, allocate: *const fn (widget: *gtk.Widget, width: i32, height: i32, baseline: i32) callconv(.C) void) ?*Self;

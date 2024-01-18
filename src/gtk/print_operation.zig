@@ -12,9 +12,6 @@ pub const PrintOperation = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gtk.PrintOperationPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_print_operation_new() ?*Self;

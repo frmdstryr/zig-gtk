@@ -14,9 +14,6 @@ pub const MountOperation = extern struct {
     // Fields
     parent_instance: gio.MountOperation,
     priv: *gtk.MountOperationPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_mount_operation_new(parent: ?*gtk.Window) ?*Self;

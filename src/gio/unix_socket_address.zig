@@ -12,9 +12,6 @@ pub const UnixSocketAddress = extern struct {
     // Fields
     parent_instance: gio.SocketAddress,
     priv: *gio.UnixSocketAddressPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_unix_socket_address_new(path: [*c]const u8) ?*Self;

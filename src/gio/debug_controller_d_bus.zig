@@ -11,9 +11,6 @@ pub const DebugControllerDBus = extern struct {
 
     // Fields
     parent_instance: gobject.Object,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_debug_controller_dbus_new(connection: *gio.DBusConnection, cancellable: ?*gio.Cancellable) ?*Self;

@@ -12,9 +12,6 @@ pub const InetAddressMask = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.InetAddressMaskPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_inet_address_mask_new(addr: *gio.InetAddress, length: u32) ?*Self;

@@ -12,9 +12,6 @@ pub const RecentManager = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gtk.RecentManagerPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_recent_manager_new() ?*Self;

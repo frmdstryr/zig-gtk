@@ -18,9 +18,6 @@ pub const ScaleButton = extern struct {
     // Fields
     parent_instance: gtk.Widget,
     priv: *gtk.WidgetPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_scale_button_new(min: f64, max: f64, step: f64, icons: [*c][*c]const u8) ?*Self;

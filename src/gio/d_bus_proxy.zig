@@ -12,9 +12,6 @@ pub const DBusProxy = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.DBusProxyPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_dbus_proxy_new_finish(res: *gio.AsyncResult) ?*Self;

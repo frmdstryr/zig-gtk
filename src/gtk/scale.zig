@@ -18,9 +18,6 @@ pub const Scale = extern struct {
     // Fields
     parent_instance: gtk.Range,
     priv: *gtk.WidgetPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_scale_new(orientation: gtk.Orientation, adjustment: ?*gtk.Adjustment) ?*Self;

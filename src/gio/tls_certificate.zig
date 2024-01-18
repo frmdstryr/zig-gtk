@@ -12,9 +12,6 @@ pub const TlsCertificate = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.TlsCertificatePrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_tls_certificate_new_from_file(file: [*c]const u8) ?*Self;

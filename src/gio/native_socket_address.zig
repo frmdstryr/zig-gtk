@@ -12,9 +12,6 @@ pub const NativeSocketAddress = extern struct {
     // Fields
     parent_instance: gio.SocketAddress,
     priv: *gio.NativeSocketAddressPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_native_socket_address_new(native: ?*anyopaque, len: u64) ?*Self;

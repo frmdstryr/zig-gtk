@@ -12,9 +12,6 @@ pub const Socket = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.SocketPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_socket_new(family: gio.SocketFamily, type: gio.SocketType, protocol: gio.SocketProtocol) ?*Self;

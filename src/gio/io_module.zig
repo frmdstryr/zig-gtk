@@ -15,9 +15,6 @@ pub const IOModule = extern struct {
     type_infos: ?*anyopaque,
     interface_infos: ?*anyopaque,
     name: [*c]const u8,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_io_module_new(filename: [*c]const u8) ?*Self;

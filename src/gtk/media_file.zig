@@ -13,9 +13,6 @@ pub const MediaFile = extern struct {
 
     // Fields
     parent_instance: gtk.MediaStream,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_media_file_new() ?*Self;

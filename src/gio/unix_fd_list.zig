@@ -12,9 +12,6 @@ pub const UnixFDList = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.UnixFDListPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_unix_fd_list_new() ?*Self;

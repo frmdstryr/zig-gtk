@@ -18,9 +18,6 @@ pub const SpinButton = extern struct {
     // Fields
     parent_instance: gobject.InitiallyUnowned,
     priv: *gtk.WidgetPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_spin_button_new(adjustment: ?*gtk.Adjustment, climb_rate: f64, digits: u32) ?*Self;

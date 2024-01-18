@@ -18,9 +18,6 @@ pub const ListView = extern struct {
     // Fields
     parent_instance: gobject.InitiallyUnowned,
     priv: *gtk.WidgetPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_list_view_new(model: ?*gtk.SelectionModel, factory: ?*gtk.ListItemFactory) ?*Self;

@@ -12,9 +12,6 @@ pub const WindowGroup = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gtk.WindowGroupPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_window_group_new() ?*Self;

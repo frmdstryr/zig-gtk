@@ -12,9 +12,6 @@ pub const ThreadedSocketService = extern struct {
     // Fields
     parent_instance: gio.SocketService,
     priv: *gio.ThreadedSocketServicePrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_threaded_socket_service_new(max_threads: i32) ?*Self;

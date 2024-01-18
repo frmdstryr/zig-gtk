@@ -12,9 +12,6 @@ pub const SimplePermission = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.PermissionPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_simple_permission_new(allowed: bool) ?*Self;

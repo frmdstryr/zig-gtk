@@ -12,9 +12,6 @@ pub const DBusObjectManagerClient = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.DBusObjectManagerClientPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_dbus_object_manager_client_new_finish(res: *gio.AsyncResult) ?*Self;

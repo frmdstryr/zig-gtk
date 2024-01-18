@@ -11,9 +11,6 @@ pub const FontsetSimple = extern struct {
 
     // Fields
     parent_instance: gobject.Object,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn pango_fontset_simple_new(language: *pango.Language) ?*Self;

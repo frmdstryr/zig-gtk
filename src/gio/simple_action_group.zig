@@ -12,9 +12,6 @@ pub const SimpleActionGroup = extern struct {
     // Fields
     parent_instance: gobject.Object,
     priv: *gio.SimpleActionGroupPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_simple_action_group_new() ?*Self;

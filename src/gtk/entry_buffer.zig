@@ -11,9 +11,6 @@ pub const EntryBuffer = extern struct {
 
     // Fields
     parent_instance: gobject.Object,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_entry_buffer_new(initial_chars: [*c]const u8, n_initial_chars: i32) ?*Self;

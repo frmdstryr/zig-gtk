@@ -12,9 +12,6 @@ pub const UnixCredentialsMessage = extern struct {
     // Fields
     parent_instance: gio.SocketControlMessage,
     priv: *gio.UnixCredentialsMessagePrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_unix_credentials_message_new() ?*Self;

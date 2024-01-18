@@ -12,9 +12,6 @@ pub const ProxyAddress = extern struct {
     // Fields
     parent_instance: gio.InetSocketAddress,
     priv: *gio.ProxyAddressPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_proxy_address_new(inetaddr: *gio.InetAddress, port: u16, protocol: [*c]const u8, dest_hostname: [*c]const u8, dest_port: u16, username: [*c]const u8, password: [*c]const u8) ?*Self;

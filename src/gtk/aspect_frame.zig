@@ -18,9 +18,6 @@ pub const AspectFrame = extern struct {
     // Fields
     parent_instance: gobject.InitiallyUnowned,
     priv: *gtk.WidgetPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_aspect_frame_new(xalign: f32, yalign: f32, ratio: f32, obey_child: bool) ?*Self;

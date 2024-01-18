@@ -12,9 +12,6 @@ pub const InetSocketAddress = extern struct {
     // Fields
     parent_instance: gio.SocketAddress,
     priv: *gio.InetSocketAddressPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_inet_socket_address_new(address: *gio.InetAddress, port: u16) ?*Self;

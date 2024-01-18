@@ -13,9 +13,6 @@ pub const ConverterInputStream = extern struct {
     parent_instance: gio.FilterInputStream,
     priv: *gio.ConverterInputStreamPrivate,
     base_stream: *gio.InputStream,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn g_converter_input_stream_new(base_stream: *gio.InputStream, converter: *gio.Converter) ?*Self;
