@@ -153,9 +153,6 @@ pub const Gesture = extern struct {
     extern fn gtk_gesture_set_state(self: *Self, state: gtk.EventSequenceState) bool;
     pub const setState = gtk_gesture_set_state;
 
-    extern fn gtk_event_controller_set_static_name(self: *Self, name: [*c]const u8) void;
-    pub const setStaticName = gtk_event_controller_set_static_name;
-
     extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
     pub const stealData = g_object_steal_data;
 

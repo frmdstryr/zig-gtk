@@ -137,28 +137,6 @@ pub const StringList = extern struct {
     }
 
 
-    // Properties
-    pub const Properties = enum(u8) {
-        strings = 0,
-    };
-
-    pub const PropertyNames = [_][:0]const u8{
-        "notify::strings",
-    };
-
-    // Connect to a signal with no type validation
-    pub inline fn connectProperty(
-        self: *Self,
-        property: Properties,
-        comptime T: type,
-        callback: *const fn (self: *Self, spec: *gobject.ParamSpec, data: ?*T) callconv(.C) void,
-        data: anytype,
-    ) u64 {
-        return c.g_signal_connect_data(self, PropertyNames[@intFromEnum(property)], @ptrCast(callback), data, null, @as(c.GConnectFlags, c.G_CONNECT_AFTER));
-    }
-
-
-
     // Bases
     pub inline fn asListModel(self: *Self) *gio.ListModel {
         return @ptrCast(self);

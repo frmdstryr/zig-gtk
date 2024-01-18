@@ -158,10 +158,8 @@ pub const DirectoryList = extern struct {
         err = 1,
         file = 2,
         io_priority = 3,
-        item_type = 4,
-        loading = 5,
-        monitored = 6,
-        n_items = 7,
+        loading = 4,
+        monitored = 5,
     };
 
     pub const PropertyNames = [_][:0]const u8{
@@ -169,10 +167,8 @@ pub const DirectoryList = extern struct {
         "notify::error",
         "notify::file",
         "notify::io-priority",
-        "notify::item-type",
         "notify::loading",
         "notify::monitored",
-        "notify::n-items",
     };
 
     // Connect to a signal with no type validation

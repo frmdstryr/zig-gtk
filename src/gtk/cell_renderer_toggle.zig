@@ -13,9 +13,6 @@ pub const CellRendererToggle = extern struct {
     // Fields
     parent_instance: gobject.InitiallyUnowned,
     priv: *gtk.CellRendererPrivate,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_cell_renderer_toggle_new() ?*Self;

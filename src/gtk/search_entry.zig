@@ -88,9 +88,6 @@ pub const SearchEntry = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
-    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
-    pub const disposeTemplate = gtk_widget_dispose_template;
-
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -118,9 +115,6 @@ pub const SearchEntry = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
-    extern fn gtk_widget_get_baseline(self: *Self) i32;
-    pub const getBaseline = gtk_widget_get_baseline;
-
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -132,9 +126,6 @@ pub const SearchEntry = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
-
-    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
-    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -235,9 +226,6 @@ pub const SearchEntry = extern struct {
     extern fn gtk_widget_get_parent(self: *Self) ?*gtk.Widget;
     pub const getParent = gtk_widget_get_parent;
 
-    extern fn gtk_search_entry_get_placeholder_text(self: *Self) [*c]const u8;
-    pub const getPlaceholderText = gtk_search_entry_get_placeholder_text;
-
     extern fn gtk_widget_get_preferred_size(self: *Self, minimum_size: *gtk.Requisition, natural_size: *gtk.Requisition) void;
     pub const getPreferredSize = gtk_widget_get_preferred_size;
 
@@ -267,9 +255,6 @@ pub const SearchEntry = extern struct {
 
     extern fn gtk_widget_get_scale_factor(self: *Self) i32;
     pub const getScaleFactor = gtk_widget_get_scale_factor;
-
-    extern fn gtk_search_entry_get_search_delay(self: *Self) u32;
-    pub const getSearchDelay = gtk_search_entry_get_search_delay;
 
     extern fn gtk_widget_get_sensitive(self: *Self) bool;
     pub const getSensitive = gtk_widget_get_sensitive;
@@ -511,17 +496,11 @@ pub const SearchEntry = extern struct {
     extern fn gtk_widget_set_parent(self: *Self, parent: *gtk.Widget) void;
     pub const setParent = gtk_widget_set_parent;
 
-    extern fn gtk_search_entry_set_placeholder_text(self: *Self, text: [*c]const u8) void;
-    pub const setPlaceholderText = gtk_search_entry_set_placeholder_text;
-
     extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
     pub const setProperty = g_object_set_property;
 
     extern fn gtk_widget_set_receives_default(self: *Self, receives_default: bool) void;
     pub const setReceivesDefault = gtk_widget_set_receives_default;
-
-    extern fn gtk_search_entry_set_search_delay(self: *Self, delay: u32) void;
-    pub const setSearchDelay = gtk_search_entry_set_search_delay;
 
     extern fn gtk_widget_set_sensitive(self: *Self, sensitive: bool) void;
     pub const setSensitive = gtk_widget_set_sensitive;
@@ -1028,47 +1007,45 @@ pub const SearchEntry = extern struct {
     pub const Properties = enum(u8) {
         activates_default = 0,
         placeholder_text = 1,
-        search_delay = 2,
-        can_focus = 3,
-        can_target = 4,
-        css_classes = 5,
-        css_name = 6,
-        cursor = 7,
-        focus_on_click = 8,
-        focusable = 9,
-        halign = 10,
-        has_default = 11,
-        has_focus = 12,
-        has_tooltip = 13,
-        height_request = 14,
-        hexpand = 15,
-        hexpand_set = 16,
-        layout_manager = 17,
-        margin_bottom = 18,
-        margin_end = 19,
-        margin_start = 20,
-        margin_top = 21,
-        name = 22,
-        opacity = 23,
-        overflow = 24,
-        parent = 25,
-        receives_default = 26,
-        root = 27,
-        scale_factor = 28,
-        sensitive = 29,
-        tooltip_markup = 30,
-        tooltip_text = 31,
-        valign = 32,
-        vexpand = 33,
-        vexpand_set = 34,
-        visible = 35,
-        width_request = 36,
+        can_focus = 2,
+        can_target = 3,
+        css_classes = 4,
+        css_name = 5,
+        cursor = 6,
+        focus_on_click = 7,
+        focusable = 8,
+        halign = 9,
+        has_default = 10,
+        has_focus = 11,
+        has_tooltip = 12,
+        height_request = 13,
+        hexpand = 14,
+        hexpand_set = 15,
+        layout_manager = 16,
+        margin_bottom = 17,
+        margin_end = 18,
+        margin_start = 19,
+        margin_top = 20,
+        name = 21,
+        opacity = 22,
+        overflow = 23,
+        parent = 24,
+        receives_default = 25,
+        root = 26,
+        scale_factor = 27,
+        sensitive = 28,
+        tooltip_markup = 29,
+        tooltip_text = 30,
+        valign = 31,
+        vexpand = 32,
+        vexpand_set = 33,
+        visible = 34,
+        width_request = 35,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::activates-default",
         "notify::placeholder-text",
-        "notify::search-delay",
         "notify::can-focus",
         "notify::can-target",
         "notify::css-classes",

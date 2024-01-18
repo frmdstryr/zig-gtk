@@ -69,7 +69,10 @@ EXCLUDED_CONSTANTS = {
     },
 }
 
-EXCLUDED_ENUMS = {"GTK_ALIGN_BASELINE_FILL"}
+EXCLUDED_ENUMS = {
+    "GTK_ALIGN_BASELINE_FILL",
+    "GDK_MEMORY_G8A8_PREMULTIPLIED",
+}
 
 
 # Half of them start with G_ other start with GLIB_
@@ -569,6 +572,7 @@ def generate_class(ns: str, Cls: type):
     info = getattr(Cls, "__info__", None)
 
     is_struct = str(info).startswith("StructInfo")
+    is_object = str(info).startswith("ObjectInfo")
     is_interface = str(info).startswith("InterfaceInfo")
     is_union = str(info).startswith("gi.UnionInfo")
 
@@ -641,6 +645,10 @@ def generate_class(ns: str, Cls: type):
                             or field_name == "value_table"
                         ):
                             field_type = f"?{field_type}"
+                    # Hack for InitiallyUnowned subclasses
+                    if "gobject.InitiallyUnowned" in bases and Cls is not GObject.InitiallyUnowned:
+                        if field_name in ("g_type_instance", "ref_count", "qdata"):
+                            continue # Skip
 
                     if default := field_default(Cls, field_type, field_name):
                         default_value = f" = {default}"
@@ -887,6 +895,11 @@ def generate_class(ns: str, Cls: type):
             test.append(
                 f"    try std.testing.expectEqual(@as(usize, {expected_size}), @sizeOf({Cls.__name__}));",
             )
+    # elif is_object:
+    #     # Verify struct size is correct
+    #     test.append(
+    #         f"    try std.testing.expectEqual(@sizeOf(c.{info.get_type_name()}), @sizeOf({Cls.__name__}));",
+    #     )
     test.append("}")
     out.extend(test)
 

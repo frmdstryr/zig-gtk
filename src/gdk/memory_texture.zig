@@ -58,9 +58,6 @@ pub const MemoryTexture = extern struct {
     extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
     pub const getData = g_object_get_data;
 
-    extern fn gdk_texture_get_format(self: *Self) gdk.MemoryFormat;
-    pub const getFormat = gdk_texture_get_format;
-
     extern fn gdk_texture_get_height(self: *Self) i32;
     pub const getHeight = gdk_texture_get_height;
 

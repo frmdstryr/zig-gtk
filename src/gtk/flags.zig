@@ -37,7 +37,6 @@ pub const DebugFlags = packed struct {
     pub const Iconfallback: @This() = @bitCast(c.GTK_DEBUG_ICONFALLBACK);
     pub const Icontheme: @This() = @bitCast(c.GTK_DEBUG_ICONTHEME);
     pub const Interactive: @This() = @bitCast(c.GTK_DEBUG_INTERACTIVE);
-    pub const InvertTextDir: @This() = @bitCast(c.GTK_DEBUG_INVERT_TEXT_DIR);
     pub const Keybindings: @This() = @bitCast(c.GTK_DEBUG_KEYBINDINGS);
     pub const Layout: @This() = @bitCast(c.GTK_DEBUG_LAYOUT);
     pub const Modules: @This() = @bitCast(c.GTK_DEBUG_MODULES);
@@ -46,6 +45,7 @@ pub const DebugFlags = packed struct {
     pub const SizeRequest: @This() = @bitCast(c.GTK_DEBUG_SIZE_REQUEST);
     pub const Snapshot: @This() = @bitCast(c.GTK_DEBUG_SNAPSHOT);
     pub const Text: @This() = @bitCast(c.GTK_DEBUG_TEXT);
+    pub const Touchscreen: @This() = @bitCast(c.None);
     pub const Tree: @This() = @bitCast(c.GTK_DEBUG_TREE);
 };
 
@@ -97,13 +97,6 @@ pub const InputHints = packed struct {
     pub const UppercaseWords: @This() = @bitCast(c.GTK_INPUT_HINT_UPPERCASE_WORDS);
     pub const VerticalWriting: @This() = @bitCast(c.GTK_INPUT_HINT_VERTICAL_WRITING);
     pub const WordCompletion: @This() = @bitCast(c.GTK_INPUT_HINT_WORD_COMPLETION);
-};
-
-pub const ListScrollFlags = packed struct {
-    value: c_int,
-    pub const Focus: @This() = @bitCast(c.GTK_LIST_SCROLL_FOCUS);
-    pub const None: @This() = @bitCast(c.GTK_LIST_SCROLL_NONE);
-    pub const Select: @This() = @bitCast(c.GTK_LIST_SCROLL_SELECT);
 };
 
 pub const PickFlags = packed struct {

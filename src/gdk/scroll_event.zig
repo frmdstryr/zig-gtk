@@ -69,9 +69,6 @@ pub const ScrollEvent = extern struct {
     extern fn gdk_event_get_time(self: *Self) u32;
     pub const getTime = gdk_event_get_time;
 
-    extern fn gdk_scroll_event_get_unit(self: *Self) gdk.ScrollUnit;
-    pub const getUnit = gdk_scroll_event_get_unit;
-
     extern fn gdk_scroll_event_is_stop(self: *Self) bool;
     pub const isStop = gdk_scroll_event_is_stop;
 

@@ -12,9 +12,6 @@ pub const CellAreaBox = extern struct {
 
     // Fields
     parent_instance: gobject.InitiallyUnowned,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_cell_area_box_new() ?*Self;

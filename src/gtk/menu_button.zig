@@ -88,9 +88,6 @@ pub const MenuButton = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
-    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
-    pub const disposeTemplate = gtk_widget_dispose_template;
-
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -102,9 +99,6 @@ pub const MenuButton = extern struct {
 
     extern fn g_object_freeze_notify(self: *Self) void;
     pub const freezeNotify = g_object_freeze_notify;
-
-    extern fn gtk_menu_button_get_active(self: *Self) bool;
-    pub const getActive = gtk_menu_button_get_active;
 
     extern fn gtk_widget_get_allocated_baseline(self: *Self) i32;
     pub const getAllocatedBaseline = gtk_widget_get_allocated_baseline;
@@ -124,14 +118,8 @@ pub const MenuButton = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
-    extern fn gtk_widget_get_baseline(self: *Self) i32;
-    pub const getBaseline = gtk_widget_get_baseline;
-
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
-
-    extern fn gtk_menu_button_get_can_shrink(self: *Self) bool;
-    pub const getCanShrink = gtk_menu_button_get_can_shrink;
 
     extern fn gtk_widget_get_can_target(self: *Self) bool;
     pub const getCanTarget = gtk_widget_get_can_target;
@@ -144,9 +132,6 @@ pub const MenuButton = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
-
-    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
-    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -460,17 +445,11 @@ pub const MenuButton = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_menu_button_set_active(self: *Self, active: bool) void;
-    pub const setActive = gtk_menu_button_set_active;
-
     extern fn gtk_menu_button_set_always_show_arrow(self: *Self, always_show_arrow: bool) void;
     pub const setAlwaysShowArrow = gtk_menu_button_set_always_show_arrow;
 
     extern fn gtk_widget_set_can_focus(self: *Self, can_focus: bool) void;
     pub const setCanFocus = gtk_widget_set_can_focus;
-
-    extern fn gtk_menu_button_set_can_shrink(self: *Self, can_shrink: bool) void;
-    pub const setCanShrink = gtk_menu_button_set_can_shrink;
 
     extern fn gtk_widget_set_can_target(self: *Self, can_target: bool) void;
     pub const setCanTarget = gtk_widget_set_can_target;
@@ -983,58 +962,54 @@ pub const MenuButton = extern struct {
 
     // Properties
     pub const Properties = enum(u8) {
-        active = 0,
-        always_show_arrow = 1,
-        can_shrink = 2,
-        child = 3,
-        direction = 4,
-        has_frame = 5,
-        icon_name = 6,
-        label = 7,
-        menu_model = 8,
-        popover = 9,
-        primary = 10,
-        use_underline = 11,
-        can_focus = 12,
-        can_target = 13,
-        css_classes = 14,
-        css_name = 15,
-        cursor = 16,
-        focus_on_click = 17,
-        focusable = 18,
-        halign = 19,
-        has_default = 20,
-        has_focus = 21,
-        has_tooltip = 22,
-        height_request = 23,
-        hexpand = 24,
-        hexpand_set = 25,
-        layout_manager = 26,
-        margin_bottom = 27,
-        margin_end = 28,
-        margin_start = 29,
-        margin_top = 30,
-        name = 31,
-        opacity = 32,
-        overflow = 33,
-        parent = 34,
-        receives_default = 35,
-        root = 36,
-        scale_factor = 37,
-        sensitive = 38,
-        tooltip_markup = 39,
-        tooltip_text = 40,
-        valign = 41,
-        vexpand = 42,
-        vexpand_set = 43,
-        visible = 44,
-        width_request = 45,
+        always_show_arrow = 0,
+        child = 1,
+        direction = 2,
+        has_frame = 3,
+        icon_name = 4,
+        label = 5,
+        menu_model = 6,
+        popover = 7,
+        primary = 8,
+        use_underline = 9,
+        can_focus = 10,
+        can_target = 11,
+        css_classes = 12,
+        css_name = 13,
+        cursor = 14,
+        focus_on_click = 15,
+        focusable = 16,
+        halign = 17,
+        has_default = 18,
+        has_focus = 19,
+        has_tooltip = 20,
+        height_request = 21,
+        hexpand = 22,
+        hexpand_set = 23,
+        layout_manager = 24,
+        margin_bottom = 25,
+        margin_end = 26,
+        margin_start = 27,
+        margin_top = 28,
+        name = 29,
+        opacity = 30,
+        overflow = 31,
+        parent = 32,
+        receives_default = 33,
+        root = 34,
+        scale_factor = 35,
+        sensitive = 36,
+        tooltip_markup = 37,
+        tooltip_text = 38,
+        valign = 39,
+        vexpand = 40,
+        vexpand_set = 41,
+        visible = 42,
+        width_request = 43,
     };
 
     pub const PropertyNames = [_][:0]const u8{
-        "notify::active",
         "notify::always-show-arrow",
-        "notify::can-shrink",
         "notify::child",
         "notify::direction",
         "notify::has-frame",

@@ -103,9 +103,6 @@ pub const PrintUnixDialog = extern struct {
     extern fn gtk_window_destroy(self: *Self) void;
     pub const destroy = gtk_window_destroy;
 
-    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
-    pub const disposeTemplate = gtk_widget_dispose_template;
-
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -142,9 +139,6 @@ pub const PrintUnixDialog = extern struct {
     extern fn gtk_window_get_application(self: *Self) ?*gtk.Application;
     pub const getApplication = gtk_window_get_application;
 
-    extern fn gtk_widget_get_baseline(self: *Self) i32;
-    pub const getBaseline = gtk_widget_get_baseline;
-
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -159,9 +153,6 @@ pub const PrintUnixDialog = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
-
-    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
-    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_dialog_get_content_area(self: *Self) ?*gtk.Box;
     pub const getContentArea = gtk_dialog_get_content_area;
@@ -480,9 +471,6 @@ pub const PrintUnixDialog = extern struct {
 
     extern fn gtk_widget_is_sensitive(self: *Self) bool;
     pub const isSensitive = gtk_widget_is_sensitive;
-
-    extern fn gtk_window_is_suspended(self: *Self) bool;
-    pub const isSuspended = gtk_window_is_suspended;
 
     extern fn gtk_widget_is_visible(self: *Self) bool;
     pub const isVisible = gtk_widget_is_visible;
@@ -1316,44 +1304,43 @@ pub const PrintUnixDialog = extern struct {
         modal = 27,
         resizable = 28,
         startup_id = 29,
-        suspended = 30,
-        title = 31,
-        titlebar = 32,
-        transient_for = 33,
-        can_focus = 34,
-        can_target = 35,
-        css_classes = 36,
-        css_name = 37,
-        cursor = 38,
-        focus_on_click = 39,
-        focusable = 40,
-        halign = 41,
-        has_default = 42,
-        has_focus = 43,
-        has_tooltip = 44,
-        height_request = 45,
-        hexpand = 46,
-        hexpand_set = 47,
-        layout_manager = 48,
-        margin_bottom = 49,
-        margin_end = 50,
-        margin_start = 51,
-        margin_top = 52,
-        name = 53,
-        opacity = 54,
-        overflow = 55,
-        parent = 56,
-        receives_default = 57,
-        root = 58,
-        scale_factor = 59,
-        sensitive = 60,
-        tooltip_markup = 61,
-        tooltip_text = 62,
-        valign = 63,
-        vexpand = 64,
-        vexpand_set = 65,
-        visible = 66,
-        width_request = 67,
+        title = 30,
+        titlebar = 31,
+        transient_for = 32,
+        can_focus = 33,
+        can_target = 34,
+        css_classes = 35,
+        css_name = 36,
+        cursor = 37,
+        focus_on_click = 38,
+        focusable = 39,
+        halign = 40,
+        has_default = 41,
+        has_focus = 42,
+        has_tooltip = 43,
+        height_request = 44,
+        hexpand = 45,
+        hexpand_set = 46,
+        layout_manager = 47,
+        margin_bottom = 48,
+        margin_end = 49,
+        margin_start = 50,
+        margin_top = 51,
+        name = 52,
+        opacity = 53,
+        overflow = 54,
+        parent = 55,
+        receives_default = 56,
+        root = 57,
+        scale_factor = 58,
+        sensitive = 59,
+        tooltip_markup = 60,
+        tooltip_text = 61,
+        valign = 62,
+        vexpand = 63,
+        vexpand_set = 64,
+        visible = 65,
+        width_request = 66,
     };
 
     pub const PropertyNames = [_][:0]const u8{
@@ -1387,7 +1374,6 @@ pub const PrintUnixDialog = extern struct {
         "notify::modal",
         "notify::resizable",
         "notify::startup-id",
-        "notify::suspended",
         "notify::title",
         "notify::titlebar",
         "notify::transient-for",

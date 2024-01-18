@@ -117,9 +117,6 @@ pub const GestureStylus = extern struct {
     extern fn gtk_gesture_get_sequences(self: *Self) ?*glib.List;
     pub const getSequences = gtk_gesture_get_sequences;
 
-    extern fn gtk_gesture_stylus_get_stylus_only(self: *Self) bool;
-    pub const getStylusOnly = gtk_gesture_stylus_get_stylus_only;
-
     extern fn gtk_gesture_single_get_touch_only(self: *Self) bool;
     pub const getTouchOnly = gtk_gesture_single_get_touch_only;
 
@@ -191,12 +188,6 @@ pub const GestureStylus = extern struct {
 
     extern fn gtk_gesture_set_state(self: *Self, state: gtk.EventSequenceState) bool;
     pub const setState = gtk_gesture_set_state;
-
-    extern fn gtk_event_controller_set_static_name(self: *Self, name: [*c]const u8) void;
-    pub const setStaticName = gtk_event_controller_set_static_name;
-
-    extern fn gtk_gesture_stylus_set_stylus_only(self: *Self, stylus_only: bool) void;
-    pub const setStylusOnly = gtk_gesture_stylus_set_stylus_only;
 
     extern fn gtk_gesture_single_set_touch_only(self: *Self, touch_only: bool) void;
     pub const setTouchOnly = gtk_gesture_single_set_touch_only;
@@ -436,19 +427,17 @@ pub const GestureStylus = extern struct {
 
     // Properties
     pub const Properties = enum(u8) {
-        stylus_only = 0,
-        button = 1,
-        exclusive = 2,
-        touch_only = 3,
-        n_points = 4,
-        name = 5,
-        propagation_limit = 6,
-        propagation_phase = 7,
-        widget = 8,
+        button = 0,
+        exclusive = 1,
+        touch_only = 2,
+        n_points = 3,
+        name = 4,
+        propagation_limit = 5,
+        propagation_phase = 6,
+        widget = 7,
     };
 
     pub const PropertyNames = [_][:0]const u8{
-        "notify::stylus-only",
         "notify::button",
         "notify::exclusive",
         "notify::touch-only",

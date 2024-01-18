@@ -143,17 +143,13 @@ pub const TreeListModel = extern struct {
     // Properties
     pub const Properties = enum(u8) {
         autoexpand = 0,
-        item_type = 1,
-        model = 2,
-        n_items = 3,
-        passthrough = 4,
+        model = 1,
+        passthrough = 2,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::autoexpand",
-        "notify::item-type",
         "notify::model",
-        "notify::n-items",
         "notify::passthrough",
     };
 

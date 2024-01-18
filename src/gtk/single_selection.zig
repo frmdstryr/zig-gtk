@@ -153,19 +153,15 @@ pub const SingleSelection = extern struct {
     pub const Properties = enum(u8) {
         autoselect = 0,
         can_unselect = 1,
-        item_type = 2,
-        model = 3,
-        n_items = 4,
-        selected = 5,
-        selected_item = 6,
+        model = 2,
+        selected = 3,
+        selected_item = 4,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::autoselect",
         "notify::can-unselect",
-        "notify::item-type",
         "notify::model",
-        "notify::n-items",
         "notify::selected",
         "notify::selected-item",
     };
@@ -191,9 +187,6 @@ pub const SingleSelection = extern struct {
         return @ptrCast(self);
     }
     pub inline fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub inline fn asSectionModel(self: *Self) *gtk.SectionModel {
         return @ptrCast(self);
     }
     pub inline fn asSelectionModel(self: *Self) *gtk.SelectionModel {

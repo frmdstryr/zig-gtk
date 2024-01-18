@@ -97,9 +97,6 @@ pub const AboutDialog = extern struct {
     extern fn gtk_window_destroy(self: *Self) void;
     pub const destroy = gtk_window_destroy;
 
-    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
-    pub const disposeTemplate = gtk_widget_dispose_template;
-
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -142,9 +139,6 @@ pub const AboutDialog = extern struct {
     extern fn gtk_about_dialog_get_authors(self: *Self) [*c][*c]const u8;
     pub const getAuthors = gtk_about_dialog_get_authors;
 
-    extern fn gtk_widget_get_baseline(self: *Self) i32;
-    pub const getBaseline = gtk_widget_get_baseline;
-
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -159,9 +153,6 @@ pub const AboutDialog = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
-
-    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
-    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_about_dialog_get_comments(self: *Self) [*c]const u8;
     pub const getComments = gtk_about_dialog_get_comments;
@@ -486,9 +477,6 @@ pub const AboutDialog = extern struct {
 
     extern fn gtk_widget_is_sensitive(self: *Self) bool;
     pub const isSensitive = gtk_widget_is_sensitive;
-
-    extern fn gtk_window_is_suspended(self: *Self) bool;
-    pub const isSuspended = gtk_window_is_suspended;
 
     extern fn gtk_widget_is_visible(self: *Self) bool;
     pub const isVisible = gtk_widget_is_visible;
@@ -1327,44 +1315,43 @@ pub const AboutDialog = extern struct {
         modal = 34,
         resizable = 35,
         startup_id = 36,
-        suspended = 37,
-        title = 38,
-        titlebar = 39,
-        transient_for = 40,
-        can_focus = 41,
-        can_target = 42,
-        css_classes = 43,
-        css_name = 44,
-        cursor = 45,
-        focus_on_click = 46,
-        focusable = 47,
-        halign = 48,
-        has_default = 49,
-        has_focus = 50,
-        has_tooltip = 51,
-        height_request = 52,
-        hexpand = 53,
-        hexpand_set = 54,
-        layout_manager = 55,
-        margin_bottom = 56,
-        margin_end = 57,
-        margin_start = 58,
-        margin_top = 59,
-        name = 60,
-        opacity = 61,
-        overflow = 62,
-        parent = 63,
-        receives_default = 64,
-        root = 65,
-        scale_factor = 66,
-        sensitive = 67,
-        tooltip_markup = 68,
-        tooltip_text = 69,
-        valign = 70,
-        vexpand = 71,
-        vexpand_set = 72,
-        visible = 73,
-        width_request = 74,
+        title = 37,
+        titlebar = 38,
+        transient_for = 39,
+        can_focus = 40,
+        can_target = 41,
+        css_classes = 42,
+        css_name = 43,
+        cursor = 44,
+        focus_on_click = 45,
+        focusable = 46,
+        halign = 47,
+        has_default = 48,
+        has_focus = 49,
+        has_tooltip = 50,
+        height_request = 51,
+        hexpand = 52,
+        hexpand_set = 53,
+        layout_manager = 54,
+        margin_bottom = 55,
+        margin_end = 56,
+        margin_start = 57,
+        margin_top = 58,
+        name = 59,
+        opacity = 60,
+        overflow = 61,
+        parent = 62,
+        receives_default = 63,
+        root = 64,
+        scale_factor = 65,
+        sensitive = 66,
+        tooltip_markup = 67,
+        tooltip_text = 68,
+        valign = 69,
+        vexpand = 70,
+        vexpand_set = 71,
+        visible = 72,
+        width_request = 73,
     };
 
     pub const PropertyNames = [_][:0]const u8{
@@ -1405,7 +1392,6 @@ pub const AboutDialog = extern struct {
         "notify::modal",
         "notify::resizable",
         "notify::startup-id",
-        "notify::suspended",
         "notify::title",
         "notify::titlebar",
         "notify::transient-for",

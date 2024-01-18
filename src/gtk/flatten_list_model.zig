@@ -133,15 +133,11 @@ pub const FlattenListModel = extern struct {
 
     // Properties
     pub const Properties = enum(u8) {
-        item_type = 0,
-        model = 1,
-        n_items = 2,
+        model = 0,
     };
 
     pub const PropertyNames = [_][:0]const u8{
-        "notify::item-type",
         "notify::model",
-        "notify::n-items",
     };
 
     // Connect to a signal with no type validation
@@ -165,9 +161,6 @@ pub const FlattenListModel = extern struct {
         return @ptrCast(self);
     }
     pub inline fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub inline fn asSectionModel(self: *Self) *gtk.SectionModel {
         return @ptrCast(self);
     }
 

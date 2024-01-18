@@ -137,16 +137,12 @@ pub const MapListModel = extern struct {
     // Properties
     pub const Properties = enum(u8) {
         has_map = 0,
-        item_type = 1,
-        model = 2,
-        n_items = 3,
+        model = 1,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::has-map",
-        "notify::item-type",
         "notify::model",
-        "notify::n-items",
     };
 
     // Connect to a signal with no type validation
@@ -170,9 +166,6 @@ pub const MapListModel = extern struct {
         return @ptrCast(self);
     }
     pub inline fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub inline fn asSectionModel(self: *Self) *gtk.SectionModel {
         return @ptrCast(self);
     }
 

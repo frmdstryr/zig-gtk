@@ -88,9 +88,6 @@ pub const FileChooserWidget = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
-    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
-    pub const disposeTemplate = gtk_widget_dispose_template;
-
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -118,9 +115,6 @@ pub const FileChooserWidget = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
-    extern fn gtk_widget_get_baseline(self: *Self) i32;
-    pub const getBaseline = gtk_widget_get_baseline;
-
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -132,9 +126,6 @@ pub const FileChooserWidget = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
-
-    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
-    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -1129,47 +1120,45 @@ pub const FileChooserWidget = extern struct {
     // Properties
     pub const Properties = enum(u8) {
         search_mode = 0,
-        show_time = 1,
-        subtitle = 2,
-        can_focus = 3,
-        can_target = 4,
-        css_classes = 5,
-        css_name = 6,
-        cursor = 7,
-        focus_on_click = 8,
-        focusable = 9,
-        halign = 10,
-        has_default = 11,
-        has_focus = 12,
-        has_tooltip = 13,
-        height_request = 14,
-        hexpand = 15,
-        hexpand_set = 16,
-        layout_manager = 17,
-        margin_bottom = 18,
-        margin_end = 19,
-        margin_start = 20,
-        margin_top = 21,
-        name = 22,
-        opacity = 23,
-        overflow = 24,
-        parent = 25,
-        receives_default = 26,
-        root = 27,
-        scale_factor = 28,
-        sensitive = 29,
-        tooltip_markup = 30,
-        tooltip_text = 31,
-        valign = 32,
-        vexpand = 33,
-        vexpand_set = 34,
-        visible = 35,
-        width_request = 36,
+        subtitle = 1,
+        can_focus = 2,
+        can_target = 3,
+        css_classes = 4,
+        css_name = 5,
+        cursor = 6,
+        focus_on_click = 7,
+        focusable = 8,
+        halign = 9,
+        has_default = 10,
+        has_focus = 11,
+        has_tooltip = 12,
+        height_request = 13,
+        hexpand = 14,
+        hexpand_set = 15,
+        layout_manager = 16,
+        margin_bottom = 17,
+        margin_end = 18,
+        margin_start = 19,
+        margin_top = 20,
+        name = 21,
+        opacity = 22,
+        overflow = 23,
+        parent = 24,
+        receives_default = 25,
+        root = 26,
+        scale_factor = 27,
+        sensitive = 28,
+        tooltip_markup = 29,
+        tooltip_text = 30,
+        valign = 31,
+        vexpand = 32,
+        vexpand_set = 33,
+        visible = 34,
+        width_request = 35,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::search-mode",
-        "notify::show-time",
         "notify::subtitle",
         "notify::can-focus",
         "notify::can-target",

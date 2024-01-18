@@ -91,9 +91,6 @@ pub const DropDown = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
-    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
-    pub const disposeTemplate = gtk_widget_dispose_template;
-
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -121,9 +118,6 @@ pub const DropDown = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
-    extern fn gtk_widget_get_baseline(self: *Self) i32;
-    pub const getBaseline = gtk_widget_get_baseline;
-
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -135,9 +129,6 @@ pub const DropDown = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
-
-    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
-    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -192,9 +183,6 @@ pub const DropDown = extern struct {
 
     extern fn gtk_widget_get_has_tooltip(self: *Self) bool;
     pub const getHasTooltip = gtk_widget_get_has_tooltip;
-
-    extern fn gtk_drop_down_get_header_factory(self: *Self) ?*gtk.ListItemFactory;
-    pub const getHeaderFactory = gtk_drop_down_get_header_factory;
 
     extern fn gtk_widget_get_height(self: *Self) i32;
     pub const getHeight = gtk_widget_get_height;
@@ -282,9 +270,6 @@ pub const DropDown = extern struct {
 
     extern fn gtk_widget_get_scale_factor(self: *Self) i32;
     pub const getScaleFactor = gtk_widget_get_scale_factor;
-
-    extern fn gtk_drop_down_get_search_match_mode(self: *Self) gtk.StringFilterMatchMode;
-    pub const getSearchMatchMode = gtk_drop_down_get_search_match_mode;
 
     extern fn gtk_drop_down_get_selected(self: *Self) u32;
     pub const getSelected = gtk_drop_down_get_selected;
@@ -508,9 +493,6 @@ pub const DropDown = extern struct {
     extern fn gtk_widget_set_has_tooltip(self: *Self, has_tooltip: bool) void;
     pub const setHasTooltip = gtk_widget_set_has_tooltip;
 
-    extern fn gtk_drop_down_set_header_factory(self: *Self, factory: ?*gtk.ListItemFactory) void;
-    pub const setHeaderFactory = gtk_drop_down_set_header_factory;
-
     extern fn gtk_widget_set_hexpand(self: *Self, expand: bool) void;
     pub const setHexpand = gtk_widget_set_hexpand;
 
@@ -555,9 +537,6 @@ pub const DropDown = extern struct {
 
     extern fn gtk_widget_set_receives_default(self: *Self, receives_default: bool) void;
     pub const setReceivesDefault = gtk_widget_set_receives_default;
-
-    extern fn gtk_drop_down_set_search_match_mode(self: *Self, search_match_mode: gtk.StringFilterMatchMode) void;
-    pub const setSearchMatchMode = gtk_drop_down_set_search_match_mode;
 
     extern fn gtk_drop_down_set_selected(self: *Self, position: u32) void;
     pub const setSelected = gtk_drop_down_set_selected;
@@ -971,57 +950,53 @@ pub const DropDown = extern struct {
         enable_search = 0,
         expression = 1,
         factory = 2,
-        header_factory = 3,
-        list_factory = 4,
-        model = 5,
-        search_match_mode = 6,
-        selected = 7,
-        selected_item = 8,
-        show_arrow = 9,
-        can_focus = 10,
-        can_target = 11,
-        css_classes = 12,
-        css_name = 13,
-        cursor = 14,
-        focus_on_click = 15,
-        focusable = 16,
-        halign = 17,
-        has_default = 18,
-        has_focus = 19,
-        has_tooltip = 20,
-        height_request = 21,
-        hexpand = 22,
-        hexpand_set = 23,
-        layout_manager = 24,
-        margin_bottom = 25,
-        margin_end = 26,
-        margin_start = 27,
-        margin_top = 28,
-        name = 29,
-        opacity = 30,
-        overflow = 31,
-        parent = 32,
-        receives_default = 33,
-        root = 34,
-        scale_factor = 35,
-        sensitive = 36,
-        tooltip_markup = 37,
-        tooltip_text = 38,
-        valign = 39,
-        vexpand = 40,
-        vexpand_set = 41,
-        visible = 42,
-        width_request = 43,
+        list_factory = 3,
+        model = 4,
+        selected = 5,
+        selected_item = 6,
+        show_arrow = 7,
+        can_focus = 8,
+        can_target = 9,
+        css_classes = 10,
+        css_name = 11,
+        cursor = 12,
+        focus_on_click = 13,
+        focusable = 14,
+        halign = 15,
+        has_default = 16,
+        has_focus = 17,
+        has_tooltip = 18,
+        height_request = 19,
+        hexpand = 20,
+        hexpand_set = 21,
+        layout_manager = 22,
+        margin_bottom = 23,
+        margin_end = 24,
+        margin_start = 25,
+        margin_top = 26,
+        name = 27,
+        opacity = 28,
+        overflow = 29,
+        parent = 30,
+        receives_default = 31,
+        root = 32,
+        scale_factor = 33,
+        sensitive = 34,
+        tooltip_markup = 35,
+        tooltip_text = 36,
+        valign = 37,
+        vexpand = 38,
+        vexpand_set = 39,
+        visible = 40,
+        width_request = 41,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::enable-search",
         "notify::expression",
         "notify::factory",
-        "notify::header-factory",
         "notify::list-factory",
         "notify::model",
-        "notify::search-match-mode",
         "notify::selected",
         "notify::selected-item",
         "notify::show-arrow",

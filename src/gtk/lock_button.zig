@@ -97,9 +97,6 @@ pub const LockButton = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
-    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
-    pub const disposeTemplate = gtk_widget_dispose_template;
-
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -127,14 +124,8 @@ pub const LockButton = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
-    extern fn gtk_widget_get_baseline(self: *Self) i32;
-    pub const getBaseline = gtk_widget_get_baseline;
-
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
-
-    extern fn gtk_button_get_can_shrink(self: *Self) bool;
-    pub const getCanShrink = gtk_button_get_can_shrink;
 
     extern fn gtk_widget_get_can_target(self: *Self) bool;
     pub const getCanTarget = gtk_widget_get_can_target;
@@ -147,9 +138,6 @@ pub const LockButton = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
-
-    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
-    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -453,9 +441,6 @@ pub const LockButton = extern struct {
 
     extern fn gtk_widget_set_can_focus(self: *Self, can_focus: bool) void;
     pub const setCanFocus = gtk_widget_set_can_focus;
-
-    extern fn gtk_button_set_can_shrink(self: *Self, can_shrink: bool) void;
-    pub const setCanShrink = gtk_button_set_can_shrink;
 
     extern fn gtk_widget_set_can_target(self: *Self, can_target: bool) void;
     pub const setCanTarget = gtk_widget_set_can_target;
@@ -985,46 +970,45 @@ pub const LockButton = extern struct {
         tooltip_lock = 3,
         tooltip_not_authorized = 4,
         tooltip_unlock = 5,
-        can_shrink = 6,
-        child = 7,
-        has_frame = 8,
-        icon_name = 9,
-        label = 10,
-        use_underline = 11,
-        can_focus = 12,
-        can_target = 13,
-        css_classes = 14,
-        css_name = 15,
-        cursor = 16,
-        focus_on_click = 17,
-        focusable = 18,
-        halign = 19,
-        has_default = 20,
-        has_focus = 21,
-        has_tooltip = 22,
-        height_request = 23,
-        hexpand = 24,
-        hexpand_set = 25,
-        layout_manager = 26,
-        margin_bottom = 27,
-        margin_end = 28,
-        margin_start = 29,
-        margin_top = 30,
-        name = 31,
-        opacity = 32,
-        overflow = 33,
-        parent = 34,
-        receives_default = 35,
-        root = 36,
-        scale_factor = 37,
-        sensitive = 38,
-        tooltip_markup = 39,
-        tooltip_text = 40,
-        valign = 41,
-        vexpand = 42,
-        vexpand_set = 43,
-        visible = 44,
-        width_request = 45,
+        child = 6,
+        has_frame = 7,
+        icon_name = 8,
+        label = 9,
+        use_underline = 10,
+        can_focus = 11,
+        can_target = 12,
+        css_classes = 13,
+        css_name = 14,
+        cursor = 15,
+        focus_on_click = 16,
+        focusable = 17,
+        halign = 18,
+        has_default = 19,
+        has_focus = 20,
+        has_tooltip = 21,
+        height_request = 22,
+        hexpand = 23,
+        hexpand_set = 24,
+        layout_manager = 25,
+        margin_bottom = 26,
+        margin_end = 27,
+        margin_start = 28,
+        margin_top = 29,
+        name = 30,
+        opacity = 31,
+        overflow = 32,
+        parent = 33,
+        receives_default = 34,
+        root = 35,
+        scale_factor = 36,
+        sensitive = 37,
+        tooltip_markup = 38,
+        tooltip_text = 39,
+        valign = 40,
+        vexpand = 41,
+        vexpand_set = 42,
+        visible = 43,
+        width_request = 44,
     };
 
     pub const PropertyNames = [_][:0]const u8{
@@ -1034,7 +1018,6 @@ pub const LockButton = extern struct {
         "notify::tooltip-lock",
         "notify::tooltip-not-authorized",
         "notify::tooltip-unlock",
-        "notify::can-shrink",
         "notify::child",
         "notify::has-frame",
         "notify::icon-name",

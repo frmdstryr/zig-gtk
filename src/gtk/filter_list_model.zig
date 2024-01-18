@@ -147,18 +147,14 @@ pub const FilterListModel = extern struct {
     pub const Properties = enum(u8) {
         filter = 0,
         incremental = 1,
-        item_type = 2,
-        model = 3,
-        n_items = 4,
-        pending = 5,
+        model = 2,
+        pending = 3,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::filter",
         "notify::incremental",
-        "notify::item-type",
         "notify::model",
-        "notify::n-items",
         "notify::pending",
     };
 
@@ -183,9 +179,6 @@ pub const FilterListModel = extern struct {
         return @ptrCast(self);
     }
     pub inline fn asObject(self: *Self) *gobject.Object {
-        return @ptrCast(self);
-    }
-    pub inline fn asSectionModel(self: *Self) *gtk.SectionModel {
         return @ptrCast(self);
     }
 

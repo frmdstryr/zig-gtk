@@ -30,11 +30,11 @@ pub const IMContextClass = extern struct {
     get_surrounding: *const fn (context: *gtk.IMContext, text: *[*c]const u8, cursor_index: *i32) callconv(.C) bool,
     set_surrounding_with_selection: *const fn (context: *gtk.IMContext, text: [*c]const u8, len: i32, cursor_index: i32, anchor_index: i32) callconv(.C) void,
     get_surrounding_with_selection: *const fn (context: *gtk.IMContext, text: *[*c]const u8, cursor_index: *i32, anchor_index: *i32) callconv(.C) bool,
-    activate_osk: *const fn (context: *gtk.IMContext) callconv(.C) void,
     _gtk_reserved1: ?*anyopaque,
     _gtk_reserved2: ?*anyopaque,
     _gtk_reserved3: ?*anyopaque,
     _gtk_reserved4: ?*anyopaque,
+    _gtk_reserved5: ?*anyopaque,
 
     // Constructors
 

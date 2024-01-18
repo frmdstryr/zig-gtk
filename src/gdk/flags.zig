@@ -105,7 +105,6 @@ pub const ToplevelState = packed struct {
     pub const RightResizable: @This() = @bitCast(c.GDK_TOPLEVEL_STATE_RIGHT_RESIZABLE);
     pub const RightTiled: @This() = @bitCast(c.GDK_TOPLEVEL_STATE_RIGHT_TILED);
     pub const Sticky: @This() = @bitCast(c.GDK_TOPLEVEL_STATE_STICKY);
-    pub const Suspended: @This() = @bitCast(c.GDK_TOPLEVEL_STATE_SUSPENDED);
     pub const Tiled: @This() = @bitCast(c.GDK_TOPLEVEL_STATE_TILED);
     pub const TopResizable: @This() = @bitCast(c.GDK_TOPLEVEL_STATE_TOP_RESIZABLE);
     pub const TopTiled: @This() = @bitCast(c.GDK_TOPLEVEL_STATE_TOP_TILED);

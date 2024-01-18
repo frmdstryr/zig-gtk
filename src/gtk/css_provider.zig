@@ -52,10 +52,7 @@ pub const CssProvider = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn gtk_css_provider_load_from_bytes(self: *Self, data: *glib.Bytes) void;
-    pub const loadFromBytes = gtk_css_provider_load_from_bytes;
-
-    extern fn gtk_css_provider_load_from_data(self: *Self, data: [*c]const u8, length: i64) void;
+    extern fn gtk_css_provider_load_from_data(self: *Self, data: [*c]u8, length: i64) void;
     pub const loadFromData = gtk_css_provider_load_from_data;
 
     extern fn gtk_css_provider_load_from_file(self: *Self, file: *gio.File) void;
@@ -66,9 +63,6 @@ pub const CssProvider = extern struct {
 
     extern fn gtk_css_provider_load_from_resource(self: *Self, resource_path: [*c]const u8) void;
     pub const loadFromResource = gtk_css_provider_load_from_resource;
-
-    extern fn gtk_css_provider_load_from_string(self: *Self, string: [*c]const u8) void;
-    pub const loadFromString = gtk_css_provider_load_from_string;
 
     extern fn gtk_css_provider_load_named(self: *Self, name: [*c]const u8, variant: [*c]const u8) void;
     pub const loadNamed = gtk_css_provider_load_named;

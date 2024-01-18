@@ -88,9 +88,6 @@ pub const ScaleButton = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
-    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
-    pub const disposeTemplate = gtk_widget_dispose_template;
-
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -102,9 +99,6 @@ pub const ScaleButton = extern struct {
 
     extern fn g_object_freeze_notify(self: *Self) void;
     pub const freezeNotify = g_object_freeze_notify;
-
-    extern fn gtk_scale_button_get_active(self: *Self) bool;
-    pub const getActive = gtk_scale_button_get_active;
 
     extern fn gtk_scale_button_get_adjustment(self: *Self) ?*gtk.Adjustment;
     pub const getAdjustment = gtk_scale_button_get_adjustment;
@@ -124,9 +118,6 @@ pub const ScaleButton = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
-    extern fn gtk_widget_get_baseline(self: *Self) i32;
-    pub const getBaseline = gtk_widget_get_baseline;
-
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -138,9 +129,6 @@ pub const ScaleButton = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
-
-    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
-    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -975,48 +963,46 @@ pub const ScaleButton = extern struct {
 
     // Properties
     pub const Properties = enum(u8) {
-        active = 0,
-        adjustment = 1,
-        icons = 2,
-        value = 3,
-        can_focus = 4,
-        can_target = 5,
-        css_classes = 6,
-        css_name = 7,
-        cursor = 8,
-        focus_on_click = 9,
-        focusable = 10,
-        halign = 11,
-        has_default = 12,
-        has_focus = 13,
-        has_tooltip = 14,
-        height_request = 15,
-        hexpand = 16,
-        hexpand_set = 17,
-        layout_manager = 18,
-        margin_bottom = 19,
-        margin_end = 20,
-        margin_start = 21,
-        margin_top = 22,
-        name = 23,
-        opacity = 24,
-        overflow = 25,
-        parent = 26,
-        receives_default = 27,
-        root = 28,
-        scale_factor = 29,
-        sensitive = 30,
-        tooltip_markup = 31,
-        tooltip_text = 32,
-        valign = 33,
-        vexpand = 34,
-        vexpand_set = 35,
-        visible = 36,
-        width_request = 37,
+        adjustment = 0,
+        icons = 1,
+        value = 2,
+        can_focus = 3,
+        can_target = 4,
+        css_classes = 5,
+        css_name = 6,
+        cursor = 7,
+        focus_on_click = 8,
+        focusable = 9,
+        halign = 10,
+        has_default = 11,
+        has_focus = 12,
+        has_tooltip = 13,
+        height_request = 14,
+        hexpand = 15,
+        hexpand_set = 16,
+        layout_manager = 17,
+        margin_bottom = 18,
+        margin_end = 19,
+        margin_start = 20,
+        margin_top = 21,
+        name = 22,
+        opacity = 23,
+        overflow = 24,
+        parent = 25,
+        receives_default = 26,
+        root = 27,
+        scale_factor = 28,
+        sensitive = 29,
+        tooltip_markup = 30,
+        tooltip_text = 31,
+        valign = 32,
+        vexpand = 33,
+        vexpand_set = 34,
+        visible = 35,
+        width_request = 36,
     };
 
     pub const PropertyNames = [_][:0]const u8{
-        "notify::active",
         "notify::adjustment",
         "notify::icons",
         "notify::value",
@@ -1071,9 +1057,6 @@ pub const ScaleButton = extern struct {
 
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
-        return @ptrCast(self);
-    }
-    pub inline fn asAccessibleRange(self: *Self) *gtk.AccessibleRange {
         return @ptrCast(self);
     }
     pub inline fn asOrientable(self: *Self) *gtk.Orientable {

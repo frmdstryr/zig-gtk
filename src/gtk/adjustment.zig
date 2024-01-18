@@ -11,9 +11,6 @@ pub const Adjustment = extern struct {
 
     // Fields
     parent_instance: gobject.InitiallyUnowned,
-    g_type_instance: gobject.TypeInstance,
-    ref_count: u32,
-    qdata: *glib.Data,
 
     // Constructors
     extern fn gtk_adjustment_new(value: f64, lower: f64, upper: f64, step_increment: f64, page_increment: f64, page_size: f64) ?*Self;

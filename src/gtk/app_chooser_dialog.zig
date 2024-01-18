@@ -103,9 +103,6 @@ pub const AppChooserDialog = extern struct {
     extern fn gtk_window_destroy(self: *Self) void;
     pub const destroy = gtk_window_destroy;
 
-    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
-    pub const disposeTemplate = gtk_widget_dispose_template;
-
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -142,9 +139,6 @@ pub const AppChooserDialog = extern struct {
     extern fn gtk_window_get_application(self: *Self) ?*gtk.Application;
     pub const getApplication = gtk_window_get_application;
 
-    extern fn gtk_widget_get_baseline(self: *Self) i32;
-    pub const getBaseline = gtk_widget_get_baseline;
-
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -159,9 +153,6 @@ pub const AppChooserDialog = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
-
-    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
-    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_dialog_get_content_area(self: *Self) ?*gtk.Box;
     pub const getContentArea = gtk_dialog_get_content_area;
@@ -462,9 +453,6 @@ pub const AppChooserDialog = extern struct {
 
     extern fn gtk_widget_is_sensitive(self: *Self) bool;
     pub const isSensitive = gtk_widget_is_sensitive;
-
-    extern fn gtk_window_is_suspended(self: *Self) bool;
-    pub const isSuspended = gtk_window_is_suspended;
 
     extern fn gtk_widget_is_visible(self: *Self) bool;
     pub const isVisible = gtk_widget_is_visible;
@@ -1274,44 +1262,43 @@ pub const AppChooserDialog = extern struct {
         modal = 21,
         resizable = 22,
         startup_id = 23,
-        suspended = 24,
-        title = 25,
-        titlebar = 26,
-        transient_for = 27,
-        can_focus = 28,
-        can_target = 29,
-        css_classes = 30,
-        css_name = 31,
-        cursor = 32,
-        focus_on_click = 33,
-        focusable = 34,
-        halign = 35,
-        has_default = 36,
-        has_focus = 37,
-        has_tooltip = 38,
-        height_request = 39,
-        hexpand = 40,
-        hexpand_set = 41,
-        layout_manager = 42,
-        margin_bottom = 43,
-        margin_end = 44,
-        margin_start = 45,
-        margin_top = 46,
-        name = 47,
-        opacity = 48,
-        overflow = 49,
-        parent = 50,
-        receives_default = 51,
-        root = 52,
-        scale_factor = 53,
-        sensitive = 54,
-        tooltip_markup = 55,
-        tooltip_text = 56,
-        valign = 57,
-        vexpand = 58,
-        vexpand_set = 59,
-        visible = 60,
-        width_request = 61,
+        title = 24,
+        titlebar = 25,
+        transient_for = 26,
+        can_focus = 27,
+        can_target = 28,
+        css_classes = 29,
+        css_name = 30,
+        cursor = 31,
+        focus_on_click = 32,
+        focusable = 33,
+        halign = 34,
+        has_default = 35,
+        has_focus = 36,
+        has_tooltip = 37,
+        height_request = 38,
+        hexpand = 39,
+        hexpand_set = 40,
+        layout_manager = 41,
+        margin_bottom = 42,
+        margin_end = 43,
+        margin_start = 44,
+        margin_top = 45,
+        name = 46,
+        opacity = 47,
+        overflow = 48,
+        parent = 49,
+        receives_default = 50,
+        root = 51,
+        scale_factor = 52,
+        sensitive = 53,
+        tooltip_markup = 54,
+        tooltip_text = 55,
+        valign = 56,
+        vexpand = 57,
+        vexpand_set = 58,
+        visible = 59,
+        width_request = 60,
     };
 
     pub const PropertyNames = [_][:0]const u8{
@@ -1339,7 +1326,6 @@ pub const AppChooserDialog = extern struct {
         "notify::modal",
         "notify::resizable",
         "notify::startup-id",
-        "notify::suspended",
         "notify::title",
         "notify::titlebar",
         "notify::transient-for",

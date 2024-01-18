@@ -38,9 +38,6 @@ pub const Monitor = extern struct {
     extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
     pub const getData = g_object_get_data;
 
-    extern fn gdk_monitor_get_description(self: *Self) [*c]const u8;
-    pub const getDescription = gdk_monitor_get_description;
-
     extern fn gdk_monitor_get_display(self: *Self) ?*gdk.Display;
     pub const getDisplay = gdk_monitor_get_display;
 
@@ -177,22 +174,20 @@ pub const Monitor = extern struct {
     // Properties
     pub const Properties = enum(u8) {
         connector = 0,
-        description = 1,
-        display = 2,
-        geometry = 3,
-        height_mm = 4,
-        manufacturer = 5,
-        model = 6,
-        refresh_rate = 7,
-        scale_factor = 8,
-        subpixel_layout = 9,
-        valid = 10,
-        width_mm = 11,
+        display = 1,
+        geometry = 2,
+        height_mm = 3,
+        manufacturer = 4,
+        model = 5,
+        refresh_rate = 6,
+        scale_factor = 7,
+        subpixel_layout = 8,
+        valid = 9,
+        width_mm = 10,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::connector",
-        "notify::description",
         "notify::display",
         "notify::geometry",
         "notify::height-mm",

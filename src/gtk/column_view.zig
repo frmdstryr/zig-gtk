@@ -91,9 +91,6 @@ pub const ColumnView = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
-    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
-    pub const disposeTemplate = gtk_widget_dispose_template;
-
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -121,9 +118,6 @@ pub const ColumnView = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
-    extern fn gtk_widget_get_baseline(self: *Self) i32;
-    pub const getBaseline = gtk_widget_get_baseline;
-
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -135,9 +129,6 @@ pub const ColumnView = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
-
-    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
-    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_column_view_get_columns(self: *Self) ?*gio.ListModel;
     pub const getColumns = gtk_column_view_get_columns;
@@ -189,9 +180,6 @@ pub const ColumnView = extern struct {
 
     extern fn gtk_widget_get_has_tooltip(self: *Self) bool;
     pub const getHasTooltip = gtk_widget_get_has_tooltip;
-
-    extern fn gtk_column_view_get_header_factory(self: *Self) ?*gtk.ListItemFactory;
-    pub const getHeaderFactory = gtk_column_view_get_header_factory;
 
     extern fn gtk_widget_get_height(self: *Self) i32;
     pub const getHeight = gtk_widget_get_height;
@@ -277,9 +265,6 @@ pub const ColumnView = extern struct {
     extern fn gtk_widget_get_root(self: *Self) ?*gtk.Root;
     pub const getRoot = gtk_widget_get_root;
 
-    extern fn gtk_column_view_get_row_factory(self: *Self) ?*gtk.ListItemFactory;
-    pub const getRowFactory = gtk_column_view_get_row_factory;
-
     extern fn gtk_widget_get_scale_factor(self: *Self) i32;
     pub const getScaleFactor = gtk_widget_get_scale_factor;
 
@@ -312,9 +297,6 @@ pub const ColumnView = extern struct {
 
     extern fn gtk_widget_get_style_context(self: *Self) ?*gtk.StyleContext;
     pub const getStyleContext = gtk_widget_get_style_context;
-
-    extern fn gtk_column_view_get_tab_behavior(self: *Self) gtk.ListTabBehavior;
-    pub const getTabBehavior = gtk_column_view_get_tab_behavior;
 
     extern fn gtk_widget_get_template_child(self: *Self, widget_type: usize, name: [*c]const u8) ?*gobject.Object;
     pub const getTemplateChild = gtk_widget_get_template_child;
@@ -463,9 +445,6 @@ pub const ColumnView = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_column_view_scroll_to(self: *Self, pos: u32, column: ?*gtk.ColumnViewColumn, flags: gtk.ListScrollFlags, scroll: ?*gtk.ScrollInfo) void;
-    pub const scrollTo = gtk_column_view_scroll_to;
-
     extern fn gtk_widget_set_can_focus(self: *Self, can_focus: bool) void;
     pub const setCanFocus = gtk_widget_set_can_focus;
 
@@ -514,9 +493,6 @@ pub const ColumnView = extern struct {
     extern fn gtk_widget_set_has_tooltip(self: *Self, has_tooltip: bool) void;
     pub const setHasTooltip = gtk_widget_set_has_tooltip;
 
-    extern fn gtk_column_view_set_header_factory(self: *Self, factory: ?*gtk.ListItemFactory) void;
-    pub const setHeaderFactory = gtk_column_view_set_header_factory;
-
     extern fn gtk_widget_set_hexpand(self: *Self, expand: bool) void;
     pub const setHexpand = gtk_widget_set_hexpand;
 
@@ -562,9 +538,6 @@ pub const ColumnView = extern struct {
     extern fn gtk_column_view_set_reorderable(self: *Self, reorderable: bool) void;
     pub const setReorderable = gtk_column_view_set_reorderable;
 
-    extern fn gtk_column_view_set_row_factory(self: *Self, factory: ?*gtk.ListItemFactory) void;
-    pub const setRowFactory = gtk_column_view_set_row_factory;
-
     extern fn gtk_widget_set_sensitive(self: *Self, sensitive: bool) void;
     pub const setSensitive = gtk_widget_set_sensitive;
 
@@ -582,9 +555,6 @@ pub const ColumnView = extern struct {
 
     extern fn gtk_widget_set_state_flags(self: *Self, flags: gtk.StateFlags, clear: bool) void;
     pub const setStateFlags = gtk_widget_set_state_flags;
-
-    extern fn gtk_column_view_set_tab_behavior(self: *Self, tab_behavior: gtk.ListTabBehavior) void;
-    pub const setTabBehavior = gtk_column_view_set_tab_behavior;
 
     extern fn gtk_widget_set_tooltip_markup(self: *Self, markup: [*c]const u8) void;
     pub const setTooltipMarkup = gtk_widget_set_tooltip_markup;
@@ -985,63 +955,57 @@ pub const ColumnView = extern struct {
     pub const Properties = enum(u8) {
         columns = 0,
         enable_rubberband = 1,
-        header_factory = 2,
-        model = 3,
-        reorderable = 4,
-        row_factory = 5,
-        show_column_separators = 6,
-        show_row_separators = 7,
-        single_click_activate = 8,
-        sorter = 9,
-        tab_behavior = 10,
-        can_focus = 11,
-        can_target = 12,
-        css_classes = 13,
-        css_name = 14,
-        cursor = 15,
-        focus_on_click = 16,
-        focusable = 17,
-        halign = 18,
-        has_default = 19,
-        has_focus = 20,
-        has_tooltip = 21,
-        height_request = 22,
-        hexpand = 23,
-        hexpand_set = 24,
-        layout_manager = 25,
-        margin_bottom = 26,
-        margin_end = 27,
-        margin_start = 28,
-        margin_top = 29,
-        name = 30,
-        opacity = 31,
-        overflow = 32,
-        parent = 33,
-        receives_default = 34,
-        root = 35,
-        scale_factor = 36,
-        sensitive = 37,
-        tooltip_markup = 38,
-        tooltip_text = 39,
-        valign = 40,
-        vexpand = 41,
-        vexpand_set = 42,
-        visible = 43,
-        width_request = 44,
+        model = 2,
+        reorderable = 3,
+        show_column_separators = 4,
+        show_row_separators = 5,
+        single_click_activate = 6,
+        sorter = 7,
+        can_focus = 8,
+        can_target = 9,
+        css_classes = 10,
+        css_name = 11,
+        cursor = 12,
+        focus_on_click = 13,
+        focusable = 14,
+        halign = 15,
+        has_default = 16,
+        has_focus = 17,
+        has_tooltip = 18,
+        height_request = 19,
+        hexpand = 20,
+        hexpand_set = 21,
+        layout_manager = 22,
+        margin_bottom = 23,
+        margin_end = 24,
+        margin_start = 25,
+        margin_top = 26,
+        name = 27,
+        opacity = 28,
+        overflow = 29,
+        parent = 30,
+        receives_default = 31,
+        root = 32,
+        scale_factor = 33,
+        sensitive = 34,
+        tooltip_markup = 35,
+        tooltip_text = 36,
+        valign = 37,
+        vexpand = 38,
+        vexpand_set = 39,
+        visible = 40,
+        width_request = 41,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::columns",
         "notify::enable-rubberband",
-        "notify::header-factory",
         "notify::model",
         "notify::reorderable",
-        "notify::row-factory",
         "notify::show-column-separators",
         "notify::show-row-separators",
         "notify::single-click-activate",
         "notify::sorter",
-        "notify::tab-behavior",
         "notify::can-focus",
         "notify::can-target",
         "notify::css-classes",

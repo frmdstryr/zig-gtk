@@ -235,7 +235,7 @@ pub const Layout = extern struct {
     extern fn pango_layout_set_markup(self: *Self, markup: [*c]const u8, length: i32) void;
     pub const setMarkup = pango_layout_set_markup;
 
-    extern fn pango_layout_set_markup_with_accel(self: *Self, markup: [*c]const u8, length: i32, accel_marker: u32, accel_char: *u32) void;
+    extern fn pango_layout_set_markup_with_accel(self: *Self, markup: [*c]const u8, length: i32, accel_marker: u32, accel_char: u32) void;
     pub const setMarkupWithAccel = pango_layout_set_markup_with_accel;
 
     extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;

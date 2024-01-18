@@ -17,28 +17,6 @@ pub const DragSurface = extern struct {
     pub const present = gdk_drag_surface_present;
 
 
-    // Signals
-    pub inline fn connectComputeSize(
-        self: *Self,
-        comptime T: type,
-        callback: *const fn (self: *Self, size: *gdk.DragSurfaceSize, data: ?*T) callconv(.C) void,
-        data: ?*T,
-        flags: gobject.ConnectFlags
-    ) u64 {
-        return c.g_signal_connect_data(self, "compute-size", @ptrCast(callback), data, null, @intFromEnum(flags));
-    }
-
-    pub inline fn connectComputeSizeSwapped(
-        self: *Self,
-        comptime T: type,
-        callback: *const fn (data: *T, size: *gdk.DragSurfaceSize) callconv(.C) void,
-        data: *T,
-        flags: gobject.ConnectFlags
-    ) u64 {
-        return c.g_signal_connect_data(self, "compute-size", @ptrCast(callback), data, null, @as(c.GConnectFlags, @intFromEnum(flags)) | c.G_CONNECT_SWAPPED);
-    }
-
-
     // Bases
     pub inline fn asGInterface(self: *Self) *gobject.GInterface {
         return @ptrCast(self);

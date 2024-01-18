@@ -180,17 +180,11 @@ pub const FileFilter = extern struct {
 
     // Properties
     pub const Properties = enum(u8) {
-        mime_types = 0,
-        name = 1,
-        patterns = 2,
-        suffixes = 3,
+        name = 0,
     };
 
     pub const PropertyNames = [_][:0]const u8{
-        "notify::mime-types",
         "notify::name",
-        "notify::patterns",
-        "notify::suffixes",
     };
 
     // Connect to a signal with no type validation

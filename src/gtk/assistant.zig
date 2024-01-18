@@ -103,9 +103,6 @@ pub const Assistant = extern struct {
     extern fn gtk_window_destroy(self: *Self) void;
     pub const destroy = gtk_window_destroy;
 
-    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
-    pub const disposeTemplate = gtk_widget_dispose_template;
-
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -142,9 +139,6 @@ pub const Assistant = extern struct {
     extern fn gtk_window_get_application(self: *Self) ?*gtk.Application;
     pub const getApplication = gtk_window_get_application;
 
-    extern fn gtk_widget_get_baseline(self: *Self) i32;
-    pub const getBaseline = gtk_widget_get_baseline;
-
     extern fn gtk_widget_get_can_focus(self: *Self) bool;
     pub const getCanFocus = gtk_widget_get_can_focus;
 
@@ -159,9 +153,6 @@ pub const Assistant = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
-
-    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
-    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -471,9 +462,6 @@ pub const Assistant = extern struct {
 
     extern fn gtk_widget_is_sensitive(self: *Self) bool;
     pub const isSensitive = gtk_widget_is_sensitive;
-
-    extern fn gtk_window_is_suspended(self: *Self) bool;
-    pub const isSuspended = gtk_window_is_suspended;
 
     extern fn gtk_widget_is_visible(self: *Self) bool;
     pub const isVisible = gtk_widget_is_visible;
@@ -1363,44 +1351,43 @@ pub const Assistant = extern struct {
         modal = 20,
         resizable = 21,
         startup_id = 22,
-        suspended = 23,
-        title = 24,
-        titlebar = 25,
-        transient_for = 26,
-        can_focus = 27,
-        can_target = 28,
-        css_classes = 29,
-        css_name = 30,
-        cursor = 31,
-        focus_on_click = 32,
-        focusable = 33,
-        halign = 34,
-        has_default = 35,
-        has_focus = 36,
-        has_tooltip = 37,
-        height_request = 38,
-        hexpand = 39,
-        hexpand_set = 40,
-        layout_manager = 41,
-        margin_bottom = 42,
-        margin_end = 43,
-        margin_start = 44,
-        margin_top = 45,
-        name = 46,
-        opacity = 47,
-        overflow = 48,
-        parent = 49,
-        receives_default = 50,
-        root = 51,
-        scale_factor = 52,
-        sensitive = 53,
-        tooltip_markup = 54,
-        tooltip_text = 55,
-        valign = 56,
-        vexpand = 57,
-        vexpand_set = 58,
-        visible = 59,
-        width_request = 60,
+        title = 23,
+        titlebar = 24,
+        transient_for = 25,
+        can_focus = 26,
+        can_target = 27,
+        css_classes = 28,
+        css_name = 29,
+        cursor = 30,
+        focus_on_click = 31,
+        focusable = 32,
+        halign = 33,
+        has_default = 34,
+        has_focus = 35,
+        has_tooltip = 36,
+        height_request = 37,
+        hexpand = 38,
+        hexpand_set = 39,
+        layout_manager = 40,
+        margin_bottom = 41,
+        margin_end = 42,
+        margin_start = 43,
+        margin_top = 44,
+        name = 45,
+        opacity = 46,
+        overflow = 47,
+        parent = 48,
+        receives_default = 49,
+        root = 50,
+        scale_factor = 51,
+        sensitive = 52,
+        tooltip_markup = 53,
+        tooltip_text = 54,
+        valign = 55,
+        vexpand = 56,
+        vexpand_set = 57,
+        visible = 58,
+        width_request = 59,
     };
 
     pub const PropertyNames = [_][:0]const u8{
@@ -1427,7 +1414,6 @@ pub const Assistant = extern struct {
         "notify::modal",
         "notify::resizable",
         "notify::startup-id",
-        "notify::suspended",
         "notify::title",
         "notify::titlebar",
         "notify::transient-for",

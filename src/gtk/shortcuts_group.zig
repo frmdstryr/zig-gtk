@@ -91,9 +91,6 @@ pub const ShortcutsGroup = extern struct {
     extern fn gtk_widget_create_pango_layout(self: *Self, text: [*c]const u8) ?*pango.Layout;
     pub const createPangoLayout = gtk_widget_create_pango_layout;
 
-    extern fn gtk_widget_dispose_template(self: *Self, widget_type: usize) void;
-    pub const disposeTemplate = gtk_widget_dispose_template;
-
     extern fn gtk_drag_check_threshold(self: *Self, start_x: i32, start_y: i32, current_x: i32, current_y: i32) bool;
     pub const dragCheckThreshold = gtk_drag_check_threshold;
 
@@ -121,12 +118,6 @@ pub const ShortcutsGroup = extern struct {
     extern fn gtk_widget_get_ancestor(self: *Self, widget_type: usize) ?*gtk.Widget;
     pub const getAncestor = gtk_widget_get_ancestor;
 
-    extern fn gtk_widget_get_baseline(self: *Self) i32;
-    pub const getBaseline = gtk_widget_get_baseline;
-
-    extern fn gtk_box_get_baseline_child(self: *Self) i32;
-    pub const getBaselineChild = gtk_box_get_baseline_child;
-
     extern fn gtk_box_get_baseline_position(self: *Self) gtk.BaselinePosition;
     pub const getBaselinePosition = gtk_box_get_baseline_position;
 
@@ -141,9 +132,6 @@ pub const ShortcutsGroup = extern struct {
 
     extern fn gtk_widget_get_clipboard(self: *Self) ?*gdk.Clipboard;
     pub const getClipboard = gtk_widget_get_clipboard;
-
-    extern fn gtk_widget_get_color(self: *Self, color: *gdk.RGBA) void;
-    pub const getColor = gtk_widget_get_color;
 
     extern fn gtk_widget_get_css_classes(self: *Self) [*c][*c]const u8;
     pub const getCssClasses = gtk_widget_get_css_classes;
@@ -447,9 +435,6 @@ pub const ShortcutsGroup = extern struct {
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
-
-    extern fn gtk_box_set_baseline_child(self: *Self, child: i32) void;
-    pub const setBaselineChild = gtk_box_set_baseline_child;
 
     extern fn gtk_box_set_baseline_position(self: *Self, position: gtk.BaselinePosition) void;
     pub const setBaselinePosition = gtk_box_set_baseline_position;
@@ -932,44 +917,43 @@ pub const ShortcutsGroup = extern struct {
         title = 2,
         title_size_group = 3,
         view = 4,
-        baseline_child = 5,
-        baseline_position = 6,
-        homogeneous = 7,
-        spacing = 8,
-        can_focus = 9,
-        can_target = 10,
-        css_classes = 11,
-        css_name = 12,
-        cursor = 13,
-        focus_on_click = 14,
-        focusable = 15,
-        halign = 16,
-        has_default = 17,
-        has_focus = 18,
-        has_tooltip = 19,
-        height_request = 20,
-        hexpand = 21,
-        hexpand_set = 22,
-        layout_manager = 23,
-        margin_bottom = 24,
-        margin_end = 25,
-        margin_start = 26,
-        margin_top = 27,
-        name = 28,
-        opacity = 29,
-        overflow = 30,
-        parent = 31,
-        receives_default = 32,
-        root = 33,
-        scale_factor = 34,
-        sensitive = 35,
-        tooltip_markup = 36,
-        tooltip_text = 37,
-        valign = 38,
-        vexpand = 39,
-        vexpand_set = 40,
-        visible = 41,
-        width_request = 42,
+        baseline_position = 5,
+        homogeneous = 6,
+        spacing = 7,
+        can_focus = 8,
+        can_target = 9,
+        css_classes = 10,
+        css_name = 11,
+        cursor = 12,
+        focus_on_click = 13,
+        focusable = 14,
+        halign = 15,
+        has_default = 16,
+        has_focus = 17,
+        has_tooltip = 18,
+        height_request = 19,
+        hexpand = 20,
+        hexpand_set = 21,
+        layout_manager = 22,
+        margin_bottom = 23,
+        margin_end = 24,
+        margin_start = 25,
+        margin_top = 26,
+        name = 27,
+        opacity = 28,
+        overflow = 29,
+        parent = 30,
+        receives_default = 31,
+        root = 32,
+        scale_factor = 33,
+        sensitive = 34,
+        tooltip_markup = 35,
+        tooltip_text = 36,
+        valign = 37,
+        vexpand = 38,
+        vexpand_set = 39,
+        visible = 40,
+        width_request = 41,
     };
 
     pub const PropertyNames = [_][:0]const u8{
@@ -978,7 +962,6 @@ pub const ShortcutsGroup = extern struct {
         "notify::title",
         "notify::title-size-group",
         "notify::view",
-        "notify::baseline-child",
         "notify::baseline-position",
         "notify::homogeneous",
         "notify::spacing",

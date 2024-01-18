@@ -16,12 +16,6 @@ pub const AccessibleInvalidState = enum(c_int) {
     True = c.GTK_ACCESSIBLE_INVALID_TRUE,
 };
 
-pub const AccessiblePlatformState = enum(c_int) {
-    Active = c.GTK_ACCESSIBLE_PLATFORM_STATE_ACTIVE,
-    Focusable = c.GTK_ACCESSIBLE_PLATFORM_STATE_FOCUSABLE,
-    Focused = c.GTK_ACCESSIBLE_PLATFORM_STATE_FOCUSED,
-};
-
 pub const AccessibleProperty = enum(c_int) {
     Autocomplete = c.GTK_ACCESSIBLE_PROPERTY_AUTOCOMPLETE,
     Description = c.GTK_ACCESSIBLE_PROPERTY_DESCRIPTION,
@@ -68,7 +62,6 @@ pub const AccessibleRelation = enum(c_int) {
 pub const AccessibleRole = enum(c_int) {
     Alert = c.GTK_ACCESSIBLE_ROLE_ALERT,
     AlertDialog = c.GTK_ACCESSIBLE_ROLE_ALERT_DIALOG,
-    Application = c.GTK_ACCESSIBLE_ROLE_APPLICATION,
     Banner = c.GTK_ACCESSIBLE_ROLE_BANNER,
     Button = c.GTK_ACCESSIBLE_ROLE_BUTTON,
     Caption = c.GTK_ACCESSIBLE_ROLE_CAPTION,
@@ -138,7 +131,6 @@ pub const AccessibleRole = enum(c_int) {
     TextBox = c.GTK_ACCESSIBLE_ROLE_TEXT_BOX,
     Time = c.GTK_ACCESSIBLE_ROLE_TIME,
     Timer = c.GTK_ACCESSIBLE_ROLE_TIMER,
-    ToggleButton = c.GTK_ACCESSIBLE_ROLE_TOGGLE_BUTTON,
     Toolbar = c.GTK_ACCESSIBLE_ROLE_TOOLBAR,
     Tooltip = c.GTK_ACCESSIBLE_ROLE_TOOLTIP,
     Tree = c.GTK_ACCESSIBLE_ROLE_TREE,
@@ -164,7 +156,6 @@ pub const AccessibleState = enum(c_int) {
     Invalid = c.GTK_ACCESSIBLE_STATE_INVALID,
     Pressed = c.GTK_ACCESSIBLE_STATE_PRESSED,
     Selected = c.GTK_ACCESSIBLE_STATE_SELECTED,
-    Visited = c.GTK_ACCESSIBLE_STATE_VISITED,
 };
 
 pub const AccessibleTristate = enum(c_int) {
@@ -174,9 +165,7 @@ pub const AccessibleTristate = enum(c_int) {
 };
 
 pub const Align = enum(c_int) {
-    Baseline = c.GTK_ALIGN_BASELINE_FILL,
-    BaselineCenter = c.GTK_ALIGN_BASELINE_CENTER,
-    BaselineFill = c.GTK_ALIGN_BASELINE_FILL,
+    // Baseline = c.GTK_ALIGN_BASELINE_FILL,
     Center = c.GTK_ALIGN_CENTER,
     End = c.GTK_ALIGN_END,
     Fill = c.GTK_ALIGN_FILL,
@@ -257,12 +246,6 @@ pub const CellRendererMode = enum(c_int) {
     Inert = c.GTK_CELL_RENDERER_MODE_INERT,
 };
 
-pub const Collation = enum(c_int) {
-    Filename = c.GTK_COLLATION_FILENAME,
-    None = c.GTK_COLLATION_NONE,
-    Unicode = c.GTK_COLLATION_UNICODE,
-};
-
 pub const ConstraintAttribute = enum(c_int) {
     Baseline = c.GTK_CONSTRAINT_ATTRIBUTE_BASELINE,
     Bottom = c.GTK_CONSTRAINT_ATTRIBUTE_BOTTOM,
@@ -300,13 +283,6 @@ pub const ConstraintVflParserError = enum(c_int) {
     View = c.GTK_CONSTRAINT_VFL_PARSER_ERROR_INVALID_VIEW,
 };
 
-pub const ContentFit = enum(c_int) {
-    Contain = c.GTK_CONTENT_FIT_CONTAIN,
-    Cover = c.GTK_CONTENT_FIT_COVER,
-    Fill = c.GTK_CONTENT_FIT_FILL,
-    ScaleDown = c.GTK_CONTENT_FIT_SCALE_DOWN,
-};
-
 pub const CornerType = enum(c_int) {
     BottomLeft = c.GTK_CORNER_BOTTOM_LEFT,
     BottomRight = c.GTK_CORNER_BOTTOM_RIGHT,
@@ -337,12 +313,6 @@ pub const DeleteType = enum(c_int) {
     Whitespace = c.GTK_DELETE_WHITESPACE,
     Words = c.GTK_DELETE_WORDS,
     WordEnds = c.GTK_DELETE_WORD_ENDS,
-};
-
-pub const DialogError = enum(c_int) {
-    Cancelled = c.GTK_DIALOG_ERROR_CANCELLED,
-    Dismissed = c.GTK_DIALOG_ERROR_DISMISSED,
-    Failed = c.GTK_DIALOG_ERROR_FAILED,
 };
 
 pub const DirectionType = enum(c_int) {
@@ -402,13 +372,6 @@ pub const FilterMatch = enum(c_int) {
     Some = c.GTK_FILTER_MATCH_SOME,
 };
 
-pub const FontLevel = enum(c_int) {
-    Face = c.GTK_FONT_LEVEL_FACE,
-    Family = c.GTK_FONT_LEVEL_FAMILY,
-    Features = c.GTK_FONT_LEVEL_FEATURES,
-    Font = c.GTK_FONT_LEVEL_FONT,
-};
-
 pub const IconSize = enum(c_int) {
     Inherit = c.GTK_ICON_SIZE_INHERIT,
     Large = c.GTK_ICON_SIZE_LARGE,
@@ -450,13 +413,6 @@ pub const InputPurpose = enum(c_int) {
     Url = c.GTK_INPUT_PURPOSE_URL,
 };
 
-pub const InscriptionOverflow = enum(c_int) {
-    Clip = c.GTK_INSCRIPTION_OVERFLOW_CLIP,
-    EllipsizeEnd = c.GTK_INSCRIPTION_OVERFLOW_ELLIPSIZE_END,
-    EllipsizeMiddle = c.GTK_INSCRIPTION_OVERFLOW_ELLIPSIZE_MIDDLE,
-    EllipsizeStart = c.GTK_INSCRIPTION_OVERFLOW_ELLIPSIZE_START,
-};
-
 pub const Justification = enum(c_int) {
     Center = c.GTK_JUSTIFY_CENTER,
     Fill = c.GTK_JUSTIFY_FILL,
@@ -488,12 +444,6 @@ pub const License = enum(c_int) {
     MitX11 = c.GTK_LICENSE_MIT_X11,
     Mpl20 = c.GTK_LICENSE_MPL_2_0,
     Unknown = c.GTK_LICENSE_UNKNOWN,
-};
-
-pub const ListTabBehavior = enum(c_int) {
-    All = c.GTK_LIST_TAB_ALL,
-    Cell = c.GTK_LIST_TAB_CELL,
-    Item = c.GTK_LIST_TAB_ITEM,
 };
 
 pub const MessageType = enum(c_int) {
