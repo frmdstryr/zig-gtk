@@ -852,16 +852,24 @@ def generate_class(ns: str, Cls: type):
         out.append("")
         out.append("    // Properties")
         out.append("    pub const Properties = enum(u8) {")
+        used = set()
         for i, prop in enumerate(properties):
             name = prop.get_name().replace("-", "_")
             if name == "error":
                 name = "err"
+            if prop.get_name() in used:
+                continue
+            used.add(prop.get_name())
             out.append(f"        {name} = {i},")
         out.append("    };")
         out.append("")
         out.append("    pub const PropertyNames = [_][:0]const u8{")
+        used = set()
         for i, prop in enumerate(properties):
             name = prop.get_name()
+            if name in used:
+                continue
+            used.add(name)
             out.append(f'        "notify::{name}",')
         out.append("    };")
     if properties:

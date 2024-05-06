@@ -158,16 +158,12 @@ pub const SimpleIOStream = extern struct {
         input_stream = 0,
         output_stream = 1,
         closed = 2,
-        input_stream = 3,
-        output_stream = 4,
     };
 
     pub const PropertyNames = [_][:0]const u8{
         "notify::input-stream",
         "notify::output-stream",
         "notify::closed",
-        "notify::input-stream",
-        "notify::output-stream",
     };
 
     // Connect to a signal with no type validation
