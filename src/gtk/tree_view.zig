@@ -891,7 +891,7 @@ pub const TreeView = extern struct {
     pub inline fn connectExpandCollapseCursorRow(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, object: bool, p0: bool, p1: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, object: bool, p0: bool, p1: bool, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -911,7 +911,7 @@ pub const TreeView = extern struct {
     pub inline fn connectMoveCursor(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, step: gtk.MovementStep, direction: i32, extend: bool, modify: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, step: gtk.MovementStep, direction: i32, extend: bool, modify: bool, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -991,7 +991,7 @@ pub const TreeView = extern struct {
     pub inline fn connectSelectAll(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1011,7 +1011,7 @@ pub const TreeView = extern struct {
     pub inline fn connectSelectCursorParent(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1031,7 +1031,7 @@ pub const TreeView = extern struct {
     pub inline fn connectSelectCursorRow(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, object: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, object: bool, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1051,7 +1051,7 @@ pub const TreeView = extern struct {
     pub inline fn connectStartInteractiveSearch(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1071,7 +1071,7 @@ pub const TreeView = extern struct {
     pub inline fn connectTestCollapseRow(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, iter: *gtk.TreeIter, path: *gtk.TreePath, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, iter: *gtk.TreeIter, path: *gtk.TreePath, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1091,7 +1091,7 @@ pub const TreeView = extern struct {
     pub inline fn connectTestExpandRow(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, iter: *gtk.TreeIter, path: *gtk.TreePath, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, iter: *gtk.TreeIter, path: *gtk.TreePath, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1111,7 +1111,7 @@ pub const TreeView = extern struct {
     pub inline fn connectToggleCursorRow(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1131,7 +1131,7 @@ pub const TreeView = extern struct {
     pub inline fn connectUnselectAll(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1211,7 +1211,7 @@ pub const TreeView = extern struct {
     pub inline fn connectKeynavFailed(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1251,7 +1251,7 @@ pub const TreeView = extern struct {
     pub inline fn connectMnemonicActivate(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, group_cycling: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, group_cycling: bool, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -1291,7 +1291,7 @@ pub const TreeView = extern struct {
     pub inline fn connectQueryTooltip(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, x: i32, y: i32, keyboard_mode: bool, tooltip: *gtk.Tooltip, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, x: i32, y: i32, keyboard_mode: bool, tooltip: *gtk.Tooltip, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

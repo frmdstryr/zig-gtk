@@ -172,7 +172,7 @@ pub const EntryCompletion = extern struct {
     pub inline fn connectCursorOnMatch(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, model: *gtk.TreeModel, iter: *gtk.TreeIter, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, model: *gtk.TreeModel, iter: *gtk.TreeIter, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -192,7 +192,7 @@ pub const EntryCompletion = extern struct {
     pub inline fn connectInsertPrefix(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, prefix: [*c]const u8, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, prefix: [*c]const u8, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -212,7 +212,7 @@ pub const EntryCompletion = extern struct {
     pub inline fn connectMatchSelected(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, model: *gtk.TreeModel, iter: *gtk.TreeIter, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, model: *gtk.TreeModel, iter: *gtk.TreeIter, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

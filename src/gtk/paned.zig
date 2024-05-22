@@ -644,7 +644,7 @@ pub const Paned = extern struct {
     pub inline fn connectAcceptPosition(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -664,7 +664,7 @@ pub const Paned = extern struct {
     pub inline fn connectCancelPosition(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -684,7 +684,7 @@ pub const Paned = extern struct {
     pub inline fn connectCycleChildFocus(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, reversed: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, reversed: bool, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -704,7 +704,7 @@ pub const Paned = extern struct {
     pub inline fn connectCycleHandleFocus(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, reversed: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, reversed: bool, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -724,7 +724,7 @@ pub const Paned = extern struct {
     pub inline fn connectMoveHandle(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, scroll_type: gtk.ScrollType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, scroll_type: gtk.ScrollType, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -744,7 +744,7 @@ pub const Paned = extern struct {
     pub inline fn connectToggleHandleFocus(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -824,7 +824,7 @@ pub const Paned = extern struct {
     pub inline fn connectKeynavFailed(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -864,7 +864,7 @@ pub const Paned = extern struct {
     pub inline fn connectMnemonicActivate(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, group_cycling: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, group_cycling: bool, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -904,7 +904,7 @@ pub const Paned = extern struct {
     pub inline fn connectQueryTooltip(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, x: i32, y: i32, keyboard_mode: bool, tooltip: *gtk.Tooltip, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, x: i32, y: i32, keyboard_mode: bool, tooltip: *gtk.Tooltip, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

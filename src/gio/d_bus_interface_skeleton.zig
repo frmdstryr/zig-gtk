@@ -135,7 +135,7 @@ pub const DBusInterfaceSkeleton = extern struct {
     pub inline fn connectGAuthorizeMethod(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, invocation: *gio.DBusMethodInvocation, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, invocation: *gio.DBusMethodInvocation, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

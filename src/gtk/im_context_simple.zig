@@ -170,7 +170,7 @@ pub const IMContextSimple = extern struct {
     pub inline fn connectDeleteSurrounding(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, offset: i32, n_chars: i32, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, offset: i32, n_chars: i32, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -250,7 +250,7 @@ pub const IMContextSimple = extern struct {
     pub inline fn connectRetrieveSurrounding(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

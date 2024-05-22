@@ -243,7 +243,7 @@ pub const Settings = extern struct {
     pub inline fn connectChangeEvent(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, keys: [*c]u32, n_keys: i32, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, keys: [*c]u32, n_keys: i32, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -283,7 +283,7 @@ pub const Settings = extern struct {
     pub inline fn connectWritableChangeEvent(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, key: u32, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, key: u32, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

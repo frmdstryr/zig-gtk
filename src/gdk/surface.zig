@@ -199,7 +199,7 @@ pub const Surface = extern struct {
     pub inline fn connectEvent(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, event: *gdk.Event, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, event: *gdk.Event, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -259,7 +259,7 @@ pub const Surface = extern struct {
     pub inline fn connectRender(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, region: *cairo.Region, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, region: *cairo.Region, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

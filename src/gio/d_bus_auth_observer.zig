@@ -109,7 +109,7 @@ pub const DBusAuthObserver = extern struct {
     pub inline fn connectAllowMechanism(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, mechanism: [*c]const u8, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, mechanism: [*c]const u8, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -129,7 +129,7 @@ pub const DBusAuthObserver = extern struct {
     pub inline fn connectAuthorizeAuthenticatedPeer(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, stream: *gio.IOStream, credentials: *gio.Credentials, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, stream: *gio.IOStream, credentials: *gio.Credentials, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

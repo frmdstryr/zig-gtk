@@ -760,7 +760,7 @@ pub const Label = extern struct {
     pub inline fn connectActivateLink(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, uri: [*c]const u8, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, uri: [*c]const u8, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -880,7 +880,7 @@ pub const Label = extern struct {
     pub inline fn connectKeynavFailed(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -920,7 +920,7 @@ pub const Label = extern struct {
     pub inline fn connectMnemonicActivate(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, group_cycling: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, group_cycling: bool, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -960,7 +960,7 @@ pub const Label = extern struct {
     pub inline fn connectQueryTooltip(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, x: i32, y: i32, keyboard_mode: bool, tooltip: *gtk.Tooltip, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, x: i32, y: i32, keyboard_mode: bool, tooltip: *gtk.Tooltip, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

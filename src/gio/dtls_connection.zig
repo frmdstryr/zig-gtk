@@ -99,7 +99,7 @@ pub const DtlsConnection = extern struct {
     pub inline fn connectAcceptCertificate(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, peer_cert: *gio.TlsCertificate, errors: gio.TlsCertificateFlags, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, peer_cert: *gio.TlsCertificate, errors: gio.TlsCertificateFlags, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

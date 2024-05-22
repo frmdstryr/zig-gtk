@@ -333,7 +333,7 @@ pub const Application = extern struct {
     pub inline fn connectCommandLine(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, command_line: *gio.ApplicationCommandLine, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, command_line: *gio.ApplicationCommandLine, data: ?*T) callconv(.C) i32,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -353,7 +353,7 @@ pub const Application = extern struct {
     pub inline fn connectHandleLocalOptions(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, options: *glib.VariantDict, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, options: *glib.VariantDict, data: ?*T) callconv(.C) i32,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -373,7 +373,7 @@ pub const Application = extern struct {
     pub inline fn connectNameLost(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

@@ -121,7 +121,7 @@ pub const DBusServer = extern struct {
     pub inline fn connectNewConnection(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, connection: *gio.DBusConnection, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, connection: *gio.DBusConnection, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

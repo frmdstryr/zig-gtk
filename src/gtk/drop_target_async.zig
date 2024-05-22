@@ -155,7 +155,7 @@ pub const DropTargetAsync = extern struct {
     pub inline fn connectAccept(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, drop: *gdk.Drop, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, drop: *gdk.Drop, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -175,7 +175,7 @@ pub const DropTargetAsync = extern struct {
     pub inline fn connectDragEnter(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, drop: *gdk.Drop, x: f64, y: f64, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, drop: *gdk.Drop, x: f64, y: f64, data: ?*T) callconv(.C) gdk.DragAction,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -215,7 +215,7 @@ pub const DropTargetAsync = extern struct {
     pub inline fn connectDragMotion(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, drop: *gdk.Drop, x: f64, y: f64, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, drop: *gdk.Drop, x: f64, y: f64, data: ?*T) callconv(.C) gdk.DragAction,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -235,7 +235,7 @@ pub const DropTargetAsync = extern struct {
     pub inline fn connectDrop(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, drop: *gdk.Drop, x: f64, y: f64, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, drop: *gdk.Drop, x: f64, y: f64, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

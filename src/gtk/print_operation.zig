@@ -209,7 +209,7 @@ pub const PrintOperation = extern struct {
     pub inline fn connectCreateCustomWidget(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, data: ?*T) callconv(.C) gobject.Object,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -309,7 +309,7 @@ pub const PrintOperation = extern struct {
     pub inline fn connectPaginate(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, context: *gtk.PrintContext, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, context: *gtk.PrintContext, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -329,7 +329,7 @@ pub const PrintOperation = extern struct {
     pub inline fn connectPreview(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, preview: *gtk.PrintOperationPreview, context: *gtk.PrintContext, parent: *gtk.Window, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, preview: *gtk.PrintOperationPreview, context: *gtk.PrintContext, parent: *gtk.Window, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

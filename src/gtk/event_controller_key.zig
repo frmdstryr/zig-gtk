@@ -172,7 +172,7 @@ pub const EventControllerKey = extern struct {
     pub inline fn connectKeyPressed(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, keyval: u32, keycode: u32, state: gdk.ModifierType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, keyval: u32, keycode: u32, state: gdk.ModifierType, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -212,7 +212,7 @@ pub const EventControllerKey = extern struct {
     pub inline fn connectModifiers(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, keyval: gdk.ModifierType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, keyval: gdk.ModifierType, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

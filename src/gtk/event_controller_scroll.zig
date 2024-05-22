@@ -166,7 +166,7 @@ pub const EventControllerScroll = extern struct {
     pub inline fn connectScroll(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, dx: f64, dy: f64, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, dx: f64, dy: f64, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

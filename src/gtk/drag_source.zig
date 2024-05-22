@@ -256,7 +256,7 @@ pub const DragSource = extern struct {
     pub inline fn connectDragCancel(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, drag: *gdk.Drag, reason: gdk.DragCancelReason, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, drag: *gdk.Drag, reason: gdk.DragCancelReason, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -296,7 +296,7 @@ pub const DragSource = extern struct {
     pub inline fn connectPrepare(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, x: f64, y: f64, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, x: f64, y: f64, data: ?*T) callconv(.C) gdk.ContentProvider,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {

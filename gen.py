@@ -815,12 +815,13 @@ def generate_class(ns: str, Cls: type):
                 signal_args.append(f"{name}: {t}")
             args = ["self: *Self"] + signal_args + ["data: ?*T"]
             fn_name = camel_case("connect-" + signal.get_name(), "-")
+            rtype = func_return_type(signal, imports)
             out.append("    pub inline fn %s(" % fn_name)
             out.append("        self: *Self,")
             out.append("        comptime T: type,")
             out.append(
                 "        callback: %s,"
-                % f"*const fn ({', '.join(args)}) callconv(.C) void"
+                % f"*const fn ({', '.join(args)}) callconv(.C) {rtype}"
             )
             out.append("        data: ?*T,")
             out.append("        flags: gobject.ConnectFlags")

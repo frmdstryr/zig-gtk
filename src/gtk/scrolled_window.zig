@@ -749,7 +749,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectScrollChild(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, scroll: gtk.ScrollType, horizontal: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, scroll: gtk.ScrollType, horizontal: bool, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -829,7 +829,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectKeynavFailed(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, direction: gtk.DirectionType, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -869,7 +869,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectMnemonicActivate(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, group_cycling: bool, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, group_cycling: bool, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -909,7 +909,7 @@ pub const ScrolledWindow = extern struct {
     pub inline fn connectQueryTooltip(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, x: i32, y: i32, keyboard_mode: bool, tooltip: *gtk.Tooltip, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, x: i32, y: i32, keyboard_mode: bool, tooltip: *gtk.Tooltip, data: ?*T) callconv(.C) bool,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
