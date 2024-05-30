@@ -21,8 +21,11 @@ pub const FileChooser = extern struct {
     extern fn gtk_file_chooser_add_filter(self: *Self, filter: *gtk.FileFilter) void;
     pub const addFilter = gtk_file_chooser_add_filter;
 
-    extern fn gtk_file_chooser_add_shortcut_folder(self: *Self, folder: *gio.File, err: **glib.Error) bool;
-    pub const addShortcutFolder = gtk_file_chooser_add_shortcut_folder;
+    extern fn gtk_file_chooser_add_shortcut_folder(self: *Self, folder: *gio.File, err: ?*?*glib.Error) bool;
+    pub inline fn addShortcutFolder(self: *Self, folder: *gio.File, err: ?*?*glib.Error) !bool {
+        const tmp = gtk_file_chooser_add_shortcut_folder(self, folder, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gtk_file_chooser_get_action(self: *Self) gtk.FileChooserAction;
     pub const getAction = gtk_file_chooser_get_action;
@@ -63,8 +66,11 @@ pub const FileChooser = extern struct {
     extern fn gtk_file_chooser_remove_filter(self: *Self, filter: *gtk.FileFilter) void;
     pub const removeFilter = gtk_file_chooser_remove_filter;
 
-    extern fn gtk_file_chooser_remove_shortcut_folder(self: *Self, folder: *gio.File, err: **glib.Error) bool;
-    pub const removeShortcutFolder = gtk_file_chooser_remove_shortcut_folder;
+    extern fn gtk_file_chooser_remove_shortcut_folder(self: *Self, folder: *gio.File, err: ?*?*glib.Error) bool;
+    pub inline fn removeShortcutFolder(self: *Self, folder: *gio.File, err: ?*?*glib.Error) !bool {
+        const tmp = gtk_file_chooser_remove_shortcut_folder(self, folder, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gtk_file_chooser_set_action(self: *Self, action: gtk.FileChooserAction) void;
     pub const setAction = gtk_file_chooser_set_action;
@@ -75,14 +81,20 @@ pub const FileChooser = extern struct {
     extern fn gtk_file_chooser_set_create_folders(self: *Self, create_folders: bool) void;
     pub const setCreateFolders = gtk_file_chooser_set_create_folders;
 
-    extern fn gtk_file_chooser_set_current_folder(self: *Self, file: ?*gio.File, err: **glib.Error) bool;
-    pub const setCurrentFolder = gtk_file_chooser_set_current_folder;
+    extern fn gtk_file_chooser_set_current_folder(self: *Self, file: ?*gio.File, err: ?*?*glib.Error) bool;
+    pub inline fn setCurrentFolder(self: *Self, file: ?*gio.File, err: ?*?*glib.Error) !bool {
+        const tmp = gtk_file_chooser_set_current_folder(self, file, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gtk_file_chooser_set_current_name(self: *Self, name: [*c]const u8) void;
     pub const setCurrentName = gtk_file_chooser_set_current_name;
 
-    extern fn gtk_file_chooser_set_file(self: *Self, file: *gio.File, err: **glib.Error) bool;
-    pub const setFile = gtk_file_chooser_set_file;
+    extern fn gtk_file_chooser_set_file(self: *Self, file: *gio.File, err: ?*?*glib.Error) bool;
+    pub inline fn setFile(self: *Self, file: *gio.File, err: ?*?*glib.Error) !bool {
+        const tmp = gtk_file_chooser_set_file(self, file, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gtk_file_chooser_set_filter(self: *Self, filter: *gtk.FileFilter) void;
     pub const setFilter = gtk_file_chooser_set_filter;

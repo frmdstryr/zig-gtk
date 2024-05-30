@@ -32,14 +32,20 @@ pub const Drive = extern struct {
     extern fn g_drive_eject(self: *Self, flags: gio.MountUnmountFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const eject = g_drive_eject;
 
-    extern fn g_drive_eject_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const ejectFinish = g_drive_eject_finish;
+    extern fn g_drive_eject_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn ejectFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_drive_eject_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_drive_eject_with_operation(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const ejectWithOperation = g_drive_eject_with_operation;
 
-    extern fn g_drive_eject_with_operation_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const ejectWithOperationFinish = g_drive_eject_with_operation_finish;
+    extern fn g_drive_eject_with_operation_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn ejectWithOperationFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_drive_eject_with_operation_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_drive_enumerate_identifiers(self: *Self) [*c][*c]const u8;
     pub const enumerateIdentifiers = g_drive_enumerate_identifiers;
@@ -83,20 +89,29 @@ pub const Drive = extern struct {
     extern fn g_drive_poll_for_media(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const pollForMedia = g_drive_poll_for_media;
 
-    extern fn g_drive_poll_for_media_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const pollForMediaFinish = g_drive_poll_for_media_finish;
+    extern fn g_drive_poll_for_media_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn pollForMediaFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_drive_poll_for_media_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_drive_start(self: *Self, flags: gio.DriveStartFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const start = g_drive_start;
 
-    extern fn g_drive_start_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const startFinish = g_drive_start_finish;
+    extern fn g_drive_start_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn startFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_drive_start_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_drive_stop(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const stop = g_drive_stop;
 
-    extern fn g_drive_stop_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const stopFinish = g_drive_stop_finish;
+    extern fn g_drive_stop_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn stopFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_drive_stop_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
 
     // Signals

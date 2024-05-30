@@ -46,50 +46,80 @@ pub const Resolver = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_resolver_lookup_by_address(self: *Self, address: *gio.InetAddress, cancellable: ?*gio.Cancellable, err: **glib.Error) [*c]const u8;
-    pub const lookupByAddress = g_resolver_lookup_by_address;
+    extern fn g_resolver_lookup_by_address(self: *Self, address: *gio.InetAddress, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) [*c]const u8;
+    pub inline fn lookupByAddress(self: *Self, address: *gio.InetAddress, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ![*c]const u8 {
+        const tmp = g_resolver_lookup_by_address(self, address, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_resolver_lookup_by_address_async(self: *Self, address: *gio.InetAddress, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const lookupByAddressAsync = g_resolver_lookup_by_address_async;
 
-    extern fn g_resolver_lookup_by_address_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) [*c]const u8;
-    pub const lookupByAddressFinish = g_resolver_lookup_by_address_finish;
+    extern fn g_resolver_lookup_by_address_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) [*c]const u8;
+    pub inline fn lookupByAddressFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) ![*c]const u8 {
+        const tmp = g_resolver_lookup_by_address_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_resolver_lookup_by_name(self: *Self, hostname: [*c]const u8, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*glib.List;
-    pub const lookupByName = g_resolver_lookup_by_name;
+    extern fn g_resolver_lookup_by_name(self: *Self, hostname: [*c]const u8, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*glib.List;
+    pub inline fn lookupByName(self: *Self, hostname: [*c]const u8, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*glib.List {
+        const tmp = g_resolver_lookup_by_name(self, hostname, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_resolver_lookup_by_name_async(self: *Self, hostname: [*c]const u8, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const lookupByNameAsync = g_resolver_lookup_by_name_async;
 
-    extern fn g_resolver_lookup_by_name_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*glib.List;
-    pub const lookupByNameFinish = g_resolver_lookup_by_name_finish;
+    extern fn g_resolver_lookup_by_name_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) ?*glib.List;
+    pub inline fn lookupByNameFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !?*glib.List {
+        const tmp = g_resolver_lookup_by_name_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_resolver_lookup_by_name_with_flags(self: *Self, hostname: [*c]const u8, flags: gio.ResolverNameLookupFlags, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*glib.List;
-    pub const lookupByNameWithFlags = g_resolver_lookup_by_name_with_flags;
+    extern fn g_resolver_lookup_by_name_with_flags(self: *Self, hostname: [*c]const u8, flags: gio.ResolverNameLookupFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*glib.List;
+    pub inline fn lookupByNameWithFlags(self: *Self, hostname: [*c]const u8, flags: gio.ResolverNameLookupFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*glib.List {
+        const tmp = g_resolver_lookup_by_name_with_flags(self, hostname, flags, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_resolver_lookup_by_name_with_flags_async(self: *Self, hostname: [*c]const u8, flags: gio.ResolverNameLookupFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const lookupByNameWithFlagsAsync = g_resolver_lookup_by_name_with_flags_async;
 
-    extern fn g_resolver_lookup_by_name_with_flags_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*glib.List;
-    pub const lookupByNameWithFlagsFinish = g_resolver_lookup_by_name_with_flags_finish;
+    extern fn g_resolver_lookup_by_name_with_flags_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) ?*glib.List;
+    pub inline fn lookupByNameWithFlagsFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !?*glib.List {
+        const tmp = g_resolver_lookup_by_name_with_flags_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_resolver_lookup_records(self: *Self, rrname: [*c]const u8, record_type: gio.ResolverRecordType, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*glib.List;
-    pub const lookupRecords = g_resolver_lookup_records;
+    extern fn g_resolver_lookup_records(self: *Self, rrname: [*c]const u8, record_type: gio.ResolverRecordType, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*glib.List;
+    pub inline fn lookupRecords(self: *Self, rrname: [*c]const u8, record_type: gio.ResolverRecordType, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*glib.List {
+        const tmp = g_resolver_lookup_records(self, rrname, record_type, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_resolver_lookup_records_async(self: *Self, rrname: [*c]const u8, record_type: gio.ResolverRecordType, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const lookupRecordsAsync = g_resolver_lookup_records_async;
 
-    extern fn g_resolver_lookup_records_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*glib.List;
-    pub const lookupRecordsFinish = g_resolver_lookup_records_finish;
+    extern fn g_resolver_lookup_records_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) ?*glib.List;
+    pub inline fn lookupRecordsFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !?*glib.List {
+        const tmp = g_resolver_lookup_records_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_resolver_lookup_service(self: *Self, service: [*c]const u8, protocol: [*c]const u8, domain: [*c]const u8, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*glib.List;
-    pub const lookupService = g_resolver_lookup_service;
+    extern fn g_resolver_lookup_service(self: *Self, service: [*c]const u8, protocol: [*c]const u8, domain: [*c]const u8, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*glib.List;
+    pub inline fn lookupService(self: *Self, service: [*c]const u8, protocol: [*c]const u8, domain: [*c]const u8, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*glib.List {
+        const tmp = g_resolver_lookup_service(self, service, protocol, domain, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_resolver_lookup_service_async(self: *Self, service: [*c]const u8, protocol: [*c]const u8, domain: [*c]const u8, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const lookupServiceAsync = g_resolver_lookup_service_async;
 
-    extern fn g_resolver_lookup_service_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*glib.List;
-    pub const lookupServiceFinish = g_resolver_lookup_service_finish;
+    extern fn g_resolver_lookup_service_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) ?*glib.List;
+    pub inline fn lookupServiceFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !?*glib.List {
+        const tmp = g_resolver_lookup_service_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;

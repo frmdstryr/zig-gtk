@@ -52,7 +52,7 @@ pub const Assistant = extern struct {
     extern fn gtk_widget_add_mnemonic_label(self: *Self, label: *gtk.Widget) void;
     pub const addMnemonicLabel = gtk_widget_add_mnemonic_label;
 
-    extern fn gtk_widget_add_tick_callback(self: *Self, callback: *const fn (widget: *gtk.Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify: *const fn (data: ?*anyopaque) callconv(.C) void) u32;
+    extern fn gtk_widget_add_tick_callback(self: *Self, callback: *const fn (widget: *gtk.Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify_: *const fn (data: ?*anyopaque) callconv(.C) void) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
     extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
@@ -625,7 +625,7 @@ pub const Assistant = extern struct {
     extern fn gtk_widget_set_font_options(self: *Self, options: ?*cairo.FontOptions) void;
     pub const setFontOptions = gtk_widget_set_font_options;
 
-    extern fn gtk_assistant_set_forward_page_func(self: *Self, page_func: ?*const fn (current_page: i32, data: ?*anyopaque) callconv(.C) i32, data: ?*anyopaque, destroy: *const fn (data: ?*anyopaque) callconv(.C) void) void;
+    extern fn gtk_assistant_set_forward_page_func(self: *Self, page_func: ?*const fn (current_page: i32, data: ?*anyopaque) callconv(.C) i32, data: ?*anyopaque, destroy_: *const fn (data: ?*anyopaque) callconv(.C) void) void;
     pub const setForwardPageFunc = gtk_assistant_set_forward_page_func;
 
     extern fn gtk_widget_set_halign(self: *Self, align_: gtk.Align) void;
@@ -685,7 +685,7 @@ pub const Assistant = extern struct {
     extern fn gtk_assistant_set_page_title(self: *Self, page: *gtk.Widget, title: [*c]const u8) void;
     pub const setPageTitle = gtk_assistant_set_page_title;
 
-    extern fn gtk_assistant_set_page_type(self: *Self, page: *gtk.Widget, type: gtk.AssistantPageType) void;
+    extern fn gtk_assistant_set_page_type(self: *Self, page: *gtk.Widget, type_: gtk.AssistantPageType) void;
     pub const setPageType = gtk_assistant_set_page_type;
 
     extern fn gtk_widget_set_parent(self: *Self, parent: *gtk.Widget) void;

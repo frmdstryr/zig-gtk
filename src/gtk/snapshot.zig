@@ -202,7 +202,7 @@ pub const Snapshot = extern struct {
     extern fn gtk_snapshot_to_paintable(self: *Self, size: ?*graphene.Size) ?*gdk.Paintable;
     pub const toPaintable = gtk_snapshot_to_paintable;
 
-    extern fn gtk_snapshot_transform(self: *Self, transform: ?*gsk.Transform) void;
+    extern fn gtk_snapshot_transform(self: *Self, transform_: ?*gsk.Transform) void;
     pub const transform = gtk_snapshot_transform;
 
     extern fn gtk_snapshot_transform_matrix(self: *Self, matrix: *graphene.Matrix) void;

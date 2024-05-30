@@ -25,14 +25,20 @@ pub const FileEnumerator = extern struct {
     extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
     pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn g_file_enumerator_close(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const close = g_file_enumerator_close;
+    extern fn g_file_enumerator_close(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn close(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_file_enumerator_close(self, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_file_enumerator_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const closeAsync = g_file_enumerator_close_async;
 
-    extern fn g_file_enumerator_close_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const closeFinish = g_file_enumerator_close_finish;
+    extern fn g_file_enumerator_close_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn closeFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_file_enumerator_close_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_force_floating(self: *Self) void;
     pub const forceFloating = g_object_force_floating;
@@ -67,17 +73,26 @@ pub const FileEnumerator = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_file_enumerator_iterate(self: *Self, out_info: *gio.FileInfo, out_child: *gio.File, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const iterate = g_file_enumerator_iterate;
+    extern fn g_file_enumerator_iterate(self: *Self, out_info: *gio.FileInfo, out_child: *gio.File, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn iterate(self: *Self, out_info: *gio.FileInfo, out_child: *gio.File, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_file_enumerator_iterate(self, out_info, out_child, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_file_enumerator_next_file(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.FileInfo;
-    pub const nextFile = g_file_enumerator_next_file;
+    extern fn g_file_enumerator_next_file(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*gio.FileInfo;
+    pub inline fn nextFile(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*gio.FileInfo {
+        const tmp = g_file_enumerator_next_file(self, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_file_enumerator_next_files_async(self: *Self, num_files: i32, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const nextFilesAsync = g_file_enumerator_next_files_async;
 
-    extern fn g_file_enumerator_next_files_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*glib.List;
-    pub const nextFilesFinish = g_file_enumerator_next_files_finish;
+    extern fn g_file_enumerator_next_files_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) ?*glib.List;
+    pub inline fn nextFilesFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !?*glib.List {
+        const tmp = g_file_enumerator_next_files_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;

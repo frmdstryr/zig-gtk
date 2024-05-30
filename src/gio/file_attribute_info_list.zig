@@ -17,7 +17,7 @@ pub const FileAttributeInfoList = extern struct {
 
 
     // Methods
-    extern fn g_file_attribute_info_list_add(self: *Self, name: [*c]const u8, type: gio.FileAttributeType, flags: gio.FileAttributeInfoFlags) void;
+    extern fn g_file_attribute_info_list_add(self: *Self, name: [*c]const u8, type_: gio.FileAttributeType, flags: gio.FileAttributeInfoFlags) void;
     pub const add = g_file_attribute_info_list_add;
 
     extern fn g_file_attribute_info_list_dup(self: *Self) ?*gio.FileAttributeInfoList;

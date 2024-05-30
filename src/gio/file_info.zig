@@ -56,7 +56,7 @@ pub const FileInfo = extern struct {
     extern fn g_file_info_get_attribute_byte_string(self: *Self, attribute: [*c]const u8) [*c]const u8;
     pub const getAttributeByteString = g_file_info_get_attribute_byte_string;
 
-    extern fn g_file_info_get_attribute_data(self: *Self, attribute: [*c]const u8, type: gio.FileAttributeType, value_pp: ?*anyopaque, status: gio.FileAttributeStatus) bool;
+    extern fn g_file_info_get_attribute_data(self: *Self, attribute: [*c]const u8, type_: gio.FileAttributeType, value_pp: ?*anyopaque, status: gio.FileAttributeStatus) bool;
     pub const getAttributeData = g_file_info_get_attribute_data;
 
     extern fn g_file_info_get_attribute_int32(self: *Self, attribute: [*c]const u8) i32;
@@ -185,7 +185,7 @@ pub const FileInfo = extern struct {
     extern fn g_file_info_set_access_date_time(self: *Self, atime: *glib.DateTime) void;
     pub const setAccessDateTime = g_file_info_set_access_date_time;
 
-    extern fn g_file_info_set_attribute(self: *Self, attribute: [*c]const u8, type: gio.FileAttributeType, value_p: ?*anyopaque) void;
+    extern fn g_file_info_set_attribute(self: *Self, attribute: [*c]const u8, type_: gio.FileAttributeType, value_p: ?*anyopaque) void;
     pub const setAttribute = g_file_info_set_attribute;
 
     extern fn g_file_info_set_attribute_boolean(self: *Self, attribute: [*c]const u8, attr_value: bool) void;
@@ -236,7 +236,7 @@ pub const FileInfo = extern struct {
     extern fn g_file_info_set_edit_name(self: *Self, edit_name: [*c]const u8) void;
     pub const setEditName = g_file_info_set_edit_name;
 
-    extern fn g_file_info_set_file_type(self: *Self, type: gio.FileType) void;
+    extern fn g_file_info_set_file_type(self: *Self, type_: gio.FileType) void;
     pub const setFileType = g_file_info_set_file_type;
 
     extern fn g_file_info_set_icon(self: *Self, icon: *gio.Icon) void;

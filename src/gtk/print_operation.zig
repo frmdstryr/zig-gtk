@@ -49,8 +49,11 @@ pub const PrintOperation = extern struct {
     extern fn gtk_print_operation_get_embed_page_setup(self: *Self) bool;
     pub const getEmbedPageSetup = gtk_print_operation_get_embed_page_setup;
 
-    extern fn gtk_print_operation_get_error(self: *Self, err: **glib.Error) void;
-    pub const getError = gtk_print_operation_get_error;
+    extern fn gtk_print_operation_get_error(self: *Self, err: ?*?*glib.Error) void;
+    pub inline fn getError(self: *Self, err: ?*?*glib.Error) !void {
+        const tmp = gtk_print_operation_get_error(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gtk_print_operation_get_has_selection(self: *Self) bool;
     pub const getHasSelection = gtk_print_operation_get_has_selection;
@@ -97,8 +100,11 @@ pub const PrintOperation = extern struct {
     extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
     pub const refSink = g_object_ref_sink;
 
-    extern fn gtk_print_operation_run(self: *Self, action: gtk.PrintOperationAction, parent: ?*gtk.Window, err: **glib.Error) gtk.PrintOperationResult;
-    pub const run = gtk_print_operation_run;
+    extern fn gtk_print_operation_run(self: *Self, action: gtk.PrintOperationAction, parent: ?*gtk.Window, err: ?*?*glib.Error) gtk.PrintOperationResult;
+    pub inline fn run(self: *Self, action: gtk.PrintOperationAction, parent: ?*gtk.Window, err: ?*?*glib.Error) !gtk.PrintOperationResult {
+        const tmp = gtk_print_operation_run(self, action, parent, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;

@@ -23,7 +23,7 @@ pub const UnixSocketAddress = extern struct {
     extern fn g_socket_address_new_from_native(native: ?*anyopaque, len: u64) ?*Self;
     pub const newFromNative = g_socket_address_new_from_native;
 
-    extern fn g_unix_socket_address_new_with_type(path: [*c]i8, path_len: i32, type: gio.UnixSocketAddressType) ?*Self;
+    extern fn g_unix_socket_address_new_with_type(path: [*c]i8, path_len: i32, type_: gio.UnixSocketAddressType) ?*Self;
     pub const newWithType = g_unix_socket_address_new_with_type;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;
@@ -106,8 +106,11 @@ pub const UnixSocketAddress = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn g_socket_address_to_native(self: *Self, dest: ?*anyopaque, destlen: u64, err: **glib.Error) bool;
-    pub const toNative = g_socket_address_to_native;
+    extern fn g_socket_address_to_native(self: *Self, dest: ?*anyopaque, destlen: u64, err: ?*?*glib.Error) bool;
+    pub inline fn toNative(self: *Self, dest: ?*anyopaque, destlen: u64, err: ?*?*glib.Error) !bool {
+        const tmp = g_socket_address_to_native(self, dest, destlen, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_unref(self: *Self) void;
     pub const unref = g_object_unref;

@@ -14,8 +14,11 @@ pub const TlsFileDatabase = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_tls_file_database_new(anchors: [*c]const u8, err: **glib.Error) ?*gio.TlsFileDatabase;
-    pub const new = g_tls_file_database_new;
+    extern fn g_tls_file_database_new(anchors: [*c]const u8, err: ?*?*glib.Error) ?*gio.TlsFileDatabase;
+    pub inline fn new(anchors: [*c]const u8, err: ?*?*glib.Error) !?*gio.TlsFileDatabase {
+        const tmp = g_tls_file_database_new(anchors, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
 
     // Properties

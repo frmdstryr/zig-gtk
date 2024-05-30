@@ -27,11 +27,17 @@ pub const ThreadPool = extern struct {
     extern fn g_thread_pool_move_to_front(self: *Self, data: ?*anyopaque) bool;
     pub const moveToFront = g_thread_pool_move_to_front;
 
-    extern fn g_thread_pool_push(self: *Self, data: ?*anyopaque, err: **glib.Error) bool;
-    pub const push = g_thread_pool_push;
+    extern fn g_thread_pool_push(self: *Self, data: ?*anyopaque, err: ?*?*glib.Error) bool;
+    pub inline fn push(self: *Self, data: ?*anyopaque, err: ?*?*glib.Error) !bool {
+        const tmp = g_thread_pool_push(self, data, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_thread_pool_set_max_threads(self: *Self, max_threads: i32, err: **glib.Error) bool;
-    pub const setMaxThreads = g_thread_pool_set_max_threads;
+    extern fn g_thread_pool_set_max_threads(self: *Self, max_threads: i32, err: ?*?*glib.Error) bool;
+    pub inline fn setMaxThreads(self: *Self, max_threads: i32, err: ?*?*glib.Error) !bool {
+        const tmp = g_thread_pool_set_max_threads(self, max_threads, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_thread_pool_unprocessed(self: *Self) u32;
     pub const unprocessed = g_thread_pool_unprocessed;

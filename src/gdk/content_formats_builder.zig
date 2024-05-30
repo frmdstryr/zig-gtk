@@ -18,7 +18,7 @@ pub const ContentFormatsBuilder = extern struct {
     extern fn gdk_content_formats_builder_add_formats(self: *Self, formats: *gdk.ContentFormats) void;
     pub const addFormats = gdk_content_formats_builder_add_formats;
 
-    extern fn gdk_content_formats_builder_add_gtype(self: *Self, type: usize) void;
+    extern fn gdk_content_formats_builder_add_gtype(self: *Self, type_: usize) void;
     pub const addGtype = gdk_content_formats_builder_add_gtype;
 
     extern fn gdk_content_formats_builder_add_mime_type(self: *Self, mime_type: [*c]const u8) void;

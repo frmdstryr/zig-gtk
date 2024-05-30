@@ -55,7 +55,7 @@ pub const Stack = extern struct {
     extern fn gtk_stack_add_named(self: *Self, child: *gtk.Widget, name: [*c]const u8) ?*gtk.StackPage;
     pub const addNamed = gtk_stack_add_named;
 
-    extern fn gtk_widget_add_tick_callback(self: *Self, callback: *const fn (widget: *gtk.Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify: *const fn (data: ?*anyopaque) callconv(.C) void) u32;
+    extern fn gtk_widget_add_tick_callback(self: *Self, callback: *const fn (widget: *gtk.Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify_: *const fn (data: ?*anyopaque) callconv(.C) void) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
     extern fn gtk_stack_add_titled(self: *Self, child: *gtk.Widget, name: [*c]const u8, title: [*c]const u8) ?*gtk.StackPage;

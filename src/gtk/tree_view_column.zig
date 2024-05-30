@@ -197,7 +197,7 @@ pub const TreeViewColumn = extern struct {
     extern fn gtk_tree_view_column_set_resizable(self: *Self, resizable: bool) void;
     pub const setResizable = gtk_tree_view_column_set_resizable;
 
-    extern fn gtk_tree_view_column_set_sizing(self: *Self, type: gtk.TreeViewColumnSizing) void;
+    extern fn gtk_tree_view_column_set_sizing(self: *Self, type_: gtk.TreeViewColumnSizing) void;
     pub const setSizing = gtk_tree_view_column_set_sizing;
 
     extern fn gtk_tree_view_column_set_sort_column_id(self: *Self, sort_column_id: i32) void;

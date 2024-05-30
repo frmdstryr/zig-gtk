@@ -33,8 +33,11 @@ pub const GLShader = extern struct {
     extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
     pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn gsk_gl_shader_compile(self: *Self, renderer: *gsk.Renderer, err: **glib.Error) bool;
-    pub const compile = gsk_gl_shader_compile;
+    extern fn gsk_gl_shader_compile(self: *Self, renderer: *gsk.Renderer, err: ?*?*glib.Error) bool;
+    pub inline fn compile(self: *Self, renderer: *gsk.Renderer, err: ?*?*glib.Error) !bool {
+        const tmp = gsk_gl_shader_compile(self, renderer, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gsk_gl_shader_find_uniform_by_name(self: *Self, name: [*c]const u8) i32;
     pub const findUniformByName = gsk_gl_shader_find_uniform_by_name;

@@ -68,7 +68,7 @@ pub const Image = extern struct {
     extern fn gtk_widget_add_mnemonic_label(self: *Self, label: *gtk.Widget) void;
     pub const addMnemonicLabel = gtk_widget_add_mnemonic_label;
 
-    extern fn gtk_widget_add_tick_callback(self: *Self, callback: *const fn (widget: *gtk.Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify: *const fn (data: ?*anyopaque) callconv(.C) void) u32;
+    extern fn gtk_widget_add_tick_callback(self: *Self, callback: *const fn (widget: *gtk.Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify_: *const fn (data: ?*anyopaque) callconv(.C) void) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
     extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
@@ -563,7 +563,7 @@ pub const Image = extern struct {
     extern fn gtk_widget_set_size_request(self: *Self, width: i32, height: i32) void;
     pub const setSizeRequest = gtk_widget_set_size_request;
 
-    extern fn gtk_widget_set_state_flags(self: *Self, flags: gtk.StateFlags, clear: bool) void;
+    extern fn gtk_widget_set_state_flags(self: *Self, flags: gtk.StateFlags, clear_: bool) void;
     pub const setStateFlags = gtk_widget_set_state_flags;
 
     extern fn gtk_widget_set_tooltip_markup(self: *Self, markup: [*c]const u8) void;

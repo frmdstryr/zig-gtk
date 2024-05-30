@@ -22,35 +22,59 @@ pub const SocketListener = extern struct {
 
 
     // Methods
-    extern fn g_socket_listener_accept(self: *Self, source_object: ?*gobject.Object, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.SocketConnection;
-    pub const accept = g_socket_listener_accept;
+    extern fn g_socket_listener_accept(self: *Self, source_object: ?*gobject.Object, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*gio.SocketConnection;
+    pub inline fn accept(self: *Self, source_object: ?*gobject.Object, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*gio.SocketConnection {
+        const tmp = g_socket_listener_accept(self, source_object, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_socket_listener_accept_async(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const acceptAsync = g_socket_listener_accept_async;
 
-    extern fn g_socket_listener_accept_finish(self: *Self, result: *gio.AsyncResult, source_object: ?*gobject.Object, err: **glib.Error) ?*gio.SocketConnection;
-    pub const acceptFinish = g_socket_listener_accept_finish;
+    extern fn g_socket_listener_accept_finish(self: *Self, result: *gio.AsyncResult, source_object: ?*gobject.Object, err: ?*?*glib.Error) ?*gio.SocketConnection;
+    pub inline fn acceptFinish(self: *Self, result: *gio.AsyncResult, source_object: ?*gobject.Object, err: ?*?*glib.Error) !?*gio.SocketConnection {
+        const tmp = g_socket_listener_accept_finish(self, result, source_object, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_socket_listener_accept_socket(self: *Self, source_object: ?*gobject.Object, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.Socket;
-    pub const acceptSocket = g_socket_listener_accept_socket;
+    extern fn g_socket_listener_accept_socket(self: *Self, source_object: ?*gobject.Object, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*gio.Socket;
+    pub inline fn acceptSocket(self: *Self, source_object: ?*gobject.Object, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*gio.Socket {
+        const tmp = g_socket_listener_accept_socket(self, source_object, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_socket_listener_accept_socket_async(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const acceptSocketAsync = g_socket_listener_accept_socket_async;
 
-    extern fn g_socket_listener_accept_socket_finish(self: *Self, result: *gio.AsyncResult, source_object: ?*gobject.Object, err: **glib.Error) ?*gio.Socket;
-    pub const acceptSocketFinish = g_socket_listener_accept_socket_finish;
+    extern fn g_socket_listener_accept_socket_finish(self: *Self, result: *gio.AsyncResult, source_object: ?*gobject.Object, err: ?*?*glib.Error) ?*gio.Socket;
+    pub inline fn acceptSocketFinish(self: *Self, result: *gio.AsyncResult, source_object: ?*gobject.Object, err: ?*?*glib.Error) !?*gio.Socket {
+        const tmp = g_socket_listener_accept_socket_finish(self, result, source_object, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_socket_listener_add_address(self: *Self, address: *gio.SocketAddress, type: gio.SocketType, protocol: gio.SocketProtocol, source_object: ?*gobject.Object, effective_address: *gio.SocketAddress, err: **glib.Error) bool;
-    pub const addAddress = g_socket_listener_add_address;
+    extern fn g_socket_listener_add_address(self: *Self, address: *gio.SocketAddress, type_: gio.SocketType, protocol: gio.SocketProtocol, source_object: ?*gobject.Object, effective_address: *gio.SocketAddress, err: ?*?*glib.Error) bool;
+    pub inline fn addAddress(self: *Self, address: *gio.SocketAddress, type_: gio.SocketType, protocol: gio.SocketProtocol, source_object: ?*gobject.Object, effective_address: *gio.SocketAddress, err: ?*?*glib.Error) !bool {
+        const tmp = g_socket_listener_add_address(self, address, type_, protocol, source_object, effective_address, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_socket_listener_add_any_inet_port(self: *Self, source_object: ?*gobject.Object, err: **glib.Error) u16;
-    pub const addAnyInetPort = g_socket_listener_add_any_inet_port;
+    extern fn g_socket_listener_add_any_inet_port(self: *Self, source_object: ?*gobject.Object, err: ?*?*glib.Error) u16;
+    pub inline fn addAnyInetPort(self: *Self, source_object: ?*gobject.Object, err: ?*?*glib.Error) !u16 {
+        const tmp = g_socket_listener_add_any_inet_port(self, source_object, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_socket_listener_add_inet_port(self: *Self, port: u16, source_object: ?*gobject.Object, err: **glib.Error) bool;
-    pub const addInetPort = g_socket_listener_add_inet_port;
+    extern fn g_socket_listener_add_inet_port(self: *Self, port: u16, source_object: ?*gobject.Object, err: ?*?*glib.Error) bool;
+    pub inline fn addInetPort(self: *Self, port: u16, source_object: ?*gobject.Object, err: ?*?*glib.Error) !bool {
+        const tmp = g_socket_listener_add_inet_port(self, port, source_object, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_socket_listener_add_socket(self: *Self, socket: *gio.Socket, source_object: ?*gobject.Object, err: **glib.Error) bool;
-    pub const addSocket = g_socket_listener_add_socket;
+    extern fn g_socket_listener_add_socket(self: *Self, socket: *gio.Socket, source_object: ?*gobject.Object, err: ?*?*glib.Error) bool;
+    pub inline fn addSocket(self: *Self, socket: *gio.Socket, source_object: ?*gobject.Object, err: ?*?*glib.Error) !bool {
+        const tmp = g_socket_listener_add_socket(self, socket, source_object, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
     pub const bindProperty = g_object_bind_property;

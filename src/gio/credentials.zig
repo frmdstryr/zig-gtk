@@ -44,11 +44,17 @@ pub const Credentials = extern struct {
     extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
     pub const getQdata = g_object_get_qdata;
 
-    extern fn g_credentials_get_unix_pid(self: *Self, err: **glib.Error) i32;
-    pub const getUnixPid = g_credentials_get_unix_pid;
+    extern fn g_credentials_get_unix_pid(self: *Self, err: ?*?*glib.Error) i32;
+    pub inline fn getUnixPid(self: *Self, err: ?*?*glib.Error) !i32 {
+        const tmp = g_credentials_get_unix_pid(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_credentials_get_unix_user(self: *Self, err: **glib.Error) u32;
-    pub const getUnixUser = g_credentials_get_unix_user;
+    extern fn g_credentials_get_unix_user(self: *Self, err: ?*?*glib.Error) u32;
+    pub inline fn getUnixUser(self: *Self, err: ?*?*glib.Error) !u32 {
+        const tmp = g_credentials_get_unix_user(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
@@ -56,8 +62,11 @@ pub const Credentials = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_credentials_is_same_user(self: *Self, other_credentials: *gio.Credentials, err: **glib.Error) bool;
-    pub const isSameUser = g_credentials_is_same_user;
+    extern fn g_credentials_is_same_user(self: *Self, other_credentials: *gio.Credentials, err: ?*?*glib.Error) bool;
+    pub inline fn isSameUser(self: *Self, other_credentials: *gio.Credentials, err: ?*?*glib.Error) !bool {
+        const tmp = g_credentials_is_same_user(self, other_credentials, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
@@ -83,8 +92,11 @@ pub const Credentials = extern struct {
     extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
     pub const setProperty = g_object_set_property;
 
-    extern fn g_credentials_set_unix_user(self: *Self, uid: u32, err: **glib.Error) bool;
-    pub const setUnixUser = g_credentials_set_unix_user;
+    extern fn g_credentials_set_unix_user(self: *Self, uid: u32, err: ?*?*glib.Error) bool;
+    pub inline fn setUnixUser(self: *Self, uid: u32, err: ?*?*glib.Error) !bool {
+        const tmp = g_credentials_set_unix_user(self, uid, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;
     pub const stealData = g_object_steal_data;

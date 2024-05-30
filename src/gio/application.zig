@@ -115,8 +115,11 @@ pub const Application = extern struct {
     extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
     pub const refSink = g_object_ref_sink;
 
-    extern fn g_application_register(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const register = g_application_register;
+    extern fn g_application_register(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn register(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_application_register(self, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_application_release(self: *Self) void;
     pub const release = g_application_release;

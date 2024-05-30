@@ -12,7 +12,7 @@ pub const BuildableIface = extern struct {
     g_iface: gobject.TypeInterface,
     set_id: *const fn (buildable: *gtk.Buildable, id: [*c]const u8) callconv(.C) void,
     get_id: *const fn (buildable: *gtk.Buildable) callconv(.C) [*c]const u8,
-    add_child: *const fn (buildable: *gtk.Buildable, builder: *gtk.Builder, child: *gobject.Object, type: [*c]const u8) callconv(.C) void,
+    add_child: *const fn (buildable: *gtk.Buildable, builder: *gtk.Builder, child: *gobject.Object, type_: [*c]const u8) callconv(.C) void,
     set_buildable_property: *const fn (buildable: *gtk.Buildable, builder: *gtk.Builder, name: [*c]const u8, value: *gobject.Value) callconv(.C) void,
     construct_child: ?*anyopaque,
     custom_tag_start: *const fn (buildable: *gtk.Buildable, builder: *gtk.Builder, child: ?*gobject.Object, tagname: [*c]const u8, parser: *gtk.BuildableParser, data: ?*anyopaque) callconv(.C) bool,

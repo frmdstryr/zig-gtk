@@ -161,7 +161,7 @@ pub const CellRendererToggle = extern struct {
     extern fn gtk_cell_renderer_set_visible(self: *Self, visible: bool) void;
     pub const setVisible = gtk_cell_renderer_set_visible;
 
-    extern fn gtk_cell_renderer_snapshot(self: *Self, snapshot: *gtk.Snapshot, widget: *gtk.Widget, background_area: *gdk.Rectangle, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState) void;
+    extern fn gtk_cell_renderer_snapshot(self: *Self, snapshot_: *gtk.Snapshot, widget: *gtk.Widget, background_area: *gdk.Rectangle, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState) void;
     pub const snapshot = gtk_cell_renderer_snapshot;
 
     extern fn gtk_cell_renderer_start_editing(self: *Self, event: ?*gdk.Event, widget: *gtk.Widget, path: [*c]const u8, background_area: *gdk.Rectangle, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState) ?*gtk.CellEditable;

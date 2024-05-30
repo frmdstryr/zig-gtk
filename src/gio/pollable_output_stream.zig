@@ -23,11 +23,17 @@ pub const PollableOutputStream = extern struct {
     extern fn g_pollable_output_stream_is_writable(self: *Self) bool;
     pub const isWritable = g_pollable_output_stream_is_writable;
 
-    extern fn g_pollable_output_stream_write_nonblocking(self: *Self, buffer: [*c]u8, count: u64, cancellable: ?*gio.Cancellable, err: **glib.Error) i64;
-    pub const writeNonblocking = g_pollable_output_stream_write_nonblocking;
+    extern fn g_pollable_output_stream_write_nonblocking(self: *Self, buffer: [*c]u8, count: u64, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) i64;
+    pub inline fn writeNonblocking(self: *Self, buffer: [*c]u8, count: u64, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !i64 {
+        const tmp = g_pollable_output_stream_write_nonblocking(self, buffer, count, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_pollable_output_stream_writev_nonblocking(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: *u64, cancellable: ?*gio.Cancellable, err: **glib.Error) gio.PollableReturn;
-    pub const writevNonblocking = g_pollable_output_stream_writev_nonblocking;
+    extern fn g_pollable_output_stream_writev_nonblocking(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: *u64, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) gio.PollableReturn;
+    pub inline fn writevNonblocking(self: *Self, vectors: [*c]gio.OutputVector, n_vectors: u64, bytes_written: *u64, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !gio.PollableReturn {
+        const tmp = g_pollable_output_stream_writev_nonblocking(self, vectors, n_vectors, bytes_written, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
 
     // Bases

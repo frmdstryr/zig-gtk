@@ -37,7 +37,7 @@ pub const Paintable = extern struct {
     extern fn gdk_paintable_invalidate_size(self: *Self) void;
     pub const invalidateSize = gdk_paintable_invalidate_size;
 
-    extern fn gdk_paintable_snapshot(self: *Self, snapshot: *gdk.Snapshot, width: f64, height: f64) void;
+    extern fn gdk_paintable_snapshot(self: *Self, snapshot_: *gdk.Snapshot, width: f64, height: f64) void;
     pub const snapshot = gdk_paintable_snapshot;
 
     extern fn gdk_paintable_new_empty(intrinsic_width: i32, intrinsic_height: i32) ?*gdk.Paintable;

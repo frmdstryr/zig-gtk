@@ -46,7 +46,7 @@ pub const FileIface = extern struct {
     query_writable_namespaces: *const fn (file: *gio.File, cancellable: ?*gio.Cancellable) callconv(.C) *gio.FileAttributeInfoList,
     _query_writable_namespaces_async: ?*anyopaque,
     _query_writable_namespaces_finish: ?*anyopaque,
-    set_attribute: *const fn (file: *gio.File, attribute: [*c]const u8, type: gio.FileAttributeType, value_p: ?*anyopaque, flags: gio.FileQueryInfoFlags, cancellable: ?*gio.Cancellable) callconv(.C) bool,
+    set_attribute: *const fn (file: *gio.File, attribute: [*c]const u8, type_: gio.FileAttributeType, value_p: ?*anyopaque, flags: gio.FileQueryInfoFlags, cancellable: ?*gio.Cancellable) callconv(.C) bool,
     set_attributes_from_info: *const fn (file: *gio.File, info: *gio.FileInfo, flags: gio.FileQueryInfoFlags, cancellable: ?*gio.Cancellable) callconv(.C) bool,
     set_attributes_async: *const fn (file: *gio.File, info: *gio.FileInfo, flags: gio.FileQueryInfoFlags, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) callconv(.C) void,
     set_attributes_finish: *const fn (file: *gio.File, result: *gio.AsyncResult, info: *gio.FileInfo) callconv(.C) bool,

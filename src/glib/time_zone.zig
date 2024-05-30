@@ -27,10 +27,10 @@ pub const TimeZone = extern struct {
 
 
     // Methods
-    extern fn g_time_zone_adjust_time(self: *Self, type: glib.TimeType, time_: i64) i32;
+    extern fn g_time_zone_adjust_time(self: *Self, type_: glib.TimeType, time_: i64) i32;
     pub const adjustTime = g_time_zone_adjust_time;
 
-    extern fn g_time_zone_find_interval(self: *Self, type: glib.TimeType, time_: i64) i32;
+    extern fn g_time_zone_find_interval(self: *Self, type_: glib.TimeType, time_: i64) i32;
     pub const findInterval = g_time_zone_find_interval;
 
     extern fn g_time_zone_get_abbreviation(self: *Self, interval: i32) [*c]const u8;

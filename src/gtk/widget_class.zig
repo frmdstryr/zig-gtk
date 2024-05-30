@@ -84,7 +84,7 @@ pub const WidgetClass = extern struct {
     extern fn gtk_widget_class_set_css_name(self: *Self, name: [*c]const u8) void;
     pub const setCssName = gtk_widget_class_set_css_name;
 
-    extern fn gtk_widget_class_set_layout_manager_type(self: *Self, type: usize) void;
+    extern fn gtk_widget_class_set_layout_manager_type(self: *Self, type_: usize) void;
     pub const setLayoutManagerType = gtk_widget_class_set_layout_manager_type;
 
     extern fn gtk_widget_class_set_template(self: *Self, template_bytes: *glib.Bytes) void;

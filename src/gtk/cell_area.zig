@@ -22,7 +22,7 @@ pub const CellArea = extern struct {
     extern fn gtk_cell_area_activate(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState, edit_only: bool) bool;
     pub const activate = gtk_cell_area_activate;
 
-    extern fn gtk_cell_area_activate_cell(self: *Self, widget: *gtk.Widget, renderer: *gtk.CellRenderer, event: *gdk.Event, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState) bool;
+    extern fn gtk_cell_area_activate_cell(self: *Self, widget: *gtk.Widget, renderer: *gtk.CellRenderer, event_: *gdk.Event, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState) bool;
     pub const activateCell = gtk_cell_area_activate_cell;
 
     extern fn gtk_cell_area_add(self: *Self, renderer: *gtk.CellRenderer) void;
@@ -61,7 +61,7 @@ pub const CellArea = extern struct {
     extern fn gtk_cell_area_create_context(self: *Self) ?*gtk.CellAreaContext;
     pub const createContext = gtk_cell_area_create_context;
 
-    extern fn gtk_cell_area_event(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, event: *gdk.Event, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState) i32;
+    extern fn gtk_cell_area_event(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, event_: *gdk.Event, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState) i32;
     pub const event = gtk_cell_area_event;
 
     extern fn gtk_cell_area_focus(self: *Self, direction: gtk.DirectionType) bool;
@@ -178,7 +178,7 @@ pub const CellArea = extern struct {
     extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
     pub const setProperty = g_object_set_property;
 
-    extern fn gtk_cell_area_snapshot(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, snapshot: *gtk.Snapshot, background_area: *gdk.Rectangle, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState, paint_focus: bool) void;
+    extern fn gtk_cell_area_snapshot(self: *Self, context: *gtk.CellAreaContext, widget: *gtk.Widget, snapshot_: *gtk.Snapshot, background_area: *gdk.Rectangle, cell_area: *gdk.Rectangle, flags: gtk.CellRendererState, paint_focus: bool) void;
     pub const snapshot = gtk_cell_area_snapshot;
 
     extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;

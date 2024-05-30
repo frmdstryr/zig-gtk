@@ -52,7 +52,7 @@ pub const Text = extern struct {
     extern fn gtk_widget_add_mnemonic_label(self: *Self, label: *gtk.Widget) void;
     pub const addMnemonicLabel = gtk_widget_add_mnemonic_label;
 
-    extern fn gtk_widget_add_tick_callback(self: *Self, callback: *const fn (widget: *gtk.Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify: *const fn (data: ?*anyopaque) callconv(.C) void) u32;
+    extern fn gtk_widget_add_tick_callback(self: *Self, callback: *const fn (widget: *gtk.Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify_: *const fn (data: ?*anyopaque) callconv(.C) void) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
     extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
@@ -781,7 +781,7 @@ pub const Text = extern struct {
     pub inline fn connectDeleteFromCursor(
         self: *Self,
         comptime T: type,
-        callback: *const fn (self: *Self, type: gtk.DeleteType, count: i32, data: ?*T) callconv(.C) void,
+        callback: *const fn (self: *Self, type_: gtk.DeleteType, count: i32, data: ?*T) callconv(.C) void,
         data: ?*T,
         flags: gobject.ConnectFlags
     ) u64 {
@@ -791,7 +791,7 @@ pub const Text = extern struct {
     pub inline fn connectDeleteFromCursorSwapped(
         self: *Self,
         comptime T: type,
-        callback: *const fn (data: *T, type: gtk.DeleteType, count: i32) callconv(.C) void,
+        callback: *const fn (data: *T, type_: gtk.DeleteType, count: i32) callconv(.C) void,
         data: *T,
         flags: gobject.ConnectFlags
     ) u64 {

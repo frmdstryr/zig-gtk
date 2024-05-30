@@ -14,12 +14,12 @@ pub const ContentFormats = extern struct {
     extern fn gdk_content_formats_new(mime_types: [*c][*c]const u8, n_mime_types: u32) ?*Self;
     pub const new = gdk_content_formats_new;
 
-    extern fn gdk_content_formats_new_for_gtype(type: usize) ?*Self;
+    extern fn gdk_content_formats_new_for_gtype(type_: usize) ?*Self;
     pub const newForGtype = gdk_content_formats_new_for_gtype;
 
 
     // Methods
-    extern fn gdk_content_formats_contain_gtype(self: *Self, type: usize) bool;
+    extern fn gdk_content_formats_contain_gtype(self: *Self, type_: usize) bool;
     pub const containGtype = gdk_content_formats_contain_gtype;
 
     extern fn gdk_content_formats_contain_mime_type(self: *Self, mime_type: [*c]const u8) bool;

@@ -8,7 +8,7 @@ pub const TypeQuery = extern struct {
     const Self = @This();
 
     // Fields
-    type: usize,
+    type_: usize,
     type_name: [*c]const u8,
     class_size: u32,
     instance_size: u32,

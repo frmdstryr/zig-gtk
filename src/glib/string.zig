@@ -96,7 +96,7 @@ pub const String = extern struct {
     extern fn g_string_prepend_unichar(self: *Self, wc: u32) ?*glib.String;
     pub const prependUnichar = g_string_prepend_unichar;
 
-    extern fn g_string_replace(self: *Self, find: [*c]const u8, replace: [*c]const u8, limit: u32) u32;
+    extern fn g_string_replace(self: *Self, find: [*c]const u8, replace_: [*c]const u8, limit: u32) u32;
     pub const replace = g_string_replace;
 
     extern fn g_string_set_size(self: *Self, len: u64) ?*glib.String;

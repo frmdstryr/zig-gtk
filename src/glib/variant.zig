@@ -34,10 +34,10 @@ pub const Variant = extern struct {
     extern fn g_variant_new_fixed_array(element_type: *glib.VariantType, elements: ?*anyopaque, n_elements: u64, element_size: u64) ?*Self;
     pub const newFixedArray = g_variant_new_fixed_array;
 
-    extern fn g_variant_new_from_bytes(type: *glib.VariantType, bytes: *glib.Bytes, trusted: bool) ?*Self;
+    extern fn g_variant_new_from_bytes(type_: *glib.VariantType, bytes: *glib.Bytes, trusted: bool) ?*Self;
     pub const newFromBytes = g_variant_new_from_bytes;
 
-    extern fn g_variant_new_from_data(type: *glib.VariantType, data: [*c]u8, size: u64, trusted: bool, notify: *const fn (data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) ?*Self;
+    extern fn g_variant_new_from_data(type_: *glib.VariantType, data: [*c]u8, size: u64, trusted: bool, notify: *const fn (data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) ?*Self;
     pub const newFromData = g_variant_new_from_data;
 
     extern fn g_variant_new_handle(value: i32) ?*Self;
@@ -201,7 +201,7 @@ pub const Variant = extern struct {
     extern fn g_variant_is_normal_form(self: *Self) bool;
     pub const isNormalForm = g_variant_is_normal_form;
 
-    extern fn g_variant_is_of_type(self: *Self, type: *glib.VariantType) bool;
+    extern fn g_variant_is_of_type(self: *Self, type_: *glib.VariantType) bool;
     pub const isOfType = g_variant_is_of_type;
 
     extern fn g_variant_lookup_value(self: *Self, key: [*c]const u8, expected_type: ?*glib.VariantType) ?*glib.Variant;
@@ -234,8 +234,11 @@ pub const Variant = extern struct {
     extern fn g_variant_is_signature(string: [*c]const u8) bool;
     pub const isSignature = g_variant_is_signature;
 
-    extern fn g_variant_parse(type: ?*glib.VariantType, text: [*c]const u8, limit: [*c]const u8, endptr: [*c]const u8, err: **glib.Error) ?*glib.Variant;
-    pub const parse = g_variant_parse;
+    extern fn g_variant_parse(type_: ?*glib.VariantType, text: [*c]const u8, limit: [*c]const u8, endptr: [*c]const u8, err: ?*?*glib.Error) ?*glib.Variant;
+    pub inline fn parse(type_: ?*glib.VariantType, text: [*c]const u8, limit: [*c]const u8, endptr: [*c]const u8, err: ?*?*glib.Error) !?*glib.Variant {
+        const tmp = g_variant_parse(type_, text, limit, endptr, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_variant_parse_error_print_context(error_: *glib.Error, source_str: [*c]const u8) [*c]const u8;
     pub const parseErrorPrintContext = g_variant_parse_error_print_context;

@@ -55,8 +55,11 @@ pub const ContentProvider = extern struct {
     extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
     pub const getQdata = g_object_get_qdata;
 
-    extern fn gdk_content_provider_get_value(self: *Self, value: *gobject.Value, err: **glib.Error) bool;
-    pub const getValue = gdk_content_provider_get_value;
+    extern fn gdk_content_provider_get_value(self: *Self, value: *gobject.Value, err: ?*?*glib.Error) bool;
+    pub inline fn getValue(self: *Self, value: *gobject.Value, err: ?*?*glib.Error) !bool {
+        const tmp = gdk_content_provider_get_value(self, value, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
@@ -109,8 +112,11 @@ pub const ContentProvider = extern struct {
     extern fn gdk_content_provider_write_mime_type_async(self: *Self, mime_type: [*c]const u8, stream: *gio.OutputStream, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const writeMimeTypeAsync = gdk_content_provider_write_mime_type_async;
 
-    extern fn gdk_content_provider_write_mime_type_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const writeMimeTypeFinish = gdk_content_provider_write_mime_type_finish;
+    extern fn gdk_content_provider_write_mime_type_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn writeMimeTypeFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = gdk_content_provider_write_mime_type_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
     pub const compatControl = g_object_compat_control;

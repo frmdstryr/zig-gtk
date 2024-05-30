@@ -22,10 +22,10 @@ pub const IOExtensionPoint = extern struct {
     extern fn g_io_extension_point_get_required_type(self: *Self) usize;
     pub const getRequiredType = g_io_extension_point_get_required_type;
 
-    extern fn g_io_extension_point_set_required_type(self: *Self, type: usize) void;
+    extern fn g_io_extension_point_set_required_type(self: *Self, type_: usize) void;
     pub const setRequiredType = g_io_extension_point_set_required_type;
 
-    extern fn g_io_extension_point_implement(extension_point_name: [*c]const u8, type: usize, extension_name: [*c]const u8, priority: i32) ?*gio.IOExtension;
+    extern fn g_io_extension_point_implement(extension_point_name: [*c]const u8, type_: usize, extension_name: [*c]const u8, priority: i32) ?*gio.IOExtension;
     pub const implement = g_io_extension_point_implement;
 
     extern fn g_io_extension_point_lookup(name: [*c]const u8) ?*gio.IOExtensionPoint;

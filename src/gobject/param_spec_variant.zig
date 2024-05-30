@@ -10,7 +10,7 @@ pub const ParamSpecVariant = extern struct {
 
     // Fields
     parent_instance: gobject.ParamSpec,
-    type: *glib.VariantType,
+    type_: *glib.VariantType,
     default_value: *glib.Variant,
     padding: [4]?*anyopaque,
     g_type_instance: gobject.TypeInstance,

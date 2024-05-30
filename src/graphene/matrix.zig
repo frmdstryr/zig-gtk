@@ -16,7 +16,7 @@ pub const Matrix = extern struct {
 
 
     // Methods
-    extern fn graphene_matrix_decompose(self: *Self, translate: *graphene.Vec3, scale: *graphene.Vec3, rotate: *graphene.Quaternion, shear: *graphene.Vec3, perspective: *graphene.Vec4) bool;
+    extern fn graphene_matrix_decompose(self: *Self, translate_: *graphene.Vec3, scale_: *graphene.Vec3, rotate_: *graphene.Quaternion, shear: *graphene.Vec3, perspective_: *graphene.Vec4) bool;
     pub const decompose = graphene_matrix_decompose;
 
     extern fn graphene_matrix_determinant(self: *Self) f32;

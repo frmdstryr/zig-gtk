@@ -25,8 +25,11 @@ pub const ConstraintLayout = extern struct {
     extern fn gtk_constraint_layout_add_constraint(self: *Self, constraint: *gtk.Constraint) void;
     pub const addConstraint = gtk_constraint_layout_add_constraint;
 
-    extern fn gtk_constraint_layout_add_constraints_from_descriptionv(self: *Self, lines: [*c][*c]const u8, n_lines: u64, hspacing: i32, vspacing: i32, views: *glib.HashTable, err: **glib.Error) ?*glib.List;
-    pub const addConstraintsFromDescription = gtk_constraint_layout_add_constraints_from_descriptionv;
+    extern fn gtk_constraint_layout_add_constraints_from_descriptionv(self: *Self, lines: [*c][*c]const u8, n_lines: u64, hspacing: i32, vspacing: i32, views: *glib.HashTable, err: ?*?*glib.Error) ?*glib.List;
+    pub inline fn addConstraintsFromDescription(self: *Self, lines: [*c][*c]const u8, n_lines: u64, hspacing: i32, vspacing: i32, views: *glib.HashTable, err: ?*?*glib.Error) !?*glib.List {
+        const tmp = gtk_constraint_layout_add_constraints_from_descriptionv(self, lines, n_lines, hspacing, vspacing, views, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gtk_constraint_layout_add_guide(self: *Self, guide: *gtk.ConstraintGuide) void;
     pub const addGuide = gtk_constraint_layout_add_guide;

@@ -52,7 +52,7 @@ pub const Overlay = extern struct {
     extern fn gtk_overlay_add_overlay(self: *Self, widget: *gtk.Widget) void;
     pub const addOverlay = gtk_overlay_add_overlay;
 
-    extern fn gtk_widget_add_tick_callback(self: *Self, callback: *const fn (widget: *gtk.Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify: *const fn (data: ?*anyopaque) callconv(.C) void) u32;
+    extern fn gtk_widget_add_tick_callback(self: *Self, callback: *const fn (widget: *gtk.Widget, frame_clock: *gdk.FrameClock, user_data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, notify_: *const fn (data: ?*anyopaque) callconv(.C) void) u32;
     pub const addTickCallback = gtk_widget_add_tick_callback;
 
     extern fn gtk_widget_allocate(self: *Self, width: i32, height: i32, baseline: i32, transform: ?*gsk.Transform) void;
@@ -496,7 +496,7 @@ pub const Overlay = extern struct {
     extern fn gtk_widget_set_margin_top(self: *Self, margin: i32) void;
     pub const setMarginTop = gtk_widget_set_margin_top;
 
-    extern fn gtk_overlay_set_measure_overlay(self: *Self, widget: *gtk.Widget, measure: bool) void;
+    extern fn gtk_overlay_set_measure_overlay(self: *Self, widget: *gtk.Widget, measure_: bool) void;
     pub const setMeasureOverlay = gtk_overlay_set_measure_overlay;
 
     extern fn gtk_widget_set_name(self: *Self, name: [*c]const u8) void;

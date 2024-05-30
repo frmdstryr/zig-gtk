@@ -23,14 +23,20 @@ pub const Volume = extern struct {
     extern fn g_volume_eject(self: *Self, flags: gio.MountUnmountFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const eject = g_volume_eject;
 
-    extern fn g_volume_eject_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const ejectFinish = g_volume_eject_finish;
+    extern fn g_volume_eject_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn ejectFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_volume_eject_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_volume_eject_with_operation(self: *Self, flags: gio.MountUnmountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const ejectWithOperation = g_volume_eject_with_operation;
 
-    extern fn g_volume_eject_with_operation_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const ejectWithOperationFinish = g_volume_eject_with_operation_finish;
+    extern fn g_volume_eject_with_operation_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn ejectWithOperationFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_volume_eject_with_operation_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_volume_enumerate_identifiers(self: *Self) [*c][*c]const u8;
     pub const enumerateIdentifiers = g_volume_enumerate_identifiers;
@@ -65,8 +71,11 @@ pub const Volume = extern struct {
     extern fn g_volume_mount(self: *Self, flags: gio.MountMountFlags, mount_operation: ?*gio.MountOperation, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const mount = g_volume_mount;
 
-    extern fn g_volume_mount_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const mountFinish = g_volume_mount_finish;
+    extern fn g_volume_mount_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn mountFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_volume_mount_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_volume_should_automount(self: *Self) bool;
     pub const shouldAutomount = g_volume_should_automount;

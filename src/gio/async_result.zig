@@ -23,8 +23,11 @@ pub const AsyncResult = extern struct {
     extern fn g_async_result_is_tagged(self: *Self, source_tag: ?*anyopaque) bool;
     pub const isTagged = g_async_result_is_tagged;
 
-    extern fn g_async_result_legacy_propagate_error(self: *Self, err: **glib.Error) bool;
-    pub const legacyPropagateError = g_async_result_legacy_propagate_error;
+    extern fn g_async_result_legacy_propagate_error(self: *Self, err: ?*?*glib.Error) bool;
+    pub inline fn legacyPropagateError(self: *Self, err: ?*?*glib.Error) !bool {
+        const tmp = g_async_result_legacy_propagate_error(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
 
     // Bases

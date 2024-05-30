@@ -31,7 +31,7 @@ pub const SignalGroup = extern struct {
     extern fn g_signal_group_block(self: *Self) void;
     pub const block = g_signal_group_block;
 
-    extern fn g_signal_group_connect_data(self: *Self, detailed_signal: [*c]const u8, c_handler: *const fn () callconv(.C) void, data: ?*anyopaque, notify: *const fn (data: ?*anyopaque, closure: *gobject.Closure) callconv(.C) void, flags: gobject.ConnectFlags) void;
+    extern fn g_signal_group_connect_data(self: *Self, detailed_signal: [*c]const u8, c_handler: *const fn () callconv(.C) void, data: ?*anyopaque, notify_: *const fn (data: ?*anyopaque, closure: *gobject.Closure) callconv(.C) void, flags: gobject.ConnectFlags) void;
     pub const connectData = g_signal_group_connect_data;
 
     extern fn g_signal_group_connect_swapped(self: *Self, detailed_signal: [*c]const u8, c_handler: *const fn () callconv(.C) void, data: ?*anyopaque) void;

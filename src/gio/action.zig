@@ -41,8 +41,11 @@ pub const Action = extern struct {
     extern fn g_action_name_is_valid(action_name: [*c]const u8) bool;
     pub const nameIsValid = g_action_name_is_valid;
 
-    extern fn g_action_parse_detailed_name(detailed_name: [*c]const u8, action_name: *[*c]const u8, target_value: *glib.Variant, err: **glib.Error) bool;
-    pub const parseDetailedName = g_action_parse_detailed_name;
+    extern fn g_action_parse_detailed_name(detailed_name: [*c]const u8, action_name: *[*c]const u8, target_value: *glib.Variant, err: ?*?*glib.Error) bool;
+    pub inline fn parseDetailedName(detailed_name: [*c]const u8, action_name: *[*c]const u8, target_value: *glib.Variant, err: ?*?*glib.Error) !bool {
+        const tmp = g_action_parse_detailed_name(detailed_name, action_name, target_value, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_action_print_detailed_name(action_name: [*c]const u8, target_value: ?*glib.Variant) [*c]const u8;
     pub const printDetailedName = g_action_print_detailed_name;

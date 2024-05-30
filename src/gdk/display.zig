@@ -33,8 +33,11 @@ pub const Display = extern struct {
     extern fn gdk_display_close(self: *Self) void;
     pub const close = gdk_display_close;
 
-    extern fn gdk_display_create_gl_context(self: *Self, err: **glib.Error) ?*gdk.GLContext;
-    pub const createGlContext = gdk_display_create_gl_context;
+    extern fn gdk_display_create_gl_context(self: *Self, err: ?*?*glib.Error) ?*gdk.GLContext;
+    pub inline fn createGlContext(self: *Self, err: ?*?*glib.Error) !?*gdk.GLContext {
+        const tmp = gdk_display_create_gl_context(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gdk_display_device_is_grabbed(self: *Self, device: *gdk.Device) bool;
     pub const deviceIsGrabbed = gdk_display_device_is_grabbed;
@@ -117,8 +120,11 @@ pub const Display = extern struct {
     extern fn gdk_display_notify_startup_complete(self: *Self, startup_id: [*c]const u8) void;
     pub const notifyStartupComplete = gdk_display_notify_startup_complete;
 
-    extern fn gdk_display_prepare_gl(self: *Self, err: **glib.Error) bool;
-    pub const prepareGl = gdk_display_prepare_gl;
+    extern fn gdk_display_prepare_gl(self: *Self, err: ?*?*glib.Error) bool;
+    pub inline fn prepareGl(self: *Self, err: ?*?*glib.Error) !bool {
+        const tmp = gdk_display_prepare_gl(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gdk_display_put_event(self: *Self, event: *gdk.Event) void;
     pub const putEvent = gdk_display_put_event;

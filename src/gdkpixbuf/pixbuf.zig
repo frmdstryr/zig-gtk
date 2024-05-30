@@ -186,20 +186,32 @@ pub const Pixbuf = extern struct {
     extern fn gdk_pixbuf_saturate_and_pixelate(self: *Self, dest: *gdkpixbuf.Pixbuf, saturation: f32, pixelate: bool) void;
     pub const saturateAndPixelate = gdk_pixbuf_saturate_and_pixelate;
 
-    extern fn gdk_pixbuf_save_to_bufferv(self: *Self, buffer: [*c]u8, buffer_size: *u64, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, err: **glib.Error) bool;
-    pub const saveToBufferv = gdk_pixbuf_save_to_bufferv;
+    extern fn gdk_pixbuf_save_to_bufferv(self: *Self, buffer: [*c]u8, buffer_size: *u64, type_: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn saveToBufferv(self: *Self, buffer: [*c]u8, buffer_size: *u64, type_: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = gdk_pixbuf_save_to_bufferv(self, buffer, buffer_size, type_, option_keys, option_values, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn gdk_pixbuf_save_to_callbackv(self: *Self, save_func: *const fn (buf: [*c]u8, count: u64, error_: **glib.Error, data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, err: **glib.Error) bool;
-    pub const saveToCallbackv = gdk_pixbuf_save_to_callbackv;
+    extern fn gdk_pixbuf_save_to_callbackv(self: *Self, save_func: *const fn (buf: [*c]u8, count: u64, error_: **glib.Error, data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, type_: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn saveToCallbackv(self: *Self, save_func: *const fn (buf: [*c]u8, count: u64, error_: **glib.Error, data: ?*anyopaque) callconv(.C) bool, user_data: ?*anyopaque, type_: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = gdk_pixbuf_save_to_callbackv(self, save_func, user_data, type_, option_keys, option_values, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn gdk_pixbuf_save_to_streamv(self: *Self, stream: *gio.OutputStream, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const saveToStreamv = gdk_pixbuf_save_to_streamv;
+    extern fn gdk_pixbuf_save_to_streamv(self: *Self, stream: *gio.OutputStream, type_: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn saveToStreamv(self: *Self, stream: *gio.OutputStream, type_: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = gdk_pixbuf_save_to_streamv(self, stream, type_, option_keys, option_values, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn gdk_pixbuf_save_to_streamv_async(self: *Self, stream: *gio.OutputStream, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
+    extern fn gdk_pixbuf_save_to_streamv_async(self: *Self, stream: *gio.OutputStream, type_: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const saveToStreamvAsync = gdk_pixbuf_save_to_streamv_async;
 
-    extern fn gdk_pixbuf_savev(self: *Self, filename: [*c]const u8, type: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, err: **glib.Error) bool;
-    pub const savev = gdk_pixbuf_savev;
+    extern fn gdk_pixbuf_savev(self: *Self, filename: [*c]const u8, type_: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn savev(self: *Self, filename: [*c]const u8, type_: [*c]const u8, option_keys: [*c][*c]const u8, option_values: [*c][*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = gdk_pixbuf_savev(self, filename, type_, option_keys, option_values, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gdk_pixbuf_scale(self: *Self, dest: *gdkpixbuf.Pixbuf, dest_x: i32, dest_y: i32, dest_width: i32, dest_height: i32, offset_x: f64, offset_y: f64, scale_x: f64, scale_y: f64, interp_type: gdkpixbuf.InterpType) void;
     pub const scale = gdk_pixbuf_scale;
@@ -240,15 +252,21 @@ pub const Pixbuf = extern struct {
     extern fn gdk_pixbuf_get_file_info_async(filename: [*c]const u8, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const getFileInfoAsync = gdk_pixbuf_get_file_info_async;
 
-    extern fn gdk_pixbuf_get_file_info_finish(async_result: *gio.AsyncResult, width: *i32, height: *i32, err: **glib.Error) ?*gdkpixbuf.PixbufFormat;
-    pub const getFileInfoFinish = gdk_pixbuf_get_file_info_finish;
+    extern fn gdk_pixbuf_get_file_info_finish(async_result: *gio.AsyncResult, width: *i32, height: *i32, err: ?*?*glib.Error) ?*gdkpixbuf.PixbufFormat;
+    pub inline fn getFileInfoFinish(async_result: *gio.AsyncResult, width: *i32, height: *i32, err: ?*?*glib.Error) !?*gdkpixbuf.PixbufFormat {
+        const tmp = gdk_pixbuf_get_file_info_finish(async_result, width, height, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     // Binding disabled (unknown arg/return type)
     // extern fn gdk_pixbuf_get_formats() None;
     // pub const getFormats = gdk_pixbuf_get_formats;
 
-    extern fn gdk_pixbuf_init_modules(path: [*c]const u8, err: **glib.Error) bool;
-    pub const initModules = gdk_pixbuf_init_modules;
+    extern fn gdk_pixbuf_init_modules(path: [*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn initModules(path: [*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = gdk_pixbuf_init_modules(path, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gdk_pixbuf_new_from_stream_async(stream: *gio.InputStream, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const newFromStreamAsync = gdk_pixbuf_new_from_stream_async;
@@ -256,8 +274,11 @@ pub const Pixbuf = extern struct {
     extern fn gdk_pixbuf_new_from_stream_at_scale_async(stream: *gio.InputStream, width: i32, height: i32, preserve_aspect_ratio: bool, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const newFromStreamAtScaleAsync = gdk_pixbuf_new_from_stream_at_scale_async;
 
-    extern fn gdk_pixbuf_save_to_stream_finish(async_result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const saveToStreamFinish = gdk_pixbuf_save_to_stream_finish;
+    extern fn gdk_pixbuf_save_to_stream_finish(async_result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn saveToStreamFinish(async_result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = gdk_pixbuf_save_to_stream_finish(async_result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
     pub const compatControl = g_object_compat_control;

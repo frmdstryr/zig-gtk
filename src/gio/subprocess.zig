@@ -29,23 +29,35 @@ pub const Subprocess = extern struct {
     extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
     pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn g_subprocess_communicate(self: *Self, stdin_buf: ?*glib.Bytes, cancellable: ?*gio.Cancellable, stdout_buf: ?*glib.Bytes, stderr_buf: ?*glib.Bytes, err: **glib.Error) bool;
-    pub const communicate = g_subprocess_communicate;
+    extern fn g_subprocess_communicate(self: *Self, stdin_buf: ?*glib.Bytes, cancellable: ?*gio.Cancellable, stdout_buf: ?*glib.Bytes, stderr_buf: ?*glib.Bytes, err: ?*?*glib.Error) bool;
+    pub inline fn communicate(self: *Self, stdin_buf: ?*glib.Bytes, cancellable: ?*gio.Cancellable, stdout_buf: ?*glib.Bytes, stderr_buf: ?*glib.Bytes, err: ?*?*glib.Error) !bool {
+        const tmp = g_subprocess_communicate(self, stdin_buf, cancellable, stdout_buf, stderr_buf, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_subprocess_communicate_async(self: *Self, stdin_buf: ?*glib.Bytes, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const communicateAsync = g_subprocess_communicate_async;
 
-    extern fn g_subprocess_communicate_finish(self: *Self, result: *gio.AsyncResult, stdout_buf: ?*glib.Bytes, stderr_buf: ?*glib.Bytes, err: **glib.Error) bool;
-    pub const communicateFinish = g_subprocess_communicate_finish;
+    extern fn g_subprocess_communicate_finish(self: *Self, result: *gio.AsyncResult, stdout_buf: ?*glib.Bytes, stderr_buf: ?*glib.Bytes, err: ?*?*glib.Error) bool;
+    pub inline fn communicateFinish(self: *Self, result: *gio.AsyncResult, stdout_buf: ?*glib.Bytes, stderr_buf: ?*glib.Bytes, err: ?*?*glib.Error) !bool {
+        const tmp = g_subprocess_communicate_finish(self, result, stdout_buf, stderr_buf, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_subprocess_communicate_utf8(self: *Self, stdin_buf: [*c]const u8, cancellable: ?*gio.Cancellable, stdout_buf: *[*c]const u8, stderr_buf: *[*c]const u8, err: **glib.Error) bool;
-    pub const communicateUtf8 = g_subprocess_communicate_utf8;
+    extern fn g_subprocess_communicate_utf8(self: *Self, stdin_buf: [*c]const u8, cancellable: ?*gio.Cancellable, stdout_buf: *[*c]const u8, stderr_buf: *[*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn communicateUtf8(self: *Self, stdin_buf: [*c]const u8, cancellable: ?*gio.Cancellable, stdout_buf: *[*c]const u8, stderr_buf: *[*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = g_subprocess_communicate_utf8(self, stdin_buf, cancellable, stdout_buf, stderr_buf, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_subprocess_communicate_utf8_async(self: *Self, stdin_buf: [*c]const u8, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const communicateUtf8Async = g_subprocess_communicate_utf8_async;
 
-    extern fn g_subprocess_communicate_utf8_finish(self: *Self, result: *gio.AsyncResult, stdout_buf: *[*c]const u8, stderr_buf: *[*c]const u8, err: **glib.Error) bool;
-    pub const communicateUtf8Finish = g_subprocess_communicate_utf8_finish;
+    extern fn g_subprocess_communicate_utf8_finish(self: *Self, result: *gio.AsyncResult, stdout_buf: *[*c]const u8, stderr_buf: *[*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn communicateUtf8Finish(self: *Self, result: *gio.AsyncResult, stdout_buf: *[*c]const u8, stderr_buf: *[*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = g_subprocess_communicate_utf8_finish(self, result, stdout_buf, stderr_buf, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_subprocess_force_exit(self: *Self) void;
     pub const forceExit = g_subprocess_force_exit;
@@ -137,23 +149,35 @@ pub const Subprocess = extern struct {
     extern fn g_object_unref(self: *Self) void;
     pub const unref = g_object_unref;
 
-    extern fn g_subprocess_wait(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const wait = g_subprocess_wait;
+    extern fn g_subprocess_wait(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn wait(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_subprocess_wait(self, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_subprocess_wait_async(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const waitAsync = g_subprocess_wait_async;
 
-    extern fn g_subprocess_wait_check(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const waitCheck = g_subprocess_wait_check;
+    extern fn g_subprocess_wait_check(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn waitCheck(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_subprocess_wait_check(self, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_subprocess_wait_check_async(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const waitCheckAsync = g_subprocess_wait_check_async;
 
-    extern fn g_subprocess_wait_check_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const waitCheckFinish = g_subprocess_wait_check_finish;
+    extern fn g_subprocess_wait_check_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn waitCheckFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_subprocess_wait_check_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_subprocess_wait_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const waitFinish = g_subprocess_wait_finish;
+    extern fn g_subprocess_wait_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn waitFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_subprocess_wait_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;

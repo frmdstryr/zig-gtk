@@ -88,8 +88,11 @@ pub const NativeSocketAddress = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn g_socket_address_to_native(self: *Self, dest: ?*anyopaque, destlen: u64, err: **glib.Error) bool;
-    pub const toNative = g_socket_address_to_native;
+    extern fn g_socket_address_to_native(self: *Self, dest: ?*anyopaque, destlen: u64, err: ?*?*glib.Error) bool;
+    pub inline fn toNative(self: *Self, dest: ?*anyopaque, destlen: u64, err: ?*?*glib.Error) !bool {
+        const tmp = g_socket_address_to_native(self, dest, destlen, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_unref(self: *Self) void;
     pub const unref = g_object_unref;

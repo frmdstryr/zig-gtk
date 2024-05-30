@@ -26,7 +26,7 @@ pub const Transform = extern struct {
     extern fn gsk_transform_invert(self: *Self) ?*gsk.Transform;
     pub const invert = gsk_transform_invert;
 
-    extern fn gsk_transform_matrix(self: *Self, matrix: *graphene.Matrix) ?*gsk.Transform;
+    extern fn gsk_transform_matrix(self: *Self, matrix_: *graphene.Matrix) ?*gsk.Transform;
     pub const matrix = gsk_transform_matrix;
 
     extern fn gsk_transform_perspective(self: *Self, depth: f32) ?*gsk.Transform;

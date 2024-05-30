@@ -61,11 +61,17 @@ pub const RecentManager = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn gtk_recent_manager_lookup_item(self: *Self, uri: [*c]const u8, err: **glib.Error) ?*gtk.RecentInfo;
-    pub const lookupItem = gtk_recent_manager_lookup_item;
+    extern fn gtk_recent_manager_lookup_item(self: *Self, uri: [*c]const u8, err: ?*?*glib.Error) ?*gtk.RecentInfo;
+    pub inline fn lookupItem(self: *Self, uri: [*c]const u8, err: ?*?*glib.Error) !?*gtk.RecentInfo {
+        const tmp = gtk_recent_manager_lookup_item(self, uri, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn gtk_recent_manager_move_item(self: *Self, uri: [*c]const u8, new_uri: [*c]const u8, err: **glib.Error) bool;
-    pub const moveItem = gtk_recent_manager_move_item;
+    extern fn gtk_recent_manager_move_item(self: *Self, uri: [*c]const u8, new_uri: [*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn moveItem(self: *Self, uri: [*c]const u8, new_uri: [*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = gtk_recent_manager_move_item(self, uri, new_uri, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
@@ -73,8 +79,11 @@ pub const RecentManager = extern struct {
     extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
     pub const notifyByPspec = g_object_notify_by_pspec;
 
-    extern fn gtk_recent_manager_purge_items(self: *Self, err: **glib.Error) i32;
-    pub const purgeItems = gtk_recent_manager_purge_items;
+    extern fn gtk_recent_manager_purge_items(self: *Self, err: ?*?*glib.Error) i32;
+    pub inline fn purgeItems(self: *Self, err: ?*?*glib.Error) !i32 {
+        const tmp = gtk_recent_manager_purge_items(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_ref(self: *Self) ?*gobject.Object;
     pub const ref = g_object_ref;
@@ -82,8 +91,11 @@ pub const RecentManager = extern struct {
     extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
     pub const refSink = g_object_ref_sink;
 
-    extern fn gtk_recent_manager_remove_item(self: *Self, uri: [*c]const u8, err: **glib.Error) bool;
-    pub const removeItem = gtk_recent_manager_remove_item;
+    extern fn gtk_recent_manager_remove_item(self: *Self, uri: [*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn removeItem(self: *Self, uri: [*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = gtk_recent_manager_remove_item(self, uri, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;

@@ -9,7 +9,7 @@ pub const FileAttributeInfo = extern struct {
 
     // Fields
     name: [*c]const u8,
-    type: gio.FileAttributeType,
+    type_: gio.FileAttributeType,
     flags: gio.FileAttributeInfoFlags,
 
     // Constructors

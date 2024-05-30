@@ -28,14 +28,20 @@ pub const IOStream = extern struct {
     extern fn g_io_stream_clear_pending(self: *Self) void;
     pub const clearPending = g_io_stream_clear_pending;
 
-    extern fn g_io_stream_close(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const close = g_io_stream_close;
+    extern fn g_io_stream_close(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn close(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_io_stream_close(self, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_io_stream_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const closeAsync = g_io_stream_close_async;
 
-    extern fn g_io_stream_close_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const closeFinish = g_io_stream_close_finish;
+    extern fn g_io_stream_close_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn closeFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_io_stream_close_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_force_floating(self: *Self) void;
     pub const forceFloating = g_object_force_floating;
@@ -88,8 +94,11 @@ pub const IOStream = extern struct {
     extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
     pub const setData = g_object_set_data;
 
-    extern fn g_io_stream_set_pending(self: *Self, err: **glib.Error) bool;
-    pub const setPending = g_io_stream_set_pending;
+    extern fn g_io_stream_set_pending(self: *Self, err: ?*?*glib.Error) bool;
+    pub inline fn setPending(self: *Self, err: ?*?*glib.Error) !bool {
+        const tmp = g_io_stream_set_pending(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
     pub const setProperty = g_object_set_property;
@@ -112,8 +121,11 @@ pub const IOStream = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
-    extern fn g_io_stream_splice_finish(result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const spliceFinish = g_io_stream_splice_finish;
+    extern fn g_io_stream_splice_finish(result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn spliceFinish(result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_io_stream_splice_finish(result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
     pub const compatControl = g_object_compat_control;

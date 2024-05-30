@@ -106,7 +106,7 @@ pub const UnixCredentialsMessage = extern struct {
     extern fn g_unix_credentials_message_is_supported() bool;
     pub const isSupported = g_unix_credentials_message_is_supported;
 
-    extern fn g_socket_control_message_deserialize(level: i32, type: i32, size: u64, data: [*c]u8) ?*gio.SocketControlMessage;
+    extern fn g_socket_control_message_deserialize(level: i32, type_: i32, size: u64, data: [*c]u8) ?*gio.SocketControlMessage;
     pub const deserialize = g_socket_control_message_deserialize;
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;

@@ -127,8 +127,11 @@ pub const TlsCertificate = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
-    extern fn g_tls_certificate_list_new_from_file(file: [*c]const u8, err: **glib.Error) ?*glib.List;
-    pub const listNewFromFile = g_tls_certificate_list_new_from_file;
+    extern fn g_tls_certificate_list_new_from_file(file: [*c]const u8, err: ?*?*glib.Error) ?*glib.List;
+    pub inline fn listNewFromFile(file: [*c]const u8, err: ?*?*glib.Error) !?*glib.List {
+        const tmp = g_tls_certificate_list_new_from_file(file, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
     pub const compatControl = g_object_compat_control;

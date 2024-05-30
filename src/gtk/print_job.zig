@@ -84,8 +84,11 @@ pub const PrintJob = extern struct {
     extern fn gtk_print_job_get_status(self: *Self) gtk.PrintStatus;
     pub const getStatus = gtk_print_job_get_status;
 
-    extern fn gtk_print_job_get_surface(self: *Self, err: **glib.Error) ?*cairo.Surface;
-    pub const getSurface = gtk_print_job_get_surface;
+    extern fn gtk_print_job_get_surface(self: *Self, err: ?*?*glib.Error) ?*cairo.Surface;
+    pub inline fn getSurface(self: *Self, err: ?*?*glib.Error) !?*cairo.Surface {
+        const tmp = gtk_print_job_get_surface(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gtk_print_job_get_title(self: *Self) [*c]const u8;
     pub const getTitle = gtk_print_job_get_title;
@@ -153,11 +156,17 @@ pub const PrintJob = extern struct {
     extern fn gtk_print_job_set_scale(self: *Self, scale: f64) void;
     pub const setScale = gtk_print_job_set_scale;
 
-    extern fn gtk_print_job_set_source_fd(self: *Self, fd: i32, err: **glib.Error) bool;
-    pub const setSourceFd = gtk_print_job_set_source_fd;
+    extern fn gtk_print_job_set_source_fd(self: *Self, fd: i32, err: ?*?*glib.Error) bool;
+    pub inline fn setSourceFd(self: *Self, fd: i32, err: ?*?*glib.Error) !bool {
+        const tmp = gtk_print_job_set_source_fd(self, fd, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn gtk_print_job_set_source_file(self: *Self, filename: [*c]const u8, err: **glib.Error) bool;
-    pub const setSourceFile = gtk_print_job_set_source_file;
+    extern fn gtk_print_job_set_source_file(self: *Self, filename: [*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn setSourceFile(self: *Self, filename: [*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = gtk_print_job_set_source_file(self, filename, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gtk_print_job_set_track_print_status(self: *Self, track_status: bool) void;
     pub const setTrackPrintStatus = gtk_print_job_set_track_print_status;

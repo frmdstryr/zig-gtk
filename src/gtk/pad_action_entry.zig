@@ -8,7 +8,7 @@ pub const PadActionEntry = extern struct {
     const Self = @This();
 
     // Fields
-    type: gtk.PadActionType,
+    type_: gtk.PadActionType,
     index: i32,
     mode: i32,
     label: [*c]const u8,

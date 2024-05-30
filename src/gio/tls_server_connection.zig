@@ -14,8 +14,11 @@ pub const TlsServerConnection = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_tls_server_connection_new(base_io_stream: *gio.IOStream, certificate: ?*gio.TlsCertificate, err: **glib.Error) ?*gio.TlsServerConnection;
-    pub const new = g_tls_server_connection_new;
+    extern fn g_tls_server_connection_new(base_io_stream: *gio.IOStream, certificate: ?*gio.TlsCertificate, err: ?*?*glib.Error) ?*gio.TlsServerConnection;
+    pub inline fn new(base_io_stream: *gio.IOStream, certificate: ?*gio.TlsCertificate, err: ?*?*glib.Error) !?*gio.TlsServerConnection {
+        const tmp = g_tls_server_connection_new(base_io_stream, certificate, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
 
     // Properties

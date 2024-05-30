@@ -14,8 +14,11 @@ pub const DtlsServerConnection = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_dtls_server_connection_new(base_socket: *gio.DatagramBased, certificate: ?*gio.TlsCertificate, err: **glib.Error) ?*gio.DtlsServerConnection;
-    pub const new = g_dtls_server_connection_new;
+    extern fn g_dtls_server_connection_new(base_socket: *gio.DatagramBased, certificate: ?*gio.TlsCertificate, err: ?*?*glib.Error) ?*gio.DtlsServerConnection;
+    pub inline fn new(base_socket: *gio.DatagramBased, certificate: ?*gio.TlsCertificate, err: ?*?*glib.Error) !?*gio.DtlsServerConnection {
+        const tmp = g_dtls_server_connection_new(base_socket, certificate, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
 
     // Properties

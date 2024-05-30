@@ -10,7 +10,7 @@ pub const VariantBuilder = extern struct {
     // Fields
 
     // Constructors
-    extern fn g_variant_builder_new(type: *glib.VariantType) ?*Self;
+    extern fn g_variant_builder_new(type_: *glib.VariantType) ?*Self;
     pub const new = g_variant_builder_new;
 
 
@@ -24,7 +24,7 @@ pub const VariantBuilder = extern struct {
     extern fn g_variant_builder_end(self: *Self) ?*glib.Variant;
     pub const end = g_variant_builder_end;
 
-    extern fn g_variant_builder_open(self: *Self, type: *glib.VariantType) void;
+    extern fn g_variant_builder_open(self: *Self, type_: *glib.VariantType) void;
     pub const open = g_variant_builder_open;
 
     extern fn g_variant_builder_ref(self: *Self) ?*glib.VariantBuilder;

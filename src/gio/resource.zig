@@ -22,17 +22,29 @@ pub const Resource = extern struct {
     extern fn g_resources_unregister(self: *Self) void;
     pub const unregister = g_resources_unregister;
 
-    extern fn g_resource_enumerate_children(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, err: **glib.Error) [*c][*c]const u8;
-    pub const enumerateChildren = g_resource_enumerate_children;
+    extern fn g_resource_enumerate_children(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, err: ?*?*glib.Error) [*c][*c]const u8;
+    pub inline fn enumerateChildren(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, err: ?*?*glib.Error) ![*c][*c]const u8 {
+        const tmp = g_resource_enumerate_children(self, path, lookup_flags, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_resource_get_info(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, size: *u64, flags: *u32, err: **glib.Error) bool;
-    pub const getInfo = g_resource_get_info;
+    extern fn g_resource_get_info(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, size: *u64, flags: *u32, err: ?*?*glib.Error) bool;
+    pub inline fn getInfo(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, size: *u64, flags: *u32, err: ?*?*glib.Error) !bool {
+        const tmp = g_resource_get_info(self, path, lookup_flags, size, flags, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_resource_lookup_data(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, err: **glib.Error) ?*glib.Bytes;
-    pub const lookupData = g_resource_lookup_data;
+    extern fn g_resource_lookup_data(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, err: ?*?*glib.Error) ?*glib.Bytes;
+    pub inline fn lookupData(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, err: ?*?*glib.Error) !?*glib.Bytes {
+        const tmp = g_resource_lookup_data(self, path, lookup_flags, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_resource_open_stream(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, err: **glib.Error) ?*gio.InputStream;
-    pub const openStream = g_resource_open_stream;
+    extern fn g_resource_open_stream(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, err: ?*?*glib.Error) ?*gio.InputStream;
+    pub inline fn openStream(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, err: ?*?*glib.Error) !?*gio.InputStream {
+        const tmp = g_resource_open_stream(self, path, lookup_flags, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_resource_ref(self: *Self) ?*gio.Resource;
     pub const ref = g_resource_ref;
@@ -40,8 +52,11 @@ pub const Resource = extern struct {
     extern fn g_resource_unref(self: *Self) void;
     pub const unref = g_resource_unref;
 
-    extern fn g_resource_load(filename: [*c]const u8, err: **glib.Error) ?*gio.Resource;
-    pub const load = g_resource_load;
+    extern fn g_resource_load(filename: [*c]const u8, err: ?*?*glib.Error) ?*gio.Resource;
+    pub inline fn load(filename: [*c]const u8, err: ?*?*glib.Error) !?*gio.Resource {
+        const tmp = g_resource_load(filename, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
 
     // GType

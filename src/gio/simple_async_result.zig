@@ -71,8 +71,11 @@ pub const SimpleAsyncResult = extern struct {
     extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
     pub const notifyByPspec = g_object_notify_by_pspec;
 
-    extern fn g_simple_async_result_propagate_error(self: *Self, err: **glib.Error) bool;
-    pub const propagateError = g_simple_async_result_propagate_error;
+    extern fn g_simple_async_result_propagate_error(self: *Self, err: ?*?*glib.Error) bool;
+    pub inline fn propagateError(self: *Self, err: ?*?*glib.Error) !bool {
+        const tmp = g_simple_async_result_propagate_error(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_ref(self: *Self) ?*gobject.Object;
     pub const ref = g_object_ref;

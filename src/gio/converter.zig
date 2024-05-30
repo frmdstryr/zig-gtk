@@ -14,8 +14,11 @@ pub const Converter = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_converter_convert(self: *Self, inbuf: [*c]u8, inbuf_size: u64, outbuf: [*c]u8, outbuf_size: u64, flags: gio.ConverterFlags, bytes_read: *u64, bytes_written: *u64, err: **glib.Error) gio.ConverterResult;
-    pub const convert = g_converter_convert;
+    extern fn g_converter_convert(self: *Self, inbuf: [*c]u8, inbuf_size: u64, outbuf: [*c]u8, outbuf_size: u64, flags: gio.ConverterFlags, bytes_read: *u64, bytes_written: *u64, err: ?*?*glib.Error) gio.ConverterResult;
+    pub inline fn convert(self: *Self, inbuf: [*c]u8, inbuf_size: u64, outbuf: [*c]u8, outbuf_size: u64, flags: gio.ConverterFlags, bytes_read: *u64, bytes_written: *u64, err: ?*?*glib.Error) !gio.ConverterResult {
+        const tmp = g_converter_convert(self, inbuf, inbuf_size, outbuf, outbuf_size, flags, bytes_read, bytes_written, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_converter_reset(self: *Self) void;
     pub const reset = g_converter_reset;

@@ -16,7 +16,7 @@ pub const DropTarget = extern struct {
     qdata: *glib.Data,
 
     // Constructors
-    extern fn gtk_drop_target_new(type: usize, actions: gdk.DragAction) ?*Self;
+    extern fn gtk_drop_target_new(type_: usize, actions: gdk.DragAction) ?*Self;
     pub const new = gtk_drop_target_new;
 
     extern fn g_object_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter) ?*Self;

@@ -28,23 +28,35 @@ pub const SocketConnection = extern struct {
     extern fn g_io_stream_clear_pending(self: *Self) void;
     pub const clearPending = g_io_stream_clear_pending;
 
-    extern fn g_io_stream_close(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const close = g_io_stream_close;
+    extern fn g_io_stream_close(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn close(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_io_stream_close(self, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_io_stream_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const closeAsync = g_io_stream_close_async;
 
-    extern fn g_io_stream_close_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const closeFinish = g_io_stream_close_finish;
+    extern fn g_io_stream_close_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn closeFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_io_stream_close_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_socket_connection_connect(self: *Self, address: *gio.SocketAddress, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const connect = g_socket_connection_connect;
+    extern fn g_socket_connection_connect(self: *Self, address: *gio.SocketAddress, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn connect(self: *Self, address: *gio.SocketAddress, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_socket_connection_connect(self, address, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_socket_connection_connect_async(self: *Self, address: *gio.SocketAddress, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const connectAsync = g_socket_connection_connect_async;
 
-    extern fn g_socket_connection_connect_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const connectFinish = g_socket_connection_connect_finish;
+    extern fn g_socket_connection_connect_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn connectFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_socket_connection_connect_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_force_floating(self: *Self) void;
     pub const forceFloating = g_object_force_floating;
@@ -58,8 +70,11 @@ pub const SocketConnection = extern struct {
     extern fn g_io_stream_get_input_stream(self: *Self) ?*gio.InputStream;
     pub const getInputStream = g_io_stream_get_input_stream;
 
-    extern fn g_socket_connection_get_local_address(self: *Self, err: **glib.Error) ?*gio.SocketAddress;
-    pub const getLocalAddress = g_socket_connection_get_local_address;
+    extern fn g_socket_connection_get_local_address(self: *Self, err: ?*?*glib.Error) ?*gio.SocketAddress;
+    pub inline fn getLocalAddress(self: *Self, err: ?*?*glib.Error) !?*gio.SocketAddress {
+        const tmp = g_socket_connection_get_local_address(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_io_stream_get_output_stream(self: *Self) ?*gio.OutputStream;
     pub const getOutputStream = g_io_stream_get_output_stream;
@@ -70,8 +85,11 @@ pub const SocketConnection = extern struct {
     extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
     pub const getQdata = g_object_get_qdata;
 
-    extern fn g_socket_connection_get_remote_address(self: *Self, err: **glib.Error) ?*gio.SocketAddress;
-    pub const getRemoteAddress = g_socket_connection_get_remote_address;
+    extern fn g_socket_connection_get_remote_address(self: *Self, err: ?*?*glib.Error) ?*gio.SocketAddress;
+    pub inline fn getRemoteAddress(self: *Self, err: ?*?*glib.Error) !?*gio.SocketAddress {
+        const tmp = g_socket_connection_get_remote_address(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_socket_connection_get_socket(self: *Self) ?*gio.Socket;
     pub const getSocket = g_socket_connection_get_socket;
@@ -109,8 +127,11 @@ pub const SocketConnection = extern struct {
     extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
     pub const setData = g_object_set_data;
 
-    extern fn g_io_stream_set_pending(self: *Self, err: **glib.Error) bool;
-    pub const setPending = g_io_stream_set_pending;
+    extern fn g_io_stream_set_pending(self: *Self, err: ?*?*glib.Error) bool;
+    pub inline fn setPending(self: *Self, err: ?*?*glib.Error) !bool {
+        const tmp = g_io_stream_set_pending(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
     pub const setProperty = g_object_set_property;
@@ -133,14 +154,17 @@ pub const SocketConnection = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
-    extern fn g_socket_connection_factory_lookup_type(family: gio.SocketFamily, type: gio.SocketType, protocol_id: i32) usize;
+    extern fn g_socket_connection_factory_lookup_type(family: gio.SocketFamily, type_: gio.SocketType, protocol_id: i32) usize;
     pub const factoryLookupType = g_socket_connection_factory_lookup_type;
 
-    extern fn g_socket_connection_factory_register_type(g_type: usize, family: gio.SocketFamily, type: gio.SocketType, protocol: i32) void;
+    extern fn g_socket_connection_factory_register_type(g_type: usize, family: gio.SocketFamily, type_: gio.SocketType, protocol: i32) void;
     pub const factoryRegisterType = g_socket_connection_factory_register_type;
 
-    extern fn g_io_stream_splice_finish(result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const spliceFinish = g_io_stream_splice_finish;
+    extern fn g_io_stream_splice_finish(result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn spliceFinish(result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_io_stream_splice_finish(result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
     pub const compatControl = g_object_compat_control;

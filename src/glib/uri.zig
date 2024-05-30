@@ -45,8 +45,11 @@ pub const Uri = extern struct {
     extern fn g_uri_get_userinfo(self: *Self) [*c]const u8;
     pub const getUserinfo = g_uri_get_userinfo;
 
-    extern fn g_uri_parse_relative(self: *Self, uri_ref: [*c]const u8, flags: glib.UriFlags, err: **glib.Error) ?*glib.Uri;
-    pub const parseRelative = g_uri_parse_relative;
+    extern fn g_uri_parse_relative(self: *Self, uri_ref: [*c]const u8, flags: glib.UriFlags, err: ?*?*glib.Error) ?*glib.Uri;
+    pub inline fn parseRelative(self: *Self, uri_ref: [*c]const u8, flags: glib.UriFlags, err: ?*?*glib.Error) !?*glib.Uri {
+        const tmp = g_uri_parse_relative(self, uri_ref, flags, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_uri_to_string(self: *Self) [*c]const u8;
     pub const toString = g_uri_to_string;
@@ -69,8 +72,11 @@ pub const Uri = extern struct {
     extern fn g_uri_escape_string(unescaped: [*c]const u8, reserved_chars_allowed: [*c]const u8, allow_utf8: bool) [*c]const u8;
     pub const escapeString = g_uri_escape_string;
 
-    extern fn g_uri_is_valid(uri_string: [*c]const u8, flags: glib.UriFlags, err: **glib.Error) bool;
-    pub const isValid = g_uri_is_valid;
+    extern fn g_uri_is_valid(uri_string: [*c]const u8, flags: glib.UriFlags, err: ?*?*glib.Error) bool;
+    pub inline fn isValid(uri_string: [*c]const u8, flags: glib.UriFlags, err: ?*?*glib.Error) !bool {
+        const tmp = g_uri_is_valid(uri_string, flags, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_uri_join(flags: glib.UriFlags, scheme: [*c]const u8, userinfo: [*c]const u8, host: [*c]const u8, port: i32, path: [*c]const u8, query: [*c]const u8, fragment: [*c]const u8) [*c]const u8;
     pub const join = g_uri_join;
@@ -81,11 +87,17 @@ pub const Uri = extern struct {
     extern fn g_uri_list_extract_uris(uri_list: [*c]const u8) [*c][*c]const u8;
     pub const listExtractUris = g_uri_list_extract_uris;
 
-    extern fn g_uri_parse(uri_string: [*c]const u8, flags: glib.UriFlags, err: **glib.Error) ?*glib.Uri;
-    pub const parse = g_uri_parse;
+    extern fn g_uri_parse(uri_string: [*c]const u8, flags: glib.UriFlags, err: ?*?*glib.Error) ?*glib.Uri;
+    pub inline fn parse(uri_string: [*c]const u8, flags: glib.UriFlags, err: ?*?*glib.Error) !?*glib.Uri {
+        const tmp = g_uri_parse(uri_string, flags, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_uri_parse_params(params: [*c]const u8, length: i64, separators: [*c]const u8, flags: glib.UriParamsFlags, err: **glib.Error) ?*glib.HashTable;
-    pub const parseParams = g_uri_parse_params;
+    extern fn g_uri_parse_params(params: [*c]const u8, length: i64, separators: [*c]const u8, flags: glib.UriParamsFlags, err: ?*?*glib.Error) ?*glib.HashTable;
+    pub inline fn parseParams(params: [*c]const u8, length: i64, separators: [*c]const u8, flags: glib.UriParamsFlags, err: ?*?*glib.Error) !?*glib.HashTable {
+        const tmp = g_uri_parse_params(params, length, separators, flags, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_uri_parse_scheme(uri: [*c]const u8) [*c]const u8;
     pub const parseScheme = g_uri_parse_scheme;
@@ -93,20 +105,35 @@ pub const Uri = extern struct {
     extern fn g_uri_peek_scheme(uri: [*c]const u8) [*c]const u8;
     pub const peekScheme = g_uri_peek_scheme;
 
-    extern fn g_uri_resolve_relative(base_uri_string: [*c]const u8, uri_ref: [*c]const u8, flags: glib.UriFlags, err: **glib.Error) [*c]const u8;
-    pub const resolveRelative = g_uri_resolve_relative;
+    extern fn g_uri_resolve_relative(base_uri_string: [*c]const u8, uri_ref: [*c]const u8, flags: glib.UriFlags, err: ?*?*glib.Error) [*c]const u8;
+    pub inline fn resolveRelative(base_uri_string: [*c]const u8, uri_ref: [*c]const u8, flags: glib.UriFlags, err: ?*?*glib.Error) ![*c]const u8 {
+        const tmp = g_uri_resolve_relative(base_uri_string, uri_ref, flags, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_uri_split(uri_ref: [*c]const u8, flags: glib.UriFlags, scheme: *[*c]const u8, userinfo: *[*c]const u8, host: *[*c]const u8, port: *i32, path: *[*c]const u8, query: *[*c]const u8, fragment: *[*c]const u8, err: **glib.Error) bool;
-    pub const split = g_uri_split;
+    extern fn g_uri_split(uri_ref: [*c]const u8, flags: glib.UriFlags, scheme: *[*c]const u8, userinfo: *[*c]const u8, host: *[*c]const u8, port: *i32, path: *[*c]const u8, query: *[*c]const u8, fragment: *[*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn split(uri_ref: [*c]const u8, flags: glib.UriFlags, scheme: *[*c]const u8, userinfo: *[*c]const u8, host: *[*c]const u8, port: *i32, path: *[*c]const u8, query: *[*c]const u8, fragment: *[*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = g_uri_split(uri_ref, flags, scheme, userinfo, host, port, path, query, fragment, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_uri_split_network(uri_string: [*c]const u8, flags: glib.UriFlags, scheme: *[*c]const u8, host: *[*c]const u8, port: *i32, err: **glib.Error) bool;
-    pub const splitNetwork = g_uri_split_network;
+    extern fn g_uri_split_network(uri_string: [*c]const u8, flags: glib.UriFlags, scheme: *[*c]const u8, host: *[*c]const u8, port: *i32, err: ?*?*glib.Error) bool;
+    pub inline fn splitNetwork(uri_string: [*c]const u8, flags: glib.UriFlags, scheme: *[*c]const u8, host: *[*c]const u8, port: *i32, err: ?*?*glib.Error) !bool {
+        const tmp = g_uri_split_network(uri_string, flags, scheme, host, port, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_uri_split_with_user(uri_ref: [*c]const u8, flags: glib.UriFlags, scheme: *[*c]const u8, user: *[*c]const u8, password: *[*c]const u8, auth_params: *[*c]const u8, host: *[*c]const u8, port: *i32, path: *[*c]const u8, query: *[*c]const u8, fragment: *[*c]const u8, err: **glib.Error) bool;
-    pub const splitWithUser = g_uri_split_with_user;
+    extern fn g_uri_split_with_user(uri_ref: [*c]const u8, flags: glib.UriFlags, scheme: *[*c]const u8, user: *[*c]const u8, password: *[*c]const u8, auth_params: *[*c]const u8, host: *[*c]const u8, port: *i32, path: *[*c]const u8, query: *[*c]const u8, fragment: *[*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn splitWithUser(uri_ref: [*c]const u8, flags: glib.UriFlags, scheme: *[*c]const u8, user: *[*c]const u8, password: *[*c]const u8, auth_params: *[*c]const u8, host: *[*c]const u8, port: *i32, path: *[*c]const u8, query: *[*c]const u8, fragment: *[*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = g_uri_split_with_user(uri_ref, flags, scheme, user, password, auth_params, host, port, path, query, fragment, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_uri_unescape_bytes(escaped_string: [*c]const u8, length: i64, illegal_characters: [*c]const u8, err: **glib.Error) ?*glib.Bytes;
-    pub const unescapeBytes = g_uri_unescape_bytes;
+    extern fn g_uri_unescape_bytes(escaped_string: [*c]const u8, length: i64, illegal_characters: [*c]const u8, err: ?*?*glib.Error) ?*glib.Bytes;
+    pub inline fn unescapeBytes(escaped_string: [*c]const u8, length: i64, illegal_characters: [*c]const u8, err: ?*?*glib.Error) !?*glib.Bytes {
+        const tmp = g_uri_unescape_bytes(escaped_string, length, illegal_characters, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_uri_unescape_segment(escaped_string: [*c]const u8, escaped_string_end: [*c]const u8, illegal_characters: [*c]const u8) [*c]const u8;
     pub const unescapeSegment = g_uri_unescape_segment;

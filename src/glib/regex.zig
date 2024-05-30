@@ -45,32 +45,50 @@ pub const Regex = extern struct {
     extern fn g_regex_match_all(self: *Self, string: [*c]const u8, match_options: glib.RegexMatchFlags, match_info: *glib.MatchInfo) bool;
     pub const matchAll = g_regex_match_all;
 
-    extern fn g_regex_match_all_full(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, match_info: *glib.MatchInfo, err: **glib.Error) bool;
-    pub const matchAllFull = g_regex_match_all_full;
+    extern fn g_regex_match_all_full(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, match_info: *glib.MatchInfo, err: ?*?*glib.Error) bool;
+    pub inline fn matchAllFull(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, match_info: *glib.MatchInfo, err: ?*?*glib.Error) !bool {
+        const tmp = g_regex_match_all_full(self, string, string_len, start_position, match_options, match_info, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_regex_match_full(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, match_info: *glib.MatchInfo, err: **glib.Error) bool;
-    pub const matchFull = g_regex_match_full;
+    extern fn g_regex_match_full(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, match_info: *glib.MatchInfo, err: ?*?*glib.Error) bool;
+    pub inline fn matchFull(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, match_info: *glib.MatchInfo, err: ?*?*glib.Error) !bool {
+        const tmp = g_regex_match_full(self, string, string_len, start_position, match_options, match_info, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_regex_ref(self: *Self) ?*glib.Regex;
     pub const ref = g_regex_ref;
 
-    extern fn g_regex_replace(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, replacement: [*c]const u8, match_options: glib.RegexMatchFlags, err: **glib.Error) [*c]const u8;
-    pub const replace = g_regex_replace;
+    extern fn g_regex_replace(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, replacement: [*c]const u8, match_options: glib.RegexMatchFlags, err: ?*?*glib.Error) [*c]const u8;
+    pub inline fn replace(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, replacement: [*c]const u8, match_options: glib.RegexMatchFlags, err: ?*?*glib.Error) ![*c]const u8 {
+        const tmp = g_regex_replace(self, string, string_len, start_position, replacement, match_options, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_regex_replace_literal(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, replacement: [*c]const u8, match_options: glib.RegexMatchFlags, err: **glib.Error) [*c]const u8;
-    pub const replaceLiteral = g_regex_replace_literal;
+    extern fn g_regex_replace_literal(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, replacement: [*c]const u8, match_options: glib.RegexMatchFlags, err: ?*?*glib.Error) [*c]const u8;
+    pub inline fn replaceLiteral(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, replacement: [*c]const u8, match_options: glib.RegexMatchFlags, err: ?*?*glib.Error) ![*c]const u8 {
+        const tmp = g_regex_replace_literal(self, string, string_len, start_position, replacement, match_options, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_regex_split(self: *Self, string: [*c]const u8, match_options: glib.RegexMatchFlags) [*c][*c]const u8;
     pub const split = g_regex_split;
 
-    extern fn g_regex_split_full(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, max_tokens: i32, err: **glib.Error) [*c][*c]const u8;
-    pub const splitFull = g_regex_split_full;
+    extern fn g_regex_split_full(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, max_tokens: i32, err: ?*?*glib.Error) [*c][*c]const u8;
+    pub inline fn splitFull(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, max_tokens: i32, err: ?*?*glib.Error) ![*c][*c]const u8 {
+        const tmp = g_regex_split_full(self, string, string_len, start_position, match_options, max_tokens, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_regex_unref(self: *Self) void;
     pub const unref = g_regex_unref;
 
-    extern fn g_regex_check_replacement(replacement: [*c]const u8, has_references: *bool, err: **glib.Error) bool;
-    pub const checkReplacement = g_regex_check_replacement;
+    extern fn g_regex_check_replacement(replacement: [*c]const u8, has_references: *bool, err: ?*?*glib.Error) bool;
+    pub inline fn checkReplacement(replacement: [*c]const u8, has_references: *bool, err: ?*?*glib.Error) !bool {
+        const tmp = g_regex_check_replacement(replacement, has_references, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_regex_error_quark() u32;
     pub const errorQuark = g_regex_error_quark;

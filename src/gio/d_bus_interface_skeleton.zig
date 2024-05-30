@@ -25,8 +25,11 @@ pub const DBusInterfaceSkeleton = extern struct {
     extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
     pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn g_dbus_interface_skeleton_export(self: *Self, connection: *gio.DBusConnection, object_path: [*c]const u8, err: **glib.Error) bool;
-    pub const export_ = g_dbus_interface_skeleton_export;
+    extern fn g_dbus_interface_skeleton_export(self: *Self, connection: *gio.DBusConnection, object_path: [*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn export_(self: *Self, connection: *gio.DBusConnection, object_path: [*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = g_dbus_interface_skeleton_export(self, connection, object_path, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_dbus_interface_skeleton_flush(self: *Self) void;
     pub const flush = g_dbus_interface_skeleton_flush;

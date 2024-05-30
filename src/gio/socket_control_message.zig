@@ -94,7 +94,7 @@ pub const SocketControlMessage = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
-    extern fn g_socket_control_message_deserialize(level: i32, type: i32, size: u64, data: [*c]u8) ?*gio.SocketControlMessage;
+    extern fn g_socket_control_message_deserialize(level: i32, type_: i32, size: u64, data: [*c]u8) ?*gio.SocketControlMessage;
     pub const deserialize = g_socket_control_message_deserialize;
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;

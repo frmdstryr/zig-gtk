@@ -120,6 +120,7 @@ ZIG_KEYWORDS = {
     "async",
     "continue",
     "export",
+    "type"
 }
 
 
@@ -445,8 +446,8 @@ def expand_bases(cls: type) -> set[str]:
     return bases
 
 
-def clean_zig_name(name: str) -> str:
-    if name in ZIG_KEYWORDS:
+def clean_zig_name(name: str, local_names: Optional[set[str]] = None) -> str:
+    if name in ZIG_KEYWORDS or (local_names and name in local_names):
         return f"{name}_"
     return name
 
@@ -757,7 +758,13 @@ def generate_class(ns: str, Cls: type):
     used = set()
     method_overrides = METHOD_OVERRIDES.get(Cls, {})
     methods.sort(key=lambda f: f.get_name())
-    for f in methods + functions:
+    all_functions = methods + functions
+    local_function_names = {
+        clean_zig_name(camel_case(f.get_name()))
+        for f in all_functions
+    }
+
+    for f in all_functions:
         name = clean_zig_name(camel_case(f.get_name()))
 
         # HACK: A way to override...
@@ -771,8 +778,9 @@ def generate_class(ns: str, Cls: type):
         if rtype and rtype.startswith("*"):
             rtype = "?" + rtype  # Make optional
         args = []
+        arg_names = []
         if f.is_method():
-            args.append("self: *Self")
+            args.append(("self", "*Self"))
 
         if rtype is None:
             comment = "// "
@@ -780,11 +788,11 @@ def generate_class(ns: str, Cls: type):
             arg_type = func_arg_type(f, arg, imports)
             if arg_type is None:
                 comment = "// "
-            arg_name = clean_zig_name(arg.get_name())
-            args.append(f"{arg_name}: {arg_type}")
+            arg_name = clean_zig_name(arg.get_name(), local_names=local_function_names)
+            args.append((arg_name, arg_type))
         if f.can_throw_gerror():
             # TODO: Convert to zig error ?
-            args.append("err: **glib.Error")
+            args.append(("err", "?*?*glib.Error"))
             imports.add("glib")
 
         # Check if any new imports were added by the fn that
@@ -807,11 +815,20 @@ def generate_class(ns: str, Cls: type):
         assert (
             name[0] == name[0].lower()
         ), f"'{name}' is not camel case (originally '{f.get_name()}')"
+
+        rendered_args = ", ".join([f"{n}: {t}" for n, t in args])
         out.append(
             "    %sextern fn %s(%s) %s;"
-            % (comment, f.get_symbol(), ", ".join(args), rtype)
+            % (comment, f.get_symbol(), rendered_args, rtype)
         )
-        out.append("    %spub const %s = %s;" % (comment, name, f.get_symbol()))
+        if f.can_throw_gerror():
+            out.append("    %spub inline fn %s(%s) !%s {" % (comment, name, rendered_args, rtype))
+            # out.append("    %s    if (err.* != null) return error.GlibError;" % (comment, ))
+            out.append("    %s    const tmp = %s(%s);" % (comment, f.get_symbol(), ", ".join([it[0] for it in args])))
+            out.append("    %s    return if (err != null and err.?.* != null) error.GlibError else tmp;" % (comment, ))
+            out.append("    %s}" % (comment, ))
+        else:
+            out.append("    %spub const %s = %s;" % (comment, name, f.get_symbol()))
         out.append("")
 
     # Add helper methods

@@ -44,47 +44,80 @@ pub const DBusConnection = extern struct {
     extern fn g_dbus_connection_call(self: *Self, bus_name: [*c]const u8, object_path: [*c]const u8, interface_name: [*c]const u8, method_name: [*c]const u8, parameters: ?*glib.Variant, reply_type: ?*glib.VariantType, flags: gio.DBusCallFlags, timeout_msec: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const call = g_dbus_connection_call;
 
-    extern fn g_dbus_connection_call_finish(self: *Self, res: *gio.AsyncResult, err: **glib.Error) ?*glib.Variant;
-    pub const callFinish = g_dbus_connection_call_finish;
+    extern fn g_dbus_connection_call_finish(self: *Self, res: *gio.AsyncResult, err: ?*?*glib.Error) ?*glib.Variant;
+    pub inline fn callFinish(self: *Self, res: *gio.AsyncResult, err: ?*?*glib.Error) !?*glib.Variant {
+        const tmp = g_dbus_connection_call_finish(self, res, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_dbus_connection_call_sync(self: *Self, bus_name: [*c]const u8, object_path: [*c]const u8, interface_name: [*c]const u8, method_name: [*c]const u8, parameters: ?*glib.Variant, reply_type: ?*glib.VariantType, flags: gio.DBusCallFlags, timeout_msec: i32, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*glib.Variant;
-    pub const callSync = g_dbus_connection_call_sync;
+    extern fn g_dbus_connection_call_sync(self: *Self, bus_name: [*c]const u8, object_path: [*c]const u8, interface_name: [*c]const u8, method_name: [*c]const u8, parameters: ?*glib.Variant, reply_type: ?*glib.VariantType, flags: gio.DBusCallFlags, timeout_msec: i32, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*glib.Variant;
+    pub inline fn callSync(self: *Self, bus_name: [*c]const u8, object_path: [*c]const u8, interface_name: [*c]const u8, method_name: [*c]const u8, parameters: ?*glib.Variant, reply_type: ?*glib.VariantType, flags: gio.DBusCallFlags, timeout_msec: i32, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*glib.Variant {
+        const tmp = g_dbus_connection_call_sync(self, bus_name, object_path, interface_name, method_name, parameters, reply_type, flags, timeout_msec, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_dbus_connection_call_with_unix_fd_list(self: *Self, bus_name: [*c]const u8, object_path: [*c]const u8, interface_name: [*c]const u8, method_name: [*c]const u8, parameters: ?*glib.Variant, reply_type: ?*glib.VariantType, flags: gio.DBusCallFlags, timeout_msec: i32, fd_list: ?*gio.UnixFDList, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const callWithUnixFdList = g_dbus_connection_call_with_unix_fd_list;
 
-    extern fn g_dbus_connection_call_with_unix_fd_list_finish(self: *Self, out_fd_list: *gio.UnixFDList, res: *gio.AsyncResult, err: **glib.Error) ?*glib.Variant;
-    pub const callWithUnixFdListFinish = g_dbus_connection_call_with_unix_fd_list_finish;
+    extern fn g_dbus_connection_call_with_unix_fd_list_finish(self: *Self, out_fd_list: *gio.UnixFDList, res: *gio.AsyncResult, err: ?*?*glib.Error) ?*glib.Variant;
+    pub inline fn callWithUnixFdListFinish(self: *Self, out_fd_list: *gio.UnixFDList, res: *gio.AsyncResult, err: ?*?*glib.Error) !?*glib.Variant {
+        const tmp = g_dbus_connection_call_with_unix_fd_list_finish(self, out_fd_list, res, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_dbus_connection_call_with_unix_fd_list_sync(self: *Self, bus_name: [*c]const u8, object_path: [*c]const u8, interface_name: [*c]const u8, method_name: [*c]const u8, parameters: ?*glib.Variant, reply_type: ?*glib.VariantType, flags: gio.DBusCallFlags, timeout_msec: i32, fd_list: ?*gio.UnixFDList, out_fd_list: *gio.UnixFDList, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*glib.Variant;
-    pub const callWithUnixFdListSync = g_dbus_connection_call_with_unix_fd_list_sync;
+    extern fn g_dbus_connection_call_with_unix_fd_list_sync(self: *Self, bus_name: [*c]const u8, object_path: [*c]const u8, interface_name: [*c]const u8, method_name: [*c]const u8, parameters: ?*glib.Variant, reply_type: ?*glib.VariantType, flags: gio.DBusCallFlags, timeout_msec: i32, fd_list: ?*gio.UnixFDList, out_fd_list: *gio.UnixFDList, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*glib.Variant;
+    pub inline fn callWithUnixFdListSync(self: *Self, bus_name: [*c]const u8, object_path: [*c]const u8, interface_name: [*c]const u8, method_name: [*c]const u8, parameters: ?*glib.Variant, reply_type: ?*glib.VariantType, flags: gio.DBusCallFlags, timeout_msec: i32, fd_list: ?*gio.UnixFDList, out_fd_list: *gio.UnixFDList, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*glib.Variant {
+        const tmp = g_dbus_connection_call_with_unix_fd_list_sync(self, bus_name, object_path, interface_name, method_name, parameters, reply_type, flags, timeout_msec, fd_list, out_fd_list, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_dbus_connection_close(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const close = g_dbus_connection_close;
 
-    extern fn g_dbus_connection_close_finish(self: *Self, res: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const closeFinish = g_dbus_connection_close_finish;
+    extern fn g_dbus_connection_close_finish(self: *Self, res: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn closeFinish(self: *Self, res: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_dbus_connection_close_finish(self, res, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_dbus_connection_close_sync(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const closeSync = g_dbus_connection_close_sync;
+    extern fn g_dbus_connection_close_sync(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn closeSync(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_dbus_connection_close_sync(self, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_dbus_connection_emit_signal(self: *Self, destination_bus_name: [*c]const u8, object_path: [*c]const u8, interface_name: [*c]const u8, signal_name: [*c]const u8, parameters: ?*glib.Variant, err: **glib.Error) bool;
-    pub const emitSignal = g_dbus_connection_emit_signal;
+    extern fn g_dbus_connection_emit_signal(self: *Self, destination_bus_name: [*c]const u8, object_path: [*c]const u8, interface_name: [*c]const u8, signal_name: [*c]const u8, parameters: ?*glib.Variant, err: ?*?*glib.Error) bool;
+    pub inline fn emitSignal(self: *Self, destination_bus_name: [*c]const u8, object_path: [*c]const u8, interface_name: [*c]const u8, signal_name: [*c]const u8, parameters: ?*glib.Variant, err: ?*?*glib.Error) !bool {
+        const tmp = g_dbus_connection_emit_signal(self, destination_bus_name, object_path, interface_name, signal_name, parameters, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_dbus_connection_export_action_group(self: *Self, object_path: [*c]const u8, action_group: *gio.ActionGroup, err: **glib.Error) u32;
-    pub const exportActionGroup = g_dbus_connection_export_action_group;
+    extern fn g_dbus_connection_export_action_group(self: *Self, object_path: [*c]const u8, action_group: *gio.ActionGroup, err: ?*?*glib.Error) u32;
+    pub inline fn exportActionGroup(self: *Self, object_path: [*c]const u8, action_group: *gio.ActionGroup, err: ?*?*glib.Error) !u32 {
+        const tmp = g_dbus_connection_export_action_group(self, object_path, action_group, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_dbus_connection_export_menu_model(self: *Self, object_path: [*c]const u8, menu: *gio.MenuModel, err: **glib.Error) u32;
-    pub const exportMenuModel = g_dbus_connection_export_menu_model;
+    extern fn g_dbus_connection_export_menu_model(self: *Self, object_path: [*c]const u8, menu: *gio.MenuModel, err: ?*?*glib.Error) u32;
+    pub inline fn exportMenuModel(self: *Self, object_path: [*c]const u8, menu: *gio.MenuModel, err: ?*?*glib.Error) !u32 {
+        const tmp = g_dbus_connection_export_menu_model(self, object_path, menu, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_dbus_connection_flush(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const flush = g_dbus_connection_flush;
 
-    extern fn g_dbus_connection_flush_finish(self: *Self, res: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const flushFinish = g_dbus_connection_flush_finish;
+    extern fn g_dbus_connection_flush_finish(self: *Self, res: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn flushFinish(self: *Self, res: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_dbus_connection_flush_finish(self, res, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_dbus_connection_flush_sync(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const flushSync = g_dbus_connection_flush_sync;
+    extern fn g_dbus_connection_flush_sync(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn flushSync(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_dbus_connection_flush_sync(self, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_force_floating(self: *Self) void;
     pub const forceFloating = g_object_force_floating;
@@ -146,11 +179,17 @@ pub const DBusConnection = extern struct {
     extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
     pub const refSink = g_object_ref_sink;
 
-    extern fn g_dbus_connection_register_object_with_closures(self: *Self, object_path: [*c]const u8, interface_info: *gio.DBusInterfaceInfo, method_call_closure: ?*gobject.Closure, get_property_closure: ?*gobject.Closure, set_property_closure: ?*gobject.Closure, err: **glib.Error) u32;
-    pub const registerObject = g_dbus_connection_register_object_with_closures;
+    extern fn g_dbus_connection_register_object_with_closures(self: *Self, object_path: [*c]const u8, interface_info: *gio.DBusInterfaceInfo, method_call_closure: ?*gobject.Closure, get_property_closure: ?*gobject.Closure, set_property_closure: ?*gobject.Closure, err: ?*?*glib.Error) u32;
+    pub inline fn registerObject(self: *Self, object_path: [*c]const u8, interface_info: *gio.DBusInterfaceInfo, method_call_closure: ?*gobject.Closure, get_property_closure: ?*gobject.Closure, set_property_closure: ?*gobject.Closure, err: ?*?*glib.Error) !u32 {
+        const tmp = g_dbus_connection_register_object_with_closures(self, object_path, interface_info, method_call_closure, get_property_closure, set_property_closure, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_dbus_connection_register_subtree(self: *Self, object_path: [*c]const u8, vtable: *gio.DBusSubtreeVTable, flags: gio.DBusSubtreeFlags, user_data: ?*anyopaque, user_data_free_func: *const fn (data: ?*anyopaque) callconv(.C) void, err: **glib.Error) u32;
-    pub const registerSubtree = g_dbus_connection_register_subtree;
+    extern fn g_dbus_connection_register_subtree(self: *Self, object_path: [*c]const u8, vtable: *gio.DBusSubtreeVTable, flags: gio.DBusSubtreeFlags, user_data: ?*anyopaque, user_data_free_func: *const fn (data: ?*anyopaque) callconv(.C) void, err: ?*?*glib.Error) u32;
+    pub inline fn registerSubtree(self: *Self, object_path: [*c]const u8, vtable: *gio.DBusSubtreeVTable, flags: gio.DBusSubtreeFlags, user_data: ?*anyopaque, user_data_free_func: *const fn (data: ?*anyopaque) callconv(.C) void, err: ?*?*glib.Error) !u32 {
+        const tmp = g_dbus_connection_register_subtree(self, object_path, vtable, flags, user_data, user_data_free_func, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_dbus_connection_remove_filter(self: *Self, filter_id: u32) void;
     pub const removeFilter = g_dbus_connection_remove_filter;
@@ -158,17 +197,26 @@ pub const DBusConnection = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn g_dbus_connection_send_message(self: *Self, message: *gio.DBusMessage, flags: gio.DBusSendMessageFlags, out_serial: *u32, err: **glib.Error) bool;
-    pub const sendMessage = g_dbus_connection_send_message;
+    extern fn g_dbus_connection_send_message(self: *Self, message: *gio.DBusMessage, flags: gio.DBusSendMessageFlags, out_serial: *u32, err: ?*?*glib.Error) bool;
+    pub inline fn sendMessage(self: *Self, message: *gio.DBusMessage, flags: gio.DBusSendMessageFlags, out_serial: *u32, err: ?*?*glib.Error) !bool {
+        const tmp = g_dbus_connection_send_message(self, message, flags, out_serial, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_dbus_connection_send_message_with_reply(self: *Self, message: *gio.DBusMessage, flags: gio.DBusSendMessageFlags, timeout_msec: i32, out_serial: *u32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const sendMessageWithReply = g_dbus_connection_send_message_with_reply;
 
-    extern fn g_dbus_connection_send_message_with_reply_finish(self: *Self, res: *gio.AsyncResult, err: **glib.Error) ?*gio.DBusMessage;
-    pub const sendMessageWithReplyFinish = g_dbus_connection_send_message_with_reply_finish;
+    extern fn g_dbus_connection_send_message_with_reply_finish(self: *Self, res: *gio.AsyncResult, err: ?*?*glib.Error) ?*gio.DBusMessage;
+    pub inline fn sendMessageWithReplyFinish(self: *Self, res: *gio.AsyncResult, err: ?*?*glib.Error) !?*gio.DBusMessage {
+        const tmp = g_dbus_connection_send_message_with_reply_finish(self, res, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_dbus_connection_send_message_with_reply_sync(self: *Self, message: *gio.DBusMessage, flags: gio.DBusSendMessageFlags, timeout_msec: i32, out_serial: *u32, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.DBusMessage;
-    pub const sendMessageWithReplySync = g_dbus_connection_send_message_with_reply_sync;
+    extern fn g_dbus_connection_send_message_with_reply_sync(self: *Self, message: *gio.DBusMessage, flags: gio.DBusSendMessageFlags, timeout_msec: i32, out_serial: *u32, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*gio.DBusMessage;
+    pub inline fn sendMessageWithReplySync(self: *Self, message: *gio.DBusMessage, flags: gio.DBusSendMessageFlags, timeout_msec: i32, out_serial: *u32, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*gio.DBusMessage {
+        const tmp = g_dbus_connection_send_message_with_reply_sync(self, message, flags, timeout_msec, out_serial, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
     pub const setData = g_object_set_data;

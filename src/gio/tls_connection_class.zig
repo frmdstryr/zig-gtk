@@ -14,7 +14,7 @@ pub const TlsConnectionClass = extern struct {
     handshake: *const fn (conn: *gio.TlsConnection, cancellable: ?*gio.Cancellable) callconv(.C) bool,
     handshake_async: *const fn (conn: *gio.TlsConnection, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) callconv(.C) void,
     handshake_finish: *const fn (conn: *gio.TlsConnection, result: *gio.AsyncResult) callconv(.C) bool,
-    get_binding_data: *const fn (conn: *gio.TlsConnection, type: gio.TlsChannelBindingType, data: [*c]u8) callconv(.C) bool,
+    get_binding_data: *const fn (conn: *gio.TlsConnection, type_: gio.TlsChannelBindingType, data: [*c]u8) callconv(.C) bool,
     get_negotiated_protocol: *const fn (conn: *gio.TlsConnection) callconv(.C) [*c]const u8,
     padding: [6]?*anyopaque,
 

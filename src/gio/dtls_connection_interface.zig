@@ -19,7 +19,7 @@ pub const DtlsConnectionInterface = extern struct {
     shutdown_finish: *const fn (conn: *gio.DtlsConnection, result: *gio.AsyncResult) callconv(.C) bool,
     set_advertised_protocols: *const fn (conn: *gio.DtlsConnection, protocols: [*c][*c]const u8) callconv(.C) void,
     get_negotiated_protocol: *const fn (conn: *gio.DtlsConnection) callconv(.C) [*c]const u8,
-    get_binding_data: *const fn (conn: *gio.DtlsConnection, type: gio.TlsChannelBindingType, data: [*c]u8) callconv(.C) bool,
+    get_binding_data: *const fn (conn: *gio.DtlsConnection, type_: gio.TlsChannelBindingType, data: [*c]u8) callconv(.C) bool,
 
     // Constructors
 

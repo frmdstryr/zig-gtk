@@ -94,7 +94,7 @@ pub const PadController = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn gtk_pad_controller_set_action(self: *Self, type: gtk.PadActionType, index: i32, mode: i32, label: [*c]const u8, action_name: [*c]const u8) void;
+    extern fn gtk_pad_controller_set_action(self: *Self, type_: gtk.PadActionType, index: i32, mode: i32, label: [*c]const u8, action_name: [*c]const u8) void;
     pub const setAction = gtk_pad_controller_set_action;
 
     extern fn gtk_pad_controller_set_action_entries(self: *Self, entries: [*c]gtk.PadActionEntry, n_entries: i32) void;

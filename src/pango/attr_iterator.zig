@@ -18,7 +18,7 @@ pub const AttrIterator = extern struct {
     extern fn pango_attr_iterator_destroy(self: *Self) void;
     pub const destroy = pango_attr_iterator_destroy;
 
-    extern fn pango_attr_iterator_get(self: *Self, type: pango.AttrType) ?*pango.Attribute;
+    extern fn pango_attr_iterator_get(self: *Self, type_: pango.AttrType) ?*pango.Attribute;
     pub const get = pango_attr_iterator_get;
 
     // Binding disabled (unknown arg/return type)

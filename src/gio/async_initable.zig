@@ -17,11 +17,17 @@ pub const AsyncInitable = extern struct {
     extern fn g_async_initable_init_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const initAsync = g_async_initable_init_async;
 
-    extern fn g_async_initable_init_finish(self: *Self, res: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const initFinish = g_async_initable_init_finish;
+    extern fn g_async_initable_init_finish(self: *Self, res: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn initFinish(self: *Self, res: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_async_initable_init_finish(self, res, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_async_initable_new_finish(self: *Self, res: *gio.AsyncResult, err: **glib.Error) ?*gobject.Object;
-    pub const newFinish = g_async_initable_new_finish;
+    extern fn g_async_initable_new_finish(self: *Self, res: *gio.AsyncResult, err: ?*?*glib.Error) ?*gobject.Object;
+    pub inline fn newFinish(self: *Self, res: *gio.AsyncResult, err: ?*?*glib.Error) !?*gobject.Object {
+        const tmp = g_async_initable_new_finish(self, res, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_async_initable_newv_async(object_type: usize, n_parameters: u32, parameters: *gobject.Parameter, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const newvAsync = g_async_initable_newv_async;

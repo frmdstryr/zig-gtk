@@ -14,11 +14,17 @@ pub const Initable = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_initable_init(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const init = g_initable_init;
+    extern fn g_initable_init(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn init(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_initable_init(self, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_initable_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gobject.Object;
-    pub const newv = g_initable_newv;
+    extern fn g_initable_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*gobject.Object;
+    pub inline fn newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*gobject.Object {
+        const tmp = g_initable_newv(object_type, n_parameters, parameters, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
 
     // Bases

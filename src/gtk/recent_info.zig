@@ -14,8 +14,11 @@ pub const RecentInfo = extern struct {
     // Constructors
 
     // Methods
-    extern fn gtk_recent_info_create_app_info(self: *Self, app_name: [*c]const u8, err: **glib.Error) ?*gio.AppInfo;
-    pub const createAppInfo = gtk_recent_info_create_app_info;
+    extern fn gtk_recent_info_create_app_info(self: *Self, app_name: [*c]const u8, err: ?*?*glib.Error) ?*gio.AppInfo;
+    pub inline fn createAppInfo(self: *Self, app_name: [*c]const u8, err: ?*?*glib.Error) !?*gio.AppInfo {
+        const tmp = gtk_recent_info_create_app_info(self, app_name, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn gtk_recent_info_exists(self: *Self) bool;
     pub const exists = gtk_recent_info_exists;

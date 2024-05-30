@@ -14,14 +14,20 @@ pub const DtlsConnection = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_dtls_connection_close(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const close = g_dtls_connection_close;
+    extern fn g_dtls_connection_close(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn close(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_dtls_connection_close(self, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_dtls_connection_close_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const closeAsync = g_dtls_connection_close_async;
 
-    extern fn g_dtls_connection_close_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const closeFinish = g_dtls_connection_close_finish;
+    extern fn g_dtls_connection_close_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn closeFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_dtls_connection_close_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_dtls_connection_emit_accept_certificate(self: *Self, peer_cert: *gio.TlsCertificate, errors: gio.TlsCertificateFlags) bool;
     pub const emitAcceptCertificate = g_dtls_connection_emit_accept_certificate;
@@ -29,8 +35,11 @@ pub const DtlsConnection = extern struct {
     extern fn g_dtls_connection_get_certificate(self: *Self) ?*gio.TlsCertificate;
     pub const getCertificate = g_dtls_connection_get_certificate;
 
-    extern fn g_dtls_connection_get_channel_binding_data(self: *Self, type: gio.TlsChannelBindingType, data: [*c]u8, err: **glib.Error) bool;
-    pub const getChannelBindingData = g_dtls_connection_get_channel_binding_data;
+    extern fn g_dtls_connection_get_channel_binding_data(self: *Self, type_: gio.TlsChannelBindingType, data: [*c]u8, err: ?*?*glib.Error) bool;
+    pub inline fn getChannelBindingData(self: *Self, type_: gio.TlsChannelBindingType, data: [*c]u8, err: ?*?*glib.Error) !bool {
+        const tmp = g_dtls_connection_get_channel_binding_data(self, type_, data, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_dtls_connection_get_ciphersuite_name(self: *Self) [*c]const u8;
     pub const getCiphersuiteName = g_dtls_connection_get_ciphersuite_name;
@@ -59,14 +68,20 @@ pub const DtlsConnection = extern struct {
     extern fn g_dtls_connection_get_require_close_notify(self: *Self) bool;
     pub const getRequireCloseNotify = g_dtls_connection_get_require_close_notify;
 
-    extern fn g_dtls_connection_handshake(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const handshake = g_dtls_connection_handshake;
+    extern fn g_dtls_connection_handshake(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn handshake(self: *Self, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_dtls_connection_handshake(self, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_dtls_connection_handshake_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const handshakeAsync = g_dtls_connection_handshake_async;
 
-    extern fn g_dtls_connection_handshake_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const handshakeFinish = g_dtls_connection_handshake_finish;
+    extern fn g_dtls_connection_handshake_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn handshakeFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_dtls_connection_handshake_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_dtls_connection_set_advertised_protocols(self: *Self, protocols: [*c][*c]const u8) void;
     pub const setAdvertisedProtocols = g_dtls_connection_set_advertised_protocols;
@@ -86,14 +101,20 @@ pub const DtlsConnection = extern struct {
     extern fn g_dtls_connection_set_require_close_notify(self: *Self, require_close_notify: bool) void;
     pub const setRequireCloseNotify = g_dtls_connection_set_require_close_notify;
 
-    extern fn g_dtls_connection_shutdown(self: *Self, shutdown_read: bool, shutdown_write: bool, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const shutdown = g_dtls_connection_shutdown;
+    extern fn g_dtls_connection_shutdown(self: *Self, shutdown_read: bool, shutdown_write: bool, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn shutdown(self: *Self, shutdown_read: bool, shutdown_write: bool, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_dtls_connection_shutdown(self, shutdown_read, shutdown_write, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_dtls_connection_shutdown_async(self: *Self, shutdown_read: bool, shutdown_write: bool, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const shutdownAsync = g_dtls_connection_shutdown_async;
 
-    extern fn g_dtls_connection_shutdown_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const shutdownFinish = g_dtls_connection_shutdown_finish;
+    extern fn g_dtls_connection_shutdown_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn shutdownFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_dtls_connection_shutdown_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
 
     // Signals

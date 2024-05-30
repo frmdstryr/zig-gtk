@@ -13,7 +13,7 @@ pub const FileIOStreamClass = extern struct {
     parent_class: gio.IOStreamClass,
     tell: *const fn (stream: *gio.FileIOStream) callconv(.C) i64,
     can_seek: *const fn (stream: *gio.FileIOStream) callconv(.C) bool,
-    seek: *const fn (stream: *gio.FileIOStream, offset: i64, type: glib.SeekType, cancellable: ?*gio.Cancellable) callconv(.C) bool,
+    seek: *const fn (stream: *gio.FileIOStream, offset: i64, type_: glib.SeekType, cancellable: ?*gio.Cancellable) callconv(.C) bool,
     can_truncate: *const fn (stream: *gio.FileIOStream) callconv(.C) bool,
     truncate_fn: *const fn (stream: *gio.FileIOStream, size: i64, cancellable: ?*gio.Cancellable) callconv(.C) bool,
     query_info: *const fn (stream: *gio.FileIOStream, attributes: [*c]const u8, cancellable: ?*gio.Cancellable) callconv(.C) *gio.FileInfo,

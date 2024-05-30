@@ -14,14 +14,20 @@ pub const NetworkMonitor = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_network_monitor_can_reach(self: *Self, connectable: *gio.SocketConnectable, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
-    pub const canReach = g_network_monitor_can_reach;
+    extern fn g_network_monitor_can_reach(self: *Self, connectable: *gio.SocketConnectable, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) bool;
+    pub inline fn canReach(self: *Self, connectable: *gio.SocketConnectable, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !bool {
+        const tmp = g_network_monitor_can_reach(self, connectable, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_network_monitor_can_reach_async(self: *Self, connectable: *gio.SocketConnectable, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const canReachAsync = g_network_monitor_can_reach_async;
 
-    extern fn g_network_monitor_can_reach_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const canReachFinish = g_network_monitor_can_reach_finish;
+    extern fn g_network_monitor_can_reach_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn canReachFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_network_monitor_can_reach_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_network_monitor_get_connectivity(self: *Self) gio.NetworkConnectivity;
     pub const getConnectivity = g_network_monitor_get_connectivity;

@@ -97,11 +97,17 @@ pub const NetworkAddress = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
-    extern fn g_network_address_parse(host_and_port: [*c]const u8, default_port: u16, err: **glib.Error) ?*gio.NetworkAddress;
-    pub const parse = g_network_address_parse;
+    extern fn g_network_address_parse(host_and_port: [*c]const u8, default_port: u16, err: ?*?*glib.Error) ?*gio.NetworkAddress;
+    pub inline fn parse(host_and_port: [*c]const u8, default_port: u16, err: ?*?*glib.Error) !?*gio.NetworkAddress {
+        const tmp = g_network_address_parse(host_and_port, default_port, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_network_address_parse_uri(uri: [*c]const u8, default_port: u16, err: **glib.Error) ?*gio.NetworkAddress;
-    pub const parseUri = g_network_address_parse_uri;
+    extern fn g_network_address_parse_uri(uri: [*c]const u8, default_port: u16, err: ?*?*glib.Error) ?*gio.NetworkAddress;
+    pub inline fn parseUri(uri: [*c]const u8, default_port: u16, err: ?*?*glib.Error) !?*gio.NetworkAddress {
+        const tmp = g_network_address_parse_uri(uri, default_port, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;
     pub const compatControl = g_object_compat_control;

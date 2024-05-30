@@ -25,8 +25,11 @@ pub const UnixFDList = extern struct {
 
 
     // Methods
-    extern fn g_unix_fd_list_append(self: *Self, fd: i32, err: **glib.Error) i32;
-    pub const append = g_unix_fd_list_append;
+    extern fn g_unix_fd_list_append(self: *Self, fd: i32, err: ?*?*glib.Error) i32;
+    pub inline fn append(self: *Self, fd: i32, err: ?*?*glib.Error) !i32 {
+        const tmp = g_unix_fd_list_append(self, fd, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
     pub const bindProperty = g_object_bind_property;
@@ -40,8 +43,11 @@ pub const UnixFDList = extern struct {
     extern fn g_object_freeze_notify(self: *Self) void;
     pub const freezeNotify = g_object_freeze_notify;
 
-    extern fn g_unix_fd_list_get(self: *Self, index_: i32, err: **glib.Error) i32;
-    pub const get = g_unix_fd_list_get;
+    extern fn g_unix_fd_list_get(self: *Self, index_: i32, err: ?*?*glib.Error) i32;
+    pub inline fn get(self: *Self, index_: i32, err: ?*?*glib.Error) !i32 {
+        const tmp = g_unix_fd_list_get(self, index_, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
     pub const getData = g_object_get_data;

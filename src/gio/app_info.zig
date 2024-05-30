@@ -14,8 +14,11 @@ pub const AppInfo = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_app_info_add_supports_type(self: *Self, content_type: [*c]const u8, err: **glib.Error) bool;
-    pub const addSupportsType = g_app_info_add_supports_type;
+    extern fn g_app_info_add_supports_type(self: *Self, content_type: [*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn addSupportsType(self: *Self, content_type: [*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = g_app_info_add_supports_type(self, content_type, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_app_info_can_delete(self: *Self) bool;
     pub const canDelete = g_app_info_can_delete;
@@ -56,29 +59,50 @@ pub const AppInfo = extern struct {
     extern fn g_app_info_get_supported_types(self: *Self) [*c][*c]const u8;
     pub const getSupportedTypes = g_app_info_get_supported_types;
 
-    extern fn g_app_info_launch(self: *Self, files: *glib.List, context: ?*gio.AppLaunchContext, err: **glib.Error) bool;
-    pub const launch = g_app_info_launch;
+    extern fn g_app_info_launch(self: *Self, files: *glib.List, context: ?*gio.AppLaunchContext, err: ?*?*glib.Error) bool;
+    pub inline fn launch(self: *Self, files: *glib.List, context: ?*gio.AppLaunchContext, err: ?*?*glib.Error) !bool {
+        const tmp = g_app_info_launch(self, files, context, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_app_info_launch_uris(self: *Self, uris: *glib.List, context: ?*gio.AppLaunchContext, err: **glib.Error) bool;
-    pub const launchUris = g_app_info_launch_uris;
+    extern fn g_app_info_launch_uris(self: *Self, uris: *glib.List, context: ?*gio.AppLaunchContext, err: ?*?*glib.Error) bool;
+    pub inline fn launchUris(self: *Self, uris: *glib.List, context: ?*gio.AppLaunchContext, err: ?*?*glib.Error) !bool {
+        const tmp = g_app_info_launch_uris(self, uris, context, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_app_info_launch_uris_async(self: *Self, uris: *glib.List, context: ?*gio.AppLaunchContext, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const launchUrisAsync = g_app_info_launch_uris_async;
 
-    extern fn g_app_info_launch_uris_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const launchUrisFinish = g_app_info_launch_uris_finish;
+    extern fn g_app_info_launch_uris_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn launchUrisFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_app_info_launch_uris_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_app_info_remove_supports_type(self: *Self, content_type: [*c]const u8, err: **glib.Error) bool;
-    pub const removeSupportsType = g_app_info_remove_supports_type;
+    extern fn g_app_info_remove_supports_type(self: *Self, content_type: [*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn removeSupportsType(self: *Self, content_type: [*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = g_app_info_remove_supports_type(self, content_type, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_app_info_set_as_default_for_extension(self: *Self, extension: [*c]const u8, err: **glib.Error) bool;
-    pub const setAsDefaultForExtension = g_app_info_set_as_default_for_extension;
+    extern fn g_app_info_set_as_default_for_extension(self: *Self, extension: [*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn setAsDefaultForExtension(self: *Self, extension: [*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = g_app_info_set_as_default_for_extension(self, extension, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_app_info_set_as_default_for_type(self: *Self, content_type: [*c]const u8, err: **glib.Error) bool;
-    pub const setAsDefaultForType = g_app_info_set_as_default_for_type;
+    extern fn g_app_info_set_as_default_for_type(self: *Self, content_type: [*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn setAsDefaultForType(self: *Self, content_type: [*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = g_app_info_set_as_default_for_type(self, content_type, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_app_info_set_as_last_used_for_type(self: *Self, content_type: [*c]const u8, err: **glib.Error) bool;
-    pub const setAsLastUsedForType = g_app_info_set_as_last_used_for_type;
+    extern fn g_app_info_set_as_last_used_for_type(self: *Self, content_type: [*c]const u8, err: ?*?*glib.Error) bool;
+    pub inline fn setAsLastUsedForType(self: *Self, content_type: [*c]const u8, err: ?*?*glib.Error) !bool {
+        const tmp = g_app_info_set_as_last_used_for_type(self, content_type, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_app_info_should_show(self: *Self) bool;
     pub const shouldShow = g_app_info_should_show;
@@ -89,8 +113,11 @@ pub const AppInfo = extern struct {
     extern fn g_app_info_supports_uris(self: *Self) bool;
     pub const supportsUris = g_app_info_supports_uris;
 
-    extern fn g_app_info_create_from_commandline(commandline: [*c]const u8, application_name: [*c]const u8, flags: gio.AppInfoCreateFlags, err: **glib.Error) ?*gio.AppInfo;
-    pub const createFromCommandline = g_app_info_create_from_commandline;
+    extern fn g_app_info_create_from_commandline(commandline: [*c]const u8, application_name: [*c]const u8, flags: gio.AppInfoCreateFlags, err: ?*?*glib.Error) ?*gio.AppInfo;
+    pub inline fn createFromCommandline(commandline: [*c]const u8, application_name: [*c]const u8, flags: gio.AppInfoCreateFlags, err: ?*?*glib.Error) !?*gio.AppInfo {
+        const tmp = g_app_info_create_from_commandline(commandline, application_name, flags, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_app_info_get_all() ?*glib.List;
     pub const getAll = g_app_info_get_all;
@@ -110,14 +137,20 @@ pub const AppInfo = extern struct {
     extern fn g_app_info_get_recommended_for_type(content_type: [*c]const u8) ?*glib.List;
     pub const getRecommendedForType = g_app_info_get_recommended_for_type;
 
-    extern fn g_app_info_launch_default_for_uri(uri: [*c]const u8, context: ?*gio.AppLaunchContext, err: **glib.Error) bool;
-    pub const launchDefaultForUri = g_app_info_launch_default_for_uri;
+    extern fn g_app_info_launch_default_for_uri(uri: [*c]const u8, context: ?*gio.AppLaunchContext, err: ?*?*glib.Error) bool;
+    pub inline fn launchDefaultForUri(uri: [*c]const u8, context: ?*gio.AppLaunchContext, err: ?*?*glib.Error) !bool {
+        const tmp = g_app_info_launch_default_for_uri(uri, context, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_app_info_launch_default_for_uri_async(uri: [*c]const u8, context: ?*gio.AppLaunchContext, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const launchDefaultForUriAsync = g_app_info_launch_default_for_uri_async;
 
-    extern fn g_app_info_launch_default_for_uri_finish(result: *gio.AsyncResult, err: **glib.Error) bool;
-    pub const launchDefaultForUriFinish = g_app_info_launch_default_for_uri_finish;
+    extern fn g_app_info_launch_default_for_uri_finish(result: *gio.AsyncResult, err: ?*?*glib.Error) bool;
+    pub inline fn launchDefaultForUriFinish(result: *gio.AsyncResult, err: ?*?*glib.Error) !bool {
+        const tmp = g_app_info_launch_default_for_uri_finish(result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_app_info_reset_type_associations(content_type: [*c]const u8) void;
     pub const resetTypeAssociations = g_app_info_reset_type_associations;

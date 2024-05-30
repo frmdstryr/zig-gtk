@@ -14,14 +14,20 @@ pub const Proxy = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_proxy_connect(self: *Self, connection: *gio.IOStream, proxy_address: *gio.ProxyAddress, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.IOStream;
-    pub const connect = g_proxy_connect;
+    extern fn g_proxy_connect(self: *Self, connection: *gio.IOStream, proxy_address: *gio.ProxyAddress, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*gio.IOStream;
+    pub inline fn connect(self: *Self, connection: *gio.IOStream, proxy_address: *gio.ProxyAddress, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*gio.IOStream {
+        const tmp = g_proxy_connect(self, connection, proxy_address, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_proxy_connect_async(self: *Self, connection: *gio.IOStream, proxy_address: *gio.ProxyAddress, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const connectAsync = g_proxy_connect_async;
 
-    extern fn g_proxy_connect_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*gio.IOStream;
-    pub const connectFinish = g_proxy_connect_finish;
+    extern fn g_proxy_connect_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) ?*gio.IOStream;
+    pub inline fn connectFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !?*gio.IOStream {
+        const tmp = g_proxy_connect_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_proxy_supports_hostname(self: *Self) bool;
     pub const supportsHostname = g_proxy_supports_hostname;

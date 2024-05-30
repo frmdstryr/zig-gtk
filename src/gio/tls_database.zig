@@ -49,32 +49,50 @@ pub const TlsDatabase = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_tls_database_lookup_certificate_for_handle(self: *Self, handle: [*c]const u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.TlsCertificate;
-    pub const lookupCertificateForHandle = g_tls_database_lookup_certificate_for_handle;
+    extern fn g_tls_database_lookup_certificate_for_handle(self: *Self, handle: [*c]const u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*gio.TlsCertificate;
+    pub inline fn lookupCertificateForHandle(self: *Self, handle: [*c]const u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*gio.TlsCertificate {
+        const tmp = g_tls_database_lookup_certificate_for_handle(self, handle, interaction, flags, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_tls_database_lookup_certificate_for_handle_async(self: *Self, handle: [*c]const u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const lookupCertificateForHandleAsync = g_tls_database_lookup_certificate_for_handle_async;
 
-    extern fn g_tls_database_lookup_certificate_for_handle_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*gio.TlsCertificate;
-    pub const lookupCertificateForHandleFinish = g_tls_database_lookup_certificate_for_handle_finish;
+    extern fn g_tls_database_lookup_certificate_for_handle_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) ?*gio.TlsCertificate;
+    pub inline fn lookupCertificateForHandleFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !?*gio.TlsCertificate {
+        const tmp = g_tls_database_lookup_certificate_for_handle_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_tls_database_lookup_certificate_issuer(self: *Self, certificate: *gio.TlsCertificate, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.TlsCertificate;
-    pub const lookupCertificateIssuer = g_tls_database_lookup_certificate_issuer;
+    extern fn g_tls_database_lookup_certificate_issuer(self: *Self, certificate: *gio.TlsCertificate, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*gio.TlsCertificate;
+    pub inline fn lookupCertificateIssuer(self: *Self, certificate: *gio.TlsCertificate, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*gio.TlsCertificate {
+        const tmp = g_tls_database_lookup_certificate_issuer(self, certificate, interaction, flags, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_tls_database_lookup_certificate_issuer_async(self: *Self, certificate: *gio.TlsCertificate, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const lookupCertificateIssuerAsync = g_tls_database_lookup_certificate_issuer_async;
 
-    extern fn g_tls_database_lookup_certificate_issuer_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*gio.TlsCertificate;
-    pub const lookupCertificateIssuerFinish = g_tls_database_lookup_certificate_issuer_finish;
+    extern fn g_tls_database_lookup_certificate_issuer_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) ?*gio.TlsCertificate;
+    pub inline fn lookupCertificateIssuerFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !?*gio.TlsCertificate {
+        const tmp = g_tls_database_lookup_certificate_issuer_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_tls_database_lookup_certificates_issued_by(self: *Self, issuer_raw_dn: [*c]u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*glib.List;
-    pub const lookupCertificatesIssuedBy = g_tls_database_lookup_certificates_issued_by;
+    extern fn g_tls_database_lookup_certificates_issued_by(self: *Self, issuer_raw_dn: [*c]u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) ?*glib.List;
+    pub inline fn lookupCertificatesIssuedBy(self: *Self, issuer_raw_dn: [*c]u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !?*glib.List {
+        const tmp = g_tls_database_lookup_certificates_issued_by(self, issuer_raw_dn, interaction, flags, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_tls_database_lookup_certificates_issued_by_async(self: *Self, issuer_raw_dn: [*c]u8, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseLookupFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const lookupCertificatesIssuedByAsync = g_tls_database_lookup_certificates_issued_by_async;
 
-    extern fn g_tls_database_lookup_certificates_issued_by_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*glib.List;
-    pub const lookupCertificatesIssuedByFinish = g_tls_database_lookup_certificates_issued_by_finish;
+    extern fn g_tls_database_lookup_certificates_issued_by_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) ?*glib.List;
+    pub inline fn lookupCertificatesIssuedByFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !?*glib.List {
+        const tmp = g_tls_database_lookup_certificates_issued_by_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
     pub const notify = g_object_notify;
@@ -109,14 +127,20 @@ pub const TlsDatabase = extern struct {
     extern fn g_object_unref(self: *Self) void;
     pub const unref = g_object_unref;
 
-    extern fn g_tls_database_verify_chain(self: *Self, chain: *gio.TlsCertificate, purpose: [*c]const u8, identity: ?*gio.SocketConnectable, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseVerifyFlags, cancellable: ?*gio.Cancellable, err: **glib.Error) gio.TlsCertificateFlags;
-    pub const verifyChain = g_tls_database_verify_chain;
+    extern fn g_tls_database_verify_chain(self: *Self, chain: *gio.TlsCertificate, purpose: [*c]const u8, identity: ?*gio.SocketConnectable, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseVerifyFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) gio.TlsCertificateFlags;
+    pub inline fn verifyChain(self: *Self, chain: *gio.TlsCertificate, purpose: [*c]const u8, identity: ?*gio.SocketConnectable, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseVerifyFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !gio.TlsCertificateFlags {
+        const tmp = g_tls_database_verify_chain(self, chain, purpose, identity, interaction, flags, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_tls_database_verify_chain_async(self: *Self, chain: *gio.TlsCertificate, purpose: [*c]const u8, identity: ?*gio.SocketConnectable, interaction: ?*gio.TlsInteraction, flags: gio.TlsDatabaseVerifyFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const verifyChainAsync = g_tls_database_verify_chain_async;
 
-    extern fn g_tls_database_verify_chain_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) gio.TlsCertificateFlags;
-    pub const verifyChainFinish = g_tls_database_verify_chain_finish;
+    extern fn g_tls_database_verify_chain_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) gio.TlsCertificateFlags;
+    pub inline fn verifyChainFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !gio.TlsCertificateFlags {
+        const tmp = g_tls_database_verify_chain_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;

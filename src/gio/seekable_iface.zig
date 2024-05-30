@@ -13,7 +13,7 @@ pub const SeekableIface = extern struct {
     g_iface: gobject.TypeInterface,
     tell: *const fn (seekable: *gio.Seekable) callconv(.C) i64,
     can_seek: *const fn (seekable: *gio.Seekable) callconv(.C) bool,
-    seek: *const fn (seekable: *gio.Seekable, offset: i64, type: glib.SeekType, cancellable: ?*gio.Cancellable) callconv(.C) bool,
+    seek: *const fn (seekable: *gio.Seekable, offset: i64, type_: glib.SeekType, cancellable: ?*gio.Cancellable) callconv(.C) bool,
     can_truncate: *const fn (seekable: *gio.Seekable) callconv(.C) bool,
     truncate_fn: *const fn (seekable: *gio.Seekable, offset: i64, cancellable: ?*gio.Cancellable) callconv(.C) bool,
 

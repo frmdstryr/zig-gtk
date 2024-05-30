@@ -101,7 +101,7 @@ pub const TreeSelection = extern struct {
     extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
     pub const setData = g_object_set_data;
 
-    extern fn gtk_tree_selection_set_mode(self: *Self, type: gtk.SelectionMode) void;
+    extern fn gtk_tree_selection_set_mode(self: *Self, type_: gtk.SelectionMode) void;
     pub const setMode = gtk_tree_selection_set_mode;
 
     extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;

@@ -8,7 +8,7 @@ pub const AttrClass = extern struct {
     const Self = @This();
 
     // Fields
-    type: pango.AttrType,
+    type_: pango.AttrType,
     copy: *const fn (attr: *pango.Attribute) callconv(.C) *pango.Attribute,
     destroy: *const fn (attr: *pango.Attribute) callconv(.C) void,
     equal: *const fn (attr1: *pango.Attribute, attr2: *pango.Attribute) callconv(.C) bool,

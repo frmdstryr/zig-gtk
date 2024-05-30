@@ -12,7 +12,7 @@ pub const TextViewClass = extern struct {
     move_cursor: *const fn (text_view: *gtk.TextView, step: gtk.MovementStep, count: i32, extend_selection: bool) callconv(.C) void,
     set_anchor: *const fn (text_view: *gtk.TextView) callconv(.C) void,
     insert_at_cursor: *const fn (text_view: *gtk.TextView, str: [*c]const u8) callconv(.C) void,
-    delete_from_cursor: *const fn (text_view: *gtk.TextView, type: gtk.DeleteType, count: i32) callconv(.C) void,
+    delete_from_cursor: *const fn (text_view: *gtk.TextView, type_: gtk.DeleteType, count: i32) callconv(.C) void,
     backspace: *const fn (text_view: *gtk.TextView) callconv(.C) void,
     cut_clipboard: *const fn (text_view: *gtk.TextView) callconv(.C) void,
     copy_clipboard: *const fn (text_view: *gtk.TextView) callconv(.C) void,

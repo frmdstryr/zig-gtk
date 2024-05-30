@@ -28,13 +28,13 @@ pub const TypeClass = extern struct {
     extern fn g_type_class_adjust_private_offset(g_class: ?*anyopaque, private_size_or_offset: i32) void;
     pub const adjustPrivateOffset = g_type_class_adjust_private_offset;
 
-    extern fn g_type_class_peek(type: usize) ?*gobject.TypeClass;
+    extern fn g_type_class_peek(type_: usize) ?*gobject.TypeClass;
     pub const peek = g_type_class_peek;
 
-    extern fn g_type_class_peek_static(type: usize) ?*gobject.TypeClass;
+    extern fn g_type_class_peek_static(type_: usize) ?*gobject.TypeClass;
     pub const peekStatic = g_type_class_peek_static;
 
-    extern fn g_type_class_ref(type: usize) ?*gobject.TypeClass;
+    extern fn g_type_class_ref(type_: usize) ?*gobject.TypeClass;
     pub const ref = g_type_class_ref;
 
 

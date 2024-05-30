@@ -81,7 +81,7 @@ pub const DateTime = extern struct {
     extern fn g_date_time_equal(self: *Self, dt2: *glib.DateTime) bool;
     pub const equal = g_date_time_equal;
 
-    extern fn g_date_time_format(self: *Self, format: [*c]const u8) [*c]const u8;
+    extern fn g_date_time_format(self: *Self, format_: [*c]const u8) [*c]const u8;
     pub const format = g_date_time_format;
 
     extern fn g_date_time_format_iso8601(self: *Self) [*c]const u8;

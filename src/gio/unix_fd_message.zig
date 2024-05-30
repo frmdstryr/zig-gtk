@@ -25,8 +25,11 @@ pub const UnixFDMessage = extern struct {
 
 
     // Methods
-    extern fn g_unix_fd_message_append_fd(self: *Self, fd: i32, err: **glib.Error) bool;
-    pub const appendFd = g_unix_fd_message_append_fd;
+    extern fn g_unix_fd_message_append_fd(self: *Self, fd: i32, err: ?*?*glib.Error) bool;
+    pub inline fn appendFd(self: *Self, fd: i32, err: ?*?*glib.Error) !bool {
+        const tmp = g_unix_fd_message_append_fd(self, fd, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
     pub const bindProperty = g_object_bind_property;
@@ -109,7 +112,7 @@ pub const UnixFDMessage = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
-    extern fn g_socket_control_message_deserialize(level: i32, type: i32, size: u64, data: [*c]u8) ?*gio.SocketControlMessage;
+    extern fn g_socket_control_message_deserialize(level: i32, type_: i32, size: u64, data: [*c]u8) ?*gio.SocketControlMessage;
     pub const deserialize = g_socket_control_message_deserialize;
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;

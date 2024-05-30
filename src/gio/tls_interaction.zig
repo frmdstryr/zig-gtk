@@ -19,14 +19,20 @@ pub const TlsInteraction = extern struct {
 
 
     // Methods
-    extern fn g_tls_interaction_ask_password(self: *Self, password: *gio.TlsPassword, cancellable: ?*gio.Cancellable, err: **glib.Error) gio.TlsInteractionResult;
-    pub const askPassword = g_tls_interaction_ask_password;
+    extern fn g_tls_interaction_ask_password(self: *Self, password: *gio.TlsPassword, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) gio.TlsInteractionResult;
+    pub inline fn askPassword(self: *Self, password: *gio.TlsPassword, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !gio.TlsInteractionResult {
+        const tmp = g_tls_interaction_ask_password(self, password, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_tls_interaction_ask_password_async(self: *Self, password: *gio.TlsPassword, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const askPasswordAsync = g_tls_interaction_ask_password_async;
 
-    extern fn g_tls_interaction_ask_password_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) gio.TlsInteractionResult;
-    pub const askPasswordFinish = g_tls_interaction_ask_password_finish;
+    extern fn g_tls_interaction_ask_password_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) gio.TlsInteractionResult;
+    pub inline fn askPasswordFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !gio.TlsInteractionResult {
+        const tmp = g_tls_interaction_ask_password_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
     pub const bindProperty = g_object_bind_property;
@@ -52,11 +58,17 @@ pub const TlsInteraction = extern struct {
     extern fn g_object_getv(self: *Self, n_properties: u32, names: [*c][*c]const u8, values: [*c]gobject.Value) void;
     pub const getv = g_object_getv;
 
-    extern fn g_tls_interaction_invoke_ask_password(self: *Self, password: *gio.TlsPassword, cancellable: ?*gio.Cancellable, err: **glib.Error) gio.TlsInteractionResult;
-    pub const invokeAskPassword = g_tls_interaction_invoke_ask_password;
+    extern fn g_tls_interaction_invoke_ask_password(self: *Self, password: *gio.TlsPassword, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) gio.TlsInteractionResult;
+    pub inline fn invokeAskPassword(self: *Self, password: *gio.TlsPassword, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !gio.TlsInteractionResult {
+        const tmp = g_tls_interaction_invoke_ask_password(self, password, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_tls_interaction_invoke_request_certificate(self: *Self, connection: *gio.TlsConnection, flags: gio.TlsCertificateRequestFlags, cancellable: ?*gio.Cancellable, err: **glib.Error) gio.TlsInteractionResult;
-    pub const invokeRequestCertificate = g_tls_interaction_invoke_request_certificate;
+    extern fn g_tls_interaction_invoke_request_certificate(self: *Self, connection: *gio.TlsConnection, flags: gio.TlsCertificateRequestFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) gio.TlsInteractionResult;
+    pub inline fn invokeRequestCertificate(self: *Self, connection: *gio.TlsConnection, flags: gio.TlsCertificateRequestFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !gio.TlsInteractionResult {
+        const tmp = g_tls_interaction_invoke_request_certificate(self, connection, flags, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
@@ -73,14 +85,20 @@ pub const TlsInteraction = extern struct {
     extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
     pub const refSink = g_object_ref_sink;
 
-    extern fn g_tls_interaction_request_certificate(self: *Self, connection: *gio.TlsConnection, flags: gio.TlsCertificateRequestFlags, cancellable: ?*gio.Cancellable, err: **glib.Error) gio.TlsInteractionResult;
-    pub const requestCertificate = g_tls_interaction_request_certificate;
+    extern fn g_tls_interaction_request_certificate(self: *Self, connection: *gio.TlsConnection, flags: gio.TlsCertificateRequestFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) gio.TlsInteractionResult;
+    pub inline fn requestCertificate(self: *Self, connection: *gio.TlsConnection, flags: gio.TlsCertificateRequestFlags, cancellable: ?*gio.Cancellable, err: ?*?*glib.Error) !gio.TlsInteractionResult {
+        const tmp = g_tls_interaction_request_certificate(self, connection, flags, cancellable, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_tls_interaction_request_certificate_async(self: *Self, connection: *gio.TlsConnection, flags: gio.TlsCertificateRequestFlags, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const requestCertificateAsync = g_tls_interaction_request_certificate_async;
 
-    extern fn g_tls_interaction_request_certificate_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) gio.TlsInteractionResult;
-    pub const requestCertificateFinish = g_tls_interaction_request_certificate_finish;
+    extern fn g_tls_interaction_request_certificate_finish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) gio.TlsInteractionResult;
+    pub inline fn requestCertificateFinish(self: *Self, result: *gio.AsyncResult, err: ?*?*glib.Error) !gio.TlsInteractionResult {
+        const tmp = g_tls_interaction_request_certificate_finish(self, result, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;

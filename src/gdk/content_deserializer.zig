@@ -99,7 +99,7 @@ pub const ContentDeserializer = extern struct {
     extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
     pub const setProperty = g_object_set_property;
 
-    extern fn gdk_content_deserializer_set_task_data(self: *Self, data: ?*anyopaque, notify: *const fn (data: ?*anyopaque) callconv(.C) void) void;
+    extern fn gdk_content_deserializer_set_task_data(self: *Self, data: ?*anyopaque, notify_: *const fn (data: ?*anyopaque) callconv(.C) void) void;
     pub const setTaskData = gdk_content_deserializer_set_task_data;
 
     extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;

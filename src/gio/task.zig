@@ -89,17 +89,29 @@ pub const Task = extern struct {
     extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
     pub const notifyByPspec = g_object_notify_by_pspec;
 
-    extern fn g_task_propagate_boolean(self: *Self, err: **glib.Error) bool;
-    pub const propagateBoolean = g_task_propagate_boolean;
+    extern fn g_task_propagate_boolean(self: *Self, err: ?*?*glib.Error) bool;
+    pub inline fn propagateBoolean(self: *Self, err: ?*?*glib.Error) !bool {
+        const tmp = g_task_propagate_boolean(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_task_propagate_int(self: *Self, err: **glib.Error) i64;
-    pub const propagateInt = g_task_propagate_int;
+    extern fn g_task_propagate_int(self: *Self, err: ?*?*glib.Error) i64;
+    pub inline fn propagateInt(self: *Self, err: ?*?*glib.Error) !i64 {
+        const tmp = g_task_propagate_int(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_task_propagate_pointer(self: *Self, err: **glib.Error) ?*anyopaque;
-    pub const propagatePointer = g_task_propagate_pointer;
+    extern fn g_task_propagate_pointer(self: *Self, err: ?*?*glib.Error) ?*anyopaque;
+    pub inline fn propagatePointer(self: *Self, err: ?*?*glib.Error) !?*anyopaque {
+        const tmp = g_task_propagate_pointer(self, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
-    extern fn g_task_propagate_value(self: *Self, value: *gobject.Value, err: **glib.Error) bool;
-    pub const propagateValue = g_task_propagate_value;
+    extern fn g_task_propagate_value(self: *Self, value: *gobject.Value, err: ?*?*glib.Error) bool;
+    pub inline fn propagateValue(self: *Self, value: *gobject.Value, err: ?*?*glib.Error) !bool {
+        const tmp = g_task_propagate_value(self, value, err);
+        return if (err != null and err.?.* != null) error.GlibError else tmp;
+    }
 
     extern fn g_object_ref(self: *Self) ?*gobject.Object;
     pub const ref = g_object_ref;

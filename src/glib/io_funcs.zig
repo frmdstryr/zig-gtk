@@ -10,7 +10,7 @@ pub const IOFuncs = extern struct {
     // Fields
     io_read: *const fn (channel: *glib.IOChannel, buf: [*c]const u8, count: u64, bytes_read: u64) callconv(.C) glib.IOStatus,
     io_write: *const fn (channel: *glib.IOChannel, buf: [*c]const u8, count: u64, bytes_written: u64) callconv(.C) glib.IOStatus,
-    io_seek: *const fn (channel: *glib.IOChannel, offset: i64, type: glib.SeekType) callconv(.C) glib.IOStatus,
+    io_seek: *const fn (channel: *glib.IOChannel, offset: i64, type_: glib.SeekType) callconv(.C) glib.IOStatus,
     io_close: *const fn (channel: *glib.IOChannel) callconv(.C) glib.IOStatus,
     io_create_watch: *const fn (channel: *glib.IOChannel, condition: glib.IOCondition) callconv(.C) *glib.Source,
     io_free: *const fn (channel: *glib.IOChannel) callconv(.C) void,
