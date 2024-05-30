@@ -22,13 +22,13 @@ pub const SimplePermission = extern struct {
 
 
     // Methods
-    extern fn g_permission_acquire(self: *Self, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_permission_acquire(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
     pub const acquire = g_permission_acquire;
 
     extern fn g_permission_acquire_async(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const acquireAsync = g_permission_acquire_async;
 
-    extern fn g_permission_acquire_finish(self: *Self, result: *gio.AsyncResult) bool;
+    extern fn g_permission_acquire_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
     pub const acquireFinish = g_permission_acquire_finish;
 
     extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
@@ -82,13 +82,13 @@ pub const SimplePermission = extern struct {
     extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
     pub const refSink = g_object_ref_sink;
 
-    extern fn g_permission_release(self: *Self, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_permission_release(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
     pub const release = g_permission_release;
 
     extern fn g_permission_release_async(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const releaseAsync = g_permission_release_async;
 
-    extern fn g_permission_release_finish(self: *Self, result: *gio.AsyncResult) bool;
+    extern fn g_permission_release_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
     pub const releaseFinish = g_permission_release_finish;
 
     extern fn g_object_run_dispose(self: *Self) void;

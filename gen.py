@@ -312,6 +312,24 @@ pub fn registerType(comptime T: type, comptime type_name: [:0]const u8) type {
 }
 """
 
+GERROR_IMPL = """
+    domain: u32,
+    code: c_int,
+    message: [*c]const u8,
+
+    extern fn g_error_new_literal(domain: u32, code: c_int, message: [*c]const u8) *Self;
+    pub const newLiteral = g_error_new_literal;
+
+    extern fn g_error_free(self: *Self) void;
+    pub const free = g_error_free;
+
+    extern fn g_error_copy(self: *const Self) *Self;
+    pub const copy = g_error_copy;
+
+    extern fn g_error_matches(self: *const Self, domain: u32, code: c_int) bool;
+    pub const matches = g_error_matches;
+"""
+
 EXTRA_API_DEFS: dict[str, list[str]] = {
     "Gtk": [
         "",
@@ -620,6 +638,10 @@ def generate_class(ns: str, Cls: type):
     ]
 
     if info is None:
+        if Cls is GLib.Error:
+            out.pop() # Remove extra nl
+            # GLIB Error in python doesn't seem to use the same struct interface
+            out.append(GERROR_IMPL)
         out.append("};")
         return out  # TODO What is this??
 
@@ -647,7 +669,7 @@ def generate_class(ns: str, Cls: type):
             for field in obj_info.get_fields():
                 field_type = struct_field_type(obj_info, field, imports)
                 if field_type in ("*glib.error", "*gtk.error"):
-                    field_type = "*gobject.Error"
+                    field_type = "*glib.Error"
                 field_name = clean_zig_name(field.get_name())
                 # Hack for InitiallyUnowned subclasses
                 if should_skip_field(ns, Cls, field_name, field_type, all_field_names):
@@ -760,6 +782,10 @@ def generate_class(ns: str, Cls: type):
                 comment = "// "
             arg_name = clean_zig_name(arg.get_name())
             args.append(f"{arg_name}: {arg_type}")
+        if f.can_throw_gerror():
+            # TODO: Convert to zig error ?
+            args.append("err: **glib.Error")
+            imports.add("glib")
 
         # Check if any new imports were added by the fn that
         # should be excluded
@@ -1064,6 +1090,8 @@ def main():
         used = set()
         for Cls in data["classes"]:
             cls = Cls.__name__
+            if Cls is GLib.Error and k != "glib":
+                continue
             if cls in used:
                 print(f"WARNING: Duplicate class name {cls} in {ns} for {Cls}")
                 continue

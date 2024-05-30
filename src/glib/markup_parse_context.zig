@@ -15,7 +15,7 @@ pub const MarkupParseContext = extern struct {
 
 
     // Methods
-    extern fn g_markup_parse_context_end_parse(self: *Self) bool;
+    extern fn g_markup_parse_context_end_parse(self: *Self, err: **glib.Error) bool;
     pub const endParse = g_markup_parse_context_end_parse;
 
     extern fn g_markup_parse_context_free(self: *Self) void;
@@ -30,7 +30,7 @@ pub const MarkupParseContext = extern struct {
     extern fn g_markup_parse_context_get_user_data(self: *Self) ?*anyopaque;
     pub const getUserData = g_markup_parse_context_get_user_data;
 
-    extern fn g_markup_parse_context_parse(self: *Self, text: [*c]const u8, text_len: i64) bool;
+    extern fn g_markup_parse_context_parse(self: *Self, text: [*c]const u8, text_len: i64, err: **glib.Error) bool;
     pub const parse = g_markup_parse_context_parse;
 
     extern fn g_markup_parse_context_pop(self: *Self) ?*anyopaque;

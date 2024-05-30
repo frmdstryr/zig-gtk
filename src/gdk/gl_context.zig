@@ -105,7 +105,7 @@ pub const GLContext = extern struct {
     extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
     pub const notifyByPspec = g_object_notify_by_pspec;
 
-    extern fn gdk_gl_context_realize(self: *Self) bool;
+    extern fn gdk_gl_context_realize(self: *Self, err: **glib.Error) bool;
     pub const realize = gdk_gl_context_realize;
 
     extern fn g_object_ref(self: *Self) ?*gobject.Object;

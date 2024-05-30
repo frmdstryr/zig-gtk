@@ -274,13 +274,13 @@ pub const Layout = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
-    extern fn pango_layout_write_to_file(self: *Self, flags: pango.LayoutSerializeFlags, filename: [*c]const u8) bool;
+    extern fn pango_layout_write_to_file(self: *Self, flags: pango.LayoutSerializeFlags, filename: [*c]const u8, err: **glib.Error) bool;
     pub const writeToFile = pango_layout_write_to_file;
 
     extern fn pango_layout_xy_to_index(self: *Self, x: i32, y: i32, index_: *i32, trailing: *i32) bool;
     pub const xyToIndex = pango_layout_xy_to_index;
 
-    extern fn pango_layout_deserialize(context: *pango.Context, bytes: *glib.Bytes, flags: pango.LayoutDeserializeFlags) ?*pango.Layout;
+    extern fn pango_layout_deserialize(context: *pango.Context, bytes: *glib.Bytes, flags: pango.LayoutDeserializeFlags, err: **glib.Error) ?*pango.Layout;
     pub const deserialize = pango_layout_deserialize;
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;

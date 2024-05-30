@@ -23,7 +23,7 @@ pub const PollableInputStream = extern struct {
     extern fn g_pollable_input_stream_is_readable(self: *Self) bool;
     pub const isReadable = g_pollable_input_stream_is_readable;
 
-    extern fn g_pollable_input_stream_read_nonblocking(self: *Self, buffer: [*c]u8, count: u64, cancellable: ?*gio.Cancellable) i64;
+    extern fn g_pollable_input_stream_read_nonblocking(self: *Self, buffer: [*c]u8, count: u64, cancellable: ?*gio.Cancellable, err: **glib.Error) i64;
     pub const readNonblocking = g_pollable_input_stream_read_nonblocking;
 
 

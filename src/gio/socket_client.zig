@@ -31,40 +31,40 @@ pub const SocketClient = extern struct {
     extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
     pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn g_socket_client_connect(self: *Self, connectable: *gio.SocketConnectable, cancellable: ?*gio.Cancellable) ?*gio.SocketConnection;
+    extern fn g_socket_client_connect(self: *Self, connectable: *gio.SocketConnectable, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.SocketConnection;
     pub const connect = g_socket_client_connect;
 
     extern fn g_socket_client_connect_async(self: *Self, connectable: *gio.SocketConnectable, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const connectAsync = g_socket_client_connect_async;
 
-    extern fn g_socket_client_connect_finish(self: *Self, result: *gio.AsyncResult) ?*gio.SocketConnection;
+    extern fn g_socket_client_connect_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*gio.SocketConnection;
     pub const connectFinish = g_socket_client_connect_finish;
 
-    extern fn g_socket_client_connect_to_host(self: *Self, host_and_port: [*c]const u8, default_port: u16, cancellable: ?*gio.Cancellable) ?*gio.SocketConnection;
+    extern fn g_socket_client_connect_to_host(self: *Self, host_and_port: [*c]const u8, default_port: u16, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.SocketConnection;
     pub const connectToHost = g_socket_client_connect_to_host;
 
     extern fn g_socket_client_connect_to_host_async(self: *Self, host_and_port: [*c]const u8, default_port: u16, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const connectToHostAsync = g_socket_client_connect_to_host_async;
 
-    extern fn g_socket_client_connect_to_host_finish(self: *Self, result: *gio.AsyncResult) ?*gio.SocketConnection;
+    extern fn g_socket_client_connect_to_host_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*gio.SocketConnection;
     pub const connectToHostFinish = g_socket_client_connect_to_host_finish;
 
-    extern fn g_socket_client_connect_to_service(self: *Self, domain: [*c]const u8, service: [*c]const u8, cancellable: ?*gio.Cancellable) ?*gio.SocketConnection;
+    extern fn g_socket_client_connect_to_service(self: *Self, domain: [*c]const u8, service: [*c]const u8, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.SocketConnection;
     pub const connectToService = g_socket_client_connect_to_service;
 
     extern fn g_socket_client_connect_to_service_async(self: *Self, domain: [*c]const u8, service: [*c]const u8, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const connectToServiceAsync = g_socket_client_connect_to_service_async;
 
-    extern fn g_socket_client_connect_to_service_finish(self: *Self, result: *gio.AsyncResult) ?*gio.SocketConnection;
+    extern fn g_socket_client_connect_to_service_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*gio.SocketConnection;
     pub const connectToServiceFinish = g_socket_client_connect_to_service_finish;
 
-    extern fn g_socket_client_connect_to_uri(self: *Self, uri: [*c]const u8, default_port: u16, cancellable: ?*gio.Cancellable) ?*gio.SocketConnection;
+    extern fn g_socket_client_connect_to_uri(self: *Self, uri: [*c]const u8, default_port: u16, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.SocketConnection;
     pub const connectToUri = g_socket_client_connect_to_uri;
 
     extern fn g_socket_client_connect_to_uri_async(self: *Self, uri: [*c]const u8, default_port: u16, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const connectToUriAsync = g_socket_client_connect_to_uri_async;
 
-    extern fn g_socket_client_connect_to_uri_finish(self: *Self, result: *gio.AsyncResult) ?*gio.SocketConnection;
+    extern fn g_socket_client_connect_to_uri_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*gio.SocketConnection;
     pub const connectToUriFinish = g_socket_client_connect_to_uri_finish;
 
     extern fn g_object_force_floating(self: *Self) void;

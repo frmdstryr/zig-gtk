@@ -1,6 +1,7 @@
 // This file is auto generated do not edit
 // InterfaceInfo(DtlsServerConnection)
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -13,7 +14,7 @@ pub const DtlsServerConnection = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_dtls_server_connection_new(base_socket: *gio.DatagramBased, certificate: ?*gio.TlsCertificate) ?*gio.DtlsServerConnection;
+    extern fn g_dtls_server_connection_new(base_socket: *gio.DatagramBased, certificate: ?*gio.TlsCertificate, err: **glib.Error) ?*gio.DtlsServerConnection;
     pub const new = g_dtls_server_connection_new;
 
 

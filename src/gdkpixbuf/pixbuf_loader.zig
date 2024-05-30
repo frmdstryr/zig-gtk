@@ -34,7 +34,7 @@ pub const PixbufLoader = extern struct {
     extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
     pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn gdk_pixbuf_loader_close(self: *Self) bool;
+    extern fn gdk_pixbuf_loader_close(self: *Self, err: **glib.Error) bool;
     pub const close = gdk_pixbuf_loader_close;
 
     extern fn g_object_force_floating(self: *Self) void;
@@ -106,10 +106,10 @@ pub const PixbufLoader = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
-    extern fn gdk_pixbuf_loader_write(self: *Self, buf: [*c]u8, count: u64) bool;
+    extern fn gdk_pixbuf_loader_write(self: *Self, buf: [*c]u8, count: u64, err: **glib.Error) bool;
     pub const write = gdk_pixbuf_loader_write;
 
-    extern fn gdk_pixbuf_loader_write_bytes(self: *Self, buffer: *glib.Bytes) bool;
+    extern fn gdk_pixbuf_loader_write_bytes(self: *Self, buffer: *glib.Bytes, err: **glib.Error) bool;
     pub const writeBytes = gdk_pixbuf_loader_write_bytes;
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;

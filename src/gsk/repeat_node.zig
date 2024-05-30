@@ -42,7 +42,7 @@ pub const RepeatNode = extern struct {
     extern fn gsk_render_node_unref(self: *Self) void;
     pub const unref = gsk_render_node_unref;
 
-    extern fn gsk_render_node_write_to_file(self: *Self, filename: [*c]const u8) bool;
+    extern fn gsk_render_node_write_to_file(self: *Self, filename: [*c]const u8, err: **glib.Error) bool;
     pub const writeToFile = gsk_render_node_write_to_file;
 
     extern fn gsk_render_node_deserialize(bytes: *glib.Bytes, error_func: ?*const fn (start: *gsk.ParseLocation, end: *gsk.ParseLocation, error_: *glib.Error, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) ?*gsk.RenderNode;

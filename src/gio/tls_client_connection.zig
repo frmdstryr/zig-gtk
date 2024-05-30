@@ -38,7 +38,7 @@ pub const TlsClientConnection = extern struct {
     extern fn g_tls_client_connection_set_validation_flags(self: *Self, flags: gio.TlsCertificateFlags) void;
     pub const setValidationFlags = g_tls_client_connection_set_validation_flags;
 
-    extern fn g_tls_client_connection_new(base_io_stream: *gio.IOStream, server_identity: ?*gio.SocketConnectable) ?*gio.TlsClientConnection;
+    extern fn g_tls_client_connection_new(base_io_stream: *gio.IOStream, server_identity: ?*gio.SocketConnectable, err: **glib.Error) ?*gio.TlsClientConnection;
     pub const new = g_tls_client_connection_new;
 
 

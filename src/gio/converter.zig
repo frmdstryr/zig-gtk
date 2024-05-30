@@ -1,6 +1,7 @@
 // This file is auto generated do not edit
 // InterfaceInfo(Converter)
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -13,7 +14,7 @@ pub const Converter = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_converter_convert(self: *Self, inbuf: [*c]u8, inbuf_size: u64, outbuf: [*c]u8, outbuf_size: u64, flags: gio.ConverterFlags, bytes_read: *u64, bytes_written: *u64) gio.ConverterResult;
+    extern fn g_converter_convert(self: *Self, inbuf: [*c]u8, inbuf_size: u64, outbuf: [*c]u8, outbuf_size: u64, flags: gio.ConverterFlags, bytes_read: *u64, bytes_written: *u64, err: **glib.Error) gio.ConverterResult;
     pub const convert = g_converter_convert;
 
     extern fn g_converter_reset(self: *Self) void;

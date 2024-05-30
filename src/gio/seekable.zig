@@ -20,13 +20,13 @@ pub const Seekable = extern struct {
     extern fn g_seekable_can_truncate(self: *Self) bool;
     pub const canTruncate = g_seekable_can_truncate;
 
-    extern fn g_seekable_seek(self: *Self, offset: i64, type: glib.SeekType, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_seekable_seek(self: *Self, offset: i64, type: glib.SeekType, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
     pub const seek = g_seekable_seek;
 
     extern fn g_seekable_tell(self: *Self) i64;
     pub const tell = g_seekable_tell;
 
-    extern fn g_seekable_truncate(self: *Self, offset: i64, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_seekable_truncate(self: *Self, offset: i64, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
     pub const truncate = g_seekable_truncate;
 
 

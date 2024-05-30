@@ -15,7 +15,6 @@ pub const EnumValue = @import("gobject/enum_value.zig").EnumValue;
 pub const FlagsClass = @import("gobject/flags_class.zig").FlagsClass;
 pub const FlagsValue = @import("gobject/flags_value.zig").FlagsValue;
 pub const GBoxed = @import("gobject/g_boxed.zig").GBoxed;
-pub const Error = @import("gobject/error.zig").Error;
 pub const GInterface = @import("gobject/g_interface.zig").GInterface;
 pub const Object = @import("gobject/object.zig").Object;
 pub const GObjectWeakRef = @import("gobject/g_object_weak_ref.zig").GObjectWeakRef;

@@ -49,7 +49,7 @@ pub const PrintOperation = extern struct {
     extern fn gtk_print_operation_get_embed_page_setup(self: *Self) bool;
     pub const getEmbedPageSetup = gtk_print_operation_get_embed_page_setup;
 
-    extern fn gtk_print_operation_get_error(self: *Self) void;
+    extern fn gtk_print_operation_get_error(self: *Self, err: **glib.Error) void;
     pub const getError = gtk_print_operation_get_error;
 
     extern fn gtk_print_operation_get_has_selection(self: *Self) bool;
@@ -97,7 +97,7 @@ pub const PrintOperation = extern struct {
     extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
     pub const refSink = g_object_ref_sink;
 
-    extern fn gtk_print_operation_run(self: *Self, action: gtk.PrintOperationAction, parent: ?*gtk.Window) gtk.PrintOperationResult;
+    extern fn gtk_print_operation_run(self: *Self, action: gtk.PrintOperationAction, parent: ?*gtk.Window, err: **glib.Error) gtk.PrintOperationResult;
     pub const run = gtk_print_operation_run;
 
     extern fn g_object_run_dispose(self: *Self) void;

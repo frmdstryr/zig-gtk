@@ -1,6 +1,7 @@
 // This file is auto generated do not edit
 // InterfaceInfo(AsyncResult)
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -22,7 +23,7 @@ pub const AsyncResult = extern struct {
     extern fn g_async_result_is_tagged(self: *Self, source_tag: ?*anyopaque) bool;
     pub const isTagged = g_async_result_is_tagged;
 
-    extern fn g_async_result_legacy_propagate_error(self: *Self) bool;
+    extern fn g_async_result_legacy_propagate_error(self: *Self, err: **glib.Error) bool;
     pub const legacyPropagateError = g_async_result_legacy_propagate_error;
 
 

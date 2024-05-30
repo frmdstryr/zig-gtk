@@ -1,6 +1,7 @@
 // This file is auto generated do not edit
 // InterfaceInfo(Initable)
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -13,10 +14,10 @@ pub const Initable = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_initable_init(self: *Self, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_initable_init(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
     pub const init = g_initable_init;
 
-    extern fn g_initable_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter, cancellable: ?*gio.Cancellable) ?*gobject.Object;
+    extern fn g_initable_newv(object_type: usize, n_parameters: u32, parameters: [*c]gobject.Parameter, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gobject.Object;
     pub const newv = g_initable_newv;
 
 

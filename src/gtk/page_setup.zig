@@ -92,10 +92,10 @@ pub const PageSetup = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn gtk_page_setup_load_file(self: *Self, file_name: [*c]const u8) bool;
+    extern fn gtk_page_setup_load_file(self: *Self, file_name: [*c]const u8, err: **glib.Error) bool;
     pub const loadFile = gtk_page_setup_load_file;
 
-    extern fn gtk_page_setup_load_key_file(self: *Self, key_file: *glib.KeyFile, group_name: [*c]const u8) bool;
+    extern fn gtk_page_setup_load_key_file(self: *Self, key_file: *glib.KeyFile, group_name: [*c]const u8, err: **glib.Error) bool;
     pub const loadKeyFile = gtk_page_setup_load_key_file;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -149,7 +149,7 @@ pub const PageSetup = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn gtk_page_setup_to_file(self: *Self, file_name: [*c]const u8) bool;
+    extern fn gtk_page_setup_to_file(self: *Self, file_name: [*c]const u8, err: **glib.Error) bool;
     pub const toFile = gtk_page_setup_to_file;
 
     extern fn gtk_page_setup_to_gvariant(self: *Self) ?*glib.Variant;

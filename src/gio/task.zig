@@ -89,16 +89,16 @@ pub const Task = extern struct {
     extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
     pub const notifyByPspec = g_object_notify_by_pspec;
 
-    extern fn g_task_propagate_boolean(self: *Self) bool;
+    extern fn g_task_propagate_boolean(self: *Self, err: **glib.Error) bool;
     pub const propagateBoolean = g_task_propagate_boolean;
 
-    extern fn g_task_propagate_int(self: *Self) i64;
+    extern fn g_task_propagate_int(self: *Self, err: **glib.Error) i64;
     pub const propagateInt = g_task_propagate_int;
 
-    extern fn g_task_propagate_pointer(self: *Self) ?*anyopaque;
+    extern fn g_task_propagate_pointer(self: *Self, err: **glib.Error) ?*anyopaque;
     pub const propagatePointer = g_task_propagate_pointer;
 
-    extern fn g_task_propagate_value(self: *Self, value: *gobject.Value) bool;
+    extern fn g_task_propagate_value(self: *Self, value: *gobject.Value, err: **glib.Error) bool;
     pub const propagateValue = g_task_propagate_value;
 
     extern fn g_object_ref(self: *Self) ?*gobject.Object;

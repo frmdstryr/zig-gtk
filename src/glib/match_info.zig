@@ -12,7 +12,7 @@ pub const MatchInfo = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_match_info_expand_references(self: *Self, string_to_expand: [*c]const u8) [*c]const u8;
+    extern fn g_match_info_expand_references(self: *Self, string_to_expand: [*c]const u8, err: **glib.Error) [*c]const u8;
     pub const expandReferences = g_match_info_expand_references;
 
     extern fn g_match_info_fetch(self: *Self, match_num: i32) [*c]const u8;
@@ -48,7 +48,7 @@ pub const MatchInfo = extern struct {
     extern fn g_match_info_matches(self: *Self) bool;
     pub const matches = g_match_info_matches;
 
-    extern fn g_match_info_next(self: *Self) bool;
+    extern fn g_match_info_next(self: *Self, err: **glib.Error) bool;
     pub const next = g_match_info_next;
 
     extern fn g_match_info_ref(self: *Self) ?*glib.MatchInfo;

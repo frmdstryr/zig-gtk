@@ -29,7 +29,7 @@ pub const Icon = extern struct {
     extern fn g_icon_hash(icon: ?*anyopaque) u32;
     pub const hash = g_icon_hash;
 
-    extern fn g_icon_new_for_string(str: [*c]const u8) ?*gio.Icon;
+    extern fn g_icon_new_for_string(str: [*c]const u8, err: **glib.Error) ?*gio.Icon;
     pub const newForString = g_icon_new_for_string;
 
 

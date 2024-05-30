@@ -27,10 +27,10 @@ pub const ThreadPool = extern struct {
     extern fn g_thread_pool_move_to_front(self: *Self, data: ?*anyopaque) bool;
     pub const moveToFront = g_thread_pool_move_to_front;
 
-    extern fn g_thread_pool_push(self: *Self, data: ?*anyopaque) bool;
+    extern fn g_thread_pool_push(self: *Self, data: ?*anyopaque, err: **glib.Error) bool;
     pub const push = g_thread_pool_push;
 
-    extern fn g_thread_pool_set_max_threads(self: *Self, max_threads: i32) bool;
+    extern fn g_thread_pool_set_max_threads(self: *Self, max_threads: i32, err: **glib.Error) bool;
     pub const setMaxThreads = g_thread_pool_set_max_threads;
 
     extern fn g_thread_pool_unprocessed(self: *Self) u32;

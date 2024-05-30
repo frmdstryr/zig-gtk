@@ -22,16 +22,16 @@ pub const Resource = extern struct {
     extern fn g_resources_unregister(self: *Self) void;
     pub const unregister = g_resources_unregister;
 
-    extern fn g_resource_enumerate_children(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags) [*c][*c]const u8;
+    extern fn g_resource_enumerate_children(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, err: **glib.Error) [*c][*c]const u8;
     pub const enumerateChildren = g_resource_enumerate_children;
 
-    extern fn g_resource_get_info(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, size: *u64, flags: *u32) bool;
+    extern fn g_resource_get_info(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, size: *u64, flags: *u32, err: **glib.Error) bool;
     pub const getInfo = g_resource_get_info;
 
-    extern fn g_resource_lookup_data(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags) ?*glib.Bytes;
+    extern fn g_resource_lookup_data(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, err: **glib.Error) ?*glib.Bytes;
     pub const lookupData = g_resource_lookup_data;
 
-    extern fn g_resource_open_stream(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags) ?*gio.InputStream;
+    extern fn g_resource_open_stream(self: *Self, path: [*c]const u8, lookup_flags: gio.ResourceLookupFlags, err: **glib.Error) ?*gio.InputStream;
     pub const openStream = g_resource_open_stream;
 
     extern fn g_resource_ref(self: *Self) ?*gio.Resource;
@@ -40,7 +40,7 @@ pub const Resource = extern struct {
     extern fn g_resource_unref(self: *Self) void;
     pub const unref = g_resource_unref;
 
-    extern fn g_resource_load(filename: [*c]const u8) ?*gio.Resource;
+    extern fn g_resource_load(filename: [*c]const u8, err: **glib.Error) ?*gio.Resource;
     pub const load = g_resource_load;
 
 

@@ -25,7 +25,7 @@ pub const ConstraintLayout = extern struct {
     extern fn gtk_constraint_layout_add_constraint(self: *Self, constraint: *gtk.Constraint) void;
     pub const addConstraint = gtk_constraint_layout_add_constraint;
 
-    extern fn gtk_constraint_layout_add_constraints_from_descriptionv(self: *Self, lines: [*c][*c]const u8, n_lines: u64, hspacing: i32, vspacing: i32, views: *glib.HashTable) ?*glib.List;
+    extern fn gtk_constraint_layout_add_constraints_from_descriptionv(self: *Self, lines: [*c][*c]const u8, n_lines: u64, hspacing: i32, vspacing: i32, views: *glib.HashTable, err: **glib.Error) ?*glib.List;
     pub const addConstraintsFromDescription = gtk_constraint_layout_add_constraints_from_descriptionv;
 
     extern fn gtk_constraint_layout_add_guide(self: *Self, guide: *gtk.ConstraintGuide) void;

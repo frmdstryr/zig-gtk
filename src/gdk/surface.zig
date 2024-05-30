@@ -39,13 +39,13 @@ pub const Surface = extern struct {
     extern fn gdk_surface_create_cairo_context(self: *Self) ?*gdk.CairoContext;
     pub const createCairoContext = gdk_surface_create_cairo_context;
 
-    extern fn gdk_surface_create_gl_context(self: *Self) ?*gdk.GLContext;
+    extern fn gdk_surface_create_gl_context(self: *Self, err: **glib.Error) ?*gdk.GLContext;
     pub const createGlContext = gdk_surface_create_gl_context;
 
     extern fn gdk_surface_create_similar_surface(self: *Self, content: cairo.Content, width: i32, height: i32) ?*cairo.Surface;
     pub const createSimilarSurface = gdk_surface_create_similar_surface;
 
-    extern fn gdk_surface_create_vulkan_context(self: *Self) ?*gdk.VulkanContext;
+    extern fn gdk_surface_create_vulkan_context(self: *Self, err: **glib.Error) ?*gdk.VulkanContext;
     pub const createVulkanContext = gdk_surface_create_vulkan_context;
 
     extern fn gdk_surface_destroy(self: *Self) void;

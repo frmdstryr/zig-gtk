@@ -32,22 +32,22 @@ pub const Builder = extern struct {
 
 
     // Methods
-    extern fn gtk_builder_add_from_file(self: *Self, filename: [*c]const u8) bool;
+    extern fn gtk_builder_add_from_file(self: *Self, filename: [*c]const u8, err: **glib.Error) bool;
     pub const addFromFile = gtk_builder_add_from_file;
 
-    extern fn gtk_builder_add_from_resource(self: *Self, resource_path: [*c]const u8) bool;
+    extern fn gtk_builder_add_from_resource(self: *Self, resource_path: [*c]const u8, err: **glib.Error) bool;
     pub const addFromResource = gtk_builder_add_from_resource;
 
-    extern fn gtk_builder_add_from_string(self: *Self, buffer: [*c]const u8, length: i64) bool;
+    extern fn gtk_builder_add_from_string(self: *Self, buffer: [*c]const u8, length: i64, err: **glib.Error) bool;
     pub const addFromString = gtk_builder_add_from_string;
 
-    extern fn gtk_builder_add_objects_from_file(self: *Self, filename: [*c]const u8, object_ids: [*c][*c]const u8) bool;
+    extern fn gtk_builder_add_objects_from_file(self: *Self, filename: [*c]const u8, object_ids: [*c][*c]const u8, err: **glib.Error) bool;
     pub const addObjectsFromFile = gtk_builder_add_objects_from_file;
 
-    extern fn gtk_builder_add_objects_from_resource(self: *Self, resource_path: [*c]const u8, object_ids: [*c][*c]const u8) bool;
+    extern fn gtk_builder_add_objects_from_resource(self: *Self, resource_path: [*c]const u8, object_ids: [*c][*c]const u8, err: **glib.Error) bool;
     pub const addObjectsFromResource = gtk_builder_add_objects_from_resource;
 
-    extern fn gtk_builder_add_objects_from_string(self: *Self, buffer: [*c]const u8, length: i64, object_ids: [*c][*c]const u8) bool;
+    extern fn gtk_builder_add_objects_from_string(self: *Self, buffer: [*c]const u8, length: i64, object_ids: [*c][*c]const u8, err: **glib.Error) bool;
     pub const addObjectsFromString = gtk_builder_add_objects_from_string;
 
     extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
@@ -56,13 +56,13 @@ pub const Builder = extern struct {
     extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
     pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn gtk_builder_create_closure(self: *Self, function_name: [*c]const u8, flags: gtk.BuilderClosureFlags, object: ?*gobject.Object) ?*gobject.Closure;
+    extern fn gtk_builder_create_closure(self: *Self, function_name: [*c]const u8, flags: gtk.BuilderClosureFlags, object: ?*gobject.Object, err: **glib.Error) ?*gobject.Closure;
     pub const createClosure = gtk_builder_create_closure;
 
     extern fn gtk_builder_expose_object(self: *Self, name: [*c]const u8, object: *gobject.Object) void;
     pub const exposeObject = gtk_builder_expose_object;
 
-    extern fn gtk_builder_extend_with_template(self: *Self, object: *gobject.Object, template_type: usize, buffer: [*c]const u8, length: i64) bool;
+    extern fn gtk_builder_extend_with_template(self: *Self, object: *gobject.Object, template_type: usize, buffer: [*c]const u8, length: i64, err: **glib.Error) bool;
     pub const extendWithTemplate = gtk_builder_extend_with_template;
 
     extern fn g_object_force_floating(self: *Self) void;
@@ -147,10 +147,10 @@ pub const Builder = extern struct {
     extern fn g_object_unref(self: *Self) void;
     pub const unref = g_object_unref;
 
-    extern fn gtk_builder_value_from_string(self: *Self, pspec: *gobject.ParamSpec, string: [*c]const u8, value: *gobject.Value) bool;
+    extern fn gtk_builder_value_from_string(self: *Self, pspec: *gobject.ParamSpec, string: [*c]const u8, value: *gobject.Value, err: **glib.Error) bool;
     pub const valueFromString = gtk_builder_value_from_string;
 
-    extern fn gtk_builder_value_from_string_type(self: *Self, type: usize, string: [*c]const u8, value: *gobject.Value) bool;
+    extern fn gtk_builder_value_from_string_type(self: *Self, type: usize, string: [*c]const u8, value: *gobject.Value, err: **glib.Error) bool;
     pub const valueFromStringType = gtk_builder_value_from_string_type;
 
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;

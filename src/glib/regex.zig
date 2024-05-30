@@ -45,31 +45,31 @@ pub const Regex = extern struct {
     extern fn g_regex_match_all(self: *Self, string: [*c]const u8, match_options: glib.RegexMatchFlags, match_info: *glib.MatchInfo) bool;
     pub const matchAll = g_regex_match_all;
 
-    extern fn g_regex_match_all_full(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, match_info: *glib.MatchInfo) bool;
+    extern fn g_regex_match_all_full(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, match_info: *glib.MatchInfo, err: **glib.Error) bool;
     pub const matchAllFull = g_regex_match_all_full;
 
-    extern fn g_regex_match_full(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, match_info: *glib.MatchInfo) bool;
+    extern fn g_regex_match_full(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, match_info: *glib.MatchInfo, err: **glib.Error) bool;
     pub const matchFull = g_regex_match_full;
 
     extern fn g_regex_ref(self: *Self) ?*glib.Regex;
     pub const ref = g_regex_ref;
 
-    extern fn g_regex_replace(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, replacement: [*c]const u8, match_options: glib.RegexMatchFlags) [*c]const u8;
+    extern fn g_regex_replace(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, replacement: [*c]const u8, match_options: glib.RegexMatchFlags, err: **glib.Error) [*c]const u8;
     pub const replace = g_regex_replace;
 
-    extern fn g_regex_replace_literal(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, replacement: [*c]const u8, match_options: glib.RegexMatchFlags) [*c]const u8;
+    extern fn g_regex_replace_literal(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, replacement: [*c]const u8, match_options: glib.RegexMatchFlags, err: **glib.Error) [*c]const u8;
     pub const replaceLiteral = g_regex_replace_literal;
 
     extern fn g_regex_split(self: *Self, string: [*c]const u8, match_options: glib.RegexMatchFlags) [*c][*c]const u8;
     pub const split = g_regex_split;
 
-    extern fn g_regex_split_full(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, max_tokens: i32) [*c][*c]const u8;
+    extern fn g_regex_split_full(self: *Self, string: [*c][*c]const u8, string_len: i64, start_position: i32, match_options: glib.RegexMatchFlags, max_tokens: i32, err: **glib.Error) [*c][*c]const u8;
     pub const splitFull = g_regex_split_full;
 
     extern fn g_regex_unref(self: *Self) void;
     pub const unref = g_regex_unref;
 
-    extern fn g_regex_check_replacement(replacement: [*c]const u8, has_references: *bool) bool;
+    extern fn g_regex_check_replacement(replacement: [*c]const u8, has_references: *bool, err: **glib.Error) bool;
     pub const checkReplacement = g_regex_check_replacement;
 
     extern fn g_regex_error_quark() u32;

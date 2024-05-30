@@ -40,19 +40,19 @@ pub const DBusProxy = extern struct {
     extern fn g_dbus_proxy_call(self: *Self, method_name: [*c]const u8, parameters: ?*glib.Variant, flags: gio.DBusCallFlags, timeout_msec: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const call = g_dbus_proxy_call;
 
-    extern fn g_dbus_proxy_call_finish(self: *Self, res: *gio.AsyncResult) ?*glib.Variant;
+    extern fn g_dbus_proxy_call_finish(self: *Self, res: *gio.AsyncResult, err: **glib.Error) ?*glib.Variant;
     pub const callFinish = g_dbus_proxy_call_finish;
 
-    extern fn g_dbus_proxy_call_sync(self: *Self, method_name: [*c]const u8, parameters: ?*glib.Variant, flags: gio.DBusCallFlags, timeout_msec: i32, cancellable: ?*gio.Cancellable) ?*glib.Variant;
+    extern fn g_dbus_proxy_call_sync(self: *Self, method_name: [*c]const u8, parameters: ?*glib.Variant, flags: gio.DBusCallFlags, timeout_msec: i32, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*glib.Variant;
     pub const callSync = g_dbus_proxy_call_sync;
 
     extern fn g_dbus_proxy_call_with_unix_fd_list(self: *Self, method_name: [*c]const u8, parameters: ?*glib.Variant, flags: gio.DBusCallFlags, timeout_msec: i32, fd_list: ?*gio.UnixFDList, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const callWithUnixFdList = g_dbus_proxy_call_with_unix_fd_list;
 
-    extern fn g_dbus_proxy_call_with_unix_fd_list_finish(self: *Self, out_fd_list: *gio.UnixFDList, res: *gio.AsyncResult) ?*glib.Variant;
+    extern fn g_dbus_proxy_call_with_unix_fd_list_finish(self: *Self, out_fd_list: *gio.UnixFDList, res: *gio.AsyncResult, err: **glib.Error) ?*glib.Variant;
     pub const callWithUnixFdListFinish = g_dbus_proxy_call_with_unix_fd_list_finish;
 
-    extern fn g_dbus_proxy_call_with_unix_fd_list_sync(self: *Self, method_name: [*c]const u8, parameters: ?*glib.Variant, flags: gio.DBusCallFlags, timeout_msec: i32, fd_list: ?*gio.UnixFDList, out_fd_list: *gio.UnixFDList, cancellable: ?*gio.Cancellable) ?*glib.Variant;
+    extern fn g_dbus_proxy_call_with_unix_fd_list_sync(self: *Self, method_name: [*c]const u8, parameters: ?*glib.Variant, flags: gio.DBusCallFlags, timeout_msec: i32, fd_list: ?*gio.UnixFDList, out_fd_list: *gio.UnixFDList, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*glib.Variant;
     pub const callWithUnixFdListSync = g_dbus_proxy_call_with_unix_fd_list_sync;
 
     extern fn g_object_force_floating(self: *Self) void;

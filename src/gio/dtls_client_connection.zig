@@ -29,7 +29,7 @@ pub const DtlsClientConnection = extern struct {
     extern fn g_dtls_client_connection_set_validation_flags(self: *Self, flags: gio.TlsCertificateFlags) void;
     pub const setValidationFlags = g_dtls_client_connection_set_validation_flags;
 
-    extern fn g_dtls_client_connection_new(base_socket: *gio.DatagramBased, server_identity: ?*gio.SocketConnectable) ?*gio.DtlsClientConnection;
+    extern fn g_dtls_client_connection_new(base_socket: *gio.DatagramBased, server_identity: ?*gio.SocketConnectable, err: **glib.Error) ?*gio.DtlsClientConnection;
     pub const new = g_dtls_client_connection_new;
 
 

@@ -1,6 +1,7 @@
 // This file is auto generated do not edit
 // InterfaceInfo(TlsServerConnection)
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -13,7 +14,7 @@ pub const TlsServerConnection = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_tls_server_connection_new(base_io_stream: *gio.IOStream, certificate: ?*gio.TlsCertificate) ?*gio.TlsServerConnection;
+    extern fn g_tls_server_connection_new(base_io_stream: *gio.IOStream, certificate: ?*gio.TlsCertificate, err: **glib.Error) ?*gio.TlsServerConnection;
     pub const new = g_tls_server_connection_new;
 
 

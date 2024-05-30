@@ -68,7 +68,7 @@ pub const CairoRenderer = extern struct {
     extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
     pub const notifyByPspec = g_object_notify_by_pspec;
 
-    extern fn gsk_renderer_realize(self: *Self, surface: ?*gdk.Surface) bool;
+    extern fn gsk_renderer_realize(self: *Self, surface: ?*gdk.Surface, err: **glib.Error) bool;
     pub const realize = gsk_renderer_realize;
 
     extern fn g_object_ref(self: *Self) ?*gobject.Object;

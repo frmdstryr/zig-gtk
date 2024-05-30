@@ -234,7 +234,7 @@ pub const Variant = extern struct {
     extern fn g_variant_is_signature(string: [*c]const u8) bool;
     pub const isSignature = g_variant_is_signature;
 
-    extern fn g_variant_parse(type: ?*glib.VariantType, text: [*c]const u8, limit: [*c]const u8, endptr: [*c]const u8) ?*glib.Variant;
+    extern fn g_variant_parse(type: ?*glib.VariantType, text: [*c]const u8, limit: [*c]const u8, endptr: [*c]const u8, err: **glib.Error) ?*glib.Variant;
     pub const parse = g_variant_parse;
 
     extern fn g_variant_parse_error_print_context(error_: *glib.Error, source_str: [*c]const u8) [*c]const u8;

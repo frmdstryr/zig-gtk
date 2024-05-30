@@ -71,7 +71,7 @@ pub const SimpleAsyncResult = extern struct {
     extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
     pub const notifyByPspec = g_object_notify_by_pspec;
 
-    extern fn g_simple_async_result_propagate_error(self: *Self) bool;
+    extern fn g_simple_async_result_propagate_error(self: *Self, err: **glib.Error) bool;
     pub const propagateError = g_simple_async_result_propagate_error;
 
     extern fn g_object_ref(self: *Self) ?*gobject.Object;

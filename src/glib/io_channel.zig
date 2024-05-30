@@ -41,7 +41,7 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_close(self: *Self) void;
     pub const close = g_io_channel_close;
 
-    extern fn g_io_channel_flush(self: *Self) glib.IOStatus;
+    extern fn g_io_channel_flush(self: *Self, err: **glib.Error) glib.IOStatus;
     pub const flush = g_io_channel_flush;
 
     extern fn g_io_channel_get_buffer_condition(self: *Self) glib.IOCondition;
@@ -71,19 +71,19 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_read(self: *Self, buf: [*c]const u8, count: u64, bytes_read: u64) glib.IOError;
     pub const read = g_io_channel_read;
 
-    extern fn g_io_channel_read_chars(self: *Self, buf: [*c]u8, count: u64, bytes_read: *u64) glib.IOStatus;
+    extern fn g_io_channel_read_chars(self: *Self, buf: [*c]u8, count: u64, bytes_read: *u64, err: **glib.Error) glib.IOStatus;
     pub const readChars = g_io_channel_read_chars;
 
-    extern fn g_io_channel_read_line(self: *Self, str_return: *[*c]const u8, length: *u64, terminator_pos: *u64) glib.IOStatus;
+    extern fn g_io_channel_read_line(self: *Self, str_return: *[*c]const u8, length: *u64, terminator_pos: *u64, err: **glib.Error) glib.IOStatus;
     pub const readLine = g_io_channel_read_line;
 
-    extern fn g_io_channel_read_line_string(self: *Self, buffer: *glib.String, terminator_pos: u64) glib.IOStatus;
+    extern fn g_io_channel_read_line_string(self: *Self, buffer: *glib.String, terminator_pos: u64, err: **glib.Error) glib.IOStatus;
     pub const readLineString = g_io_channel_read_line_string;
 
-    extern fn g_io_channel_read_to_end(self: *Self, str_return: [*c]u8, length: *u64) glib.IOStatus;
+    extern fn g_io_channel_read_to_end(self: *Self, str_return: [*c]u8, length: *u64, err: **glib.Error) glib.IOStatus;
     pub const readToEnd = g_io_channel_read_to_end;
 
-    extern fn g_io_channel_read_unichar(self: *Self, thechar: *u32) glib.IOStatus;
+    extern fn g_io_channel_read_unichar(self: *Self, thechar: *u32, err: **glib.Error) glib.IOStatus;
     pub const readUnichar = g_io_channel_read_unichar;
 
     extern fn g_io_channel_ref(self: *Self) ?*glib.IOChannel;
@@ -92,7 +92,7 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_seek(self: *Self, offset: i64, type: glib.SeekType) glib.IOError;
     pub const seek = g_io_channel_seek;
 
-    extern fn g_io_channel_seek_position(self: *Self, offset: i64, type: glib.SeekType) glib.IOStatus;
+    extern fn g_io_channel_seek_position(self: *Self, offset: i64, type: glib.SeekType, err: **glib.Error) glib.IOStatus;
     pub const seekPosition = g_io_channel_seek_position;
 
     extern fn g_io_channel_set_buffer_size(self: *Self, size: u64) void;
@@ -104,16 +104,16 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_set_close_on_unref(self: *Self, do_close: bool) void;
     pub const setCloseOnUnref = g_io_channel_set_close_on_unref;
 
-    extern fn g_io_channel_set_encoding(self: *Self, encoding: [*c]const u8) glib.IOStatus;
+    extern fn g_io_channel_set_encoding(self: *Self, encoding: [*c]const u8, err: **glib.Error) glib.IOStatus;
     pub const setEncoding = g_io_channel_set_encoding;
 
-    extern fn g_io_channel_set_flags(self: *Self, flags: glib.IOFlags) glib.IOStatus;
+    extern fn g_io_channel_set_flags(self: *Self, flags: glib.IOFlags, err: **glib.Error) glib.IOStatus;
     pub const setFlags = g_io_channel_set_flags;
 
     extern fn g_io_channel_set_line_term(self: *Self, line_term: [*c]const u8, length: i32) void;
     pub const setLineTerm = g_io_channel_set_line_term;
 
-    extern fn g_io_channel_shutdown(self: *Self, flush: bool) glib.IOStatus;
+    extern fn g_io_channel_shutdown(self: *Self, flush: bool, err: **glib.Error) glib.IOStatus;
     pub const shutdown = g_io_channel_shutdown;
 
     extern fn g_io_channel_unix_get_fd(self: *Self) i32;
@@ -125,10 +125,10 @@ pub const IOChannel = extern struct {
     extern fn g_io_channel_write(self: *Self, buf: [*c]const u8, count: u64, bytes_written: u64) glib.IOError;
     pub const write = g_io_channel_write;
 
-    extern fn g_io_channel_write_chars(self: *Self, buf: [*c]u8, count: i64, bytes_written: *u64) glib.IOStatus;
+    extern fn g_io_channel_write_chars(self: *Self, buf: [*c]u8, count: i64, bytes_written: *u64, err: **glib.Error) glib.IOStatus;
     pub const writeChars = g_io_channel_write_chars;
 
-    extern fn g_io_channel_write_unichar(self: *Self, thechar: u32) glib.IOStatus;
+    extern fn g_io_channel_write_unichar(self: *Self, thechar: u32, err: **glib.Error) glib.IOStatus;
     pub const writeUnichar = g_io_channel_write_unichar;
 
     extern fn g_io_channel_error_from_errno(en: i32) glib.IOChannelError;

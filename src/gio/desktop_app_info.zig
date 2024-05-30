@@ -101,10 +101,10 @@ pub const DesktopAppInfo = extern struct {
     extern fn g_desktop_app_info_launch_action(self: *Self, action_name: [*c]const u8, launch_context: ?*gio.AppLaunchContext) void;
     pub const launchAction = g_desktop_app_info_launch_action;
 
-    extern fn g_desktop_app_info_launch_uris_as_manager(self: *Self, uris: *glib.List, launch_context: ?*gio.AppLaunchContext, spawn_flags: glib.SpawnFlags, user_setup: ?*const fn (user_data: ?*anyopaque) callconv(.C) void, user_setup_data: ?*anyopaque, pid_callback: ?*const fn (appinfo: *gio.DesktopAppInfo, pid: i32, user_data: ?*anyopaque) callconv(.C) void, pid_callback_data: ?*anyopaque) bool;
+    extern fn g_desktop_app_info_launch_uris_as_manager(self: *Self, uris: *glib.List, launch_context: ?*gio.AppLaunchContext, spawn_flags: glib.SpawnFlags, user_setup: ?*const fn (user_data: ?*anyopaque) callconv(.C) void, user_setup_data: ?*anyopaque, pid_callback: ?*const fn (appinfo: *gio.DesktopAppInfo, pid: i32, user_data: ?*anyopaque) callconv(.C) void, pid_callback_data: ?*anyopaque, err: **glib.Error) bool;
     pub const launchUrisAsManager = g_desktop_app_info_launch_uris_as_manager;
 
-    extern fn g_desktop_app_info_launch_uris_as_manager_with_fds(self: *Self, uris: *glib.List, launch_context: ?*gio.AppLaunchContext, spawn_flags: glib.SpawnFlags, user_setup: ?*const fn (user_data: ?*anyopaque) callconv(.C) void, user_setup_data: ?*anyopaque, pid_callback: ?*const fn (appinfo: *gio.DesktopAppInfo, pid: i32, user_data: ?*anyopaque) callconv(.C) void, pid_callback_data: ?*anyopaque, stdin_fd: i32, stdout_fd: i32, stderr_fd: i32) bool;
+    extern fn g_desktop_app_info_launch_uris_as_manager_with_fds(self: *Self, uris: *glib.List, launch_context: ?*gio.AppLaunchContext, spawn_flags: glib.SpawnFlags, user_setup: ?*const fn (user_data: ?*anyopaque) callconv(.C) void, user_setup_data: ?*anyopaque, pid_callback: ?*const fn (appinfo: *gio.DesktopAppInfo, pid: i32, user_data: ?*anyopaque) callconv(.C) void, pid_callback_data: ?*anyopaque, stdin_fd: i32, stdout_fd: i32, stderr_fd: i32, err: **glib.Error) bool;
     pub const launchUrisAsManagerWithFds = g_desktop_app_info_launch_uris_as_manager_with_fds;
 
     extern fn g_desktop_app_info_list_actions(self: *Self) [*c][*c]const u8;

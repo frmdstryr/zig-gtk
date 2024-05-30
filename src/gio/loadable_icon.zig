@@ -1,6 +1,7 @@
 // This file is auto generated do not edit
 // InterfaceInfo(LoadableIcon)
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -13,13 +14,13 @@ pub const LoadableIcon = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_loadable_icon_load(self: *Self, size: i32, type: *[*c]const u8, cancellable: ?*gio.Cancellable) ?*gio.InputStream;
+    extern fn g_loadable_icon_load(self: *Self, size: i32, type: *[*c]const u8, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.InputStream;
     pub const load = g_loadable_icon_load;
 
     extern fn g_loadable_icon_load_async(self: *Self, size: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const loadAsync = g_loadable_icon_load_async;
 
-    extern fn g_loadable_icon_load_finish(self: *Self, res: *gio.AsyncResult, type: *[*c]const u8) ?*gio.InputStream;
+    extern fn g_loadable_icon_load_finish(self: *Self, res: *gio.AsyncResult, type: *[*c]const u8, err: **glib.Error) ?*gio.InputStream;
     pub const loadFinish = g_loadable_icon_load_finish;
 
 

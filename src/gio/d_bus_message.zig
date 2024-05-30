@@ -38,7 +38,7 @@ pub const DBusMessage = extern struct {
     extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
     pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn g_dbus_message_copy(self: *Self) ?*gio.DBusMessage;
+    extern fn g_dbus_message_copy(self: *Self, err: **glib.Error) ?*gio.DBusMessage;
     pub const copy = g_dbus_message_copy;
 
     extern fn g_object_force_floating(self: *Self) void;
@@ -209,10 +209,10 @@ pub const DBusMessage = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn g_dbus_message_to_blob(self: *Self, out_size: *u64, capabilities: gio.DBusCapabilityFlags) [*c]u8;
+    extern fn g_dbus_message_to_blob(self: *Self, out_size: *u64, capabilities: gio.DBusCapabilityFlags, err: **glib.Error) [*c]u8;
     pub const toBlob = g_dbus_message_to_blob;
 
-    extern fn g_dbus_message_to_gerror(self: *Self) bool;
+    extern fn g_dbus_message_to_gerror(self: *Self, err: **glib.Error) bool;
     pub const toGerror = g_dbus_message_to_gerror;
 
     extern fn g_object_unref(self: *Self) void;
@@ -221,7 +221,7 @@ pub const DBusMessage = extern struct {
     extern fn g_object_watch_closure(self: *Self, closure: *gobject.Closure) void;
     pub const watchClosure = g_object_watch_closure;
 
-    extern fn g_dbus_message_bytes_needed(blob: [*c]u8, blob_len: u64) i64;
+    extern fn g_dbus_message_bytes_needed(blob: [*c]u8, blob_len: u64, err: **glib.Error) i64;
     pub const bytesNeeded = g_dbus_message_bytes_needed;
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;

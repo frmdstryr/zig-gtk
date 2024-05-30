@@ -106,7 +106,7 @@ pub const UnixSocketAddress = extern struct {
     extern fn g_object_thaw_notify(self: *Self) void;
     pub const thawNotify = g_object_thaw_notify;
 
-    extern fn g_socket_address_to_native(self: *Self, dest: ?*anyopaque, destlen: u64) bool;
+    extern fn g_socket_address_to_native(self: *Self, dest: ?*anyopaque, destlen: u64, err: **glib.Error) bool;
     pub const toNative = g_socket_address_to_native;
 
     extern fn g_object_unref(self: *Self) void;

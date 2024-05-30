@@ -61,10 +61,10 @@ pub const RecentManager = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn gtk_recent_manager_lookup_item(self: *Self, uri: [*c]const u8) ?*gtk.RecentInfo;
+    extern fn gtk_recent_manager_lookup_item(self: *Self, uri: [*c]const u8, err: **glib.Error) ?*gtk.RecentInfo;
     pub const lookupItem = gtk_recent_manager_lookup_item;
 
-    extern fn gtk_recent_manager_move_item(self: *Self, uri: [*c]const u8, new_uri: [*c]const u8) bool;
+    extern fn gtk_recent_manager_move_item(self: *Self, uri: [*c]const u8, new_uri: [*c]const u8, err: **glib.Error) bool;
     pub const moveItem = gtk_recent_manager_move_item;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -73,7 +73,7 @@ pub const RecentManager = extern struct {
     extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
     pub const notifyByPspec = g_object_notify_by_pspec;
 
-    extern fn gtk_recent_manager_purge_items(self: *Self) i32;
+    extern fn gtk_recent_manager_purge_items(self: *Self, err: **glib.Error) i32;
     pub const purgeItems = gtk_recent_manager_purge_items;
 
     extern fn g_object_ref(self: *Self) ?*gobject.Object;
@@ -82,7 +82,7 @@ pub const RecentManager = extern struct {
     extern fn g_object_ref_sink(self: *Self) ?*gobject.Object;
     pub const refSink = g_object_ref_sink;
 
-    extern fn gtk_recent_manager_remove_item(self: *Self, uri: [*c]const u8) bool;
+    extern fn gtk_recent_manager_remove_item(self: *Self, uri: [*c]const u8, err: **glib.Error) bool;
     pub const removeItem = gtk_recent_manager_remove_item;
 
     extern fn g_object_run_dispose(self: *Self) void;

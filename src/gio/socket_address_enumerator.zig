@@ -45,13 +45,13 @@ pub const SocketAddressEnumerator = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_socket_address_enumerator_next(self: *Self, cancellable: ?*gio.Cancellable) ?*gio.SocketAddress;
+    extern fn g_socket_address_enumerator_next(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.SocketAddress;
     pub const next = g_socket_address_enumerator_next;
 
     extern fn g_socket_address_enumerator_next_async(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const nextAsync = g_socket_address_enumerator_next_async;
 
-    extern fn g_socket_address_enumerator_next_finish(self: *Self, result: *gio.AsyncResult) ?*gio.SocketAddress;
+    extern fn g_socket_address_enumerator_next_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*gio.SocketAddress;
     pub const nextFinish = g_socket_address_enumerator_next_finish;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;

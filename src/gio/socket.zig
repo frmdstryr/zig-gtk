@@ -25,10 +25,10 @@ pub const Socket = extern struct {
 
 
     // Methods
-    extern fn g_socket_accept(self: *Self, cancellable: ?*gio.Cancellable) ?*gio.Socket;
+    extern fn g_socket_accept(self: *Self, cancellable: ?*gio.Cancellable, err: **glib.Error) ?*gio.Socket;
     pub const accept = g_socket_accept;
 
-    extern fn g_socket_bind(self: *Self, address: *gio.SocketAddress, allow_reuse: bool) bool;
+    extern fn g_socket_bind(self: *Self, address: *gio.SocketAddress, allow_reuse: bool, err: **glib.Error) bool;
     pub const bind = g_socket_bind;
 
     extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;
@@ -37,22 +37,22 @@ pub const Socket = extern struct {
     extern fn g_object_bind_property_with_closures(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags, transform_to: *gobject.Closure, transform_from: *gobject.Closure) ?*gobject.Binding;
     pub const bindPropertyFull = g_object_bind_property_with_closures;
 
-    extern fn g_socket_check_connect_result(self: *Self) bool;
+    extern fn g_socket_check_connect_result(self: *Self, err: **glib.Error) bool;
     pub const checkConnectResult = g_socket_check_connect_result;
 
-    extern fn g_socket_close(self: *Self) bool;
+    extern fn g_socket_close(self: *Self, err: **glib.Error) bool;
     pub const close = g_socket_close;
 
     extern fn g_socket_condition_check(self: *Self, condition: glib.IOCondition) glib.IOCondition;
     pub const conditionCheck = g_socket_condition_check;
 
-    extern fn g_socket_condition_timed_wait(self: *Self, condition: glib.IOCondition, timeout_us: i64, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_socket_condition_timed_wait(self: *Self, condition: glib.IOCondition, timeout_us: i64, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
     pub const conditionTimedWait = g_socket_condition_timed_wait;
 
-    extern fn g_socket_condition_wait(self: *Self, condition: glib.IOCondition, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_socket_condition_wait(self: *Self, condition: glib.IOCondition, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
     pub const conditionWait = g_socket_condition_wait;
 
-    extern fn g_socket_connect(self: *Self, address: *gio.SocketAddress, cancellable: ?*gio.Cancellable) bool;
+    extern fn g_socket_connect(self: *Self, address: *gio.SocketAddress, cancellable: ?*gio.Cancellable, err: **glib.Error) bool;
     pub const connect = g_socket_connect;
 
     extern fn g_socket_connection_factory_create_connection(self: *Self) ?*gio.SocketConnection;
@@ -73,7 +73,7 @@ pub const Socket = extern struct {
     extern fn g_socket_get_broadcast(self: *Self) bool;
     pub const getBroadcast = g_socket_get_broadcast;
 
-    extern fn g_socket_get_credentials(self: *Self) ?*gio.Credentials;
+    extern fn g_socket_get_credentials(self: *Self, err: **glib.Error) ?*gio.Credentials;
     pub const getCredentials = g_socket_get_credentials;
 
     extern fn g_object_get_data(self: *Self, key: [*c]const u8) ?*anyopaque;
@@ -91,7 +91,7 @@ pub const Socket = extern struct {
     extern fn g_socket_get_listen_backlog(self: *Self) i32;
     pub const getListenBacklog = g_socket_get_listen_backlog;
 
-    extern fn g_socket_get_local_address(self: *Self) ?*gio.SocketAddress;
+    extern fn g_socket_get_local_address(self: *Self, err: **glib.Error) ?*gio.SocketAddress;
     pub const getLocalAddress = g_socket_get_local_address;
 
     extern fn g_socket_get_multicast_loopback(self: *Self) bool;
@@ -100,7 +100,7 @@ pub const Socket = extern struct {
     extern fn g_socket_get_multicast_ttl(self: *Self) u32;
     pub const getMulticastTtl = g_socket_get_multicast_ttl;
 
-    extern fn g_socket_get_option(self: *Self, level: i32, optname: i32, value: *i32) bool;
+    extern fn g_socket_get_option(self: *Self, level: i32, optname: i32, value: *i32, err: **glib.Error) bool;
     pub const getOption = g_socket_get_option;
 
     extern fn g_object_get_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
@@ -112,7 +112,7 @@ pub const Socket = extern struct {
     extern fn g_object_get_qdata(self: *Self, quark: u32) ?*anyopaque;
     pub const getQdata = g_object_get_qdata;
 
-    extern fn g_socket_get_remote_address(self: *Self) ?*gio.SocketAddress;
+    extern fn g_socket_get_remote_address(self: *Self, err: **glib.Error) ?*gio.SocketAddress;
     pub const getRemoteAddress = g_socket_get_remote_address;
 
     extern fn g_socket_get_socket_type(self: *Self) gio.SocketType;
@@ -136,19 +136,19 @@ pub const Socket = extern struct {
     extern fn g_object_is_floating(self: *Self) bool;
     pub const isFloating = g_object_is_floating;
 
-    extern fn g_socket_join_multicast_group(self: *Self, group: *gio.InetAddress, source_specific: bool, iface: [*c]const u8) bool;
+    extern fn g_socket_join_multicast_group(self: *Self, group: *gio.InetAddress, source_specific: bool, iface: [*c]const u8, err: **glib.Error) bool;
     pub const joinMulticastGroup = g_socket_join_multicast_group;
 
-    extern fn g_socket_join_multicast_group_ssm(self: *Self, group: *gio.InetAddress, source_specific: ?*gio.InetAddress, iface: [*c]const u8) bool;
+    extern fn g_socket_join_multicast_group_ssm(self: *Self, group: *gio.InetAddress, source_specific: ?*gio.InetAddress, iface: [*c]const u8, err: **glib.Error) bool;
     pub const joinMulticastGroupSsm = g_socket_join_multicast_group_ssm;
 
-    extern fn g_socket_leave_multicast_group(self: *Self, group: *gio.InetAddress, source_specific: bool, iface: [*c]const u8) bool;
+    extern fn g_socket_leave_multicast_group(self: *Self, group: *gio.InetAddress, source_specific: bool, iface: [*c]const u8, err: **glib.Error) bool;
     pub const leaveMulticastGroup = g_socket_leave_multicast_group;
 
-    extern fn g_socket_leave_multicast_group_ssm(self: *Self, group: *gio.InetAddress, source_specific: ?*gio.InetAddress, iface: [*c]const u8) bool;
+    extern fn g_socket_leave_multicast_group_ssm(self: *Self, group: *gio.InetAddress, source_specific: ?*gio.InetAddress, iface: [*c]const u8, err: **glib.Error) bool;
     pub const leaveMulticastGroupSsm = g_socket_leave_multicast_group_ssm;
 
-    extern fn g_socket_listen(self: *Self) bool;
+    extern fn g_socket_listen(self: *Self, err: **glib.Error) bool;
     pub const listen = g_socket_listen;
 
     extern fn g_object_notify(self: *Self, property_name: [*c]const u8) void;
@@ -157,19 +157,19 @@ pub const Socket = extern struct {
     extern fn g_object_notify_by_pspec(self: *Self, pspec: *gobject.ParamSpec) void;
     pub const notifyByPspec = g_object_notify_by_pspec;
 
-    extern fn g_socket_receive(self: *Self, buffer: [*c]u8, size: *u64, cancellable: ?*gio.Cancellable) i64;
+    extern fn g_socket_receive(self: *Self, buffer: [*c]u8, size: *u64, cancellable: ?*gio.Cancellable, err: **glib.Error) i64;
     pub const receive = g_socket_receive;
 
-    extern fn g_socket_receive_from(self: *Self, address: *gio.SocketAddress, buffer: [*c]u8, size: *u64, cancellable: ?*gio.Cancellable) i64;
+    extern fn g_socket_receive_from(self: *Self, address: *gio.SocketAddress, buffer: [*c]u8, size: *u64, cancellable: ?*gio.Cancellable, err: **glib.Error) i64;
     pub const receiveFrom = g_socket_receive_from;
 
-    extern fn g_socket_receive_message(self: *Self, address: *gio.SocketAddress, vectors: [*c]gio.InputVector, num_vectors: i32, messages: [*c]*gio.SocketControlMessage, num_messages: *i32, flags: *i32, cancellable: ?*gio.Cancellable) i64;
+    extern fn g_socket_receive_message(self: *Self, address: *gio.SocketAddress, vectors: [*c]gio.InputVector, num_vectors: i32, messages: [*c]*gio.SocketControlMessage, num_messages: *i32, flags: *i32, cancellable: ?*gio.Cancellable, err: **glib.Error) i64;
     pub const receiveMessage = g_socket_receive_message;
 
-    extern fn g_socket_receive_messages(self: *Self, messages: [*c]gio.InputMessage, num_messages: u32, flags: i32, cancellable: ?*gio.Cancellable) i32;
+    extern fn g_socket_receive_messages(self: *Self, messages: [*c]gio.InputMessage, num_messages: u32, flags: i32, cancellable: ?*gio.Cancellable, err: **glib.Error) i32;
     pub const receiveMessages = g_socket_receive_messages;
 
-    extern fn g_socket_receive_with_blocking(self: *Self, buffer: [*c]u8, size: *u64, blocking: bool, cancellable: ?*gio.Cancellable) i64;
+    extern fn g_socket_receive_with_blocking(self: *Self, buffer: [*c]u8, size: *u64, blocking: bool, cancellable: ?*gio.Cancellable, err: **glib.Error) i64;
     pub const receiveWithBlocking = g_socket_receive_with_blocking;
 
     extern fn g_object_ref(self: *Self) ?*gobject.Object;
@@ -181,22 +181,22 @@ pub const Socket = extern struct {
     extern fn g_object_run_dispose(self: *Self) void;
     pub const runDispose = g_object_run_dispose;
 
-    extern fn g_socket_send(self: *Self, buffer: [*c]u8, size: u64, cancellable: ?*gio.Cancellable) i64;
+    extern fn g_socket_send(self: *Self, buffer: [*c]u8, size: u64, cancellable: ?*gio.Cancellable, err: **glib.Error) i64;
     pub const send = g_socket_send;
 
-    extern fn g_socket_send_message(self: *Self, address: ?*gio.SocketAddress, vectors: [*c]gio.OutputVector, num_vectors: i32, messages: [*c]*gio.SocketControlMessage, num_messages: i32, flags: i32, cancellable: ?*gio.Cancellable) i64;
+    extern fn g_socket_send_message(self: *Self, address: ?*gio.SocketAddress, vectors: [*c]gio.OutputVector, num_vectors: i32, messages: [*c]*gio.SocketControlMessage, num_messages: i32, flags: i32, cancellable: ?*gio.Cancellable, err: **glib.Error) i64;
     pub const sendMessage = g_socket_send_message;
 
-    extern fn g_socket_send_message_with_timeout(self: *Self, address: ?*gio.SocketAddress, vectors: [*c]gio.OutputVector, num_vectors: i32, messages: [*c]*gio.SocketControlMessage, num_messages: i32, flags: i32, timeout_us: i64, bytes_written: *u64, cancellable: ?*gio.Cancellable) gio.PollableReturn;
+    extern fn g_socket_send_message_with_timeout(self: *Self, address: ?*gio.SocketAddress, vectors: [*c]gio.OutputVector, num_vectors: i32, messages: [*c]*gio.SocketControlMessage, num_messages: i32, flags: i32, timeout_us: i64, bytes_written: *u64, cancellable: ?*gio.Cancellable, err: **glib.Error) gio.PollableReturn;
     pub const sendMessageWithTimeout = g_socket_send_message_with_timeout;
 
-    extern fn g_socket_send_messages(self: *Self, messages: [*c]gio.OutputMessage, num_messages: u32, flags: i32, cancellable: ?*gio.Cancellable) i32;
+    extern fn g_socket_send_messages(self: *Self, messages: [*c]gio.OutputMessage, num_messages: u32, flags: i32, cancellable: ?*gio.Cancellable, err: **glib.Error) i32;
     pub const sendMessages = g_socket_send_messages;
 
-    extern fn g_socket_send_to(self: *Self, address: ?*gio.SocketAddress, buffer: [*c]u8, size: u64, cancellable: ?*gio.Cancellable) i64;
+    extern fn g_socket_send_to(self: *Self, address: ?*gio.SocketAddress, buffer: [*c]u8, size: u64, cancellable: ?*gio.Cancellable, err: **glib.Error) i64;
     pub const sendTo = g_socket_send_to;
 
-    extern fn g_socket_send_with_blocking(self: *Self, buffer: [*c]u8, size: u64, blocking: bool, cancellable: ?*gio.Cancellable) i64;
+    extern fn g_socket_send_with_blocking(self: *Self, buffer: [*c]u8, size: u64, blocking: bool, cancellable: ?*gio.Cancellable, err: **glib.Error) i64;
     pub const sendWithBlocking = g_socket_send_with_blocking;
 
     extern fn g_socket_set_blocking(self: *Self, blocking: bool) void;
@@ -220,7 +220,7 @@ pub const Socket = extern struct {
     extern fn g_socket_set_multicast_ttl(self: *Self, ttl: u32) void;
     pub const setMulticastTtl = g_socket_set_multicast_ttl;
 
-    extern fn g_socket_set_option(self: *Self, level: i32, optname: i32, value: i32) bool;
+    extern fn g_socket_set_option(self: *Self, level: i32, optname: i32, value: i32, err: **glib.Error) bool;
     pub const setOption = g_socket_set_option;
 
     extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;
@@ -232,7 +232,7 @@ pub const Socket = extern struct {
     extern fn g_socket_set_ttl(self: *Self, ttl: u32) void;
     pub const setTtl = g_socket_set_ttl;
 
-    extern fn g_socket_shutdown(self: *Self, shutdown_read: bool, shutdown_write: bool) bool;
+    extern fn g_socket_shutdown(self: *Self, shutdown_read: bool, shutdown_write: bool, err: **glib.Error) bool;
     pub const shutdown = g_socket_shutdown;
 
     extern fn g_socket_speaks_ipv4(self: *Self) bool;

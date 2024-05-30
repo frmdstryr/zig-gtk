@@ -118,7 +118,7 @@ pub const Font = extern struct {
     extern fn pango_font_descriptions_free(descs: [*c]*pango.FontDescription, n_descs: i32) void;
     pub const descriptionsFree = pango_font_descriptions_free;
 
-    extern fn pango_font_deserialize(context: *pango.Context, bytes: *glib.Bytes) ?*pango.Font;
+    extern fn pango_font_deserialize(context: *pango.Context, bytes: *glib.Bytes, err: **glib.Error) ?*pango.Font;
     pub const deserialize = pango_font_deserialize;
 
     extern fn g_object_compat_control(what: u64, data: ?*anyopaque) u64;

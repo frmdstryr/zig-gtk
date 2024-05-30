@@ -98,7 +98,7 @@ pub const SubprocessLauncher = extern struct {
     extern fn g_subprocess_launcher_setenv(self: *Self, variable: [*c]const u8, value: [*c]const u8, overwrite: bool) void;
     pub const setenv = g_subprocess_launcher_setenv;
 
-    extern fn g_subprocess_launcher_spawnv(self: *Self, argv: [*c][*c]const u8) ?*gio.Subprocess;
+    extern fn g_subprocess_launcher_spawnv(self: *Self, argv: [*c][*c]const u8, err: **glib.Error) ?*gio.Subprocess;
     pub const spawnv = g_subprocess_launcher_spawnv;
 
     extern fn g_object_steal_data(self: *Self, key: [*c]const u8) ?*anyopaque;

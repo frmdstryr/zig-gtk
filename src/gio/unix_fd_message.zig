@@ -25,7 +25,7 @@ pub const UnixFDMessage = extern struct {
 
 
     // Methods
-    extern fn g_unix_fd_message_append_fd(self: *Self, fd: i32) bool;
+    extern fn g_unix_fd_message_append_fd(self: *Self, fd: i32, err: **glib.Error) bool;
     pub const appendFd = g_unix_fd_message_append_fd;
 
     extern fn g_object_bind_property(self: *Self, source_property: [*c]const u8, target: *gobject.Object, target_property: [*c]const u8, flags: gobject.BindingFlags) ?*gobject.Binding;

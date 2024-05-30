@@ -69,25 +69,25 @@ pub const Clipboard = extern struct {
     extern fn gdk_clipboard_read_async(self: *Self, mime_types: [*c][*c]const u8, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const readAsync = gdk_clipboard_read_async;
 
-    extern fn gdk_clipboard_read_finish(self: *Self, result: *gio.AsyncResult, out_mime_type: [*c]const u8) ?*gio.InputStream;
+    extern fn gdk_clipboard_read_finish(self: *Self, result: *gio.AsyncResult, out_mime_type: [*c]const u8, err: **glib.Error) ?*gio.InputStream;
     pub const readFinish = gdk_clipboard_read_finish;
 
     extern fn gdk_clipboard_read_text_async(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const readTextAsync = gdk_clipboard_read_text_async;
 
-    extern fn gdk_clipboard_read_text_finish(self: *Self, result: *gio.AsyncResult) [*c]const u8;
+    extern fn gdk_clipboard_read_text_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) [*c]const u8;
     pub const readTextFinish = gdk_clipboard_read_text_finish;
 
     extern fn gdk_clipboard_read_texture_async(self: *Self, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const readTextureAsync = gdk_clipboard_read_texture_async;
 
-    extern fn gdk_clipboard_read_texture_finish(self: *Self, result: *gio.AsyncResult) ?*gdk.Texture;
+    extern fn gdk_clipboard_read_texture_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*gdk.Texture;
     pub const readTextureFinish = gdk_clipboard_read_texture_finish;
 
     extern fn gdk_clipboard_read_value_async(self: *Self, type: usize, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const readValueAsync = gdk_clipboard_read_value_async;
 
-    extern fn gdk_clipboard_read_value_finish(self: *Self, result: *gio.AsyncResult) ?*gobject.Value;
+    extern fn gdk_clipboard_read_value_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) ?*gobject.Value;
     pub const readValueFinish = gdk_clipboard_read_value_finish;
 
     extern fn g_object_ref(self: *Self) ?*gobject.Object;
@@ -120,7 +120,7 @@ pub const Clipboard = extern struct {
     extern fn gdk_clipboard_store_async(self: *Self, io_priority: i32, cancellable: ?*gio.Cancellable, callback: ?*const fn (source_object: ?*gobject.Object, res: *gio.AsyncResult, user_data: ?*anyopaque) callconv(.C) void, user_data: ?*anyopaque) void;
     pub const storeAsync = gdk_clipboard_store_async;
 
-    extern fn gdk_clipboard_store_finish(self: *Self, result: *gio.AsyncResult) bool;
+    extern fn gdk_clipboard_store_finish(self: *Self, result: *gio.AsyncResult, err: **glib.Error) bool;
     pub const storeFinish = gdk_clipboard_store_finish;
 
     extern fn g_object_thaw_notify(self: *Self) void;

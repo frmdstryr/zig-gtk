@@ -97,7 +97,7 @@ pub const Cancellable = extern struct {
     extern fn g_object_set_data(self: *Self, key: [*c]const u8, data: ?*anyopaque) void;
     pub const setData = g_object_set_data;
 
-    extern fn g_cancellable_set_error_if_cancelled(self: *Self) bool;
+    extern fn g_cancellable_set_error_if_cancelled(self: *Self, err: **glib.Error) bool;
     pub const setErrorIfCancelled = g_cancellable_set_error_if_cancelled;
 
     extern fn g_object_set_property(self: *Self, property_name: [*c]const u8, value: *gobject.Value) void;

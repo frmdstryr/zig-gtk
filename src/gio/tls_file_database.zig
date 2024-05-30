@@ -1,6 +1,7 @@
 // This file is auto generated do not edit
 // InterfaceInfo(TlsFileDatabase)
 const gobject = @import("gobject");
+const glib = @import("glib");
 const gio = @import("../gio.zig");
 const std = @import("std");
 const c = @import("c.zig");
@@ -13,7 +14,7 @@ pub const TlsFileDatabase = extern struct {
     // Constructors
 
     // Methods
-    extern fn g_tls_file_database_new(anchors: [*c]const u8) ?*gio.TlsFileDatabase;
+    extern fn g_tls_file_database_new(anchors: [*c]const u8, err: **glib.Error) ?*gio.TlsFileDatabase;
     pub const new = g_tls_file_database_new;
 
 
