@@ -35,29 +35,29 @@ pub fn build(b: *std.Build) void {
         .name = "zig-gtk-example",
         // In this case the main source file is merely a path, however, in more
         // complicated build scripts, this could be a generated file.
-        .root_source_file = .{ .path = "src/main.zig" },
+        .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
     });
 
     const glib = b.createModule(.{
-        .root_source_file = .{ .path = "deps/zig-gtk/src/glib.zig" },
+        .root_source_file = b.path("deps/zig-gtk/src/glib.zig"),
     });
     const gobject = b.createModule(.{
-        .root_source_file = .{ .path = "deps/zig-gtk/src/gobject.zig" },
+        .root_source_file = b.path("deps/zig-gtk/src/gobject.zig"),
         .imports = &.{
             .{ .name = "glib", .module = glib },
         },
     });
     const gio = b.createModule(.{
-        .root_source_file = .{ .path = "deps/zig-gtk/src/gio.zig" },
+        .root_source_file = b.path("deps/zig-gtk/src/gio.zig"),
         .imports = &.{
             .{ .name = "glib", .module = glib },
             .{ .name = "gobject", .module = gobject },
         },
     });
     const gtk = b.createModule(.{
-        .root_source_file = .{ .path = "deps/zig-gtk/src/gtk.zig" },
+        .root_source_file = b.path("deps/zig-gtk/src/gtk.zig"),
         .imports = &.{
             .{ .name = "glib", .module = glib },
             .{ .name = "gio", .module = gio },
@@ -65,10 +65,10 @@ pub fn build(b: *std.Build) void {
         },
     });
 
-    const scanner = Scanner.create(b, .{.target=target});
+    const scanner = Scanner.create(b, .{});
     const wayland = b.createModule(.{ .root_source_file = scanner.result });
     const gdk = b.createModule(.{
-        .root_source_file = .{ .path = "deps/zig-gtk/src/gdk.zig" },
+        .root_source_file = b.path("deps/zig-gtk/src/gdk.zig"),
         .imports = &.{
             .{ .name = "glib", .module = glib },
             .{ .name = "wayland", .module = wayland },
@@ -76,7 +76,7 @@ pub fn build(b: *std.Build) void {
     });
 
     const gdkpixbuf = b.createModule(.{
-        .root_source_file = .{ .path = "deps/zig-gtk/src/gdkpixbuf.zig" },
+        .root_source_file = b.path("deps/zig-gtk/src/gdkpixbuf.zig"),
         .imports = &.{
             .{ .name = "glib", .module = glib },
         },
@@ -91,7 +91,7 @@ pub fn build(b: *std.Build) void {
 
     for (include_paths) |p| {
         inline for (.{glib, gtk, gdk, gio, gobject, gdkpixbuf, exe}) |mod| {
-            mod.addIncludePath(.{.path=p});
+            mod.addIncludePath(b.path(p));
         }
     }
     exe.linkLibC();
@@ -130,7 +130,7 @@ pub fn build(b: *std.Build) void {
     // Creates a step for unit testing. This only builds the test executable
     // but does not run it.
     const unit_tests = b.addTest(.{
-        .root_source_file = .{ .path = "src/main.zig" },
+        .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
     });
