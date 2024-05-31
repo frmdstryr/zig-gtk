@@ -1,6 +1,6 @@
 # zig-gtk
 
-Zig bindings for [GTK 4](https://gitlab.gnome.org/GNOME/gtk). Work in progres...
+Auto generated zig bindings for [GTK 4](https://gitlab.gnome.org/GNOME/gtk).
 
 ## Examples
 
