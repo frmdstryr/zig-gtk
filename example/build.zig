@@ -91,7 +91,7 @@ pub fn build(b: *std.Build) void {
 
     for (include_paths) |p| {
         inline for (.{glib, gtk, gdk, gio, gobject, gdkpixbuf, exe}) |mod| {
-            mod.addIncludePath(b.path(p));
+            mod.addIncludePath(.{.cwd_relative=p});
         }
     }
     exe.linkLibC();

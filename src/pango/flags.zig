@@ -4,41 +4,41 @@ const c = @import("c.zig");
 
 pub const FontMask = packed struct {
     value: c_int,
-    pub const Family: @This() = @bitCast(c.PANGO_FONT_MASK_FAMILY);
-    pub const Gravity: @This() = @bitCast(c.PANGO_FONT_MASK_GRAVITY);
-    pub const Size: @This() = @bitCast(c.PANGO_FONT_MASK_SIZE);
-    pub const Stretch: @This() = @bitCast(c.PANGO_FONT_MASK_STRETCH);
-    pub const Style: @This() = @bitCast(c.PANGO_FONT_MASK_STYLE);
-    pub const Variant: @This() = @bitCast(c.PANGO_FONT_MASK_VARIANT);
-    pub const Variations: @This() = @bitCast(c.PANGO_FONT_MASK_VARIATIONS);
-    pub const Weight: @This() = @bitCast(c.PANGO_FONT_MASK_WEIGHT);
+    pub const family: @This() = @bitCast(c.PANGO_FONT_MASK_FAMILY);
+    pub const gravity: @This() = @bitCast(c.PANGO_FONT_MASK_GRAVITY);
+    pub const size: @This() = @bitCast(c.PANGO_FONT_MASK_SIZE);
+    pub const stretch: @This() = @bitCast(c.PANGO_FONT_MASK_STRETCH);
+    pub const style: @This() = @bitCast(c.PANGO_FONT_MASK_STYLE);
+    pub const variant: @This() = @bitCast(c.PANGO_FONT_MASK_VARIANT);
+    pub const variations: @This() = @bitCast(c.PANGO_FONT_MASK_VARIATIONS);
+    pub const weight: @This() = @bitCast(c.PANGO_FONT_MASK_WEIGHT);
 };
 
 pub const LayoutDeserializeFlags = packed struct {
     value: c_int,
-    pub const Context: @This() = @bitCast(c.PANGO_LAYOUT_DESERIALIZE_CONTEXT);
-    pub const Default: @This() = @bitCast(c.PANGO_LAYOUT_DESERIALIZE_DEFAULT);
+    pub const context: @This() = @bitCast(c.PANGO_LAYOUT_DESERIALIZE_CONTEXT);
+    pub const default: @This() = @bitCast(c.PANGO_LAYOUT_DESERIALIZE_DEFAULT);
 };
 
 pub const LayoutSerializeFlags = packed struct {
     value: c_int,
-    pub const Context: @This() = @bitCast(c.PANGO_LAYOUT_SERIALIZE_CONTEXT);
-    pub const Default: @This() = @bitCast(c.PANGO_LAYOUT_SERIALIZE_DEFAULT);
-    pub const Output: @This() = @bitCast(c.PANGO_LAYOUT_SERIALIZE_OUTPUT);
+    pub const context: @This() = @bitCast(c.PANGO_LAYOUT_SERIALIZE_CONTEXT);
+    pub const default: @This() = @bitCast(c.PANGO_LAYOUT_SERIALIZE_DEFAULT);
+    pub const output: @This() = @bitCast(c.PANGO_LAYOUT_SERIALIZE_OUTPUT);
 };
 
 pub const ShapeFlags = packed struct {
     value: c_int,
-    pub const None: @This() = @bitCast(c.PANGO_SHAPE_NONE);
-    pub const RoundPositions: @This() = @bitCast(c.PANGO_SHAPE_ROUND_POSITIONS);
+    pub const none: @This() = @bitCast(c.PANGO_SHAPE_NONE);
+    pub const round_positions: @This() = @bitCast(c.PANGO_SHAPE_ROUND_POSITIONS);
 };
 
 pub const ShowFlags = packed struct {
     value: c_int,
-    pub const Ignorables: @This() = @bitCast(c.PANGO_SHOW_IGNORABLES);
-    pub const LineBreaks: @This() = @bitCast(c.PANGO_SHOW_LINE_BREAKS);
-    pub const None: @This() = @bitCast(c.PANGO_SHOW_NONE);
-    pub const Spaces: @This() = @bitCast(c.PANGO_SHOW_SPACES);
+    pub const ignorables: @This() = @bitCast(c.PANGO_SHOW_IGNORABLES);
+    pub const line_breaks: @This() = @bitCast(c.PANGO_SHOW_LINE_BREAKS);
+    pub const none: @This() = @bitCast(c.PANGO_SHOW_NONE);
+    pub const spaces: @This() = @bitCast(c.PANGO_SHOW_SPACES);
 };
 
 

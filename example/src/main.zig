@@ -16,18 +16,18 @@ pub fn activate(app: *gtk.Application, data: ?*anyopaque) callconv(.C) void {
     window.setTitle("Hello!");
     window.setDefaultSize(320, 320);
 
-    var box = gtk.Box.new(.Vertical, 0).?;
-    box.setHalign(.Center);
-    box.setValign(.Center);
+    var box = gtk.Box.new(.vertical, 0).?;
+    box.setHalign(.center);
+    box.setValign(.center);
     box.setMargins(.{.top=10, .bottom=10, .start=10, .end=10});
     window.setChild(box.asWidget());
 
     var button = gtk.Button.newWithLabel("Hello World!").?;
-    _ = button.connectClicked(gtk.Application, &onHelloClicked, app, .Default);
+    _ = button.connectClicked(gtk.Application, &onHelloClicked, app, .default);
     box.append(button.asWidget());
 
     var button2 = gtk.Button.newWithLabel("Quit").?;
-    _ = button2.connectClickedSwapped(gtk.Window, &gtk.Window.destroy, window.asWindow(), .Default);
+    _ = button2.connectClickedSwapped(gtk.Window, &gtk.Window.destroy, window.asWindow(), .default);
     box.append(button2.asWidget());
     box.setSpacing(2);
     box.setHomogeneous(true);
@@ -47,10 +47,10 @@ pub fn main() !u8 {
 
     const args = try std.process.argsAlloc(allocator);
     defer std.process.argsFree(allocator, args);
-    var app = gtk.Application.new("zig.gtk.example", gio.ApplicationFlags.FlagsNone).?;
+    var app = gtk.Application.new("zig.gtk.example", gio.ApplicationFlags.flags_none).?;
     defer app.unref();
 
-    _ = app.connectActivate(anyopaque, &activate, null, .Default);
+    _ = app.connectActivate(anyopaque, &activate, null, .default);
     return @intCast(app.run(@intCast(args.len), @ptrCast(args.ptr)));
 }
 

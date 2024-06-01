@@ -120,6 +120,11 @@ ZIG_KEYWORDS = {
     "async",
     "continue",
     "export",
+    "noalias",
+    "inline",
+    "suspend",
+    "resume",
+    "switch",
     "type"
 }
 
@@ -187,8 +192,8 @@ GOBJECT_EXTRA = """
 
 // Converted from flag to make it easier to use
 pub const ConnectFlags = enum(c_int) {
-    Default = 0,
-    After = c.G_CONNECT_AFTER,
+    default = 0,
+    after = c.G_CONNECT_AFTER,
 };
 
 pub fn registerType(comptime T: type, comptime type_name: [:0]const u8) type {
@@ -353,7 +358,8 @@ def generate_enums(enums: list) -> list[str]:
         for attr in dir(enum):
             v = getattr(enum, attr)
             if attr and attr.isupper() and not attr[0].isdigit():
-                label = attr.title().replace("_", "")
+                #label = attr.title().replace("_", "")
+                label = clean_zig_name(snake_case(attr))
                 comment = ""
                 if v.value_name in used or v.value_name in EXCLUDED_ENUMS:
                     comment = "// "
@@ -378,9 +384,11 @@ def generate_flags(flags: list) -> list[str]:
         for attr in dir(flag):
             v = getattr(flag, attr)
             if attr and attr.isupper() and not attr[0].isdigit():
+                # label = attr.title().replace("_", "")
+                label = clean_zig_name(snake_case(attr))
                 out.append(
                     "    pub const %s: @This() = @bitCast(c.%s);"
-                    % (attr.title().replace("_", ""), v.first_value_name)
+                    % (label, v.first_value_name)
                 )
         out.append("};")
         out.append("")

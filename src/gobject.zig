@@ -90,8 +90,8 @@ pub const WeakRef = @import("gobject/weak_ref.zig").WeakRef;
 
 // Converted from flag to make it easier to use
 pub const ConnectFlags = enum(c_int) {
-    Default = 0,
-    After = c.G_CONNECT_AFTER,
+    default = 0,
+    after = c.G_CONNECT_AFTER,
 };
 
 pub fn registerType(comptime T: type, comptime type_name: [:0]const u8) type {

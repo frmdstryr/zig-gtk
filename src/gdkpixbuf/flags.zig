@@ -4,9 +4,9 @@ const c = @import("c.zig");
 
 pub const PixbufFormatFlags = packed struct {
     value: c_int,
-    pub const Scalable: @This() = @bitCast(c.GDK_PIXBUF_FORMAT_SCALABLE);
-    pub const Threadsafe: @This() = @bitCast(c.GDK_PIXBUF_FORMAT_THREADSAFE);
-    pub const Writable: @This() = @bitCast(c.GDK_PIXBUF_FORMAT_WRITABLE);
+    pub const scalable: @This() = @bitCast(c.GDK_PIXBUF_FORMAT_SCALABLE);
+    pub const threadsafe: @This() = @bitCast(c.GDK_PIXBUF_FORMAT_THREADSAFE);
+    pub const writable: @This() = @bitCast(c.GDK_PIXBUF_FORMAT_WRITABLE);
 };
 
 
